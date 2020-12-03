@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DwellingInfo.cs" />
+    <Compile Include="ThermalBridges.cs" />
+    <Compile Include="Walls.cs" />
+    <Compile Include="TFA.cs" />
+    <Compile Include="Export.cs" />
+    <Compile Include="Window.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
