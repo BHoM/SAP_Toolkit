@@ -39,7 +39,7 @@ namespace BH.oM.Environment.SAP
         public virtual string Reference { get; set; } = "";
 
         [Description("Dwelling number, resets with each floor")]
-        public virtual string ID { get; set; } = "";
+        public virtual int ID { get; set; } = 0;
 
         [Description("The toal area of each dwelling")]
         public virtual double TotalArea { get; set; } = 0.0;
