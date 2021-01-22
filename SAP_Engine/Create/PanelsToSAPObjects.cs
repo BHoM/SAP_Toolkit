@@ -37,7 +37,7 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Create
     {
-        public static DwellingInfo DwellingInfo(Dwelling dwelling)
+        public static DwellingInfo DwellingInfo(Dwelling dwelling, List<Opening> openingsToAdd)
         {
             DwellingInfo dInfo = new DwellingInfo();
 
@@ -47,7 +47,11 @@ namespace BH.Engine.Environment.SAP
             dInfo.ID = dwelling.Name.Split('_').Last()[0];
             dInfo.WetRooms = dwelling.Rooms.Where(x => x.Type == SAPSpaceType.Bathroom).Count();
 
-            List<Opening> openings = dwelling.Rooms.Select(x => x.ExtrudeToVolume().OpeningsFromElements()[0]).ToList();
+            List<Panel> panelsOfRooms = dwelling.Rooms.SelectMany(x => x.ExtrudeToVolume()).ToList();
+            panelsOfRooms.AddOpenings(openingsToAdd);
+
+            List<Opening> openings = panelsOfRooms.ToSpaces().Select(x => { List<Opening> op = x.OpeningsFromElements(); if (op.Count > 0) return op[0]; else return null; }).ToList();
+            openings = openings.Where(x => x != null).ToList();
 
             List<double> orientation = openings.Select(x => x.Orientation().Value).ToList();
 
