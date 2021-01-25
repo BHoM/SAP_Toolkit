@@ -58,6 +58,10 @@
     <Reference Include="Environment_oM">
       <HintPath>C:\ProgramData\BHoM\Assemblies\Environment_oM.dll</HintPath>
     </Reference>
+    <Reference Include="Geometry_Engine, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\ProgramData\BHoM\Assemblies\Geometry_Engine.dll</HintPath>
+    </Reference>
     <Reference Include="Geometry_oM, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\ProgramData\BHoM\Assemblies\Geometry_oM.dll</HintPath>
@@ -82,12 +86,27 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="Units_Engine">
+      <HintPath>..\..\..\..\..\..\..\ProgramData\BHoM\Assemblies\Units_Engine.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Compute\ExtrudeToVolume.cs" />
+    <Compile Include="Create\DwellingInfo.cs" />
+    <Compile Include="Create\Opening.cs" />
     <Compile Include="Create\PanelsDraft.cs" />
     <Compile Include="Create\PanelsToSAPObjects.cs" />
     <Compile Include="Create\ExportFromSAPObjects.cs" />
+    <Compile Include="Compute\AssignSpaceType.cs" />
+    <Compile Include="Create\TFA.cs" />
+    <Compile Include="Create\ThermalBridges.cs" />
+    <Compile Include="Create\Wall.cs" />
+    <Compile Include="Create\Window.cs" />
+    <Compile Include="Modify\AssignPanels.cs" />
+    <Compile Include="Modify\AssignSpaces.cs" />
+    <Compile Include="Modify\FlipPanels.cs" />
+    <Compile Include="Modify\MakeAirWalls.cs" />
+    <Compile Include="Modify\TidyPanels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -96,6 +115,7 @@
       <Name>SAP_oM</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(TargetDir)$(TargetFileName)"  "C:\ProgramData\BHoM\Assemblies" /Y</PostBuildEvent>

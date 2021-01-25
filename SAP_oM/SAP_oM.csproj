@@ -39,6 +39,10 @@
       <HintPath>C:\ProgramData\BHoM\Assemblies\BHoM.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Dimensional_oM, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\ProgramData\BHoM\Assemblies\Dimensional_oM.dll</HintPath>
+    </Reference>
     <Reference Include="Environment_oM">
       <HintPath>C:\ProgramData\BHoM\Assemblies\Environment_oM.dll</HintPath>
       <Private>False</Private>
@@ -67,6 +71,7 @@
     <Compile Include="Export.cs" />
     <Compile Include="Window.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="OpeningOption.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

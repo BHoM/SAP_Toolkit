@@ -39,19 +39,19 @@ namespace BH.oM.Environment.SAP
         public virtual string Reference { get; set; } = "";
 
         [Description("Dwelling number, resets with each floor")]
-        public virtual string ID { get; set; } = "";
+        public virtual int ID { get; set; } = 0;
 
         [Description("The height from floor to ceiling for each dwelling")]
         public virtual double CeilingHeight { get; set; } = 0.0;
 
         [Description("The total external wall height for each dwelling")]
-        public virtual double ExtWallHeight { get; set; } = 0.0;
+        public virtual double ExternalWallHeight { get; set; } = 0.0;
 
         [Description("The total external wall length for each dwelling")]
-        public virtual double ExtWallLength { get; set; } = 0.0;
+        public virtual double ExternalWallLength { get; set; } = 0.0;
 
         [Description("The thickness of external walls")]
-        public virtual double ExtWallThickness { get; set; } = 0.0;
+        public virtual double ExternalWallThickness { get; set; } = 0.0;
 
     }
 }

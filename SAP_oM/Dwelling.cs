@@ -27,12 +27,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 using BH.oM.Base;
+using BH.oM.Analytical.Elements;
+using BH.oM.Geometry;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.SAP
 {
-    public class Dwelling : BHoMObject
+    public class Dwelling : BHoMObject, IRegion
     {
         public virtual List<Space> Rooms { get; set; } = new List<Space>();
         public virtual string Reference { get; set; } = "";
+
+        [Description("A 2D curve defining the external boundaries of the floor of the space.")]
+        public virtual ICurve Perimeter { get; set; } = new Polyline();
     }
 }

@@ -33,40 +33,40 @@ namespace BH.oM.Environment.SAP
     {
 
         [Description("Window layer name")]
-        public virtual List <string> WindowID { get; set; }
+        public virtual List<string> WindowID { get; set; } = new List<string>(); //opening.Name
 
         [Description("Dwelling name")]
-        public virtual List <string> DwellingName { get; set; } 
+        public virtual string DwellingName { get; set; } = ""; //dwelling.name
 
         [Description("Full dwelling name, including window settings and glazing value")]
-        public virtual List<string> Reference { get; set; }
+        public virtual string Reference { get; set; } = ""; //dwelling.Reference
 
         [Description("Window width in mm")]
-        public virtual List<double> Width { get; set; }
+        public virtual List<double> Width { get; set; } = new List<double>(); //opening.Width() in mm
 
         [Description("Window height in mm")]
-        public virtual List<double> Height { get; set; }
+        public virtual List<double> Height { get; set; } = new List<double>(); //Opening.Height() in mm
 
         [Description("Window area in square meters")]
-        public virtual List<double> Area { get; set; }
+        public virtual List<double> Area { get; set; } = new List<double>(); //opening.Area() in m^2
 
         [Description("Window orientation in text")]
-        public virtual List<string> Orientation { get; set; }
+        public virtual List<string> Orientation { get; set; } = new List<string>(); //opening.Orientation().ToString()
 
         [Description("Window orientation in degrees")]
-        public virtual List<double> OrientationDegrees { get; set; }
+        public virtual List<double> OrientationDegrees { get; set; } = new List<double>(); //opening.Orientation().ToDegrees()
 
         [Description("Frame percentage of window area")]
-        public virtual List<double> FrameFactor { get; set; }
+        public virtual List<double> FrameFactor { get; set; } = new List<double>(); //Extra input
 
         [Description("If the window has an overhang wider than the window itself")]
-        public virtual List<string> WideOverhang { get; set; }
+        public virtual List<bool> WideOverhang { get; set; } = new List<bool>(); //Shade balconies - if shade above opening only on floor above and is wider than opening
 
         [Description("Overhang ratio")]
-        public virtual List<double> OverhangRatio { get; set; }
+        public virtual List<double> OverhangRatio { get; set; } = new List<double>(); //Shade balconies - if shade above opening only on floor above then shade depth divided by opening height
 
         [Description("Window Number, resets with each dwelling")]
-        public virtual List<int> Number { get; set; }
+        public virtual List<int> Number { get; set; } = new List<int>(); //Same as the silly dwelling ID but with openings on dwellings instead
 
     }
 }

@@ -71,10 +71,10 @@ namespace BH.oM.Environment.SAP
         public virtual double CeilingHeight { get; set; } = 0.0;
 
         [Description("The total external wall height for each dwelling")]
-        public virtual double ExtWallHeight { get; set; } = 0.0;
+        public virtual double ExternalWallHeight { get; set; } = 0.0;
 
         [Description("The total external wall length for each dwelling")]
-        public virtual double ExtWallLength { get; set; } = 0.0;
+        public virtual double ExternalWallLength { get; set; } = 0.0;
 
         [Description("Window width in mm")]
         public virtual List<double> WindowLength { get; set; }
@@ -86,7 +86,7 @@ namespace BH.oM.Environment.SAP
         public virtual List<string> WindowOrientation { get; set; }
 
         [Description("If the window has an overhang wider than the window itself")]
-        public virtual List<string> WideOverhang { get; set; }
+        public virtual List<bool> WideOverhang { get; set; }
 
         [Description("Overhang ratio")]
         public virtual List<double> OverhangRatio { get; set; }

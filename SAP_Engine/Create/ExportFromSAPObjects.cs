@@ -51,13 +51,13 @@ namespace BH.Engine.Environment.SAP
             sapExport.TotalArea = tfa.TotalArea;
             sapExport.LivingArea = tfa.LivingArea;
             sapExport.CoolingArea = tfa.CoolingArea;
-            sapExport.ExtFloorArea = tfa.ExtFloorArea;
-            sapExport.ExtRoofArea = tfa.ExtRoofArea;
-            sapExport.PartyFloor = tfa.TotalArea - tfa.ExtFloorArea;
-            sapExport.PartyRoof = tfa.TotalArea - tfa.ExtRoofArea;
+            sapExport.ExtFloorArea = tfa.ExternalFloorArea;
+            sapExport.ExtRoofArea = tfa.ExternalRoofArea;
+            sapExport.PartyFloor = tfa.TotalArea - tfa.ExternalFloorArea;
+            sapExport.PartyRoof = tfa.TotalArea - tfa.ExternalRoofArea;
             sapExport.CeilingHeight = walls.CeilingHeight;
-            sapExport.ExtWallHeight = walls.ExtWallHeight;
-            sapExport.ExtWallLength = walls.ExtWallLength;
+            sapExport.ExternalWallHeight = walls.ExternalWallHeight;
+            sapExport.ExternalWallLength = walls.ExternalWallLength;
 
             if (dwellingInfo.OrientationDegrees <= 45 || dwellingInfo.OrientationDegrees > 315 )
             {
