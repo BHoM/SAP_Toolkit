@@ -29,13 +29,21 @@ using System.Threading.Tasks;
 using BH.oM.Base;
 using BH.oM.Geometry;
 
+using BH.oM.Analytical.Elements;
+using System.ComponentModel;
+using BH.oM.Environment.Elements;
+
 namespace BH.oM.Environment.SAP
 {
-    public class Space : BHoMObject
+    public class Space : BHoMObject, IRegion
     {
-        public virtual Polyline Perimeter { get; set; } = null;
+        [Description("A 2D curve defining the external boundaries of the floor of the space.")]
+        public virtual ICurve Perimeter { get; set; } = new Polyline();
+
         public virtual SAPSpaceType Type { get; set; } = SAPSpaceType.Undefined;
 
         public virtual int Height { get; set; } = 0;
+
+        public virtual List<Panel> Panels { get; set; } = new List<Panel>();
     }
 }

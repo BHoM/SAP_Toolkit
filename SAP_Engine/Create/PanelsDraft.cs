@@ -55,8 +55,8 @@ namespace BH.Engine.Environment.SAP
                     tFA.TotalArea = totalArea;
                     tFA.LivingArea = livingArea[y]; 
                     tFA.CoolingArea = coolingArea;
-                    tFA.ExtFloorArea = extFloorArea;
-                    tFA.ExtRoofArea = extRoofArea;
+                    tFA.ExternalFloorArea = extFloorArea;
+                    tFA.ExternalRoofArea = extRoofArea;
 
                 }
 

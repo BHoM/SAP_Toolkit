@@ -41,20 +41,20 @@ namespace BH.oM.Environment.SAP
         [Description("Dwelling number, resets with each floor")]
         public virtual int ID { get; set; } = 0;
 
-        [Description("The toal area of each dwelling")]
-        public virtual double TotalArea { get; set; } = 0.0;
+        [Description("The total area of each dwelling")]
+        public virtual double TotalArea { get; set; } = 0.0; //Area of perimeter curve
 
         [Description("The total living area of each dwelling")]
-        public virtual double LivingArea { get; set; } = 0.0;
+        public virtual double LivingArea { get; set; } = 0.0; //Area of spaces of typing living area + connected spaces connected by air walls
 
         [Description("The total cooling area area of each dwelling")]
-        public virtual double CoolingArea { get; set; } = 0.0;
+        public virtual double CoolingArea { get; set; } = 0.0; //Area of kitchens, living rooms, and bedrooms
 
         [Description("The total external floor area connected to each dwelling")]
-        public virtual double ExtFloorArea { get; set; } = 0.0;
+        public virtual double ExternalFloorArea { get; set; } = 0.0; //If the dwelling is on ground level, the floor area of the ground
 
         [Description("The total external roof area connected to each dwelling")]
-        public virtual double ExtRoofArea { get; set; } = 0.0;
+        public virtual double ExternalRoofArea { get; set; } = 0.0; //If the dwelling is on the top floor, the roof area of the roof exposed to the sun
 
     }
 }
