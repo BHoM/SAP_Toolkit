@@ -72,7 +72,33 @@
     <Compile Include="Window.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="OpeningOption.cs" />
+    <Compile Include="XML\UvCalculations.cs" />
+    <Compile Include="XML\ImportExportRecordPropertiesPropertyRecSurveysSurveyBuildingPartsBuildingPartStoreyMeasurementsStoreyMeasurementRec.cs" />
+    <Compile Include="XML\ImportExportRecordPropertiesPropertyRecSurveysSurveyBuildingPartsBuildingPartExternalWallsWallRec.cs" />
+    <Compile Include="XML\ImportExportRecordPropertiesPropertyRecSurveysSurveyBuildingPartsBuildingPartPartyRoofsRoofRec.cs" />
+    <Compile Include="XML\ImportExportRecordPropertiesPropertyRecSurveysSurveyBuildingPartsBuildingPartPartyFloorsFloorRec.cs" />
+    <Compile Include="XML\ImportExportRecordPropertiesPropertyRecSurveysSurveyOpeningTypesOpeningTypeRec.cs" />
+    <Compile Include="XML\ImportExportRecordPropertiesPropertyRecSurveysSurveyOpeningsOpeningRec.cs" />
+    <Compile Include="XML\ImportExportRecordPropertiesPropertyRecSurveysSurveyStandardWidthsStandardWidthRec.cs" />
+    <Compile Include="XML\ImportExportRecordPropertiesPropertyRecSurveysSurveyStandardHeightsStandardHeightRec.cs" />
+    <Compile Include="XML\ImportExportRecordPropertiesPropertyRecSurveysSurveyThermalBridgesThermalBridgeRec.cs" />
+    <Compile Include="XML\ImportExportRecordPropertiesPropertyRecSurveysSurveyMechanicalVentilation.cs" />
+    <Compile Include="XML\ImportExportRecord.cs" />
+    <Compile Include="XML\ImportExportRecordPropertiesPropertyRecSurveysSurveyCoolingSystem.cs" />
+    <Compile Include="XML\ImportExportRecordPropertiesPropertyRecSurveysSurveyCommunityHeating.cs" />
+    <Compile Include="XML\ImportExportRecordPropertiesPropertyRecSurveysSurveyCommunityHeatingHeatSourceCommunityHeatSourceRec.cs" />
+    <Compile Include="XML\ImportExportRecordPropertiesPropertyRecSurveysSurveyWaterHeatingSystem.cs" />
+    <Compile Include="XML\ImportExportRecordPropertiesPropertyRecSurveysSurveyRelatedPartyDisclosure.cs" />
+    <Compile Include="XML\NewDataSet.cs" />
+    <Compile Include="XML\ImportExportRecordSurveyorsSurveyor.cs" />
+    <Compile Include="XML\ImportExportRecordPropertiesPropertyRec.cs" />
+    <Compile Include="XML\ImportExportRecordPropertiesPropertyRecProperty.cs" />
+    <Compile Include="XML\ImportExportRecordPropertiesPropertyRecSurveysSurvey.cs" />
+    <Compile Include="XML\ImportExportRecordPropertiesPropertyRecSurveysSurveyTenure.cs" />
+    <Compile Include="XML\ImportExportRecordPropertiesPropertyRecSurveysSurveyTransactionType.cs" />
+    <Compile Include="XML\ImportExportRecordPropertiesPropertyRecSurveysSurveyBuildingPartsBuildingPart.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(TargetDir)$(TargetFileName)"  "C:\ProgramData\BHoM\Assemblies" /Y</PostBuildEvent>
