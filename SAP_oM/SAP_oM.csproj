@@ -65,6 +65,7 @@
     <Compile Include="DwellingInfo.cs" />
     <Compile Include="Enums\SpaceType.cs" />
     <Compile Include="Space.cs" />
+    <Compile Include="ThermalBridgesCurves.cs" />
     <Compile Include="ThermalBridges.cs" />
     <Compile Include="Walls.cs" />
     <Compile Include="TFA.cs" />

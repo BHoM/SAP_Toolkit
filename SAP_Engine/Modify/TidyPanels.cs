@@ -35,6 +35,8 @@ namespace BH.Engine.Environment.SAP
                 fixedPanels.Add(p);
             }
 
+            fixedPanels = fixedPanels.SetWallPanels();
+
             List<List<Panel>> panelsAsSpaces = fixedPanels.ToSpaces();
 
             foreach(List<Panel> l in panelsAsSpaces)

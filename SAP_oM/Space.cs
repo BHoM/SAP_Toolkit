@@ -42,7 +42,7 @@ namespace BH.oM.Environment.SAP
 
         public virtual SAPSpaceType Type { get; set; } = SAPSpaceType.Undefined;
 
-        public virtual int Height { get; set; } = 0;
+        public virtual double Height { get; set; } = 0;
 
         public virtual List<Panel> Panels { get; set; } = new List<Panel>();
     }

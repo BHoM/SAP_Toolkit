@@ -92,7 +92,6 @@
     <Compile Include="Create\DwellingInfo.cs" />
     <Compile Include="Create\Opening.cs" />
     <Compile Include="Create\PanelsDraft.cs" />
-    <Compile Include="Create\PanelsToSAPObjects.cs" />
     <Compile Include="Create\ExportFromSAPObjects.cs" />
     <Compile Include="Compute\AssignSpaceType.cs" />
     <Compile Include="Create\TFA.cs" />
