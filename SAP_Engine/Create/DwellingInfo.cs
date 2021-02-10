@@ -50,7 +50,7 @@ namespace BH.Engine.Environment.SAP
                 dInfo.OrientationDegrees = uniqueOrientations.Sum() / uniqueOrientations.Count;
 
                 //Wall panels which intersect
-                List<Panel> wallsOnly = allWallPanels.Where(x => x.Type == PanelType.Wall).ToList();
+                List<Panel> wallsOnly = allWallPanels.Where(x => x.Type == PanelType.WallExternal).ToList();
 
                 List<int> wallOrientations = wallsOnly.Select(x => System.Convert.ToInt32(x.Orientation(0, true).Value.ToDegree())).ToList();
                 List<int> uniqueWallOrientations = wallOrientations.Distinct().ToList();

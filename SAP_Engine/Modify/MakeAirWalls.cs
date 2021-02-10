@@ -21,7 +21,7 @@ namespace BH.Engine.Environment.SAP
                 List<Panel> spacePanels = space.Panels;
                 foreach (Line l in airWallLines)
                 {
-                    Panel p = spacePanels.Where(x => x.Type == PanelType.Wall).Where(x => { List<Point> intersections = x.Polyline().LineIntersections(l); return (intersections != null && intersections.Count > 0); }).FirstOrDefault();
+                    Panel p = spacePanels.Where(x => x.Type == PanelType.WallInternal).Where(x => { List<Point> intersections = x.Polyline().LineIntersections(l); return (intersections != null && intersections.Count > 0); }).FirstOrDefault();
                     if (p != null)
                         p.Type = PanelType.Air;
                 }

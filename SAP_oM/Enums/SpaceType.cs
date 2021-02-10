@@ -35,7 +35,6 @@ namespace BH.oM.Environment.SAP
         Bedroom,
         Circulation,
         Kitchen,
-        LivingArea,
         LivingRoom,
         Storage,
     }
