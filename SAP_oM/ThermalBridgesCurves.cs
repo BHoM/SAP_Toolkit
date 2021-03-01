@@ -42,37 +42,37 @@ namespace BH.oM.Environment.SAP
         [Description("Dwelling number, resets with each floor")]
         public virtual int ID { get; set; } = 0;
 
-        [Description("Window lintels")]
+        [Description("Window lintels - tops of the windows")]
         public virtual List<Polyline> E2 { get; set; }
 
-        [Description("Window jambs")]
+        [Description("Window jambs - sides of the windows (left and right)")]
         public virtual List<Polyline> E4 { get; set; }
 
-        [Description("Party floor")]
+        [Description("Party floor - Connections between floors that are not on ground level")]
         public virtual List<Polyline> E7 { get; set; }
 
-        [Description("Window sills")]
+        [Description("Window sills - bottoms of the windows")]
         public virtual List<Polyline> E3 { get; set; }
 
-        [Description("Balconies")]
+        [Description("Balconies - The part of the balcony that is attached to the building")]
         public virtual List<Polyline> E23 { get; set; }
 
-        [Description("Eaves")]
+        [Description("Eaves - Connections to the roof")]
         public virtual List<Polyline> E10 { get; set; }
 
-        [Description("Roof")]
+        [Description("Roof terraces")]
         public virtual List<Polyline> E15 { get; set; }
 
-        [Description("Corner inverted")]
+        [Description("Corner inverted - Concave corners in the space")]
         public virtual List<Polyline> E17 { get; set; }
 
-        [Description("Party wall")]
+        [Description("Party wall - the uprights between dwellings")]
         public virtual List<Polyline> E18 { get; set; }
 
-        [Description("Corner normal")]
+        [Description("Corner normal - Convex corners in the space, opposite of inverted")]
         public virtual List<Polyline> E16 { get; set; }
 
-        [Description("Staggered something")]
+        [Description("Staggered something - God knows")]
         public virtual List<Polyline> E25 { get; set; }
 
     }
