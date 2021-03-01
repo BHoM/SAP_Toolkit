@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using BH.oM.Environment.SAP;
 using BHE = BH.oM.Environment.Elements;
+using BH.Engine.Base;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -13,10 +14,13 @@ namespace BH.Engine.Environment.SAP
     {
         public static Dwelling AssignSpaces(this Dwelling dwelling, List<Space> spaces)
         {
+            Dwelling newDwelling = dwelling.DeepClone();
+            List<Space> newSpaces = spaces.Select(x => x.DeepClone()).ToList();
+
             List<Space> spacesWithNames = new List<Space>();
-            foreach(Space s in spaces)
+            foreach(Space s in newSpaces)
             {
-                string name = dwelling.Name + "_" + s.Type.ToString();
+                string name = newDwelling.Name + "_" + s.Type.ToString();
                 if(spaces.Where(x => x.Type == s.Type).Count() > 1)
                 {
                     int current = spacesWithNames.Where(x => x.Name.StartsWith(name)).Count();
@@ -35,8 +39,8 @@ namespace BH.Engine.Environment.SAP
                 spacesWithNames.Add(s);
             }
 
-            dwelling.Rooms = spacesWithNames;
-            return dwelling.TidyPanels();
+            newDwelling.Rooms = spacesWithNames;
+            return newDwelling.TidyPanels();
         }
     }
 }
