@@ -20,19 +20,28 @@ namespace BH.Engine.Environment.SAP
             List<List<Panel>> overlappingPanels = splitPanels.Select(x => x.IdentifyOverlaps(splitPanels)).ToList();
 
             List<Panel> fixedPanels = new List<Panel>();
+            List<Guid> handledPanels = new List<Guid>();
             for (int x = 0; x < splitPanels.Count; x++)
             {
+                if (handledPanels.Contains(splitPanels[x].BHoM_Guid))
+                    continue; //This panel has already been handled
+
                 if (overlappingPanels[x].Count == 0)
                 {
                     fixedPanels.Add(splitPanels[x]);
+                    handledPanels.Add(splitPanels[x].BHoM_Guid);
                     continue;
                 }
 
                 Panel p = splitPanels[x];
                 for (int y = 0; y < overlappingPanels[x].Count; y++)
+                {
                     p = p.MergePanels(overlappingPanels[x][y]);
+                    handledPanels.Add(overlappingPanels[x][y].BHoM_Guid);
+                }
 
                 fixedPanels.Add(p);
+                handledPanels.Add(p.BHoM_Guid);
             }
 
             fixedPanels = fixedPanels.SetWallPanels();
