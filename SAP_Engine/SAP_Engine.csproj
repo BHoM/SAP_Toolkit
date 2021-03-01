@@ -89,16 +89,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Compute\ExtrudeToVolume.cs" />
+    <Compile Include="Create\ImportExportRecords.cs" />
     <Compile Include="Create\DwellingInfo.cs" />
+    <Compile Include="Create\MachineLearningwhatever.cs" />
     <Compile Include="Create\Opening.cs" />
-    <Compile Include="Create\PanelsDraft.cs" />
     <Compile Include="Create\ExportFromSAPObjects.cs" />
     <Compile Include="Compute\AssignSpaceType.cs" />
     <Compile Include="Create\TFA.cs" />
     <Compile Include="Create\ThermalBridges.cs" />
+    <Compile Include="Create\ThermalBridgesCurves.cs" />
     <Compile Include="Create\Wall.cs" />
     <Compile Include="Create\Window.cs" />
     <Compile Include="Modify\AssignPanels.cs" />
+    <Compile Include="Modify\AddOpenings.cs" />
     <Compile Include="Modify\AssignSpaces.cs" />
     <Compile Include="Modify\FlipPanels.cs" />
     <Compile Include="Modify\MakeAirWalls.cs" />

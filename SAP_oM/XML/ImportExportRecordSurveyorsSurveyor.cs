@@ -9,7 +9,6 @@ namespace BH.oM.Environment.SAP.XML
     public partial class ImportExportRecordSurveyorsSurveyor : IObject
     {
 
-        [XmlElement(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string Name { get; set; } = "";
 
         [XmlElement(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]

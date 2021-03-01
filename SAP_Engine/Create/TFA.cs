@@ -3,16 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 using BH.oM.Environment.SAP;
 using BH.oM.Environment.Elements;
 using BH.Engine.Geometry;
 using BH.oM.Geometry.SettingOut;
+using BH.oM.Reflection.Attributes;
+
 
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Create
     {
+        [Description("Create TFA BHoMObjects for SAP analysis")]
+        [Input("dwellings", "")] // TODO
+        [Output("tfa", "A BHoMObject for SAP analysis. Contains info about dwelling areas")]
+
         public static List<TFA> TFA(List<Dwelling> dwellings, List<Level> levels, double tolerance = BH.oM.Geometry.Tolerance.Distance)
         {
             List<TFA> tfas = new List<TFA>();

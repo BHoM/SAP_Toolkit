@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -22,31 +22,46 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Linq;
+using BH.oM.Base;
 
-using BH.oM.Environment.SAP;
-using BH.oM.Environment.Elements;
-using BH.oM.Reflection.Attributes;
-
-namespace BH.Engine.Environment.SAP
+namespace BH.oM.Environment.SAP
 {
-
-    public static partial class Compute
+    [Description("PSI-values for TB")]
+    public class TBInput : BHoMObject
     {
-        [Description("Extrude SAP spaces to volumes (panels). ")]
-        [Input("spaces", "SAP spaces to be extruded")]
-        [Output("panels", "a List of panels")]
+        [Description("Other Lintels")]
+        public virtual double E2 { get; set; } = 0;
 
-        public static List<Panel> ExtrudeToVolume(this BH.oM.Environment.SAP.Space space)
-        {
-            BH.oM.Environment.Elements.Space envSpace = new oM.Environment.Elements.Space();
-            envSpace.Perimeter = space.Perimeter;
-            envSpace.Name = space.Name;
+        [Description("Sill")]
+        public virtual double E3 { get; set; } = 0;
 
-            return envSpace.ExtrudeToVolume(space.Height);
-        }
+        [Description("Jamb")]
+        public virtual double E4 { get; set; } = 0;
+
+        [Description("PartyFloor")]
+        public virtual double E7 { get; set; } = 0;
+
+        [Description("EavesAtCeiling")]
+        public virtual double E10 { get; set; } = 0;
+
+        [Description("FlatRoofWithParapet")]
+        public virtual double E15 { get; set; } = 0;
+
+        [Description("CornerNormal")]
+        public virtual double E16 { get; set; } = 0;
+
+        [Description("CornerInverted")]
+        public virtual double E17 { get; set; } = 0;
+
+        [Description("PartyWall")]
+        public virtual double E18 { get; set; } = 0;
+
+        [Description("BalconyBetweenDwellingPenetrates")]
+        public virtual double E23 { get; set; } = 0;
+
+        [Description("StaggeredPart")]
+        public virtual double E25 { get; set; } = 0;
     }
 }

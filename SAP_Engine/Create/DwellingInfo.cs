@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 using BH.oM.Environment.SAP;
 using BH.oM.Environment.Elements;
@@ -11,11 +12,16 @@ using BH.Engine.Geometry;
 using BH.oM.Geometry;
 using BH.Engine.Base;
 using BH.Engine.Units;
+using BH.oM.Reflection.Attributes;
 
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Create
     {
+        [Description("Create DwellingInfo BHoMObjects for SAP analysis")]
+        [Input("dwellings", "")] // TODO
+        [Output("dwellingInfo", "A BHoMObject for SAP analysis. Contains general info about each dwelling")]
+
         public static List<DwellingInfo> DwellingInfo(List<Dwelling> dwellings)
         {
             List<DwellingInfo> rtn = new List<DwellingInfo>();
@@ -30,7 +36,7 @@ namespace BH.Engine.Environment.SAP
                 dInfo.Reference = dwelling.Reference;
                 dInfo.ID = dwellings.IndexOf(dwelling) + 1;
                 dInfo.WetRooms = dwelling.Rooms.Where(x => x.Type == SAPSpaceType.Bathroom).Count();
-
+                dInfo.DwellingBeds = dwelling.Rooms.Where(x => x.Type == SAPSpaceType.Bedroom).Count();
                 dwelling.Rooms = dwelling.Rooms.Select(x => x.FlipPanels()).ToList();
 
                 List<Panel> allRoomPanels = dwelling.Rooms.SelectMany(x => x.Panels).ToList();

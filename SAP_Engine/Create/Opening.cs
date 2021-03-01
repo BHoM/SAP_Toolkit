@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 using BH.oM.Environment.Elements;
 using BH.oM.Geometry;
 using BH.oM.Environment.SAP;
 using BH.Engine.Environment;
 using BH.Engine.Geometry;
+using BH.oM.Reflection.Attributes;
 
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Create
     {
-        public static Opening Opening(this Point location, OpeningOption designOption, List<Panel> panels)
+
+        public static Opening Opening(Point location, OpeningOption designOption, List<Panel> panels)
         {
             Point bottomPoint = location.Clone();
             bottomPoint.Z += designOption.SillHeight;

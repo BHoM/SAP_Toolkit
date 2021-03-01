@@ -43,37 +43,37 @@ namespace BH.oM.Environment.SAP
         public virtual int ID { get; set; } = 0;
 
         [Description("Window lintels")]
-        public virtual Polyline E2 { get; set; }
+        public virtual List<Polyline> E2 { get; set; }
 
         [Description("Window jambs")]
-        public virtual Polyline E4 { get; set; }
+        public virtual List<Polyline> E4 { get; set; }
 
         [Description("Party floor")]
-        public virtual Polyline E7 { get; set; }
+        public virtual List<Polyline> E7 { get; set; }
 
         [Description("Window sills")]
-        public virtual Polyline E3 { get; set; }
+        public virtual List<Polyline> E3 { get; set; }
 
         [Description("Balconies")]
-        public virtual Polyline E23 { get; set; }
+        public virtual List<Polyline> E23 { get; set; }
 
         [Description("Eaves")]
-        public virtual Polyline E10 { get; set; }
+        public virtual List<Polyline> E10 { get; set; }
 
         [Description("Roof")]
-        public virtual Polyline E15 { get; set; }
+        public virtual List<Polyline> E15 { get; set; }
 
         [Description("Corner inverted")]
-        public virtual Polyline E17 { get; set; }
+        public virtual List<Polyline> E17 { get; set; }
 
         [Description("Party wall")]
-        public virtual Polyline E18 { get; set; }
+        public virtual List<Polyline> E18 { get; set; }
 
         [Description("Corner normal")]
-        public virtual Polyline E16 { get; set; }
+        public virtual List<Polyline> E16 { get; set; }
 
         [Description("Staggered something")]
-        public virtual Polyline E25 { get; set; }
+        public virtual List<Polyline> E25 { get; set; }
 
     }
 }

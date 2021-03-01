@@ -46,6 +46,7 @@ namespace BH.Engine.Environment.SAP
             Export sapExport = new Export();
             sapExport.Reference = dwellingInfo.Reference;
             sapExport.WetRooms = dwellingInfo.WetRooms;
+            sapExport.DwellingBeds = dwellingInfo.DwellingBeds;
             sapExport.ShelteredSides = dwellingInfo.ShelteredSides;
             sapExport.CrossVentilation = dwellingInfo.CrossVentilation;
             sapExport.TotalArea = tfa.TotalArea;
@@ -58,23 +59,24 @@ namespace BH.Engine.Environment.SAP
             sapExport.CeilingHeight = walls.CeilingHeight;
             sapExport.ExternalWallHeight = walls.ExternalWallHeight;
             sapExport.ExternalWallLength = walls.ExternalWallLength;
+            sapExport.OrientationDegrees = dwellingInfo.OrientationDegrees;
 
             if (dwellingInfo.OrientationDegrees <= 45 || dwellingInfo.OrientationDegrees > 315 )
             {
                 sapExport.Orientation = "North";
             }
 
-            if (dwellingInfo.OrientationDegrees <= 135 || dwellingInfo.OrientationDegrees > 45)
+            if (dwellingInfo.OrientationDegrees <= 135 && dwellingInfo.OrientationDegrees > 45)
             {
                 sapExport.Orientation = "East";
             }
 
-            if (dwellingInfo.OrientationDegrees <= 225 || dwellingInfo.OrientationDegrees > 135)
+            if (dwellingInfo.OrientationDegrees <= 225 && dwellingInfo.OrientationDegrees > 135)
             {
                 sapExport.Orientation = "South";
             }
 
-            if (dwellingInfo.OrientationDegrees <= 225 || dwellingInfo.OrientationDegrees > 315)
+            if (dwellingInfo.OrientationDegrees <= 315 && dwellingInfo.OrientationDegrees > 225)
             {
                 sapExport.Orientation = "West";
             }

@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
  *
@@ -22,31 +22,53 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Linq;
+using BH.oM.Base;
 
-using BH.oM.Environment.SAP;
-using BH.oM.Environment.Elements;
-using BH.oM.Reflection.Attributes;
-
-namespace BH.Engine.Environment.SAP
+namespace BH.oM.Environment.SAP
 {
-
-    public static partial class Compute
+    [Description("")]
+    public class Parametrics : BHoMObject
     {
-        [Description("Extrude SAP spaces to volumes (panels). ")]
-        [Input("spaces", "SAP spaces to be extruded")]
-        [Output("panels", "a List of panels")]
+        [Description("Default thermal bridges y-value")]
+        public virtual double Yvalue { get; set; } = 0;
 
-        public static List<Panel> ExtrudeToVolume(this BH.oM.Environment.SAP.Space space)
-        {
-            BH.oM.Environment.Elements.Space envSpace = new oM.Environment.Elements.Space();
-            envSpace.Perimeter = space.Perimeter;
-            envSpace.Name = space.Name;
+        public virtual string SunlightShade { get; set; } = "";
 
-            return envSpace.ExtrudeToVolume(space.Height);
-        }
+        public virtual string CurtainType { get; set; } = "";
+
+        public virtual int CurtainsClosed { get; set; } = 0;
+
+        public virtual string WindowsOpen { get; set; } = "";
+
+        public virtual int AirChangeRate { get; set; } = 0;
+
+        public virtual double WallUValue { get; set; } = 0;
+
+        public virtual double GlazUValue { get; set; } = 0;
+
+        public virtual double GValue { get; set; } = 0;
+
+        public virtual double FloorUValue { get; set; } = 0;
+
+        public virtual double RoofUValue { get; set; } = 0;
+
+        public virtual double Q50 { get; set; } = 0;
+
+        public virtual string MechVentType { get; set; } = "";
+
+
+        public virtual double AddRotation { get; set; } = 0;
+
+        public virtual string System { get; set; } = "";
+
+        public virtual bool CalculateThermalBridges { get; set; } = false;
+
+        
+        //public virtual Dictionary MVHRWeetrooms { get; set; };
+        //public virtual Dictionary MEVWeetrooms { get; set; };
+        //public virtual Dictionary System { get; set; };
+
     }
 }

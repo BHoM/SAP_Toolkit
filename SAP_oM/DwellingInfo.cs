@@ -50,6 +50,9 @@ namespace BH.oM.Environment.SAP
         [Description("Number of bathrooms in each dwelling")]
         public virtual int WetRooms { get; set; } = 0;
 
+        [Description("Number of bedrooms in each dwelling")]
+        public virtual int DwellingBeds { get; set; } = 0;
+
         [Description("Number of sheltered sides for each dwelling")]
         public virtual int ShelteredSides { get; set; } = 0;
 

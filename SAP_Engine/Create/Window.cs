@@ -111,13 +111,13 @@ namespace BH.Engine.Environment.SAP
             if (orientation <= 45 || orientation > 315)
                 return "North";
 
-            if (orientation <= 135 || orientation > 45)
+            if (orientation <= 135 && orientation > 45)
                 return "East";
 
-            if (orientation <= 225 || orientation > 135)
+            if (orientation <= 225 && orientation > 135)
                 return "South";
 
-            if (orientation <= 225 || orientation > 315)
+            if (orientation >= 225 && orientation < 315)
                 return "West";
 
             return "";
