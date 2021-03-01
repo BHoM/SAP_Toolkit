@@ -19,12 +19,16 @@ namespace BH.Engine.Environment.SAP
 
         public static Opening Opening(Point location, OpeningOption designOption, List<Panel> panels)
         {
-            Point bottomPoint = location.Clone();
-            bottomPoint.Z += designOption.SillHeight;
+            Point searchPoint = location.Clone();
+            searchPoint.Z += designOption.SillHeight;
+            searchPoint.Z += designOption.Height / 2;
 
-            Panel hostPanel = panels.Where(x => x.IsContaining(bottomPoint)).FirstOrDefault();
+            Panel hostPanel = panels.Where(x => x.IsContaining(searchPoint)).FirstOrDefault();
             if (hostPanel == null)
                 return null; //Error
+
+            Point bottomPoint = location.Clone();
+            bottomPoint.Z += designOption.SillHeight;
 
             ICurve bottomEdge = hostPanel.Bottom();
             Vector direction = bottomEdge.IEndPoint() - bottomEdge.IStartPoint();
