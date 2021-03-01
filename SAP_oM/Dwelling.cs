@@ -25,14 +25,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 using BH.oM.Base;
 using BH.oM.Analytical.Elements;
 using BH.oM.Geometry;
-using System.ComponentModel;
+
 
 namespace BH.oM.Environment.SAP
 {
+
     public class Dwelling : BHoMObject, IRegion
     {
         public virtual List<Space> Rooms { get; set; } = new List<Space>();

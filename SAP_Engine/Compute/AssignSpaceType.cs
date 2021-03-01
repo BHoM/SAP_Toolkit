@@ -20,7 +20,7 @@ namespace BH.Engine.Environment.SAP
         [Input("spaces", "SAP spaces to be assigned a space type")]
         [Input("searchPoints", "A set of points inside the spaces")]
         [Input("type", "The list of roomtypes to assign")]
-        [Input("ignoreCase", " ")]
+        [Input("ignoreCase", "")] // TODO
         [Output("spaces", "a SAP export object ready for conversion to XML")]
 
         public static List<Space> AssignSpaceType(this List<Space> spaces, List<Point> searchPoints, string type, bool ignoreCase = true)

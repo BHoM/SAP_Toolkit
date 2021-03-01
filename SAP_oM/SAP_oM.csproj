@@ -64,6 +64,9 @@
     <Compile Include="Dwelling.cs" />
     <Compile Include="DwellingInfo.cs" />
     <Compile Include="Enums\SpaceType.cs" />
+    <Compile Include="TBInputs.cs" />
+    <Compile Include="Parametrics.cs" />
+    <Compile Include="MachineLearning\MachineLearningyada.cs" />
     <Compile Include="Space.cs" />
     <Compile Include="ThermalBridgesCurves.cs" />
     <Compile Include="ThermalBridges.cs" />
