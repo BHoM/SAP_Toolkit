@@ -72,7 +72,7 @@ namespace BH.oM.Environment.SAP
         [Description("Corner normal - Convex corners in the space, opposite of inverted")]
         public virtual List<Polyline> E16 { get; set; }
 
-        [Description("Staggered something - God knows")]
+        [Description("Staggered something - God knows - Ross knows")]
         public virtual List<Polyline> E25 { get; set; }
 
     }
