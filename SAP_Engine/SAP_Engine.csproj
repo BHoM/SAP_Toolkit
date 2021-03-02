@@ -89,7 +89,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compute\BalconyLines.cs" />
     <Compile Include="Compute\ExtrudeToVolume.cs" />
+    <Compile Include="Compute\PartyFloors.cs" />
     <Compile Include="Create\ImportExportRecords.cs" />
     <Compile Include="Create\DwellingInfo.cs" />
     <Compile Include="Create\MachineLearningwhatever.cs" />
@@ -108,6 +110,11 @@
     <Compile Include="Modify\MakeAirWalls.cs" />
     <Compile Include="Modify\TidyPanels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Query\IsOnLevel.cs" />
+    <Compile Include="Query\Level.cs" />
+    <Compile Include="Query\Openings.cs" />
+    <Compile Include="Query\PanelsByType.cs" />
+    <Compile Include="Query\Parts.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SAP_oM\SAP_oM.csproj">

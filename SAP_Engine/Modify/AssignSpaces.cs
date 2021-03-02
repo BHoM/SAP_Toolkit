@@ -40,7 +40,8 @@ namespace BH.Engine.Environment.SAP
             }
 
             newDwelling.Rooms = spacesWithNames;
-            return newDwelling.TidyPanels();
+            return newDwelling;
+            //return newDwelling.TidyPanels();
         }
     }
 }
