@@ -42,7 +42,7 @@ namespace BH.oM.Environment.SAP
         public virtual int ID { get; set; } = 0;
 
         [Description("Orientation of each dwelling")]
-        public virtual double OrientationDegrees { get; set; } = 0.0;
+        public virtual int OrientationDegrees { get; set; } = 0;
 
         [Description("Number of rooms in each dwelling")]
         public virtual int TotalRooms { get; set; } = 0;
