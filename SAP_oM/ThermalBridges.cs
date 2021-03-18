@@ -44,14 +44,14 @@ namespace BH.oM.Environment.SAP
         [Description("Window lintels")]
         public virtual double E2 { get; set; }
 
+        [Description("Window sills")]
+        public virtual double E3 { get; set; }
+
         [Description("Window jambs")]
         public virtual double E4 { get; set; }
 
         [Description("Party floor")]
         public virtual double E7 { get; set; }
-
-        [Description("Window sills")]
-        public virtual double E3 { get; set; }
 
         [Description("Balconies")]
         public virtual double E23 { get; set; }
@@ -62,14 +62,14 @@ namespace BH.oM.Environment.SAP
         [Description("Roof")]
         public virtual double E15 { get; set; }
 
+        [Description("Corner normal")]
+        public virtual double E16 { get; set; }
+
         [Description("Corner inverted")]
         public virtual double E17 { get; set; }
 
         [Description("Party wall")]
         public virtual double E18 { get; set; }
-
-        [Description("Corner normal")]
-        public virtual double E16 { get; set; }
 
         [Description("Staggered something")]
         public virtual double E25 { get; set; }

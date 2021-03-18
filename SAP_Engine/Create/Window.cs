@@ -52,6 +52,7 @@ namespace BH.Engine.Environment.SAP
                 }
             }
 
+            dwelling.Rooms = dwelling.Rooms.Select(x => x.FlipPanels()).ToList();
             List<Opening> openings = dwelling.Rooms.SelectMany(x => x.Panels.OpeningsFromElements()).ToList();
 
             window.DwellingName = dwelling.Name;
