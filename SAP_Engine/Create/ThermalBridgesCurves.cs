@@ -37,7 +37,7 @@ namespace BH.Engine.Environment.SAP
                 Polyline baseCurve = baseCurves.Where(y => y.IsOnLevel(dwellingLevel)).FirstOrDefault();
                 if(baseCurve == null)
                 {
-                    BH.Engine.Reflection.Compute.RecordError("Well now you're fucked aren't you.");
+                    BH.Engine.Reflection.Compute.RecordError("Please make sure there is a basecurve on the same elevation as the dwellings");
                 }
 
                 //Sort out window curves
@@ -52,7 +52,7 @@ namespace BH.Engine.Environment.SAP
                 Output<List<Polyline>, List<Polyline>, List<Polyline>> exteriorWallParts = exteriorWalls.Parts();
 
                 List<Polyline> partyFloorBottom = exteriorWallParts.Item1;
-                List<Polyline> partyFloorTop = exteriorWallParts.Item3;
+                List<Polyline> partyFloorTop = new List<Polyline>();
 
                 List<Panel> balconiesOnLevel = balconyShades.Where(y => y.Polyline().IsOnLevel(dwellingLevel)).ToList();
                 List<Panel> balconiesOnDwelling = balconiesOnLevel.Where(y => (y.Polyline()).LineIntersections(dwelling.Perimeter.ICollapseToPolyline(angleTolerance)).Count > 0).ToList();
@@ -63,6 +63,7 @@ namespace BH.Engine.Environment.SAP
 
                 if (dwellingLevel != levels.Last())
                 {
+                    partyFloorTop = exteriorWallParts.Item3;
                     //There may be a balcony above us, find out
                     Level levelAbove = levels[levels.IndexOf(dwellingLevel) + 1];
 
@@ -87,11 +88,15 @@ namespace BH.Engine.Environment.SAP
                 else
                 {
                     //This is the top level
-                    thermalBridgeCurves.E10 = exteriorWallParts.Item3;
+                    thermalBridgeCurves.E15 = exteriorWallParts.Item3;
                 }
 
                 thermalBridgeCurves.E7 = partyFloorBottom;
-                thermalBridgeCurves.E7.AddRange(partyFloorTop);
+                if (partyFloorTop!= null)
+                {
+                    thermalBridgeCurves.E7.AddRange(partyFloorTop);
+                }
+                
 
                 thermalBridgeCurves.E23 = e23Lines;
 
@@ -122,6 +127,7 @@ namespace BH.Engine.Environment.SAP
                 thermalBridgeCurves.E25 = e25Lines;
 
                 List<Point> baseCurveCornerPoints = baseCurve.CleanPolyline().ControlPoints();
+                baseCurveCornerPoints.RemoveAt(baseCurveCornerPoints.Count - 1);
                 List<Point> cornerInDwelling = baseCurveCornerPoints.Where(y => y.IIsOnCurve(dwelling.Perimeter)).ToList();
 
                 List<Point> e16Pts = new List<Point>();
@@ -130,17 +136,17 @@ namespace BH.Engine.Environment.SAP
                 foreach(Point pt in cornerInDwelling)
                 {
                     List<Polyline> cornerLines = exteriorWallParts.Item1.Where(y => pt.IsOnCurve(y)).ToList();
-                    if (cornerLines.Count < 2)
-                        continue; //This corner point is not a proper corner
-
-                    Point centre1 = cornerLines[0].Centre();
-                    Point centre2 = cornerLines[1].Centre();
-                    Line joined = new Line() { Start = centre1, End = centre2 };
-
-                    if (baseCurve.IIsContaining(new List<Point>() { joined.Centroid() }))
-                        e16Pts.Add(pt);
-                    else
+                    if (cornerLines.Count <2)
                         e17Pts.Add(pt);
+                    else
+                    {
+                        Point centre1 = cornerLines[0].Centre();
+                        Point centre2 = cornerLines[1].Centre();
+                        Line joined = new Line() { Start = centre1, End = centre2 };
+
+                        if (baseCurve.IIsContaining(new List<Point>() { joined.Centroid() }))
+                            e16Pts.Add(pt);
+                    }                   
                 }
 
                 List<Polyline> e16Lines = new List<Polyline>();
