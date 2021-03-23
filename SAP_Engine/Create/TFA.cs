@@ -39,15 +39,14 @@ namespace BH.Engine.Environment.SAP
                 tfa.ID = (x + 1);
 
                 double roomArea = dwelling.Rooms.Select(y => y.Perimeter.IArea()).Sum();
-                if (roomArea != dwelling.Perimeter.IArea())
+                if (roomArea > dwelling.Perimeter.IArea() + tolerance || roomArea < dwelling.Perimeter.IArea() - tolerance)
                 {
                     BH.Engine.Reflection.Compute.RecordError("The sum of internal room areas is not equal to the total dwelling area.");
                 }
                 tfa.TotalArea = dwelling.Perimeter.IArea();
 
                 double livingFloorArea = 0;
-                List<BH.oM.Environment.SAP.Space> rooms = dwelling.Rooms.Where(y => y.Type == SAPSpaceType.LivingRoom).ToList();
-                livingFloorArea = rooms.Select(y => y.Perimeter.IArea()).Sum();
+                List<BH.oM.Environment.SAP.Space> rooms = dwelling.Rooms;
 
                 //Add the area of rooms connected to the living areas by air walls
                 List<string> spacesToAdd = new List<string>(); //To prevent adding the same space twice
@@ -59,8 +58,6 @@ namespace BH.Engine.Environment.SAP
                         connectedSpaces.AddRange(p.ConnectedSpaces.Where(y => y != s.Name));
 
                     connectedSpaces = connectedSpaces.Distinct().ToList();
-
-                    connectedSpaces = connectedSpaces.Where(y => spacesToAdd.IndexOf(y) == -1).ToList();
                     spacesToAdd.AddRange(connectedSpaces);
                     spacesToAdd = spacesToAdd.Distinct().ToList();
                 }
@@ -97,7 +94,7 @@ namespace BH.Engine.Environment.SAP
                         List<Point> controlPoints = roomClone.IControlPoints();
                         if (!baseCurveBelow.IIsContaining(controlPoints))
                         {
-                            spaceAreas += room.Perimeter.IArea();
+                            spaceAreas += roomClone.IArea();
                         }
                     }
 
@@ -123,7 +120,7 @@ namespace BH.Engine.Environment.SAP
                         List<Point> controlPoints = roomClone.IControlPoints();
                         if (!baseCurveAbove.IIsContaining(controlPoints))
                         {
-                            spaceAreas += room.Perimeter.IArea();
+                            spaceAreas += roomClone.IArea();
                         }
                     }
 

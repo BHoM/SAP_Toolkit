@@ -35,10 +35,10 @@ namespace BH.Engine.Environment.SAP
                     thermalBridge.E23 = thermalBridgeCurves.E23.Select(y => y.Length()).Sum();
                 }
 
-                if (thermalBridgeCurves.E10 != null)
-                {
-                    thermalBridge.E10 = thermalBridgeCurves.E10.Select(y => y.Length()).Sum();
-                }
+                //if (thermalBridgeCurves.E10 != null)
+                //{
+                //    thermalBridge.E10 = thermalBridgeCurves.E10.Select(y => y.Length()).Sum();
+                //}
 
                 if (thermalBridgeCurves.E15 != null)
                 {

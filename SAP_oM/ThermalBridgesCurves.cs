@@ -57,8 +57,8 @@ namespace BH.oM.Environment.SAP
         [Description("Balconies - The part of the balcony that is attached to the building")]
         public virtual List<Polyline> E23 { get; set; }
 
-        [Description("Eaves - Connections to the roof")]
-        public virtual List<Polyline> E10 { get; set; }
+        //[Description("Eaves - Connections to the roof")]
+        //public virtual List<Polyline> E10 { get; set; }
 
         [Description("Roof terraces")]
         public virtual List<Polyline> E15 { get; set; }
