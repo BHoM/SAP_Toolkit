@@ -43,13 +43,13 @@ namespace BH.oM.Environment.SAP
         public virtual int ID { get; set; } = 0;
 
         [Description("Window lintels - tops of the windows")]
-        public virtual List<Polyline> E2 { get; set; }
+        public virtual List<Polyline> E2 { get; set; } = new List<Polyline>();
 
         [Description("Window sills - bottoms of the windows")]
-        public virtual List<Polyline> E3 { get; set; }
+        public virtual List<Polyline> E3 { get; set; } = new List<Polyline>();
 
         [Description("Window jambs - sides of the windows (left and right)")]
-        public virtual List<Polyline> E4 { get; set; }
+        public virtual List<Polyline> E4 { get; set; } = new List<Polyline>();
 
         [Description("Party floor - Connections between floors that are not on ground level")]
         public virtual List<Polyline> E7 { get; set; }

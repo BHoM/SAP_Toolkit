@@ -101,30 +101,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Compute\BalconyLines.cs" />
-    <Compile Include="Compute\ExtrudeToVolume.cs" />
     <Compile Include="Compute\PartyFloors.cs" />
-    <Compile Include="Create\ImportExportRecords.cs" />
-    <Compile Include="Create\DwellingInfo.cs" />
-    <Compile Include="Create\MachineLearningwhatever.cs" />
-    <Compile Include="Create\ExportFromSAPObjects.cs" />
-    <Compile Include="Compute\AssignSpaceType.cs" />
-    <Compile Include="Create\TFA.cs" />
+    <Compile Include="Compute\ToOrientationText.cs" />
+    <Compile Include="Create\SAPExport.cs" />
     <Compile Include="Create\ThermalBridges.cs" />
     <Compile Include="Create\ThermalBridgesCurves.cs" />
-    <Compile Include="Create\Wall.cs" />
-    <Compile Include="Create\Window.cs" />
-    <Compile Include="Modify\AssignPanels.cs" />
-    <Compile Include="Modify\AddOpenings.cs" />
-    <Compile Include="Modify\AssignSpaces.cs" />
-    <Compile Include="Modify\FlipPanels.cs" />
-    <Compile Include="Modify\MakeAirWalls.cs" />
-    <Compile Include="Modify\TidyPanels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Query\IsOnLevel.cs" />
-    <Compile Include="Query\Level.cs" />
-    <Compile Include="Query\Openings.cs" />
-    <Compile Include="Query\PanelsByType.cs" />
-    <Compile Include="Query\Parts.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SAP_oM\SAP_oM.csproj">
