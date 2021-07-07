@@ -25,11 +25,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
+using BH.oM.Geometry;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("A BHoMObject for SAP analysis. Contains general info about each dwelling")]
-    public class DwellingInfo : BHoMObject
+    [Description("A ThermalBridges object for SAP analysis")]
+    public class ThermalBridgesCurves : BHoMObject
     {
 
         [Description("Dwelling name")]
@@ -39,22 +40,40 @@ namespace BH.oM.Environment.SAP
         public virtual string Reference { get; set; } = "";
 
         [Description("Dwelling number, resets with each floor")]
-        public virtual string ID { get; set; } = "";
+        public virtual int ID { get; set; } = 0;
 
-        [Description("Orientation of each dwelling")]
-        public virtual double OrientationDegrees { get; set; } = 0.0;
+        [Description("Window lintels - tops of the windows")]
+        public virtual List<Polyline> E2 { get; set; } = new List<Polyline>();
 
-        [Description("Number of rooms in each dwelling")]
-        public virtual int TotalRooms { get; set; } = 0;
+        [Description("Window sills - bottoms of the windows")]
+        public virtual List<Polyline> E3 { get; set; } = new List<Polyline>();
 
-        [Description("Number of bathrooms in each dwelling")]
-        public virtual int WetRooms { get; set; } = 0;
+        [Description("Window jambs - sides of the windows (left and right)")]
+        public virtual List<Polyline> E4 { get; set; } = new List<Polyline>();
 
-        [Description("Number of sheltered sides for each dwelling")]
-        public virtual int ShelteredSides { get; set; } = 0;
+        [Description("Party floor - Connections between floors that are not on ground level")]
+        public virtual List<Polyline> E7 { get; set; }
 
-        [Description("States whether crossventilation is available or not for each dwelling")]
-        public virtual string CrossVentilation { get; set; } = "";
+        [Description("Balconies - The part of the balcony that is attached to the building")]
+        public virtual List<Polyline> E23 { get; set; }
+
+        //[Description("Eaves - Connections to the roof")]
+        //public virtual List<Polyline> E10 { get; set; }
+
+        [Description("Roof terraces")]
+        public virtual List<Polyline> E15 { get; set; }
+
+        [Description("Corner normal - Convex corners in the space, opposite of inverted")]
+        public virtual List<Polyline> E16 { get; set; }
+
+        [Description("Corner inverted - Concave corners in the space")]
+        public virtual List<Polyline> E17 { get; set; }
+
+        [Description("Party wall - the uprights between dwellings")]
+        public virtual List<Polyline> E18 { get; set; }
+
+        [Description("Staggered something - God knows - Ross knows")]
+        public virtual List<Polyline> E25 { get; set; }
 
     }
 }

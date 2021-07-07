@@ -37,11 +37,17 @@ namespace BH.oM.Environment.SAP
         [Description("Number of bathrooms in each dwelling")]
         public virtual int WetRooms { get; set; } = 0;
 
+        [Description("Number of bedrooms in each dwelling")]
+        public virtual int DwellingBeds { get; set; } = 0;
+
         [Description("Number of sheltered sides for each dwelling")]
         public virtual int ShelteredSides { get; set; } = 0;
 
         [Description("Orientation of each dwelling")]
         public virtual string Orientation { get; set; } = "";
+
+        [Description("Orientation of each dwelling in degrees")]
+        public virtual double OrientationDegrees { get; set; } = 0;
 
         [Description("States whether crossventilation is available or not for each dwelling")]
         public virtual string CrossVentilation { get; set; } = "";
@@ -71,10 +77,10 @@ namespace BH.oM.Environment.SAP
         public virtual double CeilingHeight { get; set; } = 0.0;
 
         [Description("The total external wall height for each dwelling")]
-        public virtual double ExtWallHeight { get; set; } = 0.0;
+        public virtual double ExternalWallHeight { get; set; } = 0.0;
 
         [Description("The total external wall length for each dwelling")]
-        public virtual double ExtWallLength { get; set; } = 0.0;
+        public virtual double ExternalWallLength { get; set; } = 0.0;
 
         [Description("Window width in mm")]
         public virtual List<double> WindowLength { get; set; }
@@ -86,7 +92,7 @@ namespace BH.oM.Environment.SAP
         public virtual List<string> WindowOrientation { get; set; }
 
         [Description("If the window has an overhang wider than the window itself")]
-        public virtual List<string> WideOverhang { get; set; }
+        public virtual List<bool> WideOverhang { get; set; }
 
         [Description("Overhang ratio")]
         public virtual List<double> OverhangRatio { get; set; }
