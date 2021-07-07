@@ -66,7 +66,6 @@ namespace BH.Engine.Environment.SAP
                 }
 
 
-
                 thermalBridges.Add(thermalBridge);
 
             }
