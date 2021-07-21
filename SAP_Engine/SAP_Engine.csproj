@@ -100,10 +100,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Compute\BalconyLines.cs" />
-    <Compile Include="Compute\PartyFloors.cs" />
-    <Compile Include="Compute\ToOrientationText.cs" />
-    <Compile Include="Create\Export.cs" />
+    <Compile Include="Objects\BalconyLines.cs" />
+    <Compile Include="Objects\PartyFloors.cs" />
+    <Compile Include="Objects\ToOrientationText.cs" />
+    <Compile Include="Create\SAPExport.cs" />
     <Compile Include="Create\ThermalBridges.cs" />
     <Compile Include="Create\ThermalBridgesCurves.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,7 +114,9 @@
       <Name>SAP_oM</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Compute\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" Condition="" />
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(TargetDir)$(TargetFileName)"  "C:\ProgramData\BHoM\Assemblies" /Y</PostBuildEvent>

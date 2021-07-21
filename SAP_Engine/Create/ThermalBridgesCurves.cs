@@ -12,13 +12,13 @@ using BH.oM.Geometry;
 using BH.Engine.Units;
 
 using BH.oM.Reflection;
-using BH.oM.Environment;
+using BH.oM.Analytical.Elements;
 
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Create
     {
-        public static List<ThermalBridgesCurves> ThermalBridgesCurves(List<Dwelling> dwellings, List<Space> spaces, List<Panel> allPanels, List<Panel> balconyShades, List<Level> levels, List<Polyline> baseCurves, double tolerance = BH.oM.Geometry.Tolerance.Distance, double angleTolerance = BH.oM.Geometry.Tolerance.Angle)
+        public static List<ThermalBridgesCurves> ThermalBridgesCurves(List<Dwelling> dwellings, List<Space> spaces, List<Panel> allPanels, List<Panel> balconyShades, List<Level> levels, List<Polyline> baseCurves, double distanceTolerance = BH.oM.Geometry.Tolerance.Distance, double angleTolerance = BH.oM.Geometry.Tolerance.Angle, double numericalTolerance = BH.oM.Geometry.Tolerance.Distance)
         {
             List<ThermalBridgesCurves> thermalBridgesCurves = new List<ThermalBridgesCurves>();
             levels = levels.OrderBy(x => x.Elevation).ToList();
@@ -26,36 +26,29 @@ namespace BH.Engine.Environment.SAP
             {
                 ThermalBridgesCurves thermalBridgeCurves = new ThermalBridgesCurves();
                 Dwelling dwelling = dwellings[x];
+                Polyline dwellingPerimeter = dwelling.Perimeter.ICollapseToPolyline(angleTolerance);
             
-
-
                 thermalBridgeCurves.DwellingName = dwelling.Name;
                 thermalBridgeCurves.Reference = dwelling.Reference;
 
-                double maxZ = dwelling.Perimeter.IControlPoints().Select(y => y.Z).Max() + tolerance;
-                double minZ = dwelling.Perimeter.IControlPoints().Select(y => y.Z).Min() - tolerance;
-                Level dwellingLevel = levels.Where(y => y.Elevation >= minZ && y.Elevation <= maxZ).FirstOrDefault();
+                Level dwellingLevel = dwelling.RegionLevel(levels, distanceTolerance, angleTolerance);
 
                 Polyline baseCurve = baseCurves.Where(y => y.IsOnLevel(dwellingLevel)).FirstOrDefault();
                 if (baseCurve == null)
                     BH.Engine.Reflection.Compute.RecordError("Please make sure there is a basecurve on the same elevation as the dwellings");
 
-                List<Space> spacesInDwelling = spaces.Where(y => dwelling.Perimeter.IIsContaining(y.Perimeter.IControlPoints(), true)).ToList();
+                Output<List<List<IRegion>>, List<List<double>>, List<IRegion>, List<IRegion>> mappedRegions = BH.Engine.Environment.Compute.MapRegions(spaces.Select(y => y as IRegion).ToList(), new List<IRegion> { dwelling }, distanceTolerance, angleTolerance);
+                List<Space> spacesInDwelling = mappedRegions.Item1[0].Cast<Space>().ToList();
+
                 List<Panel> panelsInDwelling = new List<Panel>();
                 foreach (Space s in spacesInDwelling)
-                {
-                    List<Panel> panelsInS = allPanels.Where(y => y.ConnectedSpaces.Contains(s.Name)).ToList();
-                    panelsInDwelling.AddRange(panelsInS);
-                }
+                    panelsInDwelling.AddRange(allPanels.Where(y => y.ConnectedSpaces.Contains(s.Name)).ToList());
 
-                List<Opening> openings = panelsInDwelling.SelectMany(y => y.Openings).ToList();
-
-                // Get the openings 
-                //Sort out window curves
+                List<Opening> openings = panelsInDwelling.OpeningsFromElements();
                 Output<List<Polyline>, List<Polyline>, List<Polyline>> openingParts = new Output<List<Polyline>, List<Polyline>, List<Polyline>>();
                 foreach (Opening o in openings)
                 {
-                    Output<List<ICurve>, List<ICurve>, List<ICurve>> outputFromExplode = o.ExplodeToParts();
+                    Output<List<ICurve>, List<ICurve>, List<ICurve>> outputFromExplode = o.ExplodeToParts(distanceTolerance, angleTolerance, numericalTolerance);
                     thermalBridgeCurves.E3.AddRange(outputFromExplode.Item1.Select(y => y.ICollapseToPolyline(angleTolerance)));
                     thermalBridgeCurves.E4.AddRange(outputFromExplode.Item2.Select(y => y.ICollapseToPolyline(angleTolerance)));
                     thermalBridgeCurves.E2.AddRange(outputFromExplode.Item3.Select(y => y.ICollapseToPolyline(angleTolerance)));
@@ -80,12 +73,11 @@ namespace BH.Engine.Environment.SAP
                 List<Polyline> partyFloorBottom = exteriorWallParts.Item1;
                 List<Polyline> partyFloorTop = new List<Polyline>();
 
-                List<Panel> balconiesOnLevel = balconyShades.Where(y => y.Polyline().IsOnLevel(dwellingLevel)).ToList();
-                List<Panel> balconiesOnDwelling = balconiesOnLevel.Where(y => (y.Polyline()).LineIntersections(dwelling.Perimeter.ICollapseToPolyline(angleTolerance)).Count > 0).ToList();
+                List<Panel> balconiesOnDwelling = balconyShades.Where(y => (y.Polyline()).LineIntersections(dwellingPerimeter).Count > 0).ToList();
 
-                partyFloorBottom = Compute.CalculatePartyFloors(balconiesOnDwelling, partyFloorBottom);
+                partyFloorBottom = PartyFloors.CalculatePartyFloors(balconiesOnDwelling, partyFloorBottom);
 
-                List<Polyline> e23Lines = Compute.BalconyLines(balconiesOnDwelling, baseCurve, dwelling.Perimeter.ICollapseToPolyline(angleTolerance));
+                thermalBridgeCurves.E23 = BalconyLines.ComputeBalconyLines(balconiesOnDwelling, baseCurve, dwelling.Perimeter.ICollapseToPolyline(angleTolerance));
 
                 if (dwellingLevel != levels.Last())
                 {
@@ -93,50 +85,52 @@ namespace BH.Engine.Environment.SAP
                     //There may be a balcony above us, find out
                     Level levelAbove = levels[levels.IndexOf(dwellingLevel) + 1];
 
-                    Polyline dwellingCurveAbove = dwelling.Perimeter.ICollapseToPolyline(angleTolerance).Clone();
+                    Polyline dwellingCurveAbove = dwellingPerimeter.Clone();
                     dwellingCurveAbove.ControlPoints = dwellingCurveAbove.ControlPoints.Select(y => new Point { X = y.X, Y = y.Y, Z = levelAbove.Elevation }).ToList();
 
                     Polyline baseCurveAbove = baseCurves.Where(y => y.IsOnLevel(levelAbove)).FirstOrDefault();
+                    List<Polyline> baseCurvesAbove = new List<Polyline>();
+                    baseCurvesAbove.Add(baseCurveAbove);
 
-                    List<Panel> balconiesAbove = balconyShades.Where(y => y.Polyline().IsOnLevel(levelAbove)).ToList();
-                    List<Panel> balconiesAttached = balconiesAbove.Where(y => (y.Polyline()).LineIntersections(dwellingCurveAbove).Count > 0).ToList();
+                    List<Panel> balconiesAttached = balconyShades.Where(y => (y.Polyline()).LineIntersections(dwellingCurveAbove).Count > 0).ToList();
 
-                    partyFloorTop = Compute.CalculatePartyFloors(balconiesAttached, partyFloorTop);
+                    partyFloorTop = PartyFloors.CalculatePartyFloors(balconiesAttached, partyFloorTop);
 
                     //Work out balcony lines on the upper perimeter
-                    e23Lines.AddRange(Compute.BalconyLines(balconiesAttached, baseCurveAbove, dwellingCurveAbove));
+                    thermalBridgeCurves.E23.AddRange(BalconyLines.ComputeBalconyLines(balconiesAttached, baseCurveAbove, dwellingCurveAbove));
 
-                    //Work out terrace lines
-                    List<Polyline> topLines = exteriorWallParts.Item3;
-                    topLines = topLines.Where(y => y.ControlPoints.Where(z => baseCurveAbove.IsContaining(new List<Point> { z }, true)).Count() != y.ControlPoints.Count).ToList(); //All the top lines that are not wholly contained by the floor above, what's remaining are terrace curves
-                    thermalBridgeCurves.E15 = topLines;
+
+                    foreach (Space room in spacesInDwelling)
+                    {
+                        Polyline roomClone = room.Perimeter.ICollapseToPolyline(angleTolerance).Clone();
+                        roomClone.ControlPoints = roomClone.IControlPoints().Select(y => new Point { X = y.X, Y = y.Y, Z = levelAbove.Elevation }).ToList(); //Pull the space down to the level below
+                        List<Polyline> externalCurves = roomClone.BooleanDifference(baseCurvesAbove);
+                        List<Polyline> externalParts = externalCurves.SelectMany(y => y.SplitAtPoints(y.ControlPoints())).ToList();
+                        Polyline baseCurveClone = baseCurve.Clone();
+                        baseCurveClone.ControlPoints = baseCurveClone.IControlPoints().Select(y => new Point { X = y.X, Y = y.Y, Z = levelAbove.Elevation }).ToList();
+
+                        List<Polyline> topLines = externalParts.Where(y => y.ControlPoints.Where(z => z.IsOnCurve(baseCurveClone)).Count() == y.ControlPoints().Count()).ToList();
+
+                        thermalBridgeCurves.E15.AddRange(topLines);
+                    }
                 }
-                else
-                {
-                    //This is the top level
+                else //This is the top level
                     thermalBridgeCurves.E15 = exteriorWallParts.Item3;
-                }
 
                 thermalBridgeCurves.E7 = partyFloorBottom;
                 if (partyFloorTop != null)
-                {
                     thermalBridgeCurves.E7.AddRange(partyFloorTop);
-                }
 
-
-                thermalBridgeCurves.E23 = e23Lines;
 
                 List<Dwelling> dwellingsOnLevel = dwellings.Where(y => y.Perimeter.ICollapseToPolyline(angleTolerance).IsOnLevel(dwellingLevel)).Where(y => y != dwelling).ToList(); //Available dwellings not including the one being thermal bridged
                 List<Dwelling> connectedDwellings = dwellingsOnLevel.Where(y =>
                 {
-                    List<ICurve> curves = new List<ICurve>() { y.Perimeter, dwelling.Perimeter };
+                    List<ICurve> curves = new List<ICurve>() { y.Perimeter, dwellingPerimeter };
                     List<PolyCurve> union = curves.BooleanUnion();
                     return union.Count == 1;
                 }).ToList(); //Only the dwellings which are connected to the current dwelling
 
                 List<Point> connectionPointsToNeighbours = connectedDwellings.SelectMany(y => y.Perimeter.ICurveIntersections(dwelling.Perimeter).Where(z => z.IsOnCurve(baseCurve))).ToList();
-                List<Polyline> e18Lines = new List<Polyline>();
-                List<Polyline> e25Lines = new List<Polyline>();
 
                 foreach (Point p in connectionPointsToNeighbours)
                 {
@@ -144,13 +138,10 @@ namespace BH.Engine.Environment.SAP
                     ctrlPoints.Add(new Point() { X = p.X, Y = p.Y, Z = p.Z + exteriorWalls[0].Height() }); ;
                     Polyline line = new Polyline() { ControlPoints = ctrlPoints };
                     if (baseCurve.IControlPoints().Contains(p))
-                        e25Lines.Add(line);
+                        thermalBridgeCurves.E25.Add(line);
                     else
-                        e18Lines.Add(line);
+                        thermalBridgeCurves.E18.Add(line);
                 }
-
-                thermalBridgeCurves.E18 = e18Lines;
-                thermalBridgeCurves.E25 = e25Lines;
 
                 List<Point> baseCurveCornerPoints = baseCurve.CleanPolyline().ControlPoints();
                 baseCurveCornerPoints.RemoveAt(baseCurveCornerPoints.Count - 1);
@@ -172,6 +163,8 @@ namespace BH.Engine.Environment.SAP
 
                         if (baseCurve.IIsContaining(new List<Point>() { joined.Centroid() }))
                             e16Pts.Add(pt);
+                        else
+                            e17Pts.Add(pt);
                     }
                 }
 
@@ -181,7 +174,7 @@ namespace BH.Engine.Environment.SAP
                     List<Point> ctrlPts = new List<Point>() { p };
                     ctrlPts.Add(new Point() { X = p.X, Y = p.Y, Z = p.Z + exteriorWalls[0].Height() });
                     Polyline pl = new Polyline() { ControlPoints = ctrlPts };
-                    e16Lines.Add(pl);
+                    thermalBridgeCurves.E16.Add(pl);
                 }
 
                 List<Polyline> e17Lines = new List<Polyline>();
@@ -190,11 +183,8 @@ namespace BH.Engine.Environment.SAP
                     List<Point> ctrlPts = new List<Point>() { p };
                     ctrlPts.Add(new Point() { X = p.X, Y = p.Y, Z = p.Z + exteriorWalls[0].Height() });
                     Polyline pl = new Polyline() { ControlPoints = ctrlPts };
-                    e17Lines.Add(pl);
+                    thermalBridgeCurves.E17.Add(pl);
                 }
-
-                thermalBridgeCurves.E16 = e16Lines;
-                thermalBridgeCurves.E17 = e17Lines;
 
                 thermalBridgesCurves.Add(thermalBridgeCurves);
             }
