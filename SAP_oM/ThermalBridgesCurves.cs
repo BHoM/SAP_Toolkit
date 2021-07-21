@@ -52,28 +52,28 @@ namespace BH.oM.Environment.SAP
         public virtual List<Polyline> E4 { get; set; } = new List<Polyline>();
 
         [Description("Party floor - Connections between floors that are not on ground level")]
-        public virtual List<Polyline> E7 { get; set; }
+        public virtual List<Polyline> E7 { get; set; } = new List<Polyline>();
 
         [Description("Balconies - The part of the balcony that is attached to the building")]
-        public virtual List<Polyline> E23 { get; set; }
+        public virtual List<Polyline> E23 { get; set; } = new List<Polyline>();
 
         //[Description("Eaves - Connections to the roof")]
         //public virtual List<Polyline> E10 { get; set; }
 
         [Description("Roof terraces")]
-        public virtual List<Polyline> E15 { get; set; }
+        public virtual List<Polyline> E15 { get; set; } = new List<Polyline>();
 
         [Description("Corner normal - Convex corners in the space, opposite of inverted")]
-        public virtual List<Polyline> E16 { get; set; }
+        public virtual List<Polyline> E16 { get; set; } = new List<Polyline>();
 
         [Description("Corner inverted - Concave corners in the space")]
-        public virtual List<Polyline> E17 { get; set; }
+        public virtual List<Polyline> E17 { get; set; } = new List<Polyline>();
 
         [Description("Party wall - the uprights between dwellings")]
-        public virtual List<Polyline> E18 { get; set; }
+        public virtual List<Polyline> E18 { get; set; } = new List<Polyline>();
 
         [Description("Staggered something - God knows - Ross knows")]
-        public virtual List<Polyline> E25 { get; set; }
+        public virtual List<Polyline> E25 { get; set; } = new List<Polyline>();
 
     }
 }

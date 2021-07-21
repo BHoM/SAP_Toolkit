@@ -10,9 +10,9 @@ using BH.oM.Environment.Elements;
 
 namespace BH.Engine.Environment.SAP
 {
-    public static partial class Compute
+    public static class BalconyLines
     {
-        public static List<Polyline> BalconyLines(List<Panel> panels, Polyline baseCurve, Polyline dwellingPerimeter)
+        public static List<Polyline> ComputeBalconyLines(List<Panel> panels, Polyline baseCurve, Polyline dwellingPerimeter)
         {
             //Work out balcony lines on the dwelling perimeter
             List<Polyline> balconyLines = panels.SelectMany(y => y.Polyline().SplitAtPoints(y.Polyline().ControlPoints)).ToList();

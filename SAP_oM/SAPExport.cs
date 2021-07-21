@@ -29,7 +29,7 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("A plane curve. A circular Arc, a curve, with a constant distance from a point, its centre, defined with start and end polarpoints.")]
-    public class Export : BHoMObject
+    public class SAPExport : BHoMObject
     {
         [Description("Full dwelling name, including window settings and glazing value")]
         public virtual string Reference { get; set; } = "";
@@ -62,10 +62,10 @@ namespace BH.oM.Environment.SAP
         public virtual double CoolingArea { get; set; } = 0.0;
 
         [Description("The total outside floor area connected to each dwelling")]
-        public virtual double ExtFloorArea { get; set; } = 0.0;
+        public virtual double ExternalFloorArea { get; set; } = 0.0;
 
         [Description("The total outside roof area connected to each dwelling")]
-        public virtual double ExtRoofArea { get; set; } = 0.0;
+        public virtual double ExternalRoofArea { get; set; } = 0.0;
 
         [Description("")]
         public virtual double PartyFloor { get; set; } = 0.0;

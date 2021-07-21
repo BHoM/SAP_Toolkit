@@ -64,7 +64,7 @@
   <ItemGroup>
     <Compile Include="ThermalBridgesCurves.cs" />
     <Compile Include="ThermalBridges.cs" />
-    <Compile Include="Export.cs" />
+    <Compile Include="SAPExport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

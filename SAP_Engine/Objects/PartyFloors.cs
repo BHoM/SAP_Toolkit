@@ -10,7 +10,7 @@ using BH.oM.Environment.Elements;
 
 namespace BH.Engine.Environment.SAP
 {
-    public static partial class Compute
+    public static class PartyFloors
     {
         public static List<Polyline> CalculatePartyFloors(List<Panel> panels, List<Polyline> existingPartyFloors)
         {

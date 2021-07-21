@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BH.Engine.Environment.SAP
 { 
-    public static partial class Compute
+    public static class OrientationText
     {
         public static string ToOrientationText(double orientation)
         {
