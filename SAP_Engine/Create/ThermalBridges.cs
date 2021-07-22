@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using BH.oM.Environment.SAP;
 using BH.Engine.Geometry;
 
-
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Create
@@ -16,11 +15,10 @@ namespace BH.Engine.Environment.SAP
         {
             List<ThermalBridges> thermalBridges = new List<ThermalBridges>();
 
-
             for (int x = 0; x < thermalBridgesCurves.Count; x++)
             {
-               ThermalBridgesCurves thermalBridgeCurves = thermalBridgesCurves[x];
-                ThermalBridges thermalBridge= new ThermalBridges();
+                ThermalBridgesCurves thermalBridgeCurves = thermalBridgesCurves[x];
+                ThermalBridges thermalBridge = new ThermalBridges();
                 thermalBridge.DwellingName = thermalBridgeCurves.Name;
                 thermalBridge.Reference = thermalBridgeCurves.Reference;
                 thermalBridge.ID = thermalBridgeCurves.ID;
@@ -31,9 +29,7 @@ namespace BH.Engine.Environment.SAP
                 thermalBridge.E7 = thermalBridgeCurves.E7.Select(y => y.Length()).Sum();
 
                 if (thermalBridgeCurves.E23 != null)
-                {
                     thermalBridge.E23 = thermalBridgeCurves.E23.Select(y => y.Length()).Sum();
-                }
 
                 //if (thermalBridgeCurves.E10 != null)
                 //{
@@ -41,33 +37,20 @@ namespace BH.Engine.Environment.SAP
                 //}
 
                 if (thermalBridgeCurves.E15 != null)
-                {
                     thermalBridge.E15 = thermalBridgeCurves.E15.Select(y => y.Length()).Sum();
-                }
 
                 if (thermalBridgeCurves.E16 != null)
-                {
                     thermalBridge.E16 = thermalBridgeCurves.E16.Select(y => y.Length()).Sum();
-                }
 
                 if (thermalBridgeCurves.E17 != null)
-                {
                     thermalBridge.E17 = thermalBridgeCurves.E17.Select(y => y.Length()).Sum();
-                }
 
                 if (thermalBridgeCurves.E18 != null)
-                {
                     thermalBridge.E18 = thermalBridgeCurves.E18.Select(y => y.Length()).Sum();
-                }
 
                 if (thermalBridgeCurves.E25 != null)
-                {
                     thermalBridge.E25 = thermalBridgeCurves.E25.Select(y => y.Length()).Sum();
-                }
-
-
                 thermalBridges.Add(thermalBridge);
-
             }
 
             return thermalBridges;

@@ -59,9 +59,8 @@ namespace BH.Engine.Environment.SAP
         [Input("externalWallHeight", "The total floor to floor height of the dwelling")]
         [Input("distanceTolerance", "Distance tolerance for calculating discontinuity points, default is set to the value defined by BH.oM.Geometry.Tolerance.Distance.")]
         [Input("angleTolerance", "Angle tolerance for calculating discontinuity points, default is set to the value defined by BH.oM.Geometry.Tolerance.Angle.")]
-        [Output("SAPExport", "a SAP export object")]
-
-        public static SAPExport SAPExport(Dwelling dwelling, List<Space> spaces, List<Panel> panels, List<Panel> balconies, List<Polyline> baseCurves,   List<Level> levels, List<Opening> frontDoors, double ceilingHeight, double ceilingVoidHeight, double externalWallHeight, double distanceTolerance = BH.oM.Geometry.Tolerance.Distance, double angleTolerance = BH.oM.Geometry.Tolerance.Angle, int crossVentTolerance = 45)
+        [Output("SAPExport", "A SAP export object")]
+        public static SAPExport SAPExport(Dwelling dwelling, List<Space> spaces, List<Panel> panels, List<Panel> balconies, List<Polyline> baseCurves, List<Level> levels, List<Opening> frontDoors, double ceilingHeight, double ceilingVoidHeight, double externalWallHeight, double distanceTolerance = BH.oM.Geometry.Tolerance.Distance, double angleTolerance = BH.oM.Geometry.Tolerance.Angle, int crossVentTolerance = 45)
         {
             SAPExport sapExport = new SAPExport();
 
@@ -222,10 +221,7 @@ namespace BH.Engine.Environment.SAP
                     sapExport.ExternalRoofArea.Add(s.Perimeter.IArea());
                     sapExport.PartyRoof.Add(0);
                 }
-                    
-
             }
-
             else
             {
                 //Do the same as above, but for the roof
@@ -256,7 +252,6 @@ namespace BH.Engine.Environment.SAP
                         sapExport.ExternalRoofArea.Add(0);
                         sapExport.PartyRoof.Add(roomClone.Area());
                     }
-
                 }
 
                 shadesOnLevelAbove = balconies.Where(x => x.Polyline().IsOnLevel(levelAbove, distanceTolerance)).ToList();
@@ -306,8 +301,6 @@ namespace BH.Engine.Environment.SAP
                         overhangRatio[overhangRatio.Count - 1] = (lengths.Min() / o.Height());
                     }
                 }
-
-
             }
 
             sapExport.WindowLength = width;
@@ -318,6 +311,5 @@ namespace BH.Engine.Environment.SAP
 
             return sapExport;
         }
-
     }
 }

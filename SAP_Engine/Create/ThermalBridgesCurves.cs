@@ -54,7 +54,6 @@ namespace BH.Engine.Environment.SAP
 
                     if (!(o.Bottom().ICollapseToPolyline(angleTolerance).Centre().IIsOnCurve(dwellingPerimeter)))
                         thermalBridgeCurves.E3.AddRange(outputFromExplode.Item1.Select(y => y.ICollapseToPolyline(angleTolerance)));
-                  
                 }
 
                 //Sort out party floors - curves that go along the perimeter of the building
@@ -123,7 +122,6 @@ namespace BH.Engine.Environment.SAP
                 thermalBridgeCurves.E7 = partyFloorBottom;
                 if (partyFloorTop != null)
                     thermalBridgeCurves.E7.AddRange(partyFloorTop);
-
 
                 List<Dwelling> dwellingsOnLevel = dwellings.Where(y => y.Perimeter.ICollapseToPolyline(angleTolerance).IsOnLevel(dwellingLevel)).Where(y => y != dwelling).ToList(); //Available dwellings not including the one being thermal bridged
                 List<Dwelling> connectedDwellings = dwellingsOnLevel.Where(y =>
