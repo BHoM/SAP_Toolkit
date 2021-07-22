@@ -55,13 +55,13 @@ namespace BH.Engine.Environment.SAP
         [Input("levels", "A collection of levels containing the elevations of the floors")]
         [Input("frontDoors", "A collection of opening representing the dwelling entraces. Used to get the orientation of the dwelling")]
         [Input("ceilingHeight", "The internal height of the dwelling, from floor top to ceiling bottom")]
-        [Input("externalWallHeight", "The total height of the dwelling")]
+        [Input("ceilingVoidHeight", "The ceiling thickness of the dwelling")]
+        [Input("externalWallHeight", "The total floor to floor height of the dwelling")]
         [Input("distanceTolerance", "Distance tolerance for calculating discontinuity points, default is set to the value defined by BH.oM.Geometry.Tolerance.Distance.")]
         [Input("angleTolerance", "Angle tolerance for calculating discontinuity points, default is set to the value defined by BH.oM.Geometry.Tolerance.Angle.")]
-        [Input("autoFixPanelORientations", "If you are stupid enough to have incorrect orientations, this will fix it for you Liv")]
         [Output("SAPExport", "a SAP export object")]
 
-        public static SAPExport SAPExport(Dwelling dwelling, List<Space> spaces, List<Panel> panels, List<Panel> balconies, List<Polyline> baseCurves,   List<Level> levels, List<Opening> frontDoors, double ceilingHeight, double externalWallHeight, double distanceTolerance = BH.oM.Geometry.Tolerance.Distance, double angleTolerance = BH.oM.Geometry.Tolerance.Angle, int crossVentTolerance = 45, bool autoFixPanelOrientations = true)
+        public static SAPExport SAPExport(Dwelling dwelling, List<Space> spaces, List<Panel> panels, List<Panel> balconies, List<Polyline> baseCurves,   List<Level> levels, List<Opening> frontDoors, double ceilingHeight, double ceilingVoidHeight, double externalWallHeight, double distanceTolerance = BH.oM.Geometry.Tolerance.Distance, double angleTolerance = BH.oM.Geometry.Tolerance.Angle, int crossVentTolerance = 45)
         {
             SAPExport sapExport = new SAPExport();
 
@@ -173,7 +173,15 @@ namespace BH.Engine.Environment.SAP
             Level dwellingLevel = dwelling.RegionLevel(levels, distanceTolerance, angleTolerance);
 
             if (dwellingPerimeter.IsOnLevel(levels.First(), distanceTolerance))
-                sapExport.ExternalFloorArea = dwellingPerimeter.IArea(); //Dwelling is on the ground
+            {
+                foreach (Space s in spacesInDwelling)
+                {
+                    sapExport.ExternalFloorArea.Add(s.Perimeter.IArea());
+                    sapExport.PartyFloor.Add(0);
+                }
+                    
+            }
+                
             else
             {
                 //Pull the space down to the level below, if the base curve of the level below does not contain the space then it is an overhang and counts towards external floor area
@@ -186,15 +194,40 @@ namespace BH.Engine.Environment.SAP
                     roomClone.ControlPoints = roomClone.IControlPoints().Select(y => new Point { X = y.X, Y = y.Y, Z = levelBelow.Elevation }).ToList(); //Pull the space down to the level below
                     List<Polyline> externalCurves = roomClone.BooleanDifference(baseCurvesBelow);
                     foreach (Polyline ln in externalCurves)
-                        sapExport.ExternalFloorArea += ln.Area();
+                    {
+                        double value = 0;
+                        if(ln != null)
+                        {
+                            double area = ln.Area();
+                            if (area > 0)
+                                value = area;
+                        }
 
+                        sapExport.ExternalFloorArea.Add(value);
+                        sapExport.PartyFloor.Add(roomClone.Area() - value);
+                    }
+                    
+                    if(externalCurves.Count == 0)
+                    {
+                        sapExport.ExternalFloorArea.Add(0);
+                        sapExport.PartyFloor.Add(roomClone.Area());
+                    }
                 }
             }
 
             Level levelAbove = null; 
             List<Panel> shadesOnLevelAbove = new List<Panel>();
             if (dwellingPerimeter.IsOnLevel(levels.Last(), distanceTolerance))
-                sapExport.ExternalRoofArea = dwellingPerimeter.IArea(); //Dwelling is on the top floor
+            {
+                foreach (Space s in spacesInDwelling)
+                {
+                    sapExport.ExternalRoofArea.Add(s.Perimeter.IArea());
+                    sapExport.PartyRoof.Add(0);
+                }
+                    
+
+            }
+
             else
             {
                 //Do the same as above, but for the roof
@@ -207,7 +240,24 @@ namespace BH.Engine.Environment.SAP
                     roomClone.ControlPoints = roomClone.IControlPoints().Select(y => new Point { X = y.X, Y = y.Y, Z = levelAbove.Elevation }).ToList(); //Pull the space down to the level below
                     List<Polyline> externalCurves = roomClone.BooleanDifference(baseCurvesAbove);
                     foreach (Polyline ln in externalCurves)
-                        sapExport.ExternalRoofArea += ln.Area();
+                    {
+                        double value = 0;
+                        if (ln != null)
+                        {
+                            double area = ln.Area();
+                            if (area > 0)
+                                value = area;
+                        }
+
+                        sapExport.ExternalRoofArea.Add(value);
+                        sapExport.PartyRoof.Add(roomClone.Area() - value);
+                    }
+
+                    if (externalCurves.Count == 0)
+                    {
+                        sapExport.ExternalRoofArea.Add(0);
+                        sapExport.PartyRoof.Add(roomClone.Area());
+                    }
 
                 }
 
@@ -216,9 +266,11 @@ namespace BH.Engine.Environment.SAP
             }
             #endregion
 
-            sapExport.PartyFloor = sapExport.TotalArea - sapExport.ExternalFloorArea;
-            sapExport.PartyRoof = sapExport.TotalArea - sapExport.ExternalRoofArea;
+            if (ceilingHeight + ceilingVoidHeight != externalWallHeight)
+                BH.Engine.Reflection.Compute.RecordError("The sum of ceilingHeight and ceilingVoidHeight is not equal to the external wall height");
+
             sapExport.CeilingHeight = ceilingHeight;
+            sapExport.CeilingVoidHeight = ceilingVoidHeight;
             sapExport.ExternalWallHeight = externalWallHeight;
             sapExport.ExternalWallLength = exteriorWalls.Select(x => x.Bottom().ILength()).Sum();
 
