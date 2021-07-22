@@ -49,9 +49,12 @@ namespace BH.Engine.Environment.SAP
                 foreach (Opening o in openings)
                 {
                     Output<List<ICurve>, List<ICurve>, List<ICurve>> outputFromExplode = o.ExplodeToParts(distanceTolerance, angleTolerance, numericalTolerance);
-                    thermalBridgeCurves.E3.AddRange(outputFromExplode.Item1.Select(y => y.ICollapseToPolyline(angleTolerance)));
-                    thermalBridgeCurves.E4.AddRange(outputFromExplode.Item2.Select(y => y.ICollapseToPolyline(angleTolerance)));
                     thermalBridgeCurves.E2.AddRange(outputFromExplode.Item3.Select(y => y.ICollapseToPolyline(angleTolerance)));
+                    thermalBridgeCurves.E4.AddRange(outputFromExplode.Item2.Select(y => y.ICollapseToPolyline(angleTolerance)));
+
+                    if (!(o.Bottom().ICollapseToPolyline(angleTolerance).Centre().IIsOnCurve(dwellingPerimeter)))
+                        thermalBridgeCurves.E3.AddRange(outputFromExplode.Item1.Select(y => y.ICollapseToPolyline(angleTolerance)));
+                  
                 }
 
                 //Sort out party floors - curves that go along the perimeter of the building

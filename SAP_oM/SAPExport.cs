@@ -61,20 +61,23 @@ namespace BH.oM.Environment.SAP
         [Description("The total cooling area area of each dwelling")]
         public virtual double CoolingArea { get; set; } = 0.0;
 
-        [Description("The total outside floor area connected to each dwelling")]
-        public virtual double ExternalFloorArea { get; set; } = 0.0;
+        [Description("The outside floor area connected to each space in the dwelling")]
+        public virtual List<double> ExternalFloorArea { get; set; } = new List<double>();
 
-        [Description("The total outside roof area connected to each dwelling")]
-        public virtual double ExternalRoofArea { get; set; } = 0.0;
+        [Description("The outside roof area connected to each space in the dwelling")]
+        public virtual List<double> ExternalRoofArea { get; set; } = new List<double>();
 
-        [Description("")]
-        public virtual double PartyFloor { get; set; } = 0.0;
+        [Description("Intermediate floor area, for each space in the dwelling")]
+        public virtual List<double> PartyFloor { get; set; } = new List<double>();
 
-        [Description("")]
-        public virtual double PartyRoof { get; set; } = 0.0;
+        [Description("Intermediate roof area, for each space in the dwelling")]
+        public virtual List<double> PartyRoof { get; set; } = new List<double>();
 
         [Description("The height from floor to ceiling for each dwelling")]
         public virtual double CeilingHeight { get; set; } = 0.0;
+
+        [Description("The ceiling thickness for each dwelling")]
+        public virtual double CeilingVoidHeight { get; set; } = 0.0;
 
         [Description("The total external wall height for each dwelling")]
         public virtual double ExternalWallHeight { get; set; } = 0.0;
@@ -83,19 +86,19 @@ namespace BH.oM.Environment.SAP
         public virtual double ExternalWallLength { get; set; } = 0.0;
 
         [Description("Window width in mm")]
-        public virtual List<double> WindowLength { get; set; }
+        public virtual List<double> WindowLength { get; set; } = new List<double>();
 
         [Description("Window height in mm")]
-        public virtual List<double> WindowHeight { get; set; }
+        public virtual List<double> WindowHeight { get; set; } = new List<double>();
 
         [Description("Window orientation in text")]
-        public virtual List<string> WindowOrientation { get; set; }
+        public virtual List<string> WindowOrientation { get; set; } = new List<string>();
 
         [Description("If the window has an overhang wider than the window itself")]
-        public virtual List<bool> WideOverhang { get; set; }
+        public virtual List<bool> WideOverhang { get; set; } = new List<bool>();
 
         [Description("Overhang ratio")]
-        public virtual List<double> OverhangRatio { get; set; }
+        public virtual List<double> OverhangRatio { get; set; } = new List<double>();
 
     }
 }
