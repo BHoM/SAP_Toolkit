@@ -178,10 +178,8 @@ namespace BH.Engine.Environment.SAP
                 {
                     sapExport.ExternalFloorArea.Add(s.Perimeter.IArea());
                     sapExport.PartyFloor.Add(0);
-                }
-                    
+                } 
             }
-                
             else
             {
                 //Pull the space down to the level below, if the base curve of the level below does not contain the space then it is an overhang and counts towards external floor area
