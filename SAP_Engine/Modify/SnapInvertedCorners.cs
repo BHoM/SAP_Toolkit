@@ -40,7 +40,7 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Modify
     {
-        public static Output<List<Space>, List<Panel>> SnapInvertedCorners(List<Space> spaces, List<Space> resnappedSpaces, List<Polyline> baseCurves, List<Panel> panels, double angleTolerance = BH.oM.Geometry.Tolerance.Angle)
+        public static Output<List<Space>, List<Panel>> SnapInvertedCorners(this List<Space> spaces, List<Space> resnappedSpaces, List<Polyline> baseCurves, List<Panel> panels, double angleTolerance = BH.oM.Geometry.Tolerance.Angle)
         {
             foreach (Polyline baseCurve in baseCurves)
             {
