@@ -37,6 +37,7 @@ using BH.Engine.Units;
 using BH.oM.Geometry.SettingOut;
 using BH.oM.Analytical.Elements;
 using BH.oM.Reflection;
+using BH.Engine.Base;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -187,7 +188,7 @@ namespace BH.Engine.Environment.SAP
 
                 foreach (Space room in spacesInDwelling)
                 {
-                    Polyline roomClone = room.Perimeter.ICollapseToPolyline(angleTolerance).Clone();
+                    Polyline roomClone = room.Perimeter.ICollapseToPolyline(angleTolerance).DeepClone();
                     roomClone.ControlPoints = roomClone.IControlPoints().Select(y => new Point { X = y.X, Y = y.Y, Z = levelBelow.Elevation }).ToList(); //Pull the space down to the level below
                     List<Polyline> externalCurves = roomClone.BooleanDifference(baseCurvesBelow);
                     foreach (Polyline ln in externalCurves)
@@ -230,7 +231,7 @@ namespace BH.Engine.Environment.SAP
 
                 foreach (Space room in spacesInDwelling)
                 {
-                    Polyline roomClone = room.Perimeter.ICollapseToPolyline(angleTolerance).Clone();
+                    Polyline roomClone = room.Perimeter.ICollapseToPolyline(angleTolerance).DeepClone();
                     roomClone.ControlPoints = roomClone.IControlPoints().Select(y => new Point { X = y.X, Y = y.Y, Z = levelAbove.Elevation }).ToList(); //Pull the space down to the level below
                     List<Polyline> externalCurves = roomClone.BooleanDifference(baseCurvesAbove);
                     foreach (Polyline ln in externalCurves)

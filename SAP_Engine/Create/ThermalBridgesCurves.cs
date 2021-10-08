@@ -36,6 +36,8 @@ using BH.Engine.Units;
 using BH.oM.Reflection;
 using BH.oM.Analytical.Elements;
 
+using BH.Engine.Base;
+
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Create
@@ -109,7 +111,7 @@ namespace BH.Engine.Environment.SAP
                     //There may be a balcony above us, find out
                     Level levelAbove = levels[levels.IndexOf(dwellingLevel) + 1];
 
-                    Polyline dwellingCurveAbove = dwellingPerimeter.Clone();
+                    Polyline dwellingCurveAbove = dwellingPerimeter.DeepClone();
                     dwellingCurveAbove.ControlPoints = dwellingCurveAbove.ControlPoints.Select(y => new Point { X = y.X, Y = y.Y, Z = levelAbove.Elevation }).ToList();
 
                     Polyline baseCurveAbove = baseCurves.Where(y => y.IsOnLevel(levelAbove)).FirstOrDefault();
@@ -126,11 +128,11 @@ namespace BH.Engine.Environment.SAP
 
                     foreach (Space room in spacesInDwelling)
                     {
-                        Polyline roomClone = room.Perimeter.ICollapseToPolyline(angleTolerance).Clone();
+                        Polyline roomClone = room.Perimeter.ICollapseToPolyline(angleTolerance).DeepClone();
                         roomClone.ControlPoints = roomClone.IControlPoints().Select(y => new Point { X = y.X, Y = y.Y, Z = levelAbove.Elevation }).ToList(); //Pull the space down to the level below
                         List<Polyline> externalCurves = roomClone.BooleanDifference(baseCurvesAbove);
                         List<Polyline> externalParts = externalCurves.SelectMany(y => y.SplitAtPoints(y.ControlPoints())).ToList();
-                        Polyline baseCurveClone = baseCurve.Clone();
+                        Polyline baseCurveClone = baseCurve.DeepClone();
                         baseCurveClone.ControlPoints = baseCurveClone.IControlPoints().Select(y => new Point { X = y.X, Y = y.Y, Z = levelAbove.Elevation }).ToList();
 
                         List<Polyline> topLines = externalParts.Where(y => y.ControlPoints.Where(z => z.IsOnCurve(baseCurveClone)).Count() == y.ControlPoints().Count()).ToList();
