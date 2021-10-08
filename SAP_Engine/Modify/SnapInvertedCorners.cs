@@ -36,6 +36,8 @@ using BH.oM.Geometry.SettingOut;
 using BH.oM.Analytical.Elements;
 using BH.oM.Reflection;
 
+using BH.Engine.Base;
+
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Modify
@@ -122,7 +124,7 @@ namespace BH.Engine.Environment.SAP
                         {
                             int ceilingIndex = panels.IndexOf(ceiling);
                             double z = ceiling.MinimumLevel();
-                            Polyline spaceClone = space.Perimeter.ICollapseToPolyline(angleTolerance).Clone();
+                            Polyline spaceClone = space.Perimeter.ICollapseToPolyline(angleTolerance).DeepClone();
                             spaceClone.ControlPoints = spaceClone.IControlPoints().Select(y => new Point { X = y.X, Y = y.Y, Z = z }).ToList();
                             ceiling.ExternalEdges = space.Perimeter.ToEdges();
 
