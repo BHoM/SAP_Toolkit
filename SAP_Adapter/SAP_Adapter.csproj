@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0-preview.1.21102.12" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\SAP_Engine\SAP_Engine.csproj" />
     <ProjectReference Include="..\SAP_oM\SAP_oM.csproj" />
   </ItemGroup>
