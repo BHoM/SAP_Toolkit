@@ -11,6 +11,7 @@ namespace BH.oM.Environment.SAP
 {
     public class RunAnalysisCommand : IExecuteCommand, IObject
     {
-
+        public virtual string InputFile { get; set; }
+        public virtual string APIKey { get; set; }
     }
 }
