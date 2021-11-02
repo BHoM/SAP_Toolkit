@@ -61,7 +61,7 @@ namespace BH.Engine.Environment.SAP
         [Input("distanceTolerance", "Distance tolerance for calculating discontinuity points, default is set to the value defined by BH.oM.Geometry.Tolerance.Distance.")]
         [Input("angleTolerance", "Angle tolerance for calculating discontinuity points, default is set to the value defined by BH.oM.Geometry.Tolerance.Angle.")]
         [Output("SAPExport", "A SAP export object")]
-        public static SAPExport SAPExport(Zone dwelling, List<Space> spaces, List<Panel> panels, List<Panel> balconies, List<Polyline> baseCurves, List<Level> levels, List<Opening> frontDoors, double ceilingHeight, double ceilingVoidHeight, double externalWallHeight, double distanceTolerance = BH.oM.Geometry.Tolerance.Distance, double angleTolerance = BH.oM.Geometry.Tolerance.Angle, int crossVentTolerance = 45)
+        public static SAPExport SAPExport(Zone dwelling, List<Space> spaces, List<Panel> panels, List<Panel> balconies, List<Polyline> baseCurves, List<Level> levels, List<BH.oM.Environment.Elements.Opening> frontDoors, double ceilingHeight, double ceilingVoidHeight, double externalWallHeight, double distanceTolerance = BH.oM.Geometry.Tolerance.Distance, double angleTolerance = BH.oM.Geometry.Tolerance.Angle, int crossVentTolerance = 45)
         {
             SAPExport sapExport = new SAPExport();
 
@@ -78,7 +78,7 @@ namespace BH.Engine.Environment.SAP
             sapExport.WetRooms = spacesInDwelling.Where(x => x.SpaceType == SpaceType.Bathroom).Count();
             sapExport.DwellingBeds = spacesInDwelling.Where(x => x.SpaceType == SpaceType.Bedroom).Count();
 
-            Opening doorInDwelling = frontDoors.Where(x => dwellingPerimeter.IIsContaining(x.Bottom(distanceTolerance, angleTolerance))).FirstOrDefault();
+            BH.oM.Environment.Elements.Opening doorInDwelling = frontDoors.Where(x => dwellingPerimeter.IIsContaining(x.Bottom(distanceTolerance, angleTolerance))).FirstOrDefault();
             Space space = spaces.Where(x => x.Perimeter.IIsContaining(doorInDwelling.Bottom(distanceTolerance, angleTolerance).IControlPoints())).FirstOrDefault();
             List<Panel> panelsInSpace = panels.Where(x => x.ConnectedSpaces.Contains(space.Name)).ToList();
             if (!doorInDwelling.Polyline().NormalAwayFromSpace(panelsInSpace))
@@ -116,7 +116,7 @@ namespace BH.Engine.Environment.SAP
 
             sapExport.ShelteredSides = orientations.Count - wallOrientations.Count;
 
-            List<Opening> openings = panelsInDwelling.SelectMany(x => x.Openings).ToList();
+            List<BH.oM.Environment.Elements.Opening> openings = panelsInDwelling.SelectMany(x => x.Openings).ToList();
             List<int> openingOrientations = openings.Select(x => System.Convert.ToInt32(x.Orientation(0, true).Value.ToDegree())).Distinct().ToList();
 
             string crossVent = "False"; //Default position is that there is no cross ventilation
@@ -276,7 +276,7 @@ namespace BH.Engine.Environment.SAP
 
             for (int x = 0; x < openings.Count; x++)
             {
-                Opening o = openings[x];
+                BH.oM.Environment.Elements.Opening o = openings[x];
 
                 wideOverhang.Add(false);
                 overhangRatio.Add(0);

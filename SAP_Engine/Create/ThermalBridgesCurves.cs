@@ -68,9 +68,9 @@ namespace BH.Engine.Environment.SAP
                 foreach (Space s in spacesInDwelling)
                     panelsInDwelling.AddRange(allPanels.Where(y => y.ConnectedSpaces.Contains(s.Name)).ToList());
 
-                List<Opening> openings = panelsInDwelling.OpeningsFromElements();
+                List<BH.oM.Environment.Elements.Opening> openings = panelsInDwelling.OpeningsFromElements();
                 Output<List<Polyline>, List<Polyline>, List<Polyline>> openingParts = new Output<List<Polyline>, List<Polyline>, List<Polyline>>();
-                foreach (Opening o in openings)
+                foreach (BH.oM.Environment.Elements.Opening o in openings)
                 {
                     Output<List<ICurve>, List<ICurve>, List<ICurve>> outputFromExplode = o.ExplodeToParts(distanceTolerance, angleTolerance, numericalTolerance);
                     thermalBridgeCurves.E2.AddRange(outputFromExplode.Item3.Select(y => y.ICollapseToPolyline(angleTolerance)));
