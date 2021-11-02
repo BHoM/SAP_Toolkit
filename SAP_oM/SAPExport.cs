@@ -34,11 +34,14 @@ namespace BH.oM.Environment.SAP
         [Description("Full dwelling name, including window settings and glazing value")]
         public virtual string Reference { get; set; } = "";
 
-        [Description("Number of bathrooms in each dwelling")]
+        [Description("Number of bathrooms, toilets and utility cupboards in each dwelling")]
         public virtual int WetRooms { get; set; } = 0;
 
         [Description("Number of bedrooms in each dwelling")]
         public virtual int DwellingBeds { get; set; } = 0;
+
+        [Description("Number of bedrooms in each dwelling")]
+        public virtual SAP.Opening stuff { get; set; } = new SAP.Opening();
 
         [Description("Number of sheltered sides for each dwelling")]
         public virtual int ShelteredSides { get; set; } = 0;
