@@ -28,29 +28,16 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("An opening that is hosted on a Wall, Floor or Roof that forms part of the thermal line of the dwelling")]
-    public class Opening : BHoMObject
+    [Description("The opening type defines the thermal properties of a series of openings.")]
+    public class OpeningType : BHoMObject
     {
-        [Description("The opening type which defines its thermal properties e.g. u-value")]
-        public virtual SAP.OpeningType OpeningType { get; set; } = new SAP.OpeningType();
+        [Description("The type of opening e.g. solid door, glazed window or rooflight. This should be selected in line with the SAP 2012 guidance")]
+        public virtual TypeOfOpening Type { get; set; } = TypeOfOpening.GlazedWindow;
 
-        [Description("The total surface area of the opening as seen from inside the dwelling (including frame)")]
-        public virtual double Area { get; set; } = 0;
+        [Description("The U-value or thermal conductance of an opening including panes, panels and frame.")]
+        public virtual double uValue { get; set; } = 1.4;
 
-        [Description("Orientation of the opening in degrees clockwise from North")]
-        public virtual double OrientationDegrees { get; set; } = 0;
-
-        [Description("The width of any elements that overhang the opening (e.g. window reveal or balcony).")]
-        public virtual double OverhangWidth { get; set; } = 0;
-
-        [Description("The depth (i.e. distance of projection from the facade) of any elements that overhang the opening (e.g. window reveal or balcony).")]
-        public virtual double OverhangDepth { get; set; } = 0;
-
-        [Description("The name of the wall or roof that the opening is hosted within.")]
-        public virtual string Host { get; set; } = "";
-
-        [Description("The name of the dwelling that the opening is part of.")]
-        public virtual string DwellingName { get; set; } = "";
+        [Description("The g-value or solar heat transmittance of the glazed/transparent part of an opening.")]
+        public virtual double gValue { get; set; } = 0.4;
     }
-
 }
