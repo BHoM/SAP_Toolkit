@@ -28,30 +28,18 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("The dwelling.")]
-    public class Dwell : BHoMObject
+    [Description("An opening that is hosted on a Wall, Floor or Roof that forms part of the thermal line of the dwelling.")]
+    public class Storey : BHoMObject
     {
-        [Description("Project spec.")]
-        public virtual ProjectSpecification ProjectSpec { get; set; } = new ProjectSpecification();
+        [Description("The storey number within the dwelling e.g. 0 = lowest floor.")]
+        public virtual int StoreyNumber { get; set; } = 0;
 
-        [Description("The storeys that make up the levels of the dwelling")]
-        public virtual List<Storey> Storeys { get; set; } = new List<Storey>();
+        [Description("The total floor area of the storey within the dwelling, measured to the internal surface of the walls.")]
+        public virtual double Area { get; set; } = 0;
 
-        [Description("The total living area of the dwelling.")]
-        public virtual double LivingArea { get; set; } = 0.0;
-
-        [Description("The total cooling area of the dwelling.")]
-        public virtual double CoolingArea { get; set; } = 0.0;
-
-        [Description("Walls.")]
-        public virtual List<SAP.Wall> Walls { get; set; } = new List<SAP.Wall>();
-
-        //[Description("Floors")]
-        //public virtual List<SAP.Floor> Floors { get; set; } = new <SAP.Floor>();
-
-        //[Description("Roofs")]
-        //public virtual List<SAP.Roof> Roofs { get; set; } = new List<SAP.Roof>();
-
+        [Description("The average floor to ceiling height of the storey within the dwelling, measured from finished floor to finished ceiling.")]
+        public virtual double Height { get; set; } = 0;
 
     }
+
 }
