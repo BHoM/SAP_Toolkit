@@ -108,9 +108,13 @@
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="XML_oM">
+      <HintPath>C:\ProgramData\BHoM\Assemblies\XML_oM.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Modify\CleanBluebeamMarkup.cs" />
+    <Compile Include="Modify\AddOpenings.cs" />
     <Compile Include="Modify\SnapInvertedCorners.cs" />
     <Compile Include="Objects\BalconyLines.cs" />
     <Compile Include="Objects\PartyFloors.cs" />
