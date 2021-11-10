@@ -69,6 +69,7 @@
     <Compile Include="Dwell.cs" />
     <Compile Include="Opening.cs" />
     <Compile Include="OpeningType.cs" />
+    <Compile Include="Output.cs" />
     <Compile Include="ProjectSpecification.cs" />
     <Compile Include="RunAnalysisCommand.cs" />
     <Compile Include="Storey.cs" />
