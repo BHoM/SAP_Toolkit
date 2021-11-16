@@ -61,7 +61,7 @@ namespace BH.Engine.Environment.SAP
         [Input("distanceTolerance", "Distance tolerance for calculating discontinuity points, default is set to the value defined by BH.oM.Geometry.Tolerance.Distance.")]
         [Input("angleTolerance", "Angle tolerance for calculating discontinuity points, default is set to the value defined by BH.oM.Geometry.Tolerance.Angle.")]
         [Output("SAPExport", "A SAP export object")]
-        public static SAPExport SAPExport(Dwelling dwelling, List<Space> spaces, List<Panel> panels, List<Panel> balconies, List<Polyline> baseCurves, List<Level> levels, List<Opening> frontDoors, double ceilingHeight, double ceilingVoidHeight, double externalWallHeight, double distanceTolerance = BH.oM.Geometry.Tolerance.Distance, double angleTolerance = BH.oM.Geometry.Tolerance.Angle, int crossVentTolerance = 45)
+        public static SAPExport SAPExport(Zone dwelling, List<Space> spaces, List<Panel> panels, List<Panel> balconies, List<Polyline> baseCurves, List<Level> levels, List<Opening> frontDoors, double ceilingHeight, double ceilingVoidHeight, double externalWallHeight, double distanceTolerance = BH.oM.Geometry.Tolerance.Distance, double angleTolerance = BH.oM.Geometry.Tolerance.Angle, int crossVentTolerance = 45)
         {
             SAPExport sapExport = new SAPExport();
 

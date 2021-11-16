@@ -42,14 +42,14 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Create
     {
-        public static List<ThermalBridgesCurves> ThermalBridgesCurves(List<Dwelling> dwellings, List<Space> spaces, List<Panel> allPanels, List<Panel> balconyShades, List<Level> levels, List<Polyline> baseCurves, double distanceTolerance = BH.oM.Geometry.Tolerance.Distance, double angleTolerance = BH.oM.Geometry.Tolerance.Angle, double numericalTolerance = BH.oM.Geometry.Tolerance.Distance)
+        public static List<ThermalBridgesCurves> ThermalBridgesCurves(List<Zone> dwellings, List<Space> spaces, List<Panel> allPanels, List<Panel> balconyShades, List<Level> levels, List<Polyline> baseCurves, double distanceTolerance = BH.oM.Geometry.Tolerance.Distance, double angleTolerance = BH.oM.Geometry.Tolerance.Angle, double numericalTolerance = BH.oM.Geometry.Tolerance.Distance)
         {
             List<ThermalBridgesCurves> thermalBridgesCurves = new List<ThermalBridgesCurves>();
             levels = levels.OrderBy(x => x.Elevation).ToList();
             for (int x = 0; x < dwellings.Count; x++)
             {
                 ThermalBridgesCurves thermalBridgeCurves = new ThermalBridgesCurves();
-                Dwelling dwelling = dwellings[x];
+                Zone dwelling = dwellings[x];
                 Polyline dwellingPerimeter = dwelling.Perimeter.ICollapseToPolyline(angleTolerance);
             
                 thermalBridgeCurves.DwellingName = dwelling.Name;
@@ -147,8 +147,8 @@ namespace BH.Engine.Environment.SAP
                 if (partyFloorTop != null)
                     thermalBridgeCurves.E7.AddRange(partyFloorTop);
 
-                List<Dwelling> dwellingsOnLevel = dwellings.Where(y => y.Perimeter.ICollapseToPolyline(angleTolerance).IsOnLevel(dwellingLevel)).Where(y => y != dwelling).ToList(); //Available dwellings not including the one being thermal bridged
-                List<Dwelling> connectedDwellings = dwellingsOnLevel.Where(y =>
+                List<Zone> dwellingsOnLevel = dwellings.Where(y => y.Perimeter.ICollapseToPolyline(angleTolerance).IsOnLevel(dwellingLevel)).Where(y => y != dwelling).ToList(); //Available dwellings not including the one being thermal bridged
+                List<Zone> connectedDwellings = dwellingsOnLevel.Where(y =>
                 {
                     List<ICurve> curves = new List<ICurve>() { y.Perimeter, dwellingPerimeter };
                     List<PolyCurve> union = curves.BooleanUnion();
