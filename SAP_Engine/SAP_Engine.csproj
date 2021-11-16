@@ -100,7 +100,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modify\CleanBluebeamMarkup.cs" />
     <Compile Include="Modify\SnapInvertedCorners.cs" />
     <Compile Include="Objects\BalconyLines.cs" />
     <Compile Include="Objects\PartyFloors.cs" />

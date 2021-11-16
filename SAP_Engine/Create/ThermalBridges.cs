@@ -37,7 +37,7 @@ namespace BH.Engine.Environment.SAP
         {
             List<ThermalBridges> thermalBridges = new List<ThermalBridges>();
 
-           for (int x = 0; x < thermalBridgesCurves.Count; x++)
+            for (int x = 0; x < thermalBridgesCurves.Count; x++)
             {
                 ThermalBridgesCurves thermalBridgeCurves = thermalBridgesCurves[x];
                 ThermalBridges thermalBridge = new ThermalBridges();
