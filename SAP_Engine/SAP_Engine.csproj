@@ -121,7 +121,6 @@
     <Compile Include="Objects\ToOrientationText.cs" />
     <Compile Include="Create\SAPExport.cs" />
     <Compile Include="Create\ThermalBridges.cs" />
-    <Compile Include="Create\ThermalBridgesCurves.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

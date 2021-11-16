@@ -31,7 +31,7 @@ namespace BH.oM.Environment.SAP
     [Description("A wall that forms part of the thermal line of the dwelling")]
     public class Wall : BHoMObject
     {
-        [Description("The total surface area of the wall as seen from inside the dwelling")]
+        [Description("The total (gross - including opening areas) surface area of the wall as seen from inside the dwelling")]
         public virtual double Area { get; set; } = 0;
 
         [Description("Is the wall a 'curtain wall' according to the definition in the SAP guidance")]
