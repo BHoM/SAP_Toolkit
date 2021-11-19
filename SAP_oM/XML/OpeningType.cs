@@ -25,22 +25,37 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
+using System.Xml.Serialization;
 
-namespace BH.oM.Environment.SAP
+namespace BH.oM.Environment.SAP.XML
 {
-    [Description("The opening type defines the thermal properties of a series of openings.")]
-    public class OpeningType : BHoMObject
+    [Serializable]
+    [XmlRoot(ElementName = "SAP-Opening-Type", IsNullable = false)]
+    public class OpeningType
     {
-        [Description("The type of opening e.g. solid door, glazed window or rooflight. This should be selected in line with the SAP 2012 guidance")]
-        public virtual TypeOfOpening Type { get; set; } = TypeOfOpening.GlazedWindow;
+        [XmlElement("Name")]
+        public virtual string Name { get; set; } = "Window type 1";
 
-        [Description("The U-value or thermal conductance of an opening including panes, panels and frame.")]
-        public virtual double uValue { get; set; } = 1.4;
+        [XmlElement("Description")]
+        public virtual string Description { get; set; } = "Double-glazed windows with aluminimum frame";
 
-        [Description("The g-value or solar heat transmittance of the glazed/transparent part of an opening.")]
+        [XmlElement("Data-Source")]
+        public virtual string DataSource { get; set; } = "2";
+
+        [XmlElement("Type")]
+        public virtual string Type { get; set; } = "4";
+
+        [XmlElement("Glazing-Type")]
+        public virtual string GlazingType { get; set; } = "7";
+
+        [XmlElement("Solar-Transmittance")]
         public virtual double gValue { get; set; } = 0.4;
 
-        [Description("The fraction of the total opening area that is glazed/transparent e.g. a value of 0.8 means 20% of the opening area is frame.")]
+        [XmlElement("Frame-Factor")]
         public virtual double FrameFactor { get; set; } = 0.8;
+
+        [XmlElement("U-Value")]
+        public virtual double uValue { get; set; } = 1.4;
+
     }
 }

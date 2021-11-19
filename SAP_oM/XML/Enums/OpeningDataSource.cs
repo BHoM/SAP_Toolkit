@@ -26,21 +26,9 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-namespace BH.oM.Environment.SAP
+namespace BH.oM.Environment.SAP.XML.Enums
 {
-    [Description("The opening type defines the thermal properties of a series of openings.")]
-    public class OpeningType : BHoMObject
-    {
-        [Description("The type of opening e.g. solid door, glazed window or rooflight. This should be selected in line with the SAP 2012 guidance")]
-        public virtual TypeOfOpening Type { get; set; } = TypeOfOpening.GlazedWindow;
 
-        [Description("The U-value or thermal conductance of an opening including panes, panels and frame.")]
-        public virtual double uValue { get; set; } = 1.4;
-
-        [Description("The g-value or solar heat transmittance of the glazed/transparent part of an opening.")]
-        public virtual double gValue { get; set; } = 0.4;
-
-        [Description("The fraction of the total opening area that is glazed/transparent e.g. a value of 0.8 means 20% of the opening area is frame.")]
-        public virtual double FrameFactor { get; set; } = 0.8;
-    }
+    [Description("Code which indicates the source of opening data.")]
+    public enum OpeningDataSource { ManufacturerDeclaration, SAPTable, BFRCData }
 }
