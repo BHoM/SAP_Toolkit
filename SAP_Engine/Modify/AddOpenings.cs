@@ -56,7 +56,6 @@ namespace BH.Engine.Environment.SAP
 
             List<Opening> sortedOpenings = Enumerable.Reverse(openings.OrderBy(x1 => x1.Area)).ToList();
             List<Wall> sortedWalls = Enumerable.Reverse(walls.OrderBy(x1 => x1.Area)).ToList();
-            List<Opening> groupedOpenings = new List<Opening>();
             List<Wall> allWalls = new List<Wall>();
 
             //Alert when total area of the openings exceeds the area of the largest wall within same space.
@@ -67,6 +66,7 @@ namespace BH.Engine.Environment.SAP
 
             for (int i = 0; i < sortedWalls.Count; i++)
             {
+                List<Opening> groupedOpenings = new List<Opening>();
                 allWalls.Add(sortedWalls[i]);
 
                 while ((areaCounter < sortedWalls[i].Area) && (j < sortedOpenings.Count))
@@ -76,17 +76,13 @@ namespace BH.Engine.Environment.SAP
                     j += 1;
                 }
                 allWalls[i].Openings = groupedOpenings;
-                areaCounter = 0;
-                groupedOpenings.Clear();
-            }
-
+                areaCounter = 0;              
+            }         
             return new Output<List<Wall>, bool>()
             {
                 Item1 = allWalls,
                 Item2 = alert
             };
-
         }
-
     }
 }
