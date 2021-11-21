@@ -82,8 +82,11 @@
     <Compile Include="Enums\TypeOfOpening.cs" />
     <Compile Include="Wall.cs" />
     <Compile Include="XML\Enums\OpeningDataSource.cs" />
+    <Compile Include="XML\Floor.cs" />
     <Compile Include="XML\Opening.cs" />
     <Compile Include="XML\OpeningType.cs" />
+    <Compile Include="XML\Roof.cs" />
+    <Compile Include="XML\Wall.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" Condition="" />
