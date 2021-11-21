@@ -28,10 +28,10 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("The building fabric (e.g. u-values) and services performance (e.g. heating system efficiency) specification to be applied to dwellings.")]
+    [Description("The building fabric (e.g. u-values) and services performance (e.g. heating system efficiency) specification to be applied to dwellings")]
     public class ProjectSpecification : BHoMObject
     {
-        [Description("The location of the dwelling in the UK. Input should be an integer referring to given region according to the SAP 2012 Appendix U4.")]
+        [Description("The location of the dwelling in the UK. Input should be an integer referring to given region according to the SAP 2012 Appendix U4")]
         public virtual int Location { get; set; } = 1;
 
         //[Description("The point within the design and build process that the assessment is being undertaken.")]

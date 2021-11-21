@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("A plane curve. A circular Arc, a curve, with a constant distance from a point, its centre, defined with start and end polarpoints.")]
+    [Description("A plane curve. A circular Arc, a curve, with a constant distance from a point, its centre, defined with start and end polarpoints")]
     public class SAPExport : BHoMObject
     {
         [Description("Full dwelling name, including window settings and glazing value")]

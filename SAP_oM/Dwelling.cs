@@ -28,22 +28,22 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("The dwelling.")]
+    [Description("The dwelling")]
     public class Dwelling : BHoMObject
     {
-        [Description("Project spec.")]
+        [Description("Project spec")]
         public virtual ProjectSpecification ProjectSpec { get; set; } = new ProjectSpecification();
 
         [Description("The storeys that make up the levels of the dwelling")]
         public virtual List<Storey> Storeys { get; set; } = new List<Storey>();
 
-        [Description("The total living area of the dwelling.")]
+        [Description("The total living area of the dwelling")]
         public virtual double LivingArea { get; set; } = 0.0;
 
-        [Description("The total cooling area of the dwelling.")]
+        [Description("The total cooling area of the dwelling")]
         public virtual double CooledArea { get; set; } = 0.0;
 
-        [Description("Walls.")]
+        [Description("Walls")]
         public virtual List<SAP.Wall> Walls { get; set; } = new List<SAP.Wall>();
 
         [Description("Floors")]
@@ -52,6 +52,7 @@ namespace BH.oM.Environment.SAP
         [Description("Roofs")]
         public virtual List<SAP.Roof> Roofs { get; set; } = new List<SAP.Roof>();
 
-
+        [Description("Thermal bridges")]
+        public virtual List<SAP.ThermalBridge> ThermalBridges { get; set; } = new List<SAP.ThermalBridge>();
     }
 }

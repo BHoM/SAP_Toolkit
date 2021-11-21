@@ -37,7 +37,7 @@ namespace BH.oM.Environment.SAP
         [Description("Openings (skylights) that are hosted within the roof")]
         public virtual List<SAP.Opening> Openings { get; set; } = new List<SAP.Opening>();
 
-        [Description("The name of the dwelling that the roof is part of.")]
+        [Description("The name of the dwelling that the roof is part of")]
         public virtual string DwellingName { get; set; } = "";
 
     }

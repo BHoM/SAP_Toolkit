@@ -40,7 +40,7 @@ namespace BH.oM.Environment.SAP
         [Description("Openings (windows & doors) that are hosted within the wall")]
         public virtual List<SAP.Opening> Openings { get; set; } = new List<SAP.Opening>();
 
-        [Description("The name of the dwelling that the wall is part of.")]
+        [Description("The name of the dwelling that the wall is part of")]
         public virtual string DwellingName { get; set; } = "";
 
     }
