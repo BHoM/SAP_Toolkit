@@ -28,14 +28,31 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("An exposed/heat loss floor that forms part of the thermal line of the dwelling")]
-    public class Floor : BHoMObject
+    [Description("A thermal bridge between two thermal elements of the dwelling")]
+    public class ThermalBridge : BHoMObject
     {
-        [Description("The total exposed area of the floor as seen from inside the dwelling")]
-        public virtual double Area { get; set; } = 0;
+        [Description("The thermal bridge type reference according to Table K1 in SAP 2012")]
+        public virtual string Reference { get; set; } = "E2";
 
-        [Description("The name of the dwelling that the floor is part of")]
+        [Description("The length of the thermal bridge")]
+        public virtual double Length { get; set; } = 0;
+
+        [Description("The psi-value (heat loss per linear metre) to be applied to the thermal bridge")]
+        public virtual double PsiValue { get; set; } = 1;
+
+        [Description("The source of the psi-value applied to the thermal bridge")]
+        public virtual string Source { get; set; } = "";
+
+        [Description("The name of the dwelling that the thermal bridge is part of")]
         public virtual string DwellingName { get; set; } = "";
-
     }
 }
+/*
+ *             <SAP-Thermal-Bridge>
+              <Thermal-Bridge-Type>E17</Thermal-Bridge-Type>
+              <Length>5.2</Length>
+              <Psi-Value>-0.14</Psi-Value>
+              <Psi-Value-Source>3</Psi-Value-Source>
+            </SAP-Thermal-Bridge>
+
+    */

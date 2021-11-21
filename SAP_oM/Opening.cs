@@ -40,16 +40,16 @@ namespace BH.oM.Environment.SAP
         [Description("Orientation of the opening in degrees clockwise from North")]
         public virtual double OrientationDegrees { get; set; } = 0;
 
-        [Description("The width of any elements that overhang the opening (e.g. window reveal or balcony).")]
+        [Description("The width of any elements that overhang the opening (e.g. window reveal or balcony)")]
         public virtual double OverhangWidth { get; set; } = 0;
 
-        [Description("The depth (i.e. distance of projection from the facade) of any elements that overhang the opening (e.g. window reveal or balcony).")]
+        [Description("The depth (i.e. distance of projection from the facade) of any elements that overhang the opening (e.g. window reveal or balcony)")]
         public virtual double OverhangDepth { get; set; } = 0;
 
-        [Description("The name of the wall or roof that the opening is hosted within.")]
+        [Description("The name of the wall or roof that the opening is hosted within")]
         public virtual string Host { get; set; } = "";
 
-        [Description("The name of the dwelling that the opening is part of.")]
+        [Description("The name of the dwelling that the opening is part of")]
         public virtual string DwellingName { get; set; } = "";
     }
 

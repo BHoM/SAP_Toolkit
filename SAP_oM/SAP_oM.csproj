@@ -75,6 +75,7 @@
     <Compile Include="ProjectSpecification.cs" />
     <Compile Include="RunAnalysisCommand.cs" />
     <Compile Include="Storey.cs" />
+    <Compile Include="ThermalBridge.cs" />
     <Compile Include="ThermalBridgesCurves.cs" />
     <Compile Include="ThermalBridges.cs" />
     <Compile Include="SAPExport.cs" />
