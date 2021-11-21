@@ -25,27 +25,33 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
+using System.Xml.Serialization;
 
-namespace BH.oM.Environment.SAP
+namespace BH.oM.Environment.SAP.XML
 {
-    [Description("A thermal bridge between two thermal elements of the dwelling")]
-    public class ThermalBridge : BHoMObject
+    [Serializable]
+    [XmlRoot(ElementName = "SAPSAP-Property-Details", IsNullable = false)]
+    public class PropertyDetails
     {
-        [Description("The thermal bridge type reference according to Table K1 in SAP 2012")]
-        public virtual string Reference { get; set; } = "E2";
-        //<to be enum>
+        [XmlElement("Property-Type")]
+        public virtual string PropertyType { get; set; }
 
-        [Description("The length of the thermal bridge")]
-        public virtual double Length { get; set; } = 0;
+        [XmlElement("Built-Form")]
+        public virtual string BuiltForm { get; set; }
 
-        [Description("The psi-value (heat loss per linear metre) to be applied to the thermal bridge")]
-        public virtual double PsiValue { get; set; } = 1;
+        [XmlElement("Level")]
+        public virtual string Level { get; set; }
 
-        [Description("The source of the psi-value applied to the thermal bridge")]
-        public virtual string Source { get; set; } = "Default";
-        //<to be enum>
+        [XmlElement("Living-Area")]
+        public virtual double LivingArea { get; set; }
 
-        [Description("The name of the dwelling that the thermal bridge is part of")]
-        public virtual string DwellingName { get; set; } = "";
+        [XmlElement("Orientation")]
+        public virtual double Orientation { get; set; }
+
+        [XmlElement("Conservatory-Type")]
+        public virtual string ConservatoryType { get; set; }
+
+        [XmlElement("Is-In-Smoke-Control-Area")]
+        public virtual double SmokeControlArea { get; set; }
     }
 }

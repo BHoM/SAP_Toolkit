@@ -25,27 +25,39 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
+using System.Xml.Serialization;
 
-namespace BH.oM.Environment.SAP
+namespace BH.oM.Environment.SAP.XML
 {
-    [Description("A thermal bridge between two thermal elements of the dwelling")]
-    public class ThermalBridge : BHoMObject
+    [Serializable]
+    [XmlRoot(ElementName = "SAP-Building-Part", IsNullable = false)]
+    public class BuildingPart
     {
-        [Description("The thermal bridge type reference according to Table K1 in SAP 2012")]
-        public virtual string Reference { get; set; } = "E2";
-        //<to be enum>
+        [XmlElement("Building-Part-Number")]
+        public virtual string BuildingPartNumber { get; set; } = "1";
 
-        [Description("The length of the thermal bridge")]
-        public virtual double Length { get; set; } = 0;
+        [XmlElement("Identifier")]
+        public virtual string Identifier { get; set; } = "Main dwelling";
 
-        [Description("The psi-value (heat loss per linear metre) to be applied to the thermal bridge")]
-        public virtual double PsiValue { get; set; } = 1;
+        [XmlElement("Construction-Year")]
+        public virtual string ConstructionYear { get; set; } = DateTime.Now.Year.ToString();
 
-        [Description("The source of the psi-value applied to the thermal bridge")]
-        public virtual string Source { get; set; } = "Default";
-        //<to be enum>
+        [XmlElement("Overshading")]
+        public virtual string Overshading { get; set; } = "2";
 
-        [Description("The name of the dwelling that the thermal bridge is part of")]
-        public virtual string DwellingName { get; set; } = "";
+        [XmlElement("SAP-Openings")]
+        public virtual List<Opening> Openings { get; set; }
+
+        [XmlElement("SAP-Floor-Dimensions")]
+        public virtual List<Floor> Floors { get; set; }
+
+        [XmlElement("SAP-Roofs")]
+        public virtual List<Roof> Roofs { get; set; }
+
+        [XmlElement("SAP-Walls")]
+        public virtual List<Wall> Walls { get; set; }
+
+        [XmlElement("SAP-Thermal-Bridges")]
+        public virtual List<ThermalBridge> ThermalBridges { get; set; }
     }
 }

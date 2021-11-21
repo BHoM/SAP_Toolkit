@@ -33,14 +33,14 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Create
     {
-        public static List<ThermalBridges> ThermalBridges(List<ThermalBridgesCurves> thermalBridgesCurves)
+        public static List<ThermalBridgeNames> ThermalBridgeNames(List<ThermalBridgesCurves> thermalBridgesCurves)
         {
-            List<ThermalBridges> thermalBridges = new List<ThermalBridges>();
+            List<ThermalBridgeNames> thermalBridges = new List<ThermalBridgeNames>();
 
             for (int x = 0; x < thermalBridgesCurves.Count; x++)
             {
                 ThermalBridgesCurves thermalBridgeCurves = thermalBridgesCurves[x];
-                ThermalBridges thermalBridge = new ThermalBridges();
+                ThermalBridgeNames thermalBridge = new ThermalBridgeNames();
                 thermalBridge.DwellingName = thermalBridgeCurves.Name;
                 thermalBridge.Reference = thermalBridgeCurves.Reference;
                 thermalBridge.ID = thermalBridgeCurves.ID;
