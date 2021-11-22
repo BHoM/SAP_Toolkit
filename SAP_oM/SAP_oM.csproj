@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LivingArea.cs" />
     <Compile Include="XML\BuildingPart.cs" />
     <Compile Include="Dwelling.cs" />
     <Compile Include="Roof.cs" />

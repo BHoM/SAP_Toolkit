@@ -49,18 +49,42 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Modify
     {
-        public static Output<List<List<Opening>>, List<List<Wall>>> GroupByDwelling (this List<Opening> openings, List<Wall> walls)
+        public static Output<List<List<Wall>>, List<List<Opening>>, List<List<Floor>>, List<List<LivingArea>>> GroupByDwelling (this List<Opening> openings, List<Wall> walls, List<Floor> floors, List<LivingArea> livingAreas)
         {
-            List<Opening> sortedOpenings1 = openings.OrderBy(x => x.DwellingName).ToList();
-            List<Wall> sortedWalls1 = walls.OrderBy(x => x.DwellingName).ToList();
+            //List<Opening> sortedOpenings = openings.OrderBy(x => x.DwellingName).ToList();
+            //List<Wall> sortedWalls = walls.OrderBy(x => x.DwellingName).ToList();
 
-            List<List<Opening>> sortedOpenings = (List<List<Opening>>)sortedOpenings1.GroupBy(x => x.DwellingName);
-            List<List<Wall>> sortedWalls = (List<List<Wall>>)sortedWalls1.GroupBy(x => x.DwellingName);
+           
+            List<List<Opening>> groupedOpenings = openings.OrderBy(x => x.DwellingName)
+                                                          .ToList()
+                                                          .GroupBy(x => x.DwellingName)
+                                                          .Select(grp => grp.ToList())
+                                                          .ToList();
 
-            return new Output<List<List<Opening>>, List<List<Wall>>>()
+            List<List<Wall>> groupedWalls = walls.OrderBy(x => x.DwellingName)
+                                                          .ToList()
+                                                          .GroupBy(x => x.DwellingName)
+                                                          .Select(grp => grp.ToList())
+                                                          .ToList();
+
+            List<List<Floor>> groupedTFA = floors.OrderBy(x => x.DwellingName)
+                                                          .ToList()
+                                                          .GroupBy(x => x.DwellingName)
+                                                          .Select(grp => grp.ToList())
+                                                          .ToList();
+
+            List<List<LivingArea>> groupedLivingAreas = livingAreas.OrderBy(x => x.DwellingName)
+                                                          .ToList()
+                                                          .GroupBy(x => x.DwellingName)
+                                                          .Select(grp => grp.ToList())
+                                                          .ToList();
+
+            return new Output<List<List<Wall>>, List<List<Opening>>, List<List<Floor>>, List<List<LivingArea>>>()
             {
-                Item1 = sortedOpenings,
-                Item2 = sortedWalls
+                Item1 = groupedWalls,
+                Item2 = groupedOpenings,
+                Item3 = groupedTFA,
+                Item4 = groupedLivingAreas
             };
         }
     }
