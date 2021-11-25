@@ -20,11 +20,11 @@ namespace BH.Engine.Environment.SAP
         [Input("inputDirectory", "Full directory to the file.")]
         [Input("run", "Toggle to acitvate the component.")]
         [Output("outputDirectory","Directory to the new file.")]
-       
         public static string CleanBluebeamMarkup(string inputDirectory, bool run = false)
         {
             if (!run)
                 return null;
+
             if (!File.Exists(inputDirectory))
             {
                 BH.Engine.Reflection.Compute.RecordError("Input directory contains a null value or does not exist. Please check your inputs.");
