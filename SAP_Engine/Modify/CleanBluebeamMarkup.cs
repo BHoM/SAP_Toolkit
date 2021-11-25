@@ -19,7 +19,7 @@ namespace BH.Engine.Environment.SAP
     {
         [Description("Cleaning Bluebeam XML export.")]
         [Input("fileSettings", "Full directory to the file.")]
-        [Input("fileSettingsOutut", "Full directory for the output file.")]
+        [Input("fileSettingsOutput", "Full directory for the output file.")]
         [Input("run", "Toggle to acitvate the component.")]
         [Output("outputDirectory","Directory to the new file.")]
         public static string CleanBluebeamMarkup(BH.oM.Adapter.FileSettings fileSettings = null, BH.oM.Adapter.FileSettings fileSettingsOutput = null, bool run = false)
