@@ -20,8 +20,8 @@ namespace BH.Engine.Environment.SAP
         [Description("Cleaning Bluebeam XML export.")]
         [Input("fileSettings", "Full directory to the file.")]
         [Input("fileSettingsOutput", "Full directory for the output file.")]
-        [Input("run", "Toggle to acitvate the component.")]
-        [Output("outputDirectory","Directory to the new file.")]
+        [Input("run", "Toggle to activate the component.")]
+        [Output("outputDirectory", "Directory to the new file.")]
         public static string CleanBluebeamMarkup(BH.oM.Adapter.FileSettings fileSettings = null, BH.oM.Adapter.FileSettings fileSettingsOutput = null, bool run = false)
         {
             if (!run)
@@ -33,12 +33,12 @@ namespace BH.Engine.Environment.SAP
                 return null;
             }
 
-            if (!Path.HasExtension(fileSettings.FileName) || (Path.GetExtension(fileSettings.FileName) != ".xml" && Path.GetExtension(fileSettings.FileName) != ".csproj")
-                || !Path.HasExtension(fileSettingsOutput.FileName) || (Path.GetExtension(fileSettingsOutput.FileName) != ".xml" && Path.GetExtension(fileSettingsOutput.FileName) != ".csproj"))
+            if (!Path.HasExtension(fileSettings.FileName) || (Path.GetExtension(fileSettings.FileName) != ".xml") || !Path.HasExtension(fileSettingsOutput.FileName) || (Path.GetExtension(fileSettingsOutput.FileName) != ".xml"))
             {
                 BH.Engine.Reflection.Compute.RecordError("File name must contain a file extension.");
                 return null;
             }
+
             string id = @"" + fileSettings.Directory + "\\" + fileSettings.FileName;
 
             if (!File.Exists(id))
@@ -46,6 +46,7 @@ namespace BH.Engine.Environment.SAP
                 BH.Engine.Reflection.Compute.RecordError("Input directory contains a null value or does not exist. Please check your inputs.");
                 return null;
             }
+
             string outputDirectory = fileSettingsOutput.Directory + "\\" + fileSettingsOutput.FileName;
             File.WriteAllLines(outputDirectory, File.ReadAllLines(id).Where(line => !(line.Trim().StartsWith("<") && line.Trim().Contains("/>"))));
             return outputDirectory;
