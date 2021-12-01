@@ -12,7 +12,6 @@ using System.ComponentModel;
 using BH.Engine.Base;
 using System.IO;
 
-
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Modify
