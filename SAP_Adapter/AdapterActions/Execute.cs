@@ -26,27 +26,21 @@ namespace BH.Adapter.SAP
 
         public async Task<string> RunCommand(RunAnalysisCommand command)
         {
-            string postURL = "https://ace.argylesoftware.co.uk/buroh/v2/sap-fullsapworksheet-lig-in-text-out";
-            //string postURL = "https://ace.argylesoftware.co.uk/buroh/v2/sap-calculateratings";
-
+            string postURL = command.PostURL;
             string xmlData = System.IO.File.ReadAllText(command.InputFile);
-            //string postURL = command.PostURL;
-
+            
             HttpResponseMessage b = null;
 
             using (var httpClient = new HttpClient())
             {
                 httpClient.BaseAddress = new Uri(postURL);
-                //httpClient.DefaultRequestHeaders.Add("Content-Type", "application/xml");
                 httpClient.DefaultRequestHeaders.Add("x-api-key", command.APIKey);
-                //httpClient.DefaultRequestHeaders.Add("content", xmlData);
-
+                
                 var r = new HttpRequestMessage(HttpMethod.Post, postURL);
                 r.Content = new StringContent(xmlData, Encoding.UTF8, "application/xml");
 
                 b = await httpClient.SendAsync(r);
             }
-
             return await b.Content.ReadAsStringAsync();            
         }
     }
