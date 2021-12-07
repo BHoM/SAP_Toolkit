@@ -117,7 +117,6 @@
     <Compile Include="Create\ThermalBridgesCurves.cs" />
     <Compile Include="Modify\AddOpenings.cs" />
     <Compile Include="Modify\GroupByDwelling.cs" />
-    <Compile Include="Modify\CleanBluebeamMarkup.cs" />
     <Compile Include="Modify\SnapInvertedCorners.cs" />
     <Compile Include="Objects\BalconyLines.cs" />
     <Compile Include="Objects\PartyFloors.cs" />
