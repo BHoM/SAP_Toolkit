@@ -31,7 +31,7 @@ namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "SAP-Wall", IsNullable = false)]
-    public class Wall
+    public class Wall : IObject
     {
         [XmlElement("Name")]
         public virtual string Name { get; set; } = "Wall";

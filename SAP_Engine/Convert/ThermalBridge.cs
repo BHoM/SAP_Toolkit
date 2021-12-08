@@ -28,30 +28,22 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using BH.oM.Reflection.Attributes;
 
-
-namespace BH.oM.Environment.SAP.Convert
+namespace BH.Engine.Environment.SAP
 {
     public static partial class Convert
     {
-        [Description("Convert SAP BuildingPart to XML BuildingPart.")]
-        [Input("buildingPart", "SAP BuildingPart to convert.")]
-        [Output("buildingPart", "XML BuildingPart.")]
-        public static BH.oM.Environment.SAP.XML.BuildingPart xmlBuildingPart(this BH.oM.Environment.SAP.Wall sapBuildingPart)
+        [Description("Convert SAP thermal bridge to XML thermal bridge.")]
+        [Input("sapThermalBridge", "SAP thermal bridge to convert.")]
+        [Output("xmlThermalBridge", "XML thermal bridge.")]
+        public static BH.oM.Environment.SAP.XML.ThermalBridge ToXML(this BH.oM.Environment.SAP.ThermalBridge sapThermalBridge)
         {
-            BH.oM.Environment.SAP.XML.BuildingPart xmlBuildingPart = new BH.oM.Environment.SAP.XML.BuildingPart();
-           /* xmlBuildingPart.BuildingPartNumber = ;
-            xmlBuildingPart.Identifier = ;
-            xmlBuildingPart.ConstructionYear = ;
-            xmlBuildingPart.Overshading = ;
-            xmlBuildingPart.Openings = ;
-            xmlBuildingPart.Floors = ;
-            xmlBuildingPart.Roofs = ;
-            xmlBuildingPart.Walls = ;*/
+            BH.oM.Environment.SAP.XML.ThermalBridge xmlThermalBridge = new BH.oM.Environment.SAP.XML.ThermalBridge();
+            xmlThermalBridge.Type = sapThermalBridge.Reference;
+            xmlThermalBridge.Length = sapThermalBridge.Length;
+            xmlThermalBridge.PsiValue = sapThermalBridge.PsiValue;
+            xmlThermalBridge.Source = sapThermalBridge.Source;
 
-
-
-            return xmlBuildingPart;
+            return xmlThermalBridge;
         }
-            
     }
 }

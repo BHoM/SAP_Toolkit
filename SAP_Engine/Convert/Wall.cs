@@ -28,19 +28,18 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using BH.oM.Reflection.Attributes;
 
-
-namespace BH.oM.Environment.SAP.Convert
+namespace BH.Engine.Environment.SAP
 {
     public static partial class Convert
     {
         [Description("Convert SAP wall to XML wall.")]
-        [Input("wall", "SAP wall to convert.")]
-        [Output("wall", "XML wall.")]
-        public static BH.oM.Environment.SAP.XML.Wall xmlWall(this BH.oM.Environment.SAP.Wall sapWall)
+        [Input("sapWall", "SAP wall to convert.")]
+        [Output("xmlWall", "XML wall.")]
+        public static BH.oM.Environment.SAP.XML.Wall ToXML(this BH.oM.Environment.SAP.Wall sapWall)
         {
             BH.oM.Environment.SAP.XML.Wall xmlWall = new BH.oM.Environment.SAP.XML.Wall();
             xmlWall.Name = sapWall.Name;
-            xmlWall.Description = "This is a wall"; //Descriptive notes about the wall.
+            xmlWall.Description = "Descriptive notes about the wall.";
             xmlWall.Type = "2"; //Type of wall (exposure). 2 = exposed wall
             xmlWall.Area = sapWall.Area;
             xmlWall.UValue = 0.18;

@@ -25,28 +25,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using System.ComponentModel;
 using BH.oM.Reflection.Attributes;
 
-
-namespace BH.oM.Environment.SAP.Convert
+namespace BH.Engine.Environment.SAP
 {
     public static partial class Convert
     {
-        [Description("Convert SAP roof to XML roof.")]
-        [Input("roof", "SAP roof to convert.")]
-        [Output("roof", "XML roof.")]
-        public static BH.oM.Environment.SAP.XML.Roof xmlRoof(this BH.oM.Environment.SAP.Roof sapRoof)
+        [Description("Convert SAP opening to XML opening.")]
+        [Input("sapOpening","SAP opening to convert.")]
+        [Output("xmlOpening","XML opening.")]
+        public static BH.oM.Environment.SAP.XML.Opening ToXML(this BH.oM.Environment.SAP.Opening sapOpening)
         {
-            BH.oM.Environment.SAP.XML.Roof xmlRoof = new BH.oM.Environment.SAP.XML.Roof();
-            xmlRoof.Name = sapRoof.Name;
-            xmlRoof.Description = "";//Descriptive notes about the roof.
-            xmlRoof.Type = "4"; //party ceiling
-            xmlRoof.Area = sapRoof.Area;
-            xmlRoof.UValue = 0.13;
-            xmlRoof.KappaValue = 9;
-
-            return xmlRoof;
+            BH.oM.Environment.SAP.XML.Opening xmlOpening = new BH.oM.Environment.SAP.XML.Opening();
+            xmlOpening.Name = sapOpening.Name;
+            xmlOpening.Type = sapOpening.OpeningType.Name;
+            xmlOpening.Location = sapOpening.Host;
+            xmlOpening.Orientation = sapOpening.OrientationDegrees.ToString();
+            xmlOpening.Width = "6.1";
+            xmlOpening.Height = "1.2";
+            
+            return xmlOpening;
         }
     }
 }

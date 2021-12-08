@@ -74,12 +74,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Convert\BuildingPart.cs" />
-    <Compile Include="Convert\Floor.cs" />
-    <Compile Include="Convert\Opening.cs" />
-    <Compile Include="Convert\OpeningType.cs" />
-    <Compile Include="Convert\Roof.cs" />
-    <Compile Include="Convert\Wall.cs" />
     <Compile Include="LivingArea.cs" />
     <Compile Include="XML\BuildingPart.cs" />
     <Compile Include="Dwelling.cs" />

@@ -31,7 +31,7 @@ namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "SAP-Floor-Dimension", IsNullable = false)]
-    public class Floor
+    public class Floor : IObject
     {
         [XmlElement("Storey")]
         public virtual string Storey { get; set; } = "0";

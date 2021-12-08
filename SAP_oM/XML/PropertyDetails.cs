@@ -31,7 +31,7 @@ namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "SAPSAP-Property-Details", IsNullable = false)]
-    public class PropertyDetails
+    public class PropertyDetails : IObject
     {
         [XmlElement("Property-Type")]
         public virtual string PropertyType { get; set; }
