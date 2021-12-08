@@ -31,7 +31,7 @@ namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "SAP-Opening", IsNullable = false)]
-    public class Opening
+    public class Opening : IObject
     {
         [XmlElement("Name")]
         public virtual string Name { get; set; }

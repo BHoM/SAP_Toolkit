@@ -27,30 +27,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using BH.oM.Reflection.Attributes;
+using BH.oM.Environment.SAP;
 
-
-namespace BH.oM.Environment.SAP.Convert
+namespace BH.Engine.Environment.SAP
 {
     public static partial class Convert
     {
-        [Description("Convert SAP openingtype to XML openingtype.")]
-        [Input("openingType", "SAP openingtype to convert.")]
-        [Output("openingType", "XML openingtype.")]
-        public static BH.oM.Environment.SAP.XML.OpeningType xmlOpeningtype(this BH.oM.Environment.SAP.OpeningType sapOpeningtype)
+        [Description("Convert SAP opening type to XML opening type.")]
+        [Input("sapOpeningType", "SAP opening type to convert.")]
+        [Output("xmlOpeningType", "XML opening type.")]
+        public static BH.oM.Environment.SAP.XML.OpeningType ToXML(this BH.oM.Environment.SAP.OpeningType sapOpeningtype)
         {
             BH.oM.Environment.SAP.XML.OpeningType xmlOpeningType = new BH.oM.Environment.SAP.XML.OpeningType();
             xmlOpeningType.Name = sapOpeningtype.Name;
-            xmlOpeningType.Description = FromSAPToXML(sapOpeningtype.Type);
+            xmlOpeningType.Description = sapOpeningtype.Type.FromSAPToXML(); //or user input, Ross decide
             xmlOpeningType.DataSource = "2"; //manufacturer declaration
-            xmlOpeningType.Type = sapOpeningtype.Type.FromSAPToXMLNumber(); //Type of opening
+            xmlOpeningType.Type = sapOpeningtype.Type.FromSAPToXMLNumber();
             xmlOpeningType.GlazingType = "4"; //1-13, 4 being double low-E hard 0.2
             xmlOpeningType.gValue = sapOpeningtype.gValue;
             xmlOpeningType.FrameFactor = sapOpeningtype.FrameFactor;
             xmlOpeningType.uValue = sapOpeningtype.uValue;
+
             return xmlOpeningType;
         }
 
-        public static string FromSAPToXMLNumber(this TypeOfOpening typeOfOpening)
+        private static string FromSAPToXMLNumber(this TypeOfOpening typeOfOpening)
         {
             switch(typeOfOpening)
             {
@@ -71,7 +72,7 @@ namespace BH.oM.Environment.SAP.Convert
             }
         }
 
-        public static string FromSAPToXML(this TypeOfOpening typeOfOpening)
+        private static string FromSAPToXML(this TypeOfOpening typeOfOpening)
         {
             switch (typeOfOpening)
             {
@@ -90,7 +91,6 @@ namespace BH.oM.Environment.SAP.Convert
                 default:
                     return "";
             }
-        }
-                
+        }                
     }
 }

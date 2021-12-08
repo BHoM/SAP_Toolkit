@@ -31,7 +31,7 @@ namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "SAP-Thermal-Bridge", IsNullable = false)]
-    public class ThermalBridge
+    public class ThermalBridge : IObject
     {
         [XmlElement("Thermal-Bridge-Type")]
         public virtual string Type { get; set; } = "E2";

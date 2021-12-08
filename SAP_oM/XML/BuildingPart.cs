@@ -31,7 +31,7 @@ namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "SAP-Building-Part", IsNullable = false)]
-    public class BuildingPart
+    public class BuildingPart : IObject
     {
         [XmlElement("Building-Part-Number")]
         public virtual string BuildingPartNumber { get; set; } = "1";
