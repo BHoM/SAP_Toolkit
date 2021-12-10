@@ -34,6 +34,9 @@ namespace BH.Engine.Environment.SAP
     public static partial class Convert
     {
         [Description("Convert lists of SAP Objects to a XML BuildingPart.")]
+        [Input("buildingPartNumber", ">An integer value which uniquely identifies the building part in the property.  The value 1 must be assigned to the main dwelling.")]
+        [Input("identifier", "Identifier for the Building part - generally only required if there are more that one Building Parts of the same type e.g. West Wing and East Wing Extensions.")]
+        [Input("constructionYear", "The year when this building part was constructed.")]
         [Input("sapOpenings", "List of SAP openings to convert.")]
         [Input("sapFloors", "List of SAP floors to convert.")]
         [Input("sapRoofs", "List of SAP roofs to convert.")]
