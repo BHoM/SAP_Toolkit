@@ -31,7 +31,7 @@ namespace BH.oM.Environment.SAP
     [Description("An exposed/heat loss roof that forms part of the thermal line of the dwelling")]
     public class Roof : BHoMObject
     {
-        [Description("Type of wall (exposure).")]
+        [Description("Type of roof (exposure).")]
         public virtual TypeOfRoof Type { get; set; } = TypeOfRoof.ExposedRoof;
 
         [Description("The total (gross - including opening areas) area of the roof as seen from inside the dwelling")]
