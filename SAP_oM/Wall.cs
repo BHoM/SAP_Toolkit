@@ -31,6 +31,9 @@ namespace BH.oM.Environment.SAP
     [Description("A wall that forms part of the thermal line of the dwelling")]
     public class Wall : BHoMObject
     {
+        [Description("Type of wall (exposure).")]
+        public virtual TypeOfWall Type { get; set; } = TypeOfWall.ExposedWall;
+
         [Description("The total (gross - including opening areas) surface area of the wall as seen from inside the dwelling")]
         public virtual double Area { get; set; } = 0;
 

@@ -27,6 +27,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using BH.oM.Reflection.Attributes;
+using BH.oM.Base;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -39,14 +40,37 @@ namespace BH.Engine.Environment.SAP
         {
             BH.oM.Environment.SAP.XML.Wall xmlWall = new BH.oM.Environment.SAP.XML.Wall();
             xmlWall.Name = sapWall.Name;
-            xmlWall.Description = "Descriptive notes about the wall.";
-            xmlWall.Type = "2"; //Type of wall (exposure). 2 = exposed wall
+            xmlWall.Description = "Type-" + sapWall.Type.ToString() + "_Area-" + sapWall.Area.ToString() + "_Uvalue-" + "0.18";// summary of inputs type_area_uvalue
+            xmlWall.Type = sapWall.Type.FromSAPToXMLNumber();
             xmlWall.Area = sapWall.Area;
             xmlWall.UValue = 0.18;
             xmlWall.KappaValue = 14;
             xmlWall.CurtainWall = sapWall.CurtainWall;
 
             return xmlWall;
+        }
+        private static string FromSAPToXMLNumber(this BH.oM.Environment.SAP.TypeOfWall typeOfWall)
+        {
+            switch (typeOfWall)
+            {
+                case BH.oM.Environment.SAP.TypeOfWall.BasementWall:
+                    return "1";
+
+                case BH.oM.Environment.SAP.TypeOfWall.ExposedWall:
+                    return "2";
+
+                case BH.oM.Environment.SAP.TypeOfWall.ShelteredWall:
+                    return "3";
+
+                case BH.oM.Environment.SAP.TypeOfWall.PartyWall:
+                    return "4";
+
+                case BH.oM.Environment.SAP.TypeOfWall.InternalWall:
+                    return "5";
+
+                default:
+                    return "";
+            }
         }
     }
 }

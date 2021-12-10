@@ -39,8 +39,8 @@ namespace BH.Engine.Environment.SAP
         {
             BH.oM.Environment.SAP.XML.Floor xmlFloor = new BH.oM.Environment.SAP.XML.Floor();
             xmlFloor.Storey = "0";
-            xmlFloor.Description = "Descriptive notes about the floor";
-            xmlFloor.Type = "2"; //2 meaning ground floor
+            xmlFloor.Description = "Type-" + sapFloor.Type.ToString() + "_Area-" + sapFloor.Area.ToString() + "_Uvalue-" + "0.13"; ;
+            xmlFloor.Type = sapFloor.Type.FromSAPToXMLNumber(); 
             xmlFloor.Area = sapFloor.Area;
             xmlFloor.StoreyHeight = 0;
             xmlFloor.HeatLossArea = 0;
@@ -48,6 +48,26 @@ namespace BH.Engine.Environment.SAP
             xmlFloor.KappaValue = 80;
 
             return xmlFloor;
-        } 
+        }
+        private static string FromSAPToXMLNumber(this BH.oM.Environment.SAP.TypeOfFloor typeOfFloor)
+        {
+            switch (typeOfFloor)
+            {
+                case BH.oM.Environment.SAP.TypeOfFloor.BasementFloor:
+                    return "1";
+
+                case BH.oM.Environment.SAP.TypeOfFloor.GroundFloor:
+                    return "2";
+
+                case BH.oM.Environment.SAP.TypeOfFloor.UpperFloor:
+                    return "3";
+
+                case BH.oM.Environment.SAP.TypeOfFloor.PartyFloor:
+                    return "4";
+
+                default:
+                    return "";
+            }
+        }
     }
 }

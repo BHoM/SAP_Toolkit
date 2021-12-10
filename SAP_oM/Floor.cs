@@ -31,6 +31,9 @@ namespace BH.oM.Environment.SAP
     [Description("An exposed/heat loss floor that forms part of the thermal line of the dwelling")]
     public class Floor : BHoMObject
     {
+        [Description("Type of floor (exposure).")]
+        public virtual TypeOfFloor Type { get; set; } = TypeOfFloor.GroundFloor;
+
         [Description("The total exposed area of the floor as seen from inside the dwelling")]
         public virtual double Area { get; set; } = 0;
 

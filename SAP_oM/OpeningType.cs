@@ -31,8 +31,14 @@ namespace BH.oM.Environment.SAP
     [Description("The opening type defines the thermal properties of a series of openings")]
     public class OpeningType : BHoMObject
     {
+        [Description("The source of the data for this type of opening.")]
+        public virtual OpeningDataSource DataSource { get; set; } = OpeningDataSource.ManufacturerDeclaration;
+
         [Description("The type of opening e.g. solid door, glazed window or rooflight. This should be selected in line with the SAP 2012 guidance")]
         public virtual TypeOfOpening Type { get; set; } = TypeOfOpening.GlazedWindow;
+
+        [Description("The type of glazing; if U-value is from BFRC or manufacturer declaration, give as one of: single, double, triple")]
+        public virtual TypeOfGlazing GlazingType { get; set; } = TypeOfGlazing.NotAppicable;
 
         [Description("The U-value or thermal conductance of an opening including panes, panels and frame")]
         public virtual double uValue { get; set; } = 1.4;

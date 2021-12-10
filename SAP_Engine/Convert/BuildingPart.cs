@@ -40,13 +40,13 @@ namespace BH.Engine.Environment.SAP
         [Input("sapWalls", "List of SAP walls to convert.")]
         [Input("sapThermalBridges", "List of SAP thermal bridges to convert.")]
         [Output("xmlBuildingPart", "XML BuildingPart.")]
-        public static BH.oM.Environment.SAP.XML.BuildingPart ToXML(List<BH.oM.Environment.SAP.Opening> sapOpenings = null, List<BH.oM.Environment.SAP.Floor> sapFloors = null, List<BH.oM.Environment.SAP.Roof> sapRoofs = null, List<BH.oM.Environment.SAP.Wall> sapWalls = null, List<BH.oM.Environment.SAP.ThermalBridge> sapThermalBridges= null)
+        public static BH.oM.Environment.SAP.XML.BuildingPart ToXML(string buildingPartNumber = "1", string identifier = "Main dwelling", string constructionYear = "2021", BH.oM.Environment.SAP.WindowOvershading overshading = BH.oM.Environment.SAP.WindowOvershading.AverageOrUnknown, List<BH.oM.Environment.SAP.Opening> sapOpenings = null, List<BH.oM.Environment.SAP.Floor> sapFloors = null, List<BH.oM.Environment.SAP.Roof> sapRoofs = null, List<BH.oM.Environment.SAP.Wall> sapWalls = null, List<BH.oM.Environment.SAP.ThermalBridge> sapThermalBridges= null)
         {
             BH.oM.Environment.SAP.XML.BuildingPart xmlBuildingPart = new BH.oM.Environment.SAP.XML.BuildingPart();
-            xmlBuildingPart.BuildingPartNumber = "1"; 
-            xmlBuildingPart.Identifier = "Main dwelling"; //generally only required if there are more that one Building Parts
-            xmlBuildingPart.ConstructionYear = "2021";
-            xmlBuildingPart.Overshading = "2"; // average or unknown
+            xmlBuildingPart.BuildingPartNumber = buildingPartNumber; 
+            xmlBuildingPart.Identifier = identifier;
+            xmlBuildingPart.ConstructionYear = constructionYear;
+            xmlBuildingPart.Overshading = overshading.FromSAPToXML();
             xmlBuildingPart.Openings = sapOpenings.Select(x => x.ToXML()).ToList();
             xmlBuildingPart.Floors = sapFloors.Select(x => x.ToXML()).ToList();
             xmlBuildingPart.Roofs = sapRoofs.Select(x => x.ToXML()).ToList();
@@ -54,6 +54,26 @@ namespace BH.Engine.Environment.SAP
             xmlBuildingPart.ThermalBridges = sapThermalBridges.Select(x => x.ToXML()).ToList();
 
             return xmlBuildingPart;
-        }          
+        }
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.WindowOvershading windowOvershading)
+        {
+            switch (windowOvershading)
+            {
+                case BH.oM.Environment.SAP.WindowOvershading.VeryLittle:
+                    return "1";
+
+                case BH.oM.Environment.SAP.WindowOvershading.AverageOrUnknown:
+                    return "2";
+
+                case BH.oM.Environment.SAP.WindowOvershading.MoreThanAverage:
+                    return "3";
+
+                case BH.oM.Environment.SAP.WindowOvershading.Heavy:
+                    return "4";
+
+                default:
+                    return "";
+            }
+        }
     }
 }

@@ -75,9 +75,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\OpeningDataSource.cs" />
+    <Compile Include="Enums\TypeOfFloor.cs" />
     <Compile Include="Enums\TypeOfGlazing.cs" />
     <Compile Include="Enums\TypeOfRoof.cs" />
-    <Compile Include="Enums\WallTypeCode.cs" />
+    <Compile Include="Enums\TypeOfWall.cs" />
+    <Compile Include="Enums\WindowOvershading.cs" />
     <Compile Include="LivingArea.cs" />
     <Compile Include="XML\BuildingPart.cs" />
     <Compile Include="Dwelling.cs" />
