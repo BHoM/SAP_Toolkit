@@ -40,17 +40,16 @@ namespace BH.Engine.Environment.SAP
         {
             BH.oM.Environment.SAP.XML.OpeningType xmlOpeningType = new BH.oM.Environment.SAP.XML.OpeningType();
             xmlOpeningType.Name = sapOpeningtype.Name;
-            xmlOpeningType.Description = sapOpeningtype.Type.FromSAPToXML(); //or user input, Ross decide
-            xmlOpeningType.DataSource = "2"; //manufacturer declaration
+            xmlOpeningType.Description = "Type-" + sapOpeningtype.Type.ToString() + "_Uvalue-" + sapOpeningtype.uValue.ToString(); ;
+            xmlOpeningType.DataSource = sapOpeningtype.DataSource.FromSAPToXMLData();
             xmlOpeningType.Type = sapOpeningtype.Type.FromSAPToXMLNumber();
-            xmlOpeningType.GlazingType = "4"; //1-13, 4 being double low-E hard 0.2
+            xmlOpeningType.GlazingType = sapOpeningtype.GlazingType.FromSAPToXMLGlazing();
             xmlOpeningType.gValue = sapOpeningtype.gValue;
             xmlOpeningType.FrameFactor = sapOpeningtype.FrameFactor;
             xmlOpeningType.uValue = sapOpeningtype.uValue;
 
             return xmlOpeningType;
         }
-
         private static string FromSAPToXMLNumber(this TypeOfOpening typeOfOpening)
         {
             switch(typeOfOpening)
@@ -71,26 +70,69 @@ namespace BH.Engine.Environment.SAP
                     return "";
             }
         }
-
-        private static string FromSAPToXML(this TypeOfOpening typeOfOpening)
+        private static string FromSAPToXMLData(this OpeningDataSource dataSource)
         {
-            switch (typeOfOpening)
+            switch (dataSource)
             {
-                case TypeOfOpening.SolidDoor:
-                    return "Solid door";
+                case OpeningDataSource.ManufacturerDeclaration:
+                    return "2";
 
-                case TypeOfOpening.HalfGlazedDoor:
-                    return "Half glazed door";
+                case OpeningDataSource.SAPtable:
+                    return "3";
 
-                case TypeOfOpening.GlazedWindow:
-                    return "Glazed window";
-
-                case TypeOfOpening.Rooflight:
-                    return "Rooflight";
+                case OpeningDataSource.BFRCdata:
+                    return "4";
 
                 default:
                     return "";
             }
-        }                
+        }
+        private static string FromSAPToXMLGlazing(this TypeOfGlazing glazingType)
+        {
+            switch (glazingType)
+            {
+                case TypeOfGlazing.NotAppicable:
+                    return "1";
+
+                case TypeOfGlazing.Single:
+                    return "2";
+
+                case TypeOfGlazing.Double:
+                    return "3";
+                
+                case TypeOfGlazing.DoubleLowEHard02:
+                    return "4";
+
+                case TypeOfGlazing.DoubleLowEHard015:
+                    return "5";
+
+                case TypeOfGlazing.DoubleLowESoft01:
+                    return "6";
+
+                case TypeOfGlazing.DoubleLowESoft005:
+                    return "7";
+
+                case TypeOfGlazing.Triple:
+                    return "8";
+
+                case TypeOfGlazing.TripleLowEHard02:
+                    return "9";
+
+                case TypeOfGlazing.TripleLowEHard015:
+                    return "10";
+
+                case TypeOfGlazing.TripleLowESoft01:
+                    return "11";
+
+                case TypeOfGlazing.TripleLowESoft005:
+                    return "12";
+
+                case TypeOfGlazing.SecondaryGlazing:
+                    return "13";
+
+                default:
+                    return "";
+            }
+        }
     }
 }

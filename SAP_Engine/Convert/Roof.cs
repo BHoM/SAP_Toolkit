@@ -39,13 +39,27 @@ namespace BH.Engine.Environment.SAP
         {
             BH.oM.Environment.SAP.XML.Roof xmlRoof = new BH.oM.Environment.SAP.XML.Roof();
             xmlRoof.Name = sapRoof.Name;
-            xmlRoof.Description = "Descriptive notes about the roof.";
-            xmlRoof.Type = "4"; //party ceiling
+            xmlRoof.Description = "Type-" + sapRoof.Type.ToString() + "_Area-" + sapRoof.Area.ToString() + "_Uvalue-" + "0.13"; ;
+            xmlRoof.Type = sapRoof.Type.FromSAPToXMLNumber();
             xmlRoof.Area = sapRoof.Area;
             xmlRoof.UValue = 0.13;
             xmlRoof.KappaValue = 9;
 
             return xmlRoof;
+        }
+        private static string FromSAPToXMLNumber(this BH.oM.Environment.SAP.TypeOfRoof typeOfRoof)
+        {
+            switch (typeOfRoof)
+            {
+                case BH.oM.Environment.SAP.TypeOfRoof.ExposedRoof:
+                    return "2";
+
+                case BH.oM.Environment.SAP.TypeOfRoof.PartyCieling:
+                    return "4";
+
+                default:
+                    return "";
+            }
         }
     }
 }
