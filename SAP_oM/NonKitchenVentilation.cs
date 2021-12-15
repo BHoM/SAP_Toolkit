@@ -28,10 +28,24 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-<<<<<<< HEAD
-    public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR, NaturalIntermittentExtractFansAndPassiveVents = 10 }
-=======
-    public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR, NaturalIntermittentExtractFansAndPassiveVents = 10  }
->>>>>>> 021cc72 (initial code)
+    [Description("Describing the ventilation in the non-kitchen rooms of the dwelling.")]
+    public class NonKitchenVentilation : BHoMObject
+    {
+        [Description("MEV dc, number of fans in room, rooms other than kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
+        public virtual string RoomFans { get; set; } = "2"; //maybe separate
+
+        [Description("MEV dc, number of fans via duct, rooms other than kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
+        public virtual string DuctFans { get; set; } = "2"; //maybe separate kitchen comp
+
+        [Description("MEV dc, specific fan power of fans via duct, rooms other than kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
+        public virtual string DuctFansSpecificPower { get; set; } = "2"; //maybe separate kitchen comp
+
+        [Description("MEV dc, number of fans through wall, rooms other than kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
+        public virtual string WallFans { get; set; } = "2"; //maybe separate 
+
+        [Description("MEV dc, specific fan power of fans through wall, rooms other than kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
+        public virtual string WallFansSpecificPower { get; set; } = "2"; //maybe separate 
+
+    }
 }
+
