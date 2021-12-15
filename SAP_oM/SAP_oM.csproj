@@ -75,12 +75,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\OpeningDataSource.cs" />
+    <Compile Include="Enums\PressureTestCode.cs" />
+    <Compile Include="Enums\TypeOfDuct.cs" />
+    <Compile Include="Enums\TypeOfDuctInsulation.cs" />
     <Compile Include="Enums\TypeOfFloor.cs" />
     <Compile Include="Enums\TypeOfGlazing.cs" />
     <Compile Include="Enums\TypeOfRoof.cs" />
+    <Compile Include="Enums\TypeOfVentilation.cs" />
     <Compile Include="Enums\TypeOfWall.cs" />
+    <Compile Include="Enums\VentilationDataSource.cs" />
     <Compile Include="Enums\WindowOvershading.cs" />
+    <Compile Include="KitchenVentilation.cs" />
     <Compile Include="LivingArea.cs" />
+    <Compile Include="NonKitchenVentilation.cs" />
+    <Compile Include="PressureTestSAP.cs" />
+    <Compile Include="Ventilation.cs" />
+    <Compile Include="VentilationType.cs" />
     <Compile Include="XML\BuildingPart.cs" />
     <Compile Include="Dwelling.cs" />
     <Compile Include="Roof.cs" />
@@ -105,6 +115,7 @@
     <Compile Include="XML\PropertyDetails.cs" />
     <Compile Include="XML\Roof.cs" />
     <Compile Include="XML\ThermalBridge.cs" />
+    <Compile Include="XML\Ventilation.cs" />
     <Compile Include="XML\Wall.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -121,6 +121,7 @@
     <Compile Include="Convert\OpeningType.cs" />
     <Compile Include="Convert\Roof.cs" />
     <Compile Include="Convert\ThermalBridge.cs" />
+    <Compile Include="Convert\Ventilation.cs" />
     <Compile Include="Convert\Wall.cs" />
     <Compile Include="Modify\CleanBluebeamMarkup.cs" />
     <Compile Include="Create\ThermalBridgesCurves.cs" />
