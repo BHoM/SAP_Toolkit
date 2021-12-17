@@ -28,34 +28,14 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Details of the means by which the building is ventilated")]
-    public class Ventilation : BHoMObject
+    [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
+    public class PressureTestMade : BHoMObject
     {
-        [Description("The number of Open Fireplaces in the Property. An Open Fireplace is a fireplace that still allows air to pass between the inside of the Property and the outside.")]
-        public virtual string numOpenFireplaces { get; set; } = "0";
-
-        [Description("The number of Open Flues in the Property.")]
-        public virtual string numOpenFlues { get; set; } = "0";
-
-        [Description("The number of flueless gas fires in the Property.")]
-        public virtual string numFluelessGasFires { get; set; } = "0";
-
         [Description("Whether there has been a pressure test, or whether an assumed value is used for the air permeability.")]
-        public virtual PressureTest PressureTest { get; set; } = new PressureTest(); //Enum
+        public virtual PressureTestDone? Type { get; set; } = null; 
 
-        [Description("The number of sheltered sides in the Property.")]
-        public virtual string numShelteredSides { get; set; } = "2";
-
-        [Description("The type of ventilation.")] //Enum, probably a component enum done
-        public virtual VentilationType Type { get; set; } = new VentilationType();
-
-        [Description("")]
-        public virtual string PSVCount { get; set; } = "0"; //maybe separate 
-
-        [Description("")]
-        public virtual bool IsMechanicalVentApprovedInstallerScheme { get; set; } = true; //maybe separate 
-
-        [Description("Mechanical vent ducts index number; if applicable.")]
-        public virtual string MechanicalVentDuctsIndexNumber { get; set; } = "2"; //maybe separate 
+        [Description("Air permeability; only if pressure test (yes or assumed).")]
+        public virtual string AirPermability { get; set; } = ""; 
     }
 }
+
