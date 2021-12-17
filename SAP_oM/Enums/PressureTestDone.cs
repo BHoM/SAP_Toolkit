@@ -28,22 +28,6 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Details of the means by which the building is ventilated")]
-    public class VentilationRates : BHoMObject
-    {
-        [Description("The number of Open Fireplaces in the Property. An Open Fireplace is a fireplace that still allows air to pass between the inside of the Property and the outside.")]
-        public virtual string OpenFireplaces { get; set; } = null;
-
-        [Description("The number of Open Flues in the Property.")]
-        public virtual string OpenFlues { get; set; } = null;
-
-        [Description("Total amount of fans in the dwelling.")]
-        public virtual int? FansCount { get; set; } = null;
-
-        [Description("The number of passive stack vents.")]
-        public virtual string PSVCount { get; set; } = null;
-
-        [Description("The number of flueless gas fires in the Property.")]
-        public virtual string FluelessGasFires { get; set; } = null;
-    }
+    [Description("Code which indicates whether a pressure test has been done, or whether an assumed value is used.")]
+    public enum PressureTestDone { YesMeasured = 1, YesDesignValue, YesExistingDwelling = 6 }
 }

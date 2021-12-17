@@ -31,38 +31,14 @@ namespace BH.oM.Environment.SAP
     [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
     public class VentilationType : BHoMObject
     {
-        [Description("The type of ventilation.")] 
-        public virtual TypeOfVentilation Type { get; set; } = new TypeOfVentilation();
+        [Description("The type of ventilation.")]
+        public virtual MechanicalVentilation MechanicalVentilation { get; set; } = null;
 
-        [Description("Source of mechanical ventilation data; only if mechanical ventilation.")] 
-        public virtual VentilationDataSource MechanicalVentilationDataSource { get; set; } = new VentilationDataSource();
+        [Description("The type of ventilation.")]
+        public virtual NaturalVentilation NaturalVentilation { get; set; } = null;
 
-        [Description("Mechanical vent system index number; if mechanical vent data from database (MEV c, MEV dc, MV, MVHR).")]
-        public virtual string MechanicalVentSystemIndexNumber { get; set; } = "2"; //also in vent component
-
-        [Description("Mechanical ventilation system make and model; if mech vent system data is manufacturer declaration.")]
-        public virtual string MechanicalVentSystemMakeModel { get; set; } = "2"; //also in vent component
-
-        [Description("Number of wet rooms, including the kitchen; if mech vent data from manufacturer declaration or database (MEV c, MV, MVHR).")]
-        public virtual string numWetRooms { get; set; } = "2"; //MakeInput Kitchen?
-
-        [Description("Mechanical vent specific fan power in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV c, MV, MVHR).")]
-        public virtual string MechanicalVentSpecificFanPower { get; set; } = "2"; //also in vent component
-
-        [Description("Mechanical vent heat recovery efficiency percentage; if mechanical vent data from manufacturer declaration (MVHR).")]
-        public virtual string MechanicalVentHeatRecoveryEfficiency { get; set; } = "2"; //also in vent component
-
-        [Description("Mechanical vent duct type; if MEV c, MV or MVHR.")]
-        public virtual TypeofDuct MechanicalVentDuctType { get; set; } = new TypeofDuct(); //also in vent component ENUM DONE
-
-        [Description("Mechanical vent duct insulation; if MVHR.")]
-        public virtual TypeofDuctInsulation MechanicalVentDuctInsulation { get; set; } = new TypeofDuctInsulation(); //also in vent component ENUM DONE
-
-        [Description("Mechanical vent duct insulation; if MVHR.")]
-        public virtual KitchenVentilation Kitchen { get; set; } = new KitchenVentilation(); //also in vent component ENUM DONE
-
-        [Description("Mechanical vent duct insulation; if MVHR.")]
-        public virtual NonKitchenVentilation NonKitchen { get; set; } = new NonKitchenVentilation(); //also in vent component ENUM DONE
+        [Description("Additional data needed if dwelling is existing.")]
+        public virtual ExistingDwellingData AdditionalVentData { get; set; } = new ExistingDwellingData();
 
     }
 }
