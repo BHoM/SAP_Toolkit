@@ -29,17 +29,10 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
-    public class VentilationType : BHoMObject
+    public class NaturalVentilation : BHoMObject
     {
         [Description("The type of ventilation.")]
-        public virtual MechanicalVentilation MechanicalVentilation { get; set; } = null;
-
-        [Description("The type of ventilation.")]
-        public virtual NaturalVentilation NaturalVentilation { get; set; } = null;
-
-        [Description("Additional data needed if dwelling is existing.")]
-        public virtual ExistingDwellingData AdditionalVentData { get; set; } = new ExistingDwellingData();
+        public virtual TypeOfVentilation? Type { get; set; } = null;
 
     }
 }
-

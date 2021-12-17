@@ -28,18 +28,31 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
-    public class VentilationType : BHoMObject
+    [Description("Details of the means by which the building is ventilated")]
+    public class VentilationRates : BHoMObject
     {
-        [Description("The type of ventilation.")]
-        public virtual MechanicalVentilation MechanicalVentilation { get; set; } = null;
+        [Description("The number of Open Fireplaces in the Property. An Open Fireplace is a fireplace that still allows air to pass between the inside of the Property and the outside.")]
+        public virtual string numOpenFireplaces { get; set; } = "0";
 
-        [Description("The type of ventilation.")]
-        public virtual NaturalVentilation NaturalVentilation { get; set; } = null;
+        [Description("The number of Open Flues in the Property.")]
+        public virtual string numOpenFlues { get; set; } = "0";
 
-        [Description("Additional data needed if dwelling is existing.")]
-        public virtual ExistingDwellingData AdditionalVentData { get; set; } = new ExistingDwellingData();
+        [Description("The number of flueless gas fires in the Property.")]
+        public virtual string numFluelessGasFires { get; set; } = "0";
 
+        [Description("Whether there has been a pressure test, or whether an assumed value is used for the air permeability.")]
+        public virtual PressureTest PressureTest { get; set; } = new PressureTest(); //Enum
+
+        [Description("The number of sheltered sides in the Property.")]
+        public virtual string numShelteredSides { get; set; } = "2";
+
+        [Description("The type of ventilation.")] //Enum, probably a component enum done
+        public virtual VentilationType Type { get; set; } = new VentilationType();
+
+        [Description("")]
+        public virtual string PSVCount { get; set; } = "0"; //maybe separate 
+
+        [Description("Mechanical vent ducts index number; if applicable.")]
+        public virtual string MechanicalVentDuctsIndexNumber { get; set; } = "2"; //maybe separate 
     }
 }
-

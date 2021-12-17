@@ -32,22 +32,10 @@ namespace BH.oM.Environment.SAP
     public class PressureTest : BHoMObject
     {
         [Description("Whether there has been a pressure test, or whether an assumed value is used for the air permeability.")]
-        public virtual PressureTestCode PressureTestType { get; set; } = new PressureTestCode(); //  SAP
+        public virtual PressureTestMade Made { get; set; } = new PressureTestMade(); //  SAP
 
-        [Description("Air permeability; only if pressure test (yes or assumed).")]
-        public virtual string AirPermability { get; set; } = ""; //in convert method, based on pressuretestcode
-
-        [Description("The type of ground floor; only if no pressure test.")] //Can't find types. but to implement in convert, based on pressure test
-        public virtual string GroundFloorType { get; set; } = "1";
-
-        [Description("The construction of the walls; only if no pressure test.")]//Can't find types. but to implement in convert, based on pressure test
-        public virtual string WallType { get; set; } = "1";
-
-        [Description("Is there a draft lobby?  Only if no pressure test.")]
-        public virtual bool HasDraughtLobby { get; set; } = false;
-
-        [Description("Draughtstripping percentage; only if no pressure test.")]
-        public virtual string DraughtStripping { get; set; } = "10";
+        [Description("Whether there has been a pressure test, or whether an assumed value is used for the air permeability.")]
+        public virtual PressureTestNo NoPressureTest { get; set; } = new PressureTestNo(); //  SAP
 
     }
 }

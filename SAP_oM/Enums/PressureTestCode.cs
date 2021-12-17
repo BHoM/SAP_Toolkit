@@ -29,5 +29,5 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates whether a pressure test has been done, or whether an assumed value is used.")]
-    public enum PressureTestCode { YesNewDwellingMeasured = 1, YesNewDwellingDesignValue, NoAssumedForCalc, ExisitingDwellingSAPAlgorithm, NewDwellingAverage, YesExistingDwelling }
+    public enum PressureTestCode { NoAssumedForCalc = 3, ExisitingDwellingSAPAlgorithm, NewDwellingAverage }
 }

@@ -29,17 +29,21 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
-    public class VentilationType : BHoMObject
+    public class PressureTestNo : BHoMObject
     {
-        [Description("The type of ventilation.")]
-        public virtual MechanicalVentilation MechanicalVentilation { get; set; } = null;
+        [Description("Whether there has been a pressure test, or whether an assumed value is used for the air permeability.")]
+        public virtual PressureTestCode? Type { get; set; } = null;
 
-        [Description("The type of ventilation.")]
-        public virtual NaturalVentilation NaturalVentilation { get; set; } = null;
+        [Description("The type of ground floor; only if no pressure test.")] //Can't find types. but to implement in convert, based on pressure test
+        public virtual string GroundFloorType { get; set; } = "";
 
-        [Description("Additional data needed if dwelling is existing.")]
-        public virtual ExistingDwellingData AdditionalVentData { get; set; } = new ExistingDwellingData();
+        [Description("The construction of the walls; only if no pressure test.")]//Can't find types. but to implement in convert, based on pressure test
+        public virtual string WallType { get; set; } = "";
 
+        [Description("Is there a draft lobby?  Only if no pressure test.")]
+        public virtual bool HasDraughtLobby { get; set; } = new bool();
+
+        [Description("Draughtstripping percentage; only if no pressure test.")]
+        public virtual string DraughtStripping { get; set; } = "";
     }
 }
-
