@@ -35,7 +35,7 @@ namespace BH.Engine.Environment.SAP
         [Description("Convert SAP ventilation to XML ventilation.")]
         [Input("sapVentilation", "SAP ventilation to convert.")]
         [Output("xmlVentilation", "XML ventilation.")]
-        public static BH.oM.Environment.SAP.XML.Ventilation ToXML(this BH.oM.Environment.SAP.Ventilation sapVentilation)
+        public static BH.oM.Environment.SAP.XML.Ventilation ToXML(this BH.oM.Environment.SAP.VentilationRates sapVentilation)
         {
             BH.oM.Environment.SAP.XML.Ventilation xmlVentilation = new BH.oM.Environment.SAP.XML.Ventilation();
 
@@ -75,51 +75,92 @@ namespace BH.Engine.Environment.SAP
             xmlVentilation.numOpenFireplaces = sapVentilation.numOpenFireplaces;
             xmlVentilation.numOpenFlues = sapVentilation.numOpenFlues;
             xmlVentilation.numFluelessGasFires = sapVentilation.numFluelessGasFires;
-            xmlVentilation.PressureTest = sapVentilation.PressureTest.PressureTestType.FromSAPToXML();
-            xmlVentilation.AirPermability = sapVentilation.PressureTest.AirPermability;
-            xmlVentilation.GroundFloorType = sapVentilation.PressureTest.GroundFloorType;
-            xmlVentilation.WallType = sapVentilation.PressureTest.WallType;
-            xmlVentilation.HasDraughtLobby = sapVentilation.PressureTest.HasDraughtLobby;
-            xmlVentilation.DraughtStripping = sapVentilation.PressureTest.DraughtStripping;
+            if (sapVentilation.PressureTest.NoPressureTest.Type == null && sapVentilation.PressureTest.Made.Type == null)
+            {
+                xmlVentilation.PressureTest = null;
+            }
+            else if (sapVentilation.PressureTest.Made.Type == null)
+            {
+                xmlVentilation.PressureTest = sapVentilation.PressureTest.NoPressureTest.Type.FromSAPToXML();
+            }
+            else if (sapVentilation.PressureTest.NoPressureTest.Type == null)
+            {
+                xmlVentilation.PressureTest = sapVentilation.PressureTest.Made.Type.FromSAPToXML();
+            }
+            
+            xmlVentilation.AirPermability = sapVentilation.PressureTest.Made.AirPermability;
+            xmlVentilation.GroundFloorType = sapVentilation.PressureTest.NoPressureTest.GroundFloorType;
+            xmlVentilation.WallType = sapVentilation.PressureTest.NoPressureTest.WallType;
+            xmlVentilation.HasDraughtLobby = sapVentilation.PressureTest.NoPressureTest.HasDraughtLobby;
+            xmlVentilation.DraughtStripping = sapVentilation.PressureTest.NoPressureTest.DraughtStripping;
             xmlVentilation.numShelteredSides = sapVentilation.numShelteredSides;
-            xmlVentilation.Type = sapVentilation.Type.Type.FromSAPToXML();
-            xmlVentilation.MechanicalVentilationDataSource = sapVentilation.Type.MechanicalVentilationDataSource.FromSAPToXML();
-            xmlVentilation.MechanicalVentSystemIndexNumber = sapVentilation.Type.MechanicalVentSystemIndexNumber;
-            xmlVentilation.MechanicalVentSystemMakeModel = sapVentilation.Type.MechanicalVentSystemMakeModel;
-            xmlVentilation.numWetRooms = sapVentilation.Type.numWetRooms;
-            xmlVentilation.MechanicalVentSpecificFanPower = sapVentilation.Type.MechanicalVentSpecificFanPower;
-            xmlVentilation.MechanicalVentHeatRecoveryEfficiency = sapVentilation.Type.MechanicalVentHeatRecoveryEfficiency;
-            xmlVentilation.MechanicalVentDuctType = sapVentilation.Type.MechanicalVentDuctType.FromSAPToXML();
-            xmlVentilation.MechanicalVentDuctInsulation = sapVentilation.Type.MechanicalVentDuctInsulation.FromSAPToXML();
-            xmlVentilation.numKitchenRoomFans = sapVentilation.Type.Kitchen.RoomFans;
-            xmlVentilation.KitchenRoomFansSpecificPower = sapVentilation.Type.Kitchen.RoomFansSpecificPower;
-            xmlVentilation.numNonKitchenRoomFans = sapVentilation.Type.NonKitchen.RoomFans;
-            xmlVentilation.numKitchenDuctFans = sapVentilation.Type.Kitchen.DuctFans;
-            xmlVentilation.KitchenDuctFansSpecificPower = sapVentilation.Type.Kitchen.DuctFansSpecificPower;
-            xmlVentilation.numNonKitchenDuctFans = sapVentilation.Type.NonKitchen.DuctFans;
-            xmlVentilation.NonKitchenDuctFansSpecificPower = sapVentilation.Type.NonKitchen.DuctFansSpecificPower;
-            xmlVentilation.numKitchenWallFans = sapVentilation.Type.Kitchen.WallFans;
-            xmlVentilation.KitchenWallFansSpecificPower = sapVentilation.Type.Kitchen.WallFansSpecificPower;
-            xmlVentilation.numNonKitchenWallFans = sapVentilation.Type.NonKitchen.WallFans;
-            xmlVentilation.NonKitchenWallFansSpecificPower = sapVentilation.Type.NonKitchen.WallFansSpecificPower;
-            xmlVentilation.ExtractFansCount = sapVentilation.Type.Kitchen.RoomFans + sapVentilation.Type.NonKitchen.RoomFans + sapVentilation.Type.Kitchen.DuctFans + sapVentilation.Type.NonKitchen.DuctFans + sapVentilation.Type.Kitchen.WallFans + sapVentilation.Type.NonKitchen.WallFans;
+            if (sapVentilation.Type.MechanicalVentilation.Type == null && sapVentilation.Type.NaturalVentilation.Type == null)
+            {
+                xmlVentilation.Type = null;
+            }
+            else if (sapVentilation.Type.MechanicalVentilation.Type == null)
+            {
+                xmlVentilation.Type = sapVentilation.Type.MechanicalVentilation.Type.FromSAPToXML();
+            }
+            else if (sapVentilation.Type.MechanicalVentilation.Type == null)
+            {
+                xmlVentilation.Type = sapVentilation.Type.MechanicalVentilation.Type.FromSAPToXML();
+            }
+
+            xmlVentilation.MechanicalVentilationDataSource = sapVentilation.Type.MechanicalVentilation.DataSource.FromSAPToXML();
+            xmlVentilation.MechanicalVentSystemIndexNumber = sapVentilation.Type.MechanicalVentilation.SystemIndexNumber;
+            xmlVentilation.MechanicalVentSystemMakeModel = sapVentilation.Type.MechanicalVentilation.SystemMakeModel;
+            xmlVentilation.numWetRooms = sapVentilation.Type.MechanicalVentilation.numWetRooms;
+            xmlVentilation.MechanicalVentSpecificFanPower = sapVentilation.Type.MechanicalVentilation.SpecificFanPower;
+            xmlVentilation.MechanicalVentHeatRecoveryEfficiency = sapVentilation.Type.MechanicalVentilation.HeatRecoveryEfficiency;
+            xmlVentilation.MechanicalVentDuctType = sapVentilation.Type.MechanicalVentilation.DuctType.FromSAPToXML();
+            xmlVentilation.MechanicalVentDuctInsulation = sapVentilation.Type.MechanicalVentilation.DuctInsulation.FromSAPToXML();
+            xmlVentilation.numKitchenRoomFans = sapVentilation.Type.AdditionalVentData.KitchenVentilation.RoomFans;
+            xmlVentilation.KitchenRoomFansSpecificPower = sapVentilation.Type.AdditionalVentData.KitchenVentilation.RoomFansSpecificPower;
+            xmlVentilation.numNonKitchenRoomFans = sapVentilation.Type.AdditionalVentData.NonKitchenVentilation.RoomFans;
+            xmlVentilation.NonKitchenRoomFansSpecificPower = sapVentilation.Type.AdditionalVentData.NonKitchenVentilation.RoomFansSpecificPower;
+            xmlVentilation.numKitchenDuctFans = sapVentilation.Type.AdditionalVentData.KitchenVentilation.DuctFans;
+            xmlVentilation.KitchenDuctFansSpecificPower = sapVentilation.Type.AdditionalVentData.KitchenVentilation.DuctFansSpecificPower;
+            xmlVentilation.numNonKitchenDuctFans = sapVentilation.Type.AdditionalVentData.NonKitchenVentilation.DuctFans;
+            xmlVentilation.NonKitchenDuctFansSpecificPower = sapVentilation.Type.AdditionalVentData.NonKitchenVentilation.DuctFansSpecificPower;
+            xmlVentilation.numKitchenWallFans = sapVentilation.Type.AdditionalVentData.KitchenVentilation.WallFans;
+            xmlVentilation.KitchenWallFansSpecificPower = sapVentilation.Type.AdditionalVentData.KitchenVentilation.WallFansSpecificPower;
+            xmlVentilation.numNonKitchenWallFans = sapVentilation.Type.AdditionalVentData.NonKitchenVentilation.WallFans;
+            xmlVentilation.NonKitchenWallFansSpecificPower = sapVentilation.Type.AdditionalVentData.NonKitchenVentilation.WallFansSpecificPower;
+            xmlVentilation.ExtractFansCount = sapVentilation.Type.AdditionalVentData.KitchenVentilation.RoomFans + sapVentilation.Type.AdditionalVentData.NonKitchenVentilation.RoomFans + sapVentilation.Type.AdditionalVentData.KitchenVentilation.DuctFans + sapVentilation.Type.AdditionalVentData.NonKitchenVentilation.DuctFans + sapVentilation.Type.AdditionalVentData.KitchenVentilation.WallFans + sapVentilation.Type.AdditionalVentData.NonKitchenVentilation.WallFans;
             xmlVentilation.PSVCount = sapVentilation.PSVCount;
-            xmlVentilation.IsMechanicalVentApprovedInstallerScheme = sapVentilation.IsMechanicalVentApprovedInstallerScheme;
+            xmlVentilation.IsMechanicalVentApprovedInstallerScheme = sapVentilation.Type.MechanicalVentilation.ApprovedInstallerScheme;
             xmlVentilation.MechanicalVentDuctsIndexNumber = sapVentilation.MechanicalVentDuctsIndexNumber;
 
             return xmlVentilation;
         }
-        private static string FromSAPToXML(this BH.oM.Environment.SAP.PressureTestCode pressureTestCode)
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.PressureTestDone? pressureTestDone)
+        {
+            switch (pressureTestDone)
+            {
+                case BH.oM.Environment.SAP.PressureTestDone.YesMeasured:
+                    return "1";
+
+<<<<<<< HEAD
+                case BH.oM.Environment.SAP.PressureTestCode.YesNewDwellingDesignValue:
+>>>>>>> 021cc72 (initial code)
+=======
+                case BH.oM.Environment.SAP.PressureTestDone.YesDesignValue:
+>>>>>>> dcf5189 (Dividing up components)
+                    return "2";
+
+                case BH.oM.Environment.SAP.PressureTestDone.YesExistingDwelling:
+                    return "6";
+
+                default:
+                    return "";
+            }
+        }
+
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.PressureTestCode? pressureTestCode)
         {
             switch (pressureTestCode)
             {
-                case BH.oM.Environment.SAP.PressureTestCode.YesNewDwellingMeasured:
-                    return "1";
-
-                case BH.oM.Environment.SAP.PressureTestCode.YesNewDwellingDesignValue:
->>>>>>> 021cc72 (initial code)
-                    return "2";
-
                 case BH.oM.Environment.SAP.PressureTestCode.NoAssumedForCalc:
                     return "3";
 
@@ -129,19 +170,20 @@ namespace BH.Engine.Environment.SAP
                 case BH.oM.Environment.SAP.PressureTestCode.NewDwellingAverage:
                     return "5";
 
-                case BH.oM.Environment.SAP.PressureTestCode.YesExistingDwelling:
-                    return "6";
-
                 default:
                     return "";
             }
         }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
         private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfVentilation? typeOfVentilation)
 =======
         private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfVentilation typeOfVentilation)
 >>>>>>> 021cc72 (initial code)
+=======
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfVentilation? typeOfVentilation)
+>>>>>>> dcf5189 (Dividing up components)
         {
             switch (typeOfVentilation)
             {

@@ -29,26 +29,13 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Describing the ventilation in the non-kitchen rooms of the dwelling.")]
-    public class NonKitchenVentilation : BHoMObject
+    public class ExistingDwellingData : BHoMObject
     {
         [Description("MEV dc, number of fans in room, rooms other than kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        public virtual int RoomFans { get; set; } = 0; //maybe separate
+        public virtual NonKitchenVentilation NonKitchenVentilation { get; set; } = new NonKitchenVentilation(); 
 
         [Description("MEV dc, specific fan power of fans in room, rooms other than kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
-        public virtual string RoomFansSpecificPower { get; set; } = ""; //maybe separate
-
-        [Description("MEV dc, number of fans via duct, rooms other than kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        public virtual int DuctFans { get; set; } = 0; //maybe separate kitchen comp
-
-        [Description("MEV dc, specific fan power of fans via duct, rooms other than kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
-        public virtual string DuctFansSpecificPower { get; set; } = ""; //maybe separate kitchen comp
-
-        [Description("MEV dc, number of fans through wall, rooms other than kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        public virtual int WallFans { get; set; } = 0; //maybe separate 
-
-        [Description("MEV dc, specific fan power of fans through wall, rooms other than kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
-        public virtual string WallFansSpecificPower { get; set; } = ""; //maybe separate 
+        public virtual KitchenVentilation KitchenVentilation { get; set; } = new KitchenVentilation(); 
 
     }
 }
-

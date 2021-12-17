@@ -28,22 +28,22 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Details of the means by which the building is ventilated")]
-    public class VentilationRates : BHoMObject
+    [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
+    public class PressureTestNo : BHoMObject
     {
-        [Description("The number of Open Fireplaces in the Property. An Open Fireplace is a fireplace that still allows air to pass between the inside of the Property and the outside.")]
-        public virtual string OpenFireplaces { get; set; } = null;
+        [Description("Whether there has been a pressure test, or whether an assumed value is used for the air permeability.")]
+        public virtual PressureTestCode? Type { get; set; } = null;
 
-        [Description("The number of Open Flues in the Property.")]
-        public virtual string OpenFlues { get; set; } = null;
+        [Description("The type of ground floor; only if no pressure test.")] //Can't find types. but to implement in convert, based on pressure test
+        public virtual string GroundFloorType { get; set; } = "";
 
-        [Description("Total amount of fans in the dwelling.")]
-        public virtual int? FansCount { get; set; } = null;
+        [Description("The construction of the walls; only if no pressure test.")]//Can't find types. but to implement in convert, based on pressure test
+        public virtual string WallType { get; set; } = "";
 
-        [Description("The number of passive stack vents.")]
-        public virtual string PSVCount { get; set; } = null;
+        [Description("Is there a draft lobby?  Only if no pressure test.")]
+        public virtual bool HasDraughtLobby { get; set; } = new bool();
 
-        [Description("The number of flueless gas fires in the Property.")]
-        public virtual string FluelessGasFires { get; set; } = null;
+        [Description("Draughtstripping percentage; only if no pressure test.")]
+        public virtual string DraughtStripping { get; set; } = "";
     }
 }
