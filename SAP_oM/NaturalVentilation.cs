@@ -32,7 +32,7 @@ namespace BH.oM.Environment.SAP
     public class NaturalVentilation : BHoMObject
     {
         [Description("The type of ventilation.")]
-        public virtual TypeOfVentilation? Type { get; set; } = null;
+        public virtual NaturalVentilationType? Type { get; set; } = null;
 
     }
 }
