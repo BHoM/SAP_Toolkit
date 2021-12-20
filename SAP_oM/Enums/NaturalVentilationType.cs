@@ -29,5 +29,7 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of ventilation.")]
-    public enum TypeOfVentilation { MEVc =5 , MEVdc, MV, MVHR  }
+    public enum NaturalVentilationType
+    {
+        NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, NaturalIntermittentExtractFansAndPassiveVents = 10 }
 }

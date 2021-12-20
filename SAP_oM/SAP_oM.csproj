@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\NaturalVentilationType.cs" />
     <Compile Include="ExistingDwellingData.cs" />
     <Compile Include="MechanicalVentilation.cs" />
     <Compile Include="Enums\OpeningDataSource.cs" />

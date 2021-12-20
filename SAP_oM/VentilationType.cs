@@ -38,7 +38,7 @@ namespace BH.oM.Environment.SAP
         public virtual NaturalVentilation NaturalVentilation { get; set; } = null;
 
         [Description("Additional data needed if dwelling is existing.")]
-        public virtual ExistingDwellingData AdditionalVentData { get; set; } = new ExistingDwellingData();
+        public virtual ExistingDwellingData AdditionalVentData { get; set; } = null;
 
     }
 }

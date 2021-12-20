@@ -92,49 +92,49 @@ namespace BH.oM.Environment.SAP.XML
         public virtual string MechanicalVentDuctInsulation { get; set; } = "2"; 
 
         [Description("MEV dc, number of fans in room, kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        public virtual int numKitchenRoomFans { get; set; } = 2; 
+        public virtual int? numKitchenRoomFans { get; set; } = 2; 
 
         [Description("MEV dc, specific fan power of fans in room, kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
         public virtual string KitchenRoomFansSpecificPower { get; set; } = "2"; 
 
         [Description("MEV dc, number of fans in room, rooms other than kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        public virtual int numNonKitchenRoomFans { get; set; } = 2;
+        public virtual int? numNonKitchenRoomFans { get; set; } = 2;
 
         [Description("MEV dc, specific fan power of fans in room, rooms other than kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
         public virtual string NonKitchenRoomFansSpecificPower { get; set; } = "0"; 
 
         [Description("MEV dc, number of fans via duct, kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        public virtual int numKitchenDuctFans { get; set; } = 2; 
+        public virtual int? numKitchenDuctFans { get; set; } = 2; 
 
         [Description("MEV dc, specific fan power of fans via duct, kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
         public virtual string KitchenDuctFansSpecificPower { get; set; } = "2"; 
 
         [Description("MEV dc, number of fans via duct, rooms other than kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        public virtual int numNonKitchenDuctFans { get; set; } = 2;
+        public virtual int? numNonKitchenDuctFans { get; set; } = 2;
 
         [Description("MEV dc, specific fan power of fans via duct, rooms other than kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
         public virtual string NonKitchenDuctFansSpecificPower { get; set; } = "2"; 
 
         [Description("MEV dc, number of fans through wall, kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        public virtual int numKitchenWallFans { get; set; } = 2; 
+        public virtual int? numKitchenWallFans { get; set; } = 2; 
 
         [Description("MEV dc, specific fan power of fans through wall, kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
         public virtual string KitchenWallFansSpecificPower { get; set; } = "2"; 
 
         [Description("MEV dc, number of fans through wall, rooms other than kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        public virtual int numNonKitchenWallFans { get; set; } = 2; 
+        public virtual int? numNonKitchenWallFans { get; set; } = 2; 
 
         [Description("MEV dc, specific fan power of fans through wall, rooms other than kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
         public virtual string NonKitchenWallFansSpecificPower { get; set; } = "2";  
 
         [Description("")]
-        public virtual int ExtractFansCount { get; set; } = 2; 
+        public virtual int? ExtractFansCount { get; set; } = 2; 
 
         [Description("")]
         public virtual string PSVCount { get; set; } = "2"; 
 
         [Description("")]
-        public virtual bool IsMechanicalVentApprovedInstallerScheme { get; set; } = true; 
+        public virtual bool? IsMechanicalVentApprovedInstallerScheme { get; set; } = true; 
 
         [Description("Mechanical vent ducts index number; if applicable.")]
         public virtual string MechanicalVentDuctsIndexNumber { get; set; } = "2"; 
