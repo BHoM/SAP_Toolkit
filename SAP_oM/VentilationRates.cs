@@ -32,27 +32,18 @@ namespace BH.oM.Environment.SAP
     public class VentilationRates : BHoMObject
     {
         [Description("The number of Open Fireplaces in the Property. An Open Fireplace is a fireplace that still allows air to pass between the inside of the Property and the outside.")]
-        public virtual string numOpenFireplaces { get; set; } = "0";
+        public virtual string numOpenFireplaces { get; set; } = null;
 
         [Description("The number of Open Flues in the Property.")]
-        public virtual string numOpenFlues { get; set; } = "0";
+        public virtual string numOpenFlues { get; set; } = null;
 
-        [Description("The number of flueless gas fires in the Property.")]
-        public virtual string numFluelessGasFires { get; set; } = "0";
-
-        [Description("Whether there has been a pressure test, or whether an assumed value is used for the air permeability.")]
-        public virtual PressureTest PressureTest { get; set; } = new PressureTest(); //Enum
-
-        [Description("The number of sheltered sides in the Property.")]
-        public virtual string numShelteredSides { get; set; } = "2";
-
-        [Description("The type of ventilation.")] //Enum, probably a component enum done
-        public virtual VentilationType Type { get; set; } = new VentilationType();
+        [Description("Total amount of fans in the dwelling.")]
+        public virtual int? ExtractFansCount { get; set; } = null;
 
         [Description("")]
-        public virtual string PSVCount { get; set; } = "0"; //maybe separate 
+        public virtual string PSVCount { get; set; } = null;
 
-        [Description("Mechanical vent ducts index number; if applicable.")]
-        public virtual string MechanicalVentDuctsIndexNumber { get; set; } = "2"; //maybe separate 
+        [Description("The number of flueless gas fires in the Property.")]
+        public virtual string numFluelessGasFires { get; set; } = null; 
     }
 }

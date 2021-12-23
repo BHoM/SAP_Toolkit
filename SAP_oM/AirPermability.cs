@@ -28,7 +28,15 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-    public enum NaturalVentilationType
-    { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, NaturalIntermittentExtractFansAndPassiveVents = 10 }
+    [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
+    public class AirPermability : BHoMObject
+    {
+        [Description("Whether there has been a pressure test, or whether an assumed value is used for the air permeability.")]
+        public virtual PressureTestCode? PressureTest { get; set; } = null;
+
+        [Description("Air permeability; only if pressure test (yes or assumed).")]
+        public virtual string DesignAirPermability { get; set; } = null;
+
+    }
 }
+

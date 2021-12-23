@@ -28,7 +28,20 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-    public enum NaturalVentilationType
-    { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, NaturalIntermittentExtractFansAndPassiveVents = 10 }
+    [Description("Details of the means by which the building is ventilated")]
+    public class Ventilation : BHoMObject
+    {
+        [Description("The number of sheltered sides in the Property. Min/max 0/4.")]
+        public virtual string numShelteredSides { get; set; } = "0";
+
+        [Description("The ventilation rates of the dwelling.")]
+        public virtual VentilationRates VentilationRates { get; set; } = new VentilationRates();
+
+        [Description("Details about the air permability and wheter a pressure test has been done.")]
+        public virtual AirPermability AirPermability { get; set; } = new AirPermability();
+
+        [Description("The ventilation strategy for the dwelling.")]
+        public virtual VentilationStrategy VentilationStrategy { get; set; } = new VentilationStrategy();
+
+    }
 }
