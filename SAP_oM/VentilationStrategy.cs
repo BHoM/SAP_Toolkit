@@ -1,6 +1,6 @@
 ﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -35,7 +35,7 @@ namespace BH.oM.Environment.SAP
         public virtual TypeOfVentilation? Type { get; set; } = null;
 
         [Description("Is mechanical vent an approved installer scheme.")]
-        public virtual bool? ApprovedInstallation { get; set; } = null; 
+        public virtual bool? ApprovedInstallation { get; set; } = null;
 
         [Description("Source of mechanical ventilation data.")]
         public virtual VentilationDataSource? DetailsTakenFrom { get; set; } = null;
@@ -47,10 +47,9 @@ namespace BH.oM.Environment.SAP
         public virtual TypeofDuctInsulation? DuctInsulationType { get; set; } = null;
 
         [Description("Mechanical vent ducts index number; if applicable.")]
-        public virtual string MechVentSystemIndexNumber { get; set; } = null;  
+        public virtual string MechVentSystemIndexNumber { get; set; } = null;
 
         [Description("If mechanical ventilation, extra details is needed.")]
         public virtual MechanicalVentilationDetails MechVentDetails { get; set; } = null;
     }
 }
-

@@ -30,6 +30,5 @@ namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of ventilation.")]
     public enum NaturalVentilationType
-    {
-        NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, NaturalIntermittentExtractFansAndPassiveVents = 10 }
+    { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, NaturalIntermittentExtractFansAndPassiveVents = 10 }
 }
