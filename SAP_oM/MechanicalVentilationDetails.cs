@@ -28,15 +28,22 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
-    public class PressureTest : BHoMObject
+    [Description("User defined details")]
+    public class MechanicalVentilationDetails : BHoMObject
     {
-        [Description("Whether there has been a pressure test, or whether an assumed value is used for the air permeability.")]
-        public virtual PressureTestMade Made { get; set; } = new PressureTestMade(); //  SAP
+        [Description("Mechanical vent duct type; if MEV c, MV or MVHR.")]
+        public virtual TypeofDuct? DuctType { get; set; } = null; 
 
-        [Description("Whether there has been a pressure test, or whether an assumed value is used for the air permeability.")]
-        public virtual PressureTestNo NoPressureTest { get; set; } = new PressureTestNo(); //  SAP
+        [Description("Mechanical vent system index number; if mechanical vent data from database (MEV c, MEV dc, MV, MVHR).")]
+        public virtual string SystemIndexNumber { get; set; } = null; 
 
+        [Description("Mechanical ventilation system make and model; if mech vent system data is manufacturer declaration.")]
+        public virtual string SystemMakeModel { get; set; } = null; 
+
+        [Description("Mechanical vent specific fan power in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV c, MV, MVHR).")]
+        public virtual string SpecificFanPower { get; set; } = null; 
+
+        [Description("Mechanical vent heat recovery efficiency percentage; if mechanical vent data from manufacturer declaration (MVHR).")]
+        public virtual string HeatRecoveryEfficiency { get; set; } = null; 
     }
 }
-
