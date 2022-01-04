@@ -74,12 +74,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\NaturalVentilationType.cs" />
-    <Compile Include="ExistingDwellingData.cs" />
-    <Compile Include="MechanicalVentilation.cs" />
     <Compile Include="Enums\OpeningDataSource.cs" />
     <Compile Include="Enums\PressureTestCode.cs" />
-    <Compile Include="Enums\PressureTestDone.cs" />
     <Compile Include="Enums\TypeOfDuct.cs" />
     <Compile Include="Enums\TypeOfDuctInsulation.cs" />
     <Compile Include="Enums\TypeOfFloor.cs" />
@@ -90,17 +86,12 @@
     <Compile Include="Enums\VentilationDataSource.cs" />
     <Compile Include="Enums\WindowOvershading.cs" />
     <Compile Include="ExtraFanDetails.cs" />
-    <Compile Include="MechanicalVentilationDetails.cs" />
-    <Compile Include="ExtraNoPressureTest.cs" />
     <Compile Include="VentilationStrategy.cs" />
     <Compile Include="KitchenVentilation.cs" />
     <Compile Include="LivingArea.cs" />
     <Compile Include="MechanicalVentilationDetails.cs" />
-    <Compile Include="NaturalVentilation.cs" />
-    <Compile Include="NonKitchenVentilation.cs" />
     <Compile Include="AirPermability.cs" />
-    <Compile Include="PressureTestNo.cs" />
-    <Compile Include="PressureTestMade.cs" />
+    <Compile Include="ExtraNoPressureTest.cs" />
     <Compile Include="Ventilation.cs" />
     <Compile Include="VentilationRates.cs" />
     <Compile Include="XML\BuildingPart.cs" />
