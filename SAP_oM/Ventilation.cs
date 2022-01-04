@@ -37,7 +37,7 @@ namespace BH.oM.Environment.SAP
         [Description("The ventilation rates of the dwelling.")]
         public virtual VentilationRates VentilationRates { get; set; } = new VentilationRates();
 
-        [Description("Details about the air permability and wheter a pressure test has been done.")]
+        [Description("Details about the air permability and whether a pressure test has been made.")]
         public virtual AirPermability AirPermability { get; set; } = new AirPermability();
 
         [Description("The ventilation strategy for the dwelling.")]

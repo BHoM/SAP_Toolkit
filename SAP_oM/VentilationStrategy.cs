@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
+    [Description("Strategy for the ventilation of the dwelling.")]
     public class VentilationStrategy : BHoMObject
     {
         [Description("The type of ventilation.")]
@@ -37,7 +37,7 @@ namespace BH.oM.Environment.SAP
         [Description("Is mechanical vent an approved installer scheme.")]
         public virtual bool? ApprovedInstallation { get; set; } = null; 
 
-        [Description("Source of mechanical ventilation data; only if mechanical ventilation.")]
+        [Description("Source of mechanical ventilation data.")]
         public virtual VentilationDataSource? DetailsTakenFrom { get; set; } = null;
 
         [Description("Number of wet rooms, including the kitchen; if mech vent data from manufacturer declaration or database (MEV c, MV, MVHR).")]

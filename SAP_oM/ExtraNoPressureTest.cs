@@ -18,7 +18,7 @@
  *                                                                            
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
- */
+ *
 
 using System;
 using System.Collections.Generic;
@@ -28,14 +28,24 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
-    public class PressureTestMade : BHoMObject
+    //Needed if possible to convert all SAP objects to what's defined in the XML schema
+    [Description("Including additional information when no pressure test is made.")]
+    public class ExtraNoPressureTest : BHoMObject
     {
         [Description("Whether there has been a pressure test, or whether an assumed value is used for the air permeability.")]
-        public virtual PressureTestDone? Type { get; set; } = null; 
+        public virtual PressureTestCode? Type { get; set; } = null;
 
-        [Description("Air permeability; only if pressure test (yes or assumed).")]
-        public virtual string AirPermability { get; set; } = ""; 
+        [Description("The type of ground floor; only if no pressure test.")] 
+        public virtual string GroundFloorType { get; set; } = "";
+
+        [Description("The construction of the walls; only if no pressure test.")]
+        public virtual string WallType { get; set; } = "";
+
+        [Description("Is there a draft lobby?  Only if no pressure test.")]
+        public virtual bool HasDraughtLobby { get; set; } = new bool();
+
+        [Description("Draughtstripping percentage; only if no pressure test.")]
+        public virtual string DraughtStripping { get; set; } = "";
     }
 }
-
+*/

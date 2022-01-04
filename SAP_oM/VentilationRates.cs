@@ -32,18 +32,18 @@ namespace BH.oM.Environment.SAP
     public class VentilationRates : BHoMObject
     {
         [Description("The number of Open Fireplaces in the Property. An Open Fireplace is a fireplace that still allows air to pass between the inside of the Property and the outside.")]
-        public virtual string numOpenFireplaces { get; set; } = null;
+        public virtual string OpenFireplaces { get; set; } = null;
 
         [Description("The number of Open Flues in the Property.")]
-        public virtual string numOpenFlues { get; set; } = null;
+        public virtual string OpenFlues { get; set; } = null;
 
         [Description("Total amount of fans in the dwelling.")]
-        public virtual int? ExtractFansCount { get; set; } = null;
+        public virtual int? FansCount { get; set; } = null;
 
-        [Description("")]
+        [Description("The number of passive stack vents.")]
         public virtual string PSVCount { get; set; } = null;
 
         [Description("The number of flueless gas fires in the Property.")]
-        public virtual string numFluelessGasFires { get; set; } = null; 
+        public virtual string FluelessGasFires { get; set; } = null; 
     }
 }
