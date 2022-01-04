@@ -18,7 +18,7 @@
  *                                                                            
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
- */
+ *
 
 using System;
 using System.Collections.Generic;
@@ -28,27 +28,45 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Describing the ventilation in the non-kitchen rooms of the dwelling.")]
-    public class NonKitchenVentilation : BHoMObject
+    //Needed if possible to convert all SAP objects to what's defined in the XML schema
+    [Description("Additional information about the fans.")]
+    public class ExtraFanDetails : BHoMObject
     {
+        [Description("MEV dc, number of fans in room, kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
+        public virtual int KitchenRoomFans { get; set; } = 0; 
+
+        [Description("MEV dc, specific fan power of fans in room, kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
+        public virtual string KitchenRoomFansSpecificPower { get; set; } = ""; 
+
+        [Description("MEV dc, number of fans via duct, kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
+        public virtual int KitchenDuctFans { get; set; } = 0;
+
+        [Description("MEV dc, specific fan power of fans via duct, kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
+        public virtual string KitchenDuctFansSpecificPower { get; set; } = "";
+
+        [Description("MEV dc, number of fans through wall, kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
+        public virtual int KitchenWallFans { get; set; } = 0; 
+
+        [Description("MEV dc, specific fan power of fans through wall, kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
+        public virtual string KitchenWallFansSpecificPower { get; set; } = ""; 
+
         [Description("MEV dc, number of fans in room, rooms other than kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        public virtual int RoomFans { get; set; } = 0; //maybe separate
+        public virtual int nonKitchenRoomFans { get; set; } = 0;
 
         [Description("MEV dc, specific fan power of fans in room, rooms other than kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
-        public virtual string RoomFansSpecificPower { get; set; } = ""; //maybe separate
+        public virtual string nonKitchenRoomFansSpecificPower { get; set; } = ""; 
 
         [Description("MEV dc, number of fans via duct, rooms other than kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        public virtual int DuctFans { get; set; } = 0; //maybe separate kitchen comp
+        public virtual int nonKitchenDuctFans { get; set; } = 0; 
 
         [Description("MEV dc, specific fan power of fans via duct, rooms other than kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
-        public virtual string DuctFansSpecificPower { get; set; } = ""; //maybe separate kitchen comp
+        public virtual string nonKitchenDuctFansSpecificPower { get; set; } = ""; 
 
         [Description("MEV dc, number of fans through wall, rooms other than kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        public virtual int WallFans { get; set; } = 0; //maybe separate 
+        public virtual int nonKitchenWallFans { get; set; } = 0; 
 
         [Description("MEV dc, specific fan power of fans through wall, rooms other than kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
-        public virtual string WallFansSpecificPower { get; set; } = ""; //maybe separate 
-
+        public virtual string nonKitchenWallFansSpecificPower { get; set; } = ""; 
     }
 }
-
+*/

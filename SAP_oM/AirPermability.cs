@@ -36,7 +36,5 @@ namespace BH.oM.Environment.SAP
 
         [Description("Air permeability; only if pressure test (yes or assumed).")]
         public virtual string DesignAirPermability { get; set; } = null;
-
     }
 }
-

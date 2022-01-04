@@ -39,15 +39,11 @@ namespace BH.Engine.Environment.SAP
         {
             BH.oM.Environment.SAP.XML.Ventilation xmlVentilation = new BH.oM.Environment.SAP.XML.Ventilation();
 
-            xmlVentilation.numOpenFireplaces = sapVentilation.VentilationRates.numOpenFireplaces;
-            xmlVentilation.numOpenFlues = sapVentilation.VentilationRates.numOpenFlues;
-            xmlVentilation.numFluelessGasFires = sapVentilation.VentilationRates.numFluelessGasFires;
+            xmlVentilation.numOpenFireplaces = sapVentilation.VentilationRates.OpenFireplaces;
+            xmlVentilation.numOpenFlues = sapVentilation.VentilationRates.OpenFlues;
+            xmlVentilation.numFluelessGasFires = sapVentilation.VentilationRates.FluelessGasFires;
             xmlVentilation.PressureTest = sapVentilation.AirPermability.PressureTest.FromSAPToXML();
             xmlVentilation.AirPermability = sapVentilation.AirPermability.DesignAirPermability;
-         /* xmlVentilation.GroundFloorType = sapVentilation.PressureTest.NoPressureTest.GroundFloorType;
-            xmlVentilation.WallType = sapVentilation.PressureTest.NoPressureTest.WallType;
-            xmlVentilation.HasDraughtLobby = sapVentilation.PressureTest.NoPressureTest.HasDraughtLobby;
-            xmlVentilation.DraughtStripping = sapVentilation.PressureTest.NoPressureTest.DraughtStripping;*/
             xmlVentilation.numShelteredSides = sapVentilation.numShelteredSides;
             xmlVentilation.Type = sapVentilation.VentilationStrategy.Type.FromSAPToXML();
             xmlVentilation.MechanicalVentilationDataSource = sapVentilation.VentilationStrategy.DetailsTakenFrom.FromSAPToXML();
@@ -58,19 +54,7 @@ namespace BH.Engine.Environment.SAP
             xmlVentilation.MechanicalVentHeatRecoveryEfficiency = sapVentilation.VentilationStrategy.MechVentDetails.HeatRecoveryEfficiency;
             xmlVentilation.MechanicalVentDuctType = sapVentilation.VentilationStrategy.MechVentDetails.DuctType.FromSAPToXML();
             xmlVentilation.MechanicalVentDuctInsulation = sapVentilation.VentilationStrategy.DuctInsulationType.FromSAPToXML();
-          /*xmlVentilation.numKitchenRoomFans = sapVentilation.Type.AdditionalVentData.KitchenVentilation.RoomFans;
-            xmlVentilation.KitchenRoomFansSpecificPower = sapVentilation.Type.AdditionalVentData.KitchenVentilation.RoomFansSpecificPower;
-            xmlVentilation.numNonKitchenRoomFans = sapVentilation.Type.AdditionalVentData.NonKitchenVentilation.RoomFans;
-            xmlVentilation.NonKitchenRoomFansSpecificPower = sapVentilation.Type.AdditionalVentData.NonKitchenVentilation.RoomFansSpecificPower;
-            xmlVentilation.numKitchenDuctFans = sapVentilation.Type.AdditionalVentData.KitchenVentilation.DuctFans;
-            xmlVentilation.KitchenDuctFansSpecificPower = sapVentilation.Type.AdditionalVentData.KitchenVentilation.DuctFansSpecificPower;
-            xmlVentilation.numNonKitchenDuctFans = sapVentilation.Type.AdditionalVentData.NonKitchenVentilation.DuctFans;
-            xmlVentilation.NonKitchenDuctFansSpecificPower = sapVentilation.Type.AdditionalVentData.NonKitchenVentilation.DuctFansSpecificPower;
-            xmlVentilation.numKitchenWallFans = sapVentilation.Type.AdditionalVentData.KitchenVentilation.WallFans;
-            xmlVentilation.KitchenWallFansSpecificPower = sapVentilation.Type.AdditionalVentData.KitchenVentilation.WallFansSpecificPower;
-            xmlVentilation.numNonKitchenWallFans = sapVentilation.Type.AdditionalVentData.NonKitchenVentilation.WallFans;
-            xmlVentilation.NonKitchenWallFansSpecificPower = sapVentilation.Type.AdditionalVentData.NonKitchenVentilation.WallFansSpecificPower;*/
-            xmlVentilation.ExtractFansCount = sapVentilation.VentilationRates.ExtractFansCount;
+            xmlVentilation.ExtractFansCount = sapVentilation.VentilationRates.FansCount;
             xmlVentilation.PSVCount = sapVentilation.VentilationRates.PSVCount;
             xmlVentilation.IsMechanicalVentApprovedInstallerScheme = sapVentilation.VentilationStrategy.ApprovedInstallation;
             xmlVentilation.MechanicalVentDuctsIndexNumber = sapVentilation.VentilationStrategy.MechVentSystemIndexNumber;
@@ -104,6 +88,7 @@ namespace BH.Engine.Environment.SAP
                     return "";
             }
         }
+
         private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfVentilation? typeOfVentilation)
         {
             switch (typeOfVentilation)
@@ -156,6 +141,7 @@ namespace BH.Engine.Environment.SAP
                     return "";
             }
         }
+
         private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeofDuct? typeofDuct)
         {
             switch (typeofDuct)
@@ -173,6 +159,7 @@ namespace BH.Engine.Environment.SAP
                     return "";
             }
         }
+
         private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeofDuctInsulation? ductInsulation)
         {
             switch (ductInsulation)

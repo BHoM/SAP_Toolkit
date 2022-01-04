@@ -49,11 +49,11 @@ namespace BH.oM.Environment.SAP.XML
         [Description("Air permeability; only if pressure test (yes or assumed).")] 
         public virtual string AirPermability { get; set; } = null; 
 
-        [Description("The type of ground floor; only if no pressure test.")] //Can't find types. but to implement in convert, based on pressure test
+        [Description("The type of ground floor; only if no pressure test.")] 
         public virtual string GroundFloorType { get; set; } = null;
 
-        [Description("The construction of the walls; only if no pressure test.")]//Can't find types. but to implement in convert, based on pressure test
-        public virtual string WallType { get; set; } = null; //or is it the same as line 671
+        [Description("The construction of the walls; only if no pressure test.")]
+        public virtual string WallType { get; set; } = null; 
 
         [Description("Is there a draft lobby?  Only if no pressure test.")]
         public virtual bool? HasDraughtLobby { get; set; } = null;
