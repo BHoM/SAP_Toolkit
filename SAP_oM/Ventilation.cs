@@ -1,10 +1,6 @@
 ﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
-<<<<<<< HEAD
  * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
-=======
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
->>>>>>> 2d84c38 (restructuring)
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -41,11 +37,7 @@ namespace BH.oM.Environment.SAP
         [Description("The ventilation rates of the dwelling.")]
         public virtual VentilationRates VentilationRates { get; set; } = new VentilationRates();
 
-<<<<<<< HEAD
         [Description("Details about the air permability and whether a pressure test has been made.")]
-=======
-        [Description("Details about the air permability and wheter a pressure test has been done.")]
->>>>>>> 2d84c38 (restructuring)
         public virtual AirPermability AirPermability { get; set; } = new AirPermability();
 
         [Description("The ventilation strategy for the dwelling.")]
