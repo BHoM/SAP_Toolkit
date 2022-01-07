@@ -87,7 +87,6 @@
     <Compile Include="Enums\WindowOvershading.cs" />
     <Compile Include="ExtraFanDetails.cs" />
     <Compile Include="VentilationStrategy.cs" />
-    <Compile Include="KitchenVentilation.cs" />
     <Compile Include="LivingArea.cs" />
     <Compile Include="MechanicalVentilationDetails.cs" />
     <Compile Include="AirPermability.cs" />

@@ -69,4 +69,3 @@ namespace BH.oM.Environment.SAP
         public virtual string nonKitchenWallFansSpecificPower { get; set; } = ""; 
     }
 }
-*/
