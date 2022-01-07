@@ -48,4 +48,3 @@ namespace BH.oM.Environment.SAP
         public virtual string DraughtStripping { get; set; } = "";
     }
 }
-*/
