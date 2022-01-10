@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="Enums\OpeningDataSource.cs" />
     <Compile Include="Enums\PressureTestCode.cs" />
+    <Compile Include="Enums\ProductType.cs" />
     <Compile Include="Enums\TypeOfDuct.cs" />
     <Compile Include="Enums\TypeOfDuctInsulation.cs" />
     <Compile Include="Enums\TypeOfFloor.cs" />
@@ -83,6 +84,8 @@
     <Compile Include="Enums\VentilationDataSource.cs" />
     <Compile Include="Enums\WindowOvershading.cs" />
     <Compile Include="ExtraFanDetails.cs" />
+    <Compile Include="PCDB.cs" />
+    <Compile Include="SAPTable.cs" />
     <Compile Include="VentilationStrategy.cs" />
     <Compile Include="LivingArea.cs" />
     <Compile Include="MechanicalVentilationDetails.cs" />
