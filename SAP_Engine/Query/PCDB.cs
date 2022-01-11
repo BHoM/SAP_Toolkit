@@ -1,6 +1,6 @@
 ﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
- * Copyright (c) 2015 - 2021, the respective contributors. All rights reserved.
+ * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
  * Each contributor holds copyright over their respective contributions.
  * The project versioning (Git) records all such contribution source information.
@@ -45,7 +45,7 @@ namespace BH.Engine.Environment.SAP
         [Input("ProductIndex", "Unique ID for specific product make and model.")]
         [Input("run", "Toggle to activate the component.")]
         [Output("PCDB", "Performance characteristics of the specified product.")]
-        public static BH.oM.Environment.SAP.SAPTable PCDB ( this BH.oM.Environment.SAP.ProductType ProductType, string ProductIndex = null, bool run = false)
+        public static BH.oM.Environment.SAP.MEVcAndMVHRTable PCDB(this BH.oM.Environment.SAP.ProductType ProductType, string ProductIndex = null, bool run = false)
         {
             if (!run)
                 return null;
@@ -71,7 +71,7 @@ namespace BH.Engine.Environment.SAP
                     return null;
                 }
                 List<string> dividedStrings = lineIsStartingWith.Split(',').ToList();
-                BH.oM.Environment.SAP.SAPTable sapTable = new oM.Environment.SAP.SAPTable();
+                BH.oM.Environment.SAP.MEVcAndMVHRTable sapTable = new oM.Environment.SAP.MEVcAndMVHRTable();
                 sapTable.Index = ProductIndex;
                 sapTable.ManufacturerRefNo = dividedStrings[1];
                 sapTable.Status = dividedStrings[2];
@@ -98,12 +98,13 @@ namespace BH.Engine.Environment.SAP
 
                 return sapTable;
             }
-            else
-            { BH.oM.Environment.SAP.SAPTable a = new BH.oM.Environment.SAP.SAPTable();
-                return a; 
+            else // add if statement for rest of enum
+            {
+                BH.oM.Environment.SAP.MEVcAndMVHRTable a = new BH.oM.Environment.SAP.MEVcAndMVHRTable();
+                return a;
             }
 
-        }       
+        }
     }
 
 }
