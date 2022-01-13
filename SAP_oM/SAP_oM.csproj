@@ -84,8 +84,9 @@
     <Compile Include="Enums\VentilationDataSource.cs" />
     <Compile Include="Enums\WindowOvershading.cs" />
     <Compile Include="ExtraFanDetails.cs" />
+    <Compile Include="GasAndOilBoilerTable.cs" />
     <Compile Include="PCDB.cs" />
-    <Compile Include="SAPTable.cs" />
+    <Compile Include="MEVcAndMVHRTable.cs" />
     <Compile Include="VentilationStrategy.cs" />
     <Compile Include="LivingArea.cs" />
     <Compile Include="MechanicalVentilationDetails.cs" />
