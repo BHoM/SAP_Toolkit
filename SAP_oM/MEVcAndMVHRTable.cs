@@ -29,7 +29,7 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Details of the means by which the building is ventilated")]
-    public class SAPTable : BHoMObject
+    public class MEVcAndMVHRTable : BHoMObject
     {
         [Description("Unique index number for each record, assigned automatically by database software and used for control and reference purposes.")]
         public virtual string Index { get; set; } = null;
@@ -97,7 +97,7 @@ namespace BH.oM.Environment.SAP
         [Description("Specific fan power in watts per (litre per second)..")]
         public virtual string SpecificFanPower { get; set; } = null;
 
-        [Description("Heat exchanger efficiency in %. MVHR only, blank if not applicable.")] //23
+        [Description("Heat exchanger efficiency in %. MVHR only, blank if not applicable.")] 
         public virtual string HeatExchangerEfficiency { get; set; } = null;
     }
 }
