@@ -29,7 +29,7 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Details of the means by which the building is ventilated")]
-    public class GasAndBoilerTable : BHoMObject
+    public class GasAndBoilerTable : BHoMObject, IPCDBObject
     {
         [Description("Unique index number for each record, assigned automatically by database software and used for control and reference purposes.")]
         public virtual string Index { get; set; } = null;
@@ -213,6 +213,5 @@ namespace BH.oM.Environment.SAP
 
         [Description("Values that indicate features that are relevant for heating controls.")]
         public virtual string ControlCapabilities { get; set; } = null;
-
     }
 }
