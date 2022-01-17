@@ -26,15 +26,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using BH.oM.Reflection.Attributes;
+using BH.oM.Base.Attributes;
 using BH.oM.Environment.SAP;
 using BH.oM.Environment.Elements;
 using BH.oM.Geometry;
 using BH.Engine.Geometry;
 using BH.Engine.Units;
-using BH.oM.Geometry.SettingOut;
+using BH.oM.Spatial.SettingOut;
 using BH.oM.Analytical.Elements;
-using BH.oM.Reflection;
+using BH.oM.Base;
 
 using BH.Engine.Base;
 
