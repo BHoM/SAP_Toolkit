@@ -26,7 +26,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using BH.oM.Reflection.Attributes;
+using BH.oM.Base.Attributes;
 using BH.oM.Environment.SAP;
 
 using System.ComponentModel;
@@ -50,13 +50,13 @@ namespace BH.Engine.Environment.SAP
 
             if (fileSettings == null || fileSettingsOutput == null)
             {
-                BH.Engine.Reflection.Compute.RecordError("Please set the File Settings correctly to enable the component to read the correct file.");
+                BH.Engine.Base.Compute.RecordError("Please set the File Settings correctly to enable the component to read the correct file.");
                 return null;
             }
 
             if (!Path.HasExtension(fileSettings.FileName) || (Path.GetExtension(fileSettings.FileName) != ".xml") || !Path.HasExtension(fileSettingsOutput.FileName) || (Path.GetExtension(fileSettingsOutput.FileName) != ".xml"))
             {
-                BH.Engine.Reflection.Compute.RecordError("File name must contain a file extension.");
+                BH.Engine.Base.Compute.RecordError("File name must contain a file extension.");
                 return null;
             }
 
@@ -64,7 +64,7 @@ namespace BH.Engine.Environment.SAP
 
             if (!File.Exists(id))
             {
-                BH.Engine.Reflection.Compute.RecordError("Input directory contains a null value or does not exist. Please check your inputs.");
+                BH.Engine.Base.Compute.RecordError("Input directory contains a null value or does not exist. Please check your inputs.");
                 return null;
             }
 

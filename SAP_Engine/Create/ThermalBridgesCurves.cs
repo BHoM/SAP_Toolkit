@@ -29,11 +29,10 @@ using System.Threading.Tasks;
 using BH.oM.Environment.SAP;
 using BH.oM.Environment.Elements;
 using BH.Engine.Geometry;
-using BH.oM.Geometry.SettingOut;
+using BH.oM.Spatial.SettingOut;
 using BH.oM.Geometry;
-using BH.Engine.Units;
+using BH.oM.Base;
 
-using BH.oM.Reflection;
 using BH.oM.Analytical.Elements;
 
 using BH.Engine.Base;
@@ -59,7 +58,7 @@ namespace BH.Engine.Environment.SAP
 
                 Polyline baseCurve = baseCurves.Where(y => y.IsOnLevel(dwellingLevel)).FirstOrDefault();
                 if (baseCurve == null)
-                    BH.Engine.Reflection.Compute.RecordError("Please make sure there is a basecurve on the same elevation as the dwellings");
+                    BH.Engine.Base.Compute.RecordError("Please make sure there is a basecurve on the same elevation as the dwellings");
 
                 Output<List<List<IRegion>>, List<List<double>>, List<IRegion>, List<IRegion>> mappedRegions = BH.Engine.Environment.Compute.MapRegions(spaces.Select(y => y as IRegion).ToList(), new List<IRegion> { dwelling }, distanceTolerance, angleTolerance);
                 List<Space> spacesInDwelling = mappedRegions.Item1[0].Cast<Space>().ToList();

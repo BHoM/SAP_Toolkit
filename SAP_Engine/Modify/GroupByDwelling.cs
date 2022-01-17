@@ -31,7 +31,7 @@
 //using BH.oM.Analytical.Elements;
 //using System.Collections.ObjectModel;
 //using System.ComponentModel;
-//using BH.oM.Reflection.Attributes;
+//using BH.oM.Base.Attributes;
 //using System;
 //using System.Text;
 //using System.Threading.Tasks;
@@ -41,7 +41,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using BH.oM.Environment.SAP;
-using BH.oM.Reflection;
+using BH.oM.Base;
 //using BH.Engine.Data.Query;
 using Opening = BH.oM.Environment.SAP.Opening;
 

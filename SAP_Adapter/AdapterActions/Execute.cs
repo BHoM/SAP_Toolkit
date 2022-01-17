@@ -24,7 +24,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-using BH.oM.Reflection;
+using BH.oM.Base;
 using BH.oM.Adapter;
 using BH.oM.Environment.SAP;
 

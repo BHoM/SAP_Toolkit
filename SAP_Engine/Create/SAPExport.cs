@@ -28,15 +28,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 
-using BH.oM.Reflection.Attributes;
+using BH.oM.Base.Attributes;
 using BH.oM.Environment.SAP;
 using BH.oM.Environment.Elements;
 using BH.oM.Geometry;
 using BH.Engine.Geometry;
 using BH.Engine.Units;
-using BH.oM.Geometry.SettingOut;
+using BH.oM.Spatial.SettingOut;
 using BH.oM.Analytical.Elements;
-using BH.oM.Reflection;
+using BH.oM.Base;
 using BH.Engine.Base;
 
 namespace BH.Engine.Environment.SAP
@@ -148,7 +148,7 @@ namespace BH.Engine.Environment.SAP
             double roomArea = spacesInDwelling.Select(y => y.Perimeter.IArea()).Sum();
             //Check if the sum of the space areas is equal to the dwelling area
             if (roomArea > dwellingPerimeter.IArea() + distanceTolerance || roomArea < dwellingPerimeter.IArea() - distanceTolerance)
-                BH.Engine.Reflection.Compute.RecordError($"The sum of internal space areas is not equal to the total dwelling area for dwelling {dwelling.Name}.");
+                BH.Engine.Base.Compute.RecordError($"The sum of internal space areas is not equal to the total dwelling area for dwelling {dwelling.Name}.");
 
             sapExport.TotalArea = dwellingPerimeter.IArea();
             List<string> spacesToAdd = new List<string>(); //To prevent adding the same space twice
@@ -261,7 +261,7 @@ namespace BH.Engine.Environment.SAP
             #endregion
 
             if (ceilingHeight + ceilingVoidHeight != externalWallHeight)
-                BH.Engine.Reflection.Compute.RecordError("The sum of ceilingHeight and ceilingVoidHeight is not equal to the external wall height");
+                BH.Engine.Base.Compute.RecordError("The sum of ceilingHeight and ceilingVoidHeight is not equal to the external wall height");
 
             sapExport.CeilingHeight = ceilingHeight;
             sapExport.CeilingVoidHeight = ceilingVoidHeight;
