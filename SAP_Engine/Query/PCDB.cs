@@ -194,38 +194,234 @@ namespace BH.Engine.Environment.SAP
                 }
                 List<string> dividedStrings = lineIsStartingWith.Split(',').ToList();
                 BH.oM.Environment.SAP.FlueGasHeatRecoverySystemTable sapTable = new oM.Environment.SAP.FlueGasHeatRecoverySystemTable();
-                /* sapTable.Index = ProductIndex;
-                 sapTable.ManufacturerRefNo = dividedStrings[1];
+                 sapTable.Index = ProductIndex;
+                 sapTable.ManufacturerReferenceNumber = dividedStrings[1];
                  sapTable.Status = dividedStrings[2];
                  sapTable.DBEntryUpdated = dividedStrings[3];
                  sapTable.ManufacturerName = dividedStrings[4];
                  sapTable.BrandName = dividedStrings[5];
                  sapTable.ModelName = dividedStrings[6];
                  sapTable.ModelQualifier = dividedStrings[7];
-                 sapTable.BoilerID = dividedStrings[8];
-                 sapTable.FirstManufYear = dividedStrings[9];
-                 sapTable.FinalManufYear = dividedStrings[10];
-                 sapTable.Fuel = dividedStrings[11];
-                 sapTable.MountingPosition = dividedStrings[12];
-                 sapTable.ExposureRating = dividedStrings[13];
-                 sapTable.MainType = dividedStrings[14];
-                 sapTable.SubsidiaryType = dividedStrings[15];
-                 sapTable.SubsidiaryTypeTable = dividedStrings[16];
-                 sapTable.SubsidiaryTypeIndex = dividedStrings[17];
-                 sapTable.Condensing = dividedStrings[18];
-                 sapTable.FlueType = dividedStrings[19];
-                 sapTable.FanAssistance = dividedStrings[20];
-                 sapTable.BoilerPowerBottom = dividedStrings[21];
-                 sapTable.BoilerPowerTop = dividedStrings[22];
-                 sapTable.EnergyEfficiencyClass = dividedStrings[23];
-                 sapTable.AnnualSeasonalEfficiency = dividedStrings[24];
-                 sapTable.SAPWinterSeasonalEfficiency = dividedStrings[25];
-                 sapTable.SAPSummerSeasonalEfficiency = dividedStrings[26];
-                 sapTable.HotWaterEfficiency1 = dividedStrings[27];
-                 sapTable.HotWaterEfficiency2 = dividedStrings[28];
-                 sapTable.SAP2005SeasonalEfficiency = dividedStrings[29];
-                 sapTable.EfficiencyCategory = dividedStrings[30];
-                 sapTable.TestGasForLPG = dividedStrings[31];*/
+                 sapTable.FirstYearOfManufacture = dividedStrings[8];
+                 sapTable.FinalYearOfManufacture = dividedStrings[9];
+                 sapTable.ApplicableFuel = dividedStrings[10];
+                 sapTable.TestFuel = dividedStrings[11];
+                 sapTable.ApplicableBoilerTypes = dividedStrings[12];
+                 sapTable.IntegralOnly = dividedStrings[13];
+                 sapTable.HeatStore = dividedStrings[14];
+                 sapTable.HeatStoreTotalVolume = dividedStrings[15];
+                 sapTable.HeatStoreRecapturedVolume = dividedStrings[16];
+                 sapTable.HeatStoreLossRaste = dividedStrings[17];
+                 sapTable.DirectTotalHeatReacovered = dividedStrings[18];
+                 sapTable.DirectUsefulHeatRecovered = dividedStrings[19];
+                 sapTable.PowerConsumption = dividedStrings[20];
+                 sapTable.PhotovoltaicModule = dividedStrings[21];
+                 sapTable.CableLoss = dividedStrings[22];
+                 sapTable.NumberOfEquations = dividedStrings[23];
+                 sapTable.SpaceHeatingRequirementFromBoilerSystem = dividedStrings[24];
+                 sapTable.CoefficientA = dividedStrings[25];
+                 sapTable.CoefficientB = dividedStrings[26];
+                 sapTable.CoefficientC = dividedStrings[27];
+                 sapTable.CoefficientA2 = dividedStrings[28];
+                 sapTable.CoefficientB2 = dividedStrings[29];
+                 sapTable.CoefficientC2 = dividedStrings[30];
+
+                return sapTable;
+            }
+            if (ProductType == BH.oM.Environment.SAP.ProductType.MEVdc) //MEVdc = 322, MEVcAndMVHR = 323, MVInUseFactors = 329, MVHRDuct = 341, WasteWaterHeatRecoverySystem = 353, HeatPump = 362, HeatingControls = 371, HeatingControlRequirements = 372, WarmAirSystem = 381, StorageHeaters = 391, CommunityHeatNetworks = 501
+            {
+                string firstLine = contentSplit.Where(x => x.StartsWith("# Table 322")).FirstOrDefault();//read row from "# Table 323"
+                string lastLine = contentSplit.Where(x => x.StartsWith("# ... end of Table 322")).FirstOrDefault(); //to "# ... end of Table 323"
+                List<string> allLinesForTable = new List<string>();
+                for (int x = Array.IndexOf(contentSplit, firstLine); x < Array.IndexOf(contentSplit, lastLine); x++)
+                {
+                    allLinesForTable.Add(contentSplit[x]);
+                }
+                string lineIsStartingWith = allLinesForTable.Where(x => x.StartsWith(ProductIndex)).FirstOrDefault();
+                if (lineIsStartingWith == null)
+                {
+                    return null;
+                }
+                List<string> dividedStrings = lineIsStartingWith.Split(',').ToList();
+                BH.oM.Environment.SAP.DecentralisedMEVTable sapTable = new oM.Environment.SAP.DecentralisedMEVTable();
+                sapTable.Index = ProductIndex;
+                sapTable.ManufacturerReferenceNo = dividedStrings[1];
+                sapTable.Status = dividedStrings[2];
+                sapTable.DBEntryUpdated = dividedStrings[3];
+                sapTable.ManufacturerName = dividedStrings[4];
+                sapTable.BrandName = dividedStrings[5];
+                sapTable.ModelName = dividedStrings[6];
+                sapTable.ModelQualifier = dividedStrings[7];
+                sapTable.FirstYearOfManufacture = dividedStrings[8];
+                sapTable.FinalYearOfManufacture = dividedStrings[9];
+                sapTable.MainType = dividedStrings[10];
+                sapTable.FlexibleOrRigidDucting = dividedStrings[11];
+                sapTable.NumberConfigurations = dividedStrings[12];
+                sapTable.ConfigurationA = dividedStrings[13];
+                sapTable.TestFlowRateA = dividedStrings[14];
+                sapTable.FanSpeedSettingA = dividedStrings[15];
+                sapTable.SpecificFanPowerA = dividedStrings[16];
+
+                return sapTable;
+            }
+            if (ProductType == BH.oM.Environment.SAP.ProductType.MVInUseFactors) // MVInUseFactors = 329, MVHRDuct = 341, WasteWaterHeatRecoverySystem = 353, HeatPump = 362, HeatingControls = 371, HeatingControlRequirements = 372, WarmAirSystem = 381, StorageHeaters = 391, CommunityHeatNetworks = 501
+            {
+                string firstLine = contentSplit.Where(x => x.StartsWith("# Table 329")).FirstOrDefault();//read row from "# Table 323"
+                string lastLine = contentSplit.Where(x => x.StartsWith("# ... end of Table 329")).FirstOrDefault(); //to "# ... end of Table 323"
+                List<string> allLinesForTable = new List<string>();
+                for (int x = Array.IndexOf(contentSplit, firstLine); x < Array.IndexOf(contentSplit, lastLine); x++)
+                {
+                    allLinesForTable.Add(contentSplit[x]);
+                }
+                string lineIsStartingWith = allLinesForTable.Where(x => x.StartsWith(ProductIndex)).FirstOrDefault();
+                if (lineIsStartingWith == null)
+                {
+                    return null;
+                }
+                List<string> dividedStrings = lineIsStartingWith.Split(',').ToList();
+                BH.oM.Environment.SAP.MVInUseFactorsTable sapTable = new oM.Environment.SAP.MVInUseFactorsTable();
+                sapTable.SystemType = dividedStrings[0];
+                sapTable.SFPAdjustment1FlexibleDuction = dividedStrings[1];
+                sapTable.SFPAdjustment1RigidDucting = dividedStrings[2];
+                sapTable.SFPAdjustment1NoDucting = dividedStrings[3];
+                sapTable.MVHREfficiencyAdjustment1UninsulatedDucting = dividedStrings[4];
+                sapTable.MVHREfficiencyAdjustment1InsulatedDucting = dividedStrings[5];
+                sapTable.SFPAdjustment2FlexibleDuction = dividedStrings[6];
+                sapTable.SFPAdjustment2RigidDucting = dividedStrings[7];
+                sapTable.SFPAdjustment2NoDucting = dividedStrings[8];
+                sapTable.MVHREfficiencyAdjustment2UninsulatedDucting = dividedStrings[9];
+                sapTable.MVHREfficiencyAdjustment2InsulatedDucting = dividedStrings[10];
+                sapTable.DBEntryUpdated = dividedStrings[11];
+
+                return sapTable;
+            }
+            if (ProductType == BH.oM.Environment.SAP.ProductType.MVHRDuct) //  MVHRDuct = 341, WasteWaterHeatRecoverySystem = 353, HeatPump = 362, HeatingControls = 371, HeatingControlRequirements = 372, WarmAirSystem = 381, StorageHeaters = 391, CommunityHeatNetworks = 501
+            {
+                string firstLine = contentSplit.Where(x => x.StartsWith("# Table 341")).FirstOrDefault();//read row from "# Table 323"
+                string lastLine = contentSplit.Where(x => x.StartsWith("# ... end of Table 341")).FirstOrDefault(); //to "# ... end of Table 323"
+                List<string> allLinesForTable = new List<string>();
+                for (int x = Array.IndexOf(contentSplit, firstLine); x < Array.IndexOf(contentSplit, lastLine); x++)
+                {
+                    allLinesForTable.Add(contentSplit[x]);
+                }
+                string lineIsStartingWith = allLinesForTable.Where(x => x.StartsWith(ProductIndex)).FirstOrDefault();
+                if (lineIsStartingWith == null)
+                {
+                    return null;
+                }
+                List<string> dividedStrings = lineIsStartingWith.Split(',').ToList();
+                BH.oM.Environment.SAP.MVHRDuctTable sapTable = new oM.Environment.SAP.MVHRDuctTable();
+                sapTable.Index = ProductIndex;
+                sapTable.ManufacturerReference = dividedStrings[1];
+                sapTable.Status = dividedStrings[2];
+                sapTable.DBEntryUpdated = dividedStrings[3];
+                sapTable.ManufacturerName = dividedStrings[4];
+                sapTable.BrandName = dividedStrings[5];
+                sapTable.ModelName = dividedStrings[6];
+                sapTable.ModelQualifier = dividedStrings[7];
+                sapTable.FirstYearOfManufacture = dividedStrings[8];
+                sapTable.FinalYearOfManufacture = dividedStrings[9];
+                sapTable.DuctType = dividedStrings[10];
+
+                return sapTable;
+            }
+            if (ProductType == BH.oM.Environment.SAP.ProductType.WasteWaterHeatRecoverySystem) // WasteWaterHeatRecoverySystem = 353, HeatPump = 362, HeatingControls = 371, HeatingControlRequirements = 372, WarmAirSystem = 381, StorageHeaters = 391, CommunityHeatNetworks = 501
+            {
+                string firstLine = contentSplit.Where(x => x.StartsWith("# Table 353")).FirstOrDefault();//read row from "# Table 323"
+                string lastLine = contentSplit.Where(x => x.StartsWith("# ... end of Table 353")).FirstOrDefault(); //to "# ... end of Table 323"
+                List<string> allLinesForTable = new List<string>();
+                for (int x = Array.IndexOf(contentSplit, firstLine); x < Array.IndexOf(contentSplit, lastLine); x++)
+                {
+                    allLinesForTable.Add(contentSplit[x]);
+                }
+                string lineIsStartingWith = allLinesForTable.Where(x => x.StartsWith(ProductIndex)).FirstOrDefault();
+                if (lineIsStartingWith == null)
+                {
+                    return null;
+                }
+                List<string> dividedStrings = lineIsStartingWith.Split(',').ToList();
+                BH.oM.Environment.SAP.WasteWaterHeatRecoverySystemTable sapTable = new oM.Environment.SAP.WasteWaterHeatRecoverySystemTable();
+                sapTable.Index = ProductIndex;
+                sapTable.ManufacturerRefNo = dividedStrings[1];
+                sapTable.Status = dividedStrings[2];
+                sapTable.DBEntryUpdated = dividedStrings[3];
+                sapTable.ManufacturerName = dividedStrings[4];
+                sapTable.BrandName = dividedStrings[5];
+                sapTable.ModelName = dividedStrings[6];
+                sapTable.ModelQualifier = dividedStrings[7];
+                sapTable.FirstYearOfManufacture = dividedStrings[8];
+                sapTable.FinalYearOfManufacture = dividedStrings[9];
+                sapTable.InstantaneousOrStorage = dividedStrings[10];
+                sapTable.SystemType = dividedStrings[11];
+                sapTable.StorageType = dividedStrings[12];
+                sapTable.Efficiency = dividedStrings[13];
+                sapTable.UtilisationFactor = dividedStrings[14];
+                sapTable.WasteWaterFraction = dividedStrings[15];
+                sapTable.TestDedicatedVolume = dividedStrings[16];
+                sapTable.LowDedicatedVolume = dividedStrings[17];
+                sapTable.HighDedicatedVolume = dividedStrings[18];
+                sapTable.ElectricityConsumption = dividedStrings[19];
+
+                return sapTable;
+            }
+            if (ProductType == BH.oM.Environment.SAP.ProductType.HeatPump) //HeatPump = 362, HeatingControls = 371, HeatingControlRequirements = 372, WarmAirSystem = 381, StorageHeaters = 391, CommunityHeatNetworks = 501
+            {
+                string firstLine = contentSplit.Where(x => x.StartsWith("# Table 362")).FirstOrDefault();//read row from "# Table 323"
+                string lastLine = contentSplit.Where(x => x.StartsWith("# ... end of Table 362")).FirstOrDefault(); //to "# ... end of Table 323"
+                List<string> allLinesForTable = new List<string>();
+                for (int x = Array.IndexOf(contentSplit, firstLine); x < Array.IndexOf(contentSplit, lastLine); x++)
+                {
+                    allLinesForTable.Add(contentSplit[x]);
+                }
+                string lineIsStartingWith = allLinesForTable.Where(x => x.StartsWith(ProductIndex)).FirstOrDefault();
+                if (lineIsStartingWith == null)
+                {
+                    return null;
+                }
+                List<string> dividedStrings = lineIsStartingWith.Split(',').ToList();
+                BH.oM.Environment.SAP.HeatPumpTable sapTable = new oM.Environment.SAP.HeatPumpTable();
+                sapTable.Index = ProductIndex;
+                sapTable.ManufacturerReferenceNumber = dividedStrings[1];
+                sapTable.Status = dividedStrings[2];
+                sapTable.DBEntryUpdated = dividedStrings[3];
+                sapTable.ManufacturerName = dividedStrings[4];
+                sapTable.BrandName = dividedStrings[5];
+                sapTable.ModelName = dividedStrings[6];
+                sapTable.ModelQualifier = dividedStrings[7];
+                sapTable.FirstYearOfManufacture = dividedStrings[8];
+                sapTable.FinalYearOfManufacture = dividedStrings[9];
+                sapTable.ApplicableFuel = dividedStrings[10];
+                sapTable.TestFuel = dividedStrings[11];
+                sapTable.ApplicableBoilerTypes = dividedStrings[12];
+                sapTable.IntegralOnly = dividedStrings[13];
+                sapTable.HeatStore = dividedStrings[14];
+                sapTable.HeatStoreTotalVolume = dividedStrings[15];
+                sapTable.HeatStoreRecapturedVolume = dividedStrings[16];
+                sapTable.HeatStoreLossRaste = dividedStrings[17];
+                sapTable.DirectTotalHeatReacovered = dividedStrings[18];
+                sapTable.DirectUsefulHeatRecovered = dividedStrings[19];
+                sapTable.PowerConsumption = dividedStrings[20];
+                sapTable.PhotovoltaicModule = dividedStrings[21];
+                sapTable.CableLoss = dividedStrings[22];
+                sapTable.NumberOfEquations = dividedStrings[23];
+                sapTable.SpaceHeatingRequirementFromBoilerSystem = dividedStrings[24];
+                sapTable.CoefficientA = dividedStrings[25];
+                sapTable.CoefficientB = dividedStrings[26];
+                sapTable.CoefficientC = dividedStrings[27];
+                sapTable.CoefficientA2 = dividedStrings[28];
+                sapTable.CoefficientB2 = dividedStrings[29];
+                sapTable.CoefficientC2 = dividedStrings[30];
+                sapTable.TestGasForLPG = dividedStrings[31];
+                sapTable.TestCorrectionForLPG = dividedStrings[32];
+                sapTable.SAPEquationUsed = dividedStrings[33];
+                sapTable.Ignition = dividedStrings[34];
+                sapTable.BurnerControl = dividedStrings[35];
+                sapTable.ElectricalPowerFiring = dividedStrings[36];
+                sapTable.ElectricalPowerNotFiring = dividedStrings[37];
+                sapTable.StoreType = dividedStrings[38];
+                sapTable.StoreLossInTest = dividedStrings[39];
+                sapTable.SeperateStore = dividedStrings[40];
+                sapTable.StoreBoilerVolume = dividedStrings[41];
 
                 return sapTable;
             }
