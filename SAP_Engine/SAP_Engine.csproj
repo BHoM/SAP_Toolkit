@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTarget="" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -124,10 +124,24 @@
     <Compile Include="Modify\GroupByDwelling.cs" />
     <Compile Include="Modify\SnapInvertedCorners.cs" />
     <Compile Include="Objects\BalconyLines.cs" />
+    <Compile Include="Objects\CommunityHeatNetworksTable.cs" />
+    <Compile Include="Objects\DecentralisedMEVTable.cs" />
+    <Compile Include="Objects\FlueGasHeatRecoverySystemTable.cs" />
+    <Compile Include="Objects\GasAndOilBoilerTable.cs" />
+    <Compile Include="Objects\HeatingControlRequirementsTable.cs" />
+    <Compile Include="Objects\HeatingControlsTable.cs" />
+    <Compile Include="Objects\HeatPumpTable.cs" />
+    <Compile Include="Objects\IPCDBObject.cs" />
+    <Compile Include="Objects\MEVcAndMVHRTable.cs" />
+    <Compile Include="Objects\MVHRDuctTable.cs" />
+    <Compile Include="Objects\MVInUseFactorsTable .cs" />
     <Compile Include="Objects\PartyFloors.cs" />
+    <Compile Include="Objects\StorageHeatersTable.cs" />
     <Compile Include="Objects\ToOrientationText.cs" />
     <Compile Include="Create\SAPExport.cs" />
     <Compile Include="Create\ThermalBridges.cs" />
+    <Compile Include="Objects\WarmAirSystemTable.cs" />
+    <Compile Include="Objects\WasteWaterHeatRecoverySystemTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query\PCDB.cs" />
   </ItemGroup>
