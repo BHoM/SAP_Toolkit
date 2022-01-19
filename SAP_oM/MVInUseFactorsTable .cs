@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Details of the means by which the building is ventilated")]
+    [Description("Data format specification in database.")]
     public class MVInUseFactorsTable : BHoMObject, IPCDBObject
     {
         [Description("Main product type to which adjustments are applicable, which is one of 'centralised mechanical extract ventilation', 'decentralised mechanical extract ventilation', 'balanced whole - house mechanical ventilation with or without heat recovery', 'positive input ventilation' or 'default data'  coded as 1, 2, 3, 5 and 10 respectively. If any other value the record should be disregarded.")]

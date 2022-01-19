@@ -28,6 +28,6 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the source of opening data.")]  
+    [Description("Product type to query from database.")]  
     public enum ProductType { GasAndOilBoiler = 105, FlueGasHeatRecoverySystem = 313, MEVdc = 322, MEVcAndMVHR = 323, MVInUseFactors = 329, MVHRDuct = 341, WasteWaterHeatRecoverySystem = 353, HeatPump = 362, HeatingControls = 371, HeatingControlRequirements = 372, WarmAirSystem = 381, StorageHeaters = 391, CommunityHeatNetworks = 501 }
 }

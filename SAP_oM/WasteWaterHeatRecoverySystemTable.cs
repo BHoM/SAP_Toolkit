@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Details of the means by which the building is ventilated")]
+    [Description("Data format specification in database.")]
     public class WasteWaterHeatRecoverySystemTable : BHoMObject, IPCDBObject
     {
         [Description("Unique index number for each record, assigned automatically by database software and used for control and reference purposes. ")]
