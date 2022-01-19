@@ -71,8 +71,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommunityHeatNetworksTable.cs" />
-    <Compile Include="DecentralisedMEVTable.cs" />
     <Compile Include="Enums\OpeningDataSource.cs" />
     <Compile Include="Enums\PressureTestCode.cs" />
     <Compile Include="Enums\ProductType.cs" />
@@ -86,16 +84,6 @@
     <Compile Include="Enums\VentilationDataSource.cs" />
     <Compile Include="Enums\WindowOvershading.cs" />
     <Compile Include="ExtraFanDetails.cs" />
-    <Compile Include="FlueGasHeatRecoverySystemTable.cs" />
-    <Compile Include="GasAndOilBoilerTable.cs" />
-    <Compile Include="HeatingControlRequirementsTable.cs" />
-    <Compile Include="HeatingControlsTable.cs" />
-    <Compile Include="HeatPumpTable.cs" />
-    <Compile Include="IPCDBObject.cs" />
-    <Compile Include="MVHRDuctTable.cs" />
-    <Compile Include="MVInUseFactorsTable .cs" />
-    <Compile Include="MEVcAndMVHRTable.cs" />
-    <Compile Include="StorageHeatersTable.cs" />
     <Compile Include="VentilationStrategy.cs" />
     <Compile Include="LivingArea.cs" />
     <Compile Include="MechanicalVentilationDetails.cs" />
@@ -103,8 +91,6 @@
     <Compile Include="ExtraNoPressureTest.cs" />
     <Compile Include="Ventilation.cs" />
     <Compile Include="VentilationRates.cs" />
-    <Compile Include="WarmAirSystemTable.cs" />
-    <Compile Include="WasteWaterHeatRecoverySystemTable.cs" />
     <Compile Include="XML\BuildingPart.cs" />
     <Compile Include="Dwelling.cs" />
     <Compile Include="Roof.cs" />
