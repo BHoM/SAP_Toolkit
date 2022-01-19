@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Details of the means by which the building is ventilated")]
+    [Description("Data format specification in database.")]
     public class HeatingControlRequirementsTable : BHoMObject, IPCDBObject
     {
         [Description("Bit number in Control capabilities of a heating system table or the Heat generator control requirements of the Heating controls table. Bit numbers are counted from 0 upwards starting with the least significant.")]
