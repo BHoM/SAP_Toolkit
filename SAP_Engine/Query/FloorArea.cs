@@ -33,13 +33,18 @@ using BH.oM.Environment.MaterialFragments;
 using BH.oM.Base.Attributes;
 using System.ComponentModel;
 
+using System.Text.Json;
+
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Query
     {
-        public static BH.oM.Environment.SAP.IPCDBObject JsonFile (this BH.oM.Environment.SAP.ProductType ProductType, string ProductIndex = null, bool run = false)
+        [Description("Query floor area from the result.")]
+        [Input("SAPResult", "Result json from execute method.")]
+        [Output("floorArea", "The floor area of the dwelling.")]
+        public static string resultFloorArea(this ResultJson results)
         {
-            return null;
+            return results.FloorArea;
         }
     }
 }
