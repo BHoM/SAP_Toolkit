@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
@@ -20,41 +20,26 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Net;
+using System.IO;
 
-// General Information about an assembly is controlled through the following
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-[assembly: AssemblyTitle("SAP_Engine")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SAP_Engine")]
-[assembly: AssemblyCopyright("Copyright © https://github.com/BHoM")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
+using BH.oM.Environment.MaterialFragments;
 
-// Setting ComVisible to false makes the types in this assembly not visible
-// to COM components.  If you need to access a type in this assembly from
-// COM, set the ComVisible attribute to true on that type.
-[assembly: ComVisible(false)]
+using BH.oM.Base.Attributes;
+using System.ComponentModel;
 
-// The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c9d8ae27-a18a-4124-931f-750c819631d1")]
-
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Build and Revision Numbers
-// by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("4.0.0.0")]
-[assembly: AssemblyFileVersion("4.0.0.0")]
-
-
+namespace BH.Engine.Environment.SAP
+{
+    public static partial class Query
+    {
+        public static BH.oM.Environment.SAP.IPCDBObject JsonFile (this BH.oM.Environment.SAP.ProductType ProductType, string ProductIndex = null, bool run = false)
+        {
+            return null;
+        }
+    }
+}

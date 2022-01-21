@@ -1,159 +1,65 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTarget="" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C9D8AE27-A18A-4124-931F-750C819631D1}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BH.Engine.Environment.SAP</RootNamespace>
-    <AssemblyName>SAP_Engine</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>..\Build\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\Build\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SAP_oM\SAP_oM.csproj" />
+  </ItemGroup>
+
   <ItemGroup>
     <Reference Include="Adapter_oM">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\Adapter_oM.dll</HintPath>
-      <Private>False</Private>
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Adapter_oM.dll</HintPath>
     </Reference>
     <Reference Include="Analytical_oM">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\Analytical_oM.dll</HintPath>
-      <Private>False</Private>
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Analytical_oM.dll</HintPath>
     </Reference>
     <Reference Include="Architecture_oM">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\Architecture_oM.dll</HintPath>
-      <Private>False</Private>
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Architecture_oM.dll</HintPath>
     </Reference>
     <Reference Include="BHoM">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\BHoM.dll</HintPath>
-      <Private>False</Private>
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\BHoM.dll</HintPath>
     </Reference>
     <Reference Include="BHoM_Engine">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\BHoM_Engine.dll</HintPath>
-      <Private>False</Private>
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\BHoM_Engine.dll</HintPath>
     </Reference>
     <Reference Include="Dimensional_oM">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\Dimensional_oM.dll</HintPath>
-      <Private>False</Private>
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Dimensional_oM.dll</HintPath>
     </Reference>
     <Reference Include="Environment_Engine">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\Environment_Engine.dll</HintPath>
-      <Private>False</Private>
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Environment_Engine.dll</HintPath>
     </Reference>
     <Reference Include="Environment_oM">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\Environment_oM.dll</HintPath>
-      <Private>False</Private>
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Environment_oM.dll</HintPath>
     </Reference>
     <Reference Include="Geometry_Engine">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\Geometry_Engine.dll</HintPath>
-      <Private>False</Private>
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Geometry_Engine.dll</HintPath>
     </Reference>
     <Reference Include="Geometry_oM">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\Geometry_oM.dll</HintPath>
-      <Private>False</Private>
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Geometry_oM.dll</HintPath>
     </Reference>
     <Reference Include="Quantities_oM">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\Quantities_oM.dll</HintPath>
-      <Private>False</Private>
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Quantities_oM.dll</HintPath>
     </Reference>
     <Reference Include="Spatial_oM">
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
-      <HintPath>C:\ProgramData\BHoM\Assemblies\Spatial_oM.dll</HintPath>
+      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Spatial_oM.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
     <Reference Include="Units_Engine">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\Units_Engine.dll</HintPath>
-      <Private>False</Private>
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="XML_oM">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\XML_oM.dll</HintPath>
-      <Private>False</Private>
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Units_Engine.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Convert\BuildingPart.cs" />
-    <Compile Include="Convert\Floor.cs" />
-    <Compile Include="Convert\Opening.cs" />
-    <Compile Include="Convert\OpeningType.cs" />
-    <Compile Include="Convert\Roof.cs" />
-    <Compile Include="Convert\ThermalBridge.cs" />
-    <Compile Include="Convert\Ventilation.cs" />
-    <Compile Include="Convert\Wall.cs" />
-    <Compile Include="Modify\CleanBluebeamMarkup.cs" />
-    <Compile Include="Create\ThermalBridgesCurves.cs" />
-    <Compile Include="Modify\AddOpenings.cs" />
-    <Compile Include="Modify\GroupByDwelling.cs" />
-    <Compile Include="Modify\SnapInvertedCorners.cs" />
-    <Compile Include="Objects\BalconyLines.cs" />
-    <Compile Include="Objects\CommunityHeatNetworksTable.cs" />
-    <Compile Include="Objects\DecentralisedMEVTable.cs" />
-    <Compile Include="Objects\FlueGasHeatRecoverySystemTable.cs" />
-    <Compile Include="Objects\GasAndOilBoilerTable.cs" />
-    <Compile Include="Objects\HeatingControlRequirementsTable.cs" />
-    <Compile Include="Objects\HeatingControlsTable.cs" />
-    <Compile Include="Objects\HeatPumpTable.cs" />
-    <Compile Include="Objects\IPCDBObject.cs" />
-    <Compile Include="Objects\MEVcAndMVHRTable.cs" />
-    <Compile Include="Objects\MVHRDuctTable.cs" />
-    <Compile Include="Objects\MVInUseFactorsTable .cs" />
-    <Compile Include="Objects\PartyFloors.cs" />
-    <Compile Include="Objects\StorageHeatersTable.cs" />
-    <Compile Include="Objects\ToOrientationText.cs" />
-    <Compile Include="Create\SAPExport.cs" />
-    <Compile Include="Create\ThermalBridges.cs" />
-    <Compile Include="Objects\WarmAirSystemTable.cs" />
-    <Compile Include="Objects\WasteWaterHeatRecoverySystemTable.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Query\PCDB.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SAP_oM\SAP_oM.csproj">
-      <Project>{0f4b959b-f452-4219-b55f-284c80264bf4}</Project>
-      <Name>SAP_oM</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" Condition="" />
-  <PropertyGroup>
-    <PostBuildEvent>xcopy "$(TargetDir)$(TargetFileName)"  "C:\ProgramData\BHoM\Assemblies" /Y</PostBuildEvent>
-  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(TargetDir)$(TargetFileName)&quot;  &quot;C:\ProgramData\BHoM\Assemblies&quot; /Y" />
+  </Target>
+
 </Project>
