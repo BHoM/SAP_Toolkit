@@ -31,6 +31,7 @@ using BH.Engine.Environment.SAP;
 
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace BH.Adapter.SAP
 {
@@ -64,10 +65,9 @@ namespace BH.Adapter.SAP
 
                 b = await httpClient.SendAsync(r);
             }
-                string toJson = await b.Content.ReadAsStringAsync(); 
-            return BH.Engine.Environment.SAP.Convert.ToJson(toJson, true);
-
-
+                string text = await b.Content.ReadAsStringAsync();
+    
+                return JsonSerializer.Deserialize<ResultJson>(text);
         }
     }
 }
