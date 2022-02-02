@@ -27,6 +27,7 @@ using System.Text;
 using BH.oM.Base;
 using BH.oM.Adapter;
 using BH.oM.Environment.SAP;
+using BH.Engine.Environment.SAP;
 
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -46,7 +47,7 @@ namespace BH.Adapter.SAP
             return output;
         }
 
-        public async Task<string> RunCommand(RunAnalysisCommand command)
+        public async Task<ResultJson> RunCommand(RunAnalysisCommand command)
         {
             string postURL = command.PostURL;
             string xmlData = System.IO.File.ReadAllText(command.InputFile);
@@ -63,7 +64,10 @@ namespace BH.Adapter.SAP
 
                 b = await httpClient.SendAsync(r);
             }
-            return await b.Content.ReadAsStringAsync();            
+                string toJson = await b.Content.ReadAsStringAsync(); 
+            return BH.Engine.Environment.SAP.Convert.ToJson(toJson, true);
+
+
         }
     }
 }
