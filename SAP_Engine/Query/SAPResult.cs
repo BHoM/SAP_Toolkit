@@ -39,12 +39,24 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Query
     {
-        [Description("Query floor area from the result.")]
-        [Input("SAPResult", "Result json from execute method.")]
-        [Output("floorArea", "The floor area of the dwelling.")]
-        public static string resultFloorArea(this ResultJson results)
+        [Description("Extract specified property from the result.")]
+        [Input("result", "Result json from execute method.")]
+        [Input("property", "String specifying what property to query.")]
+        [Output("result", "Result of the specified property.")]
+        public static object SAPResult(this ResultJson results, string property)
         {
-            return results.FloorArea;
+            if (results == null)
+
+            return null;
+            var prop = typeof(ResultJson).GetProperty(property);
+
+            if (prop != null)
+
+                return prop.GetValue(results);
+
+            else
+                BH.Engine.Base.Compute.RecordError("The property name does not exist.");
+            return null;
         }
     }
 }
