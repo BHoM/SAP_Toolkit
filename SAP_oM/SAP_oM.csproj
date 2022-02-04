@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoilerInformation.cs" />
     <Compile Include="Enums\OpeningDataSource.cs" />
     <Compile Include="Enums\PressureTestCode.cs" />
     <Compile Include="Enums\ProductType.cs" />
@@ -84,6 +85,11 @@
     <Compile Include="Enums\VentilationDataSource.cs" />
     <Compile Include="Enums\WindowOvershading.cs" />
     <Compile Include="ExtraFanDetails.cs" />
+    <Compile Include="Heating.cs" />
+    <Compile Include="HeatingControls.cs" />
+    <Compile Include="HeatingFuel.cs" />
+    <Compile Include="PrimaryHeating.cs" />
+    <Compile Include="PrimaryHeatingDetails.cs" />
     <Compile Include="VentilationStrategy.cs" />
     <Compile Include="LivingArea.cs" />
     <Compile Include="MechanicalVentilationDetails.cs" />
@@ -108,8 +114,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enums\TypeOfOpening.cs" />
     <Compile Include="Wall.cs" />
+    <Compile Include="XML\Cooling.cs" />
     <Compile Include="XML\Enums\OpeningDataSource.cs" />
     <Compile Include="XML\Floor.cs" />
+    <Compile Include="XML\Heating.cs" />
+    <Compile Include="XML\MainHeating.cs" />
     <Compile Include="XML\Opening.cs" />
     <Compile Include="XML\OpeningType.cs" />
     <Compile Include="XML\PropertyDetails.cs" />
