@@ -29,21 +29,27 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Strategy for the ventilation of the dwelling.")]
-    public class PrimaryHeating : BHoMObject
+    public class Cooling : BHoMObject
     {
-        [Description("")]//Enum?
-        public virtual string HeatingGroup { get; set; } = null;
-
-        [Description("")]//enum?
-        public virtual string SubGroup { get; set; } = null;
-
-        [Description("")]//enum?
-        public virtual string Source { get; set; } = null;
-
-        [Description("")]//enum?
+        [Description("")]
         public virtual string Type { get; set; } = null;
 
-        [Description("")]//enum?
-        public virtual string Emitter { get; set; } = null;
+        [Description("")] //enum A-G plus unknown
+        public virtual string EnergyLabel { get; set; } = null;
+
+        [Description("EER measured in accordance with BS EN 14511")]
+        public virtual bool? MeasuredEER { get; set; } = null;
+
+        [Description("")]
+        public virtual string Description { get; set; } = null;
+
+        [Description("")]
+        public virtual string EER { get; set; } = null;
+
+        [Description("")]
+        public virtual string CompressorControl { get; set; } = null;
+
+        [Description("")]
+        public virtual string CooledArea { get; set; } = null;
     }
 }

@@ -28,19 +28,13 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Details of the means by which the building is ventilated")]
-    public class Heating : BHoMObject
+    [Description("Strategy for the ventilation of the dwelling.")]
+    public class ManufacturerDescription : BHoMObject
     {
         [Description("")]
-        public virtual PrimaryHeatingDetails Primary { get; set; } = new PrimaryHeatingDetails();
+        public virtual string Description { get; set; } = null;
 
         [Description("")]
-        public virtual SecondaryMain SecondaryMain { get; set; } = new SecondaryMain();
-
-        [Description("")]
-        public virtual SecondaryHeating SecondaryHeating { get; set; } = new SecondaryHeating();
-
-        [Description("")]
-        public virtual Cooling Cooling { get; set; } = new Cooling();
+        public virtual string TestedToStandard { get; set; } = null;
     }
 }
