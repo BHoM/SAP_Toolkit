@@ -37,43 +37,43 @@ namespace BH.Engine.Environment.SAP
         [Output("xmlHeating", "XML Heating object.")]
         public static BH.oM.Environment.SAP.XML.Heating ToXML(this BH.oM.Environment.SAP.Heating heating)
         {
-           /* BH.oM.Environment.SAP.XML.Heating xmlHeating = new BH.oM.Environment.SAP.XML.Heating();
-            xmlHeating.WaterHeatingCode = "0";
-            xmlHeating.WaterFuelType = "Type-" + sapFloor.Type.ToString() + "_Area-" + sapFloor.Area.ToString() + "_Uvalue-" + "0.13"; ;
-            xmlHeating.HasHotWaterCylinder = sapFloor.Type.FromSAPToXMLNumber();
-            xmlHeating.SecondaryHeatingCategory = sapFloor.Area;
-            xmlHeating.SecondaryHeatingDataSource = 0;
-            xmlHeating.SecondaryHeatingCode = 0;
-            xmlHeating.SecondaryFuelType = 0.13;
-            xmlHeating.SecondaryHeatingFlueType = 80;
-            xmlHeating.ThermalStore = 0;
-            xmlHeating.HasFixedAirConditioning = 0;
-            xmlHeating.ImmersionHeatingType = 0.13;
-            xmlHeating.IsHeatPumpAssistedByImmersion = 80;
-            xmlHeating.IsImmersionForSummerUse = 0;
-            xmlHeating.IsSecondaryHeatingHETASApproved = 0;
-            xmlHeating.HotWaterStoreSize = 0.13;
-            xmlHeating.HotWaterStoreHeatTransferArea = 80;
-            xmlHeating.HotWaterStoreHeatLossSource = 0;
-            xmlHeating.HotWaterStoreHeatLoss = 0;
-            xmlHeating.HotWaterStoreInsulationType = 0.13;
-            xmlHeating.HotWaterInsulationThickness = 80;
-            xmlHeating.IsThermalStoreNearBoiler = 0;
-            xmlHeating.IsThermalStoreOrCPSUInAiringCupboard = 0;
-            xmlHeating.HasCylinderThermostat = 0.13;
-            xmlHeating.IsCylinderInHeatedSpace = 80;
-            xmlHeating.IsHotWaterSeperatlyTimed = 0;
-            xmlHeating.CommunityHeatingSystems = 0;
-            xmlHeating.MainHeatingDetails = 0.13;
-            xmlHeating.HeatingDesignWaterUse = 80;
-            xmlHeating.MainHeatingSystemsInteraction = 0;
-            xmlHeating.SecondaryHeatingDeclaredValues = 0;
-            xmlHeating.PrimaryPipeworkInsulation = 0.13;
-            xmlHeating.SolarHeatingDetails = 80;
-            xmlHeating.InstantaneousWHRS = 0;
-            xmlHeating.StorageWHRS = 0;*/
+            BH.oM.Environment.SAP.XML.Heating xmlHeating = new BH.oM.Environment.SAP.XML.Heating();
+            xmlHeating.WaterHeatingCode = null;
+            xmlHeating.WaterFuelType = null;
+            xmlHeating.HasHotWaterCylinder = null;
+            xmlHeating.SecondaryHeatingCategory = heating.SecondaryHeating.HeatingDetails.HeatingGroup;
+            xmlHeating.SecondaryHeatingDataSource = heating.SecondaryHeating.HeatingDetails.Source;
+            xmlHeating.SecondaryHeatingCode = heating.SecondaryHeating.HeatingDetails.HeatingType;
+            xmlHeating.SecondaryFuelType = heating.SecondaryHeating.Fuel;
+            xmlHeating.SecondaryHeatingFlueType = heating.SecondaryHeating.HeatingDetails.FlueType;
+            xmlHeating.ThermalStore = null ;
+            xmlHeating.HasFixedAirConditioning = null;
+            xmlHeating.ImmersionHeatingType = null;
+            xmlHeating.IsHeatPumpAssistedByImmersion = null;
+            xmlHeating.IsImmersionForSummerUse = null;
+            xmlHeating.IsSecondaryHeatingHETASApproved = heating.SecondaryHeating.HETASApproved;
+            xmlHeating.HotWaterStoreSize = null;
+            xmlHeating.HotWaterStoreHeatTransferArea = null;
+            xmlHeating.HotWaterStoreHeatLossSource = null;
+            xmlHeating.HotWaterStoreHeatLoss = null;
+            xmlHeating.HotWaterStoreInsulationType = null;
+            xmlHeating.HotWaterInsulationThickness = null;
+            xmlHeating.IsThermalStoreNearBoiler = null;
+            xmlHeating.IsThermalStoreOrCPSUInAiringCupboard = null;
+            xmlHeating.HasCylinderThermostat = null;
+            xmlHeating.IsCylinderInHeatedSpace = null;
+            xmlHeating.IsHotWaterSeperatlyTimed = null;
+            xmlHeating.CommunityHeatingSystems = null;
+            xmlHeating.MainHeatingDetails = null;
+            xmlHeating.HeatingDesignWaterUse = null;
+            xmlHeating.MainHeatingSystemsInteraction = null;
+            xmlHeating.SecondaryHeatingDeclaredValues = null;
+            xmlHeating.PrimaryPipeworkInsulation = null;
+            xmlHeating.SolarHeatingDetails = null;
+            xmlHeating.InstantaneousWHRS = null;
+            xmlHeating.StorageWHRS = null;
 
-            return null;
+            return xmlHeating;
         }
     }
 }

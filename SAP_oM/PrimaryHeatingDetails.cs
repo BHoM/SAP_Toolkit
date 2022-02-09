@@ -45,6 +45,9 @@ namespace BH.oM.Environment.SAP
 
         [Description("Is the appliance HETAS approved?")]
         public virtual bool HETASApproved { get; set; } = false;
+        
+        [Description("")]
+        public virtual bool MCSCertificate { get; set; } = false;
 
     }
 }

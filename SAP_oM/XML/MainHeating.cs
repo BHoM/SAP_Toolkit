@@ -46,7 +46,7 @@ namespace BH.oM.Environment.SAP.XML
         public virtual string MainHeatingIndexNumber { get; set; } = null;
 
         [Description("Is the boiler a condensing boiler?  If boiler efficiency is manufacturer declaration.")]
-        public virtual bool IsCondensingBoiler { get; set; } = false;
+        public virtual bool? IsCondensingBoiler { get; set; } = false;
 
         [Description("Boiler type; if boiler efficiency is manufacturer declaration and fuel is gas or oil.")]
         public virtual string GasOrOilBoilerType { get; set; } = null;
@@ -82,28 +82,28 @@ namespace BH.oM.Environment.SAP.XML
         public virtual string MainHeatingFlueType { get; set; } = null;
 
         [Description("Indicates whether the heating system contains a fan flue; only if boiler.")]
-        public virtual bool IsFlueFanPresent { get; set; } = false;
+        public virtual bool? IsFlueFanPresent { get; set; } = false;
 
         [Description("Central heating pump in heated space?  Only when wet system (radiators or underfloor).")]
-        public virtual bool IsCentralHeatingPumpInHeatedSpace { get; set; } = false;
+        public virtual bool? IsCentralHeatingPumpInHeatedSpace { get; set; } = false;
 
         [Description("Oil pump in heated space?  Only if oil boiler.")]
-        public virtual bool IsOilPumpInHeatedSpace { get; set; } = false;
+        public virtual bool? IsOilPumpInHeatedSpace { get; set; } = false;
 
         [Description("Interlocked system?  Only when wet system (radiators or underfloor).")]
-        public virtual bool IsInterLockedSystem { get; set; } = false;
+        public virtual bool? IsInterLockedSystem { get; set; } = false;
 
         [Description("True if there is a delayed start control separate from a controller in the database.")]
-        public virtual bool HasSeparateDelayedStart { get; set; } = false;
+        public virtual bool? HasSeparateDelayedStart { get; set; } = false;
 
-        [Description(">For backward compatibility only, do not use.")]
-        public virtual bool HasLoadOrWeatherCompensation { get; set; } = false;
+        [Description("For backward compatibility only, do not use.")]
+        public virtual bool? HasLoadOrWeatherCompensation { get; set; } = null;
 
         [Description("The type of boiler fuel feed; only if solid fuel boiler with manufacturer declaration.")]
         public virtual string BoilerFuelFeed { get; set; } = null;
 
         [Description("Main heating appliance is HETAS approved?  Only if solid fuel.")]
-        public virtual bool IsMainHeatingHETASApproved { get; set; } = false;
+        public virtual bool? IsMainHeatingHETASApproved { get; set; } = false;
 
         [Description("Electric CPSU operating temperature in Celcius; only if main heating is electric CPSU.")]
         public virtual string ElectricCPSUOperatingTemperature { get; set; } = null;
@@ -112,7 +112,7 @@ namespace BH.oM.Environment.SAP.XML
         public virtual string LoadOrWeatherCompensation { get; set; } = null;
 
         [Description("Fraction of main heating provided by this system, is 1 if only one main system.")]
-        public virtual string MainHeatingFraction { get; set; } = null;
+        public virtual int? MainHeatingFraction { get; set; } = null;
 
         [Description("")]
         public virtual string BurnerControl { get; set; } = null;
@@ -127,7 +127,7 @@ namespace BH.oM.Environment.SAP.XML
         public virtual string MainHeatingEfficiencySummer { get; set; } = null;
 
         [Description("Flue Gas Heat Recovery System.")]
-        public virtual bool HasFGHRS { get; set; } = false;
+        public virtual bool? HasFGHRS { get; set; } = false;
 
         [Description("FGHRS index number; only if FGHRS")]
         public virtual string FGHRSIndexNumber { get; set; } = null;
@@ -145,7 +145,7 @@ namespace BH.oM.Environment.SAP.XML
         public virtual string EmitterTemperature { get; set; } = null;
 
         [Description("Whether heat pump was installed under the Microgeneration Certification Scheme.")]
-        public virtual bool MCSInstalledHeatPump { get; set; } = false;
+        public virtual bool? MCSInstalledHeatPump { get; set; } = false;
 
         [Description("Included for systems with a central heating pump, i.e. wet system.")]
         public virtual string CentralHeatingPumpAge { get; set; } = null;
