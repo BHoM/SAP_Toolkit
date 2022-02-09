@@ -42,7 +42,7 @@ namespace BH.oM.Environment.SAP.XML
         [Description("Cooling-System-Type")]
         public virtual string CoolingSystemType { get; set; } = null;
 
-        [Description("ata set includes either class or EER, not both.")]
+        [Description("Data set includes either class or EER, not both.")]
         public virtual string CoolingSystemClass { get; set; } = null;
 
         [Description("Energy Efficiency Ratio.  Data set includes either class or EER, not both.")]
