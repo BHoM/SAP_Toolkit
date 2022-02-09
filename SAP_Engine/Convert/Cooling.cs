@@ -22,22 +22,30 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using BH.oM.Base;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
+using BH.oM.Base.Attributes;
 
-namespace BH.oM.Environment.SAP
+namespace BH.Engine.Environment.SAP
 {
-    [Description("Strategy for the ventilation of the dwelling.")]
-    public class MultipleHeatingSystemDetails : BHoMObject
+    public static partial class Convert
     {
-        [Description("")]
-        public virtual int? FractionOfHeat { get; set; } = null;
+        [Description("Convert SAP Heating to XML Cooling.")]
+        [Input("sapHeating", "SAP Heating object to convert.")]
+        [Output("xmlCooling", "XML Cooling object.")]
+        public static BH.oM.Environment.SAP.XML.Cooling ToXMLCooling(this BH.oM.Environment.SAP.Heating heating)
+        {
+            BH.oM.Environment.SAP.XML.Cooling xmlCooling = new BH.oM.Environment.SAP.XML.Cooling();
+            xmlCooling.CooledArea = heating.Cooling.CooledArea;
+            xmlCooling.CoolingSystemDataSource = null;
+            xmlCooling.CoolingSystemType = heating.Cooling.Type;
+            xmlCooling.CoolingSystemClass = heating.Cooling.EnergyLabel;
+            xmlCooling.CoolingSystemEER = heating.Cooling.EER;
+            xmlCooling.CoolingSystemControl = heating.Cooling.CompressorControl;
 
-        [Description("")]
-        public virtual bool? IncludesWholePart { get; set; } = null;
-
-        [Description("")]
-        public virtual bool? IncludesSeparateParts { get; set; } = null;
+            return xmlCooling;
+        }
     }
 }
