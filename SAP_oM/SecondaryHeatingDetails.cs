@@ -45,9 +45,5 @@ namespace BH.oM.Environment.SAP
 
         [Description("")]
         public virtual string FlueType { get; set; } = null;
-
-        [Description("")]
-        public virtual MultipleHeatingSystemDetails MultipleSystemDetails { get; set; } = new MultipleHeatingSystemDetails();
-
     }
 }

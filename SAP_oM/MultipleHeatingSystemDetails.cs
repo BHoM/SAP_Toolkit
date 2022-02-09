@@ -32,7 +32,7 @@ namespace BH.oM.Environment.SAP
     public class MultipleHeatingSystemDetails : BHoMObject
     {
         [Description("")]
-        public virtual int? FractionOfHeat { get; set; } = null;
+        public virtual double FractionOfHeat { get; set; } = 0;
 
         [Description("")]
         public virtual bool? IncludesWholePart { get; set; } = null;

@@ -112,7 +112,7 @@ namespace BH.oM.Environment.SAP.XML
         public virtual string LoadOrWeatherCompensation { get; set; } = null;
 
         [Description("Fraction of main heating provided by this system, is 1 if only one main system.")]
-        public virtual int? MainHeatingFraction { get; set; } = null;
+        public virtual double MainHeatingFraction { get; set; } = 0;
 
         [Description("")]
         public virtual string BurnerControl { get; set; } = null;

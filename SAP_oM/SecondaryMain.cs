@@ -49,5 +49,8 @@ namespace BH.oM.Environment.SAP
         [Description("")]
         public virtual MultipleHeatingSystemDetails MultipleSystemDetails { get; set; } = new MultipleHeatingSystemDetails();
 
+        [Description("")]
+        public virtual bool MCSCertificate { get; set; } = false;
+
     }
 }
