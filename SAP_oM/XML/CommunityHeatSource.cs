@@ -30,31 +30,31 @@ using System.Xml.Serialization;
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "SAP-Cooling", IsNullable = false)]
-    public class Cooling : IObject
+    [XmlRoot(ElementName = "Community-Heat-Source", IsNullable = false)]
+    public class CommunityHeatSource : IObject
     {
-        [Description("Cooled-Area")]
-        [XmlElement("")]
-        public virtual string CooledArea { get; set; } = null;
+        [Description("")]
+        [XmlElement("Heat-Source-Type")]
+        public virtual string HeatSourceType { get; set; } = null;
 
-        [Description("Cooling-System-Data-Source")]
-        [XmlElement("")]
-        public virtual string CoolingSystemDataSource { get; set; } = null;
+        [Description("Fraction of heat for the system provided by this heat source.")]
+        [XmlElement("Heat-Fraction")]
+        public virtual string HeatFraction { get; set; } = null;
 
-        [Description("Cooling-System-Type")]
-        [XmlElement("")]
-        public virtual string CoolingSystemType { get; set; } = null;
+        [Description("")]
+        [XmlElement("Fuel-Type")]
+        public virtual string FuelType { get; set; } = null;
 
-        [Description("Data set includes either class or EER, not both.")]
-        [XmlElement("")]
-        public virtual string CoolingSystemClass { get; set; } = null;
+        [Description("Heat efficiency in %.")]
+        [XmlElement("Heat-Efficiency")]
+        public virtual string HeatEfficiency { get; set; } = null;
 
-        [Description("Energy Efficiency Ratio.  Data set includes either class or EER, not both.")]
-        [XmlElement("")]
-        public virtual string CoolingSystemEER { get; set; } = null;
+        [Description("Power efficiency in %. Include when heat source is CHP.")]
+        [XmlElement("Power-Efficiency")]
+        public virtual string PowerEfficiency { get; set; } = null;
 
-        [Description("Cooling-System-Control")]
-        [XmlElement("")]
-        public virtual string CoolingSystemControl { get; set; } = null;
+        [Description("")]
+        [XmlElement("Description")]
+        public virtual string Description { get; set; } = null;
     }
 }

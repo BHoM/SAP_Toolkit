@@ -30,31 +30,19 @@ using System.Xml.Serialization;
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "SAP-Cooling", IsNullable = false)]
-    public class Cooling : IObject
+    [XmlRoot(ElementName = "Storage-Heater", IsNullable = false)]
+    public class StorageHeater : IObject
     {
-        [Description("Cooled-Area")]
-        [XmlElement("")]
-        public virtual string CooledArea { get; set; } = null;
+        [Description("The number of storage heaters with this index number.")]
+        [XmlElement("Number-Of-Heaters")]
+        public virtual string NumberOfHeaters { get; set; } = null;
 
-        [Description("Cooling-System-Data-Source")]
-        [XmlElement("")]
-        public virtual string CoolingSystemDataSource { get; set; } = null;
+        [Description("The index number of the heater from the product database.")]
+        [XmlElement("Index-Number")]
+        public virtual string IndexNumber { get; set; } = null;
 
-        [Description("Cooling-System-Type")]
-        [XmlElement("")]
-        public virtual string CoolingSystemType { get; set; } = null;
-
-        [Description("Data set includes either class or EER, not both.")]
-        [XmlElement("")]
-        public virtual string CoolingSystemClass { get; set; } = null;
-
-        [Description("Energy Efficiency Ratio.  Data set includes either class or EER, not both.")]
-        [XmlElement("")]
-        public virtual string CoolingSystemEER { get; set; } = null;
-
-        [Description("Cooling-System-Control")]
-        [XmlElement("")]
-        public virtual string CoolingSystemControl { get; set; } = null;
+        [Description("Whether heater is high heat retention type.")]
+        [XmlElement("High-Heat-Retention")]
+        public virtual string HighHeatRetention { get; set; } = null;
     }
 }

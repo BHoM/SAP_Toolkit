@@ -64,7 +64,7 @@ namespace BH.Engine.Environment.SAP
             xmlMainHeating.IsMainHeatingHETASApproved = heating.SecondaryMain.HETASApproved;
             xmlMainHeating.ElectricCPSUOperatingTemperature = null;
             xmlMainHeating.LoadOrWeatherCompensation = null;
-            xmlMainHeating.MainHeatingFraction = heating.SecondaryMain.MultipleSystemDetails.FractionOfHeat;
+            xmlMainHeating.MainHeatingFraction = heating.SecondaryMain.FractionOfHeat;
             xmlMainHeating.BurnerControl = null;
             xmlMainHeating.EfficiencyType = null;
             xmlMainHeating.MainHeatingEfficiencyWinter = null;

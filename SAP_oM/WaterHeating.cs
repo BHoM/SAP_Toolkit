@@ -25,36 +25,23 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
-using System.Xml.Serialization;
 
-namespace BH.oM.Environment.SAP.XML
+namespace BH.oM.Environment.SAP
 {
-    [Serializable]
-    [XmlRoot(ElementName = "SAP-Cooling", IsNullable = false)]
-    public class Cooling : IObject
+    [Description("Strategy for the ventilation of the dwelling.")]
+    public class WaterHeating : BHoMObject
     {
-        [Description("Cooled-Area")]
-        [XmlElement("")]
-        public virtual string CooledArea { get; set; } = null;
+        [Description("")]
+        public virtual string System { get; set; } = null;
 
-        [Description("Cooling-System-Data-Source")]
-        [XmlElement("")]
-        public virtual string CoolingSystemDataSource { get; set; } = null;
+        [Description("")] 
+        public virtual string Fuel { get; set; } = null;
 
-        [Description("Cooling-System-Type")]
-        [XmlElement("")]
-        public virtual string CoolingSystemType { get; set; } = null;
+        [Description("EER measured in accordance with BS EN 14511")]
+        public virtual CylinderSpecification CylinderSpecification { get; set; } = new CylinderSpecification();
 
-        [Description("Data set includes either class or EER, not both.")]
-        [XmlElement("")]
-        public virtual string CoolingSystemClass { get; set; } = null;
+        [Description("")]
+        public virtual Immersion Immersion { get; set; } = new Immersion();
 
-        [Description("Energy Efficiency Ratio.  Data set includes either class or EER, not both.")]
-        [XmlElement("")]
-        public virtual string CoolingSystemEER { get; set; } = null;
-
-        [Description("Cooling-System-Control")]
-        [XmlElement("")]
-        public virtual string CoolingSystemControl { get; set; } = null;
     }
 }

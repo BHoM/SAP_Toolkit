@@ -25,36 +25,38 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
-using System.Xml.Serialization;
 
-namespace BH.oM.Environment.SAP.XML
+namespace BH.oM.Environment.SAP
 {
-    [Serializable]
-    [XmlRoot(ElementName = "SAP-Cooling", IsNullable = false)]
-    public class Cooling : IObject
+    [Description("Strategy for the ventilation of the dwelling.")]
+    public class CylinderSpecification : BHoMObject
     {
-        [Description("Cooled-Area")]
-        [XmlElement("")]
-        public virtual string CooledArea { get; set; } = null;
+        [Description("Cylinder volume in litres.")]
+        public virtual string Volume { get; set; } = null;
 
-        [Description("Cooling-System-Data-Source")]
-        [XmlElement("")]
-        public virtual string CoolingSystemDataSource { get; set; } = null;
+        [Description("Only if specified manufacturer loss factor.")]
+        public virtual string DeclaredLossFactor { get; set; } = null;
 
-        [Description("Cooling-System-Type")]
-        [XmlElement("")]
-        public virtual string CoolingSystemType { get; set; } = null;
+        [Description("")]
+        public virtual string InsulationType { get; set; } = null;
 
-        [Description("Data set includes either class or EER, not both.")]
-        [XmlElement("")]
-        public virtual string CoolingSystemClass { get; set; } = null;
+        [Description("")]
+        public virtual string InsulationThickness { get; set; } = null;
 
-        [Description("Energy Efficiency Ratio.  Data set includes either class or EER, not both.")]
-        [XmlElement("")]
-        public virtual string CoolingSystemEER { get; set; } = null;
+        [Description("")]
+        public virtual bool InHeatedSpace { get; set; } = false;
 
-        [Description("Cooling-System-Control")]
-        [XmlElement("")]
-        public virtual string CoolingSystemControl { get; set; } = null;
+        [Description("")]
+        public virtual bool Cylinderstat { get; set; } = false;
+
+       /* [Description("")]
+        public virtual bool PrimaryPipeworkInsulated { get; set; } = false;*/
+
+        [Description("Only if primary pipework is insulated")]
+        public virtual string InsulatedAmount { get; set; } = null;
+
+        [Description("")]
+        public virtual bool TimedSeperatly { get; set; } = false;
+
     }
 }

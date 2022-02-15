@@ -30,31 +30,23 @@ using System.Xml.Serialization;
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "SAP-Cooling", IsNullable = false)]
-    public class Cooling : IObject
+    [XmlRoot(ElementName = "Storage-WWHRS", IsNullable = false)]
+    public class StorageWWHRS : IObject
     {
-        [Description("Cooled-Area")]
-        [XmlElement("")]
-        public virtual string CooledArea { get; set; } = null;
+        [Description("")]
+        [XmlElement("WWHRS-Index-Number")]
+        public virtual string WWHRSIndexNumber { get; set; } = null;
 
-        [Description("Cooling-System-Data-Source")]
-        [XmlElement("")]
-        public virtual string CoolingSystemDataSource { get; set; } = null;
+        [Description("")]
+        [XmlElement("Total-Showers-And-Baths")]
+        public virtual string TotalShowersAndBaths { get; set; } = null;
 
-        [Description("Cooling-System-Type")]
-        [XmlElement("")]
-        public virtual string CoolingSystemType { get; set; } = null;
+        [Description("")]
+        [XmlElement("Baths-And-Showers-To-WWHRS")]
+        public virtual string BathsAndShowersToWWHRS { get; set; } = null;
 
-        [Description("Data set includes either class or EER, not both.")]
-        [XmlElement("")]
-        public virtual string CoolingSystemClass { get; set; } = null;
-
-        [Description("Energy Efficiency Ratio.  Data set includes either class or EER, not both.")]
-        [XmlElement("")]
-        public virtual string CoolingSystemEER { get; set; } = null;
-
-        [Description("Cooling-System-Control")]
-        [XmlElement("")]
-        public virtual string CoolingSystemControl { get; set; } = null;
+        [Description("Dedicated store volume in litres.")]
+        [XmlElement("WWHRS-Store-Volume")]
+        public virtual string WWHRSStoreVolume { get; set; } = null;
     }
 }

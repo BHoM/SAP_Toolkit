@@ -25,32 +25,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
+using System.Xml.Serialization;
 
-namespace BH.oM.Environment.SAP
+namespace BH.oM.Environment.SAP.XML
 {
-    [Description("Strategy for the ventilation of the dwelling.")]
-    public class SecondaryMain : BHoMObject
+    [Serializable]
+    [XmlRoot(ElementName = "Storage-Heaters", IsNullable = false)]
+    public class StorageHeaters : IObject
     {
         [Description("")]
-        public virtual HeatingDetails HeatingDetails { get; set; } = new HeatingDetails();
-
-        [Description("")]
-        public virtual HeatingControls HeatingControls { get; set; } = new HeatingControls();
-
-        [Description("")]
-        public virtual HeatingFuel HeatingFuel { get; set; } = new HeatingFuel();
-
-        [Description("")]
-        public virtual BoilerInformation BoilerInformation { get; set; } = new BoilerInformation();
-
-        [Description("")]
-        public virtual bool? HETASApproved { get; set; } = null;
-
-        [Description("")]
-        public virtual MultipleHeatingSystemDetails MultipleSystemDetails { get; set; } = new MultipleHeatingSystemDetails();
-
-        [Description("")]
-        public virtual bool MCSCertificate { get; set; } = false;
-
+        [XmlElement("Storage-Heater")]
+        public virtual StorageHeater StorageHeater { get; set; } = new StorageHeater();
     }
 }
