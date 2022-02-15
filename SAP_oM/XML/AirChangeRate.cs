@@ -30,31 +30,15 @@ using System.Xml.Serialization;
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "SAP-Cooling", IsNullable = false)]
-    public class Cooling : IObject
+    [XmlRoot(ElementName = "Air-Change-Rate", IsNullable = false)]
+    public class AirChangeRate : IObject
     {
-        [Description("Cooled-Area")]
-        [XmlElement("")]
-        public virtual string CooledArea { get; set; } = null;
+        [Description("")]
+        [XmlElement("Air-Change-Rate-Month")]
+        public virtual string Month { get; set; } = null;
 
-        [Description("Cooling-System-Data-Source")]
-        [XmlElement("")]
-        public virtual string CoolingSystemDataSource { get; set; } = null;
-
-        [Description("Cooling-System-Type")]
-        [XmlElement("")]
-        public virtual string CoolingSystemType { get; set; } = null;
-
-        [Description("Data set includes either class or EER, not both.")]
-        [XmlElement("")]
-        public virtual string CoolingSystemClass { get; set; } = null;
-
-        [Description("Energy Efficiency Ratio.  Data set includes either class or EER, not both.")]
-        [XmlElement("")]
-        public virtual string CoolingSystemEER { get; set; } = null;
-
-        [Description("Cooling-System-Control")]
-        [XmlElement("")]
-        public virtual string CoolingSystemControl { get; set; } = null;
+        [Description("")]
+        [XmlElement("Air-Change-Rate-Value")]
+        public virtual string Value { get; set; } = null;
     }
 }

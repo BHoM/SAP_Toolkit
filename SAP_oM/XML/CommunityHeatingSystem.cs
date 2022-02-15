@@ -30,31 +30,35 @@ using System.Xml.Serialization;
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "SAP-Cooling", IsNullable = false)]
-    public class Cooling : IObject
+    [XmlRoot(ElementName = "SAP-Community-Heating-System", IsNullable = false)]
+    public class CommunityHeatingSystem : IObject
     {
-        [Description("Cooled-Area")]
-        [XmlElement("")]
-        public virtual string CooledArea { get; set; } = null;
+        [Description("Specifies what kind of heating the community system is used for.")]
+        [XmlElement("Community-Heating-Use")]
+        public virtual string CommunityHeatingUse { get; set; } = null;
 
-        [Description("Cooling-System-Data-Source")]
-        [XmlElement("")]
-        public virtual string CoolingSystemDataSource { get; set; } = null;
+        [Description("Community heating, hot water cylinder in dwelling?")]
+        [XmlElement("Is-Community-Heating-Cylinder-In-Dwelling")]
+        public virtual string IsCommunityHeatingCylinderInDwelling { get; set; } = null;
 
-        [Description("Cooling-System-Type")]
-        [XmlElement("")]
-        public virtual string CoolingSystemType { get; set; } = null;
+        [Description("Community heating distribution")]
+        [XmlElement("Community-Heating-Distribution-Type")]
+        public virtual string CommunityHeatingDistributionType { get; set; } = null;
 
-        [Description("Data set includes either class or EER, not both.")]
-        [XmlElement("")]
-        public virtual string CoolingSystemClass { get; set; } = null;
+        [Description("")]
+        [XmlElement("Community-Heat-Sources")]
+        public virtual CommunityHeatSources CommunityHeatSources { get; set; } = new CommunityHeatSources();
 
-        [Description("Energy Efficiency Ratio.  Data set includes either class or EER, not both.")]
-        [XmlElement("")]
-        public virtual string CoolingSystemEER { get; set; } = null;
+        [Description("Used when Community-Heating-Distribution-Type is calculated.")]
+        [XmlElement("Community-Heating-Distribution-Loss-Factor")]
+        public virtual string CommunityHeatingDistributionLossFactor { get; set; } = null;
 
-        [Description("Cooling-System-Control")]
-        [XmlElement("")]
-        public virtual string CoolingSystemControl { get; set; } = null;
+        [Description("Used for hot-water-only systems.")]
+        [XmlElement("Charging-Linked-To-Heat-Use")]
+        public virtual string ChargingLinkedToHeatUse { get; set; } = null;
+
+        [Description("Index number of heat network, if applicable.")]
+        [XmlElement("Heat-Network-Index-Number")]
+        public virtual string HeatNetworkIndexNumber { get; set; } = null;
     }
 }

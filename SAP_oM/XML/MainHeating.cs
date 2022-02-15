@@ -34,126 +34,167 @@ namespace BH.oM.Environment.SAP.XML
     public class MainHeating : IObject
     {
         [Description("Identifies the main heating as system 1 or system 2.  System 1 must always be present, system 2 is included only when there are two systems.")]
+        [XmlElement("Main-Heating-Number")]
         public virtual int? MainHeatingNumber { get; set; } = null;
         
         [Description("Category of heating system for the main heating system.")]
+        [XmlElement("Main-Heating-Category")]
         public virtual string MainHeatingCategory { get; set; } = null;
 
         [Description("Source of main heating system data.")]
+        [XmlElement("Main-Heating-Data-Source")]
         public virtual string MainHeatingDataSource { get; set; } = null;
 
         [Description("The ID of the heating system from the product database, if system from database.")]
+        [XmlElement("Main-Heating-Index-Number")]
         public virtual string MainHeatingIndexNumber { get; set; } = null;
 
         [Description("Is the boiler a condensing boiler?  If boiler efficiency is manufacturer declaration.")]
+        [XmlElement("Is-Condensing-Boiler")]
         public virtual bool? IsCondensingBoiler { get; set; } = false;
 
         [Description("Boiler type; if boiler efficiency is manufacturer declaration and fuel is gas or oil.")]
+        [XmlElement("Gas-Or-Oil-Boiler-Type")]
         public virtual string GasOrOilBoilerType { get; set; } = null;
 
         [Description("Combi boiler type; if it is a combi boiler and boiler efficiency is manufacturer declaration.")]
+        [XmlElement("Combi-Boiler-Type")]
         public virtual string CombiBoilerType { get; set; } = null;
 
         [Description("Case heat emission at full load in kW; if it is a range cooker boiler and boiler efficiency is manufacturer declaration.")]
+        [XmlElement("Case-Heat-Emission")]
         public virtual string CaseHeatEmission { get; set; } = null;
 
         [Description("Heat transfer to water at full load in kW; if it is a range cooker boiler and boiler efficiency is manufacturer declaration.")]
+        [XmlElement("Heat-Transfer-To-Water")]
         public virtual string HeatTransferToWater { get; set; } = null;
 
         [Description("Boiler type; if boiler efficiency is manufacturer declaration and fuel is solid.")]
+        [XmlElement("Solid-Fuel-Boiler-Type")]
         public virtual string SolidFuelBoilerType { get; set; } = null;
 
         [Description("Main heating code; when heating data source is SAP table.")]
+        [XmlElement("Main-Heating-Code")]
         public virtual string MainHeatingCode { get; set; } = null;
 
         [Description("The type of fuel used to power the central heating e.g. Gas, Electricity; not used if main heating system is community heating scheme.")]
+        [XmlElement("Main-Fuel-Type")]
         public virtual string MainFuelType { get; set; } = null;
 
         [Description("Type of Main Control for the Heating System.")]
+        [XmlElement("Main-Heating-Control")]
         public virtual string MainHeatingControl { get; set; } = null;
 
         [Description("Identifies the means by which the central heating system (if present) emits heat; only when wet system (radiators or underfloor).")]
+        [XmlElement("Heat-Emitter-Type")]
         public virtual string HeatEmitterType { get; set; } = null;
 
         [Description("Means by which an underfloor heating system (if present) emits heat; only when wet system (underfloor).")]
+        [XmlElement("Underfloor-Heat-Emitter-Type")]
         public virtual string UnderfloorHeatEmitterType { get; set; } = null;
 
         [Description("The type of main heating flue; only if flued appliance.")]
+        [XmlElement("Main-Heating-Flue-Type")]
         public virtual string MainHeatingFlueType { get; set; } = null;
 
         [Description("Indicates whether the heating system contains a fan flue; only if boiler.")]
+        [XmlElement("Is-Flue-Fan-Present")]
         public virtual bool? IsFlueFanPresent { get; set; } = false;
 
         [Description("Central heating pump in heated space?  Only when wet system (radiators or underfloor).")]
+        [XmlElement("Is-Central-Heating-Pump-In-Heated-Space")]
         public virtual bool? IsCentralHeatingPumpInHeatedSpace { get; set; } = false;
 
         [Description("Oil pump in heated space?  Only if oil boiler.")]
+        [XmlElement("Is-Oil-Pump-In-Heated-Space")]
         public virtual bool? IsOilPumpInHeatedSpace { get; set; } = false;
 
         [Description("Interlocked system?  Only when wet system (radiators or underfloor).")]
+        [XmlElement("Is-Interlocked-System")]
         public virtual bool? IsInterLockedSystem { get; set; } = false;
 
         [Description("True if there is a delayed start control separate from a controller in the database.")]
+        [XmlElement("Has-Separate-Delayed-Start")]
         public virtual bool? HasSeparateDelayedStart { get; set; } = false;
 
         [Description("For backward compatibility only, do not use.")]
+        [XmlElement("Has-Load-Or-Weather-Compensation")]
         public virtual bool? HasLoadOrWeatherCompensation { get; set; } = null;
 
         [Description("The type of boiler fuel feed; only if solid fuel boiler with manufacturer declaration.")]
+        [XmlElement("Boiler-Fuel-Feed")]
         public virtual string BoilerFuelFeed { get; set; } = null;
 
         [Description("Main heating appliance is HETAS approved?  Only if solid fuel.")]
+        [XmlElement("Is-Main-Heating-HETAS-Approved")]
         public virtual bool? IsMainHeatingHETASApproved { get; set; } = false;
 
         [Description("Electric CPSU operating temperature in Celcius; only if main heating is electric CPSU.")]
+        [XmlElement("Electric-CPSU-Operating-Temperature")]
         public virtual string ElectricCPSUOperatingTemperature { get; set; } = null;
 
         [Description("Has load or weather compensation?")]
+        [XmlElement("Load-Or-Weather-Compensation")]
         public virtual string LoadOrWeatherCompensation { get; set; } = null;
 
         [Description("Fraction of main heating provided by this system, is 1 if only one main system.")]
+        [XmlElement("Main-Heating-Fraction")]
         public virtual double MainHeatingFraction { get; set; } = 0;
 
         [Description("")]
+        [XmlElement("Burner-Control")]
         public virtual string BurnerControl { get; set; } = null;
 
         [Description("")]
+        [XmlElement("Efficiency-Type")]
         public virtual string EfficiencyType { get; set; } = null;
 
         [Description("To be used if main heating data is manufacturer declaration and Efficiency-Type is winter and summer.")]
+        [XmlElement("Main-Heating-Efficiency-Winter")]
         public virtual string MainHeatingEfficiencyWinter { get; set; } = null;
 
         [Description("To be used if main heating data is manufacturer declaration and Efficiency-Type is winter and summer.")]
+        [XmlElement("Main-Heating-Efficiency-Summer")]
         public virtual string MainHeatingEfficiencySummer { get; set; } = null;
 
         [Description("Flue Gas Heat Recovery System.")]
+        [XmlElement("Has-FGHRS")]
         public virtual bool? HasFGHRS { get; set; } = false;
 
         [Description("FGHRS index number; only if FGHRS")]
+        [XmlElement("FGHRS-Index-Number")]
         public virtual string FGHRSIndexNumber { get; set; } = null;
 
         [Description("")]
+        [XmlElement("FGHRS-Energy-Source")]
         public virtual string FGHRSEnergySource { get; set; } = null;
 
         [Description("")]
-        public virtual string MainHeatingDeclaredValues { get; set; } = null;
+        [XmlElement("Main-Heating-Declared-Values")]
+        public virtual HeatingDeclaredValues MainHeatingDeclaredValues { get; set; } = new HeatingDeclaredValues();
 
         [Description("")]
-        public virtual string StorageHeaters { get; set; } = null;
+        [XmlElement("Storage-Heaters")]
+        public virtual StorageHeaters StorageHeaters { get; set; } = new StorageHeaters();
 
         [Description("Gas and oil boilers and heat pump from database: 0, 1, 3 or 4. Other heat pump 0, 2 or 4. Other systems NA.")]
+        [XmlElement("Emitter-Temperature")]
         public virtual string EmitterTemperature { get; set; } = null;
 
         [Description("Whether heat pump was installed under the Microgeneration Certification Scheme.")]
+        [XmlElement("MCS-Installed-Heat-Pump")]
         public virtual bool? MCSInstalledHeatPump { get; set; } = false;
 
         [Description("Included for systems with a central heating pump, i.e. wet system.")]
+        [XmlElement("Central-Heating-Pump-Age")]
         public virtual string CentralHeatingPumpAge { get; set; } = null;
 
         [Description("The ID of the controller from the product database.")]
+        [XmlElement("Compensating-Controller-Index-Number")]
         public virtual string CompensatingControllerIndexNumber { get; set; } = null;
 
         [Description("The ID of the time and temperature zone control from the product database.")]
+        [XmlElement("TTZC-Index-Number")]
         public virtual string TTZCIndexNumber { get; set; } = null;
     }
 }

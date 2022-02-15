@@ -49,5 +49,8 @@ namespace BH.oM.Environment.SAP
         [Description("")]
         public virtual bool MCSCertificate { get; set; } = false;
 
+        [Description("")]
+        public virtual int FractionOfHeat { get; set; } = 1;
+
     }
 }

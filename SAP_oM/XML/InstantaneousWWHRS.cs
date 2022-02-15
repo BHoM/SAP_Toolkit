@@ -30,31 +30,39 @@ using System.Xml.Serialization;
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "SAP-Cooling", IsNullable = false)]
-    public class Cooling : IObject
+    [XmlRoot(ElementName = "Instantaneous-WWHRS", IsNullable = false)]
+    public class InstantaneousWWHRS : IObject
     {
-        [Description("Cooled-Area")]
-        [XmlElement("")]
-        public virtual string CooledArea { get; set; } = null;
+        [Description("")]
+        [XmlElement("WWHRS-Index-Number1")]
+        public virtual string WWHRSIndexNumber1 { get; set; } = null;
 
-        [Description("Cooling-System-Data-Source")]
-        [XmlElement("")]
-        public virtual string CoolingSystemDataSource { get; set; } = null;
+        [Description("Omit if no second system.")]
+        [XmlElement("WWHRS-Index-Number2")]
+        public virtual string WWHRSIndexNumber2 { get; set; } = null;
 
-        [Description("Cooling-System-Type")]
-        [XmlElement("")]
-        public virtual string CoolingSystemType { get; set; } = null;
+        [Description("")]
+        [XmlElement("Rooms-With-Bath-And-Or-Shower")]
+        public virtual string RoomsWithBathAndOrShower { get; set; } = null;
 
-        [Description("Data set includes either class or EER, not both.")]
-        [XmlElement("")]
-        public virtual string CoolingSystemClass { get; set; } = null;
+        [Description("")]
+        [XmlElement("Mixer-Showers-With-System1-With-Bath")]
+        public virtual string MixerShowersWithSystem1WithBath { get; set; } = null;
 
-        [Description("Energy Efficiency Ratio.  Data set includes either class or EER, not both.")]
-        [XmlElement("")]
-        public virtual string CoolingSystemEER { get; set; } = null;
+        [Description("")]
+        [XmlElement("Mixer-Showers-With-System1-Without-Bath")]
+        public virtual string MixerShowersWithSystem1WithoutBath { get; set; } = null;
 
-        [Description("Cooling-System-Control")]
-        [XmlElement("")]
-        public virtual string CoolingSystemControl { get; set; } = null;
+        [Description("Omit if no second system.")]
+        [XmlElement("Mixer-Showers-With-System2-With-Bath")]
+        public virtual string MixerShowersWithSystem2WithBath { get; set; } = null;
+
+        [Description("Collector 2nd order heat loss coefficient; only if declared values.")]
+        [XmlElement("Solar-Panel-Collector-Second-Order-Heat-Loss-Coefficient")]
+        public virtual string SecondOrderHeatLossCoefficient { get; set; } = null;
+
+        [Description("Omit if no second system.")]
+        [XmlElement("Mixer-Showers-With-System2-Without-Bath")]
+        public virtual string MixerShowersWithSystem2WithoutBath { get; set; } = null;
     }
 }

@@ -30,31 +30,27 @@ using System.Xml.Serialization;
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "SAP-Cooling", IsNullable = false)]
-    public class Cooling : IObject
+    [XmlRoot(ElementName = "PV-Array", IsNullable = false)]
+    public class PVArray : IObject
     {
-        [Description("Cooled-Area")]
-        [XmlElement("")]
-        public virtual string CooledArea { get; set; } = null;
+        [Description("Peak kW of photovoltaics (PVs) (kWp); 0.0 if none")]
+        [XmlElement("Paek-Power")]
+        public virtual string PeakPower { get; set; } = null;
 
-        [Description("Cooling-System-Data-Source")]
-        [XmlElement("")]
-        public virtual string CoolingSystemDataSource { get; set; } = null;
+        [Description("PV orientation; only if peak kWp &gt; 0.")]
+        [XmlElement("Orientation")]
+        public virtual string Orientation { get; set; } = null;
 
-        [Description("Cooling-System-Type")]
-        [XmlElement("")]
-        public virtual string CoolingSystemType { get; set; } = null;
+        [Description("PV pitch; only if peak kWp &gt; 0.")]
+        [XmlElement("Pitch")]
+        public virtual string Pitch { get; set; } = null;
 
-        [Description("Data set includes either class or EER, not both.")]
-        [XmlElement("")]
-        public virtual string CoolingSystemClass { get; set; } = null;
+        [Description("PV overshading; only if peak kWp &gt; 0.")]
+        [XmlElement("Overshading")]
+        public virtual string Overshading { get; set; } = null;
 
-        [Description("Energy Efficiency Ratio.  Data set includes either class or EER, not both.")]
-        [XmlElement("")]
-        public virtual string CoolingSystemEER { get; set; } = null;
-
-        [Description("Cooling-System-Control")]
-        [XmlElement("")]
-        public virtual string CoolingSystemControl { get; set; } = null;
+        [Description("")]
+        [XmlElement("PV-Connection")]
+        public virtual string PVConnection { get; set; } = null;
     }
 }

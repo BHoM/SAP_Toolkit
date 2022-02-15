@@ -25,19 +25,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
+using System.Xml.Serialization;
 
-namespace BH.oM.Environment.SAP
+namespace BH.oM.Environment.SAP.XML
 {
-    [Description("Strategy for the ventilation of the dwelling.")]
-    public class MultipleHeatingSystemDetails : BHoMObject
+    [Serializable]
+    [XmlRoot(ElementName = "PV-Arrays", IsNullable = false)]
+    public class PVArrays : IObject
     {
         [Description("")]
-        public virtual double FractionOfHeat { get; set; } = 0;
-
-        [Description("")]
-        public virtual bool? IncludesWholePart { get; set; } = null;
-
-        [Description("")]
-        public virtual bool? IncludesSeparateParts { get; set; } = null;
+        [XmlElement("PV-Array")]
+        public virtual PVArray PVArray { get; set; } = new PVArray();
     }
 }

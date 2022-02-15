@@ -39,7 +39,7 @@ namespace BH.Engine.Environment.SAP
         {
             BH.oM.Environment.SAP.XML.Cooling xmlCooling = new BH.oM.Environment.SAP.XML.Cooling();
             xmlCooling.CooledArea = heating.Cooling.CooledArea;
-            xmlCooling.CoolingSystemDataSource = null;
+            xmlCooling.CoolingSystemDataSource = heating.Cooling.DataSource;
             xmlCooling.CoolingSystemType = heating.Cooling.Type;
             xmlCooling.CoolingSystemClass = heating.Cooling.EnergyLabel;
             xmlCooling.CoolingSystemEER = heating.Cooling.EER;
