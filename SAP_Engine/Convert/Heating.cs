@@ -52,9 +52,9 @@ namespace BH.Engine.Environment.SAP
             xmlHeating.SecondaryHeatingFlueType = heating.SecondaryHeating.HeatingDetails.FlueType;
             xmlHeating.ThermalStore = null ;
             xmlHeating.HasFixedAirConditioning = null;
-            xmlHeating.ImmersionHeatingType = null;
-            xmlHeating.IsHeatPumpAssistedByImmersion = null;
-            xmlHeating.IsImmersionForSummerUse = null;
+            xmlHeating.ImmersionHeatingType = heating.WaterHeating.Immersion.Type;
+            xmlHeating.IsHeatPumpAssistedByImmersion = heating.WaterHeating.Immersion.UseOfImmersion;
+            xmlHeating.IsImmersionForSummerUse = heating.WaterHeating.Immersion.SummerImmersion;
             xmlHeating.IsSecondaryHeatingHETASApproved = heating.SecondaryHeating.HETASApproved;
             xmlHeating.HotWaterStoreSize = null;
             xmlHeating.HotWaterStoreHeatTransferArea = null;
@@ -67,15 +67,36 @@ namespace BH.Engine.Environment.SAP
             xmlHeating.HasCylinderThermostat = null;
             xmlHeating.IsCylinderInHeatedSpace = null;
             xmlHeating.IsHotWaterSeperatlyTimed = null;
-            xmlHeating.CommunityHeatingSystems = null;
-            xmlHeating.MainHeatingDetails.MainHeating.BoilerFuelFeed = null;
+            
+            oM.Environment.SAP.XML.CommunityHeatingSystems xmlCommunityHeatingSystems = new oM.Environment.SAP.XML.CommunityHeatingSystems();
+            oM.Environment.SAP.XML.CommunityHeatingSystem xmlCommunityHeatingSystem = new oM.Environment.SAP.XML.CommunityHeatingSystem();
+            oM.Environment.SAP.XML.CommunityHeatSources xmlCommunityHeatSources = new oM.Environment.SAP.XML.CommunityHeatSources();
+            oM.Environment.SAP.XML.CommunityHeatSource xmlCommunityHeatSource = new oM.Environment.SAP.XML.CommunityHeatSource();
+            xmlCommunityHeatingSystems.CommunityHeatingSystem = xmlCommunityHeatingSystem;
+            xmlCommunityHeatingSystem.CommunityHeatingUse = null;
+            xmlCommunityHeatingSystem.IsCommunityHeatingCylinderInDwelling = null;
+            xmlCommunityHeatingSystem.CommunityHeatingDistributionType = null;
+            xmlCommunityHeatingSystem.CommunityHeatSources = xmlCommunityHeatSources;
+            xmlCommunityHeatSources.CommunityHeatSource = xmlCommunityHeatSource;
+            xmlCommunityHeatSource.HeatSourceType = null;
+            xmlCommunityHeatSource.HeatFraction = null;
+            xmlCommunityHeatSource.FuelType = null;
+            xmlCommunityHeatSource.HeatEfficiency = null;
+            xmlCommunityHeatSource.PowerEfficiency = null;
+            xmlCommunityHeatSource.Description = null;
+            xmlCommunityHeatingSystem.CommunityHeatingDistributionLossFactor = null;
+            xmlCommunityHeatingSystem.ChargingLinkedToHeatUse = null;
+            xmlCommunityHeatingSystem.HeatNetworkIndexNumber = null;
+
+            xmlHeating.CommunityHeatingSystems = xmlCommunityHeatingSystems;
+            xmlHeating.MainHeatingDetails = new oM.Environment.SAP.XML.MainHeatingDetails();
             xmlHeating.HeatingDesignWaterUse = null;
             xmlHeating.MainHeatingSystemsInteraction = null;
-            xmlHeating.SecondaryHeatingDeclaredValues = null;
+            xmlHeating.SecondaryHeatingDeclaredValues = new oM.Environment.SAP.XML.HeatingDeclaredValues();
             xmlHeating.PrimaryPipeworkInsulation = null;
-            xmlHeating.SolarHeatingDetails = null;
-            xmlHeating.InstantaneousWHRS = null;
-            xmlHeating.StorageWHRS = null;
+            xmlHeating.SolarHeatingDetails = new oM.Environment.SAP.XML.SolarHeatingDetails();
+            xmlHeating.InstantaneousWHRS = new oM.Environment.SAP.XML.InstantaneousWWHRS();
+            xmlHeating.StorageWHRS = new oM.Environment.SAP.XML.StorageWWHRS();
 
             BH.oM.Environment.SAP.XML.Cooling xmlCooling = new BH.oM.Environment.SAP.XML.Cooling();
             xmlCooling.CooledArea = heating.Cooling.CooledArea;
@@ -120,8 +141,8 @@ namespace BH.Engine.Environment.SAP
             xmlMainHeating.HasFGHRS = null;
             xmlMainHeating.FGHRSIndexNumber = null;
             xmlMainHeating.FGHRSEnergySource = null;
-            xmlMainHeating.MainHeatingDeclaredValues = null;
-            xmlMainHeating.StorageHeaters = null;
+            xmlMainHeating.MainHeatingDeclaredValues = new oM.Environment.SAP.XML.HeatingDeclaredValues();
+            xmlMainHeating.StorageHeaters = new oM.Environment.SAP.XML.StorageHeaters();
             xmlMainHeating.EmitterTemperature = null;
             xmlMainHeating.MCSInstalledHeatPump = heating.Primary.MCSCertificate;
             xmlMainHeating.CentralHeatingPumpAge = null;
@@ -163,8 +184,8 @@ namespace BH.Engine.Environment.SAP
             xmlSecondaryMainHeating.HasFGHRS = null;
             xmlSecondaryMainHeating.FGHRSIndexNumber = null;
             xmlSecondaryMainHeating.FGHRSEnergySource = null;
-            xmlSecondaryMainHeating.MainHeatingDeclaredValues = null;
-            xmlSecondaryMainHeating.StorageHeaters = null;
+            xmlSecondaryMainHeating.MainHeatingDeclaredValues = new oM.Environment.SAP.XML.HeatingDeclaredValues();
+            xmlSecondaryMainHeating.StorageHeaters = new oM.Environment.SAP.XML.StorageHeaters();
             xmlSecondaryMainHeating.EmitterTemperature = null;
             xmlSecondaryMainHeating.MCSInstalledHeatPump = heating.SecondaryMain.MCSCertificate;
             xmlSecondaryMainHeating.CentralHeatingPumpAge = null;
