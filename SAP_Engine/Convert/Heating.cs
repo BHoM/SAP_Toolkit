@@ -87,9 +87,11 @@ namespace BH.Engine.Environment.SAP
             xmlCommunityHeatingSystem.CommunityHeatingDistributionLossFactor = null;
             xmlCommunityHeatingSystem.ChargingLinkedToHeatUse = null;
             xmlCommunityHeatingSystem.HeatNetworkIndexNumber = null;
-
             xmlHeating.CommunityHeatingSystems = xmlCommunityHeatingSystems;
-            xmlHeating.MainHeatingDetails = new oM.Environment.SAP.XML.MainHeatingDetails();
+
+            oM.Environment.SAP.XML.MainHeatingDetails xmlMainHeatingDetails = new oM.Environment.SAP.XML.MainHeatingDetails();
+            xmlHeating.MainHeatingDetails = xmlMainHeatingDetails;
+
             xmlHeating.HeatingDesignWaterUse = null;
             xmlHeating.MainHeatingSystemsInteraction = null;
             xmlHeating.SecondaryHeatingDeclaredValues = new oM.Environment.SAP.XML.HeatingDeclaredValues();
