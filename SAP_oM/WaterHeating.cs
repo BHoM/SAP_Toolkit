@@ -37,8 +37,8 @@ namespace BH.oM.Environment.SAP
         [Description("")] 
         public virtual string Fuel { get; set; } = null;
 
-        [Description("EER measured in accordance with BS EN 14511")]
-        public virtual CylinderSpecification CylinderSpecification { get; set; } = new CylinderSpecification();
+        [Description("")]
+        public virtual CylinderSpecification CylinderSpecification { get; set; } = null;
 
         [Description("")]
         public virtual Immersion Immersion { get; set; } = new Immersion();
