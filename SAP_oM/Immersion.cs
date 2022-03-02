@@ -32,7 +32,7 @@ namespace BH.oM.Environment.SAP
     public class Immersion : BHoMObject
     {
         [Description("Is heat pump assisted by immersion.")]
-        public virtual bool? UseOfImmersion { get; set; } = null;
+        public virtual bool UseOfImmersion { get; set; } = false;
 
         [Description("Heat pump immersion")]
         public virtual string HeatExchangerArea { get; set; } = null;
