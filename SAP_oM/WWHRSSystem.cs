@@ -28,28 +28,16 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Details of the means by which the building is ventilated")]
-    public class Heating : BHoMObject
+    [Description("Strategy for the ventilation of the dwelling.")]
+    public class WWHRSSystem : BHoMObject
     {
-        [Description("")]
-        public virtual PrimaryHeatingDetails Primary { get; set; } = new PrimaryHeatingDetails();
+        [Description("Number of mixer showers in rooms with a bath.")]
+        public virtual string MixerShowersWithBath { get; set; } = null;
 
-        [Description("")]
-        public virtual PrimaryHeatingDetails SecondaryMain { get; set; } = new PrimaryHeatingDetails();
+        [Description("Number of mixer showers in rooms without a bath.")]
+        public virtual string MixerSHowersWithoutBath { get; set; } = null;
 
-        [Description("")]
-        public virtual SecondaryHeating SecondaryHeating { get; set; } = new SecondaryHeating();
-
-        [Description("")]
-        public virtual Cooling Cooling { get; set; } = new Cooling();
-
-        [Description("")]
-        public virtual WaterHeating WaterHeating { get; set; } = new WaterHeating();
-
-        [Description("")]
-        public virtual WWHRS WWHRS { get; set; } = new WWHRS();
-
-        [Description("")]
-        public virtual SolarPanelDetails SolarPanelDetails { get; set; } = new SolarPanelDetails();
+        [Description("WWHRS from PCDB.")]
+        public virtual WasteWaterHeatRecoverySystemTable System { get; set; } = null;
     }
 }

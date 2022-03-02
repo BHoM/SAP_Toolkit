@@ -28,28 +28,43 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Details of the means by which the building is ventilated")]
-    public class Heating : BHoMObject
+    [Description("Strategy for the ventilation of the dwelling.")]
+    public class SolarPanelDetails : BHoMObject
     {
         [Description("")]
-        public virtual PrimaryHeatingDetails Primary { get; set; } = new PrimaryHeatingDetails();
+        public virtual string CollectorType { get; set; } = null;
+
+        [Description("Zero-loss collector efficiency.")]  //Following three can be set to default values within enum
+        public virtual string CollectorEfficiencyη0 { get; set; } = null;
+
+        [Description("Heat loss coefficient of collector a1.")]
+        public virtual string Coefficienta1 { get; set; } = null;
+
+        [Description("2nd order heat loss coefficient of collector a2.")]
+        public virtual string Coefficienta2 { get; set; } = null;
 
         [Description("")]
-        public virtual PrimaryHeatingDetails SecondaryMain { get; set; } = new PrimaryHeatingDetails();
+        public virtual string AreaCollector { get; set; } = null;
 
         [Description("")]
-        public virtual SecondaryHeating SecondaryHeating { get; set; } = new SecondaryHeating();
+        public virtual string TiltOfCollector { get; set; } = null;
 
         [Description("")]
-        public virtual Cooling Cooling { get; set; } = new Cooling();
+        public virtual string Orientation { get; set; } = null;
 
         [Description("")]
-        public virtual WaterHeating WaterHeating { get; set; } = new WaterHeating();
+        public virtual string Overshading { get; set; } = null;
 
         [Description("")]
-        public virtual WWHRS WWHRS { get; set; } = new WWHRS();
+        public virtual string DedicatedSolarStorVolume { get; set; } = null;
 
         [Description("")]
-        public virtual SolarPanelDetails SolarPanelDetails { get; set; } = new SolarPanelDetails();
+        public virtual string ShowersPresent { get; set; } = null;
+
+        [Description("")]
+        public virtual bool IsSolarStoreCombined { get; set; } = false;
+
+        [Description("")]
+        public virtual bool SolarPoweredPump{ get; set; } = false;
     }
 }
