@@ -19,37 +19,28 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using BH.oM.Base;
+using System.Text;
+using System.Xml.Serialization;
+using System.IO;
 
-namespace BH.oM.Environment.SAP
+namespace BH.Engine.Environment.SAP
 {
-    [Description("Details of the means by which the building is ventilated")]
-    public class PrimaryHeatingDetails : BHoMObject
+    public static partial class Compute
     {
-        [Description("")]
-        public virtual HeatingDetails HeatingDetails { get; set; } = new HeatingDetails();
+        public static bool ToXMLFile(string filePath, string fileName, BH.oM.Environment.SAP.XML.BuildingPart buildingPart, bool run = false)
+        {
+            if (!run)
+                return false;
 
-        [Description("")]
-        public virtual HeatingControls HeatingControls { get; set; } = new HeatingControls();
+            XmlSerializerNamespaces xns = new XmlSerializerNamespaces();
+            XmlSerializer szer = new XmlSerializer(typeof(BH.oM.Environment.SAP.XML.BuildingPart));
+            TextWriter ms = new StreamWriter(Path.Combine(filePath, fileName));
+            szer.Serialize(ms, buildingPart, xns);
+            ms.Close(); 
 
-        [Description("")]
-        public virtual HeatingFuel HeatingFuel { get; set; } = new HeatingFuel();
-
-        [Description("")]
-        public virtual BoilerInformation BoilerInformation { get; set; } = new BoilerInformation();
-
-        [Description("Is the appliance HETAS approved?")]
-        public virtual bool HETASApproved { get; set; } = false;
-        
-        [Description("")]
-        public virtual bool MCSCertificate { get; set; } = false;
-
-        [Description("")]
-        public virtual double FractionOfHeat { get; set; } = 1;
+            return true;
+        }       
     }
 }
