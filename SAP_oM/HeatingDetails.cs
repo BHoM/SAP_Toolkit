@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Strategy for the ventilation of the dwelling.")]
+    [Description("Heating details.")]
     public class HeatingDetails : BHoMObject
     {
         [Description("Heating system from PCDB.")]
@@ -37,19 +37,16 @@ namespace BH.oM.Environment.SAP
         [Description("Heating system from PCDB.")]
         public virtual IPCDBObject System { get; set; } = null;
 
-        [Description("")]//Enum?
+        [Description("")]
         public virtual string HeatingGroup { get; set; } = null;
 
-        [Description("")]//enum?
+        [Description("")]
         public virtual string SubGroup { get; set; } = null;
 
-        [Description("")]//enum?
+        [Description("")]
         public virtual string Source { get; set; } = null;
 
-       /* [Description("")]//enum?
-        public virtual string Type { get; set; } = null;*/
-
-        [Description("")]//enum?
+        [Description("")]
         public virtual string Emitter { get; set; } = null;
     }
 }
