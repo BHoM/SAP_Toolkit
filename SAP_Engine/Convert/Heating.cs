@@ -42,7 +42,7 @@ namespace BH.Engine.Environment.SAP
         public static Output<oM.Environment.SAP.XML.Heating, oM.Environment.SAP.XML.Cooling, oM.Environment.SAP.XML.MainHeating, oM.Environment.SAP.XML.MainHeating> ToXML(this oM.Environment.SAP.Heating heating)
         {
             oM.Environment.SAP.XML.Cooling xmlCooling = new oM.Environment.SAP.XML.Cooling();
-            xmlCooling.CooledArea = heating.Cooling.CooledArea;
+            xmlCooling.CooledArea = heating.Cooling.CooledArea;// To implement: Heatpump,Warmair,Storage,Community
             xmlCooling.CoolingSystemDataSource = heating.Cooling.DataSource;
             xmlCooling.CoolingSystemType = heating.Cooling.Type;
             xmlCooling.CoolingSystemClass = heating.Cooling.EnergyLabel;
@@ -50,12 +50,39 @@ namespace BH.Engine.Environment.SAP
             xmlCooling.CoolingSystemControl = heating.Cooling.CompressorControl;
 
             oM.Environment.SAP.XML.MainHeating xmlMainHeating = new oM.Environment.SAP.XML.MainHeating();
+            if (heating.Primary.HeatingDetails.Type == oM.Environment.SAP.ProductType.GasAndOilBoiler)
+            {
+                xmlMainHeating.MainHeatingIndexNumber = ((oM.Environment.SAP.GasAndBoilerTable)heating.Primary.HeatingDetails.System).Index;
+                if (((oM.Environment.SAP.GasAndBoilerTable)heating.Primary.HeatingDetails.System).Condensing == "1")
+                {
+                    xmlMainHeating.IsCondensingBoiler = true;
+                }
+                if (((oM.Environment.SAP.GasAndBoilerTable)heating.Primary.HeatingDetails.System).Condensing == "2")
+                {
+                    xmlMainHeating.IsCondensingBoiler = false;
+                }
+                else 
+                {
+                    xmlMainHeating.IsCondensingBoiler = null;
+                }
+
+                xmlMainHeating.GasOrOilBoilerType = ((oM.Environment.SAP.GasAndBoilerTable)heating.Primary.HeatingDetails.System).MainType;
+                xmlMainHeating.EfficiencyType = ((oM.Environment.SAP.GasAndBoilerTable)heating.Primary.HeatingDetails.System).EfficiencyCategory;
+                xmlMainHeating.MainHeatingEfficiencyWinter = ((oM.Environment.SAP.GasAndBoilerTable)heating.Primary.HeatingDetails.System).SAPWinterSeasonalEfficiency;
+                xmlMainHeating.MainHeatingEfficiencySummer = ((oM.Environment.SAP.GasAndBoilerTable)heating.Primary.HeatingDetails.System).SAPSummerSeasonalEfficiency;
+            }
+            if (heating.Primary.HeatingDetails.Type != oM.Environment.SAP.ProductType.GasAndOilBoiler | heating.Primary.HeatingDetails.Type != oM.Environment.SAP.ProductType.HeatPump)
+            {
+                xmlMainHeating.MainHeatingIndexNumber = null;
+                xmlMainHeating.IsCondensingBoiler = null;
+                xmlMainHeating.GasOrOilBoilerType = null;
+                xmlMainHeating.EfficiencyType = null;
+                xmlMainHeating.MainHeatingEfficiencyWinter = null;
+                xmlMainHeating.MainHeatingEfficiencySummer = null;
+            }
             xmlMainHeating.MainHeatingNumber = 1;
             xmlMainHeating.MainHeatingCategory = heating.Primary.HeatingDetails.HeatingGroup + heating.Primary.HeatingDetails.SubGroup;
             xmlMainHeating.MainHeatingDataSource = heating.Primary.HeatingDetails.Source;
-            xmlMainHeating.MainHeatingIndexNumber = null;//when implementing PCDB
-            xmlMainHeating.IsCondensingBoiler = null;
-            xmlMainHeating.GasOrOilBoilerType = null;
             xmlMainHeating.CombiBoilerType = null;
             xmlMainHeating.CaseHeatEmission = null;
             xmlMainHeating.HeatTransferToWater = null;
@@ -78,9 +105,6 @@ namespace BH.Engine.Environment.SAP
             xmlMainHeating.LoadOrWeatherCompensation = null;
             xmlMainHeating.MainHeatingFraction = heating.Primary.FractionOfHeat;
             xmlMainHeating.BurnerControl = null;
-            xmlMainHeating.EfficiencyType = null;
-            xmlMainHeating.MainHeatingEfficiencyWinter = null;
-            xmlMainHeating.MainHeatingEfficiencySummer = null;
             xmlMainHeating.HasFGHRS = null;
             xmlMainHeating.FGHRSIndexNumber = null;
             xmlMainHeating.FGHRSEnergySource = null;
@@ -206,21 +230,40 @@ namespace BH.Engine.Environment.SAP
             oM.Environment.SAP.XML.CommunityHeatingSystem xmlCommunityHeatingSystem = new oM.Environment.SAP.XML.CommunityHeatingSystem();
             oM.Environment.SAP.XML.CommunityHeatSources xmlCommunityHeatSources = new oM.Environment.SAP.XML.CommunityHeatSources();
             oM.Environment.SAP.XML.CommunityHeatSource xmlCommunityHeatSource = new oM.Environment.SAP.XML.CommunityHeatSource();
+            if (heating.Primary.HeatingDetails.Type == oM.Environment.SAP.ProductType.CommunityHeatNetworks)
+            {
+                xmlCommunityHeatingSystem.CommunityHeatingUse = ((oM.Environment.SAP.CommunityHeatNetworksTable)heating.Primary.HeatingDetails.System).DescriptionOfNetwork;
+                xmlCommunityHeatingSystem.IsCommunityHeatingCylinderInDwelling = null;
+                xmlCommunityHeatingSystem.CommunityHeatingDistributionType = "Length: " + ((oM.Environment.SAP.CommunityHeatNetworksTable)heating.Primary.HeatingDetails.System).DistributionRouteLength + "Loss Factor: "+((oM.Environment.SAP.CommunityHeatNetworksTable)heating.Primary.HeatingDetails.System).DistrubutionLossFactor; //?
+                xmlCommunityHeatSource.HeatSourceType = ((oM.Environment.SAP.CommunityHeatNetworksTable)heating.Primary.HeatingDetails.System).HeatSourceTypeA;
+                xmlCommunityHeatSource.HeatFraction = ((oM.Environment.SAP.CommunityHeatNetworksTable)heating.Primary.HeatingDetails.System).HeatFractionA;
+                xmlCommunityHeatSource.FuelType = ((oM.Environment.SAP.CommunityHeatNetworksTable)heating.Primary.HeatingDetails.System).CommunityFuelA;
+                xmlCommunityHeatSource.HeatEfficiency = ((oM.Environment.SAP.CommunityHeatNetworksTable)heating.Primary.HeatingDetails.System).HeatEfficiencyA;
+                xmlCommunityHeatSource.PowerEfficiency = ((oM.Environment.SAP.CommunityHeatNetworksTable)heating.Primary.HeatingDetails.System).PowerEfficiencyA;
+                xmlCommunityHeatSource.Description = ((oM.Environment.SAP.CommunityHeatNetworksTable)heating.Primary.HeatingDetails.System).DescriptionOfNetwork;
+                xmlCommunityHeatingSystem.CommunityHeatingDistributionLossFactor = ((oM.Environment.SAP.CommunityHeatNetworksTable)heating.Primary.HeatingDetails.System).DistrubutionLossFactor;
+                xmlCommunityHeatingSystem.ChargingLinkedToHeatUse = null;
+                xmlCommunityHeatingSystem.HeatNetworkIndexNumber = ((oM.Environment.SAP.CommunityHeatNetworksTable)heating.Primary.HeatingDetails.System).Index;
+            }
+            if (heating.Primary.HeatingDetails.Type != oM.Environment.SAP.ProductType.CommunityHeatNetworks)
+            {
+                xmlCommunityHeatingSystem.CommunityHeatingUse = null;
+                xmlCommunityHeatingSystem.IsCommunityHeatingCylinderInDwelling = null;
+                xmlCommunityHeatingSystem.CommunityHeatingDistributionType = null;
+                xmlCommunityHeatSource.HeatSourceType = null;
+                xmlCommunityHeatSource.HeatFraction = null;
+                xmlCommunityHeatSource.FuelType = null;
+                xmlCommunityHeatSource.HeatEfficiency = null;
+                xmlCommunityHeatSource.PowerEfficiency = null;
+                xmlCommunityHeatSource.Description = null;
+                xmlCommunityHeatingSystem.CommunityHeatingDistributionLossFactor = null;
+                xmlCommunityHeatingSystem.ChargingLinkedToHeatUse = null;
+                xmlCommunityHeatingSystem.HeatNetworkIndexNumber = null;
+            }
+
             xmlCommunityHeatingSystems.CommunityHeatingSystem = xmlCommunityHeatingSystem;
-            xmlCommunityHeatingSystem.CommunityHeatingUse = null;
-            xmlCommunityHeatingSystem.IsCommunityHeatingCylinderInDwelling = null;
-            xmlCommunityHeatingSystem.CommunityHeatingDistributionType = null;
             xmlCommunityHeatingSystem.CommunityHeatSources = xmlCommunityHeatSources;
             xmlCommunityHeatSources.CommunityHeatSource = xmlCommunityHeatSource;
-            xmlCommunityHeatSource.HeatSourceType = null;
-            xmlCommunityHeatSource.HeatFraction = null;
-            xmlCommunityHeatSource.FuelType = null;
-            xmlCommunityHeatSource.HeatEfficiency = null;
-            xmlCommunityHeatSource.PowerEfficiency = null;
-            xmlCommunityHeatSource.Description = null;
-            xmlCommunityHeatingSystem.CommunityHeatingDistributionLossFactor = null;
-            xmlCommunityHeatingSystem.ChargingLinkedToHeatUse = null;
-            xmlCommunityHeatingSystem.HeatNetworkIndexNumber = null;
             xmlHeating.CommunityHeatingSystems = xmlCommunityHeatingSystems;
 
             oM.Environment.SAP.XML.MainHeatingDetails xmlMainHeatingDetails = new oM.Environment.SAP.XML.MainHeatingDetails();
