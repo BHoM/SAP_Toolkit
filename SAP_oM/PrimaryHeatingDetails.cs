@@ -51,5 +51,8 @@ namespace BH.oM.Environment.SAP
 
         [Description("")]
         public virtual double FractionOfHeat { get; set; } = 1;
+
+        [Description("")]
+        public virtual IPCDBObject Product { get; set; } = null;
     }
 }

@@ -31,6 +31,12 @@ namespace BH.oM.Environment.SAP
     [Description("Strategy for the ventilation of the dwelling.")]
     public class HeatingDetails : BHoMObject
     {
+        [Description("Heating system from PCDB.")]
+        public virtual ProductType Type { get; set; } = new ProductType();
+
+        [Description("Heating system from PCDB.")]
+        public virtual IPCDBObject System { get; set; } = null;
+
         [Description("")]//Enum?
         public virtual string HeatingGroup { get; set; } = null;
 
@@ -40,8 +46,8 @@ namespace BH.oM.Environment.SAP
         [Description("")]//enum?
         public virtual string Source { get; set; } = null;
 
-        [Description("")]//enum?
-        public virtual string Type { get; set; } = null;
+       /* [Description("")]//enum?
+        public virtual string Type { get; set; } = null;*/
 
         [Description("")]//enum?
         public virtual string Emitter { get; set; } = null;
