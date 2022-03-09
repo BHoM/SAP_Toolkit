@@ -37,19 +37,21 @@ namespace BH.Engine.Environment.SAP
         [Input("sapHeating", "SAP Heating object to convert.")]
         [MultiOutput(0, "heating", "XML Heating.")]
         [MultiOutput(1, "cooling", "XML Cooling.")]
-        [MultiOutput(2, "mainHeating", "XML Main Heating.")]
-        [MultiOutput(3, "secondaryMainHeating", "XML Secondary Main Heating if defined.")]
-        public static Output<oM.Environment.SAP.XML.Heating, oM.Environment.SAP.XML.Cooling, oM.Environment.SAP.XML.MainHeating, oM.Environment.SAP.XML.MainHeating> ToXML(this oM.Environment.SAP.Heating heating)
+        public static Output<oM.Environment.SAP.XML.Heating, oM.Environment.SAP.XML.Cooling> ToXML(this oM.Environment.SAP.Heating heating)
         {
             oM.Environment.SAP.XML.Cooling xmlCooling = new oM.Environment.SAP.XML.Cooling();
-            xmlCooling.CooledArea = heating.Cooling.CooledArea;// To implement: Heatpump,Warmair,Storage,Community
+            xmlCooling.CooledArea = heating.Cooling.CooledArea;
             xmlCooling.CoolingSystemDataSource = heating.Cooling.DataSource;
             xmlCooling.CoolingSystemType = heating.Cooling.Type;
             xmlCooling.CoolingSystemClass = heating.Cooling.EnergyLabel;
             xmlCooling.CoolingSystemEER = heating.Cooling.EER;
             xmlCooling.CoolingSystemControl = heating.Cooling.CompressorControl;
 
+            List<oM.Environment.SAP.XML.MainHeating> xmlMainHeatingList = new List<oM.Environment.SAP.XML.MainHeating>();
             oM.Environment.SAP.XML.MainHeating xmlMainHeating = new oM.Environment.SAP.XML.MainHeating();
+            oM.Environment.SAP.XML.StorageHeaters xmlStorageHeaters = new oM.Environment.SAP.XML.StorageHeaters();
+            oM.Environment.SAP.XML.StorageHeater xmlStorageHeater = new oM.Environment.SAP.XML.StorageHeater();
+            oM.Environment.SAP.XML.HeatingDeclaredValues xmlMainHeatingDeclaredValues = new oM.Environment.SAP.XML.HeatingDeclaredValues();
             if (heating.Primary.HeatingDetails.Type == oM.Environment.SAP.ProductType.GasAndOilBoiler)
             {
                 xmlMainHeating.MainHeatingIndexNumber = ((oM.Environment.SAP.GasAndBoilerTable)heating.Primary.HeatingDetails.System).Index;
@@ -61,7 +63,7 @@ namespace BH.Engine.Environment.SAP
                 {
                     xmlMainHeating.IsCondensingBoiler = false;
                 }
-                else 
+                else
                 {
                     xmlMainHeating.IsCondensingBoiler = null;
                 }
@@ -70,8 +72,59 @@ namespace BH.Engine.Environment.SAP
                 xmlMainHeating.EfficiencyType = ((oM.Environment.SAP.GasAndBoilerTable)heating.Primary.HeatingDetails.System).EfficiencyCategory;
                 xmlMainHeating.MainHeatingEfficiencyWinter = ((oM.Environment.SAP.GasAndBoilerTable)heating.Primary.HeatingDetails.System).SAPWinterSeasonalEfficiency;
                 xmlMainHeating.MainHeatingEfficiencySummer = ((oM.Environment.SAP.GasAndBoilerTable)heating.Primary.HeatingDetails.System).SAPSummerSeasonalEfficiency;
+                xmlStorageHeater.IndexNumber = null;
+                xmlStorageHeater.HighHeatRetention = null;
             }
-            if (heating.Primary.HeatingDetails.Type != oM.Environment.SAP.ProductType.GasAndOilBoiler | heating.Primary.HeatingDetails.Type != oM.Environment.SAP.ProductType.HeatPump)
+
+            if (heating.Primary.HeatingDetails.Type == oM.Environment.SAP.ProductType.HeatPump)
+            {
+                xmlMainHeating.MainHeatingIndexNumber = ((oM.Environment.SAP.HeatPumpTable)heating.Primary.HeatingDetails.System).Index;
+                xmlMainHeating.IsCondensingBoiler = null;
+                xmlMainHeating.GasOrOilBoilerType = null;
+                xmlMainHeating.EfficiencyType = ((oM.Environment.SAP.HeatPumpTable)heating.Primary.HeatingDetails.System).CompensatorEffect;
+                xmlMainHeating.MainHeatingEfficiencyWinter = null;
+                xmlMainHeating.MainHeatingEfficiencySummer = null;
+                xmlStorageHeater.IndexNumber = null;
+                xmlStorageHeater.HighHeatRetention = null;
+            }
+
+            if (heating.Primary.HeatingDetails.Type == oM.Environment.SAP.ProductType.WarmAirSystem)
+            {
+                xmlMainHeating.MainHeatingIndexNumber = ((oM.Environment.SAP.WarmAirSystemTable)heating.Primary.HeatingDetails.System).ProductNumber;
+                xmlMainHeating.IsCondensingBoiler = null;
+                xmlMainHeating.GasOrOilBoilerType = null;
+                xmlMainHeating.EfficiencyType = null;
+                xmlMainHeating.MainHeatingEfficiencyWinter = null;
+                xmlMainHeating.MainHeatingEfficiencySummer = null;
+                xmlStorageHeater.IndexNumber = null;
+                xmlStorageHeater.HighHeatRetention = null;
+            }
+
+            if (heating.Primary.HeatingDetails.Type == oM.Environment.SAP.ProductType.StorageHeaters)
+            {
+                xmlMainHeating.MainHeatingIndexNumber = ((oM.Environment.SAP.StorageHeatersTable)heating.Primary.HeatingDetails.System).Index;
+                xmlMainHeating.IsCondensingBoiler = null;
+                xmlMainHeating.GasOrOilBoilerType = null;
+                xmlMainHeating.EfficiencyType = null;
+                xmlMainHeating.MainHeatingEfficiencyWinter = null;
+                xmlMainHeating.MainHeatingEfficiencySummer = null;
+                xmlStorageHeater.IndexNumber = ((oM.Environment.SAP.StorageHeatersTable)heating.Primary.HeatingDetails.System).Index;
+                xmlStorageHeater.HighHeatRetention = ((oM.Environment.SAP.StorageHeatersTable)heating.Primary.HeatingDetails.System).HighHeatRetention;
+            }
+
+            if (heating.Primary.HeatingDetails.Type == oM.Environment.SAP.ProductType.CommunityHeatNetworks)
+            {
+                xmlMainHeating.MainHeatingIndexNumber = ((oM.Environment.SAP.CommunityHeatNetworksTable)heating.Primary.HeatingDetails.System).Index;
+                xmlMainHeating.IsCondensingBoiler = null;
+                xmlMainHeating.GasOrOilBoilerType = null;
+                xmlMainHeating.EfficiencyType = null;
+                xmlMainHeating.MainHeatingEfficiencyWinter = null;
+                xmlMainHeating.MainHeatingEfficiencySummer = null;
+                xmlStorageHeater.IndexNumber = null;
+                xmlStorageHeater.HighHeatRetention = null;
+            }
+
+            if (heating.Primary.HeatingDetails.Type != oM.Environment.SAP.ProductType.GasAndOilBoiler | heating.Primary.HeatingDetails.Type != oM.Environment.SAP.ProductType.HeatPump | heating.Primary.HeatingDetails.Type != oM.Environment.SAP.ProductType.WarmAirSystem | heating.Primary.HeatingDetails.Type != oM.Environment.SAP.ProductType.StorageHeaters | heating.Primary.HeatingDetails.Type != oM.Environment.SAP.ProductType.HeatPump | heating.Primary.HeatingDetails.Type != oM.Environment.SAP.ProductType.CommunityHeatNetworks)
             {
                 xmlMainHeating.MainHeatingIndexNumber = null;
                 xmlMainHeating.IsCondensingBoiler = null;
@@ -79,6 +132,8 @@ namespace BH.Engine.Environment.SAP
                 xmlMainHeating.EfficiencyType = null;
                 xmlMainHeating.MainHeatingEfficiencyWinter = null;
                 xmlMainHeating.MainHeatingEfficiencySummer = null;
+                xmlStorageHeater.IndexNumber = null;
+                xmlStorageHeater.HighHeatRetention = null;
             }
             xmlMainHeating.MainHeatingNumber = 1;
             xmlMainHeating.MainHeatingCategory = heating.Primary.HeatingDetails.HeatingGroup + heating.Primary.HeatingDetails.SubGroup;
@@ -108,21 +163,13 @@ namespace BH.Engine.Environment.SAP
             xmlMainHeating.HasFGHRS = null;
             xmlMainHeating.FGHRSIndexNumber = null;
             xmlMainHeating.FGHRSEnergySource = null;
-
-            oM.Environment.SAP.XML.HeatingDeclaredValues xmlMainHeatingDeclaredValues = new oM.Environment.SAP.XML.HeatingDeclaredValues();
             xmlMainHeatingDeclaredValues.Efficiency = null;
             xmlMainHeatingDeclaredValues.MakeModel = null;
             xmlMainHeatingDeclaredValues.TestMethod = null;
             xmlMainHeating.MainHeatingDeclaredValues = xmlMainHeatingDeclaredValues;
-
-            oM.Environment.SAP.XML.StorageHeaters xmlStorageHeaters = new oM.Environment.SAP.XML.StorageHeaters();
-            oM.Environment.SAP.XML.StorageHeater xmlStorageHeater = new oM.Environment.SAP.XML.StorageHeater();
             xmlStorageHeater.NumberOfHeaters = null;
-            xmlStorageHeater.IndexNumber = null;
-            xmlStorageHeater.HighHeatRetention = null;
             xmlStorageHeaters.StorageHeater = xmlStorageHeater;
             xmlMainHeating.StorageHeaters = xmlStorageHeaters;
-
             xmlMainHeating.EmitterTemperature = null;
             xmlMainHeating.MCSInstalledHeatPump = heating.Primary.MCSCertificate;
             xmlMainHeating.CentralHeatingPumpAge = null;
@@ -184,6 +231,9 @@ namespace BH.Engine.Environment.SAP
             xmlSecondaryMainHeating.CentralHeatingPumpAge = null;
             xmlSecondaryMainHeating.CompensatingControllerIndexNumber = null;
             xmlSecondaryMainHeating.TTZCIndexNumber = null;
+            
+            xmlMainHeatingList.Add(xmlMainHeating);
+            xmlMainHeatingList.Add(xmlSecondaryMainHeating);
 
             oM.Environment.SAP.XML.Heating xmlHeating = new oM.Environment.SAP.XML.Heating();
             xmlHeating.WaterHeatingCode = heating.WaterHeating.System;
@@ -267,7 +317,7 @@ namespace BH.Engine.Environment.SAP
             xmlHeating.CommunityHeatingSystems = xmlCommunityHeatingSystems;
 
             oM.Environment.SAP.XML.MainHeatingDetails xmlMainHeatingDetails = new oM.Environment.SAP.XML.MainHeatingDetails();
-            xmlMainHeatingDetails.MainHeating = xmlMainHeating;
+            xmlMainHeatingDetails.MainHeating = xmlMainHeatingList;
             xmlHeating.MainHeatingDetails = xmlMainHeatingDetails;
 
             xmlHeating.HeatingDesignWaterUse = null;
@@ -362,7 +412,7 @@ namespace BH.Engine.Environment.SAP
             xmlHeating.InstantaneousWHRS = xmlInstantaneousWWHRS;
             xmlHeating.StorageWHRS = xmlStorageWWHRS;
 
-            return new Output<oM.Environment.SAP.XML.Heating, oM.Environment.SAP.XML.Cooling, oM.Environment.SAP.XML.MainHeating, oM.Environment.SAP.XML.MainHeating>() { Item1 = xmlHeating, Item2 = xmlCooling, Item3 = xmlMainHeating, Item4 = xmlSecondaryMainHeating };
+            return new Output<oM.Environment.SAP.XML.Heating, oM.Environment.SAP.XML.Cooling>() { Item1 = xmlHeating, Item2 = xmlCooling };
         }
     }
 }
