@@ -28,22 +28,6 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Heating details.")]
-    public class HeatingDetails : BHoMObject
-    {
-        [Description("")]
-        public virtual string ProductIndex { get; set; } = null;
-
-        [Description("Enum which specifies data source.")]
-        public virtual DataSourceCode Source { get; set; } = new DataSourceCode();
-
-        [Description("")]
-        public virtual string HeatingGroup { get; set; } = null;
-
-        [Description("")]
-        public virtual string SubGroup { get; set; } = null;
-
-        [Description("")]
-        public virtual string Emitter { get; set; } = null;
-    }
+    [Description("Code which indicates the type of heating fuel, as defined in SAP table 12.")]
+    public enum HeatingFuelTypeCode { MainsGas = 1, BulkLPG, BottledLPG, HeatingOil, Biogas = 7, LNG, LPGSpecialCondition,SolidFuelMineralAndWood,HouseCoal,ManufacturedSmokelessFuel,Anthracite=15,WoodLogs=20,WoodChips,WoodPellets, }
 }

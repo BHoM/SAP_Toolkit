@@ -74,6 +74,9 @@
     <Compile Include="BoilerInformation.cs" />
     <Compile Include="Cooling.cs" />
     <Compile Include="CylinderSpecification.cs" />
+    <Compile Include="Enums\DataSourceCode.cs" />
+    <Compile Include="Enums\HeatingFuelTypeCode.cs" />
+    <Compile Include="Enums\MainHeatingCategoryCode.cs" />
     <Compile Include="Enums\OpeningDataSource.cs" />
     <Compile Include="Enums\PressureTestCode.cs" />
     <Compile Include="Enums\ProductType.cs" />
