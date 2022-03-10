@@ -103,8 +103,8 @@ namespace BH.Engine.Environment.SAP
 
             if (ProductType == BH.oM.Environment.SAP.ProductType.GasAndOilBoiler)
             {
-                string firstLine = contentSplit.Where(x => x.StartsWith("# Table 105")).FirstOrDefault();
-                string lastLine = contentSplit.Where(x => x.StartsWith("# ... end of Table 105")).FirstOrDefault();
+                string firstLine = contentSplit.Where(x => x.StartsWith("$105,210,175,2022,01,31,2")).FirstOrDefault();
+                string lastLine = contentSplit.Where(x => x.StartsWith("$122,224,48,2021,04,19,1")).FirstOrDefault();
                 List<string> allLinesForTable = new List<string>();
                 for (int x = Array.IndexOf(contentSplit, firstLine); x < Array.IndexOf(contentSplit, lastLine); x++)
                 {

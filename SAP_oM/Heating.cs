@@ -35,10 +35,10 @@ namespace BH.oM.Environment.SAP
         public virtual PrimaryHeatingDetails Primary { get; set; } = new PrimaryHeatingDetails();
 
         [Description("")]
-        public virtual PrimaryHeatingDetails SecondaryMain { get; set; } = new PrimaryHeatingDetails();
+        public virtual PrimaryHeatingDetails SecondaryMain { get; set; } = null;
 
         [Description("")]
-        public virtual SecondaryHeating SecondaryHeating { get; set; } = new SecondaryHeating();
+        public virtual SecondaryHeating SecondaryHeating { get; set; } = null;
 
         [Description("")]
         public virtual Cooling Cooling { get; set; } = new Cooling();
@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP
         public virtual WaterHeating WaterHeating { get; set; } = new WaterHeating();
 
         [Description("")]
-        public virtual WWHRS WWHRS { get; set; } = new WWHRS();
+        public virtual WWHRS WWHRS { get; set; } = null;
 
         [Description("")]
         public virtual SolarPanelDetails SolarPanelDetails { get; set; } = new SolarPanelDetails();

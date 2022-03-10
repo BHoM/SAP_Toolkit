@@ -29,15 +29,15 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Compute
     {
-        public static bool ToXMLFile(string filePath, string fileName, BH.oM.Environment.SAP.XML.BuildingPart buildingPart, bool run = false)
+        public static bool ToXMLFile(string filePath, string fileName, BH.oM.Environment.SAP.XML.Heating heating, bool run = false)
         {
             if (!run)
                 return false;
 
             XmlSerializerNamespaces xns = new XmlSerializerNamespaces();
-            XmlSerializer szer = new XmlSerializer(typeof(BH.oM.Environment.SAP.XML.BuildingPart));
+            XmlSerializer szer = new XmlSerializer(typeof(BH.oM.Environment.SAP.XML.Heating));
             TextWriter ms = new StreamWriter(Path.Combine(filePath, fileName));
-            szer.Serialize(ms, buildingPart, xns);
+            szer.Serialize(ms, heating, xns);
             ms.Close(); 
 
             return true;

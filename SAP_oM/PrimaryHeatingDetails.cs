@@ -53,6 +53,6 @@ namespace BH.oM.Environment.SAP
         public virtual double FractionOfHeat { get; set; } = 1;
 
         [Description("")]
-        public virtual IPCDBObject Product { get; set; } = null;
+        public virtual MainHeatingCategoryCode HeatingCategoryCode { get; set; } = new MainHeatingCategoryCode();
     }
 }
