@@ -43,7 +43,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Hot water cylinder?")]
         [XmlElement("Has-Hot-Water-Cylinder")]
-        public virtual bool? HasHotWaterCylinder { get; set; } = false;
+        public virtual bool? HasHotWaterCylinder { get; set; } = null;
 
         [Description("Category of heating system for the secondary heating system.")]
         [XmlElement("Secondary-Heating-Category")]
@@ -71,7 +71,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Fixed air conditioning?")]
         [XmlElement("Has-Fixed-Air-Conditioning")]
-        public virtual bool? HasFixedAirConditioning { get; set; } = false;
+        public virtual bool? HasFixedAirConditioning { get; set; } = null;
 
         [Description("The type of immersion heating; only if immersion.")]
         [XmlElement("Immersion-Heating-Type")]
@@ -79,15 +79,15 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Heat pump assisted by immersion?  Only if main heating is heat pump and water heating from heat pump.")]
         [XmlElement("Is-Heat-Pump-Assisted-By-Immersion")]
-        public virtual bool? IsHeatPumpAssistedByImmersion { get; set; } = false;
+        public virtual bool? IsHeatPumpAssistedByImmersion { get; set; } = null;
 
         [Description("Immersion for summer use?  Only if main heating is solid fuel fire or room heater with boiler.")]
         [XmlElement("Is-Immersion-For-Summer-Use")]
-        public virtual bool? IsImmersionForSummerUse { get; set; } = false;
+        public virtual bool? IsImmersionForSummerUse { get; set; } = null;
 
         [Description("Secondary heating appliance is HETAS approved?  Only if solid fuel.")]
         [XmlElement("Is-Secondary-Heating-HETAS-Approved")]
-        public virtual bool? IsSecondaryHeatingHETASApproved { get; set; } = false;
+        public virtual bool? IsSecondaryHeatingHETASApproved { get; set; } = null;
 
         [Description("Hot water store size in litres; if there is a hot water store.  Store refers to hot water store type which can be cylinder (if thermal store is 'none'), hot-water only thermal store or integrated thermal store.  Not applicable if (a) combi boiler whose data source database or (b) instantaneous combi boiler or (c) combi boiler from SAP table or (d) instantaneous water heater.")]
         [XmlElement("Hot-Water-Store-Size")]
@@ -115,23 +115,23 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Thermal store connected to boiler by no more than 1.5 m of insulated pipework?  Only if thermal store.  Not applicable if combi boiler or instantaneous water heater.")]
         [XmlElement("Is-Thermal-Store-Near-Boiler")]
-        public virtual bool? IsThermalStoreNearBoiler { get; set; } = false;
+        public virtual bool? IsThermalStoreNearBoiler { get; set; } = null;
 
         [Description("Thermal store or CPSU in airing cupboard?  Only if (a) boiler with integrated or hot-water-only thermal store, or (b) main heating is CPSU.")]
         [XmlElement("Is-Thermal-Store-Or-CPSU-In-Airing-Cupboard")]
-        public virtual bool? IsThermalStoreOrCPSUInAiringCupboard { get; set; } = false;
+        public virtual bool? IsThermalStoreOrCPSUInAiringCupboard { get; set; } = null;
 
         [Description("Hot water cylinder thermostat?  Not applicable if combi boiler or instantaneous water heater.")]
         [XmlElement("Has-Cylinder-Thermostat")]
-        public virtual bool? HasCylinderThermostat { get; set; } = false;
+        public virtual bool? HasCylinderThermostat { get; set; } = null;
 
         [Description("Hot water cylinder in heated space?  Not applicable if combi boiler or instantaneous water heater.")]
         [XmlElement("Is-Cylinder-In-Heated-Space")]
-        public virtual bool? IsCylinderInHeatedSpace { get; set; } = false;
+        public virtual bool? IsCylinderInHeatedSpace { get; set; } = null;
 
         [Description(">Hot water separately timed?  Not applicable if combi boiler or instantaneous water heater.")]
         [XmlElement("Is-Hot-Water-Separately-Timed")]
-        public virtual bool? IsHotWaterSeperatlyTimed { get; set; } = false;
+        public virtual bool? IsHotWaterSeperatlyTimed { get; set; } = null;
 
         [Description("")]
         [XmlElement("SAP-Community-Heating-Systems")]
@@ -168,5 +168,46 @@ namespace BH.oM.Environment.SAP.XML
         [Description("")]
         [XmlElement("Storage-WWHRS")] 
         public virtual StorageWWHRS StorageWHRS { get; set; } = new StorageWWHRS();
+
+        public bool ShouldSerializeHasHotWaterCylinder()
+        {
+            return HasHotWaterCylinder.HasValue;
+        }
+        public bool ShouldSerializeHasFixedAirConditioning()
+        {
+            return HasFixedAirConditioning.HasValue;
+        }
+        public bool ShouldSerializeIsHeatPumpAssistedByImmersion()
+        {
+            return IsHeatPumpAssistedByImmersion.HasValue;
+        }
+        public bool ShouldSerializeIsImmersionForSummerUse()
+        {
+            return IsImmersionForSummerUse.HasValue;
+        }
+        public bool ShouldSerializeIsSecondaryHeatingHETASApproved()
+        {
+            return IsSecondaryHeatingHETASApproved.HasValue;
+        }
+        public bool ShouldSerializeIsThermalStoreNearBoiler()
+        {
+            return IsThermalStoreNearBoiler.HasValue;
+        }
+        public bool ShouldSerializeIsThermalStoreOrCPSUInAiringCupboard()
+        {
+            return IsThermalStoreOrCPSUInAiringCupboard.HasValue;
+        }
+        public bool ShouldSerializeHasCylinderThermostat()
+        {
+            return HasCylinderThermostat.HasValue;
+        }
+        public bool ShouldSerializeIsCylinderInHeatedSpace()
+        {
+            return IsCylinderInHeatedSpace.HasValue;
+        }
+        public bool ShouldSerializeIsHotWaterSeperatlyTimed()
+        {
+            return IsHotWaterSeperatlyTimed.HasValue;
+        }
     }
 }

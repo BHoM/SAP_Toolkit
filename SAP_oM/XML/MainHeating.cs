@@ -51,7 +51,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Is the boiler a condensing boiler?  If boiler efficiency is manufacturer declaration.")]
         [XmlElement("Is-Condensing-Boiler")]
-        public virtual bool? IsCondensingBoiler { get; set; } = false;
+        public virtual bool? IsCondensingBoiler { get; set; } = null;
 
         [Description("Boiler type; if boiler efficiency is manufacturer declaration and fuel is gas or oil.")]
         [XmlElement("Gas-Or-Oil-Boiler-Type")]
@@ -99,23 +99,23 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Indicates whether the heating system contains a fan flue; only if boiler.")]
         [XmlElement("Is-Flue-Fan-Present")]
-        public virtual bool? IsFlueFanPresent { get; set; } = false;
+        public virtual bool? IsFlueFanPresent { get; set; } = null;
 
         [Description("Central heating pump in heated space?  Only when wet system (radiators or underfloor).")]
         [XmlElement("Is-Central-Heating-Pump-In-Heated-Space")]
-        public virtual bool? IsCentralHeatingPumpInHeatedSpace { get; set; } = false;
+        public virtual bool? IsCentralHeatingPumpInHeatedSpace { get; set; } = null;
 
         [Description("Oil pump in heated space?  Only if oil boiler.")]
         [XmlElement("Is-Oil-Pump-In-Heated-Space")]
-        public virtual bool? IsOilPumpInHeatedSpace { get; set; } = false;
+        public virtual bool? IsOilPumpInHeatedSpace { get; set; } = null;
 
         [Description("Interlocked system?  Only when wet system (radiators or underfloor).")]
         [XmlElement("Is-Interlocked-System")]
-        public virtual bool? IsInterLockedSystem { get; set; } = false;
+        public virtual bool? IsInterLockedSystem { get; set; } = null;
 
         [Description("True if there is a delayed start control separate from a controller in the database.")]
         [XmlElement("Has-Separate-Delayed-Start")]
-        public virtual bool? HasSeparateDelayedStart { get; set; } = false;
+        public virtual bool? HasSeparateDelayedStart { get; set; } = null;
 
         [Description("For backward compatibility only, do not use.")]
         [XmlElement("Has-Load-Or-Weather-Compensation")]
@@ -127,7 +127,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Main heating appliance is HETAS approved?  Only if solid fuel.")]
         [XmlElement("Is-Main-Heating-HETAS-Approved")]
-        public virtual bool? IsMainHeatingHETASApproved { get; set; } = false;
+        public virtual bool? IsMainHeatingHETASApproved { get; set; } = null;
 
         [Description("Electric CPSU operating temperature in Celcius; only if main heating is electric CPSU.")]
         [XmlElement("Electric-CPSU-Operating-Temperature")]
@@ -159,7 +159,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Flue Gas Heat Recovery System.")]
         [XmlElement("Has-FGHRS")]
-        public virtual bool? HasFGHRS { get; set; } = false;
+        public virtual bool? HasFGHRS { get; set; } = null;
 
         [Description("FGHRS index number; only if FGHRS")]
         [XmlElement("FGHRS-Index-Number")]
@@ -171,11 +171,11 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("")]
         [XmlElement("Main-Heating-Declared-Values")]
-        public virtual HeatingDeclaredValues MainHeatingDeclaredValues { get; set; } = new HeatingDeclaredValues();
+        public virtual HeatingDeclaredValues MainHeatingDeclaredValues { get; set; } = null;
 
         [Description("")]
         [XmlElement("Storage-Heaters")]
-        public virtual StorageHeaters StorageHeaters { get; set; } = new StorageHeaters();
+        public virtual StorageHeaters StorageHeaters { get; set; } = null;
 
         [Description("Gas and oil boilers and heat pump from database: 0, 1, 3 or 4. Other heat pump 0, 2 or 4. Other systems NA.")]
         [XmlElement("Emitter-Temperature")]
@@ -183,7 +183,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Whether heat pump was installed under the Microgeneration Certification Scheme.")]
         [XmlElement("MCS-Installed-Heat-Pump")]
-        public virtual bool? MCSInstalledHeatPump { get; set; } = false;
+        public virtual bool? MCSInstalledHeatPump { get; set; } = null;
 
         [Description("Included for systems with a central heating pump, i.e. wet system.")]
         [XmlElement("Central-Heating-Pump-Age")]
@@ -196,5 +196,46 @@ namespace BH.oM.Environment.SAP.XML
         [Description("The ID of the time and temperature zone control from the product database.")]
         [XmlElement("TTZC-Index-Number")]
         public virtual string TTZCIndexNumber { get; set; } = null;
+
+        public bool ShouldSerializeIsMainHeatingHETASApproved()
+        {
+            return IsMainHeatingHETASApproved.HasValue;
+        }
+        public bool ShouldSerializeIsCondensingBoiler()
+        {
+            return IsCondensingBoiler.HasValue;
+        }
+        public bool ShouldSerializeIsFlueFanPresent()
+        {
+            return IsFlueFanPresent.HasValue;
+        }
+        public bool ShouldSerializeIsCentralHeatingPumpInHeatedSpace()
+        {
+            return IsCentralHeatingPumpInHeatedSpace.HasValue;
+        }
+        public bool ShouldSerializeIsOilPumpInHeatedSpace()
+        {
+            return IsOilPumpInHeatedSpace.HasValue;
+        }
+        public bool ShouldSerializeIsInterLockedSystem()
+        {
+            return IsInterLockedSystem.HasValue;
+        }
+        public bool ShouldSerializeHasSeparateDelayedStart()
+        {
+            return HasSeparateDelayedStart.HasValue;
+        }
+        public bool ShouldSerializeHasLoadOrWeatherCompensation()
+        {
+            return HasLoadOrWeatherCompensation.HasValue;
+        }
+        public bool ShouldSerializeHasFGHRS()
+        {
+            return HasFGHRS.HasValue;
+        }
+        public bool ShouldSerializeMCSInstalledHeatPump()
+        {
+            return MCSInstalledHeatPump.HasValue;
+        }
     }
 }

@@ -75,11 +75,18 @@
     <Compile Include="Cooling.cs" />
     <Compile Include="CylinderSpecification.cs" />
     <Compile Include="Enums\DataSourceCode.cs" />
+    <Compile Include="Enums\EmitterTemperatureCode.cs" />
+    <Compile Include="Enums\FlueTypeCode.cs" />
+    <Compile Include="Enums\HasLoadOrWeatherCompensation.cs" />
+    <Compile Include="Enums\HeatEmitterCode.cs" />
     <Compile Include="Enums\HeatingFuelTypeCode.cs" />
     <Compile Include="Enums\MainHeatingCategoryCode.cs" />
     <Compile Include="Enums\OpeningDataSource.cs" />
     <Compile Include="Enums\PressureTestCode.cs" />
     <Compile Include="Enums\ProductType.cs" />
+    <Compile Include="Enums\PumpAge.cs" />
+    <Compile Include="Enums\SecondaryHeatingCategory.cs" />
+    <Compile Include="Enums\ThermalStoreCode.cs" />
     <Compile Include="Enums\TypeOfDuct.cs" />
     <Compile Include="Enums\TypeOfDuctInsulation.cs" />
     <Compile Include="Enums\TypeOfFloor.cs" />
@@ -90,6 +97,7 @@
     <Compile Include="Enums\VentilationDataSource.cs" />
     <Compile Include="Enums\WindowOvershading.cs" />
     <Compile Include="ExtraFanDetails.cs" />
+    <Compile Include="FGHRS.cs" />
     <Compile Include="Heating.cs" />
     <Compile Include="HeatingControls.cs" />
     <Compile Include="HeatingFuel.cs" />
@@ -110,7 +118,7 @@
     <Compile Include="PCDBTables\StorageHeatersTable.cs" />
     <Compile Include="PCDBTables\WarmAirSystemTable.cs" />
     <Compile Include="PCDBTables\WasteWaterHeatRecoverySystemTable.cs" />
-    <Compile Include="PrimaryHeatingDetails.cs" />
+    <Compile Include="MainHeatingDetails.cs" />
     <Compile Include="SecondaryHeating.cs" />
     <Compile Include="SecondaryHeatingDetails.cs" />
     <Compile Include="SolarPanelDetails.cs" />

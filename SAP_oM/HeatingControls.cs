@@ -31,10 +31,13 @@ namespace BH.oM.Environment.SAP
     [Description("Strategy for the ventilation of the dwelling.")]
     public class HeatingControls : BHoMObject
     {
-        [Description("")]//Enum?
+        [Description("Code which indicates the type of heating control, as described in SAP table 4e. Max 2999 min 2001.")]
         public virtual string Controls { get; set; } = null;
 
         [Description("")]
-        public virtual bool? DelayedStartThermostat { get; set; } = null;
+        public virtual bool DelayedStartThermostat { get; set; } = false;
+
+        [Description("")]
+        public virtual HasLoadOrWeatherCompensation HasLoadOrWeatherCompensation { get; set; } = new HasLoadOrWeatherCompensation();
     }
 }

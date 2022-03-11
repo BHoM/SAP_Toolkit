@@ -52,7 +52,7 @@ namespace BH.Engine.Environment.SAP
             oM.Environment.SAP.XML.StorageHeaters xmlStorageHeaters = new oM.Environment.SAP.XML.StorageHeaters();
             oM.Environment.SAP.XML.StorageHeater xmlStorageHeater = new oM.Environment.SAP.XML.StorageHeater();
             oM.Environment.SAP.XML.HeatingDeclaredValues xmlMainHeatingDeclaredValues = new oM.Environment.SAP.XML.HeatingDeclaredValues();
-            xmlMainHeating.MainHeatingIndexNumber = heating.Primary.HeatingDetails.ProductIndex;
+            xmlMainHeating.MainHeatingIndexNumber = heating.Main.HeatingDetails.ProductIndex;
             xmlMainHeating.IsCondensingBoiler = null;
             xmlMainHeating.GasOrOilBoilerType = null;
             xmlMainHeating.EfficiencyType = null;
@@ -61,32 +61,35 @@ namespace BH.Engine.Environment.SAP
             xmlStorageHeater.IndexNumber = null;
             xmlStorageHeater.HighHeatRetention = null;
             xmlMainHeating.MainHeatingNumber = 1;
-            xmlMainHeating.MainHeatingCategory = heating.Primary.HeatingCategoryCode.FromSAPToXML();
-            xmlMainHeating.MainHeatingDataSource = heating.Primary.HeatingDetails.Source.FromSAPToXML();
+            xmlMainHeating.MainHeatingCategory = heating.Main.HeatingCategoryCode.FromSAPToXML();
+            xmlMainHeating.MainHeatingDataSource = heating.Main.HeatingDetails.Source.FromSAPToXML();
             xmlMainHeating.CombiBoilerType = null;
             xmlMainHeating.CaseHeatEmission = null;
             xmlMainHeating.HeatTransferToWater = null;
             xmlMainHeating.SolidFuelBoilerType = null;
             xmlMainHeating.MainHeatingCode = null;
-            xmlMainHeating.MainFuelType = heating.Primary.HeatingFuel.Fuel;
-            xmlMainHeating.MainHeatingControl = heating.Primary.HeatingControls.Controls;
-            xmlMainHeating.HeatEmitterType = heating.Primary.HeatingDetails.Emitter;
+            xmlMainHeating.MainFuelType = heating.Main.HeatingFuel.Fuel.FromSAPToXML();
+            xmlMainHeating.MainHeatingControl = heating.Main.HeatingControls.Controls;
+            xmlMainHeating.HeatEmitterType = heating.Main.HeatingDetails.EmitterType.FromSAPToXML();
             xmlMainHeating.UnderfloorHeatEmitterType = null;
-            xmlMainHeating.MainHeatingFlueType = heating.Primary.BoilerInformation.FlueType;
-            xmlMainHeating.IsFlueFanPresent = heating.Primary.BoilerInformation.FanFLued;
-            xmlMainHeating.IsCentralHeatingPumpInHeatedSpace = heating.Primary.BoilerInformation.PumpInHeatedSpace;//only if wet system, Need to check these two
-            xmlMainHeating.IsOilPumpInHeatedSpace = heating.Primary.BoilerInformation.PumpInHeatedSpace;// only if oil boiler NEED TO DIFFERENTIATE THESE DEPENIDING ON TYPE (IF LOOP)
-            xmlMainHeating.IsInterLockedSystem = heating.Primary.BoilerInformation.BoilerInterlock;
-            xmlMainHeating.HasSeparateDelayedStart = heating.Primary.HeatingControls.DelayedStartThermostat;
+            xmlMainHeating.MainHeatingFlueType = heating.Main.BoilerInformation.FlueType.FromSAPToXML();
+            xmlMainHeating.IsFlueFanPresent = heating.Main.BoilerInformation.FanFlued;
+            xmlMainHeating.IsCentralHeatingPumpInHeatedSpace = heating.Main.BoilerInformation.PumpInHeatedSpace;//only if wet system, Need to check these two
+            xmlMainHeating.IsOilPumpInHeatedSpace = null;// only if oil boiler NEED TO DIFFERENTIATE THESE DEPENIDING ON TYPE (IF LOOP)
+            xmlMainHeating.IsInterLockedSystem = heating.Main.BoilerInformation.BoilerInterlock;
+            xmlMainHeating.HasSeparateDelayedStart = heating.Main.HeatingControls.DelayedStartThermostat;
             xmlMainHeating.HasLoadOrWeatherCompensation = null;
             xmlMainHeating.BoilerFuelFeed = null;
-            xmlMainHeating.IsMainHeatingHETASApproved = heating.Primary.HETASApproved;
+            xmlMainHeating.IsMainHeatingHETASApproved = heating.Main.HETASApproved;
             xmlMainHeating.ElectricCPSUOperatingTemperature = null;
-            xmlMainHeating.LoadOrWeatherCompensation = null;
-            xmlMainHeating.MainHeatingFraction = heating.Primary.FractionOfHeat;
+            xmlMainHeating.LoadOrWeatherCompensation = heating.Main.HeatingControls.HasLoadOrWeatherCompensation.FromSAPToXML();
+            xmlMainHeating.MainHeatingFraction = heating.Main.FractionOfHeat;
             xmlMainHeating.BurnerControl = null;
-            xmlMainHeating.HasFGHRS = null;
-            xmlMainHeating.FGHRSIndexNumber = null;
+            if (heating.Main.FGHRS != null)
+            { xmlMainHeating.HasFGHRS = true; }
+            else if (heating.Main.FGHRS == null)
+            { xmlMainHeating.HasFGHRS = false; }
+            xmlMainHeating.FGHRSIndexNumber = heating.Main.FGHRS.IndexNumber;
             xmlMainHeating.FGHRSEnergySource = null;
             xmlMainHeatingDeclaredValues.Efficiency = null;
             xmlMainHeatingDeclaredValues.MakeModel = null;
@@ -95,9 +98,9 @@ namespace BH.Engine.Environment.SAP
             xmlStorageHeater.NumberOfHeaters = null;
             xmlStorageHeaters.StorageHeater = xmlStorageHeater;
             xmlMainHeating.StorageHeaters = xmlStorageHeaters;
-            xmlMainHeating.EmitterTemperature = null;   
-            xmlMainHeating.MCSInstalledHeatPump = heating.Primary.MCSCertificate;
-            xmlMainHeating.CentralHeatingPumpAge = null;
+            xmlMainHeating.EmitterTemperature = heating.Main.HeatingDetails.EmitterTemperature.FromSAPToXML();   
+            xmlMainHeating.MCSInstalledHeatPump = heating.Main.MCSCertificate;
+            xmlMainHeating.CentralHeatingPumpAge = heating.Main.HeatingDetails.PumpAge.FromSAPToXML();
             xmlMainHeating.CompensatingControllerIndexNumber = null;
             xmlMainHeating.TTZCIndexNumber = null;
 
@@ -175,12 +178,12 @@ namespace BH.Engine.Environment.SAP
                 xmlSecondaryMainHeating.HeatTransferToWater = null;
                 xmlSecondaryMainHeating.SolidFuelBoilerType = null;
                 xmlSecondaryMainHeating.MainHeatingCode = null;
-                xmlSecondaryMainHeating.MainFuelType = heating.SecondaryMain.HeatingFuel.Fuel;
+                xmlSecondaryMainHeating.MainFuelType = heating.SecondaryMain.HeatingFuel.Fuel.FromSAPToXML();
                 xmlSecondaryMainHeating.MainHeatingControl = heating.SecondaryMain.HeatingControls.Controls;
-                xmlSecondaryMainHeating.HeatEmitterType = heating.SecondaryMain.HeatingDetails.Emitter;
+                xmlSecondaryMainHeating.HeatEmitterType = heating.SecondaryMain.HeatingDetails.EmitterType.FromSAPToXML();
                 xmlSecondaryMainHeating.UnderfloorHeatEmitterType = null;
-                xmlSecondaryMainHeating.MainHeatingFlueType = heating.SecondaryMain.BoilerInformation.FlueType;
-                xmlSecondaryMainHeating.IsFlueFanPresent = heating.SecondaryMain.BoilerInformation.FanFLued;
+                xmlSecondaryMainHeating.MainHeatingFlueType = heating.SecondaryMain.BoilerInformation.FlueType.FromSAPToXML();
+                xmlSecondaryMainHeating.IsFlueFanPresent = heating.SecondaryMain.BoilerInformation.FanFlued;
                 xmlSecondaryMainHeating.IsCentralHeatingPumpInHeatedSpace = heating.SecondaryMain.BoilerInformation.PumpInHeatedSpace;
                 xmlSecondaryMainHeating.IsOilPumpInHeatedSpace = heating.SecondaryMain.BoilerInformation.PumpInHeatedSpace;
                 xmlSecondaryMainHeating.IsInterLockedSystem = heating.SecondaryMain.BoilerInformation.BoilerInterlock;
@@ -189,14 +192,17 @@ namespace BH.Engine.Environment.SAP
                 xmlSecondaryMainHeating.BoilerFuelFeed = null;
                 xmlSecondaryMainHeating.IsMainHeatingHETASApproved = heating.SecondaryMain.HETASApproved;
                 xmlSecondaryMainHeating.ElectricCPSUOperatingTemperature = null;
-                xmlSecondaryMainHeating.LoadOrWeatherCompensation = null;
+                xmlSecondaryMainHeating.LoadOrWeatherCompensation = heating.SecondaryMain.HeatingControls.HasLoadOrWeatherCompensation.FromSAPToXML();
                 xmlSecondaryMainHeating.MainHeatingFraction = heating.SecondaryMain.FractionOfHeat;
                 xmlSecondaryMainHeating.BurnerControl = null;
                 xmlSecondaryMainHeating.EfficiencyType = null;
                 xmlSecondaryMainHeating.MainHeatingEfficiencyWinter = null;
                 xmlSecondaryMainHeating.MainHeatingEfficiencySummer = null;
-                xmlSecondaryMainHeating.HasFGHRS = null;
-                xmlSecondaryMainHeating.FGHRSIndexNumber = null;
+                if (heating.SecondaryMain.FGHRS != null)
+                { xmlSecondaryMainHeating.HasFGHRS = true; }
+                else if (heating.SecondaryMain.FGHRS == null)
+                { xmlSecondaryMainHeating.HasFGHRS = false;  }
+                xmlSecondaryMainHeating.FGHRSIndexNumber = heating.SecondaryMain.FGHRS.IndexNumber;
                 xmlSecondaryMainHeating.FGHRSEnergySource = null;
 
                 oM.Environment.SAP.XML.HeatingDeclaredValues xmlSecondaryMainHeatingDeclaredValues = new oM.Environment.SAP.XML.HeatingDeclaredValues();
@@ -213,9 +219,9 @@ namespace BH.Engine.Environment.SAP
                 xmlSecondaryStorageHeaters.StorageHeater = xmlStorageHeater;
                 xmlSecondaryMainHeating.StorageHeaters = xmlStorageHeaters;
 
-                xmlSecondaryMainHeating.EmitterTemperature = null;
+                xmlSecondaryMainHeating.EmitterTemperature = heating.SecondaryMain.HeatingDetails.EmitterTemperature.FromSAPToXML();
                 xmlSecondaryMainHeating.MCSInstalledHeatPump = heating.SecondaryMain.MCSCertificate;
-                xmlSecondaryMainHeating.CentralHeatingPumpAge = null;
+                xmlSecondaryMainHeating.CentralHeatingPumpAge = heating.SecondaryMain.HeatingDetails.PumpAge.FromSAPToXML();
                 xmlSecondaryMainHeating.CompensatingControllerIndexNumber = null;
                 xmlSecondaryMainHeating.TTZCIndexNumber = null;
 
@@ -223,8 +229,8 @@ namespace BH.Engine.Environment.SAP
             }   
 
             oM.Environment.SAP.XML.Heating xmlHeating = new oM.Environment.SAP.XML.Heating();
-            xmlHeating.WaterHeatingCode = heating.WaterHeating.System;
-            xmlHeating.WaterFuelType = heating.WaterHeating.Fuel;
+            xmlHeating.WaterHeatingCode = heating.WaterHeating.Type;
+            xmlHeating.WaterFuelType = heating.WaterHeating.Fuel.FromSAPToXML();
             if (heating.WaterHeating.CylinderSpecification != null)
             {
                 xmlHeating.HasHotWaterCylinder = true;
@@ -247,18 +253,18 @@ namespace BH.Engine.Environment.SAP
                 xmlHeating.HasCylinderThermostat = null;
                 xmlHeating.HotWaterStoreHeatLoss = null;
             }
-            xmlHeating.SecondaryHeatingCategory = heating.SecondaryHeating.HeatingDetails.HeatingGroup;
-            xmlHeating.SecondaryHeatingDataSource = heating.SecondaryHeating.HeatingDetails.Source;
-            xmlHeating.SecondaryHeatingCode = heating.SecondaryHeating.HeatingDetails.HeatingType;
-            xmlHeating.SecondaryFuelType = heating.SecondaryHeating.Fuel;
-            xmlHeating.SecondaryHeatingFlueType = heating.SecondaryHeating.HeatingDetails.FlueType;
+            xmlHeating.SecondaryHeatingCategory = heating.SecondaryHeating.HeatingDetails.HeatingCategory.FromSAPToXML();
+            xmlHeating.SecondaryHeatingDataSource = heating.SecondaryHeating.HeatingDetails.Source.FromSAPToXML();
+            xmlHeating.SecondaryHeatingCode = heating.SecondaryHeating.HeatingDetails.HeatingCode;
+            xmlHeating.SecondaryFuelType = heating.SecondaryHeating.Fuel.FromSAPToXML();
+            xmlHeating.SecondaryHeatingFlueType = heating.SecondaryHeating.HeatingDetails.FlueType.FromSAPToXML();
             xmlHeating.ImmersionHeatingType = heating.WaterHeating.Immersion.Type;
             xmlHeating.IsHeatPumpAssistedByImmersion = heating.WaterHeating.Immersion.UseOfImmersion;
             xmlHeating.IsImmersionForSummerUse = heating.WaterHeating.Immersion.SummerImmersion;
-            xmlHeating.ThermalStore = null;
-            xmlHeating.HasFixedAirConditioning = null;
+            xmlHeating.ThermalStore = heating.WaterHeating.ThermalStore.FromSAPToXML();
+            xmlHeating.HasFixedAirConditioning = false; //Needs to be added in some method
             xmlHeating.IsSecondaryHeatingHETASApproved = heating.SecondaryHeating.HETASApproved;
-            xmlHeating.HotWaterStoreHeatTransferArea = heating.WaterHeating.Immersion.HeatExchangerArea; // ?
+            xmlHeating.HotWaterStoreHeatTransferArea = heating.WaterHeating.Immersion.HeatExchangerArea;//?
             xmlHeating.HotWaterStoreHeatLossSource = null;
             xmlHeating.IsThermalStoreNearBoiler = null;
             xmlHeating.IsThermalStoreOrCPSUInAiringCupboard = null;
@@ -452,6 +458,268 @@ namespace BH.Engine.Environment.SAP
                     return "2";
 
                 case BH.oM.Environment.SAP.DataSourceCode.SAPtable:
+                    return "3";
+
+                default:
+                    return "";
+            }
+        }
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.HeatingFuelTypeCode fuelCode)
+        {
+            switch (fuelCode)
+            {
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.MainsGas:
+                    return "1";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.BulkLPG:
+                    return "2";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.BottledLPG:
+                    return "3";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.HeatingOil:
+                    return "4";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.Biogas:
+                    return "7";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.LNG:
+                    return "8";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.LPGSpecialCondition:
+                    return "9";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.SolidFuelMineralAndWood:
+                    return "10";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.HouseCoal:
+                    return "11";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.ManufacturedSmokelessFuel:
+                    return "12";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.Anthracite:
+                    return "15";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.WoodLogs:
+                    return "20";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.WoodChips:
+                    return "21";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.WoodPelletsSecondaryHeating:
+                    return "22";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.WoodPelletsMainHeating:
+                    return "23";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.ElectricitySoldToGrid:
+                    return "36";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.ElectricityDisplacedFromGrid:
+                    return "37";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.ElectricityUnspecTariff:
+                    return "39";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.CommunityHeatPump:
+                    return "41";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.CommunityBoilersWaste:
+                    return "42";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.CommunityBoilersBiomass:
+                    return "43";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.CommunityBoilersBiogas:
+                    return "44";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.CommunityWastePowerStations:
+                    return "45";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.CommunityGeothermal:
+                    return "46";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.CommunityCHP:
+                    return "48";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.CommunityElectricityCHP:
+                    return "49";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.CommunityElectricityNetwork:
+                    return "50";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.CommunityMainsGas:
+                    return "51";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.CommunityLPG:
+                    return "52";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.CommunityOil:
+                    return "53";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.CommunityCoal:
+                    return "54";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.CommunityB30D:
+                    return "55";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.CommunityBoilersMineralOilBiodiesel:
+                    return "56";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.CommunityBoilersBiodiesel:
+                    return "57";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.CommunityBiodieselVegetableOil:
+                    return "58";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.Biodiesel:
+                    return "71";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.BiodieselUsedCookingOil:
+                    return "72";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.BiodieselVegetableOil:
+                    return "73";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.MineralOilLiquidBiofuel:
+                    return "74";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.B30K:
+                    return "75";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.Bioethanol:
+                    return "76";
+
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.CommunitySpecial:
+                    return "99";
+
+                default:
+                    return "";
+            }
+        }
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.EmitterTemperatureCode temperatureCode)
+        {
+            switch (temperatureCode)
+            {
+                case BH.oM.Environment.SAP.EmitterTemperatureCode.Unknown:
+                    return "0";
+
+                case BH.oM.Environment.SAP.EmitterTemperatureCode.Over45:
+                    return "1";
+
+                case BH.oM.Environment.SAP.EmitterTemperatureCode.Over35:
+                    return "2";
+
+                case BH.oM.Environment.SAP.EmitterTemperatureCode.Over35LessThan45:
+                    return "3";
+
+                case BH.oM.Environment.SAP.EmitterTemperatureCode.LessThan35:
+                    return "4";
+
+                default:
+                    return "";
+            }
+        }
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.PumpAge ageCode)
+        {
+            switch (ageCode)
+            {
+                case BH.oM.Environment.SAP.PumpAge.Unknown:
+                    return "0";
+
+                case BH.oM.Environment.SAP.PumpAge.Earlier2012:
+                    return "1";
+
+                case BH.oM.Environment.SAP.PumpAge.Later2013:
+                    return "2";
+
+                default:
+                    return "";
+            }
+        }
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.HeatEmitterCode emitterCode)
+        {
+            switch (emitterCode)
+            {
+                case BH.oM.Environment.SAP.HeatEmitterCode.Radiators:
+                    return "1";
+
+                case BH.oM.Environment.SAP.HeatEmitterCode.Underfloor:
+                    return "2";
+
+                case BH.oM.Environment.SAP.HeatEmitterCode.RadiatorsAndUnderfloor:
+                    return "3";
+
+                case BH.oM.Environment.SAP.HeatEmitterCode.FanCoilUnits:
+                    return "4";
+
+                default:
+                    return "";
+            }
+        }
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.FlueTypeCode flueCode)
+        {
+            switch (flueCode)
+            {
+                case BH.oM.Environment.SAP.FlueTypeCode.OpenFlue:
+                    return "1";
+
+                case BH.oM.Environment.SAP.FlueTypeCode.BalancedFlue:
+                    return "2";
+
+                case BH.oM.Environment.SAP.FlueTypeCode.Chimney:
+                    return "3";
+
+                case BH.oM.Environment.SAP.FlueTypeCode.Omitted:
+                    return "4";
+
+                case BH.oM.Environment.SAP.FlueTypeCode.Unknown:
+                    return "5";
+
+                default:
+                    return "";
+            }
+        }
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.HasLoadOrWeatherCompensation compensationCode)
+        {
+            switch (compensationCode)
+            {
+                case BH.oM.Environment.SAP.HasLoadOrWeatherCompensation.None:
+                    return "0";
+
+                case BH.oM.Environment.SAP.HasLoadOrWeatherCompensation.LoadOrWeatherCompensation:
+                    return "4";
+
+                default:
+                    return "";
+            }
+        }
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.SecondaryHeatingCategory categoryCode)
+        {
+            switch (categoryCode)
+            {
+                case BH.oM.Environment.SAP.SecondaryHeatingCategory.None:
+                    return "1";
+
+                case BH.oM.Environment.SAP.SecondaryHeatingCategory.RoomHeaters:
+                    return "10";
+
+                default:
+                    return "";
+            }
+        }
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.ThermalStoreCode storeCode)
+        {
+            switch (storeCode)
+            {
+                case BH.oM.Environment.SAP.ThermalStoreCode.None:
+                    return "1";
+
+                case BH.oM.Environment.SAP.ThermalStoreCode.HotWaterOnly:
+                    return "2";
+
+                case BH.oM.Environment.SAP.ThermalStoreCode.Integrated:
                     return "3";
 
                 default:

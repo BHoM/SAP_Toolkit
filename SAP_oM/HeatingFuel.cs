@@ -31,8 +31,8 @@ namespace BH.oM.Environment.SAP
     [Description("Strategy for the ventilation of the dwelling.")]
     public class HeatingFuel : BHoMObject
     {
-        [Description("")]//Enum?
-        public virtual string Fuel { get; set; } = null;
+        [Description("")]
+        public virtual HeatingFuelTypeCode Fuel { get; set; } = new HeatingFuelTypeCode();
 
         [Description("")]
         public virtual string ElectricityTariff { get; set; } = null;

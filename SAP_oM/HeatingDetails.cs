@@ -38,12 +38,18 @@ namespace BH.oM.Environment.SAP
         public virtual DataSourceCode Source { get; set; } = new DataSourceCode();
 
         [Description("")]
+        public virtual HeatEmitterCode EmitterType { get; set; } = new HeatEmitterCode();
+
+        [Description("")]
+        public virtual EmitterTemperatureCode EmitterTemperature { get; set; } = new EmitterTemperatureCode();
+
+        [Description("")]
+        public virtual PumpAge PumpAge { get; set; } = new PumpAge();
+
+        [Description("")]
         public virtual string HeatingGroup { get; set; } = null;
 
         [Description("")]
         public virtual string SubGroup { get; set; } = null;
-
-        [Description("")]
-        public virtual string Emitter { get; set; } = null;
     }
 }
