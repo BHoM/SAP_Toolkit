@@ -151,9 +151,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enums\TypeOfOpening.cs" />
     <Compile Include="Wall.cs" />
+    <Compile Include="XML\BuildingParts.cs" />
     <Compile Include="XML\CommunityHeatingSystem.cs" />
     <Compile Include="XML\CommunityHeatingSystems.cs" />
+    <Compile Include="XML\DeselectedImprovements.cs" />
+    <Compile Include="XML\EnergySource.cs" />
+    <Compile Include="XML\FlatDetails.cs" />
     <Compile Include="XML\HeatingDeclaredValues.cs" />
+    <Compile Include="XML\OpeningTypes.cs" />
+    <Compile Include="XML\SAP2012Data.cs" />
     <Compile Include="XML\SpecialFeature.cs" />
     <Compile Include="XML\SpecialFeatures.cs" />
     <Compile Include="XML\StorageHeater.cs" />

@@ -75,7 +75,7 @@ namespace BH.Engine.Environment.SAP
             xmlMainHeating.MainHeatingFlueType = heating.Main.BoilerInformation.FlueType.FromSAPToXML();
             xmlMainHeating.IsFlueFanPresent = heating.Main.BoilerInformation.FanFlued;
             xmlMainHeating.IsCentralHeatingPumpInHeatedSpace = heating.Main.BoilerInformation.PumpInHeatedSpace;//only if wet system, Need to check these two
-            xmlMainHeating.IsOilPumpInHeatedSpace = null;// only if oil boiler NEED TO DIFFERENTIATE THESE DEPENIDING ON TYPE (IF LOOP)
+            xmlMainHeating.IsOilPumpInHeatedSpace = null;// only if oil boiler NEED TO DIFFERENTIATE THESE DEPENIDING ON TYPE
             xmlMainHeating.IsInterLockedSystem = heating.Main.BoilerInformation.BoilerInterlock;
             xmlMainHeating.HasSeparateDelayedStart = heating.Main.HeatingControls.DelayedStartThermostat;
             xmlMainHeating.HasLoadOrWeatherCompensation = null;
