@@ -30,28 +30,80 @@ using System.Xml.Serialization;
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "SAPSAP-Property-Details", IsNullable = false)]
+    [XmlRoot(ElementName = "SAP-Property-Details", IsNullable = false)]
     public class PropertyDetails : IObject
     {
+        [Description("The type of Property, such as House, Flat, Mansion, Maisonette etc.")]
         [XmlElement("Property-Type")]
-        public virtual string PropertyType { get; set; }
+        public virtual string PropertyType { get; set; } = null;
 
+        [Description("The building type of the Property e.g. Detached, Semi-Detached, Terrace etc. Together with the Property Type, the Built Form provides a structured description of the property.")]
         [XmlElement("Built-Form")]
-        public virtual string BuiltForm { get; set; }
+        public virtual string BuiltForm { get; set; } = null;
 
-        [XmlElement("Level")]
-        public virtual string Level { get; set; }
-
+        [Description("The size of the living area in square metres.  The living area is the room marked on a plan as the lounge or living room, or the largest public room (irrespective of usage by particular occupants), together with any rooms not separated from the lounge or living room by doors, and including any cupboards directly accessed from the lounge or living room. Living area does not, however, extend over more than one storey, even when stairs enter the living area directly.")]
         [XmlElement("Living-Area")]
-        public virtual double LivingArea { get; set; }
+        public virtual string LivingArea { get; set; } = null;
 
+        [Description("The orientation of the front of the property.")]
         [XmlElement("Orientation")]
-        public virtual double Orientation { get; set; }
+        public virtual string Orientation { get; set; } = null;
 
+        [Description("Type of conservatory.")]
         [XmlElement("Conservatory-Type")]
-        public virtual string ConservatoryType { get; set; }
+        public virtual string ConservatoryType { get; set; } = null;
 
+        [Description("Is property in a smoke control area?  Only if a solid fuel appliance is used.")]
         [XmlElement("Is-In-Smoke-Control-Area")]
-        public virtual double SmokeControlArea { get; set; }
+        public virtual bool? IsInSmokeControlArea { get; set; } = null;
+
+        [Description("Additional allowable electricity generation applicable to this dwelling in kWh per square metre; only if Zero Carbon Home assessment.")]
+        [XmlElement("Additional-Allowable-Electricity-Generation")]
+        public virtual string AdditionalAllowableElectricityGeneration { get; set; } = null;
+
+        [Description("")]
+        [XmlElement("SAP-Heating")]
+        public virtual Heating Heating { get; set; } = null;
+
+        [Description("")]
+        [XmlElement("SAP-Energy-Source")]
+        public virtual EnergySource EnergySource { get; set; } = null;
+
+        [Description("")]
+        [XmlElement("SAP-Building-Parts")]
+        public virtual BuildingParts BuildingParts { get; set; } = null;
+
+        [Description("")]
+        [XmlElement("SAP-Opening-Types")]
+        public virtual OpeningTypes OpeningTypes { get; set; } = null;
+
+        [Description("")]
+        [XmlElement("SAP-Ventilation")]
+        public virtual Ventilation Ventilation { get; set; } = null;
+
+        [Description("")]
+        [XmlElement("SAP-Deselected-Improvements")]
+        public virtual DeselectedImprovements DeselectedImprovements { get; set; } = null;
+
+        [Description("")]
+        [XmlElement("SAP-Flat-Details")]
+        public virtual FlatDetails FlatDetails { get; set; } = null;
+
+        [Description("")]
+        [XmlElement("SAP-Special-Features")]
+        public virtual SpecialFeatures SpecialFeatures { get; set; } = null;
+
+        [Description("Design limit for total water use.")]
+        [XmlElement("Design-Water-Use")]
+        public virtual string DesignWaterUse { get; set; } = null;
+
+        [Description("")]
+        [XmlElement("SAP-Cooling")]
+        public virtual Cooling Cooling { get; set; } = null;
+
+        public bool ShouldSerializeIsInSmokeControlArea()
+        {
+            return IsInSmokeControlArea.HasValue;
+        }
     }
 }
