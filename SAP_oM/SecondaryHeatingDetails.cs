@@ -31,19 +31,16 @@ namespace BH.oM.Environment.SAP
     [Description("Strategy for the ventilation of the dwelling.")]
     public class SecondaryHeatingDetails : BHoMObject
     {
-        [Description("")]//Enum
-        public virtual string HeatingGroup { get; set; } = null;
-
-        [Description("")]//enum
-        public virtual string SubGroup { get; set; } = null;
-
-        [Description("")]//enum
-        public virtual string Source { get; set; } = null;
-
-        [Description("")]//enum?
-        public virtual string HeatingType { get; set; } = null;
+        [Description("")]
+        public virtual SecondaryHeatingCategory HeatingCategory { get; set; } = new SecondaryHeatingCategory();
 
         [Description("")]
-        public virtual string FlueType { get; set; } = null;
+        public virtual DataSourceCode Source { get; set; } = new DataSourceCode();
+
+        [Description("Type of secondary heating present in the property; only if required and if heating data source is SAP table. Code which indicates the type of heating system, as defined in SAP tables 4a/4b (codes 101 to 899).")]
+        public virtual string HeatingCode { get; set; } = null;
+
+        [Description("")]
+        public virtual FlueTypeCode FlueType { get; set; } = new FlueTypeCode();
     }
 }

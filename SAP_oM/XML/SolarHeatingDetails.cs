@@ -88,5 +88,14 @@ namespace BH.oM.Environment.SAP.XML
         [Description("Type of showers in the property.")]
         [XmlElement("Shower-Types")]
         public virtual string ShowerTypes { get; set; } = null;
+
+        public bool ShouldSerializeHasSolarPoweredPump()
+        {
+            return HasSolarPoweredPump.HasValue;
+        }
+        public bool ShouldSerializeIsSolarStoreCombinedCylinder()
+        {
+            return IsSolarStoreCombinedCylinder.HasValue;
+        }
     }
 }

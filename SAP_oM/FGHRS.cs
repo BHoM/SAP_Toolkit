@@ -29,25 +29,9 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Strategy for the ventilation of the dwelling.")]
-    public class BoilerInformation : BHoMObject
+    public class FGHRS : BHoMObject
     {
         [Description("")]
-        public virtual bool? PumpInHeatedSpace { get; set; } = null;
-
-        [Description("")]
-        public virtual string PumpType { get; set; } = null;
-
-        [Description("")]
-        public virtual bool? BoilerInterlock { get; set; } = null;
-
-        [Description("")]
-        public virtual string DesignFlowTemp { get; set; } = null;
-
-        [Description("")]
-        public virtual FlueTypeCode FlueType { get; set; } = new FlueTypeCode();
-
-        [Description("")]
-        public virtual bool? FanFlued { get; set; } = null;
-
+        public virtual string IndexNumber { get; set; } = null;
     }
 }

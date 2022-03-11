@@ -62,9 +62,9 @@ namespace BH.oM.Environment.SAP
         public virtual string ShowersPresent { get; set; } = null;
 
         [Description("")]
-        public virtual bool IsSolarStoreCombined { get; set; } = false;
+        public virtual bool? IsSolarStoreCombined { get; set; } = null;
 
         [Description("")]
-        public virtual bool SolarPoweredPump{ get; set; } = false;
+        public virtual bool? SolarPoweredPump{ get; set; } = null;
     }
 }

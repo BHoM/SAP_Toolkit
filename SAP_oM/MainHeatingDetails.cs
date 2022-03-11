@@ -29,8 +29,11 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Details of the means by which the building is ventilated")]
-    public class PrimaryHeatingDetails : BHoMObject
+    public class MainHeatingDetails : BHoMObject
     {
+        [Description("")]
+        public virtual MainHeatingCategoryCode HeatingCategoryCode { get; set; } = new MainHeatingCategoryCode();
+
         [Description("")]
         public virtual HeatingDetails HeatingDetails { get; set; } = new HeatingDetails();
 
@@ -43,16 +46,16 @@ namespace BH.oM.Environment.SAP
         [Description("")]
         public virtual BoilerInformation BoilerInformation { get; set; } = new BoilerInformation();
 
+        [Description("")]
+        public virtual FGHRS FGHRS { get; set; } = null;
+
         [Description("Is the appliance HETAS approved?")]
-        public virtual bool HETASApproved { get; set; } = false;
+        public virtual bool? HETASApproved { get; set; } = null;
         
         [Description("")]
-        public virtual bool MCSCertificate { get; set; } = false;
+        public virtual bool? MCSCertificate { get; set; } = null;
 
         [Description("")]
         public virtual double FractionOfHeat { get; set; } = 1;
-
-        [Description("")]
-        public virtual MainHeatingCategoryCode HeatingCategoryCode { get; set; } = new MainHeatingCategoryCode();
     }
 }
