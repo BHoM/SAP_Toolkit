@@ -176,5 +176,38 @@ namespace BH.oM.Environment.SAP.XML
         [Description("Mechanical vent ducts index number; if applicable.")]
         [XmlElement("Mechanical-Vent-Ducts-Index-Number")]
         public virtual string MechanicalVentDuctsIndexNumber { get; set; } = null;
+
+        public bool ShouldSerializenumKitchenRoomFans()
+        {
+            return numKitchenRoomFans.HasValue;
+        }
+        public bool ShouldSerializenumNonKitchenRoomFans()
+        {
+            return numNonKitchenRoomFans.HasValue;
+        }
+        public bool ShouldSerializenumKitchenDuctFans()
+        {
+            return numKitchenDuctFans.HasValue;
+        }
+        public bool ShouldSerializenumNonKitchenDuctFans()
+        {
+            return numNonKitchenDuctFans.HasValue;
+        }
+        public bool ShouldSerializenumKitchenWallFans()
+        {
+            return numKitchenWallFans.HasValue;
+        }
+        public bool ShouldSerializenumNonKitchenWallFans()
+        {
+            return numNonKitchenWallFans.HasValue;
+        }
+        public bool ShouldSerializeIsMechanicalVentApprovedInstallerScheme()
+        {
+            return IsMechanicalVentApprovedInstallerScheme.HasValue;
+        }
+        public bool ShouldSerializeHasDraughtLobby()
+        {
+            return HasDraughtLobby.HasValue;
+        }
     }
 }
