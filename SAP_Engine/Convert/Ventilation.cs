@@ -38,7 +38,33 @@ namespace BH.Engine.Environment.SAP
         public static BH.oM.Environment.SAP.XML.Ventilation ToXML(this BH.oM.Environment.SAP.Ventilation sapVentilation)
         {
             BH.oM.Environment.SAP.XML.Ventilation xmlVentilation = new BH.oM.Environment.SAP.XML.Ventilation();
-
+            if (sapVentilation.VentilationRates == null)
+            {
+                xmlVentilation.numOpenFireplaces = null;
+                xmlVentilation.numOpenFlues = null;
+                xmlVentilation.numFluelessGasFires = null;
+                xmlVentilation.ExtractFansCount = null;
+                xmlVentilation.PSVCount = null;
+            }
+            if (sapVentilation.AirPermability == null)
+            {
+                xmlVentilation.PressureTest = null;
+                xmlVentilation.AirPermability = null;
+            }
+            if (sapVentilation.VentilationStrategy == null)
+            {
+                xmlVentilation.Type = null;
+                xmlVentilation.MechanicalVentilationDataSource = null;
+                xmlVentilation.MechanicalVentSystemIndexNumber = null;
+                xmlVentilation.MechanicalVentSystemMakeModel = null;
+                xmlVentilation.numWetRooms = null;
+                xmlVentilation.MechanicalVentSpecificFanPower = null;
+                xmlVentilation.MechanicalVentHeatRecoveryEfficiency = null;
+                xmlVentilation.MechanicalVentDuctType = null;
+                xmlVentilation.MechanicalVentDuctInsulation = null;
+                xmlVentilation.IsMechanicalVentApprovedInstallerScheme = null;
+                xmlVentilation.MechanicalVentDuctsIndexNumber = null;
+            }
             xmlVentilation.numOpenFireplaces = sapVentilation.VentilationRates.OpenFireplaces;
             xmlVentilation.numOpenFlues = sapVentilation.VentilationRates.OpenFlues;
             xmlVentilation.numFluelessGasFires = sapVentilation.VentilationRates.FluelessGasFires;
