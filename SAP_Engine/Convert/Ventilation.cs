@@ -46,11 +46,28 @@ namespace BH.Engine.Environment.SAP
                 xmlVentilation.ExtractFansCount = null;
                 xmlVentilation.PSVCount = null;
             }
+
+            else if (sapVentilation.VentilationRates != null)
+            {
+                xmlVentilation.numOpenFireplaces = sapVentilation.VentilationRates.OpenFireplaces;
+                xmlVentilation.numOpenFlues = sapVentilation.VentilationRates.OpenFlues;
+                xmlVentilation.numFluelessGasFires = sapVentilation.VentilationRates.FluelessGasFires;
+                xmlVentilation.ExtractFansCount = sapVentilation.VentilationRates.FansCount;
+                xmlVentilation.PSVCount = sapVentilation.VentilationRates.PSVCount;
+            }
+
             if (sapVentilation.AirPermability == null)
             {
                 xmlVentilation.PressureTest = null;
                 xmlVentilation.AirPermability = null;
             }
+
+            else if (sapVentilation.AirPermability != null)
+            {
+                xmlVentilation.PressureTest = sapVentilation.AirPermability.PressureTest.FromSAPToXML();
+                xmlVentilation.AirPermability = sapVentilation.AirPermability.DesignAirPermability;
+            }
+
             if (sapVentilation.VentilationStrategy == null)
             {
                 xmlVentilation.Type = null;
@@ -64,26 +81,38 @@ namespace BH.Engine.Environment.SAP
                 xmlVentilation.MechanicalVentDuctInsulation = null;
                 xmlVentilation.IsMechanicalVentApprovedInstallerScheme = null;
                 xmlVentilation.MechanicalVentDuctsIndexNumber = null;
+                xmlVentilation.MechanicalVentSystemMakeModel = null;
+                xmlVentilation.MechanicalVentSpecificFanPower = null;
+                xmlVentilation.MechanicalVentHeatRecoveryEfficiency = null;
+                xmlVentilation.MechanicalVentDuctType = null;
             }
-            xmlVentilation.numOpenFireplaces = sapVentilation.VentilationRates.OpenFireplaces;
-            xmlVentilation.numOpenFlues = sapVentilation.VentilationRates.OpenFlues;
-            xmlVentilation.numFluelessGasFires = sapVentilation.VentilationRates.FluelessGasFires;
-            xmlVentilation.PressureTest = sapVentilation.AirPermability.PressureTest.FromSAPToXML();
-            xmlVentilation.AirPermability = sapVentilation.AirPermability.DesignAirPermability;
+            else if (sapVentilation.VentilationStrategy != null)
+            {
+                xmlVentilation.Type = sapVentilation.VentilationStrategy.Type.FromSAPToXML();
+                xmlVentilation.MechanicalVentilationDataSource = sapVentilation.VentilationStrategy.DetailsTakenFrom.FromSAPToXML();
+                xmlVentilation.MechanicalVentSystemIndexNumber = sapVentilation.VentilationStrategy.MechVentSystemIndexNumber;
+                xmlVentilation.numWetRooms = sapVentilation.VentilationStrategy.numWetRooms;
+                xmlVentilation.MechanicalVentDuctInsulation = sapVentilation.VentilationStrategy.DuctInsulationType.FromSAPToXML();
+                xmlVentilation.IsMechanicalVentApprovedInstallerScheme = sapVentilation.VentilationStrategy.ApprovedInstallation;
+                xmlVentilation.MechanicalVentDuctsIndexNumber = sapVentilation.VentilationStrategy.MechVentSystemIndexNumber;
+                if (sapVentilation.VentilationStrategy.MechVentDetails == null)
+                {
+                    xmlVentilation.MechanicalVentSystemMakeModel = null;
+                    xmlVentilation.MechanicalVentSpecificFanPower = null;
+                    xmlVentilation.MechanicalVentHeatRecoveryEfficiency = null;
+                    xmlVentilation.MechanicalVentDuctType = null;
+                }
+
+                else if (sapVentilation.VentilationStrategy.MechVentDetails != null)
+                {
+                    xmlVentilation.MechanicalVentSystemMakeModel = sapVentilation.VentilationStrategy.MechVentDetails.SystemMakeModel;
+                    xmlVentilation.MechanicalVentSpecificFanPower = sapVentilation.VentilationStrategy.MechVentDetails.SpecificFanPower;
+                    xmlVentilation.MechanicalVentHeatRecoveryEfficiency = sapVentilation.VentilationStrategy.MechVentDetails.HeatRecoveryEfficiency;
+                    xmlVentilation.MechanicalVentDuctType = sapVentilation.VentilationStrategy.MechVentDetails.DuctType.FromSAPToXML();
+                }
+            }
+
             xmlVentilation.numShelteredSides = sapVentilation.numShelteredSides;
-            xmlVentilation.Type = sapVentilation.VentilationStrategy.Type.FromSAPToXML();
-            xmlVentilation.MechanicalVentilationDataSource = sapVentilation.VentilationStrategy.DetailsTakenFrom.FromSAPToXML();
-            xmlVentilation.MechanicalVentSystemIndexNumber = sapVentilation.VentilationStrategy.MechVentSystemIndexNumber;
-            xmlVentilation.MechanicalVentSystemMakeModel = sapVentilation.VentilationStrategy.MechVentDetails.SystemMakeModel;
-            xmlVentilation.numWetRooms = sapVentilation.VentilationStrategy.numWetRooms;
-            xmlVentilation.MechanicalVentSpecificFanPower = sapVentilation.VentilationStrategy.MechVentDetails.SpecificFanPower;
-            xmlVentilation.MechanicalVentHeatRecoveryEfficiency = sapVentilation.VentilationStrategy.MechVentDetails.HeatRecoveryEfficiency;
-            xmlVentilation.MechanicalVentDuctType = sapVentilation.VentilationStrategy.MechVentDetails.DuctType.FromSAPToXML();
-            xmlVentilation.MechanicalVentDuctInsulation = sapVentilation.VentilationStrategy.DuctInsulationType.FromSAPToXML();
-            xmlVentilation.ExtractFansCount = sapVentilation.VentilationRates.FansCount;
-            xmlVentilation.PSVCount = sapVentilation.VentilationRates.PSVCount;
-            xmlVentilation.IsMechanicalVentApprovedInstallerScheme = sapVentilation.VentilationStrategy.ApprovedInstallation;
-            xmlVentilation.MechanicalVentDuctsIndexNumber = sapVentilation.VentilationStrategy.MechVentSystemIndexNumber;
 
             return xmlVentilation;
         }
