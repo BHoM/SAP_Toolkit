@@ -35,13 +35,13 @@ namespace BH.oM.Environment.SAP
         public virtual string numShelteredSides { get; set; } = "0";
 
         [Description("The ventilation rates of the dwelling.")]
-        public virtual VentilationRates VentilationRates { get; set; } = new VentilationRates();
+        public virtual VentilationRates VentilationRates { get; set; } = null;
 
         [Description("Details about the air permability and whether a pressure test has been made.")]
-        public virtual AirPermability AirPermability { get; set; } = new AirPermability();
+        public virtual AirPermability AirPermability { get; set; } = null;
 
         [Description("The ventilation strategy for the dwelling.")]
-        public virtual VentilationStrategy VentilationStrategy { get; set; } = new VentilationStrategy();
+        public virtual VentilationStrategy VentilationStrategy { get; set; } = null;
 
     }
 }
