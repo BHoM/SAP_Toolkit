@@ -100,7 +100,6 @@ namespace BH.Engine.Environment.SAP
                     xmlVentilation.MechanicalVentHeatRecoveryEfficiency = null;
                     xmlVentilation.MechanicalVentDuctType = null;
                 }
-
                 else if (sapVentilation.VentilationStrategy.MechVentDetails != null)
                 {
                     xmlVentilation.MechanicalVentSystemMakeModel = sapVentilation.VentilationStrategy.MechVentDetails.SystemMakeModel;
