@@ -60,7 +60,6 @@ namespace BH.Engine.Environment.SAP
                 xmlVentilation.PressureTest = null;
                 xmlVentilation.AirPermability = null;
             }
-
             else if (sapVentilation.AirPermability != null)
             {
                 xmlVentilation.PressureTest = sapVentilation.AirPermability.PressureTest.FromSAPToXML();
