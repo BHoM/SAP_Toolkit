@@ -46,7 +46,6 @@ namespace BH.Engine.Environment.SAP
                 xmlVentilation.ExtractFansCount = null;
                 xmlVentilation.PSVCount = null;
             }
-
             else if (sapVentilation.VentilationRates != null)
             {
                 xmlVentilation.numOpenFireplaces = sapVentilation.VentilationRates.OpenFireplaces;
