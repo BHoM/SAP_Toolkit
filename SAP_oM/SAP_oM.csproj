@@ -120,6 +120,7 @@
     <Compile Include="PCDBTables\WarmAirSystemTable.cs" />
     <Compile Include="PCDBTables\WasteWaterHeatRecoverySystemTable.cs" />
     <Compile Include="MainHeatingDetails.cs" />
+    <Compile Include="PropertyDetails.cs" />
     <Compile Include="SecondaryHeating.cs" />
     <Compile Include="SecondaryHeatingDetails.cs" />
     <Compile Include="SolarPanelDetails.cs" />

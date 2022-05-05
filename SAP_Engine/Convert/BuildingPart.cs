@@ -36,15 +36,15 @@ namespace BH.Engine.Environment.SAP
         [Description("Convert lists of SAP BuildingParts to a XML BuildingParts.")]
         [Input("sapBuldingPart","SAP Building parts to convert.")]
         [Output("xmlBuildingParts", "XML BuildingParts.")]
-        public static BH.oM.Environment.SAP.XML.BuildingParts ToXML(List<oM.Environment.SAP.BuildingPart> sapBuildingPart)
+        public static BH.oM.Environment.SAP.XML.BuildingParts ToXML(this List<oM.Environment.SAP.BuildingPart> sapBuildingPart)
         {
             List<BH.oM.Environment.SAP.XML.BuildingPart> xmlBuildingParts = new List<BH.oM.Environment.SAP.XML.BuildingPart>();
             for (int i = 0; i < sapBuildingPart.Count; i++)
             {
                 BH.oM.Environment.SAP.XML.BuildingPart xmlBuildingPart = new BH.oM.Environment.SAP.XML.BuildingPart();
-                xmlBuildingPart.BuildingPartNumber = sapBuildingPart[i].buildingPartNumber;
+                xmlBuildingPart.BuildingPartNumber = (i+1).ToString();
                 xmlBuildingPart.Identifier = sapBuildingPart[i].identifier;
-                xmlBuildingPart.ConstructionYear = sapBuildingPart[i].constructionYear;
+                xmlBuildingPart.ConstructionYear = DateTime.Today.Year.ToString();
                 xmlBuildingPart.Overshading = sapBuildingPart[i].Overshading.FromSAPToXML();
                 xmlBuildingPart.Openings = sapBuildingPart[i].Openings.Select(x => x.ToXML()).ToList();
                 xmlBuildingPart.Floors = sapBuildingPart[i].Floors.Select(x => x.ToXML()).ToList();
@@ -53,9 +53,9 @@ namespace BH.Engine.Environment.SAP
                 xmlBuildingPart.ThermalBridges = sapBuildingPart[i].ThermalBridges.Select(x => x.ToXML()).ToList();
                 xmlBuildingParts.Add(xmlBuildingPart);
             }
-            oM.Environment.SAP.XML.BuildingParts finalxml = new oM.Environment.SAP.XML.BuildingParts();
-            finalxml.BuildingPart = xmlBuildingParts;
-            return finalxml;
+            oM.Environment.SAP.XML.BuildingParts finalXML = new oM.Environment.SAP.XML.BuildingParts();
+            finalXML.BuildingPart = xmlBuildingParts;
+            return finalXML;
         }
         private static string FromSAPToXML(this BH.oM.Environment.SAP.WindowOvershading windowOvershading)
         {
