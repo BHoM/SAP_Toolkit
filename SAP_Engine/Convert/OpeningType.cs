@@ -33,22 +33,28 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Convert
     {
-        [Description("Convert SAP opening type to XML opening type.")]
+        [Description("Convert SAP opening type to XML opening types.")]
         [Input("sapOpeningType", "SAP opening type to convert.")]
-        [Output("xmlOpeningType", "XML opening type.")]
-        public static BH.oM.Environment.SAP.XML.OpeningType ToXML(this BH.oM.Environment.SAP.OpeningType sapOpeningtype)
+        [Output("xmlOpeningTypes", "XML opening types.")]
+        public static BH.oM.Environment.SAP.XML.OpeningTypes ToXML(this List<BH.oM.Environment.SAP.OpeningType> sapOpeningtype)
         {
-            BH.oM.Environment.SAP.XML.OpeningType xmlOpeningType = new BH.oM.Environment.SAP.XML.OpeningType();
-            xmlOpeningType.Name = sapOpeningtype.Name;
-            xmlOpeningType.Description = "Type-" + sapOpeningtype.Type.ToString() + "_Uvalue-" + sapOpeningtype.uValue.ToString(); ;
-            xmlOpeningType.DataSource = sapOpeningtype.DataSource.FromSAPToXMLData();
-            xmlOpeningType.Type = sapOpeningtype.Type.FromSAPToXMLNumber();
-            xmlOpeningType.GlazingType = sapOpeningtype.GlazingType.FromSAPToXMLGlazing();
-            xmlOpeningType.gValue = sapOpeningtype.gValue;
-            xmlOpeningType.FrameFactor = sapOpeningtype.FrameFactor;
-            xmlOpeningType.uValue = sapOpeningtype.uValue;
-
-            return xmlOpeningType;
+            List<oM.Environment.SAP.XML.OpeningType> xmlOpeningTypes = new List<oM.Environment.SAP.XML.OpeningType>();
+            for (int i = 0; i < sapOpeningtype.Count; i++)
+            {
+                BH.oM.Environment.SAP.XML.OpeningType xmlOpeningType = new BH.oM.Environment.SAP.XML.OpeningType();
+                xmlOpeningType.Name = sapOpeningtype[i].Name;
+                xmlOpeningType.Description = "Type-" + sapOpeningtype[i].Type.ToString() + "_Uvalue-" + sapOpeningtype[i].uValue.ToString(); ;
+                xmlOpeningType.DataSource = sapOpeningtype[i].DataSource.FromSAPToXMLData();
+                xmlOpeningType.Type = sapOpeningtype[i].Type.FromSAPToXMLNumber();
+                xmlOpeningType.GlazingType = sapOpeningtype[i].GlazingType.FromSAPToXMLGlazing();
+                xmlOpeningType.gValue = sapOpeningtype[i].gValue;
+                xmlOpeningType.FrameFactor = sapOpeningtype[i].FrameFactor;
+                xmlOpeningType.uValue = sapOpeningtype[i].uValue;
+                xmlOpeningTypes.Add(xmlOpeningType);
+            }
+            oM.Environment.SAP.XML.OpeningTypes finalXML = new oM.Environment.SAP.XML.OpeningTypes();
+            finalXML.OpeningType = xmlOpeningTypes;
+            return finalXML;
         }
         private static string FromSAPToXMLNumber(this TypeOfOpening typeOfOpening)
         {
