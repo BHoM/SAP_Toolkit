@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoilerInformation.cs" />
+    <Compile Include="BuildingPart.cs" />
     <Compile Include="Cooling.cs" />
     <Compile Include="CylinderSpecification.cs" />
     <Compile Include="Enums\DataSourceCode.cs" />
