@@ -72,7 +72,7 @@ namespace BH.Engine.Environment.SAP
                 xmlPropertyDetails.BuildingParts = sapPropertyDetails.BuildingParts.ToXML();
             }
 
-            if (sapPropertyDetails.BuildingParts.First()?.Openings.First()?.OpeningType == null)
+            if (sapPropertyDetails.BuildingParts.First()?.Openings.First()?.OpeningType != null)
             {
                 xmlPropertyDetails.OpeningTypes = new List<oM.Environment.SAP.OpeningType>() { sapPropertyDetails.BuildingParts.First()?.Openings.First()?.OpeningType }.ToXML();//TODO perfect this method
             }
