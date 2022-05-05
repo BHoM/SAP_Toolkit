@@ -34,6 +34,6 @@ namespace BH.oM.Environment.SAP.XML
     public class BuildingParts : IObject
     {
         [XmlElement("SAP-Building-Part")]
-        public virtual BuildingPart BuildingPart { get; set; } = null;
+        public virtual List<BuildingPart> BuildingPart { get; set; } = null;
     }
 }
