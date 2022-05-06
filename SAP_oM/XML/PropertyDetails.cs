@@ -51,35 +51,35 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Type of conservatory.")]
         [XmlElement("Conservatory-Type")]
-        public virtual string ConservatoryType { get; set; } = null;
+        public virtual int ConservatoryType { get; set; } = 1;
 
         [Description("Is property in a smoke control area?  Only if a solid fuel appliance is used.")]
         [XmlElement("Is-In-Smoke-Control-Area")]
-        public virtual bool? IsInSmokeControlArea { get; set; } = null;
+        public virtual bool IsInSmokeControlArea { get; set; } = true;
 
         [Description("Additional allowable electricity generation applicable to this dwelling in kWh per square metre; only if Zero Carbon Home assessment.")]
         [XmlElement("Additional-Allowable-Electricity-Generation")]
-        public virtual string AdditionalAllowableElectricityGeneration { get; set; } = null;
+        public virtual string AdditionalAllowableElectricityGeneration { get; set; } = "0";
 
         [Description("")]
         [XmlElement("SAP-Heating")]
-        public virtual Heating Heating { get; set; } = null;
+        public virtual Heating Heating { get; set; } = new Heating;
 
         [Description("")]
         [XmlElement("SAP-Energy-Source")]
-        public virtual EnergySource EnergySource { get; set; } = null;
+        public virtual EnergySource EnergySource { get; set; } = new EnergySource;
 
         [Description("")]
         [XmlElement("SAP-Building-Parts")]
-        public virtual BuildingParts BuildingParts { get; set; } = null;
+        public virtual BuildingParts BuildingParts { get; set; } = new BuildingParts;
 
         [Description("")]
         [XmlElement("SAP-Opening-Types")]
-        public virtual OpeningTypes OpeningTypes { get; set; } = null;
+        public virtual OpeningTypes OpeningTypes { get; set; } = new OpeningTypes;
 
         [Description("")]
         [XmlElement("SAP-Ventilation")]
-        public virtual Ventilation Ventilation { get; set; } = null;
+        public virtual Ventilation Ventilation { get; set; } = new Ventilation;
 
         [Description("")]
         [XmlElement("SAP-Deselected-Improvements")]
@@ -87,15 +87,15 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("")]
         [XmlElement("SAP-Flat-Details")]
-        public virtual FlatDetails FlatDetails { get; set; } = null;
+        public virtual FlatDetails FlatDetails { get; set; } = new FlatDetails;
 
-        [Description("")]
+        [Description("For backwards compatibility, do not use")]
         [XmlElement("SAP-Special-Features")]
         public virtual SpecialFeatures SpecialFeatures { get; set; } = null;
 
         [Description("Design limit for total water use.")]
         [XmlElement("Design-Water-Use")]
-        public virtual string DesignWaterUse { get; set; } = null;
+        public virtual string DesignWaterUse { get; set; } = "1";
 
         [Description("")]
         [XmlElement("SAP-Cooling")]
