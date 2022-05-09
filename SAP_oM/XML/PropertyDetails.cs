@@ -63,23 +63,23 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("")]
         [XmlElement("SAP-Heating")]
-        public virtual Heating Heating { get; set; } = new Heating;
+        public virtual Heating Heating { get; set; } = new Heating();
 
         [Description("")]
         [XmlElement("SAP-Energy-Source")]
-        public virtual EnergySource EnergySource { get; set; } = new EnergySource;
+        public virtual EnergySource EnergySource { get; set; } = new EnergySource();
 
         [Description("")]
         [XmlElement("SAP-Building-Parts")]
-        public virtual BuildingParts BuildingParts { get; set; } = new BuildingParts;
+        public virtual BuildingParts BuildingParts { get; set; } = new BuildingParts();
 
         [Description("")]
         [XmlElement("SAP-Opening-Types")]
-        public virtual OpeningTypes OpeningTypes { get; set; } = new OpeningTypes;
+        public virtual OpeningTypes OpeningTypes { get; set; } = new OpeningTypes();
 
         [Description("")]
         [XmlElement("SAP-Ventilation")]
-        public virtual Ventilation Ventilation { get; set; } = new Ventilation;
+        public virtual Ventilation Ventilation { get; set; } = new Ventilation();
 
         [Description("")]
         [XmlElement("SAP-Deselected-Improvements")]
@@ -87,7 +87,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("")]
         [XmlElement("SAP-Flat-Details")]
-        public virtual FlatDetails FlatDetails { get; set; } = new FlatDetails;
+        public virtual FlatDetails FlatDetails { get; set; } = new FlatDetails();
 
         [Description("For backwards compatibility, do not use")]
         [XmlElement("SAP-Special-Features")]
@@ -100,10 +100,10 @@ namespace BH.oM.Environment.SAP.XML
         [Description("")]
         [XmlElement("SAP-Cooling")]
         public virtual Cooling Cooling { get; set; } = null;
-
-        public bool ShouldSerializeIsInSmokeControlArea()
-        {
-            return IsInSmokeControlArea.HasValue;
-        }
+        
+        //public bool ShouldSerializeIsInSmokeControlArea()
+        //{
+        //    return IsInSmokeControlArea.HasValue;
+        //}
     }
 }
