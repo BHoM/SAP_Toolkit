@@ -29,18 +29,18 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Compute
     {
-        public static bool ToXMLFile(string filePath, string fileName, BH.oM.Environment.SAP.XML.SAP2012Data data, bool run = false)
+        public static bool ToXMLFile(string filePath, string fileName, bool run = false)
         {
             if (!run)
                 return false;
 
             XmlSerializerNamespaces xns = new XmlSerializerNamespaces();
-            XmlSerializer szer = new XmlSerializer(typeof(BH.oM.Environment.SAP.XML.SAP2012Data));
-            TextWriter ms = new StreamWriter(Path.Combine(filePath, fileName));
-            szer.Serialize(ms, data, xns);
-            ms.Close(); 
+            XmlSerializer szer = new XmlSerializer(typeof(string));
+            Stream reader = new FileStream(Path.Combine(filePath, fileName), FileMode.Open);
+            szer.Deserialize(reader, xns);
+            reader.Close();
 
-            return true;
-        }       
+            return new data();
+        }
     }
 }
