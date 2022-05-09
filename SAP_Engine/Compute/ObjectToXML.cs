@@ -38,9 +38,9 @@ namespace BH.Engine.Environment.SAP
             XmlSerializer szer = new XmlSerializer(typeof(BH.oM.Environment.SAP.XML.SAP2012Data));
             TextWriter ms = new StreamWriter(Path.Combine(filePath, fileName));
             szer.Serialize(ms, data, xns);
-            ms.Close(); 
+            ms.Close();
 
             return true;
-        }       
+        }
     }
 }
