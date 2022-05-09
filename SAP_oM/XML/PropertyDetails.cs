@@ -51,7 +51,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Type of conservatory.")]
         [XmlElement("Conservatory-Type")]
-        public virtual int ConservatoryType { get; set; } = 1;
+        public virtual string ConservatoryType { get; set; } = "1";
 
         [Description("Is property in a smoke control area?  Only if a solid fuel appliance is used.")]
         [XmlElement("Is-In-Smoke-Control-Area")]
@@ -101,9 +101,5 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("SAP-Cooling")]
         public virtual Cooling Cooling { get; set; } = null;
         
-        //public bool ShouldSerializeIsInSmokeControlArea()
-        //{
-        //    return IsInSmokeControlArea.HasValue;
-        //}
     }
 }
