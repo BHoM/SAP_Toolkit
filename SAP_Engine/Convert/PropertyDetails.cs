@@ -74,18 +74,18 @@ namespace BH.Engine.Environment.SAP
                 xmlPropertyDetails.Ventilation = sapPropertyDetails.Ventilation.ToXML();
             }
 
-            xmlPropertyDetails.PropertyType = sapPropertyDetails.PropertyType;
-            xmlPropertyDetails.BuiltForm = sapPropertyDetails.BuiltForm;
-            xmlPropertyDetails.LivingArea = sapPropertyDetails.LivingArea;
-            xmlPropertyDetails.Orientation = sapPropertyDetails.Orientation;
-            xmlPropertyDetails.ConservatoryType = null;
-            xmlPropertyDetails.IsInSmokeControlArea = null;
-            xmlPropertyDetails.AdditionalAllowableElectricityGeneration = null;
-            xmlPropertyDetails.EnergySource = null;
-            xmlPropertyDetails.DeselectedImprovements = null;
-            xmlPropertyDetails.FlatDetails = null;
-            xmlPropertyDetails.SpecialFeatures = null;
-            xmlPropertyDetails.DesignWaterUse = null;
+            //xmlPropertyDetails.PropertyType = sapPropertyDetails.PropertyType;
+            //xmlPropertyDetails.BuiltForm = sapPropertyDetails.BuiltForm;
+            //xmlPropertyDetails.LivingArea = sapPropertyDetails.LivingArea;
+            //xmlPropertyDetails.Orientation = sapPropertyDetails.Orientation;
+            //xmlPropertyDetails.ConservatoryType = null;
+            //xmlPropertyDetails.IsInSmokeControlArea = null;
+            //xmlPropertyDetails.AdditionalAllowableElectricityGeneration = null;
+            //xmlPropertyDetails.EnergySource = null;
+            //xmlPropertyDetails.DeselectedImprovements = null;
+            //xmlPropertyDetails.FlatDetails = null;
+            //xmlPropertyDetails.SpecialFeatures = null;
+            //xmlPropertyDetails.DesignWaterUse = null;
 
             return xmlPropertyDetails;
         }
