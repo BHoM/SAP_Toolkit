@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
@@ -22,39 +22,28 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using BH.oM.Base;
-using System.Xml.Serialization;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
+using BH.oM.Base.Attributes;
 
-namespace BH.oM.Environment.SAP.XML
+namespace BH.Engine.Environment.SAP
 {
-    [Serializable]
-    [XmlRoot(ElementName = "SAP-Floor-Dimension", IsNullable = false)]
-    public class Floor : IObject
+    public static partial class Convert
     {
-        [XmlElement("Storey")]
-        public virtual string Storey { get; set; } = "0";
+        [Description("Convert SAP Storey to XML floor.")]
+        [Input("sapStorey", "SAP floor to convert.")]
+        [Output("xmlFloor", "XML floor.")]
+        public static BH.oM.Environment.SAP.XML.FloorDimension ToXML(this BH.oM.Environment.SAP.Storey sapStorey)
+        {
+            BH.oM.Environment.SAP.XML.FloorDimension xmlFloor = new BH.oM.Environment.SAP.XML.FloorDimension();
+            xmlFloor.Storey = sapStorey.StoreyNumber.ToString();
+            xmlFloor.StoreyHeight = sapStorey.Height.ToString();
+            xmlFloor.Area = sapStorey.Area.ToString();
+            return xmlFloor;
+        }
 
-        [XmlElement("Description")]
-        public virtual string Description { get; set; } = "A dwelling storey";
-
-        [XmlElement("Floor-Type")]
-        public virtual string Type { get; set; } = "4";
-
-        [XmlElement("Total-Floor-Area")]
-        public virtual double Area { get; set; } = 0;
-
-        [XmlElement("Storey-Height")]
-        public virtual double StoreyHeight { get; set; } = 0;
-
-        [XmlElement("Heat-Loss-Area")]
-        public virtual double HeatLossArea { get; set; } = 0;
-
-        [XmlElement("U-Value")]
-        public virtual double uValue { get; set; } = 0.13;
-
-        [XmlElement("Kappa-Value")]
-        public virtual double KappaValue { get; set; } = 80;
     }
 }
+

@@ -34,8 +34,11 @@ namespace BH.oM.Environment.SAP
         [Description("Type of floor (exposure).")]
         public virtual TypeOfFloor Type { get; set; } = TypeOfFloor.GroundFloor;
 
-        [Description("The total exposed area of the floor as seen from inside the dwelling")]
+        [Description("The total exposed area of the floor as seen from inside the dwelling (Heat loss area).")]
         public virtual double Area { get; set; } = 0;
+
+        [Description("U-value of the floor.")]
+        public virtual string uValue { get; set; } = null;
 
         [Description("The name of the dwelling that the floor is part of")]
         public virtual string DwellingName { get; set; } = "";

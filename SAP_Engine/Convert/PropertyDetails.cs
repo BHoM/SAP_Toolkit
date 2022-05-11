@@ -39,6 +39,7 @@ namespace BH.Engine.Environment.SAP
         public static BH.oM.Environment.SAP.XML.PropertyDetails ToXML(oM.Environment.SAP.PropertyDetails sapPropertyDetails)
         {
             BH.oM.Environment.SAP.XML.PropertyDetails xmlPropertyDetails = new BH.oM.Environment.SAP.XML.PropertyDetails();
+            List<BH.oM.Environment.SAP.OpeningType> openingTypes = new List<oM.Environment.SAP.OpeningType>();
             if (sapPropertyDetails.Heating == null)
             {
                 xmlPropertyDetails.Heating = null;
@@ -65,8 +66,18 @@ namespace BH.Engine.Environment.SAP
 
             if (sapPropertyDetails.BuildingParts != null)
             {
-                xmlPropertyDetails.BuildingParts = sapPropertyDetails.BuildingParts.ToXML();
-                xmlPropertyDetails.OpeningTypes = new List<oM.Environment.SAP.OpeningType>() { sapPropertyDetails.BuildingParts.First()?.Openings.First()?.OpeningType }.ToXML();//TODO perfect this method
+                var outputs = sapPropertyDetails.BuildingParts.ToXML();
+                xmlPropertyDetails.BuildingParts = outputs.Item1;
+                xmlPropertyDetails.OpeningTypes = outputs.Item2;
+            /*    for (int i = 0; i < sapPropertyDetails.BuildingParts.Count; i++)
+                {
+                    for (int u = 0; u < xmlPropertyDetails.BuildingParts.BuildingPart[i].Openings.Count; u++)
+                    {
+                        openingTypes.AddRange(sapPropertyDetails.BuildingParts[i].Walls[u].Openings[u].OpeningType.ToList());
+                        openingTypes.AddRange(sapPropertyDetails.BuildingParts[i].Roofs[u].Openings[u].OpeningType.ToList());
+                        xmlPropertyDetails.OpeningTypes = openingTypes.ToXML();
+                    }
+                }*/
             }
 
             if (sapPropertyDetails.Ventilation != null)

@@ -34,7 +34,7 @@ namespace BH.oM.Environment.SAP.XML
     public class OpeningTypes : IObject
     {
         [XmlElement("SAP-Opening-Type")]
-        public virtual List<OpeningType> OpeningType { get; set; } = null;
+        public virtual List<OpeningType> OpeningType { get; set; } = new List<OpeningType>();
 
     }
 }

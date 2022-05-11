@@ -49,7 +49,7 @@ namespace BH.oM.Environment.SAP.XML
         public virtual List<Opening> Openings { get; set; }
 
         [XmlElement("SAP-Floor-Dimensions")]
-        public virtual List<Floor> Floors { get; set; }
+        public virtual List<FloorDimension> Floors { get; set; }
 
         [XmlElement("SAP-Roofs")]
         public virtual List<Roof> Roofs { get; set; }

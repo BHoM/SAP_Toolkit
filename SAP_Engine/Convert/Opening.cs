@@ -40,12 +40,15 @@ namespace BH.Engine.Environment.SAP
         {
             BH.oM.Environment.SAP.XML.Opening xmlOpening = new BH.oM.Environment.SAP.XML.Opening();
             xmlOpening.Name = sapOpening.Name;
-            xmlOpening.Type = sapOpening.OpeningType.Name;
+            xmlOpening.Type = sapOpening.OpeningType[0].Name;
             xmlOpening.Location = sapOpening.Host;
             xmlOpening.Orientation = sapOpening.OrientationDegrees.ToString();
-            xmlOpening.Width = "6.1";
-            xmlOpening.Height = "1.2";
-            
+            xmlOpening.Width = Math.Sqrt(sapOpening.Area).ToString();
+            xmlOpening.Height = Math.Sqrt(sapOpening.Area).ToString();
+
+            oM.Environment.SAP.XML.OpeningTypes xmlOpeningTypes = new oM.Environment.SAP.XML.OpeningTypes();
+            xmlOpeningTypes = sapOpening.OpeningType.ToXML();
+
             return xmlOpening;
         }
     }

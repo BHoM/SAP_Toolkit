@@ -32,7 +32,7 @@ namespace BH.oM.Environment.SAP
     public class Opening : BHoMObject
     {
         [Description("The opening type which defines its thermal properties e.g. u-value")]
-        public virtual SAP.OpeningType OpeningType { get; set; } = new SAP.OpeningType();
+        public virtual List<SAP.OpeningType> OpeningType { get; set; } = new List<SAP.OpeningType>();
 
         [Description("The total surface area of the opening as seen from inside the dwelling (including frame)")]
         public virtual double Area { get; set; } = 0;

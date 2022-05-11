@@ -43,7 +43,7 @@ namespace BH.Engine.Environment.SAP
             xmlWall.Description = "Type-" + sapWall.Type.ToString() + "_Area-" + sapWall.Area.ToString() + "_Uvalue-" + "0.18";// summary of inputs type_area_uvalue
             xmlWall.Type = sapWall.Type.FromSAPToXMLNumber();
             xmlWall.Area = sapWall.Area;
-            xmlWall.UValue = 0.18;
+            xmlWall.UValue = sapWall.uValue;
             xmlWall.KappaValue = 14;
             xmlWall.CurtainWall = sapWall.CurtainWall;
 

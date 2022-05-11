@@ -22,45 +22,39 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
-using BH.oM.Base.Attributes;
+using System.Linq;
+using BH.oM.Base;
+using System.Xml.Serialization;
 
-namespace BH.Engine.Environment.SAP
+namespace BH.oM.Environment.SAP.XML
 {
-    public static partial class Convert
+    [Serializable]
+    [XmlRoot(ElementName = "SAP-Floor-Dimension", IsNullable = false)]
+    public class FloorDimension : IObject
     {
-        [Description("Convert SAP roof to XML roof.")]
-        [Input("sapRoof", "SAP roof to convert.")]
-        [Output("xmlRoof", "XML roof.")]
-        public static BH.oM.Environment.SAP.XML.Roof ToXML(this BH.oM.Environment.SAP.Roof sapRoof)
-        {
-            BH.oM.Environment.SAP.XML.Roof xmlRoof = new BH.oM.Environment.SAP.XML.Roof();
-            xmlRoof.Name = sapRoof.Name;
-            xmlRoof.Description = "Type-" + sapRoof.Type.ToString() + "_Area-" + sapRoof.Area.ToString() + "_Uvalue-" + "0.13"; ;
-            xmlRoof.Type = sapRoof.Type.FromSAPToXMLNumber();
-            xmlRoof.Area = sapRoof.Area;
-            xmlRoof.UValue = sapRoof.uValue;
-            xmlRoof.KappaValue = 9;
+        [XmlElement("Storey")]
+        public virtual string Storey { get; set; } = "0";
 
-            return xmlRoof;
-        }
-        private static string FromSAPToXMLNumber(this BH.oM.Environment.SAP.TypeOfRoof typeOfRoof)
-        {
-            switch (typeOfRoof)
-            {
-                case BH.oM.Environment.SAP.TypeOfRoof.ExposedRoof:
-                    return "2";
+        [XmlElement("Description")]
+        public virtual string Description { get; set; } = "A dwelling storey";
 
-                case BH.oM.Environment.SAP.TypeOfRoof.PartyCieling:
-                    return "4";
+        [XmlElement("Floor-Type")]
+        public virtual string Type { get; set; } = "4";
 
-                default:
-                    return "";
-            }
-        }
+        [XmlElement("Total-Floor-Area")]
+        public virtual string Area { get; set; } = null;
+
+        [XmlElement("Storey-Height")]
+        public virtual string StoreyHeight { get; set; } = null;
+
+        [XmlElement("Heat-Loss-Area")]
+        public virtual string HeatLossArea { get; set; } = null;
+
+        [XmlElement("U-Value")]
+        public virtual string uValue { get; set; } = null;
+
+        [XmlElement("Kappa-Value")]
+        public virtual string KappaValue { get; set; } = null;
     }
 }
-

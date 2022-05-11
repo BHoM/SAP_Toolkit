@@ -173,7 +173,7 @@
     <Compile Include="XML\EmissionFeature.cs" />
     <Compile Include="XML\EnergyFeature.cs" />
     <Compile Include="XML\Enums\OpeningDataSource.cs" />
-    <Compile Include="XML\Floor.cs" />
+    <Compile Include="XML\FloorDimension.cs" />
     <Compile Include="XML\Heating.cs" />
     <Compile Include="XML\InstantaneousWWHRS.cs" />
     <Compile Include="XML\MainHeating.cs" />

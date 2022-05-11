@@ -35,17 +35,14 @@ namespace BH.Engine.Environment.SAP
         [Description("Convert SAP Floor to XML floor.")]
         [Input("sapFloor", "SAP floor to convert.")]
         [Output("xmlFloor", "XML floor.")]
-        public static BH.oM.Environment.SAP.XML.Floor ToXML(this BH.oM.Environment.SAP.Floor sapFloor)
+        public static BH.oM.Environment.SAP.XML.FloorDimension ToXML(this BH.oM.Environment.SAP.Floor sapFloor)
         {
-            BH.oM.Environment.SAP.XML.Floor xmlFloor = new BH.oM.Environment.SAP.XML.Floor();
-            xmlFloor.Storey = "0";
-            xmlFloor.Description = "Type-" + sapFloor.Type.ToString() + "_Area-" + sapFloor.Area.ToString() + "_Uvalue-" + "0.13"; ;
+            BH.oM.Environment.SAP.XML.FloorDimension xmlFloor = new BH.oM.Environment.SAP.XML.FloorDimension();
+            xmlFloor.Description = "Type-" + sapFloor.Type.ToString() + "_Area-" + sapFloor.Area.ToString() + "_Uvalue-" + sapFloor.uValue;
             xmlFloor.Type = sapFloor.Type.FromSAPToXMLNumber(); 
-            xmlFloor.Area = sapFloor.Area;
-            xmlFloor.StoreyHeight = 0;
-            xmlFloor.HeatLossArea = 0;
-            xmlFloor.uValue = 0.13;
-            xmlFloor.KappaValue = 80;
+            xmlFloor.HeatLossArea = sapFloor.Area.ToString();
+            xmlFloor.uValue = sapFloor.uValue; 
+            xmlFloor.KappaValue = "80";
 
             return xmlFloor;
         }
