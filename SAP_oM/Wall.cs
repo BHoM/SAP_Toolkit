@@ -39,6 +39,9 @@ namespace BH.oM.Environment.SAP
 
         [Description("Is the wall a 'curtain wall' according to the definition in the SAP guidance")]
         public virtual bool CurtainWall { get; set; } = false;
+        
+        [Description("U-value of the floor.")]
+        public virtual double uValue { get; set; } = 0.18;
 
         [Description("Openings (windows & doors) that are hosted within the wall")]
         public virtual List<SAP.Opening> Openings { get; set; } = new List<SAP.Opening>();

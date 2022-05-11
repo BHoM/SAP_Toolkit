@@ -37,6 +37,9 @@ namespace BH.oM.Environment.SAP
         [Description("The total (gross - including opening areas) area of the roof as seen from inside the dwelling")]
         public virtual double Area { get; set; } = 0;
 
+        [Description("U-value of the floor.")]
+        public virtual double uValue { get; set; } = 0.13;
+
         [Description("Openings (skylights) that are hosted within the roof")]
         public virtual List<SAP.Opening> Openings { get; set; } = new List<SAP.Opening>();
 

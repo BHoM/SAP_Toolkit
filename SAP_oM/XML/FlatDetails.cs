@@ -35,6 +35,6 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("Indication of where a flat is located in a building.")]
         [XmlElement("Level")]
-        public virtual string Level { get; set; } = null;
+        public virtual string Level { get; set; } = "1";
     }
 }

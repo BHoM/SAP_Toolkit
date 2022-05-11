@@ -37,7 +37,7 @@ namespace BH.oM.Environment.SAP.XML
         public virtual PVArrays PVArrays { get; set; } = null;
 
         [XmlElement("Wind-Turbines-Count")]
-        public virtual string WindTurbinesCount { get; set; } = null;
+        public virtual string WindTurbinesCount { get; set; } = "0";
 
         [XmlElement("Wind-Turbine-Rotor-Diameter")]
         public virtual string WindTurbineRotorDiameter { get; set; } = null;
@@ -46,19 +46,19 @@ namespace BH.oM.Environment.SAP.XML
         public virtual string WindTurbineHubHeight { get; set; } = null;
 
         [XmlElement("Wind-Turbine-Terrain-Type")]
-        public virtual string WindTurbineTerrainType { get; set; } = null;
+        public virtual string WindTurbineTerrainType { get; set; } = "1";
 
         [XmlElement("Fixed-Lighting-Outlets-Count")]
-        public virtual string FixedLightingOutletsCount { get; set; } = null;
+        public virtual string FixedLightingOutletsCount { get; set; } = "10";
 
         [XmlElement("Low-Energy-Fixed-Lighting-Outlets-Count")]
-        public virtual string LowEnergyFixedLightingOutletsCount { get; set; } = null;
+        public virtual string LowEnergyFixedLightingOutletsCount { get; set; } = "10";
 
         [XmlElement("Low-Energy-Fixed-Lighting-Outlets-Percentage")]
-        public virtual string LowEnergyFixedLightingOutletsPercentage { get; set; } = null;
+        public virtual string LowEnergyFixedLightingOutletsPercentage { get; set; } = "100";
 
         [XmlElement("Electricity-Tariff")]
-        public virtual string ElectricityTariff { get; set; } = null;
+        public virtual string ElectricityTariff { get; set; } = "1";
 
         [XmlElement("Hydro-Electric-Generation")]
         public virtual string HydroElectricGeneration { get; set; } = null;
