@@ -19,37 +19,26 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
+
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
-using System.Xml.Serialization;
-using System.IO;
-using BH.oM.Environment.SAP.XML;
-using BH.Engine.Environment.SAP;
+using System.Threading.Tasks;
+
+using BH.oM.Geometry;
+using BH.Engine.Geometry;
+using BH.oM.Environment.Elements;
+using BH.oM.Base;
+using System.Text.Json.Serialization;
+using System.ComponentModel;
+
 
 namespace BH.Engine.Environment.SAP
 {
-    public static partial class Compute
+    public class ResultText : BHoMObject, IResultObject
     {
-        public static bool pushToXMLFile(string directoryPath, string fileNameInput, string fileNameOutput, BH.oM.Environment.SAP.XML.SAP2012Data sAP2012Data , bool run = false)
-        {
-            if (!run)
-                return false;
-
-            XmlSerializerNamespaces xns = new XmlSerializerNamespaces();
-            XmlSerializer szer = new XmlSerializer(typeof(SAPReport));
-
-            TextReader tr = new StreamReader(Path.Combine(directoryPath, fileNameInput));
-            var data = (SAPReport)szer.Deserialize(tr);
-            tr.Close();
-
-            data.SAP2012Data = sAP2012Data;
-
-            TextWriter tw = new StreamWriter(Path.Combine(directoryPath, fileNameOutput));
-            szer.Serialize(tw, data, xns);
-            tw.Close();
-
-            return true;
-        }
+        [Description("")]
+        public virtual string txt { get; set; } = null;
     }
 }

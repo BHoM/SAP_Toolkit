@@ -32,6 +32,9 @@ using BH.Engine.Environment.SAP;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Text.Json;
+using System.Xml.Serialization;
+using System.IO;
+//using SAP_Engine.Objects;
 
 namespace BH.Adapter.SAP
 {
@@ -48,7 +51,7 @@ namespace BH.Adapter.SAP
             return output;
         }
 
-        public async Task<ResultJson> RunCommand(RunAnalysisCommand command)
+        public async Task<IResultObject> RunCommand(RunAnalysisCommand command)
         {
             string postURL = command.PostURL;
             string xmlData = System.IO.File.ReadAllText(command.InputFile);
@@ -66,8 +69,32 @@ namespace BH.Adapter.SAP
                 b = await httpClient.SendAsync(r);
             }
                 string text = await b.Content.ReadAsStringAsync();
-    
-                return JsonSerializer.Deserialize<ResultJson>(text);
+            if (command.PostURL == "https://ace.argylesoftware.co.uk/buroh/v2/sap-fullworksheet-lig-in-text-out-noformat")
+            {
+                ResultJson resultjson = JsonSerializer.Deserialize<ResultJson>(text);
+
+                return resultjson;
+            }
+            if (command.PostURL == "https://ace.argylesoftware.co.uk/buroh/v2/sap-calculateratings")
+            {
+                XmlSerializerNamespaces xns = new XmlSerializerNamespaces();
+                XmlSerializer szer = new XmlSerializer(typeof(SAPReport));
+
+                TextReader tr = new StreamReader(text);
+                var data = (SAPReport)szer.Deserialize(tr);
+                tr.Close();
+                return data; //XML file
+            }
+            if (command.PostURL == "https://ace.argylesoftware.co.uk/buroh/v2/sap-fullsapworksheet-lig-in-text-out")
+            {
+                ResultText txt = new ResultText();
+                txt.txt = text;
+                return txt;
+            }
+            else
+            { 
+                return null;
+            }
         }
     }
 }
