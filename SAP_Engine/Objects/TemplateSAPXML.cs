@@ -24,8 +24,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
+using System.ComponentModel;
+using BH.oM.Base;
 
-namespace SAP_Engine.Objects
+namespace BH.Engine.Environment.SAP
 {
     // using System.Xml.Serialization;
     // XmlSerializer serializer = new XmlSerializer(typeof(SAPReport));
@@ -1073,7 +1075,7 @@ namespace SAP_Engine.Objects
     }
 
     [XmlRoot(ElementName = "SAP-Report")]
-    public class SAPReport
+    public class SAPReport : BHoMObject, IResultObject
     {
 
         [XmlElement(ElementName = "Schema-Version-Original")]
@@ -1120,8 +1122,7 @@ namespace SAP_Engine.Objects
 
         [XmlText]
         public string Text { get; set; }
+            
     }
-
-
 }
 

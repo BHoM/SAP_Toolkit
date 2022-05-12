@@ -29,14 +29,16 @@ using System.Threading.Tasks;
 using BH.oM.Geometry;
 using BH.Engine.Geometry;
 using BH.oM.Environment.Elements;
+using BH.oM.Base;
 using System.Text.Json.Serialization;
+using System.ComponentModel;
 
 
 namespace BH.Engine.Environment.SAP
 {
     //Root myDeserializedClass = JsonSerializer.Deserialize<Root>(myJsonResponse);
 
-    public class ResultJson
+    public class ResultJson : BHoMObject, IResultObject
     { 
             [JsonPropertyName("pressureTestCode")]
             public int PressureTestCode { get; set; }
