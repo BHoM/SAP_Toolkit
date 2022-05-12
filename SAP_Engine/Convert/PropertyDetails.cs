@@ -69,15 +69,6 @@ namespace BH.Engine.Environment.SAP
                 var outputs = sapPropertyDetails.BuildingParts.ToXML();
                 xmlPropertyDetails.BuildingParts = outputs.Item1;
                 xmlPropertyDetails.OpeningTypes = outputs.Item2;
-            /*    for (int i = 0; i < sapPropertyDetails.BuildingParts.Count; i++)
-                {
-                    for (int u = 0; u < xmlPropertyDetails.BuildingParts.BuildingPart[i].Openings.Count; u++)
-                    {
-                        openingTypes.AddRange(sapPropertyDetails.BuildingParts[i].Walls[u].Openings[u].OpeningType.ToList());
-                        openingTypes.AddRange(sapPropertyDetails.BuildingParts[i].Roofs[u].Openings[u].OpeningType.ToList());
-                        xmlPropertyDetails.OpeningTypes = openingTypes.ToXML();
-                    }
-                }*/
             }
 
             if (sapPropertyDetails.Ventilation != null)

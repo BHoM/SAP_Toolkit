@@ -44,17 +44,17 @@ namespace BH.Engine.Environment.SAP
             for (int i = 0; i < sapBuildingPart.Count; i++)
             {
                 BH.oM.Environment.SAP.XML.BuildingPart xmlBuildingPart = new BH.oM.Environment.SAP.XML.BuildingPart();
-                xmlBuildingPart.BuildingPartNumber = (i+1).ToString();
+                xmlBuildingPart.BuildingPartNumber = (i + 1).ToString();
                 xmlBuildingPart.Identifier = sapBuildingPart[i].identifier;
                 xmlBuildingPart.ConstructionYear = DateTime.Today.Year.ToString();
                 xmlBuildingPart.Overshading = sapBuildingPart[i].Overshading.FromSAPToXML();
                 List<oM.Environment.SAP.Opening> opening = new List<oM.Environment.SAP.Opening>();
-                if (sapBuildingPart[i].Walls.SelectMany(x => x.Openings).ToList() == null && sapBuildingPart[i].Roofs.SelectMany(x => x.Openings).ToList() ==null)
+                if (sapBuildingPart[i].Walls.SelectMany(x => x.Openings).ToList() == null && sapBuildingPart[i].Roofs.SelectMany(x => x.Openings).ToList() == null)
                 {
-                    xmlBuildingPart.Openings = null; 
+                    xmlBuildingPart.Openings = null;
                 }
 
-                else 
+                else
                 {
                     opening.AddRange(sapBuildingPart[i].Walls.SelectMany(x => x.Openings).ToList());
                     opening.AddRange(sapBuildingPart[i].Roofs.SelectMany(x => x.Openings).ToList());
@@ -64,9 +64,9 @@ namespace BH.Engine.Environment.SAP
                         xmlBuildingPart.Openings = new List<BH.oM.Environment.SAP.XML.Opening>() { opening[u].ToXML() };
                     }
                 }
-
-                xmlBuildingPart.Floors = sapBuildingPart[i].Floor.Select(x => x.ToXML()).ToList();
-                xmlBuildingPart.Floors = sapBuildingPart[i].Storeys.Select(x => x.ToXML()).ToList();
+                List<oM.Environment.SAP.XML.FloorDimension> xmlFloorDimensions = new List<oM.Environment.SAP.XML.FloorDimension>();
+                xmlFloorDimensions.Add(ToXML(sapBuildingPart[i].Floor, sapBuildingPart[i].Storeys));
+                xmlBuildingPart.Floors = xmlFloorDimensions;
                 xmlBuildingPart.Roofs = sapBuildingPart[i].Roofs.Select(x => x.ToXML()).ToList();
                 xmlBuildingPart.Walls = sapBuildingPart[i].Walls.Select(x => x.ToXML()).ToList();
                 xmlBuildingPart.ThermalBridges = sapBuildingPart[i].ThermalBridges.Select(x => x.ToXML()).ToList();

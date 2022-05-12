@@ -34,15 +34,26 @@ namespace BH.Engine.Environment.SAP
     {
         [Description("Convert SAP Floor to XML floor.")]
         [Input("sapFloor", "SAP floor to convert.")]
+        [Input("sapStorey", "SAP storey to convert.")]
         [Output("xmlFloor", "XML floor.")]
-        public static BH.oM.Environment.SAP.XML.FloorDimension ToXML(this BH.oM.Environment.SAP.Floor sapFloor)
+        public static BH.oM.Environment.SAP.XML.FloorDimension ToXML(this List<BH.oM.Environment.SAP.Floor> sapFloor, List<BH.oM.Environment.SAP.Storey> sapStorey)
         {
             BH.oM.Environment.SAP.XML.FloorDimension xmlFloor = new BH.oM.Environment.SAP.XML.FloorDimension();
-            xmlFloor.Description = "Type-" + sapFloor.Type.ToString() + "_Area-" + sapFloor.Area.ToString() + "_Uvalue-" + sapFloor.uValue;
-            xmlFloor.Type = sapFloor.Type.FromSAPToXMLNumber(); 
-            xmlFloor.HeatLossArea = sapFloor.Area.ToString();
-            xmlFloor.uValue = sapFloor.uValue; 
-            xmlFloor.KappaValue = "80";
+            for (int i = 0; i < sapFloor.Count; i++)
+            {
+                xmlFloor.Description = "Type-" + sapFloor[i].Type.ToString() + "_Area-" + sapFloor[i].Area.ToString() + "_Uvalue-" + sapFloor[i].uValue;
+                xmlFloor.Type = sapFloor[i].Type.FromSAPToXMLNumber();
+                xmlFloor.HeatLossArea = sapFloor[i].Area.ToString();
+                xmlFloor.uValue = sapFloor[i].uValue;
+                xmlFloor.KappaValue = "80";
+            }
+
+            for (int i = 0; i < sapStorey.Count; i++)
+            {
+                xmlFloor.Storey = sapStorey[i].StoreyNumber.ToString();
+                xmlFloor.StoreyHeight = sapStorey[i].Height.ToString();
+                xmlFloor.Area = sapStorey[i].Area.ToString();
+            }
 
             return xmlFloor;
         }
