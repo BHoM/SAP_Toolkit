@@ -36,7 +36,7 @@ namespace BH.Engine.Environment.SAP
         [Description("Convert SAP PropertyDetails to XML PropertyDetails.")]
         [Input("sapPropertyDetails", "SAP PropertyDeatils to convert.")]
         [Output("xmlPropertyDetails", "XML PropertyDetails.")]
-        public static BH.oM.Environment.SAP.XML.PropertyDetails ToXML(oM.Environment.SAP.PropertyDetails sapPropertyDetails)
+        public static BH.oM.Environment.SAP.XML.PropertyDetails ToXML(this oM.Environment.SAP.PropertyDetails sapPropertyDetails)
         {
             BH.oM.Environment.SAP.XML.PropertyDetails xmlPropertyDetails = new BH.oM.Environment.SAP.XML.PropertyDetails();
             List<BH.oM.Environment.SAP.OpeningType> openingTypes = new List<oM.Environment.SAP.OpeningType>();
