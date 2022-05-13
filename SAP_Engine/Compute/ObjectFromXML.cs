@@ -26,12 +26,14 @@ using System.Xml.Serialization;
 using System.IO;
 using BH.oM.Environment.SAP.XML;
 using BH.Engine.Environment.SAP;
+using BH.oM.Base;
+using BH.oM.Adapter;
 
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Compute
     {
-        public static bool pushToXMLFile(string directoryPath, string fileNameInput, string fileNameOutput, BH.oM.Environment.SAP.XML.SAP2012Data sAP2012Data , bool run = false)
+        public static bool pushToXMLFile(FileSettings fileSettingsInput, FileSettings fileSettingsOutput, BH.oM.Environment.SAP.XML.SAP2012Data sAP2012Data , bool run = false)
         {
             if (!run)
                 return false;
@@ -39,13 +41,13 @@ namespace BH.Engine.Environment.SAP
             XmlSerializerNamespaces xns = new XmlSerializerNamespaces();
             XmlSerializer szer = new XmlSerializer(typeof(SAPReport));
 
-            TextReader tr = new StreamReader(Path.Combine(directoryPath, fileNameInput));
+            TextReader tr = new StreamReader(Path.Combine(fileSettingsInput.Directory, fileSettingsInput.FileName));
             var data = (SAPReport)szer.Deserialize(tr);
             tr.Close();
 
             data.SAP2012Data = sAP2012Data;
 
-            TextWriter tw = new StreamWriter(Path.Combine(directoryPath, fileNameOutput));
+            TextWriter tw = new StreamWriter(Path.Combine(fileSettingsOutput.Directory, fileSettingsOutput.FileName));
             szer.Serialize(tw, data, xns);
             tw.Close();
 

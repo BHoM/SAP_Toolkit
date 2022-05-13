@@ -28,14 +28,23 @@ using System.Threading.Tasks;
 
 using BH.oM.Adapter;
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.oM.Environment.SAP
 {
     public class RunAnalysisCommand : IExecuteCommand, IObject
     {
+        [Description("Path to XML file that will be calculated.")]
         public virtual string InputFile { get; set; }
+
+        [Description("API Key for access.")]
         public virtual string APIKey { get; set; }
+
+        [Description("Endpoint.")]
         public virtual string PostURL { get; set; }
+
+        [Description("Path to new file.")]
+        public virtual FileSettings fileSettings { get; set; }
     }
 }
 

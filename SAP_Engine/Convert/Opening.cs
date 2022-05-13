@@ -36,20 +36,22 @@ namespace BH.Engine.Environment.SAP
         [Description("Convert SAP opening to XML opening.")]
         [Input("sapOpening","SAP opening to convert.")]
         [Output("xmlOpening","XML opening.")]
-        public static BH.oM.Environment.SAP.XML.Opening ToXML(this BH.oM.Environment.SAP.Opening sapOpening)
+        public static List<BH.oM.Environment.SAP.XML.Opening> ToXML(this List<BH.oM.Environment.SAP.Opening> sapOpening)
         {
-            BH.oM.Environment.SAP.XML.Opening xmlOpening = new BH.oM.Environment.SAP.XML.Opening();
-            xmlOpening.Name = sapOpening.Name;
-            xmlOpening.Type = sapOpening.OpeningType[0].Name;
-            xmlOpening.Location = sapOpening.Host;
-            xmlOpening.Orientation = sapOpening.OrientationDegrees.ToString();
-            xmlOpening.Width = Math.Sqrt(sapOpening.Area).ToString();
-            xmlOpening.Height = Math.Sqrt(sapOpening.Area).ToString();
+            List<BH.oM.Environment.SAP.XML.Opening> xmlOpenings = new List<BH.oM.Environment.SAP.XML.Opening>();
+            for (int i = 0; i < sapOpening.Count; i++)
+            {
+                BH.oM.Environment.SAP.XML.Opening xmlOpening = new BH.oM.Environment.SAP.XML.Opening();
+                xmlOpening.Name = sapOpening[i].Name;
+                xmlOpening.Type = sapOpening[i].OpeningType.Name;
+                xmlOpening.Location = sapOpening[i].Host;
+                xmlOpening.Orientation = sapOpening[i].OrientationDegrees.ToString();
+                xmlOpening.Width = Math.Sqrt(sapOpening[i].Area).ToString();
+                xmlOpening.Height = Math.Sqrt(sapOpening[i].Area).ToString();
+                xmlOpenings.Add(xmlOpening);
+            }
 
-            oM.Environment.SAP.XML.OpeningTypes xmlOpeningTypes = new oM.Environment.SAP.XML.OpeningTypes();
-            xmlOpeningTypes = sapOpening.OpeningType.ToXML();
-
-            return xmlOpening;
+            return xmlOpenings;
         }
     }
 }

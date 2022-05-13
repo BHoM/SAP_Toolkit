@@ -61,7 +61,7 @@ namespace BH.Engine.Environment.SAP
                     for (int u = 0; u < opening.Count; u++)
                     {
                         openingTypes.OpeningType.AddRange(opening[u].OpeningType.ToXML().OpeningType); //method to only keep unique ones
-                        xmlBuildingPart.Openings = new List<BH.oM.Environment.SAP.XML.Opening>() { opening[u].ToXML() };
+                        xmlBuildingPart.Openings = opening.ToXML();
                     }
                 }
                 List<oM.Environment.SAP.XML.FloorDimension> xmlFloorDimensions = new List<oM.Environment.SAP.XML.FloorDimension>();
@@ -74,6 +74,10 @@ namespace BH.Engine.Environment.SAP
             }
             oM.Environment.SAP.XML.BuildingParts finalXML = new oM.Environment.SAP.XML.BuildingParts();
             finalXML.BuildingPart = xmlBuildingParts;
+            /*for (int i = 0; i < openingTypes.OpeningType.Count; i++)
+            { 
+            openingTypes.OpeningType[i].BHoM_Guid
+            }*/
 
             return new Output<BH.oM.Environment.SAP.XML.BuildingParts, BH.oM.Environment.SAP.XML.OpeningTypes>() { Item1 = finalXML, Item2 = openingTypes };
         }
