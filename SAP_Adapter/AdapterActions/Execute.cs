@@ -80,15 +80,21 @@ namespace BH.Adapter.SAP
                 XmlSerializerNamespaces xns = new XmlSerializerNamespaces();
                 XmlSerializer szer = new XmlSerializer(typeof(SAPReport));
 
-                TextReader tr = new StreamReader(text);
-                var data = (SAPReport)szer.Deserialize(tr);
-                tr.Close();
-                return data; //XML file
+                string filePath = command.fileSettings.Directory + "\\" + command.fileSettings.FileName; 
+                StreamWriter sw = new StreamWriter(filePath);
+                sw.Write(text);
+                sw.Close();
+                ResultText txt = new ResultText();
+                txt.txt = filePath;
+                return txt; //XML file
             }
             if (command.PostURL == "https://ace.argylesoftware.co.uk/buroh/v2/sap-fullsapworksheet-lig-in-text-out")
             {
+                string filePath = command.fileSettings.Directory + "\\" + command.fileSettings.FileName;
+                StreamWriter sw = new StreamWriter(filePath);
+                sw.Write(text);
                 ResultText txt = new ResultText();
-                txt.txt = text;
+                txt.txt = filePath;
                 return txt;
             }
             else
