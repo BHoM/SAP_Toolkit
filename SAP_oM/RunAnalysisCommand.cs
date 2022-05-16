@@ -37,7 +37,7 @@ namespace BH.oM.Environment.SAP
         [Description("Path to XML file that will be calculated.")]
         public virtual FileSettings fileSettingsInput { get; set; }
 
-        [Description("Path to new file.")]
+        [Description("Path to new file, if using txt endpoint.")]
         public virtual FileSettings fileSettingsOutput { get; set; }
 
         [Description("API Key for access.")]
