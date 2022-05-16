@@ -68,26 +68,14 @@ namespace BH.Adapter.SAP
                 b = await httpClient.SendAsync(r);
             }
                 string text = await b.Content.ReadAsStringAsync();
-            if (command.PostURL == "https://ace.argylesoftware.co.uk/buroh/v2/sap-fullworksheet-lig-in-text-out-noformat")
+
+            try
             {
                 ResultJson resultjson = JsonSerializer.Deserialize<ResultJson>(text);
 
                 return resultjson;
             }
-            if (command.PostURL == "https://ace.argylesoftware.co.uk/buroh/v2/sap-calculateratings")
-            {
-                XmlSerializerNamespaces xns = new XmlSerializerNamespaces();
-                XmlSerializer szer = new XmlSerializer(typeof(SAPReport));
-
-                string filePath = command.fileSettingsOutput.Directory + "\\" + command.fileSettingsOutput.FileName; 
-                StreamWriter sw = new StreamWriter(filePath);
-                sw.Write(text);
-                sw.Close();
-                ResultText txt = new ResultText();
-                txt.txt = filePath;
-                return txt;
-            }
-            if (command.PostURL == "https://ace.argylesoftware.co.uk/buroh/v2/sap-fullsapworksheet-lig-in-text-out")
+            catch
             {
                 string filePath = command.fileSettingsOutput.Directory + "\\" + command.fileSettingsOutput.FileName;
                 StreamWriter sw = new StreamWriter(filePath);
@@ -95,11 +83,7 @@ namespace BH.Adapter.SAP
                 ResultText txt = new ResultText();
                 txt.txt = filePath;
                 return txt;
-            }
-            else
-            { 
-                return null;
-            }
+            } // TODO Add XML 
         }
     }
 }

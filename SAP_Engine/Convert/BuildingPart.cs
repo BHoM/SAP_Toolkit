@@ -74,13 +74,9 @@ namespace BH.Engine.Environment.SAP
             }
             oM.Environment.SAP.XML.BuildingParts finalXML = new oM.Environment.SAP.XML.BuildingParts();
             finalXML.BuildingPart = xmlBuildingParts;
-            /*for (int i = 0; i < openingTypes.OpeningType.Count; i++)
-            { 
-            openingTypes.OpeningType[i].BHoM_Guid
-            }*/
-
             return new Output<BH.oM.Environment.SAP.XML.BuildingParts, BH.oM.Environment.SAP.XML.OpeningTypes>() { Item1 = finalXML, Item2 = openingTypes };
         }
+
         private static string FromSAPToXML(this BH.oM.Environment.SAP.WindowOvershading windowOvershading)
         {
             switch (windowOvershading)

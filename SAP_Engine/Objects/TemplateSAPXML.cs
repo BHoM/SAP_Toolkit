@@ -185,7 +185,7 @@ namespace BH.Engine.Environment.SAP
         public RelatedPartyDisclosure RelatedPartyDisclosure { get; set; }
     }
 
-    /*[XmlRoot(ElementName = "Walls")]
+    [XmlRoot(ElementName = "Walls")]
     public class Walls
     {
 
@@ -211,7 +211,7 @@ namespace BH.Engine.Environment.SAP
 
         [XmlElement(ElementName = "Environmental-Efficiency-Rating")]
         public int EnvironmentalEfficiencyRating { get; set; }
-    }*/
+    }
 
     [XmlRoot(ElementName = "Floor")]
     public class Floor
@@ -241,7 +241,7 @@ namespace BH.Engine.Environment.SAP
         public int EnvironmentalEfficiencyRating { get; set; }
     }
 
-    /*[XmlRoot(ElementName = "Main-Heating")]
+    [XmlRoot(ElementName = "Main-Heating")]
     public class MainHeating
     {
 
@@ -307,7 +307,7 @@ namespace BH.Engine.Environment.SAP
 
         [XmlElement(ElementName = "FGHRS-Index-Number")]
         public int FGHRSIndexNumber { get; set; }
-    }*/
+    }
 
     [XmlRoot(ElementName = "Main-Heating-Controls")]
     public class MainHeatingControls
@@ -660,7 +660,7 @@ namespace BH.Engine.Environment.SAP
         public RenewableHeatIncentive RenewableHeatIncentive { get; set; }
     }
 
-    /*[XmlRoot(ElementName = "SAP-Opening-Type")]
+    [XmlRoot(ElementName = "SAP-Opening-Type")]
     public class SAPOpeningType
     {
 
@@ -790,7 +790,7 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Kappa-Value")]
         public int KappaValue { get; set; }
     }
-    */
+    
     [XmlRoot(ElementName = "SAP-Roofs")]
     public class SAPRoofs
     {
@@ -798,7 +798,7 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "SAP-Roof")]
         public oM.Environment.SAP.XML.Roof SAPRoof { get; set; }
     }
-    /*
+    
     [XmlRoot(ElementName = "SAP-Wall")]
     public class SAPWall
     {
@@ -823,7 +823,7 @@ namespace BH.Engine.Environment.SAP
 
         [XmlElement(ElementName = "Is-Curtain-Walling")]
         public bool IsCurtainWalling { get; set; }
-    }*/
+    }
 
     [XmlRoot(ElementName = "SAP-Walls")]
     public class SAPWalls
@@ -832,7 +832,7 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "SAPWall")]
         public List<oM.Environment.SAP.XML.Wall> SAPWall { get; set; }
     }
-/*
+
     [XmlRoot(ElementName = "SAP-Thermal-Bridge")]
     public class SAPThermalBridge
     {
@@ -849,7 +849,7 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Psi-Value-Source")]
         public int PsiValueSource { get; set; }
     }
-*/
+
     [XmlRoot(ElementName = "SAP-Thermal-Bridges")]
     public class SAPThermalBridges
     {
@@ -860,7 +860,7 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "SAPThermalBridge")]
         public List<oM.Environment.SAP.XML.ThermalBridge> SAPThermalBridge { get; set; }
     }
-    /*
+    
     [XmlRoot(ElementName = "SAP-Building-Part")]
     public class SAPBuildingPart
     {
@@ -1005,7 +1005,7 @@ namespace BH.Engine.Environment.SAP
         public int ElectricityTariff { get; set; }
     }
 
-  /*  [XmlRoot(ElementName = "SAP-Property-Details")]
+    [XmlRoot(ElementName = "SAP-Property-Details")]
     public class SAPPropertyDetails
     {
 
@@ -1052,7 +1052,7 @@ namespace BH.Engine.Environment.SAP
 
         [XmlElement(ElementName = "SAP-Property-Details")]
         public SAPPropertyDetails SAPPropertyDetails { get; set; }
-    } */
+    } 
 
     [XmlRoot(ElementName = "Insurance-Details")]
     public class InsuranceDetails
