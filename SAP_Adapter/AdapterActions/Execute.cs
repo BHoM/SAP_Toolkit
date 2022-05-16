@@ -34,7 +34,6 @@ using System.Threading.Tasks;
 using System.Text.Json;
 using System.Xml.Serialization;
 using System.IO;
-//using SAP_Engine.Objects;
 
 namespace BH.Adapter.SAP
 {
@@ -54,7 +53,7 @@ namespace BH.Adapter.SAP
         public async Task<IResultObject> RunCommand(RunAnalysisCommand command)
         {
             string postURL = command.PostURL;
-            string xmlData = System.IO.File.ReadAllText(command.InputFile);
+            string xmlData = System.IO.File.ReadAllText(command.fileSettingsInput.Directory + "\\" + command.fileSettingsInput.FileName);
             
             HttpResponseMessage b = null;
 
@@ -80,17 +79,17 @@ namespace BH.Adapter.SAP
                 XmlSerializerNamespaces xns = new XmlSerializerNamespaces();
                 XmlSerializer szer = new XmlSerializer(typeof(SAPReport));
 
-                string filePath = command.fileSettings.Directory + "\\" + command.fileSettings.FileName; 
+                string filePath = command.fileSettingsOutput.Directory + "\\" + command.fileSettingsOutput.FileName; 
                 StreamWriter sw = new StreamWriter(filePath);
                 sw.Write(text);
                 sw.Close();
                 ResultText txt = new ResultText();
                 txt.txt = filePath;
-                return txt; //XML file
+                return txt;
             }
             if (command.PostURL == "https://ace.argylesoftware.co.uk/buroh/v2/sap-fullsapworksheet-lig-in-text-out")
             {
-                string filePath = command.fileSettings.Directory + "\\" + command.fileSettings.FileName;
+                string filePath = command.fileSettingsOutput.Directory + "\\" + command.fileSettingsOutput.FileName;
                 StreamWriter sw = new StreamWriter(filePath);
                 sw.Write(text);
                 ResultText txt = new ResultText();
