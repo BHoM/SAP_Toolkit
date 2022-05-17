@@ -35,9 +35,9 @@ namespace BH.Engine.Environment.SAP
     // {
     //    var test = (SAPReport)serializer.Deserialize(reader);
     // }
-
+    [Serializable]
     [XmlRoot(ElementName = "Contact-Address")]
-    public class ContactAddress
+    public class ContactAddress : IObject
     {
 
         [XmlElement(ElementName = "Address-Line-1")]
@@ -52,17 +52,17 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Postcode")]
         public string Postcode { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Identification-Number")]
-    public class IdentificationNumber
+    public class IdentificationNumber : IObject
     {
 
         [XmlElement(ElementName = "Certificate-Number")]
         public string CertificateNumber { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Home-Inspector")]
-    public class HomeInspector
+    public class HomeInspector : IObject
     {
 
         [XmlElement(ElementName = "Name")]
@@ -98,9 +98,9 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Identification-Number")]
         public IdentificationNumber IdentificationNumber { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Address")]
-    public class Address
+    public class Address : IObject
     {
 
         [XmlElement(ElementName = "Address-Line-1")]
@@ -112,9 +112,9 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Postcode")]
         public string Postcode { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Property")]
-    public class Property
+    public class Property : IObject
     {
 
         [XmlElement(ElementName = "Address")]
@@ -123,33 +123,33 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "UPRN")]
         public int UPRN { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Related-Party-Disclosure")]
-    public class RelatedPartyDisclosure
+    public class RelatedPartyDisclosure : IObject
     {
 
         [XmlElement(ElementName = "Related-Party-Disclosure-Number")]
         public int RelatedPartyDisclosureNumber { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Report-Header")]
-    public class ReportHeader
+    public class ReportHeader : IObject
     {
 
         [XmlElement(ElementName = "RRN")]
         public string RRN { get; set; }
 
         [XmlElement(ElementName = "Inspection-Date")]
-        public DateTime InspectionDate { get; set; }
+        public string InspectionDate { get; set; }
 
         [XmlElement(ElementName = "Report-Type")]
         public int ReportType { get; set; }
 
         [XmlElement(ElementName = "Completion-Date")]
-        public DateTime CompletionDate { get; set; }
+        public string CompletionDate { get; set; }
 
         [XmlElement(ElementName = "Registration-Date")]
-        public DateTime RegistrationDate { get; set; }
+        public string RegistrationDate { get; set; }
 
         [XmlElement(ElementName = "Status")]
         public string Status { get; set; }
@@ -184,9 +184,9 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Related-Party-Disclosure")]
         public RelatedPartyDisclosure RelatedPartyDisclosure { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Walls")]
-    public class Walls
+    public class Walls : IObject
     {
 
         [XmlElement(ElementName = "Description")]
@@ -198,9 +198,9 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Environmental-Efficiency-Rating")]
         public int EnvironmentalEfficiencyRating { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Roof")]
-    public class Roof
+    public class Roof : IObject
     {
 
         [XmlElement(ElementName = "Description")]
@@ -212,9 +212,9 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Environmental-Efficiency-Rating")]
         public int EnvironmentalEfficiencyRating { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Floor")]
-    public class Floor
+    public class Floor : IObject
     {
 
         [XmlElement(ElementName = "Description")]
@@ -226,9 +226,9 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Environmental-Efficiency-Rating")]
         public int EnvironmentalEfficiencyRating { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Windows")]
-    public class Windows
+    public class Windows : IObject
     {
 
         [XmlElement(ElementName = "Description")]
@@ -240,9 +240,9 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Environmental-Efficiency-Rating")]
         public int EnvironmentalEfficiencyRating { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Main-Heating")]
-    public class MainHeating
+    public class MainHeating : IObject
     {
 
         [XmlElement(ElementName = "Description")]
@@ -308,9 +308,9 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "FGHRS-Index-Number")]
         public int FGHRSIndexNumber { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Main-Heating-Controls")]
-    public class MainHeatingControls
+    public class MainHeatingControls : IObject
     {
 
         [XmlElement(ElementName = "Description")]
@@ -322,9 +322,9 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Environmental-Efficiency-Rating")]
         public int EnvironmentalEfficiencyRating { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Secondary-Heating")]
-    public class SecondaryHeating
+    public class SecondaryHeating : IObject
     {
 
         [XmlElement(ElementName = "Description")]
@@ -336,9 +336,9 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Environmental-Efficiency-Rating")]
         public int EnvironmentalEfficiencyRating { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Hot-Water")]
-    public class HotWater
+    public class HotWater : IObject
     {
 
         [XmlElement(ElementName = "Description")]
@@ -350,9 +350,9 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Environmental-Efficiency-Rating")]
         public int EnvironmentalEfficiencyRating { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Lighting")]
-    public class Lighting
+    public class Lighting : IObject
     {
 
         [XmlElement(ElementName = "Description")]
@@ -364,9 +364,9 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Environmental-Efficiency-Rating")]
         public int EnvironmentalEfficiencyRating { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Air-Tightness")]
-    public class AirTightness
+    public class AirTightness : IObject
     {
 
         [XmlElement(ElementName = "Description")]
@@ -378,9 +378,9 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Environmental-Efficiency-Rating")]
         public int EnvironmentalEfficiencyRating { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Property-Summary")]
-    public class PropertySummary
+    public class PropertySummary : IObject
     {
 
         [XmlElement(ElementName = "Walls")]
@@ -431,9 +431,9 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Multiple-Glazed-Percentage")]
         public int MultipleGlazedPercentage { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Lighting-Cost-Current")]
-    public class LightingCostCurrent
+    public class LightingCostCurrent : IObject
     {
 
         [XmlAttribute(AttributeName = "currency")]
@@ -442,9 +442,9 @@ namespace BH.Engine.Environment.SAP
         [XmlText]
         public int Text { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Lighting-Cost-Potential")]
-    public class LightingCostPotential
+    public class LightingCostPotential : IObject
     {
 
         [XmlAttribute(AttributeName = "currency")]
@@ -453,9 +453,9 @@ namespace BH.Engine.Environment.SAP
         [XmlText]
         public int Text { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Heating-Cost-Current")]
-    public class HeatingCostCurrent
+    public class HeatingCostCurrent : IObject
     {
 
         [XmlAttribute(AttributeName = "currency")]
@@ -464,9 +464,9 @@ namespace BH.Engine.Environment.SAP
         [XmlText]
         public int Text { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Heating-Cost-Potential")]
-    public class HeatingCostPotential
+    public class HeatingCostPotential : IObject
     {
 
         [XmlAttribute(AttributeName = "currency")]
@@ -475,9 +475,9 @@ namespace BH.Engine.Environment.SAP
         [XmlText]
         public int Text { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Hot-Water-Cost-Current")]
-    public class HotWaterCostCurrent
+    public class HotWaterCostCurrent : IObject
     {
 
         [XmlAttribute(AttributeName = "currency")]
@@ -486,9 +486,9 @@ namespace BH.Engine.Environment.SAP
         [XmlText]
         public int Text { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Hot-Water-Cost-Potential")]
-    public class HotWaterCostPotential
+    public class HotWaterCostPotential : IObject
     {
 
         [XmlAttribute(AttributeName = "currency")]
@@ -497,9 +497,9 @@ namespace BH.Engine.Environment.SAP
         [XmlText]
         public int Text { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Energy-Use")]
-    public class EnergyUse
+    public class EnergyUse : IObject
     {
 
         [XmlElement(ElementName = "Energy-Rating-Average")]
@@ -524,10 +524,10 @@ namespace BH.Engine.Environment.SAP
         public int EnergyConsumptionPotential { get; set; }
 
         [XmlElement(ElementName = "CO2-Emissions-Current")]
-        public DateTime CO2EmissionsCurrent { get; set; }
+        public string CO2EmissionsCurrent { get; set; }
 
         [XmlElement(ElementName = "CO2-Emissions-Potential")]
-        public DateTime CO2EmissionsPotential { get; set; }
+        public string CO2EmissionsPotential { get; set; }
 
         [XmlElement(ElementName = "CO2-Emissions-Current-Per-Floor-Area")]
         public int CO2EmissionsCurrentPerFloorArea { get; set; }
@@ -550,17 +550,17 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Hot-Water-Cost-Potential")]
         public HotWaterCostPotential HotWaterCostPotential { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Improvement-Details")]
-    public class ImprovementDetails
+    public class ImprovementDetails : IObject
     {
 
         [XmlElement(ElementName = "Improvement-Number")]
         public int ImprovementNumber { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Typical-Saving")]
-    public class TypicalSaving
+    public class TypicalSaving : IObject
     {
 
         [XmlAttribute(AttributeName = "currency")]
@@ -569,9 +569,9 @@ namespace BH.Engine.Environment.SAP
         [XmlText]
         public int Text { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Improvement")]
-    public class Improvement
+    public class Improvement : IObject
     {
 
         [XmlElement(ElementName = "Sequence")]
@@ -601,25 +601,25 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Environmental-Impact-Rating")]
         public int EnvironmentalImpactRating { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Suggested-Improvements")]
-    public class SuggestedImprovements
+    public class SuggestedImprovements : IObject
     {
 
         [XmlElement(ElementName = "Improvement")]
         public Improvement Improvement { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "LZC-Energy-Sources")]
-    public class LZCEnergySources
+    public class LZCEnergySources : IObject
     {
 
         [XmlElement(ElementName = "LZC-Energy-Source")]
         public int LZCEnergySource { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "RHI-New-Dwelling")]
-    public class RHINewDwelling
+    public class RHINewDwelling : IObject
     {
 
         [XmlElement(ElementName = "Space-Heating")]
@@ -628,21 +628,21 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Water-Heating")]
         public int WaterHeating { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Renewable-Heat-Incentive")]
-    public class RenewableHeatIncentive
+    public class RenewableHeatIncentive : IObject
     {
 
         [XmlElement(ElementName = "RHI-New-Dwelling")]
         public RHINewDwelling RHINewDwelling { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Energy-Assessment")]
-    public class EnergyAssessment
+    public class EnergyAssessment : IObject
     {
 
         [XmlElement(ElementName = "Assessment-Date")]
-        public DateTime AssessmentDate { get; set; }
+        public string AssessmentDate { get; set; }
 
         [XmlElement(ElementName = "Property-Summary")]
         public PropertySummary PropertySummary { get; set; }
@@ -659,9 +659,9 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Renewable-Heat-Incentive")]
         public RenewableHeatIncentive RenewableHeatIncentive { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "SAP-Opening-Type")]
-    public class SAPOpeningType
+    public class SAPOpeningType : IObject
     {
 
         [XmlElement(ElementName = "Name")]
@@ -680,7 +680,7 @@ namespace BH.Engine.Environment.SAP
         public int GlazingType { get; set; }
 
         [XmlElement(ElementName = "U-Value")]
-        public DateTime UValue { get; set; }
+        public string UValue { get; set; }
 
         [XmlElement(ElementName = "Solar-Transmittance")]
         public double SolarTransmittance { get; set; }
@@ -688,17 +688,17 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Frame-Factor")]
         public double FrameFactor { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "SAP-Opening-Types")]
-    public class SAPOpeningTypes
+    public class SAPOpeningTypes : IObject
     {
 
         [XmlElement(ElementName = "SAPOpeningType")]
         public List<SAPOpeningType> SAPOpeningType { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "SAP-Opening")]
-    public class SAPOpening
+    public class SAPOpening : IObject
     {
 
         [XmlElement(ElementName = "Name")]
@@ -714,22 +714,22 @@ namespace BH.Engine.Environment.SAP
         public int Orientation { get; set; }
 
         [XmlElement(ElementName = "Width")]
-        public DateTime Width { get; set; }
+        public string Width { get; set; }
 
         [XmlElement(ElementName = "Height")]
-        public DateTime Height { get; set; }
+        public string Height { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "SAP-Openings")]
-    public class SAPOpenings
+    public class SAPOpenings : IObject
     {
 
         [XmlElement(ElementName = "SAPOpening")]
         public List<SAPOpening> SAPOpening { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "SAP-Floor-Dimension")]
-    public class SAPFloorDimension
+    public class SAPFloorDimension : IObject
     {
 
         [XmlElement(ElementName = "Storey")]
@@ -745,7 +745,7 @@ namespace BH.Engine.Environment.SAP
         public double TotalFloorArea { get; set; }
 
         [XmlElement(ElementName = "Storey-Height")]
-        public DateTime StoreyHeight { get; set; }
+        public string StoreyHeight { get; set; }
 
         [XmlElement(ElementName = "Heat-Loss-Area")]
         public double HeatLossArea { get; set; }
@@ -759,17 +759,17 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Kappa-Value-From-Below")]
         public int KappaValueFromBelow { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "SAP-Floor-Dimensions")]
-    public class SAPFloorDimensions
+    public class SAPFloorDimensions : IObject
     {
 
         [XmlElement(ElementName = "SAPFloorDimension")]
         public List<SAPFloorDimension> SAPFloorDimension { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "SAP-Roof")]
-    public class SAPRoof
+    public class SAPRoof : IObject
     {
 
         [XmlElement(ElementName = "Name")]
@@ -790,17 +790,17 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Kappa-Value")]
         public int KappaValue { get; set; }
     }
-    
+    [Serializable]
     [XmlRoot(ElementName = "SAP-Roofs")]
-    public class SAPRoofs
+    public class SAPRoofs : IObject
     {
 
         [XmlElement(ElementName = "SAP-Roof")]
         public oM.Environment.SAP.XML.Roof SAPRoof { get; set; }
     }
-    
+    [Serializable]
     [XmlRoot(ElementName = "SAP-Wall")]
-    public class SAPWall
+    public class SAPWall : IObject
     {
 
         [XmlElement(ElementName = "Name")]
@@ -824,17 +824,17 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Is-Curtain-Walling")]
         public bool IsCurtainWalling { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "SAP-Walls")]
-    public class SAPWalls
+    public class SAPWalls : IObject
     {
 
         [XmlElement(ElementName = "SAPWall")]
         public List<oM.Environment.SAP.XML.Wall> SAPWall { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "SAP-Thermal-Bridge")]
-    public class SAPThermalBridge
+    public class SAPThermalBridge : IObject
     {
 
         [XmlElement(ElementName = "Thermal-Bridge-Type")]
@@ -849,9 +849,9 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Psi-Value-Source")]
         public int PsiValueSource { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "SAP-Thermal-Bridges")]
-    public class SAPThermalBridges
+    public class SAPThermalBridges : IObject
     {
 
         [XmlElement(ElementName = "Thermal-Bridge-Code")]
@@ -860,9 +860,9 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "SAPThermalBridge")]
         public List<oM.Environment.SAP.XML.ThermalBridge> SAPThermalBridge { get; set; }
     }
-    
+    [Serializable]
     [XmlRoot(ElementName = "SAP-Building-Part")]
-    public class SAPBuildingPart
+    public class SAPBuildingPart : IObject
     {
 
         [XmlElement(ElementName = "Building-Part-Number")]
@@ -892,17 +892,17 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "SAP-Thermal-Bridges")]
         public SAPThermalBridges SAPThermalBridges { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "SAP-Building-Parts")]
-    public class SAPBuildingParts
+    public class SAPBuildingParts : IObject
     {
 
         [XmlElement(ElementName = "SAP-Building-Part")]
         public SAPBuildingPart SAPBuildingPart { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "SAP-Ventilation")]
-    public class SAPVentilation
+    public class SAPVentilation : IObject
     {
 
         [XmlElement(ElementName = "Open-Fireplaces-Count")]
@@ -932,17 +932,17 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Ventilation-Type")]
         public int VentilationType { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "Main-Heating-Details")]
-    public class MainHeatingDetails
+    public class MainHeatingDetails : IObject
     {
 
         [XmlElement(ElementName = "Main-Heating")]
         public MainHeating MainHeating { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "SAP-Heating")]
-    public class SAPHeating
+    public class SAPHeating : IObject
     {
 
         [XmlElement(ElementName = "Main-Heating-Details")]
@@ -981,9 +981,9 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Thermal-Store")]
         public int ThermalStore { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "SAP-Energy-Source")]
-    public class SAPEnergySource
+    public class SAPEnergySource : IObject
     {
 
         [XmlElement(ElementName = "Wind-Turbines-Count")]
@@ -1004,9 +1004,9 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "Electricity-Tariff")]
         public int ElectricityTariff { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "SAP-Property-Details")]
-    public class SAPPropertyDetails
+    public class SAPPropertyDetails : IObject
     {
 
         [XmlElement(ElementName = "Property-Type")]
@@ -1042,9 +1042,9 @@ namespace BH.Engine.Environment.SAP
         [XmlElement(ElementName = "SAP-Energy-Source")]
         public SAPEnergySource SAPEnergySource { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "SAP2012-Data")]
-    public class SAP2012Data
+    public class SAP2012Data : IObject
     {
 
         [XmlElement(ElementName = "Data-Type")]
@@ -1052,10 +1052,10 @@ namespace BH.Engine.Environment.SAP
 
         [XmlElement(ElementName = "SAP-Property-Details")]
         public SAPPropertyDetails SAPPropertyDetails { get; set; }
-    } 
-
+    }
+    [Serializable]
     [XmlRoot(ElementName = "Insurance-Details")]
-    public class InsuranceDetails
+    public class InsuranceDetails : IObject
     {
 
         [XmlElement(ElementName = "Insurer")]
@@ -1065,15 +1065,15 @@ namespace BH.Engine.Environment.SAP
         public int PolicyNo { get; set; }
 
         [XmlElement(ElementName = "Effective-Date")]
-        public DateTime EffectiveDate { get; set; }
+        public string EffectiveDate { get; set; }
 
         [XmlElement(ElementName = "Expiry-Date")]
-        public DateTime ExpiryDate { get; set; }
+        public string ExpiryDate { get; set; }
 
         [XmlElement(ElementName = "PI-Limit")]
         public int PILimit { get; set; }
     }
-
+    [Serializable]
     [XmlRoot(ElementName = "SAP-Report")]
     public class SAPReport : XMLPrintObject, IResultObject
     {

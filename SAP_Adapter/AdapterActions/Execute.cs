@@ -75,14 +75,28 @@ namespace BH.Adapter.SAP
 
                 return resultjson;
             }
-            catch
+            catch (Exception ex)
             {
-                string filePath = command.fileSettingsOutput.Directory + "\\" + command.fileSettingsOutput.FileName;
-                StreamWriter sw = new StreamWriter(filePath);
-                sw.Write(text);
-                ResultText txt = new ResultText();
-                txt.txt = filePath;
-                return txt;
+                try
+                {
+                    XmlSerializerNamespaces xns = new XmlSerializerNamespaces();
+                    XmlSerializer szer = new XmlSerializer(typeof(SAPReport));
+                    string d = (ex.ToString());
+                    TextReader tr = new StreamReader(Path.Combine(command.fileSettingsInput.Directory, command.fileSettingsInput.FileName));
+                    var data = (SAPReport)szer.Deserialize(tr);
+                    tr.Close();
+                    return data;
+                }
+                catch (Exception e)
+                {
+                    string filePath = command.fileSettingsOutput.Directory + "\\" + command.fileSettingsOutput.FileName;
+                    StreamWriter sw = new StreamWriter(filePath);
+                    sw.Write(text);
+                    ResultText txt = new ResultText();
+                    txt.txt = filePath;
+                    string p = (e.ToString());
+                    return txt;
+                }
             } // TODO Add XML 
         }
     }
