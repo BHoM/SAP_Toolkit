@@ -80,20 +80,41 @@ namespace BH.Adapter.SAP
             {
                 try
                 {
+                    var tmpFilePath = @"C:\Temp\SAPXML.xml";
+                    if (File.Exists(tmpFilePath))
+                        File.Delete(tmpFilePath);
+
+                    StreamWriter sw = new StreamWriter(tmpFilePath);
+                    sw.WriteLine(text);
+                    sw.Close();
+
                     XmlSerializerNamespaces xns = new XmlSerializerNamespaces();
                     XmlSerializer szer = new XmlSerializer(typeof(SAPReport));
-                    TextReader tr = new StreamReader(Path.Combine(command.fileSettingsInput.Directory, command.fileSettingsInput.FileName));
+                    TextReader tr = new StreamReader(tmpFilePath);
                     var data = (SAPReport)szer.Deserialize(tr);
                     tr.Close();
+
+                    try
+                    {
+                        File.Delete(tmpFilePath);
+                    }
+                    catch { }
+
                     return data;
                 }
 
                 catch
                 {
+                    if(command.fileSettingsOutput == null || string.IsNullOrEmpty(command.fileSettingsOutput.Directory) || string.IsNullOrEmpty(command.fileSettingsOutput.FileName))
+                    {
+                        BH.Engine.Base.Compute.RecordError("To use this endpoint, add a directory to a .txt file in the RunAnalysisCommand.");
+                        return null;
+                    }
                     string filePath = command.fileSettingsOutput.Directory + "\\" + command.fileSettingsOutput.FileName;
                     StreamWriter sw = new StreamWriter(filePath);
                     sw.Write(text);
                     ResultText txt = new ResultText();
+                    BH.Engine.Base.Compute.RecordNote("You have used the endpoint returning a .txt file. Check your output folder.");
                     txt.txt = filePath;
                     return txt;
                 }
