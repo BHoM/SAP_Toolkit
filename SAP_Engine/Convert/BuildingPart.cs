@@ -48,6 +48,8 @@ namespace BH.Engine.Environment.SAP
                 xmlBuildingPart.Identifier = sapBuildingPart[i].identifier;
                 xmlBuildingPart.ConstructionYear = DateTime.Today.Year.ToString();
                 xmlBuildingPart.Overshading = sapBuildingPart[i].Overshading.FromSAPToXML();
+                var outputWall = sapBuildingPart[i].Walls.Select(x => x.ToXML()).ToList();
+                var outputRoof = sapBuildingPart[i].Roofs.Select(x => x.ToXML()).ToList();
                 List<oM.Environment.SAP.Opening> opening = new List<oM.Environment.SAP.Opening>();
                 if (sapBuildingPart[i].Walls.SelectMany(x => x.Openings).ToList() == null && sapBuildingPart[i].Roofs.SelectMany(x => x.Openings).ToList() == null)
                 {
@@ -61,17 +63,42 @@ namespace BH.Engine.Environment.SAP
                     for (int u = 0; u < opening.Count; u++)
                     {
                         openingTypes.OpeningType.AddRange(opening[u].OpeningType.ToXML().OpeningType); //method to only keep unique ones
-                        xmlBuildingPart.Openings = opening.ToXML();
+                    }
+
+                    xmlBuildingPart.Openings = new List<oM.Environment.SAP.XML.Opening>();
+                    for (int v = 0; v < sapBuildingPart[i].Roofs.Count; v++)
+                    {
+                        xmlBuildingPart.Openings.AddRange(outputRoof[v].Item2);
+                    }
+                    for (int v = 0; v < sapBuildingPart[i].Walls.Count; v++)
+                    {
+                        xmlBuildingPart.Openings.AddRange(outputWall[v].Item2);
                     }
                 }
+
                 List<oM.Environment.SAP.XML.FloorDimension> xmlFloorDimensions = new List<oM.Environment.SAP.XML.FloorDimension>();
                 xmlFloorDimensions.Add(ToXML(sapBuildingPart[i].Floor, sapBuildingPart[i].Storeys));
                 xmlBuildingPart.Floors = xmlFloorDimensions;
-                xmlBuildingPart.Roofs = sapBuildingPart[i].Roofs.Select(x => x.ToXML()).ToList();
-                xmlBuildingPart.Walls = sapBuildingPart[i].Walls.Select(x => x.ToXML()).ToList();
+                for (int u = 0; u < outputRoof.Count; u++)
+                {
+                    BH.oM.Environment.SAP.XML.Roof xmlRoof = outputRoof[u].Item1;
+                    List<BH.oM.Environment.SAP.XML.Roof> xmlRoofList = new List<BH.oM.Environment.SAP.XML.Roof>();
+                    xmlRoofList.Add(xmlRoof);
+                    xmlBuildingPart.Roofs = xmlRoofList; 
+                }
+
+                for (int u = 0; u < outputWall.Count; u++)
+                {
+                    BH.oM.Environment.SAP.XML.Wall xmlWall = outputWall[u].Item1;
+                    List<BH.oM.Environment.SAP.XML.Wall> xmlWallList = new List<BH.oM.Environment.SAP.XML.Wall>();
+                    xmlWallList.Add(xmlWall);
+                    xmlBuildingPart.Walls = xmlWallList;
+                } 
+
                 xmlBuildingPart.ThermalBridges = sapBuildingPart[i].ThermalBridges.Select(x => x.ToXML()).ToList();
                 xmlBuildingParts.Add(xmlBuildingPart);
             }
+
             oM.Environment.SAP.XML.BuildingParts finalXML = new oM.Environment.SAP.XML.BuildingParts();
             finalXML.BuildingPart = xmlBuildingParts;
             return new Output<BH.oM.Environment.SAP.XML.BuildingParts, BH.oM.Environment.SAP.XML.OpeningTypes>() { Item1 = finalXML, Item2 = openingTypes };

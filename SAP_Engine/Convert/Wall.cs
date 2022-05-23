@@ -35,8 +35,9 @@ namespace BH.Engine.Environment.SAP
     {
         [Description("Convert SAP wall to XML wall.")]
         [Input("sapWall", "SAP wall to convert.")]
-        [Output("xmlWall", "XML wall.")]
-        public static BH.oM.Environment.SAP.XML.Wall ToXML(this BH.oM.Environment.SAP.Wall sapWall)
+        [MultiOutput(0,"xmlWall", "XML wall.")]
+        [MultiOutput(1, "xmlOpening", "XML opening.")]
+        public static Output<BH.oM.Environment.SAP.XML.Wall, List<BH.oM.Environment.SAP.XML.Opening>> ToXML(this BH.oM.Environment.SAP.Wall sapWall)
         {
             BH.oM.Environment.SAP.XML.Wall xmlWall = new BH.oM.Environment.SAP.XML.Wall();
             xmlWall.Name = sapWall.Name;
@@ -46,8 +47,19 @@ namespace BH.Engine.Environment.SAP
             xmlWall.UValue = sapWall.uValue;
             xmlWall.KappaValue = 14;
             xmlWall.CurtainWall = sapWall.CurtainWall;
-
-            return xmlWall;
+            List<BH.oM.Environment.SAP.XML.Opening> xmlOpenings = new List<BH.oM.Environment.SAP.XML.Opening>();
+            for (int i = 0; i < sapWall.Openings.Count; i++)
+            {
+                BH.oM.Environment.SAP.XML.Opening xmlOpening = new BH.oM.Environment.SAP.XML.Opening();
+                xmlOpening.Name = sapWall.Openings[i].Name;
+                xmlOpening.Type = sapWall.Openings[i].OpeningType.Type.ToString();
+                xmlOpening.Location = sapWall.Name;
+                xmlOpening.Orientation = sapWall.Openings[i].OrientationDegrees.ToString();
+                xmlOpening.Width = Math.Sqrt(sapWall.Openings[i].Area).ToString();
+                xmlOpening.Height = Math.Sqrt(sapWall.Openings[i].Area).ToString();
+                xmlOpenings.Add(xmlOpening);
+            }
+            return new Output<BH.oM.Environment.SAP.XML.Wall, List<BH.oM.Environment.SAP.XML.Opening>>() { Item1 = xmlWall, Item2 = xmlOpenings };
         }
         private static string FromSAPToXMLNumber(this BH.oM.Environment.SAP.TypeOfWall typeOfWall)
         {
