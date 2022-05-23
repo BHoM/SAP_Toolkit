@@ -27,6 +27,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using BH.oM.Base.Attributes;
+using BH.oM.Base;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -34,8 +35,9 @@ namespace BH.Engine.Environment.SAP
     {
         [Description("Convert SAP roof to XML roof.")]
         [Input("sapRoof", "SAP roof to convert.")]
-        [Output("xmlRoof", "XML roof.")]
-        public static BH.oM.Environment.SAP.XML.Roof ToXML(this BH.oM.Environment.SAP.Roof sapRoof)
+        [MultiOutput(0,"xmlRoof", "XML roof.")]
+        [MultiOutput(1, "xmlOpening", "XML opening.")]
+        public static Output<BH.oM.Environment.SAP.XML.Roof, List<BH.oM.Environment.SAP.XML.Opening>> ToXML(this BH.oM.Environment.SAP.Roof sapRoof)
         {
             BH.oM.Environment.SAP.XML.Roof xmlRoof = new BH.oM.Environment.SAP.XML.Roof();
             xmlRoof.Name = sapRoof.Name;
@@ -44,8 +46,20 @@ namespace BH.Engine.Environment.SAP
             xmlRoof.Area = sapRoof.Area;
             xmlRoof.UValue = sapRoof.uValue;
             xmlRoof.KappaValue = 9;
+            List<BH.oM.Environment.SAP.XML.Opening> xmlOpenings = new List<BH.oM.Environment.SAP.XML.Opening>();
+            for (int i = 0; i < sapRoof.Openings.Count; i++)
+            {
+                BH.oM.Environment.SAP.XML.Opening xmlOpening = new BH.oM.Environment.SAP.XML.Opening();
+                xmlOpening.Name = sapRoof.Openings[i].Name;
+                xmlOpening.Type = sapRoof.Openings[i].OpeningType.Type.ToString();
+                xmlOpening.Location = sapRoof.Name;
+                xmlOpening.Orientation = sapRoof.Openings[i].OrientationDegrees.ToString();
+                xmlOpening.Width = Math.Sqrt(sapRoof.Openings[i].Area).ToString();
+                xmlOpening.Height = Math.Sqrt(sapRoof.Openings[i].Area).ToString();
+                xmlOpenings.Add(xmlOpening);
+            }
 
-            return xmlRoof;
+            return new Output<BH.oM.Environment.SAP.XML.Roof, List<BH.oM.Environment.SAP.XML.Opening>>() { Item1 = xmlRoof, Item2 = xmlOpenings };
         }
         private static string FromSAPToXMLNumber(this BH.oM.Environment.SAP.TypeOfRoof typeOfRoof)
         {

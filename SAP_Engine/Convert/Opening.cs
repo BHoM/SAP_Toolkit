@@ -19,7 +19,7 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
+/*
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,7 +44,7 @@ namespace BH.Engine.Environment.SAP
                 BH.oM.Environment.SAP.XML.Opening xmlOpening = new BH.oM.Environment.SAP.XML.Opening();
                 xmlOpening.Name = sapOpening[i].Name;
                 xmlOpening.Type = sapOpening[i].OpeningType.Name;
-                xmlOpening.Location = sapOpening[i].Host;
+                xmlOpening.Location = null;
                 xmlOpening.Orientation = sapOpening[i].OrientationDegrees.ToString();
                 xmlOpening.Width = Math.Sqrt(sapOpening[i].Area).ToString();
                 xmlOpening.Height = Math.Sqrt(sapOpening[i].Area).ToString();
@@ -54,5 +54,5 @@ namespace BH.Engine.Environment.SAP
             return xmlOpenings;
         }
     }
-}
+}*/
 
