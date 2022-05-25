@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
@@ -28,26 +28,6 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("An opening that is hosted on a Wall, Floor or Roof that forms part of the thermal line of the dwelling")]
-    public class Opening : BHoMObject
-    {
-        [Description("The opening type which defines its thermal properties e.g. u-value")]
-        public virtual SAP.OpeningType OpeningType { get; set; } = new SAP.OpeningType();
-
-        [Description("The total surface area of the opening as seen from inside the dwelling (including frame)")]
-        public virtual double Area { get; set; } = 0;
-
-        [Description("Enum.")]
-        public virtual OrientationCode Orientation { get; set; } = 0;
-
-        [Description("The width of any elements that overhang the opening (e.g. window reveal or balcony)")]
-        public virtual double OverhangWidth { get; set; } = 0;
-
-        [Description("The depth (i.e. distance of projection from the facade) of any elements that overhang the opening (e.g. window reveal or balcony)")]
-        public virtual double OverhangDepth { get; set; } = 0;
-
-        [Description("The name of the dwelling that the opening is part of")]
-        public virtual string DwellingName { get; set; } = "";
-    }
-
+    [Description("Code which indicates the compass direction.")]
+    public enum OrientationCode { unknown = 0, North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest, Horizontal }
 }
