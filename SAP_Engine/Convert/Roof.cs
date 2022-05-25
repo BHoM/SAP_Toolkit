@@ -53,7 +53,7 @@ namespace BH.Engine.Environment.SAP
                 xmlOpening.Name = sapRoof.Openings[i].Name;
                 xmlOpening.Type = sapRoof.Openings[i].OpeningType.Type.ToString();
                 xmlOpening.Location = sapRoof.Name;
-                xmlOpening.Orientation = sapRoof.Openings[i].OrientationDegrees.ToString();
+                xmlOpening.Orientation = sapRoof.Openings[i].Orientation.FromSAPToXMLNumber();
                 xmlOpening.Width = Math.Sqrt(sapRoof.Openings[i].Area).ToString();
                 xmlOpening.Height = Math.Sqrt(sapRoof.Openings[i].Area).ToString();
                 xmlOpenings.Add(xmlOpening);
@@ -70,6 +70,44 @@ namespace BH.Engine.Environment.SAP
 
                 case BH.oM.Environment.SAP.TypeOfRoof.PartyCieling:
                     return "4";
+
+                default:
+                    return "";
+            }
+        }
+        private static string FromSAPToXMLNumber(this BH.oM.Environment.SAP.OrientationCode orientationCode)
+        {
+            switch (orientationCode)
+            {
+                case BH.oM.Environment.SAP.OrientationCode.unknown:
+                    return "0";
+
+                case BH.oM.Environment.SAP.OrientationCode.North:
+                    return "1";
+
+                case BH.oM.Environment.SAP.OrientationCode.NorthEast:
+                    return "2";
+
+                case BH.oM.Environment.SAP.OrientationCode.East:
+                    return "3";
+
+                case BH.oM.Environment.SAP.OrientationCode.SouthEast:
+                    return "4";
+
+                case BH.oM.Environment.SAP.OrientationCode.South:
+                    return "5";
+
+                case BH.oM.Environment.SAP.OrientationCode.SouthWest:
+                    return "6";
+
+                case BH.oM.Environment.SAP.OrientationCode.West:
+                    return "7";
+
+                case BH.oM.Environment.SAP.OrientationCode.NorthWest:
+                    return "8";
+
+                case BH.oM.Environment.SAP.OrientationCode.Horizontal:
+                    return "9";
 
                 default:
                     return "";
