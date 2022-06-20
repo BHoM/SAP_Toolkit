@@ -65,36 +65,37 @@ namespace BH.Engine.Environment.SAP
                         openingTypes.OpeningType.AddRange(opening[u].OpeningType.ToXML().OpeningType); //method to only keep unique ones
                     }
 
-                    xmlBuildingPart.Openings = new List<oM.Environment.SAP.XML.Opening>();
+                    xmlBuildingPart.Openings = new oM.Environment.SAP.XML.Openings();
                     for (int v = 0; v < sapBuildingPart[i].Roofs.Count; v++)
                     {
-                        xmlBuildingPart.Openings.AddRange(outputRoof[v].Item2);
+                        xmlBuildingPart.Openings.Opening.AddRange(outputRoof[v].Item2);
                     }
                     for (int v = 0; v < sapBuildingPart[i].Walls.Count; v++)
                     {
-                        xmlBuildingPart.Openings.AddRange(outputWall[v].Item2);
+                        xmlBuildingPart.Openings.Opening.AddRange(outputWall[v].Item2);
                     }
                 }
 
-                List<oM.Environment.SAP.XML.FloorDimension> xmlFloorDimensions = new List<oM.Environment.SAP.XML.FloorDimension>();
-                xmlFloorDimensions.Add(ToXML(sapBuildingPart[i].Floor, sapBuildingPart[i].Storeys));
+                oM.Environment.SAP.XML.FloorDimensions xmlFloorDimensions = new oM.Environment.SAP.XML.FloorDimensions();
+                xmlFloorDimensions.FloorDimension.Add(ToXML(sapBuildingPart[i].Floor, sapBuildingPart[i].Storeys));
                 xmlBuildingPart.Floors = xmlFloorDimensions;
+
+                BH.oM.Environment.SAP.XML.Roofs xmlRoofList = new BH.oM.Environment.SAP.XML.Roofs();
                 for (int u = 0; u < outputRoof.Count; u++)
                 {
                     BH.oM.Environment.SAP.XML.Roof xmlRoof = outputRoof[u].Item1;
-                    List<BH.oM.Environment.SAP.XML.Roof> xmlRoofList = new List<BH.oM.Environment.SAP.XML.Roof>();
-                    xmlRoofList.Add(xmlRoof);
-                    xmlBuildingPart.Roofs = xmlRoofList; 
+                    xmlRoofList.Roof.Add(xmlRoof);
                 }
 
+                xmlBuildingPart.Roofs = xmlRoofList;
+                BH.oM.Environment.SAP.XML.Walls xmlWallList = new oM.Environment.SAP.XML.Walls();
                 for (int u = 0; u < outputWall.Count; u++)
                 {
                     BH.oM.Environment.SAP.XML.Wall xmlWall = outputWall[u].Item1;
-                    List<BH.oM.Environment.SAP.XML.Wall> xmlWallList = new List<BH.oM.Environment.SAP.XML.Wall>();
-                    xmlWallList.Add(xmlWall);
-                    xmlBuildingPart.Walls = xmlWallList;
-                } 
+                    xmlWallList.Wall.Add(xmlWall);
+                }
 
+                xmlBuildingPart.Walls = xmlWallList;
                 xmlBuildingPart.ThermalBridges = sapBuildingPart[i].ThermalBridges.Select(x => x.ToXML()).ToList();
                 xmlBuildingParts.Add(xmlBuildingPart);
             }
