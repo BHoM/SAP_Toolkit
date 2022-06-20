@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
@@ -30,34 +30,11 @@ using System.Xml.Serialization;
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "SAP-Building-Part", IsNullable = false)]
-    public class BuildingPart : IObject
+    [XmlRoot(ElementName = "SAP-Roofs", IsNullable = false)]
+    public class Roofs : IObject
     {
-        [XmlElement("Building-Part-Number")]
-        public virtual string BuildingPartNumber { get; set; } = "1";
+        [XmlElement("SAP-Roof")]
+        public virtual List<Roof> Roof { get; set; } = new List<Roof>();
 
-        [XmlElement("Identifier")]
-        public virtual string Identifier { get; set; } = "Main dwelling";
-
-        [XmlElement("Construction-Year")]
-        public virtual string ConstructionYear { get; set; } = DateTime.Now.Year.ToString();
-
-        [XmlElement("Overshading")]
-        public virtual string Overshading { get; set; } = "2";
-
-        [XmlElement("SAP-Openings")]
-        public virtual Openings Openings { get; set; }
-
-        [XmlElement("SAP-Floor-Dimensions")]
-        public virtual FloorDimensions Floors { get; set; }
-
-        [XmlElement("SAP-Roofs")]
-        public virtual Roofs Roofs { get; set; }
-
-        [XmlElement("SAP-Walls")]
-        public virtual Walls Walls { get; set; }
-
-        [XmlElement("SAP-Thermal-Bridges")]
-        public virtual List<ThermalBridge> ThermalBridges { get; set; }
     }
 }

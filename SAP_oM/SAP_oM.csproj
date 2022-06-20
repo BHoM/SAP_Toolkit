@@ -160,8 +160,11 @@
     <Compile Include="XML\DeselectedImprovements.cs" />
     <Compile Include="XML\EnergySource.cs" />
     <Compile Include="XML\FlatDetails.cs" />
+    <Compile Include="XML\FloorDimensions.cs" />
     <Compile Include="XML\HeatingDeclaredValues.cs" />
+    <Compile Include="XML\Openings.cs" />
     <Compile Include="XML\OpeningTypes.cs" />
+    <Compile Include="XML\Roofs.cs" />
     <Compile Include="XML\SAP2012Data.cs" />
     <Compile Include="XML\SpecialFeature.cs" />
     <Compile Include="XML\SpecialFeatures.cs" />
@@ -189,6 +192,7 @@
     <Compile Include="XML\ThermalBridge.cs" />
     <Compile Include="XML\Ventilation.cs" />
     <Compile Include="XML\Wall.cs" />
+    <Compile Include="XML\Walls.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" Condition="" />
