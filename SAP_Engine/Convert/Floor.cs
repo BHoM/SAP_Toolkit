@@ -44,7 +44,7 @@ namespace BH.Engine.Environment.SAP
                 xmlFloor.Description = "Type-" + sapFloor[i].Type.ToString() + "_Area-" + sapFloor[i].Area.ToString() + "_Uvalue-" + sapFloor[i].uValue;
                 xmlFloor.Type = sapFloor[i].Type.FromSAPToXMLNumber();
                 xmlFloor.HeatLossArea = sapFloor[i].Area.ToString();
-                xmlFloor.uValue = sapFloor[i].uValue;
+                xmlFloor.uValue = sapFloor[i].uValue.ToString();
                 xmlFloor.KappaValue = "80";
             }
 
