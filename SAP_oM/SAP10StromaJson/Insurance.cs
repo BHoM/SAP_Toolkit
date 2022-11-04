@@ -33,21 +33,21 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Insurance : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
         public virtual object Insurer { get; set; } = null;
 
         [Description("")]
-        public virtual object PolicyNo { get; set; } = null;
+        public virtual object PolicyNumber { get; set; } = null;
 
         [Description("")]
-        public virtual object PLLimit { get; set; } = null;
+        public virtual object PublicLiabilityInsuranceLimit { get; set; } = null;
 
         [Description("")]
         public virtual object StartDate { get; set; } = null;
 
         [Description("")]
-        public virtual object Enddate { get; set; } = null;
+        public virtual object EndDate { get; set; } = null;
     }
 }

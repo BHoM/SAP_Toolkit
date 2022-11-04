@@ -32,10 +32,10 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Dimension : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
-        public virtual string Guid { get; set; } = null;
+        public virtual string GUID { get; set; } = null;
 
         [Description("")]
         public virtual bool Basement { get; set; } = false;

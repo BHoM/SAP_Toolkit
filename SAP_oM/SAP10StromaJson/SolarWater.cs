@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class SolarWater : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
         public virtual bool Include { get; set; } = false;
@@ -48,10 +48,10 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual double SolarZero { get; set; } = 0;
 
         [Description("")]
-        public virtual double SolarHLoss { get; set; } = 0;
+        public virtual double SolarHeatLoss { get; set; } = 0;
 
         [Description("")]
-        public virtual double SolarHLoss2 { get; set; } = 0;
+        public virtual double SolarHeatLoss2 { get; set; } = 0;
 
         [Description("")]
         public virtual double SolarArea { get; set; } = 0;
@@ -84,16 +84,16 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int ShowerType { get; set; } = 0;
 
         [Description("")]
-        public virtual double NloopDeclared { get; set; } = 0;
+        public virtual double LoopEfficiencyDeclared { get; set; } = 0;
 
         [Description("")]
         public virtual double Nloop { get; set; } = 0;
 
         [Description("")]
-        public virtual double Khem { get; set; } = 0;
+        public virtual double IncidenceAngleModifier { get; set; } = 0;
 
         [Description("")]
-        public virtual double HlSystem { get; set; } = 0;
+        public virtual double SystemHeatLoss { get; set; } = 0;
 
         [Description("")]
         public virtual int ServiceProvision { get; set; } = 0;

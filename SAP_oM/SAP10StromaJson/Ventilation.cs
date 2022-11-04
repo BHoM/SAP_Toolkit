@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Ventilation : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
         public virtual int ChimneysMain { get; set; } = 0;
@@ -111,7 +111,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual double Shelter { get; set; } = 0;
 
         [Description("")]
-        public virtual int MechVent { get; set; } = 0;
+        public virtual int MechanicalVentilation { get; set; } = 0;
 
         [Description("")]
         public virtual int Parameters { get; set; } = 0;
@@ -129,7 +129,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int SystemPosition { get; set; } = 0;
 
         [Description("")]
-        public virtual int ProductId { get; set; } = 0;
+        public virtual int ProductID { get; set; } = 0;
 
         [Description("")]
         public virtual bool ApprovedScheme { get; set; } = false;
@@ -138,7 +138,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual bool MeasuredInstallation { get; set; } = false;
 
         [Description("")]
-        public virtual double MeasuredSfp { get; set; } = 0;
+        public virtual double MeasuredSpecificFanPower { get; set; } = 0;
 
         [Description("")]
         public virtual DeCentralised DeCentralised { get; set; } = null;
@@ -165,7 +165,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual DateTime DateAir { get; set; } = DateTime.Now;   
 
         [Description("")]
-        public virtual bool AveragePerm { get; set; } = false;
+        public virtual bool AverageAirPermeability { get; set; } = false;
 
         [Description("")]
         public virtual int ConstructType { get; set; } = 0;

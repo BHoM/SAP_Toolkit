@@ -32,7 +32,7 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Elements : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; }
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
         public virtual List<object> Fabric { get; set; } = null;

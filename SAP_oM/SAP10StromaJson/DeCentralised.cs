@@ -32,42 +32,42 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class DeCentralised : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
-        public virtual double KspF1 { get; set; } = 0;
+        public virtual double KitchenFanPower1 { get; set; } = 0;
 
         [Description("")]
-        public virtual double KspF2 { get; set; } = 0;
+        public virtual double KitchenFanPower2 { get; set; } = 0;
 
         [Description("")]
-        public virtual double KspF3 { get; set; } = 0;
+        public virtual double KitchenFanPower3 { get; set; } = 0;
 
         [Description("")]
-        public virtual double OspF1 { get; set; } = 0;
+        public virtual double OtherRoomFanPower1 { get; set; } = 0;
 
         [Description("")]
-        public virtual double OspF2 { get; set; } = 0;
+        public virtual double OtherRoomFanPower2 { get; set; } = 0;
 
         [Description("")]
-        public virtual double OspF3 { get; set; } = 0;
+        public virtual double OtherRoomFanPower3 { get; set; } = 0;
 
         [Description("")]
-        public virtual double Ktp1 { get; set; } = 0;
+        public virtual double KitchenNumberOfFans1 { get; set; } = 0;
 
         [Description("")]
-        public virtual double Ktp2 { get; set; } = 0;
+        public virtual double KitchenNumberOfFans2 { get; set; } = 0;
 
         [Description("")]
-        public virtual double Ktp3 { get; set; } = 0;
+        public virtual double KitchenNumberOfFans3 { get; set; } = 0;
 
         [Description("")]
-        public virtual double Otp1 { get; set; } = 0;
+        public virtual double OtherRoomNumberOfFans1 { get; set; } = 0;
 
         [Description("")]
-        public virtual double Otp2 { get; set; } = 0;
+        public virtual double OtherRoomNumberOfFans2 { get; set; } = 0;
 
         [Description("")]
-        public virtual double Otp3 { get; set; } = 0;
+        public virtual double OtherRoomNumberOfFans3 { get; set; } = 0;
     }
 }

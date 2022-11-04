@@ -32,42 +32,42 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class MonthlyValues : BHoMObject
     {
         [Description("")]
-        public virtual double M01 { get; set; } = 0;
+        public virtual double Month01 { get; set; } = 0;
 
         [Description("")]
-        public virtual double M02 { get; set; } = 0;
+        public virtual double Month02 { get; set; } = 0;
 
         [Description("")]
-        public virtual double M03 { get; set; } = 0;
+        public virtual double Month03 { get; set; } = 0;
 
         [Description("")]
-        public virtual double M04 { get; set; } = 0;
+        public virtual double Month04 { get; set; } = 0;
 
         [Description("")]
-        public virtual double M05 { get; set; } = 0;
+        public virtual double Month05 { get; set; } = 0;
 
         [Description("")]
-        public virtual double M06 { get; set; } = 0;
+        public virtual double Month06 { get; set; } = 0;
 
         [Description("")]
-        public virtual double M07 { get; set; } = 0;
+        public virtual double Month07 { get; set; } = 0;
 
         [Description("")]
-        public virtual double M08 { get; set; } = 0;
+        public virtual double Month08 { get; set; } = 0;
 
         [Description("")]
-        public virtual double M09 { get; set; } = 0;
+        public virtual double Month09 { get; set; } = 0;
 
         [Description("")]
-        public virtual double M10 { get; set; } = 0;
+        public virtual double Month10 { get; set; } = 0;
 
         [Description("")]
-        public virtual double M11 { get; set; } = 0;
+        public virtual double Month11 { get; set; } = 0;
 
         [Description("")]
-        public virtual double M12 { get; set; } = 0;
+        public virtual double Month12 { get; set; } = 0;
 
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
     }
 }

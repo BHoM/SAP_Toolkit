@@ -144,7 +144,7 @@
     <Compile Include="SAP10StromaJson\ExternalJunction.cs" />
     <Compile Include="SAP10StromaJson\Floor.cs" />
     <Compile Include="SAP10StromaJson\FlueGasHeatRecovery.cs" />
-    <Compile Include="SAP10StromaJson\HpOnly.cs" />
+    <Compile Include="SAP10StromaJson\HeatPumpOnly.cs" />
     <Compile Include="SAP10StromaJson\HydroGeneration.cs" />
     <Compile Include="SAP10StromaJson\ICeiling.cs" />
     <Compile Include="SAP10StromaJson\IFloor.cs" />

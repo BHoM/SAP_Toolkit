@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class PrimaryHeating2 : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
         public virtual bool Include { get; set; } = false;
@@ -45,7 +45,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int HeatingCategory { get; set; } = 0;
 
         [Description("")]
-        public virtual object SGroup { get; set; } = null;
+        public virtual object SubHeatingGroup { get; set; } = null;
 
         [Description("")]
         public virtual int SubHeatingCategory { get; set; } = 0;
@@ -54,16 +54,16 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int Source { get; set; } = 0;
 
         [Description("")]
-        public virtual int SapTableCode { get; set; } = 0;
+        public virtual int SAPTableCode { get; set; } = 0;
 
         [Description("")]
-        public virtual string Sedbuk { get; set; } = null;
+        public virtual string SeasonalEfficiencyOfDomesticBoilersUK { get; set; } = null;
 
         [Description("")]
         public virtual double Efficiency { get; set; } = 0;
 
         [Description("")]
-        public virtual bool Ter { get; set; } = false;
+        public virtual bool TER { get; set; } = false;
 
         [Description("")]
         public virtual double WinterEfficiency { get; set; } = 0;
@@ -84,7 +84,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int Fuel { get; set; } = 0;
 
         [Description("")]
-        public virtual bool IsHetas { get; set; } = false;
+        public virtual bool HeatingEquipmentTestingAndApprovalsScheme { get; set; } = false;
 
         [Description("")]
         public virtual Boiler Boiler { get; set; } = null;
@@ -105,10 +105,10 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int FuelBurningType { get; set; } = 0;
 
         [Description("")]
-        public virtual bool Sedbuk2005 { get; set; } = false;
+        public virtual bool SeasonalEfficiencyOfDomesticBoilersUK2005 { get; set; } = false;
 
         [Description("")]
-        public virtual bool Sedbuk2009 { get; set; } = false;
+        public virtual bool SeasonalEfficiencyOfDomesticBoilersUK2009 { get; set; } = false;
 
         [Description("")]
         public virtual bool WinterSummer { get; set; } = false;
@@ -123,7 +123,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual ComplianceHeatingDetails ComplianceHeatingDetails { get; set; } = null;
 
         [Description("")]
-        public virtual HpOnly HpOnly { get; set; } = null;
+        public virtual HeatPumpOnly HeatPumpOnly { get; set; } = null;
 
         [Description("")]
         public virtual List<object> StorageHeaters { get; set; } = null;

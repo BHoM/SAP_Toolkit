@@ -32,19 +32,19 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Boiler : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
         public virtual bool InHeatedSpace { get; set; } = false;
 
         [Description("")]
-        public virtual bool FlowTempKnown { get; set; } = false ;
+        public virtual bool FlowTemperatureKnown { get; set; } = false ;
 
         [Description("")]
-        public virtual double FlowTemp { get; set; } = 0;
+        public virtual double FlowTemperature { get; set; } = 0;
 
         [Description("")]
-        public virtual int EmitterTemp { get; set; } = 0;
+        public virtual int EmitterTemperature { get; set; } = 0;
 
         [Description("")]
         public virtual int PumpAge { get; set; } = 0;
@@ -62,10 +62,10 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual bool FanFlued { get; set; } = false;
 
         [Description("")]
-        public virtual bool PumpHp { get; set; } = false;
+        public virtual bool PumpHeatPump { get; set; } = false;
 
         [Description("")]
-        public virtual bool BiLock { get; set; } = false;
+        public virtual bool BoilerInterlock { get; set; } = false;
 
         [Description("")]
         public virtual bool LoadWeather { get; set; } = false;
@@ -83,9 +83,9 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int KeepHotFuel { get; set; } = 0;
 
         [Description("")]
-        public virtual int CondensingBoilerDistributionTemp { get; set; } = 0;
+        public virtual int CondensingBoilerDistributionTemperature { get; set; } = 0;
 
         [Description("")]
-        public virtual int HeatPumpDistributionTemp { get; set; } = 0;
+        public virtual int HeatPumpDistributionTemperature { get; set; } = 0;
     }
 }

@@ -29,16 +29,16 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP.Stroma10
 {
     [Description("")]
-    public class HpOnly : BHoMObject
+    public class HeatPumpOnly : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
-        public virtual bool HotWaterOnlyHp { get; set; } = false;
+        public virtual bool HotWaterOnlyHeatPump { get; set; } = false;
 
         [Description("")]
-        public virtual bool HotWaterHpIntegral { get; set; } = false;
+        public virtual bool HotWaterHeatPumpIntegral { get; set; } = false;
 
         [Description("")]
         public virtual int Volume { get; set; } = 0;
@@ -47,12 +47,12 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual double DeclaredValue { get; set; } = 0;
 
         [Description("")]
-        public virtual bool ManuSpecified { get; set; } = false;
+        public virtual bool ManufacturerSpecified { get; set; } = false;
 
         [Description("")]
-        public virtual double SummerEff { get; set; } = 0;
+        public virtual double SummerEfficiency { get; set; } = 0;
 
         [Description("")]
-        public virtual double WinterEff { get; set; } = 0;
+        public virtual double WinterEfficiency { get; set; } = 0;
     }
 }

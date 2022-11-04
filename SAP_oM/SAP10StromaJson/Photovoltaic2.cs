@@ -33,19 +33,19 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Photovoltaic2 : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
-        public virtual double PPower { get; set; } = 0;
+        public virtual double PanelPower { get; set; } = 0;
 
         [Description("")]
-        public virtual int PvTilt { get; set; } = 0;
+        public virtual int PhotovoltaicTilt { get; set; } = 0;
 
         [Description("")]
-        public virtual int PvOrientation { get; set; } = 0;
+        public virtual int PhotovoltaicOrientation { get; set; } = 0;
 
         [Description("")]
-        public virtual int PvOvershading { get; set; } = 0;
+        public virtual int PhotovoltaicOvershading { get; set; } = 0;
 
         [Description("")]
         public virtual bool DirectlyConnected { get; set; } = false;

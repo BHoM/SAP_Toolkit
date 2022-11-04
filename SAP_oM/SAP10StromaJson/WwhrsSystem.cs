@@ -30,13 +30,13 @@ using BH.oM.Environment.SAP.Stroma10;
 namespace BH.oM.Environment.SAP.Stroma10
 {
     [Description("")]
-    public class WwhrsSystem : BHoMObject
+    public class WasteWaterHeatRecoverySystem : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
-        public virtual object SystemRef { get; set; } = null;
+        public virtual object SystemReference { get; set; } = null;
 
         [Description("")]
         public virtual double DedicatedStorage { get; set; } = 0;

@@ -33,13 +33,13 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class RoofJunction : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
-        public virtual string Guid { get; set; } = null;
+        public virtual string GUID { get; set; } = null;
 
         [Description("")]
-        public virtual string Ref { get; set; } = null;
+        public virtual string Reference { get; set; } = null;
 
         [Description("")]
         public virtual string JunctionDetail { get; set; } = null;
@@ -66,7 +66,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual object Notes { get; set; } = null;
 
         [Description("")]
-        public virtual bool RowIdCreated { get; set; } = false;
+        public virtual bool RowIDCreated { get; set; } = false;
 
         [Description("")]
         public virtual bool ImportLenght { get; set; } = false;

@@ -32,13 +32,13 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class CommunityWater : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
         public virtual bool CylinderInDwelling { get; set; } = false;
 
         [Description("")]
-        public virtual double ChpRatio { get; set; } = 0;
+        public virtual double CHPRatio { get; set; } = 0;
 
         [Description("")]
         public virtual bool KnownLossFactor { get; set; } = false ;
@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual double LossFactor { get; set; } = 0;
 
         [Description("")]
-        public virtual double ChpPowerEff { get; set; } = 0;
+        public virtual double CHPPowerEff { get; set; } = 0;
 
         [Description("")]
         public virtual int HeatDistributionSystem { get; set; } = 0;
@@ -68,13 +68,13 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual bool ChargingLinkedToHeatUse { get; set; } = false;
 
         [Description("")]
-        public virtual int NoOfAdditionalHeatSources { get; set; } = 0;
+        public virtual int NumberOfAdditionalHeatSources { get; set; } = 0;
 
         [Description("")]
         public virtual bool FromDatabase { get; set; } = false;
 
         [Description("")]
-        public virtual object SystemRef { get; set; } = null;
+        public virtual object SystemReference { get; set; } = null;
 
         [Description("")]
         public virtual object SubNetworkName { get; set; } = null;
@@ -83,7 +83,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual bool HeatNetworkExisting { get; set; } = false;
 
         [Description("")]
-        public virtual int ChpElectricityGeneration { get; set; } = 0;
+        public virtual int CHPElectricityGeneration { get; set; } = 0;
 
         [Description("")]
         public virtual List<object> HeatSources { get; set; } = null;

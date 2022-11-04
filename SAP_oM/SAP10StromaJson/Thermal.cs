@@ -33,13 +33,13 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Thermal : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
-        public virtual string Guid { get; set; } = null;
+        public virtual string GUID { get; set; } = null;
 
         [Description("")]
-        public virtual bool ManualHtb { get; set; } = false;
+        public virtual bool ManualThermalBridgingCalcuation { get; set; } = false;
 
         [Description("")]
         public virtual double HtbValue { get; set; } = 0;
@@ -48,7 +48,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual object ConstDetails { get; set; } = null;
 
         [Description("")]
-        public virtual bool ManualY { get; set; } = false;
+        public virtual bool ManualThermalBridgingYvalue { get; set; } = false;
 
         [Description("")]
         public virtual double YValue { get; set; } = 0;

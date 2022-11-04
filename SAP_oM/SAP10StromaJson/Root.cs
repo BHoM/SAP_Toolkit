@@ -33,10 +33,10 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Root : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
-        public virtual string Guid { get; set; } = null;
+        public virtual string GUID { get; set; } = null;
 
         [Description("")]
         public virtual DateTime DateTimeCreated { get; set; } = DateTime.Now;
@@ -45,7 +45,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual DateTime DateTimeSaved { get; set; } = DateTime.Now;
 
         [Description("")]
-        public virtual int UserId { get; set; } = 0;
+        public virtual int UserID { get; set; } = 0;
 
         [Description("")]
         public virtual string Reference { get; set; } = null;

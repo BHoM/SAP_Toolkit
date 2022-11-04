@@ -32,7 +32,7 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Address : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
         public virtual string AddressLine1 { get; set; } = null;
@@ -50,7 +50,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual string Postcode { get; set; } = null;
 
         [Description("")]
-        public virtual string Uprn { get; set; } = null;
+        public virtual string UniquePropertyReferenceNumber  { get; set; } = null;
 
         [Description("")]
         public virtual string Country { get; set; } = null;

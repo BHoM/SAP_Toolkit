@@ -17,7 +17,7 @@
  * GNU Lesser General Public License for more details.                          
  *                                                                            
  * You should have received a copy of the GNU Lesser General Public License     
- * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
+ * along with this code. Interiorf not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
 using System;
@@ -29,13 +29,13 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP.Stroma10
 {
     [Description("")]
-    public class IFloor : BHoMObject
+    public class InteriorFloor : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
-        public virtual string Guid { get; set; } = null;
+        public virtual string GUID { get; set; } = null;
 
         [Description("")]
         public virtual int Type { get; set; } = 0;
@@ -53,28 +53,28 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual double UValue { get; set; } = 0;
 
         [Description("")]
-        public virtual double Ru { get; set; } = 0;
+        public virtual double ResultantUValue { get; set; } = 0;
 
         [Description("")]
         public virtual bool Curtain { get; set; } = false;
 
         [Description("")]
-        public virtual bool OverRideK { get; set; } = false;
+        public virtual bool ManualInputKappa { get; set; } = false;
 
         [Description("")]
-        public virtual double K { get; set; } = 0;
+        public virtual double Kappa { get; set; } = 0;
 
         [Description("")]
         public virtual List<object> Dims { get; set; } = null;
 
         [Description("")]
-        public virtual int UValueSelectionId { get; set; } = 0;
+        public virtual int UValueSelectionID { get; set; } = 0;
 
         [Description("")]
         public virtual bool UValueSelected { get; set; } = false;
 
         [Description("")]
-        public virtual object EpcDescription { get; set; } = null;
+        public virtual object EnergyPerformanceCertificateDescription { get; set; } = null;
 
         [Description("")]
         public virtual object LoftInsulation { get; set; } = null;
