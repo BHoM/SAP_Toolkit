@@ -30,16 +30,16 @@ using BH.oM.Environment.SAP.Stroma10;
 namespace BH.oM.Environment.SAP.Stroma10
 {
     [Description("")]
-    public class Wwhrs : BHoMObject
+    public class WasteWaterHeatRecovery : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
         public virtual bool Include { get; set; } = false;
 
         [Description("")]
-        public virtual bool IsTer { get; set; } = false;
+        public virtual bool IsTER { get; set; } = false;
 
         [Description("")]
         public virtual int TotalRooms { get; set; } = 0;
@@ -57,6 +57,6 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual bool IsStorage { get; set; } = false;
 
         [Description("")]
-        public virtual List<WwhrsSystem> WwhrsSystems { get; set; } = null;
+        public virtual List<WasteWaterHeatRecoverySystem> WasteWaterHeatRecoverySystems { get; set; } = null;
     }
 }

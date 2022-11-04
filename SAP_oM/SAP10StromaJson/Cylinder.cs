@@ -32,13 +32,13 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Cylinder : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
         public virtual double Volume { get; set; } = 0;
 
         [Description("")]
-        public virtual bool ManuSpecified { get; set; } = false;
+        public virtual bool ManufacturerSpecified { get; set; } = false;
 
         [Description("")]
         public virtual double DeclaredLoss { get; set; } = 0;
@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int Insulation { get; set; } = 0;
 
         [Description("")]
-        public virtual double InsThick { get; set; } = 0;
+        public virtual double InsulationThick { get; set; } = 0;
 
         [Description("")]
         public virtual bool InHeatedSpace { get; set; } = false;
@@ -71,10 +71,10 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int Immersion { get; set; } = 0;
 
         [Description("")]
-        public virtual bool HpImmersion { get; set; } = false;
+        public virtual bool ImmersionHeater { get; set; } = false;
 
         [Description("")]
-        public virtual double HpExchanger { get; set; } = 0;
+        public virtual double HeatPumpExchanger { get; set; } = 0;
 
         [Description("")]
         public virtual object Manufacturer { get; set; } = null;

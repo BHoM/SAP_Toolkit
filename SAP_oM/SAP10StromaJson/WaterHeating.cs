@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class WaterHeating : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
         public virtual SolarWater SolarWater { get; set; } = null;
@@ -48,7 +48,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual Cylinder Cylinder { get; set; } = null;
 
         [Description("")]
-        public virtual double CpsuTemp { get; set; } = 0;
+        public virtual double CombinedPrimaryStorageUnitTemperature { get; set; } = 0;
 
         [Description("")]
         public virtual CommunityWater CommunityWater { get; set; } = null;
@@ -60,7 +60,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int CombiType { get; set; } = 0;
 
         [Description("")]
-        public virtual Wwhrs Wwhrs { get; set; } = null;
+        public virtual WasteWaterHeatRecovery WasteWaterHeatRecovery { get; set; } = null;
 
         [Description("")]
         public virtual FlueGasHeatRecovery FlueGasHeatRecovery { get; set; } = null;

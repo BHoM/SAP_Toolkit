@@ -33,10 +33,10 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class DwellingVersion : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
-        public virtual object RRN { get; set; } = null;
+        public virtual object ReportReferenceNumber { get; set; } = null;
 
         [Description("")]
         public virtual string Reference { get; set; } = null;
@@ -45,7 +45,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual Address Address { get; set; } = null;
 
         [Description("")]
-        public virtual string Guid { get; set; } = null;
+        public virtual string GUID { get; set; } = null;
 
         [Description("")]
         public virtual bool Selected { get; set; } = false;
@@ -84,22 +84,22 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual List<Roof> Roofs { get; set; } = null;
 
         [Description("")]
-        public virtual List<object> PFloors { get; set; } = null;
+        public virtual List<object> PartyFloors { get; set; } = null;
 
         [Description("")]
-        public virtual List<object> PWalls { get; set; } = null;
+        public virtual List<object> PartyWalls { get; set; } = null;
 
         [Description("")]
-        public virtual List<object> PCeilings { get; set; } = null;
+        public virtual List<object> PartyCeilings { get; set; } = null;
 
         [Description("")]
-        public virtual List<IFloor> IFloors { get; set; } = null;
+        public virtual List<InteriorFloor> InteriorFloors { get; set; } = null;
 
         [Description("")]
-        public virtual List<object> IWalls { get; set; } = null;
+        public virtual List<object> InteriorWalls { get; set; } = null;
 
         [Description("")]
-        public virtual List<ICeiling> ICeilings { get; set; } = null;
+        public virtual List<InteriorCeiling> InteriorCeilings { get; set; } = null;
 
         [Description("")]
         public virtual List<object> Doors { get; set; } = null;
@@ -144,7 +144,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual WaterHeating WaterHeating { get; set; } = null;
 
         [Description("")]
-        public virtual double HeatFractionSec { get; set; } = 0;
+        public virtual double SecondaryHeatingFraction { get; set; } = 0;
 
         [Description("")]
         public virtual int HeatSystemInteraction { get; set; } = 0;

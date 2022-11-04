@@ -32,7 +32,7 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class CoolingSystem : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
         public virtual bool Include { get; set; } = false;
@@ -53,10 +53,10 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual double CooledArea { get; set; } = 0;
 
         [Description("")]
-        public virtual bool EerMeasuredInclude { get; set; } = false;
+        public virtual bool EERMeasuredInclude { get; set; } = false;
 
         [Description("")]
-        public virtual double Eer { get; set; } = 0;
+        public virtual double EER { get; set; } = 0;
 
         [Description("")]
         public virtual string Description { get; set; } = null;

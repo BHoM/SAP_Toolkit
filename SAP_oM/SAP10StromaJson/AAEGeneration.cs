@@ -29,16 +29,16 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP.Stroma10
 {
     [Description("")]
-    public class AAEGeneration : BHoMObject
+    public class AdditionalGeneration : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
         public virtual bool Include { get; set; } = false;
 
         [Description("")]
-        public virtual double EGenerated { get; set; } = 0;
+        public virtual double EnergyGenerated { get; set; } = 0;
 
         [Description("")]
         public virtual double TotalArea { get; set; } = 0;

@@ -32,7 +32,7 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class CommunityHeating : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
         public virtual double Boiler1Efficiency { get; set; } = 0;
@@ -50,28 +50,28 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual List<object> HeatSources { get; set; } = null;
 
         [Description("")]
-        public int NoOfAdditionalHeatSources { get; set; } = 0;
+        public int NumberOfAdditionalHeatSources { get; set; } = 0;
 
         [Description("")]
-        public bool Boiler2Chp { get; set; } = false;
+        public bool Boiler2CHP { get; set; } = false;
 
         [Description("")]
-        public double Boiler2ChpEfficiency { get; set; } = 0;
+        public double Boiler2CHPEfficiency { get; set; } = 0;
 
         [Description("")]
-        public double ChpHeatFraction { get; set; } = 0;
+        public double CHPHeatFraction { get; set; } = 0;
 
         [Description("")]
-        public double ChpHeatEfficiency { get; set; } = 0;
+        public double CHPHeatEfficiency { get; set; } = 0;
 
         [Description("")]
-        public double ChpElectricalEfficiency { get; set; } = 0;
+        public double CHPElectricalEfficiency { get; set; } = 0;
 
         [Description("")]
         public bool FromDatabase { get; set; } = false;
 
         [Description("")]
-        public int Boiler2ChpFuel { get; set; } = 0;
+        public int Boiler2CHPFuel { get; set; } = 0;
 
         [Description("")]
         public bool KnownLoss { get; set; } = false;
@@ -83,7 +83,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public bool HeatNetworkExisting { get; set; } = false;
 
         [Description("")]
-        public int ChpElectricityGeneration { get; set; } = 0;
+        public int CHPElectricityGeneration { get; set; } = 0;
 
         [Description("")]
         public string CommunityHeatingName { get; set; } = null;

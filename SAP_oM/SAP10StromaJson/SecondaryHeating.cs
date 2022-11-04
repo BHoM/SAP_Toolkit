@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class SecondaryHeating : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
         public virtual bool Include { get; set; } = false;
@@ -42,7 +42,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual bool IsManufacturer { get; set; } = false;
 
         [Description("")]
-        public virtual string SGroup { get; set; } = null;
+        public virtual string SubHeatingGroup { get; set; } = null;
 
         [Description("")]
         public virtual int SubHeatingCategory { get; set; } = 0;
@@ -54,7 +54,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int Fuel { get; set; } = 0;
 
         [Description("")]
-        public virtual bool IsHetas { get; set; } = false;
+        public virtual bool HeatingEquipmentTestingAndApprovalsScheme { get; set; } = false;
 
         [Description("")]
         public virtual double Efficiency { get; set; } = 0;
@@ -63,7 +63,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int SapTableCode { get; set; } = 0;
 
         [Description("")]
-        public virtual string MDescription { get; set; } = null;
+        public virtual string ManufacturerDescription { get; set; } = null;
 
         [Description("")]
         public virtual string TestMethod { get; set; } = null;

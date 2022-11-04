@@ -32,7 +32,7 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class DwellingDetails : BHoMObject
     {
         [Description("")]
-        public virtual int Id { get; set; } = 0;
+        public virtual int ID { get; set; } = -1;
 
         [Description("")]
         public virtual int PropertyType { get; set; } = 0;
@@ -89,7 +89,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual bool SummerOverheating { get; set; } = false;
 
         [Description("")]
-        public virtual bool WaterLess125 { get; set; } = false;
+        public virtual bool WaterUseLessThan125 { get; set; } = false;
 
         [Description("")]
         public virtual DateTime DateOfAssessment { get; set; } = DateTime.Now;
