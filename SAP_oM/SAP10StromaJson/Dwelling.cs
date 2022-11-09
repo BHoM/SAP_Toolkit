@@ -39,7 +39,8 @@ namespace BH.oM.Environment.SAP.Stroma10
 
         [Description("")]
         public virtual bool Selected { get; set; } = false;
-
+        
+        //Correct type?
         [Description("")]
         public virtual string Orientation { get; set; } = null;
 

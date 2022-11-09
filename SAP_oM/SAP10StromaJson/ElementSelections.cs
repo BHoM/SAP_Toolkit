@@ -41,7 +41,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual string VentilationElement { get; set; } = null;
 
         [Description("")]
-        public virtual object HeatingElement { get; set; } = null;
+        public virtual string HeatingElement { get; set; } = null;
 
         [Description("")]
         public virtual string WaterElement { get; set; } = null;

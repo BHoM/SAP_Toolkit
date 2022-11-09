@@ -66,7 +66,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual FlueGasHeatRecovery FlueGasHeatRecovery { get; set; } = null;
 
         [Description("")]
-        public virtual bool DhwVessel { get; set; } = false;
+        public virtual bool DomesticHotWaterVessel { get; set; } = false;
 
         [Description("")]
         public virtual List<object> ShowerUnits { get; set; } = null;

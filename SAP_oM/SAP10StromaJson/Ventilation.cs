@@ -144,7 +144,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual DeCentralised DeCentralised { get; set; } = null;
 
         [Description("")]
-        public virtual MvDetails MvDetails { get; set; } = null;
+        public virtual MechanicalVentilationDetails MechanicalVentilationDetails { get; set; } = null;
 
         [Description("")]
         public virtual int Pressure { get; set; } = 0;

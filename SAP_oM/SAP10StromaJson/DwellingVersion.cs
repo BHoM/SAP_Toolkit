@@ -35,6 +35,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual int ID { get; set; } = -1;
 
+        //Correct Type?
         [Description("")]
         public virtual object ReportReferenceNumber { get; set; } = null;
 
@@ -69,7 +70,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual double LivingAreaFraction { get; set; } = 0;
 
         [Description("")]
-        public virtual double ArTestResult { get; set; } = 0;
+        public virtual double AirTestResult { get; set; } = 0;
 
         [Description("")]
         public virtual bool GrossAreas { get; set; } = false;

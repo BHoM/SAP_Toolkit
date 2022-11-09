@@ -39,15 +39,15 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual Address Address { get; set; } = null;
 
         [Description("")]
-        public virtual object PhoneNumber { get; set; } = null;
+        public virtual string PhoneNumber { get; set; } = null;
 
         [Description("")]
-        public virtual object FaxNumber { get; set; } = null;
+        public virtual string FaxNumber { get; set; } = null;
 
         [Description("")]
-        public virtual object Email { get; set; } = null;
+        public virtual string Email { get; set; } = null;
 
         [Description("")]
-        public virtual object CompanyName { get; set; } = null;
+        public virtual string CompanyName { get; set; } = null;
     }
 }

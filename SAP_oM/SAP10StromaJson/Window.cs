@@ -93,7 +93,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual double FrameFactor { get; set; } = 0;
 
         [Description("")]
-        public virtual double Uvalue { get; set; } = 0;
+        public virtual double UValue { get; set; } = 0;
 
         [Description("")]
         public virtual bool FromXml { get; set; } = false;

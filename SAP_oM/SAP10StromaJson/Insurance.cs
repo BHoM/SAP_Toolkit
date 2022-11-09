@@ -36,18 +36,19 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int ID { get; set; } = -1;
 
         [Description("")]
-        public virtual object Insurer { get; set; } = null;
+        public virtual string Insurer { get; set; } = null;
 
         [Description("")]
-        public virtual object PolicyNumber { get; set; } = null;
+        public virtual string PolicyNumber { get; set; } = null;
+
+        //Not sure if object type is correct
+        [Description("")]
+        public virtual int PublicLiabilityInsuranceLimit { get; set; } = 0;
 
         [Description("")]
-        public virtual object PublicLiabilityInsuranceLimit { get; set; } = null;
+        public virtual DateTime StartDate { get; set; } = DateTime.Now;
 
         [Description("")]
-        public virtual object StartDate { get; set; } = null;
-
-        [Description("")]
-        public virtual object EndDate { get; set; } = null;
+        public virtual DateTime EndDate { get; set; } = DateTime.Now;
     }
 }

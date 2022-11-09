@@ -30,7 +30,7 @@ using BH.oM.Environment.SAP.Stroma10;
 namespace BH.oM.Environment.SAP.Stroma10
 {
     [Description("")]
-    public class MvDetails : BHoMObject
+    public class MechanicalVentilationDetails : BHoMObject
     {
         [Description("")]
         public virtual int ID { get; set; } = -1;

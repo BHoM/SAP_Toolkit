@@ -78,7 +78,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int ControlCode { get; set; } = 0;
 
         [Description("")]
-        public virtual string ControlCodePcdf { get; set; } = null;
+        public virtual string ControlCodeProductCharacteristicsDatabase { get; set; } = null;
 
         [Description("")]
         public virtual int Fuel { get; set; } = 0;
@@ -114,7 +114,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual bool WinterSummer { get; set; } = false;
 
         [Description("")]
-        public virtual bool McsHeatPump { get; set; } = false;
+        public virtual bool MicroCertificationSchemeHeatPump { get; set; } = false;
 
         [Description("")]
         public virtual CommunityHeating CommunityHeating { get; set; } = null;

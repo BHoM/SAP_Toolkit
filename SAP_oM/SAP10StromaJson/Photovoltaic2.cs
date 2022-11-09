@@ -54,7 +54,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int FlatConnection { get; set; } = 0;
 
         [Description("")]
-        public virtual bool McsCert { get; set; } = false;
+        public virtual bool MicroCertificationSchemeCertificate { get; set; } = false;
 
         [Description("")]
         public virtual double OverShadingFactor { get; set; } = 0;
@@ -63,6 +63,6 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual object Manufacturer { get; set; } = null;
 
         [Description("")]
-        public virtual object McsCertificateReference { get; set; } = null ;
+        public virtual object MicroCertificationSchemeCertificateReference { get; set; } = null ;
     }
 }
