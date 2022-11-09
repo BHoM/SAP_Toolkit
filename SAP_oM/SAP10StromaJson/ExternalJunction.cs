@@ -68,7 +68,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual bool RowIDCreated { get; set; } = false;
 
         [Description("")]
-        public virtual bool ImportLenght { get; set; } = false;
+        public virtual bool ImportLength { get; set; } = false;
 
         [Description("")]
         public virtual int Count { get; set; } = 0;

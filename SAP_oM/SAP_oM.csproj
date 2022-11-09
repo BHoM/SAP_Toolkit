@@ -122,7 +122,7 @@
     <Compile Include="PCDBTables\WasteWaterHeatRecoverySystemTable.cs" />
     <Compile Include="MainHeatingDetails.cs" />
     <Compile Include="PropertyDetails.cs" />
-    <Compile Include="SAP10StromaJson\AAEGeneration.cs" />
+    <Compile Include="SAP10StromaJson\AdditionalGeneration.cs" />
     <Compile Include="SAP10StromaJson\Address.cs" />
     <Compile Include="SAP10StromaJson\Assessor.cs" />
     <Compile Include="SAP10StromaJson\Boiler.cs" />
@@ -146,12 +146,12 @@
     <Compile Include="SAP10StromaJson\FlueGasHeatRecovery.cs" />
     <Compile Include="SAP10StromaJson\HeatPumpOnly.cs" />
     <Compile Include="SAP10StromaJson\HydroGeneration.cs" />
-    <Compile Include="SAP10StromaJson\ICeiling.cs" />
-    <Compile Include="SAP10StromaJson\IFloor.cs" />
+    <Compile Include="SAP10StromaJson\InteriorCeiling.cs" />
+    <Compile Include="SAP10StromaJson\InteriorFloor.cs" />
     <Compile Include="SAP10StromaJson\Insurance.cs" />
     <Compile Include="SAP10StromaJson\Light.cs" />
     <Compile Include="SAP10StromaJson\MonthlyValues.cs" />
-    <Compile Include="SAP10StromaJson\MyDetails.cs" />
+    <Compile Include="SAP10StromaJson\MechanicalVentilationDetails.cs" />
     <Compile Include="SAP10StromaJson\Overheating.cs" />
     <Compile Include="SAP10StromaJson\PartyJunction.cs" />
     <Compile Include="SAP10StromaJson\Photovoltaic.cs" />
@@ -172,8 +172,8 @@
     <Compile Include="SAP10StromaJson\WaterHeating.cs" />
     <Compile Include="SAP10StromaJson\Window.cs" />
     <Compile Include="SAP10StromaJson\WindTurbine.cs" />
-    <Compile Include="SAP10StromaJson\Wwhrs.cs" />
-    <Compile Include="SAP10StromaJson\WwhrsSystem.cs" />
+    <Compile Include="SAP10StromaJson\WasteWaterHeatRecovery.cs" />
+    <Compile Include="SAP10StromaJson\WasteWaterHeatRecoverySystem.cs" />
     <Compile Include="SecondaryHeating.cs" />
     <Compile Include="SecondaryHeatingDetails.cs" />
     <Compile Include="SolarPanelDetails.cs" />

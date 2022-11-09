@@ -42,9 +42,9 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual bool Diverter { get; set; } = false;
 
         [Description("")]
-        public virtual double BatterCapacity { get; set; } = 0;
+        public virtual double BatteryCapacity { get; set; } = 0;
 
         [Description("")]
-        public virtual List<Photovoltaic> Photovoltaics { get; set; } = null;
+        public virtual List<Photovoltaic2> Photovoltaic2s { get; set; } = null;
     }
 }

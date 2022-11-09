@@ -36,10 +36,10 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int ID { get; set; } = -1;
 
         [Description("")]
-        public virtual object FirstName { get; set; } = null;
+        public virtual string FirstName { get; set; } = null;
 
         [Description("")]
-        public virtual object LastName { get; set; } = null;
+        public virtual string LastName { get; set; } = null;
 
         [Description("")]
         public virtual Address Address { get; set; } = null;

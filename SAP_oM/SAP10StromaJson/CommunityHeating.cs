@@ -50,45 +50,45 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual List<object> HeatSources { get; set; } = null;
 
         [Description("")]
-        public int NumberOfAdditionalHeatSources { get; set; } = 0;
+        public virtual int NumberOfAdditionalHeatSources { get; set; } = 0;
 
         [Description("")]
-        public bool Boiler2CHP { get; set; } = false;
+        public virtual bool Boiler2CHP { get; set; } = false;
 
         [Description("")]
-        public double Boiler2CHPEfficiency { get; set; } = 0;
+        public virtual double Boiler2CHPEfficiency { get; set; } = 0;
 
         [Description("")]
-        public double CHPHeatFraction { get; set; } = 0;
+        public virtual double CHPHeatFraction { get; set; } = 0;
 
         [Description("")]
-        public double CHPHeatEfficiency { get; set; } = 0;
+        public virtual double CHPHeatEfficiency { get; set; } = 0;
 
         [Description("")]
-        public double CHPElectricalEfficiency { get; set; } = 0;
+        public virtual double CHPElectricalEfficiency { get; set; } = 0;
 
         [Description("")]
-        public bool FromDatabase { get; set; } = false;
+        public virtual bool FromDatabase { get; set; } = false;
 
         [Description("")]
-        public int Boiler2CHPFuel { get; set; } = 0;
+        public virtual int Boiler2CHPFuel { get; set; } = 0;
 
         [Description("")]
-        public bool KnownLoss { get; set; } = false;
+        public virtual bool KnownLoss { get; set; } = false;
 
         [Description("")]
-        public double KnownLossValue { get; set; } = 0;
+        public virtual double KnownLossValue { get; set; } = 0;
 
         [Description("")]
-        public bool HeatNetworkExisting { get; set; } = false;
+        public virtual bool HeatNetworkExisting { get; set; } = false;
 
         [Description("")]
-        public int CHPElectricityGeneration { get; set; } = 0;
+        public virtual int CHPElectricityGeneration { get; set; } = 0;
 
         [Description("")]
-        public string CommunityHeatingName { get; set; } = null;
+        public virtual string CommunityHeatingName { get; set; } = null;
 
         [Description("")]
-        public object SubNetworkName { get; set; } = null;
+        public virtual object SubNetworkName { get; set; } = null;
     }
 }

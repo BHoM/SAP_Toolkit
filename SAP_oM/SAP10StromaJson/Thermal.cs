@@ -42,13 +42,13 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual bool ManualThermalBridgingCalcuation { get; set; } = false;
 
         [Description("")]
-        public virtual double HtbValue { get; set; } = 0;
+        public virtual double ThermalBridgingValue { get; set; } = 0;
+
+        [Description("")] //changed from ConstDetails
+        public virtual object ConstrunctionDetails { get; set; } = null;
 
         [Description("")]
-        public virtual object ConstDetails { get; set; } = null;
-
-        [Description("")]
-        public virtual bool ManualThermalBridgingYvalue { get; set; } = false;
+        public virtual bool ManualThermalBridgingYValue { get; set; } = false;
 
         [Description("")]
         public virtual double YValue { get; set; } = 0;

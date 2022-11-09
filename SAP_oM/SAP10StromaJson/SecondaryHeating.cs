@@ -60,7 +60,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual double Efficiency { get; set; } = 0;
 
         [Description("")]
-        public virtual int SapTableCode { get; set; } = 0;
+        public virtual int SAPTableCode { get; set; } = 0;
 
         [Description("")]
         public virtual string ManufacturerDescription { get; set; } = null;

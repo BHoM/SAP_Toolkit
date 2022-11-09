@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual double LossFactor { get; set; } = 0;
 
         [Description("")]
-        public virtual double CHPPowerEff { get; set; } = 0;
+        public virtual double CHPPowerEfficiency { get; set; } = 0;
 
         [Description("")]
         public virtual int HeatDistributionSystem { get; set; } = 0;

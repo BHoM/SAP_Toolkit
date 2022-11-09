@@ -42,10 +42,10 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int WindTurbineNumber { get; set; } = 0;
 
         [Description("")]
-        public virtual double WrDiameter { get; set; } = 0;
+        public virtual double WindTurbineRotarDiameter { get; set; } = 0;
 
         [Description("")]
-        public virtual double WHeight { get; set; } = 0;
+        public virtual double WindTurbineHeight { get; set; } = 0;
 
         [Description("")]
         public virtual object Certificate { get; set; } = null ;
