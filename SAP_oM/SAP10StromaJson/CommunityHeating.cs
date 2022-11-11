@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual double HeatToPowerRatio { get; set; } = 0;
 
         [Description("")]
-        public virtual List<object> HeatSources { get; set; } = null;
+        public virtual List<HeatSource> HeatSources { get; set; } = null;
 
         [Description("")]
         public virtual int NumberOfAdditionalHeatSources { get; set; } = 0;

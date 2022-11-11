@@ -8,10 +8,13 @@ namespace BH.Engine.Environment.SAP.Stroma10
 {
     public static partial class Convert
     {
-        public static List<BH.oM.Environment.SAP.Stroma10.Photovoltaic2> ToPhotovoltaic2s(CustomObject photovoltaic2sObject)
+        public static List<BH.oM.Environment.SAP.Stroma10.Photovoltaic2> ToPhotovoltaic2s(List<CustomObject> photovoltaic2sObject)
         {
+            if (photovoltaic2sObject == null)
+                return null;
+
             List<BH.oM.Environment.SAP.Stroma10.Photovoltaic2> rtn = new List<BH.oM.Environment.SAP.Stroma10.Photovoltaic2>();
-            foreach (var value in photovoltaic2sObject.CustomData["Photovoltaic2s"] as List<CustomObject>)
+            foreach (var value in photovoltaic2sObject)
             {
                 rtn.Add(ToPhotovoltaic2(value));
             }
@@ -19,31 +22,32 @@ namespace BH.Engine.Environment.SAP.Stroma10
         }
         public static BH.oM.Environment.SAP.Stroma10.Photovoltaic2 ToPhotovoltaic2(CustomObject photovoltaic2Object)
         {
+            if (photovoltaic2Object == null)
+                return null;
+
             BH.oM.Environment.SAP.Stroma10.Photovoltaic2 sapPhotovoltaic2 = new BH.oM.Environment.SAP.Stroma10.Photovoltaic2();
 
-            sapPhotovoltaic2.ID = System.Convert.ToInt32(photovoltaic2Object.CustomData["ID"]);
+            sapPhotovoltaic2.ID = System.Convert.ToInt32(photovoltaic2Object.CustomData["Id"]);
 
-            sapPhotovoltaic2.PanelPower = System.Convert.ToDouble(photovoltaic2Object.CustomData["PanelPower"]);
+            sapPhotovoltaic2.PanelPower = System.Convert.ToDouble(photovoltaic2Object.CustomData["PPower"]);
 
-            sapPhotovoltaic2.PhotovoltaicTilt = System.Convert.ToInt32(photovoltaic2Object.CustomData["PhotovoltaicTilt"]);
+            sapPhotovoltaic2.PhotovoltaicTilt = System.Convert.ToInt32(photovoltaic2Object.CustomData["PvTilt"]);
 
-            sapPhotovoltaic2.PhotovoltaicOrientation = System.Convert.ToInt32(photovoltaic2Object.CustomData["PhotovoltaicOrientation"]);
+            sapPhotovoltaic2.PhotovoltaicOrientation = System.Convert.ToInt32(photovoltaic2Object.CustomData["PvOrientation"]);
 
-            sapPhotovoltaic2.PhotovoltaicOvershading = System.Convert.ToInt32(photovoltaic2Object.CustomData["PhotovoltaicOvershading"]);
+            sapPhotovoltaic2.PhotovoltaicOvershading = System.Convert.ToInt32(photovoltaic2Object.CustomData["PvOvershading"]);
 
             sapPhotovoltaic2.DirectlyConnected = System.Convert.ToBoolean(photovoltaic2Object.CustomData["DirectlyConnected"]);
 
-
-
             sapPhotovoltaic2.FlatConnection = System.Convert.ToInt32(photovoltaic2Object.CustomData["FlatConnection"]);
 
-            sapPhotovoltaic2.MicroCertificationSchemeCertificate = System.Convert.ToBoolean(photovoltaic2Object.CustomData["MicroCertificationSchemeCertificate"]);
+            sapPhotovoltaic2.MicroCertificationSchemeCertificate = System.Convert.ToBoolean(photovoltaic2Object.CustomData["McsCert"]);
 
             sapPhotovoltaic2.OverShadingFactor = System.Convert.ToDouble(photovoltaic2Object.CustomData["OverShadingFactor"]);
 
-            sapPhotovoltaic2.Manufacturer = (photovoltaic2Object.CustomData["Manufacturer"] as CustomObject);
+            sapPhotovoltaic2.Manufacturer = (photovoltaic2Object.CustomData["Manufacturer"] as string);
 
-            sapPhotovoltaic2.MicroCertificationSchemeCertificateReference = (photovoltaic2Object.CustomData["MicroCertificationSchemeCertificateReference"] as CustomObject);
+            sapPhotovoltaic2.MicroCertificationSchemeCertificateReference = (photovoltaic2Object.CustomData["McsCertificateReference"] as string);
 
 
             return sapPhotovoltaic2;

@@ -11,22 +11,27 @@ namespace BH.Engine.Environment.SAP.Stroma10
     {
         public static BH.oM.Environment.SAP.Stroma10.Boiler ToBoiler(CustomObject boilerObject)
         {
+
+            if (boilerObject == null)
+                return null;
+
+            
             BH.oM.Environment.SAP.Stroma10.Boiler sapBoiler = new BH.oM.Environment.SAP.Stroma10.Boiler();
 
 
-            sapBoiler.ID = System.Convert.ToInt32(boilerObject.CustomData["ID"]);
+            sapBoiler.ID = System.Convert.ToInt32(boilerObject.CustomData["Id"]);
 
             
             sapBoiler.InHeatedSpace = System.Convert.ToBoolean(boilerObject.CustomData["InHeatedSpace"]); 
 
             
-            sapBoiler.FlowTemperatureKnown = System.Convert.ToBoolean(boilerObject.CustomData["FlowTemperatureKnown"]); 
+            sapBoiler.FlowTemperatureKnown = System.Convert.ToBoolean(boilerObject.CustomData["FlowTempKnown"]); 
 
             
-            sapBoiler.FlowTemperature = System.Convert.ToDouble(boilerObject.CustomData["FlowTemperature"]); 
+            sapBoiler.FlowTemperature = System.Convert.ToDouble(boilerObject.CustomData["FlowTemp"]); 
 
             
-            sapBoiler.EmitterTemperature = System.Convert.ToInt32(boilerObject.CustomData["EmitterTemperature"]); 
+            sapBoiler.EmitterTemperature = System.Convert.ToInt32(boilerObject.CustomData["EmitterTemp"]); 
 
             
             sapBoiler.PumpAge = System.Convert.ToInt32(boilerObject.CustomData["PumpAge"]); 
@@ -44,10 +49,10 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapBoiler.FanFlued = System.Convert.ToBoolean(boilerObject.CustomData["FanFlued"]); 
 
             
-            sapBoiler.PumpHeatPump = System.Convert.ToBoolean(boilerObject.CustomData["PumpHeatPump"]); 
+            sapBoiler.PumpHeatPump = System.Convert.ToBoolean(boilerObject.CustomData["PumpHp"]); 
 
             
-            sapBoiler.BoilerInterlock = System.Convert.ToBoolean(boilerObject.CustomData["BoilerInterlock"]); 
+            sapBoiler.BoilerInterlock = System.Convert.ToBoolean(boilerObject.CustomData["BiLock"]); 
 
             
             sapBoiler.LoadWeather = System.Convert.ToBoolean(boilerObject.CustomData["LoadWeather"]); 
@@ -65,10 +70,10 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapBoiler.KeepHotFuel = System.Convert.ToInt32(boilerObject.CustomData["KeepHotFuel"]); 
 
             
-            sapBoiler.CondensingBoilerDistributionTemperature = System.Convert.ToInt32(boilerObject.CustomData["CondensingBoilerDistributionTemperature"]); 
+            sapBoiler.CondensingBoilerDistributionTemperature = System.Convert.ToInt32(boilerObject.CustomData["CondensingBoilerDistributionTemp"]); 
 
             
-            sapBoiler.HeatPumpDistributionTemperature = System.Convert.ToInt32(boilerObject.CustomData["HeatPumpDistributionTemperature"]); 
+            sapBoiler.HeatPumpDistributionTemperature = System.Convert.ToInt32(boilerObject.CustomData["HeatPumpDistributionTemp"]); 
 
 
             return sapBoiler;

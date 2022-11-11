@@ -122,6 +122,17 @@
     <Compile Include="PCDBTables\WasteWaterHeatRecoverySystemTable.cs" />
     <Compile Include="MainHeatingDetails.cs" />
     <Compile Include="PropertyDetails.cs" />
+    <Compile Include="SAP10StromaJson\StorageHeater.cs" />
+    <Compile Include="SAP10StromaJson\SpecialFeature.cs" />
+    <Compile Include="SAP10StromaJson\Water.cs" />
+    <Compile Include="SAP10StromaJson\Heating.cs" />
+    <Compile Include="SAP10StromaJson\InteriorWall.cs" />
+    <Compile Include="SAP10StromaJson\RoofLight.cs" />
+    <Compile Include="SAP10StromaJson\ShowerUnit.cs" />
+    <Compile Include="SAP10StromaJson\PartyWall.cs" />
+    <Compile Include="SAP10StromaJson\PartyFloor.cs" />
+    <Compile Include="SAP10StromaJson\PartyCeiling.cs" />
+    <Compile Include="SAP10StromaJson\HeatSource.cs" />
     <Compile Include="SAP10StromaJson\AdditionalGeneration.cs" />
     <Compile Include="SAP10StromaJson\Address.cs" />
     <Compile Include="SAP10StromaJson\Assessor.cs" />
@@ -142,6 +153,7 @@
     <Compile Include="SAP10StromaJson\Elements.cs" />
     <Compile Include="SAP10StromaJson\ElementSelections.cs" />
     <Compile Include="SAP10StromaJson\ExternalJunction.cs" />
+    <Compile Include="SAP10StromaJson\Fabric.cs" />
     <Compile Include="SAP10StromaJson\Floor.cs" />
     <Compile Include="SAP10StromaJson\FlueGasHeatRecovery.cs" />
     <Compile Include="SAP10StromaJson\HeatPumpOnly.cs" />
@@ -158,6 +170,8 @@
     <Compile Include="SAP10StromaJson\Photovoltaic2.cs" />
     <Compile Include="SAP10StromaJson\PrimaryHeating.cs" />
     <Compile Include="SAP10StromaJson\PrimaryHeating2.cs" />
+    <Compile Include="SAP10StromaJson\Door.cs" />
+    <Compile Include="SAP10StromaJson\A Generic.cs" />
     <Compile Include="SAP10StromaJson\Range.cs" />
     <Compile Include="SAP10StromaJson\Renewable.cs" />
     <Compile Include="SAP10StromaJson\Roof.cs" />
@@ -166,6 +180,7 @@
     <Compile Include="SAP10StromaJson\SecondaryHeating.cs" />
     <Compile Include="SAP10StromaJson\SolarWater.cs" />
     <Compile Include="SAP10StromaJson\Special.cs" />
+    <Compile Include="SAP10StromaJson\Thermal2.cs" />
     <Compile Include="SAP10StromaJson\Thermal.cs" />
     <Compile Include="SAP10StromaJson\Ventilation.cs" />
     <Compile Include="SAP10StromaJson\Wall.cs" />

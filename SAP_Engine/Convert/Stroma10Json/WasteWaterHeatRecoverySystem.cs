@@ -9,10 +9,13 @@ namespace BH.Engine.Environment.SAP.Stroma10
 {
     public static partial class Convert
     {
-        public static List<BH.oM.Environment.SAP.Stroma10.WasteWaterHeatRecoverySystem> ToWasteWaterHeatRecoverySystems(CustomObject wasteWaterHeatRecoverySystemsObject)
+        public static List<BH.oM.Environment.SAP.Stroma10.WasteWaterHeatRecoverySystem> ToWasteWaterHeatRecoverySystems(List<CustomObject> wasteWaterHeatRecoverySystemsObject)
         {
+            if (wasteWaterHeatRecoverySystemsObject == null)
+                return null;
+
             List<WasteWaterHeatRecoverySystem> rtn = new List<WasteWaterHeatRecoverySystem>();
-            foreach (var value in wasteWaterHeatRecoverySystemsObject.CustomData["WasteWaterHeatRecoverySystems"] as List<CustomObject>)
+            foreach (var value in wasteWaterHeatRecoverySystemsObject)
             {
                 rtn.Add(ToWasteWaterHeatRecoverySystem(value));
             }
@@ -23,11 +26,15 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
         public static BH.oM.Environment.SAP.Stroma10.WasteWaterHeatRecoverySystem ToWasteWaterHeatRecoverySystem(CustomObject wasteWaterHeatRecoverySystemObject)
         {
+
+            if (wasteWaterHeatRecoverySystemObject == null)
+                return null;
+
             BH.oM.Environment.SAP.Stroma10.WasteWaterHeatRecoverySystem sapWasteWaterHeatRecoverySystem = new BH.oM.Environment.SAP.Stroma10.WasteWaterHeatRecoverySystem();
 
-            sapWasteWaterHeatRecoverySystem.ID = System.Convert.ToInt32(wasteWaterHeatRecoverySystemObject.CustomData["ID"]);
+            sapWasteWaterHeatRecoverySystem.ID = System.Convert.ToInt32(wasteWaterHeatRecoverySystemObject.CustomData["Id"]);
 
-            sapWasteWaterHeatRecoverySystem.SystemReference = (wasteWaterHeatRecoverySystemObject.CustomData["SystemReference"] as CustomObject);
+            sapWasteWaterHeatRecoverySystem.SystemReference = (wasteWaterHeatRecoverySystemObject.CustomData["SystemRef"] as string);
 
             sapWasteWaterHeatRecoverySystem.DedicatedStorage = System.Convert.ToDouble(wasteWaterHeatRecoverySystemObject.CustomData["DedicatedStorage"]);
 

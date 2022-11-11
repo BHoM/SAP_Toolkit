@@ -10,9 +10,12 @@ namespace BH.Engine.Environment.SAP.Stroma10
     {
         public static BH.oM.Environment.SAP.Stroma10.Range ToRange(CustomObject rangeObject)
         {
+            if (rangeObject == null)
+                return null;
+
             BH.oM.Environment.SAP.Stroma10.Range sapRange = new BH.oM.Environment.SAP.Stroma10.Range();
 
-            sapRange.ID = System.Convert.ToInt32(rangeObject.CustomData["ID"]);
+            sapRange.ID = System.Convert.ToInt32(rangeObject.CustomData["Id"]);
 
             sapRange.CaseKw = System.Convert.ToDouble(rangeObject.CustomData["CaseKw"]);
 

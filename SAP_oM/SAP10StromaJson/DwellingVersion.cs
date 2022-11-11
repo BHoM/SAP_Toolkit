@@ -35,9 +35,8 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual int ID { get; set; } = -1;
 
-        //Correct Type?
         [Description("")]
-        public virtual object ReportReferenceNumber { get; set; } = null;
+        public virtual string ReportReferenceNumber { get; set; } = null;
 
         [Description("")]
         public virtual string Reference { get; set; } = null;
@@ -85,31 +84,31 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual List<Roof> Roofs { get; set; } = null;
 
         [Description("")]
-        public virtual List<object> PartyFloors { get; set; } = null;
+        public virtual List<PartyFloor> PartyFloors { get; set; } = null;
 
         [Description("")]
-        public virtual List<object> PartyWalls { get; set; } = null;
+        public virtual List<PartyWall> PartyWalls { get; set; } = null;
 
         [Description("")]
-        public virtual List<object> PartyCeilings { get; set; } = null;
+        public virtual List<PartyCeiling> PartyCeilings { get; set; } = null;
 
         [Description("")]
         public virtual List<InteriorFloor> InteriorFloors { get; set; } = null;
 
         [Description("")]
-        public virtual List<object> InteriorWalls { get; set; } = null;
+        public virtual List<InteriorWall> InteriorWalls { get; set; } = null;
 
         [Description("")]
         public virtual List<InteriorCeiling> InteriorCeilings { get; set; } = null;
 
         [Description("")]
-        public virtual List<object> Doors { get; set; } = null;
+        public virtual List<Door> Doors { get; set; } = null;
 
         [Description("")]
         public virtual List<Window> Windows { get; set; } = null;
 
         [Description("")]
-        public virtual List<object> RoofLights { get; set; } = null;
+        public virtual List<RoofLight> RoofLights { get; set; } = null;
 
         [Description("")]
         public virtual Ventilation Ventilation { get; set; } = null;

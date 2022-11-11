@@ -10,9 +10,13 @@ namespace BH.Engine.Environment.SAP.Stroma10
     {
         public static BH.oM.Environment.SAP.Stroma10.ClientDetails ToClientDetails(CustomObject clientDetailsObject)
         {
+
+            if (clientDetailsObject == null)
+                return null;
+
             BH.oM.Environment.SAP.Stroma10.ClientDetails sapClientDetails = new BH.oM.Environment.SAP.Stroma10.ClientDetails();
 
-            sapClientDetails.ID = System.Convert.ToInt32(clientDetailsObject.CustomData["ID"]);
+            sapClientDetails.ID = System.Convert.ToInt32(clientDetailsObject.CustomData["Id"]);
 
             sapClientDetails.Address = ToAddress(clientDetailsObject.CustomData["Address"] as CustomObject);
 

@@ -39,7 +39,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int ChimneysMain { get; set; } = 0;
 
         [Description("")]
-        public virtual int ChimneysSec { get; set; } = 0;
+        public virtual int ChimneysSecondary { get; set; } = 0;
 
         [Description("")]
         public virtual int ChimneysOther { get; set; } = 0;
@@ -54,7 +54,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int ChimneysClosedFireMain { get; set; } = 0;
 
         [Description("")]
-        public virtual int ChimneysClosedFireSec { get; set; } = 0;
+        public virtual int ChimneysClosedFireSecondary { get; set; } = 0;
 
         [Description("")]
         public virtual int ChimneysClosedFireOther { get; set; } = 0;
@@ -66,7 +66,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int FluesSolidBoilerMain { get; set; } = 0;
 
         [Description("")]
-        public virtual int FluesSolidBoilerSec { get; set; } = 0;
+        public virtual int FluesSolidBoilerSecondary { get; set; } = 0;
 
         [Description("")]
         public virtual int FluesSolidBoilerOther { get; set; } = 0;
@@ -78,7 +78,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int FluesOtherHeaterMain { get; set; } = 0;
 
         [Description("")]
-        public virtual int FluesOtherHeaterSec { get; set; } = 0;
+        public virtual int FluesOtherHeaterSecondary { get; set; } = 0;
 
         [Description("")]
         public virtual int FluesOtherHeaterOther { get; set; } = 0;
@@ -90,7 +90,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int FluesMain { get; set; } = 0;
 
         [Description("")]
-        public virtual int FluesSec { get; set; } = 0;
+        public virtual int FluesSecondary { get; set; } = 0;
 
         [Description("")]
         public virtual int FluesOther { get; set; } = 0;
@@ -123,7 +123,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int DuctType { get; set; } = 0;
 
         [Description("")]
-        public virtual int DuctSpec { get; set; } = 0;
+        public virtual int DuctSpecification { get; set; } = 0;
 
         [Description("")]
         public virtual int SystemPosition { get; set; } = 0;

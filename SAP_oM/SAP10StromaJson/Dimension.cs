@@ -50,7 +50,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual double Height { get; set; } = 0;
 
         [Description("")]
-        public virtual List<object> Dims { get; set; } = null;
+        public virtual List<Dim> Dims { get; set; } = null;
 
         [Description("")]
         public virtual object Type { get; set; } = null;

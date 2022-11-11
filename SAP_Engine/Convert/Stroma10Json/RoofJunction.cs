@@ -9,10 +9,13 @@ namespace BH.Engine.Environment.SAP.Stroma10
 {
     public static partial class Convert
     {
-        public static List<BH.oM.Environment.SAP.Stroma10.RoofJunction> ToRoofJunctions(CustomObject roofJunctionsObject)
+        public static List<BH.oM.Environment.SAP.Stroma10.RoofJunction> ToRoofJunctions(List<CustomObject> roofJunctionsObject)
         {
+            if (roofJunctionsObject == null)
+                return null;
+            
             List<RoofJunction> rtn = new List<RoofJunction>();
-            foreach (var value in roofJunctionsObject.CustomData["RoofJunctions"] as List<CustomObject>)
+            foreach (var value in roofJunctionsObject)
             {
                 rtn.Add(ToRoofJunction(value));
             }
@@ -20,15 +23,18 @@ namespace BH.Engine.Environment.SAP.Stroma10
         }
         public static BH.oM.Environment.SAP.Stroma10.RoofJunction ToRoofJunction(CustomObject roofJunctionObject)
         {
+            if (roofJunctionObject == null)
+                return null;
+
             BH.oM.Environment.SAP.Stroma10.RoofJunction sapRoofJunction = new BH.oM.Environment.SAP.Stroma10.RoofJunction();
 
-            sapRoofJunction.ID = System.Convert.ToInt32(roofJunctionObject.CustomData["ID"]);
+            sapRoofJunction.ID = System.Convert.ToInt32(roofJunctionObject.CustomData["Id"]);
 
 
-            sapRoofJunction.BHoM_Guid = (Guid)roofJunctionObject.CustomData["GUID"];
+            sapRoofJunction.BHoM_Guid = (Guid.Parse(roofJunctionObject.CustomData["Guid"] as string));
 
 
-            sapRoofJunction.Reference = roofJunctionObject.CustomData["Reference"] as string;
+            sapRoofJunction.Reference = roofJunctionObject.CustomData["Ref"] as string;
 
 
             sapRoofJunction.JunctionDetail = roofJunctionObject.CustomData["JunctionDetail"] as string;
@@ -55,10 +61,10 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapRoofJunction.Notes = (roofJunctionObject.CustomData["Notes"] as CustomObject);
 
 
-            sapRoofJunction.RowIDCreated = System.Convert.ToBoolean(roofJunctionObject.CustomData["RowIDCreated"]);
+            sapRoofJunction.RowIDCreated = System.Convert.ToBoolean(roofJunctionObject.CustomData["RowIdCreated"]);
 
 
-            sapRoofJunction.ImportLength = System.Convert.ToBoolean(roofJunctionObject.CustomData["ImportLength"]);
+            sapRoofJunction.ImportLength = System.Convert.ToBoolean(roofJunctionObject.CustomData["ImportLenght"]);//
 
 
             sapRoofJunction.Count = System.Convert.ToInt32(roofJunctionObject.CustomData["Count"]);

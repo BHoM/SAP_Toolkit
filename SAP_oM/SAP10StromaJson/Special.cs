@@ -39,6 +39,6 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual bool Include { get; set; } = false;
 
         [Description("")]
-        public virtual List<object> SpecialFeatures { get; set; } = null;
+        public virtual List<SpecialFeature> SpecialFeatures { get; set; } = null;
     }
 }

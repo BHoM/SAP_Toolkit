@@ -35,21 +35,21 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int ID { get; set; } = -1;
 
         [Description("")]
-        public virtual List<object> Fabric { get; set; } = null;
+        public virtual List<Fabric> Fabrics { get; set; } = null;
 
         [Description("")]
-        public virtual List<object> Heating { get; set; } = null;
+        public virtual List<Heating> Heatings { get; set; } = null; 
 
         [Description("")]
-        public virtual List<object> Water { get; set; } = null;
+        public virtual List<Water> Waters { get; set; } = null;  
 
         [Description("")]
-        public virtual List<object> Ventilation { get; set; } = null;
+        public virtual List<Ventilation> Ventilations { get; set; } = null;
 
         [Description("")]
-        public virtual List<object> Renewable { get; set; } = null;
+        public virtual List<Renewable> Renewables { get; set; } = null;
 
         [Description("")]
-        public virtual List<object> Overheating { get; set; } = null;
+        public virtual List<Overheating> Overheatings { get; set; } = null;
     }
 }

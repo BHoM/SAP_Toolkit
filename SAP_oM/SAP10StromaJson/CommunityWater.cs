@@ -86,10 +86,10 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int CHPElectricityGeneration { get; set; } = 0;
 
         [Description("")]
-        public virtual List<object> HeatSources { get; set; } = null;
+        public virtual List<HeatSource> HeatSources { get; set; } = null;
 
         [Description("")]
-        public virtual object CommunityHeatingName { get; set; } = null;
+        public virtual string CommunityHeatingName { get; set; } = null;
 
 
     }

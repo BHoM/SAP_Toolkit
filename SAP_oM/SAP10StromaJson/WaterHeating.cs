@@ -54,7 +54,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual CommunityWater CommunityWater { get; set; } = null;
 
         [Description("")]
-        public virtual Thermal Thermal { get; set; } = null;
+        public virtual Thermal2 Thermal2 { get; set; } = null;
 
         [Description("")]
         public virtual int CombiType { get; set; } = 0;
@@ -69,13 +69,13 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual bool DomesticHotWaterVessel { get; set; } = false;
 
         [Description("")]
-        public virtual List<object> ShowerUnits { get; set; } = null;
+        public virtual List<ShowerUnit> ShowerUnits { get; set; } = null;
 
         [Description("")]
         public virtual int WaterSource { get; set; } = 0;
 
         [Description("")]
-        public virtual int NoBaths { get; set; } = 0;
+        public virtual int NumberOfBaths { get; set; } = 0;
 
         [Description("")]
         public virtual string ControllerManufacturer { get; set; } = null;

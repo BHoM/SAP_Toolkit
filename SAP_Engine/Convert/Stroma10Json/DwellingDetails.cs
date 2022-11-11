@@ -10,9 +10,12 @@ namespace BH.Engine.Environment.SAP.Stroma10
     {
         public static BH.oM.Environment.SAP.Stroma10.DwellingDetails ToDwellingDetails(CustomObject dwellingDetailsObject)
         {
+            if (dwellingDetailsObject == null)
+                return null;
+
             BH.oM.Environment.SAP.Stroma10.DwellingDetails sapDwellingDetails = new BH.oM.Environment.SAP.Stroma10.DwellingDetails();
 
-            sapDwellingDetails.ID = System.Convert.ToInt32(dwellingDetailsObject.CustomData["ID"]);
+            sapDwellingDetails.ID = System.Convert.ToInt32(dwellingDetailsObject.CustomData["Id"]);
 
             sapDwellingDetails.PropertyType = System.Convert.ToInt32(dwellingDetailsObject.CustomData["PropertyType"]);
 

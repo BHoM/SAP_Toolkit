@@ -10,9 +10,12 @@ namespace BH.Engine.Environment.SAP.Stroma10
     {
         public static BH.oM.Environment.SAP.Stroma10.CoolingSystem ToCoolingSystem(CustomObject coolingSystemObject)
         {
+            if (coolingSystemObject == null)
+                return null;
+
             BH.oM.Environment.SAP.Stroma10.CoolingSystem sapCoolingSystem = new BH.oM.Environment.SAP.Stroma10.CoolingSystem();
 
-            sapCoolingSystem.ID = System.Convert.ToInt32(coolingSystemObject.CustomData["ID"]);
+            sapCoolingSystem.ID = System.Convert.ToInt32(coolingSystemObject.CustomData["Id"]);
 
             sapCoolingSystem.Include = System.Convert.ToBoolean(coolingSystemObject.CustomData["Include"]);
 
@@ -26,9 +29,9 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapCoolingSystem.CooledArea = System.Convert.ToDouble(coolingSystemObject.CustomData["CooledArea"]);
 
-            sapCoolingSystem.EERMeasuredInclude = System.Convert.ToBoolean(coolingSystemObject.CustomData["EERMeasuredInclude"]);
+            sapCoolingSystem.EERMeasuredInclude = System.Convert.ToBoolean(coolingSystemObject.CustomData["EerMeasuredInclude"]);
 
-            sapCoolingSystem.EER = System.Convert.ToDouble(coolingSystemObject.CustomData["EER"]);
+            sapCoolingSystem.EER = System.Convert.ToDouble(coolingSystemObject.CustomData["Eer"]);
 
             sapCoolingSystem.Description = coolingSystemObject.CustomData["Description"] as string;
 

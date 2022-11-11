@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 using BH.oM.Base;
 
@@ -10,15 +11,18 @@ namespace BH.Engine.Environment.SAP.Stroma10
     {
         public static BH.oM.Environment.SAP.Stroma10.WasteWaterHeatRecovery ToWasteWaterHeatRecovery(CustomObject wasteWaterHeatRecoveryObject)
         {
+            if (wasteWaterHeatRecoveryObject == null)
+                return null;
+
             BH.oM.Environment.SAP.Stroma10.WasteWaterHeatRecovery sapWasteWaterHeatRecovery = new BH.oM.Environment.SAP.Stroma10.WasteWaterHeatRecovery();
 
-            sapWasteWaterHeatRecovery.ID = System.Convert.ToInt32(wasteWaterHeatRecoveryObject.CustomData["ID"]);
+            sapWasteWaterHeatRecovery.ID = System.Convert.ToInt32(wasteWaterHeatRecoveryObject.CustomData["Id"]);
 
             sapWasteWaterHeatRecovery.Include = System.Convert.ToBoolean(wasteWaterHeatRecoveryObject.CustomData["Include"]);
 
-            sapWasteWaterHeatRecovery.IsTER = System.Convert.ToBoolean(wasteWaterHeatRecoveryObject.CustomData["IsTER"]);
+            sapWasteWaterHeatRecovery.IsTER = System.Convert.ToBoolean(wasteWaterHeatRecoveryObject.CustomData["IsTer"]);
 
-            sapWasteWaterHeatRecovery.ID = System.Convert.ToInt32(wasteWaterHeatRecoveryObject.CustomData["ID"]);
+            sapWasteWaterHeatRecovery.TotalRooms = System.Convert.ToInt32(wasteWaterHeatRecoveryObject.CustomData["TotalRooms"]);
 
             sapWasteWaterHeatRecovery.Manufacturer = (wasteWaterHeatRecoveryObject.CustomData["Manufacturer"] as CustomObject);
 
@@ -28,7 +32,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapWasteWaterHeatRecovery.IsStorage = System.Convert.ToBoolean(wasteWaterHeatRecoveryObject.CustomData["IsStorage"]);
 
-            sapWasteWaterHeatRecovery.WasteWaterHeatRecoverySystems = ToWasteWaterHeatRecoverySystems(wasteWaterHeatRecoveryObject.CustomData["WasteWaterHeatRecoverySystems"] as CustomObject);
+            sapWasteWaterHeatRecovery.WasteWaterHeatRecoverySystems = ToWasteWaterHeatRecoverySystems((wasteWaterHeatRecoveryObject.CustomData["WwhrsSystems"] as List<object>).Cast<CustomObject>().ToList());
 
             return sapWasteWaterHeatRecovery;
         }

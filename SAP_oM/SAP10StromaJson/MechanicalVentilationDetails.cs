@@ -36,7 +36,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int ID { get; set; } = -1;
 
         [Description("")]
-        public virtual object ProductName { get; set; } = null;
+        public virtual string ProductName { get; set; } = null;
 
         [Description("")]
         public virtual int DuctingType { get; set; } = 0;

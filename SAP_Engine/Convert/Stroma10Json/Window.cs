@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
     public static partial class Convert
     {
-        public static List<BH.oM.Environment.SAP.Stroma10.Window> ToWindows(CustomObject windowsObject)
+        public static List<BH.oM.Environment.SAP.Stroma10.Window> ToWindows(List<CustomObject> windowsObject)
         {
+            if (windowsObject == null)
+                return null; 
+
             List<BH.oM.Environment.SAP.Stroma10.Window> rtn = new List<BH.oM.Environment.SAP.Stroma10.Window>();
-            foreach (var value in windowsObject.CustomData["Windows"] as List<CustomObject>)
+            foreach (var value in windowsObject)
             {
                 rtn.Add(ToWindow(value));
             }
@@ -19,11 +23,14 @@ namespace BH.Engine.Environment.SAP.Stroma10
         }
         public static BH.oM.Environment.SAP.Stroma10.Window ToWindow(CustomObject windowObject)
         {
+            if (windowObject == null)
+                return null;
+
             BH.oM.Environment.SAP.Stroma10.Window sapWindow = new BH.oM.Environment.SAP.Stroma10.Window();
 
-            sapWindow.ID = System.Convert.ToInt32(windowObject.CustomData["ID"]);
+            sapWindow.ID = System.Convert.ToInt32(windowObject.CustomData["Id"]);
 
-            sapWindow.BHoM_Guid = (Guid)windowObject.CustomData["GUID"];
+            sapWindow.BHoM_Guid = (Guid.Parse(windowObject.CustomData["Guid"] as string));
             
             sapWindow.Location = windowObject.CustomData["Location"] as string;
 
@@ -61,7 +68,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapWindow.FrameFactor = System.Convert.ToDouble(windowObject.CustomData["FrameFactor"]);
 
-            sapWindow.UValue = System.Convert.ToDouble(windowObject.CustomData["UValue"]);
+            sapWindow.UValue = System.Convert.ToDouble(windowObject.CustomData["Uvalue"]);
 
             sapWindow.FromXml = System.Convert.ToBoolean(windowObject.CustomData["FromXml"]);
 
@@ -71,7 +78,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapWindow.Pitch = System.Convert.ToDouble(windowObject.CustomData["Pitch"]);
 
-            sapWindow.PitchKnown = System.Convert.ToBoolean(windowObject.CustomData["PitcheKnown"]);
+            sapWindow.PitchKnown = System.Convert.ToBoolean(windowObject.CustomData["PitchKnown"]);
 
             sapWindow.IsArgonFilled = System.Convert.ToBoolean(windowObject.CustomData["IsArgonFilled"]);
 

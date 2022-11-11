@@ -63,7 +63,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual Elements Elements { get; set; } = null;
 
         [Description("")]
-        public virtual Assessor Assessor { get; set; } = null;
+        public virtual Assessor Assessor { get; set; }
 
         [Description("")]
         public virtual int DwellingCount { get; set; } = 0;

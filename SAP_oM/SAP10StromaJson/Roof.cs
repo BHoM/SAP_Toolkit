@@ -66,8 +66,8 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual double Kappa { get; set; } = 0;
 
 
-        [Description("")]// null value - change this
-        public virtual List<object> Dims { get; set; } = null;
+        [Description("")]
+        public virtual List<Dim> Dims { get; set; } = null;
 
         [Description("")]
         public virtual int UValueSelectionID { get; set; } = 0;
