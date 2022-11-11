@@ -10,27 +10,31 @@ namespace BH.Engine.Environment.SAP.Stroma10
     {
         public static BH.oM.Environment.SAP.Stroma10.ComplianceHeatingDetails ToComplianceHeatingDetails(CustomObject complianceHeatingDetailsObject)
         {
+            if (complianceHeatingDetailsObject == null)
+                return null;
+
+            
             BH.oM.Environment.SAP.Stroma10.ComplianceHeatingDetails sapComplianceHeatingDetails = new BH.oM.Environment.SAP.Stroma10.ComplianceHeatingDetails();
 
-            sapComplianceHeatingDetails.ID = System.Convert.ToInt32(complianceHeatingDetailsObject.CustomData["ID"]);
+            sapComplianceHeatingDetails.ID = System.Convert.ToInt32(complianceHeatingDetailsObject.CustomData["Id"]);
 
-            sapComplianceHeatingDetails.Manufacturer = (complianceHeatingDetailsObject.CustomData["Manufacturer"] as CustomObject);
+            sapComplianceHeatingDetails.Manufacturer = (complianceHeatingDetailsObject.CustomData["Manufacturer"] as string);
 
-            sapComplianceHeatingDetails.Model = (complianceHeatingDetailsObject.CustomData["Model"] as CustomObject);
+            sapComplianceHeatingDetails.Model = (complianceHeatingDetailsObject.CustomData["Model"] as string);
 
-            sapComplianceHeatingDetails.SystemType = (complianceHeatingDetailsObject.CustomData["SystemType"] as CustomObject);
+            sapComplianceHeatingDetails.SystemType = (complianceHeatingDetailsObject.CustomData["SystemType"] as string);
 
-            sapComplianceHeatingDetails.CommissioningCertificate = (complianceHeatingDetailsObject.CustomData["CommissioningCertificate"] as CustomObject);
+            sapComplianceHeatingDetails.CommissioningCertificate = (complianceHeatingDetailsObject.CustomData["CommissioningCertificate"] as string);
 
-            sapComplianceHeatingDetails.InstallationEngineer = (complianceHeatingDetailsObject.CustomData["InstallationEngineer"] as CustomObject);
+            sapComplianceHeatingDetails.InstallationEngineer = (complianceHeatingDetailsObject.CustomData["InstallationEngineer"] as string);
 
-            sapComplianceHeatingDetails.ControllerFunction = (complianceHeatingDetailsObject.CustomData["ControllerFunction"] as CustomObject);
+            sapComplianceHeatingDetails.ControllerFunction = (complianceHeatingDetailsObject.CustomData["ControllerFunction"] as string);
 
-            sapComplianceHeatingDetails.ControllerEcodesignClass = (complianceHeatingDetailsObject.CustomData["ControllerEcodesignClass"] as CustomObject);
+            sapComplianceHeatingDetails.ControllerEcodesignClass = (complianceHeatingDetailsObject.CustomData["ControllerEcodesignClass"] as string);
 
-            sapComplianceHeatingDetails.ControllerManufacturer = (complianceHeatingDetailsObject.CustomData["ControllerManufacturer"] as CustomObject);
+            sapComplianceHeatingDetails.ControllerManufacturer = (complianceHeatingDetailsObject.CustomData["ControllerManufacturer"] as string);
 
-            sapComplianceHeatingDetails.ControllerModel = (complianceHeatingDetailsObject.CustomData["ControllerModel"] as CustomObject);
+            sapComplianceHeatingDetails.ControllerModel = (complianceHeatingDetailsObject.CustomData["ControllerModel"] as string);
 
             return sapComplianceHeatingDetails;
         }

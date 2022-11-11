@@ -36,7 +36,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int ID { get; set; } = -1;
 
         [Description("")]
-        public virtual object SystemReference { get; set; } = null;
+        public virtual string SystemReference { get; set; } = null;
 
         [Description("")]
         public virtual double DedicatedStorage { get; set; } = 0;

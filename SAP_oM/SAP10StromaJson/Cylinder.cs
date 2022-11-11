@@ -77,12 +77,12 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual double HeatPumpExchanger { get; set; } = 0;
 
         [Description("")]
-        public virtual object Manufacturer { get; set; } = null;
+        public virtual string Manufacturer { get; set; } = null;
 
         [Description("")]
-        public virtual object Model { get; set; } = null;
+        public virtual string Model { get; set; } = null;
 
         [Description("")]
-        public virtual object CommissioningCertificate { get; set; } = null;
+        public virtual string CommissioningCertificate { get; set; } = null;
     }
 }

@@ -126,6 +126,6 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual HeatPumpOnly HeatPumpOnly { get; set; } = null;
 
         [Description("")]
-        public virtual List<object> StorageHeaters { get; set; } = null;
+        public virtual List<StorageHeater> StorageHeaters { get; set; } = null; 
     }
 }

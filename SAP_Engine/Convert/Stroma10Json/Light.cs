@@ -8,10 +8,13 @@ namespace BH.Engine.Environment.SAP.Stroma10
 {
     public static partial class Convert
     {
-        public static List<BH.oM.Environment.SAP.Stroma10.Light> ToLights(CustomObject lightsObject)
+        public static List<BH.oM.Environment.SAP.Stroma10.Light> ToLights(List<CustomObject> lightsObject)
         {
+            if (lightsObject == null)
+                return null;
+
             List<BH.oM.Environment.SAP.Stroma10.Light> rtn = new List<BH.oM.Environment.SAP.Stroma10.Light>();
-            foreach (var value in lightsObject.CustomData["Lights"] as List<CustomObject>)
+            foreach (var value in lightsObject)
             {
                 rtn.Add(ToLight(value));
             }
@@ -19,11 +22,14 @@ namespace BH.Engine.Environment.SAP.Stroma10
         }
         public static BH.oM.Environment.SAP.Stroma10.Light ToLight(CustomObject lightObject)
         {
+            if (lightObject == null)
+                return null;
+
             BH.oM.Environment.SAP.Stroma10.Light sapLight = new BH.oM.Environment.SAP.Stroma10.Light();
 
-            sapLight.ID = System.Convert.ToInt32(lightObject.CustomData["ID"]);
+            sapLight.ID = System.Convert.ToInt32(lightObject.CustomData["Id"]);
 
-            sapLight.BHoM_Guid = (Guid)lightObject.CustomData["GUID"];
+            sapLight.BHoM_Guid = (Guid.Parse(lightObject.CustomData["Guid"] as string));
 
             sapLight.Power = System.Convert.ToDouble(lightObject.CustomData["Power"]);
 

@@ -60,9 +60,9 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual double OverShadingFactor { get; set; } = 0;
 
         [Description("")]
-        public virtual object Manufacturer { get; set; } = null;
+        public virtual string Manufacturer { get; set; } = null;
 
         [Description("")]
-        public virtual object MicroCertificationSchemeCertificateReference { get; set; } = null ;
+        public virtual string MicroCertificationSchemeCertificateReference { get; set; } = null ;
     }
 }

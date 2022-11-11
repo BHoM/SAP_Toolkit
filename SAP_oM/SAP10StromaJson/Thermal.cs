@@ -44,7 +44,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual double ThermalBridgingValue { get; set; } = 0;
 
-        [Description("")] //changed from ConstDetails
+        [Description("")] 
         public virtual object ConstrunctionDetails { get; set; } = null;
 
         [Description("")]
@@ -68,16 +68,5 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual bool Reference { get; set; } = false;
 
-        [Description("")]
-        public virtual bool Include { get; set; } = false;
-
-        [Description("")]
-        public virtual int Type { get; set; } = 0;
-
-        [Description("")]
-        public virtual int Location { get; set; } = 0;
-
-        [Description("")]
-        public virtual int Connection { get; set; } = 0;
     }
 }

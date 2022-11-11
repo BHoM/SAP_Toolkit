@@ -10,17 +10,32 @@ namespace BH.Engine.Environment.SAP.Stroma10
 {
     public static partial class Convert
     {
+        public static List<BH.oM.Environment.SAP.Stroma10.Ventilation> ToVentilations(List<CustomObject> ventilationsObject)
+        {
+            if (ventilationsObject == null)
+                return null;
+
+            List<BH.oM.Environment.SAP.Stroma10.Ventilation> rtn = new List<BH.oM.Environment.SAP.Stroma10.Ventilation>();
+            foreach (var value in ventilationsObject)
+            {
+                rtn.Add(ToVentilation(value));
+            }
+            return rtn;
+        }
         public static BH.oM.Environment.SAP.Stroma10.Ventilation ToVentilation(CustomObject ventilationObject)
         {
             BH.oM.Environment.SAP.Stroma10.Ventilation sapVentilation = new BH.oM.Environment.SAP.Stroma10.Ventilation();
+            
+            if (ventilationObject == null)
+                return null;
 
-            sapVentilation.ID = System.Convert.ToInt32(ventilationObject.CustomData["ID"]);
+            sapVentilation.ID = System.Convert.ToInt32(ventilationObject.CustomData["Id"]);
            
 
             sapVentilation.ChimneysMain = System.Convert.ToInt32(ventilationObject.CustomData["ChimneysMain"]); 
 
         
-            sapVentilation.ChimneysSec = System.Convert.ToInt32(ventilationObject.CustomData["ChimneysSec"]);
+            sapVentilation.ChimneysSecondary = System.Convert.ToInt32(ventilationObject.CustomData["ChimneysSec"]);
 
 
             sapVentilation.ChimneysOther = System.Convert.ToInt32(ventilationObject.CustomData["ChimneysOther"]);
@@ -35,7 +50,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapVentilation.ChimneysClosedFireMain = System.Convert.ToInt32(ventilationObject.CustomData["ChimneysClosedFireMain"]);
 
         
-            sapVentilation.ChimneysClosedFireSec = System.Convert.ToInt32(ventilationObject.CustomData["ChimneysClosedFireSec"]); 
+            sapVentilation.ChimneysClosedFireSecondary = System.Convert.ToInt32(ventilationObject.CustomData["ChimneysClosedFireSec"]); 
 
         
             sapVentilation.ChimneysClosedFireOther = System.Convert.ToInt32(ventilationObject.CustomData["ChimneysClosedFireOther"]); 
@@ -47,7 +62,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapVentilation.FluesSolidBoilerMain = System.Convert.ToInt32(ventilationObject.CustomData["FluesSolidBoilerMain"]); 
 
         
-            sapVentilation.FluesSolidBoilerSec = System.Convert.ToInt32(ventilationObject.CustomData["FluesSolidBoilerSec"]); 
+            sapVentilation.FluesSolidBoilerSecondary = System.Convert.ToInt32(ventilationObject.CustomData["FluesSolidBoilerSec"]); 
 
         
             sapVentilation.FluesSolidBoilerOther = System.Convert.ToInt32(ventilationObject.CustomData["FluesSolidBoilerOther"]); 
@@ -59,7 +74,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapVentilation.FluesOtherHeaterMain = System.Convert.ToInt32(ventilationObject.CustomData["FluesOtherHeaterMain"]); 
 
         
-            sapVentilation.FluesOtherHeaterSec = System.Convert.ToInt32(ventilationObject.CustomData["FluesOtherHeaterSec"]); 
+            sapVentilation.FluesOtherHeaterSecondary = System.Convert.ToInt32(ventilationObject.CustomData["FluesOtherHeaterSec"]); 
 
         
             sapVentilation.FluesOtherHeaterOther = System.Convert.ToInt32(ventilationObject.CustomData["FluesOtherHeaterOther"]); 
@@ -71,7 +86,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapVentilation.FluesMain = System.Convert.ToInt32(ventilationObject.CustomData["FluesMain"]); 
 
         
-            sapVentilation.FluesSec = System.Convert.ToInt32(ventilationObject.CustomData["FluesSec"]); 
+            sapVentilation.FluesSecondary = System.Convert.ToInt32(ventilationObject.CustomData["FluesSec"]); 
 
         
             sapVentilation.FluesOther = System.Convert.ToInt32(ventilationObject.CustomData["FluesOther"]); 
@@ -92,7 +107,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapVentilation.Shelter = System.Convert.ToDouble(ventilationObject.CustomData["Shelter"]); 
         
 
-            sapVentilation.MechanicalVentilation = System.Convert.ToInt32(ventilationObject.CustomData["MechanicalVentilation"]); 
+            sapVentilation.MechanicalVentilation = System.Convert.ToInt32(ventilationObject.CustomData["MechVent"]); 
         
 
             sapVentilation.Parameters = System.Convert.ToInt32(ventilationObject.CustomData["Parameters"]); 
@@ -104,28 +119,28 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapVentilation.DuctType = System.Convert.ToInt32(ventilationObject.CustomData["DuctType"]); 
 
         
-            sapVentilation.DuctSpec = System.Convert.ToInt32(ventilationObject.CustomData["DuctSpec"]); 
+            sapVentilation.DuctSpecification = System.Convert.ToInt32(ventilationObject.CustomData["DuctSpec"]); 
 
         
             sapVentilation.SystemPosition = System.Convert.ToInt32(ventilationObject.CustomData["SystemPosition"]); 
 
         
-            sapVentilation.ProductID = System.Convert.ToInt32(ventilationObject.CustomData["ProductID"]); 
+            sapVentilation.ProductID = System.Convert.ToInt32(ventilationObject.CustomData["ProductId"]); 
 
         
             sapVentilation.ApprovedScheme = System.Convert.ToBoolean(ventilationObject.CustomData["ApprovedScheme"]);  
 
         
-            sapVentilation.MeasuredInstallation  = System.Convert.ToBoolean(ventilationObject.CustomData["MeasuredInstallation "]); 
+            sapVentilation.MeasuredInstallation  = System.Convert.ToBoolean(ventilationObject.CustomData["MeasuredInstallation"]); 
 
         
-            sapVentilation.MeasuredSpecificFanPower = System.Convert.ToDouble(ventilationObject.CustomData["MeasuredSpecificFanPower"]);
+            sapVentilation.MeasuredSpecificFanPower = System.Convert.ToDouble(ventilationObject.CustomData["MeasuredSfp"]);
 
 
             sapVentilation.DeCentralised= ToDeCentralised(ventilationObject.CustomData["DeCentralised"] as CustomObject);
 
 
-            sapVentilation.MechanicalVentilationDetails = ToMechanicalVentilationDetails(ventilationObject.CustomData["MyDetails"] as CustomObject);
+            sapVentilation.MechanicalVentilationDetails = ToMechanicalVentilationDetails(ventilationObject.CustomData["MvDetails"] as CustomObject);
 
         
             sapVentilation.Pressure = System.Convert.ToInt32(ventilationObject.CustomData["Pressure"]); 
@@ -143,10 +158,10 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapVentilation.MeasuredPulse = System.Convert.ToDouble(ventilationObject.CustomData["MeasuredPulse"]); 
 
 
-            sapVentilation.DateAir  = System.Convert.ToDateTime(ventilationObject.CustomData["DateAir "]);
+            sapVentilation.DateAir  = System.Convert.ToDateTime(ventilationObject.CustomData["DateAir"]);
 
         
-            sapVentilation.AverageAirPermeability  = System.Convert.ToBoolean(ventilationObject.CustomData["AverageAirPermeability "]); 
+            sapVentilation.AverageAirPermeability  = System.Convert.ToBoolean(ventilationObject.CustomData["AveragePerm"]); 
 
         
             sapVentilation.ConstructType = System.Convert.ToInt32(ventilationObject.CustomData["ConstructType"]); 
@@ -155,13 +170,13 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapVentilation.LobbyDetail = System.Convert.ToInt32(ventilationObject.CustomData["LobbyDetail"]); 
 
         
-            sapVentilation.FloorDetail = System.Convert.ToInt32(ventilationObject.CustomData["VentilationDetail"]); 
+            sapVentilation.FloorDetail = System.Convert.ToInt32(ventilationObject.CustomData["FloorDetail"]); 
 
         
             sapVentilation.Draught = System.Convert.ToDouble(ventilationObject.CustomData["Draught"]); 
 
         
-            sapVentilation.MultiSystem  = System.Convert.ToBoolean(ventilationObject.CustomData["MultiSystem "]); 
+            sapVentilation.MultiSystem  = System.Convert.ToBoolean(ventilationObject.CustomData["MultiSystem"]); 
 
         
             sapVentilation.DuctPlacement = System.Convert.ToInt32(ventilationObject.CustomData["DuctPlacement"]);

@@ -10,10 +10,12 @@ namespace BH.Engine.Environment.SAP.Stroma10
 {
     public static partial class Convert
     {
-        public static List<BH.oM.Environment.SAP.Stroma10.PartyJunction> ToPartyJunctions(CustomObject partyJunctionsObject)
+        public static List<BH.oM.Environment.SAP.Stroma10.PartyJunction> ToPartyJunctions(List<CustomObject> partyJunctionsObject)
         {
+            if (partyJunctionsObject == null)
+                return null;
             List<PartyJunction> rtn = new List<PartyJunction>();
-            foreach (var value in partyJunctionsObject.CustomData["PartyJunctions"] as List<CustomObject>)
+            foreach (var value in partyJunctionsObject)
             {
                 rtn.Add(ToPartyJunction(value));
             }
@@ -21,15 +23,18 @@ namespace BH.Engine.Environment.SAP.Stroma10
         }
         public static BH.oM.Environment.SAP.Stroma10.PartyJunction ToPartyJunction(CustomObject partyJunctionObject)
         {
+            if (partyJunctionObject == null)
+                return null;
+
             BH.oM.Environment.SAP.Stroma10.PartyJunction sapPartyJunction = new BH.oM.Environment.SAP.Stroma10.PartyJunction();
 
-            sapPartyJunction.ID = System.Convert.ToInt32(partyJunctionObject.CustomData["ID"]);
+            sapPartyJunction.ID = System.Convert.ToInt32(partyJunctionObject.CustomData["Id"]);
+
+
+            sapPartyJunction.BHoM_Guid = (Guid.Parse(partyJunctionObject.CustomData["Guid"] as string));
 
             
-            sapPartyJunction.BHoM_Guid = (Guid)partyJunctionObject.CustomData["GUID"]; 
-
-            
-            sapPartyJunction.Reference = partyJunctionObject.CustomData["Reference"] as string; 
+            sapPartyJunction.Reference = partyJunctionObject.CustomData["Ref"] as string; 
 
             
             sapPartyJunction.JunctionDetail = partyJunctionObject.CustomData["JunctionDetail"] as string; 
@@ -56,10 +61,10 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapPartyJunction.Notes = (partyJunctionObject.CustomData["Notes"] as CustomObject); 
 
             
-            sapPartyJunction.RowIDCreated = System.Convert.ToBoolean(partyJunctionObject.CustomData["RowIDCreated"]); 
+            sapPartyJunction.RowIDCreated = System.Convert.ToBoolean(partyJunctionObject.CustomData["RowIdCreated"]); 
 
             
-            sapPartyJunction.ImportLength = System.Convert.ToBoolean(partyJunctionObject.CustomData["ImportLength"]); 
+            sapPartyJunction.ImportLength = System.Convert.ToBoolean(partyJunctionObject.CustomData["ImportLenght"]); //
 
             
             sapPartyJunction.Count = System.Convert.ToInt32(partyJunctionObject.CustomData["Count"]); 

@@ -12,9 +12,12 @@ namespace BH.Engine.Environment.SAP.Stroma10
     {
         public static BH.oM.Environment.SAP.Stroma10.WaterHeating ToWaterHeating(CustomObject waterHeatingObject)
         {
+            if (waterHeatingObject == null)
+                return null;
+
             BH.oM.Environment.SAP.Stroma10.WaterHeating sapWaterHeating = new BH.oM.Environment.SAP.Stroma10.WaterHeating();
 
-            sapWaterHeating.ID = System.Convert.ToInt32(waterHeatingObject.CustomData["ID"]);
+            sapWaterHeating.ID = System.Convert.ToInt32(waterHeatingObject.CustomData["Id"]);
 
 
             sapWaterHeating.SolarWater = ToSolarWater(waterHeatingObject.CustomData["SolarWater"] as CustomObject);
@@ -29,34 +32,34 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapWaterHeating.Cylinder = ToCylinder(waterHeatingObject.CustomData["Cylinder"] as CustomObject);
 
 
-            sapWaterHeating.CombinedPrimaryStorageUnitTemperature = System.Convert.ToDouble(waterHeatingObject.CustomData["CombinedPrimaryStorageUnitTemperature"]); 
+            sapWaterHeating.CombinedPrimaryStorageUnitTemperature = System.Convert.ToDouble(waterHeatingObject.CustomData["CpsuTemp"]); 
 
 
             sapWaterHeating.CommunityWater = ToCommunityWater(waterHeatingObject.CustomData["CommunityWater"] as CustomObject);
             
 
-            sapWaterHeating.Thermal = ToThermal(waterHeatingObject.CustomData["Thermal"] as CustomObject);
+            sapWaterHeating.Thermal2 = ToThermal2(waterHeatingObject.CustomData["Thermal"] as CustomObject);
       
 
             sapWaterHeating.CombiType = System.Convert.ToInt32(waterHeatingObject.CustomData["CombiType"]); 
 
 
-            sapWaterHeating.WasteWaterHeatRecovery = ToWasteWaterHeatRecovery(waterHeatingObject.CustomData["WasteWaterHeatRecovery"] as CustomObject);
+            sapWaterHeating.WasteWaterHeatRecovery = ToWasteWaterHeatRecovery(waterHeatingObject.CustomData["Wwhrs"] as CustomObject);
 
 
             sapWaterHeating.FlueGasHeatRecovery = ToFlueGasHeatRecovery(waterHeatingObject.CustomData["FlueGasHeatRecovery"] as CustomObject);
         
 
-            sapWaterHeating.DomesticHotWaterVessel = System.Convert.ToBoolean(waterHeatingObject.CustomData["DomesticHotWaterVessel"]); 
+            sapWaterHeating.DomesticHotWaterVessel = System.Convert.ToBoolean(waterHeatingObject.CustomData["DhwVessel"]); 
 
 
-            sapWaterHeating.ShowerUnits =  (List<object>)waterHeatingObject.CustomData["ShowerUnits"];
+            sapWaterHeating.ShowerUnits =  ToShowerUnits(waterHeatingObject.CustomData["ShowerUnits"] as CustomObject);
 
       
             sapWaterHeating.WaterSource = System.Convert.ToInt32(waterHeatingObject.CustomData["WaterSource"]); 
 
         
-            sapWaterHeating.NoBaths = System.Convert.ToInt32(waterHeatingObject.CustomData["NoBaths"]); 
+            sapWaterHeating.NumberOfBaths = System.Convert.ToInt32(waterHeatingObject.CustomData["NoBaths"]); 
 
         
             sapWaterHeating.ControllerManufacturer = waterHeatingObject.CustomData["ControllerManufacturer"] as string; 

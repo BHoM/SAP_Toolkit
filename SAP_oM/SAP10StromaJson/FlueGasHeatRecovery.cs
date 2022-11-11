@@ -38,7 +38,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual bool Include { get; set; } = false;
 
         [Description("")]
-        public virtual object IndexNumber { get; set; } = null;
+        public virtual string IndexNumber { get; set; } = null;
 
         [Description("")]
         public virtual Photovoltaic2 Photovoltaic2 { get; set; } = null;

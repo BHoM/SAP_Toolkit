@@ -36,30 +36,30 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int ID { get; set; } = -1;
 
         [Description("")]
-        public virtual object Manufacturer { get; set; } = null;
+        public virtual string Manufacturer { get; set; } = null;
 
         [Description("")]
-        public virtual object Model { get; set; } = null;
+        public virtual string Model { get; set; } = null;
 
         [Description("")]
-        public virtual object SystemType { get; set; } = null;
+        public virtual string SystemType { get; set; } = null;
 
         [Description("")]
-        public virtual object CommissioningCertificate { get; set; } = null;
+        public virtual string CommissioningCertificate { get; set; } = null;
 
         [Description("")]
-        public virtual object InstallationEngineer { get; set; } = null;
+        public virtual string InstallationEngineer { get; set; } = null;
 
         [Description("")]
-        public virtual object ControllerFunction { get; set; } = null;
+        public virtual string ControllerFunction { get; set; } = null;
 
         [Description("")]
-        public virtual object ControllerEcodesignClass { get; set; } = null;
+        public virtual string ControllerEcodesignClass { get; set; } = null;
 
         [Description("")]
-        public virtual object ControllerManufacturer { get; set; } = null;
+        public virtual string ControllerManufacturer { get; set; } = null;
 
         [Description("")]
-        public virtual object ControllerModel { get; set; } = null;
+        public virtual string ControllerModel { get; set; } = null;
     }
 }

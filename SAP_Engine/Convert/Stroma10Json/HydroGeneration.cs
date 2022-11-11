@@ -10,9 +10,12 @@ namespace BH.Engine.Environment.SAP.Stroma10
     {
         public static BH.oM.Environment.SAP.Stroma10.HydroGeneration ToHydroGeneration(CustomObject hydroGenerationObject)
         {
+            if (hydroGenerationObject == null)
+                return null;
+            
             BH.oM.Environment.SAP.Stroma10.HydroGeneration sapHydroGeneration = new BH.oM.Environment.SAP.Stroma10.HydroGeneration();
 
-            sapHydroGeneration.ID = System.Convert.ToInt32(hydroGenerationObject.CustomData["ID"]);
+            sapHydroGeneration.ID = System.Convert.ToInt32(hydroGenerationObject.CustomData["Id"]);
 
             sapHydroGeneration.Yearly = System.Convert.ToBoolean(hydroGenerationObject.CustomData["Yearly"]);
 

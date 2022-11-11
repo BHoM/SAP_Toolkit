@@ -10,19 +10,22 @@ namespace BH.Engine.Environment.SAP.Stroma10
     {
         public static BH.oM.Environment.SAP.Stroma10.ComplianceVent ToComplianceVent(CustomObject complianceVentObject)
         {
+            if (complianceVentObject == null)
+                return null;
+
             BH.oM.Environment.SAP.Stroma10.ComplianceVent sapComplianceVent = new BH.oM.Environment.SAP.Stroma10.ComplianceVent();
 
-            sapComplianceVent.ID = System.Convert.ToInt32(complianceVentObject.CustomData["ID"]);
+            sapComplianceVent.ID = System.Convert.ToInt32(complianceVentObject.CustomData["Id"]);
 
-            sapComplianceVent.Manufacturer = (complianceVentObject.CustomData["Manufacturer"] as CustomObject);
+            sapComplianceVent.Manufacturer = (complianceVentObject.CustomData["Manufacturer"] as string);
 
-            sapComplianceVent.Model = (complianceVentObject.CustomData["Model"] as CustomObject);
+            sapComplianceVent.Model = (complianceVentObject.CustomData["Model"] as string);
 
-            sapComplianceVent.CommissioningCertificate = (complianceVentObject.CustomData["CommissioningCertificate"] as CustomObject);
+            sapComplianceVent.CommissioningCertificate = (complianceVentObject.CustomData["CommissioningCertificate"] as string);
 
-            sapComplianceVent.InstallationEngineer = (complianceVentObject.CustomData["InstallationEngineer"] as CustomObject);
+            sapComplianceVent.InstallationEngineer = (complianceVentObject.CustomData["InstallationEngineer"] as string);
 
-            sapComplianceVent.TestCertificateNumber = (complianceVentObject.CustomData["TestCertificateNumber"] as CustomObject);
+            sapComplianceVent.TestCertificateNumber = (complianceVentObject.CustomData["TestCertificateNumber"] as string);
 
             return sapComplianceVent;
         }

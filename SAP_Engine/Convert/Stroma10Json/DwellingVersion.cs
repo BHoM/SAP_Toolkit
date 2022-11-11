@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 using BH.oM.Base;
@@ -9,10 +10,13 @@ namespace BH.Engine.Environment.SAP.Stroma10
 {
     public static partial class Convert
     {
-        public static List<BH.oM.Environment.SAP.Stroma10.DwellingVersion> ToDwellingVersions(CustomObject dwellingVersionsObject)
+        public static List<BH.oM.Environment.SAP.Stroma10.DwellingVersion> ToDwellingVersions(List<CustomObject> dwellingVersionsObject)
         {
+            if (dwellingVersionsObject == null)
+                return null;
+
             List<DwellingVersion> rtn = new List<DwellingVersion>();
-            foreach (var value in dwellingVersionsObject.CustomData["DwellingVersions"] as List<CustomObject>)
+            foreach (var value in dwellingVersionsObject)
             {
                 rtn.Add(ToDwellingVersion(value));
             }
@@ -20,12 +24,15 @@ namespace BH.Engine.Environment.SAP.Stroma10
         }
         public static BH.oM.Environment.SAP.Stroma10.DwellingVersion ToDwellingVersion(CustomObject dwellingVersionObject)
         {
+            if (dwellingVersionObject == null)
+                return null;
+
             BH.oM.Environment.SAP.Stroma10.DwellingVersion sapDwellingVersion = new BH.oM.Environment.SAP.Stroma10.DwellingVersion();
 
-            sapDwellingVersion.ID = System.Convert.ToInt32(dwellingVersionObject.CustomData["ID"]);
+            sapDwellingVersion.ID = System.Convert.ToInt32(dwellingVersionObject.CustomData["Id"]);
 
 
-            sapDwellingVersion.ReportReferenceNumber = dwellingVersionObject.CustomData["ReportReferenceNumber"] as CustomObject;
+            sapDwellingVersion.ReportReferenceNumber = dwellingVersionObject.CustomData["RRN"] as string;
 
 
             sapDwellingVersion.Reference = dwellingVersionObject.CustomData["Reference"] as string;
@@ -34,7 +41,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapDwellingVersion.Address = ToAddress(dwellingVersionObject.CustomData["Address"] as CustomObject);
 
 
-            sapDwellingVersion.BHoM_Guid = (Guid)dwellingVersionObject.CustomData["GUID"];
+            sapDwellingVersion.BHoM_Guid = (Guid.Parse(dwellingVersionObject.CustomData["Guid"] as string));
 
 
             sapDwellingVersion.Selected = System.Convert.ToBoolean(dwellingVersionObject.CustomData["Selected"]);
@@ -49,7 +56,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapDwellingVersion.TotalVolume = System.Convert.ToInt32(dwellingVersionObject.CustomData["TotalVolume"]);
 
             
-            sapDwellingVersion.Dimensions = ToDimensions(dwellingVersionObject.CustomData["Dimensions"] as CustomObject);
+            sapDwellingVersion.Dimensions = ToDimensions((dwellingVersionObject.CustomData["Dimensions"] as List<object>).Cast<CustomObject>().ToList());
 
 
             sapDwellingVersion.LivingArea = System.Convert.ToDouble(dwellingVersionObject.CustomData["LivingArea"]);
@@ -58,46 +65,47 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapDwellingVersion.LivingAreaFraction = System.Convert.ToDouble(dwellingVersionObject.CustomData["LivingAreaFraction"]);
 
 
-            sapDwellingVersion.AirTestResult = System.Convert.ToDouble(dwellingVersionObject.CustomData["AirTestResult"]);
+            sapDwellingVersion.AirTestResult = System.Convert.ToDouble(dwellingVersionObject.CustomData["ArTestResult"]);
 
 
             sapDwellingVersion.GrossAreas = System.Convert.ToBoolean(dwellingVersionObject.CustomData["GrossAreas"]);
 
-            
-            sapDwellingVersion.Floors = ToFloors(dwellingVersionObject.CustomData["Floors"] as CustomObject);
+
+            sapDwellingVersion.Floors = ToFloors((dwellingVersionObject.CustomData["Floors"] as List<object>).Cast<CustomObject>().ToList()); ;
 
             
-            sapDwellingVersion.Walls = ToWalls(dwellingVersionObject.CustomData["Walls"] as CustomObject);
-
-            
-            sapDwellingVersion.Roofs = ToRoofs(dwellingVersionObject.CustomData["Roofs"] as CustomObject);
+            sapDwellingVersion.Walls = ToWalls((dwellingVersionObject.CustomData["Walls"] as List<object>).Cast<CustomObject>().ToList());
 
 
-            sapDwellingVersion.PartyFloors = (List<object>)dwellingVersionObject.CustomData["PartyFloors"];
+            sapDwellingVersion.Roofs = ToRoofs((dwellingVersionObject.CustomData["Roofs"] as List<object>).Cast<CustomObject>().ToList());
 
 
-            sapDwellingVersion.PartyWalls = (List<object>)dwellingVersionObject.CustomData["PartyWalls"];
+            sapDwellingVersion.PartyFloors = ToPartyFloors((dwellingVersionObject.CustomData["PFloors"] as List<object>).Cast<CustomObject>().ToList());
 
 
-            sapDwellingVersion.PartyCeilings = (List<object>)dwellingVersionObject.CustomData["PartyCeilings"];
-
-          
-            sapDwellingVersion.InteriorFloors = ToInteriorFloors(dwellingVersionObject.CustomData["InteriorFloors"] as CustomObject);
+            sapDwellingVersion.PartyWalls = ToPartyWalls((dwellingVersionObject.CustomData["PWalls"] as List<object>).Cast<CustomObject>().ToList());
 
 
-            sapDwellingVersion.InteriorWalls = (List<object>)dwellingVersionObject.CustomData["InteriorWalls"];
+            sapDwellingVersion.PartyCeilings = ToPartyCeilings((dwellingVersionObject.CustomData["PCeilings"] as List<object>).Cast<CustomObject>().ToList());
 
 
-            sapDwellingVersion.InteriorCeilings = ToInteriorCeilings(dwellingVersionObject.CustomData["InteriorCeilings"] as CustomObject);
+            sapDwellingVersion.InteriorFloors = ToInteriorFloors((dwellingVersionObject.CustomData["IFloors"] as List<object>).Cast<CustomObject>().ToList());
 
 
-            sapDwellingVersion.Doors = (List<object>)dwellingVersionObject.CustomData["Doors"];
+   
+            sapDwellingVersion.InteriorWalls = ToInteriorWalls((dwellingVersionObject.CustomData["IWalls"] as List<object>).Cast<CustomObject>().ToList());
 
 
-            sapDwellingVersion.Windows = ToWindows(dwellingVersionObject.CustomData["Windows"] as CustomObject);
+            sapDwellingVersion.InteriorCeilings = ToInteriorCeilings((dwellingVersionObject.CustomData["ICeilings"] as List<object>).Cast<CustomObject>().ToList());
 
 
-            sapDwellingVersion.RoofLights = (List<object>)dwellingVersionObject.CustomData["RoofLights"];
+            sapDwellingVersion.Doors = ToDoors((dwellingVersionObject.CustomData["Doors"] as List<object>).Cast<CustomObject>().ToList());
+
+
+            sapDwellingVersion.Windows = ToWindows((dwellingVersionObject.CustomData["Windows"] as List<object>).Cast<CustomObject>().ToList());
+
+
+            sapDwellingVersion.RoofLights = ToRoofLights((dwellingVersionObject.CustomData["RoofLights"] as List<object>).Cast<CustomObject>().ToList());
 
 
             sapDwellingVersion.Ventilation = ToVentilation(dwellingVersionObject.CustomData["Ventilation"] as CustomObject);
@@ -108,8 +116,9 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapDwellingVersion.Overheating = ToOverheating(dwellingVersionObject.CustomData["Overheating"] as CustomObject);
 
-
-            sapDwellingVersion.DwellingPhotos = (List<object>)dwellingVersionObject.CustomData["DwellingPhotots"];
+            //404
+            sapDwellingVersion.DwellingPhotos = (List<object>)dwellingVersionObject.CustomData["DwellingPhotos"];
+            //sapDwellingVersion.DwellingPhotos = ToDwellingPhotos((dwellingVersionObject.CustomData["DwellingPhotos"] as List<object>).Cast<CustomObject>().ToList());
 
 
             sapDwellingVersion.ElementSelections = ToElementSelections(dwellingVersionObject.CustomData["ElementSelections"] as CustomObject);
@@ -133,7 +142,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapDwellingVersion.WaterHeating = ToWaterHeating(dwellingVersionObject.CustomData["WaterHeating"] as CustomObject);
 
 
-            sapDwellingVersion.SecondaryHeatingFraction = System.Convert.ToDouble(dwellingVersionObject.CustomData["SecondaryHeatingFraction"]);
+            sapDwellingVersion.SecondaryHeatingFraction = System.Convert.ToDouble(dwellingVersionObject.CustomData["HeatFractionSec"]);
 
 
             sapDwellingVersion.HeatSystemInteraction = System.Convert.ToInt32(dwellingVersionObject.CustomData["HeatSystemInteraction"]);

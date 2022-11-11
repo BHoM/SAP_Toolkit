@@ -11,15 +11,18 @@ namespace BH.Engine.Environment.SAP.Stroma10
     {
         public static BH.oM.Environment.SAP.Stroma10.Cylinder ToCylinder(CustomObject cylinderObject)
         {
+            if (cylinderObject == null)
+                return null;
+
             BH.oM.Environment.SAP.Stroma10.Cylinder sapCylinder = new BH.oM.Environment.SAP.Stroma10.Cylinder();
 
-            sapCylinder.ID = System.Convert.ToInt32(cylinderObject.CustomData["ID"]);
+            sapCylinder.ID = System.Convert.ToInt32(cylinderObject.CustomData["Id"]);
 
             
-            sapCylinder.Volume  = System.Convert.ToDouble(cylinderObject.CustomData["Volume "]); 
+            sapCylinder.Volume  = System.Convert.ToDouble(cylinderObject.CustomData["Volume"]); 
 
             
-            sapCylinder.ManufacturerSpecified = System.Convert.ToBoolean(cylinderObject.CustomData["ManufacturerSpecified"]);  
+            sapCylinder.ManufacturerSpecified = System.Convert.ToBoolean(cylinderObject.CustomData["ManuSpecified"]);  
 
             
             sapCylinder.DeclaredLoss = System.Convert.ToDouble(cylinderObject.CustomData["DeclaredLoss"]);  
@@ -28,7 +31,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapCylinder.Insulation = System.Convert.ToInt32(cylinderObject.CustomData["Insulation"]);  
 
             
-            sapCylinder.InsulationThick  = System.Convert.ToDouble(cylinderObject.CustomData["InsulationThick "]); 
+            sapCylinder.InsulationThick  = System.Convert.ToDouble(cylinderObject.CustomData["InsThick"]); 
 
             
             sapCylinder.InHeatedSpace = System.Convert.ToBoolean(cylinderObject.CustomData["InHeatedSpace"]);  
@@ -40,7 +43,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapCylinder.PipeWorkInsulated = System.Convert.ToBoolean(cylinderObject.CustomData["PipeWorkInsulated"]);  
 
             
-            sapCylinder.PipeWorkInsulation  = System.Convert.ToInt32(cylinderObject.CustomData["PipeWorkInsulation "]); 
+            sapCylinder.PipeWorkInsulation  = System.Convert.ToInt32(cylinderObject.CustomData["PipeWorkInsulation"]); 
 
             
             sapCylinder.Timed = System.Convert.ToBoolean(cylinderObject.CustomData["Timed"]);  
@@ -52,19 +55,19 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapCylinder.Immersion = System.Convert.ToInt32(cylinderObject.CustomData["Immersion"]);  
 
             
-            sapCylinder.ImmersionHeater = System.Convert.ToBoolean(cylinderObject.CustomData["ImmersionHeater"]);  
+            sapCylinder.ImmersionHeater = System.Convert.ToBoolean(cylinderObject.CustomData["HpImmersion"]);  
 
             
-            sapCylinder.HeatPumpExchanger  = System.Convert.ToDouble(cylinderObject.CustomData["HeatPumpExchanger "]); 
+            sapCylinder.HeatPumpExchanger  = System.Convert.ToDouble(cylinderObject.CustomData["HpExchanger"]); 
 
             
-            sapCylinder.Manufacturer = (cylinderObject.CustomData["Manufacturer"] as CustomObject);  
+            sapCylinder.Manufacturer = (cylinderObject.CustomData["Manufacturer"] as string);
+
+
+            sapCylinder.Model = (cylinderObject.CustomData["Model"] as string);  
 
             
-            sapCylinder.Model = (cylinderObject.CustomData["Model"] as CustomObject);  
-
-            
-            sapCylinder.CommissioningCertificate  = (cylinderObject.CustomData["CommissioningCertificate "] as CustomObject); 
+            sapCylinder.CommissioningCertificate  = (cylinderObject.CustomData["CommissioningCertificate"] as string);
 
             return sapCylinder;
         }

@@ -10,11 +10,14 @@ namespace BH.Engine.Environment.SAP.Stroma10
     public static partial class Convert
     {
 
-        public static List<BH.oM.Environment.SAP.Stroma10.ExternalJunction> ToExternalJunctions(CustomObject externalJunctionsObject)
+        public static List<BH.oM.Environment.SAP.Stroma10.ExternalJunction> ToExternalJunctions(List<CustomObject> externalJunctionsObject)
         {
+            if (externalJunctionsObject == null)
+                return null;
+
             List<BH.oM.Environment.SAP.Stroma10.ExternalJunction> rtn = new List<BH.oM.Environment.SAP.Stroma10.ExternalJunction>();
 
-            foreach (var value in externalJunctionsObject.CustomData["ExternalJunctions"] as List<CustomObject>)
+            foreach (var value in externalJunctionsObject)
             { 
                 rtn.Add(ToExternalJunction(value));
             }
@@ -22,15 +25,18 @@ namespace BH.Engine.Environment.SAP.Stroma10
         }
         public static BH.oM.Environment.SAP.Stroma10.ExternalJunction ToExternalJunction(CustomObject externalJunctionObject)
         {
+            if (externalJunctionObject == null)
+                return null;
+           
             BH.oM.Environment.SAP.Stroma10.ExternalJunction sapExternalJunction = new BH.oM.Environment.SAP.Stroma10.ExternalJunction();
 
-            sapExternalJunction.ID = System.Convert.ToInt32(externalJunctionObject.CustomData["ID"]);
+            sapExternalJunction.ID = System.Convert.ToInt32(externalJunctionObject.CustomData["Id"]);
 
         
-            sapExternalJunction.BHoM_Guid = (Guid)externalJunctionObject.CustomData["GUID"];
+            sapExternalJunction.BHoM_Guid = (Guid.Parse(externalJunctionObject.CustomData["Guid"] as string));
 
         
-            sapExternalJunction.Reference = externalJunctionObject.CustomData["Reference"] as string; 
+            sapExternalJunction.Reference = externalJunctionObject.CustomData["Ref"] as string; 
 
         
             sapExternalJunction.JunctionDetail = externalJunctionObject.CustomData["JunctionDetail"] as string; 
@@ -57,10 +63,10 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapExternalJunction.Notes = externalJunctionObject.CustomData["Notes"] as string; 
 
         
-            sapExternalJunction.RowIDCreated = System.Convert.ToBoolean(externalJunctionObject.CustomData["RowIDCreated"]); 
+            sapExternalJunction.RowIDCreated = System.Convert.ToBoolean(externalJunctionObject.CustomData["RowIdCreated"]); 
 
         
-            sapExternalJunction.ImportLength = System.Convert.ToBoolean(externalJunctionObject.CustomData["ImportLength"]); 
+            sapExternalJunction.ImportLength = System.Convert.ToBoolean(externalJunctionObject.CustomData["ImportLenght"]); // ...
 
         
             sapExternalJunction.Count = System.Convert.ToInt32(externalJunctionObject.CustomData["Count"]); 

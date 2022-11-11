@@ -12,7 +12,10 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             BH.oM.Environment.SAP.Stroma10.Assessor sapAssessor = new BH.oM.Environment.SAP.Stroma10.Assessor();
 
-            sapAssessor.ID = System.Convert.ToInt32(assessorObject.CustomData["ID"]);
+            if (assessorObject == null)
+                return null;
+
+            sapAssessor.ID = System.Convert.ToInt32(assessorObject.CustomData["Id"]);
 
             sapAssessor.FirstName = assessorObject.CustomData["FirstName"] as string;
 
