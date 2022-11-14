@@ -4,6 +4,7 @@ using System.Text;
 using System.Linq;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -47,6 +48,22 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapOverheating.LowerEnergyLights = System.Convert.ToInt32(overheatingObject.CustomData["LowerEnergyLights"]);
 
             return sapOverheating;
+        }
+        public static Dictionary<string, object> FromOverheating(Overheating obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("EaCBuildType", obj.EaCBuildType);
+            rtn.Add("EaCWindow", obj.EaCWindow);
+            rtn.Add("EaCOveride", obj.EaCOveride);
+            rtn.Add("EaCAirChange", obj.EaCAirChange);
+            rtn.Add("Night", obj.Night);
+            rtn.Add("Conservatory", obj.Conservatory);
+            rtn.Add("Lights", obj.Lights.Select(x => FromLight(x)).ToList());
+            rtn.Add("LowerEnergyLights", obj.LowerEnergyLights);
+
+            return rtn;
         }
     }
 }

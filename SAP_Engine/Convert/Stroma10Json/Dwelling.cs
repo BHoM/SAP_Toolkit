@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,6 +37,8 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapDwelling.Selected = System.Convert.ToBoolean(dwellingObject.CustomData["Selected"]);
 
+            sapDwelling.Name = dwellingObject.Name;
+
             sapDwelling.Orientation = dwellingObject.CustomData["Orientation"] as string;
 
             sapDwelling.IsLodged = System.Convert.ToBoolean(dwellingObject.CustomData["IsLodged"]);
@@ -43,6 +46,21 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapDwelling.DwellingVersions = ToDwellingVersions((dwellingObject.CustomData["DwellingVersions"] as List<object>).Cast<CustomObject>().ToList());
 
             return sapDwelling;
+        }
+        public static Dictionary<string, object> FromDwelling(Dwelling obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("Guid", obj.BHoM_Guid.ToString());
+            rtn.Add("Selected", obj.Selected);
+            rtn.Add("Name", obj.Name);
+            rtn.Add("Orientation", obj.Orientation);
+            rtn.Add("IsLodged", obj.IsLodged);
+            rtn.Add("DwellingVersions", obj.DwellingVersions.Select(x => FromDwellingVersion(x)).ToList());  
+
+
+            return rtn;
         }
     }
 }

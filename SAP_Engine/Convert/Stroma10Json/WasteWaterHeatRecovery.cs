@@ -4,6 +4,8 @@ using System.Text;
 using System.Linq;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
+using BH.oM.Environment.SAP;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -35,6 +37,23 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapWasteWaterHeatRecovery.WasteWaterHeatRecoverySystems = ToWasteWaterHeatRecoverySystems((wasteWaterHeatRecoveryObject.CustomData["WwhrsSystems"] as List<object>).Cast<CustomObject>().ToList());
 
             return sapWasteWaterHeatRecovery;
+        }
+        public static Dictionary<string, object> FromWasteWaterHeatRecovery(WasteWaterHeatRecovery obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("Include", obj.Include);
+            rtn.Add("IsTer", obj.IsTER);
+            rtn.Add("TotalRooms", obj.TotalRooms);
+            rtn.Add("Manufacturer", obj.Manufacturer);
+            rtn.Add("Model", obj.Model);
+            rtn.Add("Efficiency", obj.Efficiency);
+            rtn.Add("IsStorage", obj.IsStorage);
+            rtn.Add("WwhrsSystems", obj.WasteWaterHeatRecoverySystems.Select(x => FromWasteWaterHeatRecoverySystem(x)).ToList());
+
+
+            return rtn;
         }
     }
 }

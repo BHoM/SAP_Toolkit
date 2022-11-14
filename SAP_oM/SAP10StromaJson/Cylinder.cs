@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int Insulation { get; set; } = 0;
 
         [Description("")]
-        public virtual double InsulationThick { get; set; } = 0;
+        public virtual double InsulationThickness { get; set; } = 0;
 
         [Description("")]
         public virtual bool InHeatedSpace { get; set; } = false;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -34,6 +35,31 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapAddress.DisplayAddress = addressObject.CustomData["DisplayAddress"] as string;
 
             return sapAddress;
+        }
+
+        public static Dictionary<string, object> FromAddress(BH.oM.Environment.SAP.Stroma10.Address obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+
+            rtn.Add("AddressLine1", obj.AddressLine1);
+
+            rtn.Add("AddressLine2", obj.AddressLine2);
+
+            rtn.Add("AddressLine3", obj.AddressLine3);
+
+            rtn.Add("City", obj.City);
+
+            rtn.Add("Postcode", obj.Postcode);
+
+            rtn.Add("Uprn", obj.UniquePropertyReferenceNumber);
+
+            rtn.Add("Country", obj.Country);
+
+            rtn.Add("DisplayAddress", obj.DisplayAddress);
+
+            return rtn;
         }
     }
 }

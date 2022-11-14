@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -24,7 +25,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapThermal.ThermalBridgingValue = System.Convert.ToDouble(thermalObject.CustomData["HtbValue"]);
 
-            sapThermal.ConstrunctionDetails = (thermalObject.CustomData["ConstDetails"] as CustomObject);
+            sapThermal.ConstrunctionDetails = (thermalObject.CustomData["ConstDetails"] as string);
 
             sapThermal.ManualThermalBridgingYValue = System.Convert.ToBoolean(thermalObject.CustomData["ManualY"]);
 
@@ -41,6 +42,36 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapThermal.Reference = System.Convert.ToBoolean(thermalObject.CustomData["Reference"]);
 
             return sapThermal;
+        }
+        public static Dictionary<string, object> FromThermal(Thermal obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+
+            rtn.Add("Guid", obj.BHoM_Guid.ToString());
+
+            rtn.Add("ManualHtb", obj.ManualThermalBridgingCalcuation);
+            
+            rtn.Add("HtbValue", obj.ThermalBridgingValue);
+
+            rtn.Add("ConstDetails", obj.ConstrunctionDetails);
+
+            rtn.Add("ManualY", obj.ManualThermalBridgingYValue);
+
+            rtn.Add("YValue" ,obj.YValue);  
+
+            rtn.Add("CustomApproved", obj.CustomApproved);
+
+            rtn.Add("ExternalJunctions", obj.ExternalJunctions.Select(x => FromExternalJunction(x)).ToList());
+
+            rtn.Add("PartyJunctions", obj.PartyJunctions.Select(x => FromPartyJunction(x)).ToList());
+
+            rtn.Add("RoofJunctions", obj.RoofJunctions.Select(x => FromRoofJunction(x)).ToList());
+
+            rtn.Add("Reference", obj.Reference);
+
+            return rtn;
         }
     }
 }

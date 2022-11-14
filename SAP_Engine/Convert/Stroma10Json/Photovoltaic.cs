@@ -4,6 +4,7 @@ using System.Text;
 using System.Linq;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -27,6 +28,18 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapPhotovoltaic.Photovoltaic2s = ToPhotovoltaic2s((photovoltaicObject.CustomData["Photovoltaics"] as List<object>).Cast<CustomObject>().ToList());
 
             return sapPhotovoltaic;
+        }
+        public static Dictionary<string, object> FromPhotovoltaic(Photovoltaic obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("Include", obj.Include);
+            rtn.Add("Diverter", obj.Diverter);
+            rtn.Add("BatterCapacity", obj.BatteryCapacity);
+            rtn.Add("Photovoltaics", obj.Photovoltaic2s.Select(x => FromPhotovoltaic2(x)).ToList());
+
+            return rtn;
         }
     }
 }

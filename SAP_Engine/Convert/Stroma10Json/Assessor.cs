@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -39,6 +40,34 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
 
             return sapAssessor;
+        }
+        public static Dictionary<string, object> FromAssessor(BH.oM.Environment.SAP.Stroma10.Assessor obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+
+            rtn.Add("FirstName", obj.FirstName);
+
+            rtn.Add("LastName", obj.LastName);
+
+            rtn.Add("Address", FromAddress(obj.Address));
+
+            rtn.Add("WebSite", obj.WebSite);
+
+            rtn.Add("Email", obj.Email);
+
+            rtn.Add("Telephone", obj.Telephone);
+
+            rtn.Add("Fax", obj.Fax);
+
+            rtn.Add("CompanyName", obj.CompanyName);
+
+            rtn.Add("StromaNumber", obj.StromaNumber);
+
+            rtn.Add("Insurance", FromInsurance(obj.Insurance));    
+
+            return rtn;
         }
     }
 }

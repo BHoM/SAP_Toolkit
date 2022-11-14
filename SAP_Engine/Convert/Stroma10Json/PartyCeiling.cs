@@ -33,6 +33,8 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapPartyCeiling.BHoM_Guid = (Guid.Parse(partyCeilingObject.CustomData["Guid"] as string));
 
+            sapPartyCeiling.Name = partyCeilingObject.Name;
+
             sapPartyCeiling.Type = System.Convert.ToInt32(partyCeilingObject.CustomData["Type"]);
 
             sapPartyCeiling.Construction = System.Convert.ToInt32(partyCeilingObject.CustomData["Construction"]);
@@ -62,6 +64,31 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapPartyCeiling.LoftInsulation = partyCeilingObject.CustomData["LoftInsulation"] as CustomObject;
 
             return sapPartyCeiling;
+        }
+        public static Dictionary<string, object> FromPartyCeiling(PartyCeiling obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("Guid", obj.BHoM_Guid.ToString());
+            rtn.Add("Name", obj.Name);
+            rtn.Add("Type", obj.Type);
+            rtn.Add("Construction", obj.Construction);
+            rtn.Add("Area", obj.Area);
+            rtn.Add("UValueStart", obj.UValueStart);
+            rtn.Add("UValue", obj.UValue);
+            rtn.Add("Ru", obj.ResultantUValue);
+            rtn.Add("Curtain", obj.Curtain);
+            rtn.Add("OverRideK", obj.ManualInputKappa);
+            rtn.Add("K", obj.Kappa);
+            rtn.Add("Dims", obj.Dims.Select(x => FromDim(x)).ToList());
+            rtn.Add("UValueSelectionId", obj.UValueSelectionID);
+            rtn.Add("UValueSelected", obj.UValueSelected);
+            rtn.Add("EpcDescription", obj.EnergyPerformanceCertificateDescription);
+            rtn.Add("LoftInsulation", obj.LoftInsulation);
+
+
+            return rtn;
         }
     }
 }

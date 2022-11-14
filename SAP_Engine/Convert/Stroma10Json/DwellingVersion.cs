@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP;
 using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
@@ -30,6 +31,9 @@ namespace BH.Engine.Environment.SAP.Stroma10
             BH.oM.Environment.SAP.Stroma10.DwellingVersion sapDwellingVersion = new BH.oM.Environment.SAP.Stroma10.DwellingVersion();
 
             sapDwellingVersion.ID = System.Convert.ToInt32(dwellingVersionObject.CustomData["Id"]);
+
+
+            sapDwellingVersion.Name = dwellingVersionObject.Name;
 
 
             sapDwellingVersion.ReportReferenceNumber = dwellingVersionObject.CustomData["RRN"] as string;
@@ -156,6 +160,55 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
 
             return sapDwellingVersion;
+        }
+        public static Dictionary<string, object> FromDwellingVersion(DwellingVersion obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("Name", obj.Name);
+            rtn.Add("RRN", obj.ReportReferenceNumber);
+            rtn.Add("Reference", obj.Reference);
+            rtn.Add("Address", FromAddress(obj.Address));
+            rtn.Add("Guid", obj.BHoM_Guid.ToString());
+            rtn.Add("Selected", obj.Selected);
+            rtn.Add("DwellingDetails", FromDwellingDetails(obj.DwellingDetails));
+            rtn.Add("TotalFloorArea", obj.TotalFloorArea);
+            rtn.Add("TotalVolume", obj.TotalVolume);
+            rtn.Add("Dimensions", obj.Dimensions.Select(x => FromDimension(x)).ToList());
+            rtn.Add("LivingArea", obj.LivingArea);
+            rtn.Add("LivingAreaFraction", obj.LivingAreaFraction);
+            rtn.Add("ArTestResult", obj.AirTestResult);
+            rtn.Add("GrossAreas", obj.GrossAreas);
+            rtn.Add("Floors", obj.Floors.Select(x => FromFloor(x)).ToList());
+            rtn.Add("Walls", obj.Walls.Select(x => FromWall(x)).ToList());
+            rtn.Add("Roofs", obj.Roofs.Select(x => FromRoof(x)).ToList());
+            rtn.Add("PFloors", obj.PartyFloors.Select(x => FromPartyFloor(x)).ToList());
+            rtn.Add("PWalls", obj.PartyWalls.Select(x => FromPartyWall(x)).ToList());
+            rtn.Add("PCeilings", obj.PartyCeilings.Select(x => FromPartyCeiling(x)).ToList());
+            rtn.Add("IFloors", obj.InteriorFloors.Select(x => FromInteriorFloor(x)).ToList());
+            rtn.Add("IWalls", obj.InteriorWalls.Select(x => FromInteriorWall(x)).ToList());
+            rtn.Add("ICeilings", obj.InteriorCeilings.Select(x => FromInteriorCeiling(x)).ToList());
+            rtn.Add("Doors", obj.Doors.Select(x => FromDoor(x)).ToList());
+            rtn.Add("Windows", obj.Windows.Select(x => FromWindow(x)).ToList());
+            rtn.Add("RoofLights", obj.RoofLights.Select(x => FromRoofLight(x)).ToList());
+            rtn.Add("Ventilation", FromVentilation(obj.Ventilation));
+            rtn.Add("Renewable", FromRenewable(obj.Renewable));
+            rtn.Add("Overheating", FromOverheating(obj.Overheating));
+            rtn.Add("DwellingPhotos", obj.DwellingPhotos); //who knows - missing class info
+            rtn.Add("ElementSelections", FromElementSelections(obj.ElementSelections));
+            rtn.Add("Thermal", FromThermal(obj.Thermal));
+            rtn.Add("CoolingSystem", FromCoolingSystem(obj.CoolingSystem));
+            rtn.Add("PrimaryHeating", FromPrimaryHeating(obj.PrimaryHeating));
+            rtn.Add("PrimaryHeating2", FromPrimaryHeating2(obj.PrimaryHeating2));
+            rtn.Add("SecondaryHeating", FromSecondaryHeating(obj.SecondaryHeating));
+            rtn.Add("WaterHeating", FromWaterHeating(obj.WaterHeating));
+            rtn.Add("HeatFractionSec", obj.SecondaryHeatingFraction);
+            rtn.Add("HeatSystemInteraction", obj.HeatSystemInteraction);
+            rtn.Add("WaterOnlyHeatPump", obj.WaterOnlyHeatPump);
+            rtn.Add("LowestFloorArea", obj.LowestFloorArea);
+
+            return rtn;
         }
     }
 }

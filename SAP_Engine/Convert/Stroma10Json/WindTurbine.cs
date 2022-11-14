@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -25,9 +26,25 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapWindTurbine.WindTurbineHeight = System.Convert.ToDouble(windTurbineObject.CustomData["WHeight"]);
 
+            sapWindTurbine.Name = windTurbineObject.Name;
+
             sapWindTurbine.Certificate =(windTurbineObject.CustomData["Certificate"] as CustomObject);
 
             return sapWindTurbine;
+        }
+        public static Dictionary<string, object> FromWindTurbine(WindTurbine obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("Include", obj.Include);
+            rtn.Add("WNumber", obj.WindTurbineNumber);
+            rtn.Add("WrDiameter", obj.WindTurbineRotarDiameter);
+            rtn.Add("WHeight", obj.WindTurbineHeight);
+            rtn.Add("Name", obj.Name);
+            rtn.Add("Certificate", obj.Certificate);
+
+            return rtn;
         }
     }
 }

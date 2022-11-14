@@ -50,7 +50,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int PumpAge { get; set; } = 0;
 
         [Description("")]
-        public virtual object Description { get; set; } = null;
+        public virtual string Description { get; set; } = null;
 
         [Description("")]
         public virtual int GasBurningType { get; set; } = 0;

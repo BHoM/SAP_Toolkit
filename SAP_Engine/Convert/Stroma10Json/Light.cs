@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -31,6 +32,8 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapLight.BHoM_Guid = (Guid.Parse(lightObject.CustomData["Guid"] as string));
 
+            sapLight.Name = lightObject.Name;
+
             sapLight.Power = System.Convert.ToDouble(lightObject.CustomData["Power"]);
 
             sapLight.Efficacy = System.Convert.ToDouble(lightObject.CustomData["Efficacy"]);
@@ -40,6 +43,21 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapLight.Count = System.Convert.ToInt32(lightObject.CustomData["Count"]);
 
             return sapLight;
+        }
+        public static Dictionary<string, object> FromLight(Light obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("Guid", obj.BHoM_Guid.ToString());
+            rtn.Add("Name", obj.Name);
+            rtn.Add("Power", obj.Power);
+            rtn.Add("Efficacy", obj.Efficacy);
+            rtn.Add("Capacity", obj.Capacity);
+            rtn.Add("Count", obj.Count);
+
+
+            return rtn;
         }
     }
 }

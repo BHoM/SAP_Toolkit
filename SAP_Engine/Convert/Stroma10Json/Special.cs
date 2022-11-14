@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -23,6 +24,17 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapSpecial.SpecialFeatures = ToSpecialFeatures((specialObject.CustomData["SpecialFeatures"] as List<object>).Cast<CustomObject>().ToList());
 
             return sapSpecial;
+        }
+        public static Dictionary<string, object> FromSpecial(Special obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("Include", obj.Include);
+            rtn.Add("SpecialFeatures", obj.SpecialFeatures.Select(x => FromSpecialFeature(x)).ToList());
+
+
+            return rtn;
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -42,6 +43,19 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
 
             return sapHeatSource;
+        }
+        public static Dictionary<string, object> FromHeatSource(HeatSource obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("Type", obj.Type);
+            rtn.Add("Fuel", obj.Fuel);
+            rtn.Add("HeatFraction", obj.HeatFraction);
+            rtn.Add("Efficiency", obj.Efficiency);
+            rtn.Add("HeatSourceType", obj.HeatSourceType);
+
+            return rtn;
         }
     }
 }

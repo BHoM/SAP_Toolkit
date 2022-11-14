@@ -4,6 +4,7 @@ using System.Text;
 using System.Linq;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -31,6 +32,8 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapRoof.ID = System.Convert.ToInt32(roofObject.CustomData["Id"]);
 
             sapRoof.BHoM_Guid = (Guid.Parse(roofObject.CustomData["Guid"] as string));
+
+            sapRoof.Name = roofObject.Name;
 
             sapRoof.Type = System.Convert.ToInt32(roofObject.CustomData["Type"]);
 
@@ -61,6 +64,30 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapRoof.LoftInsulation = roofObject.CustomData["LoftInsulation"] as CustomObject;
 
             return sapRoof;
+        }
+        public static Dictionary<string, object> FromRoof(BH.oM.Environment.SAP.Stroma10.Roof obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("Guid", obj.BHoM_Guid.ToString());
+            rtn.Add("Name", obj.Name);
+            rtn.Add("Type", obj.Type);
+            rtn.Add("Construction", obj.Construction);
+            rtn.Add("Area", obj.Area);
+            rtn.Add("UValueStart", obj.UValueStart);
+            rtn.Add("UValue", obj.UValue);
+            rtn.Add("Ru", obj.ResultantUValue);
+            rtn.Add("Curtain", obj.Curtain);
+            rtn.Add("OverRideK", obj.ManualInputKappa);
+            rtn.Add("K", obj.Kappa);
+            rtn.Add("Dims", obj.Dims.Select(x => FromDim(x)).ToList());
+            rtn.Add("UValueSelectionId", obj.UValueSelectionID);
+            rtn.Add("UValueSelected", obj.UValueSelected);
+            rtn.Add("EpcDescription", obj.EnergyPerformanceCertificateDescription);
+            rtn.Add("LoftInsulation", obj.LoftInsulation);
+
+            return rtn;
         }
     }
 }

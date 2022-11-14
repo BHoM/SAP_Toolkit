@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -36,6 +37,23 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapCoolingSystem.Description = coolingSystemObject.CustomData["Description"] as string;
 
             return sapCoolingSystem;
+        }
+        public static Dictionary<string, object> FromCoolingSystem(CoolingSystem obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("Include", obj.Include);
+            rtn.Add("SystemType", obj.SystemType);
+            rtn.Add("EnergyLabel", obj.EnergyLabel);
+            rtn.Add("Overide", obj.Overide);
+            rtn.Add("CompressorControl", obj.CompressorControl);
+            rtn.Add("CooledArea", obj.CooledArea);
+            rtn.Add("EerMeasuredInclude", obj.EERMeasuredInclude);
+            rtn.Add("Eer", obj.EER);
+            rtn.Add("Description", obj.Description);
+
+            return rtn;
         }
     }
 }

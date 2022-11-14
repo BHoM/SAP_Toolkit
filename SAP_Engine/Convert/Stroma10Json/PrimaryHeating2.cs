@@ -116,5 +116,44 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             return sapPrimaryHeating2;
         }
+        public static Dictionary<string, object> FromPrimaryHeating2(PrimaryHeating2 obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("Include", obj.Include);
+            rtn.Add("Group", obj.Group);
+            rtn.Add("HeatingCategory", obj.HeatingCategory);
+            rtn.Add("SGroup", obj.SubHeatingGroup);
+            rtn.Add("SubHeatingCategory", obj.SubHeatingCategory);
+            rtn.Add("Source", obj.Source);
+            rtn.Add("SapTableCode", obj.SAPTableCode);
+            rtn.Add("Sedbuk", obj.SeasonalEfficiencyOfDomesticBoilersUK);
+            rtn.Add("Efficiency", obj.Efficiency);
+            rtn.Add("Ter", obj.TER);
+            rtn.Add("WinterEfficiency", obj.WinterEfficiency);
+            rtn.Add("SummerEfficiency", obj.SummerEfficiency);
+            rtn.Add("Emitter", obj.Emitter);
+            rtn.Add("ControlCode", obj.ControlCode);
+            rtn.Add("ControlCodePcdf", obj.ControlCodeProductCharacteristicsDatabase);
+            rtn.Add("Fuel", obj.Fuel);
+            rtn.Add("IsHetas", obj.HeatingEquipmentTestingAndApprovalsScheme);
+            rtn.Add("Boiler", FromBoiler(obj.Boiler));
+            rtn.Add("ElectricityTariff", obj.ElectricityTariff);
+            rtn.Add("Range", FromRange(obj.Range));
+            rtn.Add("OilPump", obj.OilPump);
+            rtn.Add("DelayedStart", obj.DelayedStart);
+            rtn.Add("FuelBurningType", obj.FuelBurningType);
+            rtn.Add("Sedbuk2005", obj.SeasonalEfficiencyOfDomesticBoilersUK2005);
+            rtn.Add("Sedbuk2009", obj.SeasonalEfficiencyOfDomesticBoilersUK2009);
+            rtn.Add("WinterSummer", obj.WinterSummer);
+            rtn.Add("McsHeatPump", obj.MicroCertificationSchemeHeatPump);
+            rtn.Add("CommunityHeating", FromCommunityHeating(obj.CommunityHeating));
+            rtn.Add("ComplianceHeatingDetails", FromComplianceHeatingDetails(obj.ComplianceHeatingDetails));
+            rtn.Add("HpOnly", FromHeatPumpOnly(obj.HeatPumpOnly));
+            rtn.Add("StorageHeaters", obj.StorageHeaters.Select(x => FromStorageHeater(x)).ToList());
+
+            return rtn;
+        }
     }
 }

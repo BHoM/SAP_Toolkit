@@ -47,11 +47,32 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapDimension.Type = dimensionObject.CustomData["Type"];
 
+            sapDimension.Name = dimensionObject.Name;
+
             sapDimension.Floor = System.Convert.ToInt32(dimensionObject.CustomData["Floor"]);
 
             sapDimension.Volume = System.Convert.ToDouble(dimensionObject.CustomData["Volume"]);
 
             return sapDimension;
+        }
+        public static Dictionary<string, object> FromDimension(Dimension obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("Guid", obj.BHoM_Guid.ToString());
+            rtn.Add("Basement", obj. Basement);
+            rtn.Add("Area", obj.Area);
+            rtn.Add("Perimeter", obj.Perimeter);
+            rtn.Add("Height", obj.Height);
+            rtn.Add("Dims", obj.Dims.Select(x => FromDim(x)).ToList());
+            rtn.Add("Type", obj.Type);
+            rtn.Add("Name", obj.Name);
+            rtn.Add("Floor", obj.Floor);    
+            rtn.Add("Volume", obj.Volume);
+
+
+            return rtn;
         }
     }
 }

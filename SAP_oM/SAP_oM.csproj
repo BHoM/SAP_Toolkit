@@ -171,7 +171,6 @@
     <Compile Include="SAP10StromaJson\PrimaryHeating.cs" />
     <Compile Include="SAP10StromaJson\PrimaryHeating2.cs" />
     <Compile Include="SAP10StromaJson\Door.cs" />
-    <Compile Include="SAP10StromaJson\A Generic.cs" />
     <Compile Include="SAP10StromaJson\Range.cs" />
     <Compile Include="SAP10StromaJson\Renewable.cs" />
     <Compile Include="SAP10StromaJson\Roof.cs" />

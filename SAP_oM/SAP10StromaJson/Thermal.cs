@@ -45,7 +45,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual double ThermalBridgingValue { get; set; } = 0;
 
         [Description("")] 
-        public virtual object ConstrunctionDetails { get; set; } = null;
+        public virtual string ConstrunctionDetails { get; set; } = null;
 
         [Description("")]
         public virtual bool ManualThermalBridgingYValue { get; set; } = false;

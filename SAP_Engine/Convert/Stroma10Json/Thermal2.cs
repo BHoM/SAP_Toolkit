@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -27,6 +28,22 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapThermal2.Connection = System.Convert.ToInt32(thermal2Object.CustomData["Connection"]);
 
             return sapThermal2;
+        }
+        public static Dictionary<string, object> FromThermal2(Thermal2 obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+
+            rtn.Add("Include", obj.Include);
+
+            rtn.Add("Type", obj.Type);
+
+            rtn.Add("Location", obj.Location);
+
+            rtn.Add("Connection", obj.Connection);
+
+            return rtn;
         }
     }
 }
