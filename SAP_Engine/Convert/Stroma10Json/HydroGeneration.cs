@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -32,6 +33,24 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapHydroGeneration.Certificate = (hydroGenerationObject.CustomData["Certificate"] as CustomObject);
 
             return sapHydroGeneration;
+        }
+        public static Dictionary<string, object> FromHydroGeneration(HydroGeneration obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+
+            rtn.Add("Yearly", obj.Yearly);
+            rtn.Add("Include", obj.Include);
+            rtn.Add("HydroGenerated", obj.HydroGenerated);
+            rtn.Add("ConnectedToMeter", obj.ConnectedToMeter);
+            rtn.Add("TotalArea", obj.TotalArea);
+            rtn.Add("MonthlyValues", FromMonthlyValues(obj.MonthlyValues));
+            rtn.Add("Certificate", obj.Certificate);
+
+
+
+            return rtn;
         }
     }
 }

@@ -70,4 +70,5 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual double OtherRoomNumberOfFans3 { get; set; } = 0;
     }
+
 }

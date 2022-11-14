@@ -23,9 +23,11 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapRoot.DateTimeCreated = System.Convert.ToDateTime(rootObject.CustomData["DateTimeCreated"]);
 
-            sapRoot.DateTimeSaved = System.Convert.ToDateTime(rootObject.CustomData["DateTimeCreated"]);
+            sapRoot.DateTimeSaved = System.Convert.ToDateTime(rootObject.CustomData["DateTimeSaved"]);
 
             sapRoot.UserID = System.Convert.ToInt32(rootObject.CustomData["UserId"]);
+
+            sapRoot.Name = rootObject.Name;
 
             sapRoot.Reference = rootObject.CustomData["Reference"] as string;
 
@@ -42,6 +44,40 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapRoot.DwellingCount = System.Convert.ToInt32(rootObject.CustomData["DwellingCount"]);
 
             return sapRoot;
+        }
+
+        public static Dictionary<string, object> FromRoot(Root obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+
+            rtn.Add("Guid", obj.BHoM_Guid.ToString());
+
+            rtn.Add("DateTimeCreated", obj.DateTimeCreated.ToString("yyyy-MM-ddTHH:mm:ss.fffZ"));
+
+            rtn.Add("DateTimeSaved", obj.DateTimeSaved.ToString("yyyy-MM-ddTHH:mm:ss.fffZ"));
+
+            rtn.Add("UserId", obj.UserID);
+
+            rtn.Add("Name", obj.Name);
+
+            rtn.Add("Reference", obj.Reference);
+
+            rtn.Add("Dwellings", obj.Dwellings.Select(x => FromDwelling(x)).ToList());
+
+            rtn.Add("Address", FromAddress(obj.Address));
+
+            rtn.Add("ClientDetails", FromClientDetails(obj.ClientDetails));
+
+            rtn.Add("Elements", FromElements(obj.Elements));
+
+            rtn.Add("Assessor", FromAssessor(obj.Assessor));
+
+            rtn.Add("DwellingCount", obj.DwellingCount);
+
+
+            return rtn;
         }
     }
 }

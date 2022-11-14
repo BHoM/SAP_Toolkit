@@ -44,6 +44,20 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             return sapWasteWaterHeatRecoverySystem;
         }
-        
+        public static Dictionary<string, object> FromWasteWaterHeatRecoverySystem(WasteWaterHeatRecoverySystem obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+
+            rtn.Add("SystemRef", obj.SystemReference);
+            rtn.Add("DedicatedStorage", obj.DedicatedStorage);
+            rtn.Add("WithBath", obj.WithBath);
+            rtn.Add("WithNoBath", obj.WithNoBath);
+
+
+            return rtn;
+        }
+
     }
 }

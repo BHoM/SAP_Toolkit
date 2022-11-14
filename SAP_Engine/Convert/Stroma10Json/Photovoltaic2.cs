@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -51,6 +52,24 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
 
             return sapPhotovoltaic2;
+        }
+        public static Dictionary<string, object> FromPhotovoltaic2(BH.oM.Environment.SAP.Stroma10.Photovoltaic2 obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("PPower", obj.PanelPower);
+            rtn.Add("PvTilt", obj.PhotovoltaicTilt);
+            rtn.Add("PvOrientation", obj.PhotovoltaicOrientation);
+            rtn.Add("PvOvershading", obj.PhotovoltaicOvershading);
+            rtn.Add("DirectlyConnected", obj.DirectlyConnected);
+            rtn.Add("FlatConnection", obj.FlatConnection);
+            rtn.Add("McsCert", obj.MicroCertificationSchemeCertificate);
+            rtn.Add("OverShadingFactor", obj.OverShadingFactor);
+            rtn.Add("Manufacturer", obj.Manufacturer);  
+            rtn.Add("McsCertificateReference", obj.MicroCertificationSchemeCertificateReference);
+
+            return rtn;
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -13,7 +14,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
             if (complianceHeatingDetailsObject == null)
                 return null;
 
-            
+
             BH.oM.Environment.SAP.Stroma10.ComplianceHeatingDetails sapComplianceHeatingDetails = new BH.oM.Environment.SAP.Stroma10.ComplianceHeatingDetails();
 
             sapComplianceHeatingDetails.ID = System.Convert.ToInt32(complianceHeatingDetailsObject.CustomData["Id"]);
@@ -38,5 +39,24 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             return sapComplianceHeatingDetails;
         }
-    }
+
+        public static Dictionary<string, object> FromComplianceHeatingDetails(ComplianceHeatingDetails obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+
+            rtn.Add("Manufacturer", obj.Manufacturer);
+            rtn.Add("Model", obj.Model);
+            rtn.Add("SystemType", obj.SystemType);
+            rtn.Add("CommissioningCertificate", obj.CommissioningCertificate);
+            rtn.Add("InstallationEngineer", obj.InstallationEngineer);
+            rtn.Add("ControllerFunction", obj.ControllerFunction);
+            rtn.Add("ControllerEcodesignClass", obj.ControllerEcodesignClass);
+            rtn.Add("ControllerManufacturer", obj.ControllerManufacturer);
+            rtn.Add("ControllerModel", obj.ControllerModel);
+
+            return rtn;
+        }
+    } 
 }

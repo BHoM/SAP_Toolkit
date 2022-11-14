@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -32,6 +33,22 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapHeatPumpOnly.WinterEfficiency = System.Convert.ToDouble(heatPumpOnlyObject.CustomData["WinterEff"]);
 
             return sapHeatPumpOnly;
+        }
+        public static Dictionary<string, object> FromHeatPumpOnly(HeatPumpOnly obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("HotWaterOnlyHp", obj.HotWaterOnlyHeatPump);
+            rtn.Add("HotWaterHpIntegral", obj.HotWaterHeatPumpIntegral);
+            rtn.Add("Volume", obj.Volume);
+            rtn.Add("DeclaredValue", obj.DeclaredValue);
+            rtn.Add("ManuSpecified", obj.ManufacturerSpecified);
+            rtn.Add("SummerEff", obj.SummerEfficiency);
+            rtn.Add("WinterEff", obj.WinterEfficiency);
+
+
+            return rtn;
         }
     }
 }

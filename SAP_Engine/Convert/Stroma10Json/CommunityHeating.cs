@@ -5,6 +5,7 @@ using System.Text;
 using System.Linq;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -80,5 +81,33 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             return sapCommunityHeating;
         }
+        public static Dictionary<string, object> FromCommunityHeating(CommunityHeating obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("Boiler1Efficiency", obj.Boiler1Efficiency);
+            rtn.Add("Boiler1HeatFraction", obj.Boiler1HeatFraction);
+            rtn.Add("HeatDistributionSystem", obj.HeatDistributionSystem);  
+            rtn.Add("HeatToPowerRatio", obj.HeatToPowerRatio);
+            rtn.Add("HeatSources", obj.HeatSources.Select(x => FromHeatSource(x)).ToList());
+            rtn.Add("NoOfAdditionalHeatSources", obj.NumberOfAdditionalHeatSources);
+            rtn.Add("Boiler2Chp", obj.Boiler2CHP);
+            rtn.Add("Boiler2ChpEfficiency", obj.Boiler2CHPEfficiency);
+            rtn.Add("ChpHeatFraction", obj.CHPHeatEfficiency);
+            rtn.Add("ChpHeatEfficiency", obj.CHPHeatEfficiency);
+            rtn.Add("ChpElectricalEfficiency", obj.CHPElectricalEfficiency);
+            rtn.Add("FromDatabase", obj.FromDatabase);
+            rtn.Add("Boiler2ChpFuel", obj.Boiler2CHPFuel);
+            rtn.Add("KnownLoss", obj.KnownLoss);
+            rtn.Add("KnownLossValue", obj.KnownLossValue);
+            rtn.Add("HeatNetworkExisting", obj.HeatNetworkExisting);
+            rtn.Add("ChpElectricityGeneration", obj.CHPElectricityGeneration);
+            rtn.Add("CommunityHeatingName", obj.CommunityHeatingName);
+            rtn.Add("SubNetworkName", obj.SubNetworkName);
+
+            return rtn;
+        }
+
     }
 }

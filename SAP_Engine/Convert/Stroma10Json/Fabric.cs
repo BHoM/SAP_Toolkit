@@ -35,6 +35,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapFabric.BHoM_Guid = (Guid.Parse(fabricObject.CustomData["Guid"] as string));
 
+            sapFabric.Name = fabricObject.Name;
 
             sapFabric.ItemID = System.Convert.ToInt32(fabricObject.CustomData["ItemId"]); 
 
@@ -108,6 +109,40 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapFabric.WaterHeating = ToWaterHeating(fabricObject.CustomData["WaterHeating"] as CustomObject); 
 
             return sapFabric;
+        }
+        public static Dictionary<string, object> FromFabric(Fabric obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("Guid", obj.BHoM_Guid.ToString());
+            rtn.Add("Name", obj.Name);
+            rtn.Add("ItemId", obj.ItemID);
+            rtn.Add("ElementType", obj.ElementType);
+            rtn.Add("ElementTypeName", obj.ElementTypeName);
+            rtn.Add("Ventilation", FromVentilation(obj.Ventilation));
+            rtn.Add("Renewable", FromRenewable(obj.Renewable));
+            rtn.Add("Overheating", FromOverheating(obj.Overheating));
+            rtn.Add("Doors", obj.Doors.Select(x => FromDoor(x)).ToList());
+            rtn.Add("Windows", obj.Windows.Select(x => FromWindow(x)).ToList());
+            rtn.Add("RoofLights", obj.RoofLights.Select(x => FromRoofLight(x)).ToList());
+            rtn.Add("Floors", obj.Floors.Select(x => FromFloor(x)).ToList());
+            rtn.Add("Walls", obj.Walls.Select(x => FromWall(x)).ToList());
+            rtn.Add("Roofs", obj.Roofs.Select(x => FromRoof(x)).ToList());
+            rtn.Add("PFloors", obj.PartyFloors.Select(x => FromPartyFloor(x)).ToList());
+            rtn.Add("PWalls", obj.PartyWalls.Select(x => FromPartyWall(x)).ToList());
+            rtn.Add("PCeilings", obj.PartyCeilings.Select(x => FromPartyCeiling(x)).ToList());
+            rtn.Add("IFloors", obj.InteriorFloors.Select(x => FromInteriorFloor(x)).ToList());
+            rtn.Add("IWalls", obj.InteriorWalls.Select(x => FromInteriorWall(x)).ToList());
+            rtn.Add("ICeilings", obj.InteriorCeilings.Select(x => FromInteriorCeiling(x)).ToList());
+            rtn.Add("Thermal", FromThermal(obj.Thermal));
+            rtn.Add("CoolingSystem", FromCoolingSystem(obj.CoolingSystem));
+            rtn.Add("PrimaryHeating", FromPrimaryHeating(obj.PrimaryHeating));
+            rtn.Add("PrimaryHeating2", FromPrimaryHeating2(obj.PrimaryHeating2));
+            rtn.Add("SecondaryHeating", FromSecondaryHeating(obj.SecondaryHeating));
+            rtn.Add("WaterHeating", FromWaterHeating(obj.WaterHeating));
+
+            return rtn;
         }
     }
 }

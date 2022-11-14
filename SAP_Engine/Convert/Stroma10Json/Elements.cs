@@ -4,6 +4,7 @@ using System.Text;
 using System.Linq;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -31,6 +32,20 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapElements.Overheatings = ToOverheatings((elementsObject.CustomData["Overheating"] as List<object>).Cast<CustomObject>().ToList());
 
             return sapElements;
+        }
+        public static Dictionary<string, object> FromElements(Elements obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("Fabric", obj.Fabrics.Select(x => FromFabric(x)).ToList());
+            rtn.Add("Heating", obj.Heatings.Select(x => FromHeating(x)).ToList());
+            rtn.Add("Water", obj.Waters.Select(x => FromWater(x)).ToList());
+            rtn.Add("Ventilation", obj.Ventilations.Select(x => FromVentilation(x)).ToList());
+            rtn.Add("Renewable", obj.Renewables.Select(x => FromRenewable(x)).ToList());
+            rtn.Add("Overheating", obj.Overheatings.Select(x => FromOverheating(x)).ToList());
+
+            return rtn;
         }
     }
 }

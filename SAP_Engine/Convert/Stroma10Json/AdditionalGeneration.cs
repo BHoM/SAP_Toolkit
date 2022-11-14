@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -24,6 +25,21 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapAdditionalGeneration.TotalArea = System.Convert.ToDouble(additionalGenerationObject.CustomData["TotalArea"]);
 
             return sapAdditionalGeneration;
+        }
+
+        public static Dictionary<string, object> FromAdditionalGeneration(AdditionalGeneration obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+
+            rtn.Add("Include", obj.Include);
+
+            rtn.Add("EGenerated", obj.EnergyGenerated);
+
+            rtn.Add("TotalArea", obj.TotalArea);
+
+            return rtn;
         }
     }
 }

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP;
 using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
@@ -69,6 +71,33 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
 
             return sapWaterHeating;
+        }
+        public static Dictionary<string, object> FromWaterHeating(BH.oM.Environment.SAP.Stroma10.WaterHeating obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("SolarWater", FromSolarWater(obj.SolarWater));
+            rtn.Add("System", obj.System);
+            rtn.Add("Fuel", obj.Fuel);
+            rtn.Add("Cylinder", FromCylinder(obj.Cylinder));
+            rtn.Add("CpsuTemp", obj.CombinedPrimaryStorageUnitTemperature);
+            rtn.Add("CommunityWater", FromCommunityWater(obj.CommunityWater));
+            rtn.Add("Thermal", FromThermal2(obj.Thermal2));
+            rtn.Add("CombiType", obj.CombiType);
+            rtn.Add("Wwhrs", FromWasteWaterHeatRecovery(obj.WasteWaterHeatRecovery));
+            rtn.Add("FlueGasHeatRecovery", FromFlueGasHeatRecovery(obj.FlueGasHeatRecovery));
+            rtn.Add("DhwVessel", obj.DomesticHotWaterVessel);
+
+            if (obj.ShowerUnits != null && obj.ShowerUnits.Any(x => x != null))
+                rtn.Add("ShowerUnits", obj.ShowerUnits.Select(x => FromShowerUnit(x)).ToList());
+
+            rtn.Add("WaterSource", obj.WaterSource);
+            rtn.Add("NoBaths", obj.NumberOfBaths);
+            rtn.Add("ControllerManufacturer", obj.ControllerManufacturer);
+            rtn.Add("Model", obj.Model);
+
+            return rtn;
         }
     }
 }

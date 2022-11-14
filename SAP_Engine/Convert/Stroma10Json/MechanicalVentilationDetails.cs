@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -28,6 +29,21 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapMechanicalVentilationDetails.DuctProductID = ToAssessor(mechanicalVentilationDetailsObject.CustomData["DuctProductId"] as CustomObject);
 
             return sapMechanicalVentilationDetails;
+        }
+        public static Dictionary<string, object> FromMechanicalVentilationDetails(MechanicalVentilationDetails obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("ProductName", obj.ProductName);
+            rtn.Add("DuctingType", obj.DuctingType);
+            rtn.Add("Sfp", obj.SpecificFanPower);
+            rtn.Add("Hee", obj.HeatExchangerEfficiency);
+            rtn.Add("DuctProductId", obj.DuctProductID);
+
+
+
+            return rtn;
         }
     }
 }

@@ -35,6 +35,8 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapInteriorFloor.BHoM_Guid = (Guid.Parse(interiorFloorObject.CustomData["Guid"] as string));
 
+            sapInteriorFloor.Name = interiorFloorObject.Name;
+
             sapInteriorFloor.Type = System.Convert.ToInt32(interiorFloorObject.CustomData["Type"]);
 
             sapInteriorFloor.Construction = System.Convert.ToInt32(interiorFloorObject.CustomData["Construction"]);
@@ -64,6 +66,31 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapInteriorFloor.LoftInsulation = interiorFloorObject.CustomData["LoftInsulation"] as CustomObject;
 
             return sapInteriorFloor;
+        }
+        public static Dictionary<string, object> FromInteriorFloor(InteriorFloor obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("Guid", obj.BHoM_Guid.ToString());
+            rtn.Add("Name", obj.Name);
+            rtn.Add("Type", obj.Type);
+            rtn.Add("Construction", obj.Construction);
+            rtn.Add("Area", obj.Area);
+            rtn.Add("UValueStart", obj.UValueStart);
+            rtn.Add("UValue", obj.UValue);
+            rtn.Add("Ru", obj.ResultantUValue);
+            rtn.Add("Curtain", obj.Curtain);
+            rtn.Add("OverRideK", obj.ManualInputKappa);
+            rtn.Add("K", obj.Kappa);
+            rtn.Add("Dims", obj.Dims.Select(x => FromDim(x)).ToList());
+            rtn.Add("UValueSelectionId", obj.UValueSelectionID);
+            rtn.Add("UValueSelected", obj.UValueSelected);
+            rtn.Add("EpcDescription", obj.EnergyPerformanceCertificateDescription);
+            rtn.Add("LoftInsulation", obj.LoftInsulation);
+
+
+            return rtn;
         }
     }
 }

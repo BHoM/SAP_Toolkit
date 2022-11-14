@@ -36,6 +36,8 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapFloor.BHoM_Guid = (Guid.Parse(floorObject.CustomData["Guid"]as string));
 
+            sapFloor.Name = floorObject.Name;
+
             sapFloor.Type = System.Convert.ToInt32(floorObject.CustomData["Type"]);
 
             sapFloor.Construction = System.Convert.ToInt32(floorObject.CustomData["Construction"]);
@@ -54,13 +56,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapFloor.Kappa = System.Convert.ToDouble(floorObject.CustomData["K"]);
 
-            ////////////////////////////////////
-            
-
             sapFloor.Dims = ToDims((floorObject.CustomData["Dims"] as List<object>).Cast<CustomObject>().ToList());
-
-
-            ////////////////////////////////////////
 
             sapFloor.UValueSelectionID = System.Convert.ToInt32(floorObject.CustomData["UValueSelectionId"]);
 
@@ -71,6 +67,31 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapFloor.LoftInsulation = floorObject.CustomData["LoftInsulation"] as CustomObject;
 
             return sapFloor;
+        }
+        public static Dictionary<string, object> FromFloor(BH.oM.Environment.SAP.Stroma10.Floor obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("Guid", obj.BHoM_Guid.ToString());
+            rtn.Add("Name", obj.Name);
+            rtn.Add("Type", obj.Type);
+            rtn.Add("Construction", obj.Construction);
+            rtn.Add("Area", obj.Area);
+            rtn.Add("UValueStart", obj.UValueStart);
+            rtn.Add("UValue", obj.UValue);
+            rtn.Add("Ru", obj.ResultantUValue);
+            rtn.Add("Curtain", obj.Curtain);
+            rtn.Add("OverRideK", obj.ManualInputKappa);
+            rtn.Add("K", obj.Kappa);
+            rtn.Add("Dims", obj.Dims.Select(x => FromDim(x)).ToList());
+            rtn.Add("UValueSelectionId", obj.UValueSelectionID);
+            rtn.Add("UValueSelected", obj.UValueSelected);
+            rtn.Add("EpcDescription", obj.EnergyPerformanceCertificateDescription);
+            rtn.Add("LoftInsulation", obj.LoftInsulation);
+
+
+            return rtn;
         }
     }
 }

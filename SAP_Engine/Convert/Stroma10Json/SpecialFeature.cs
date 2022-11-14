@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -29,9 +30,6 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             BH.oM.Environment.SAP.Stroma10.SpecialFeature sapSpecialFeature = new BH.oM.Environment.SAP.Stroma10.SpecialFeature();
 
-            
-            
-            
             
             sapSpecialFeature.ID = System.Convert.ToInt32(specialFeatureObject.CustomData["Id"]);
 
@@ -78,6 +76,36 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapSpecialFeature.Month12 = System.Convert.ToDouble(specialFeatureObject.CustomData["M12"]);
 
             return sapSpecialFeature;
+        }
+        public static Dictionary<string, object> FromSpecialFeature(SpecialFeature obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("Description", obj.Description);
+            rtn.Add("EnergySaved", obj.EnergySaved);
+            rtn.Add("FuelSaved", obj.FuelSaved);
+            rtn.Add("EnergyUsed", obj.EnergyUsed);
+            rtn.Add("FuelUsed", obj.FuelUsed);
+            rtn.Add("IncludeMonthly", obj.IncludeMonthly);
+            rtn.Add("MakeEmissionsOnly", obj.MakeEmissionsOnly);
+            rtn.Add("EmissionsAmount", obj.EmissionsAmount);
+            rtn.Add("EmissionsAmountCreated", obj.EmissionsAmountCreated);
+            rtn.Add("M1", obj.Month01);
+            rtn.Add("M2", obj.Month02);
+            rtn.Add("M3", obj.Month03);
+            rtn.Add("M4", obj.Month04);
+            rtn.Add("M5", obj.Month05);
+            rtn.Add("M6", obj.Month06);
+            rtn.Add("M7", obj.Month07);
+            rtn.Add("M8", obj.Month08);
+            rtn.Add("M9", obj.Month09);
+            rtn.Add("M10", obj.Month10);
+            rtn.Add("M11", obj.Month11);
+            rtn.Add("M12", obj.Month12);
+
+
+            return rtn;
         }
     }
 }

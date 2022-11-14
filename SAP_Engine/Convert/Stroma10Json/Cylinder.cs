@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -31,7 +32,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapCylinder.Insulation = System.Convert.ToInt32(cylinderObject.CustomData["Insulation"]);  
 
             
-            sapCylinder.InsulationThick  = System.Convert.ToDouble(cylinderObject.CustomData["InsThick"]); 
+            sapCylinder.InsulationThickness  = System.Convert.ToDouble(cylinderObject.CustomData["InsThick"]); 
 
             
             sapCylinder.InHeatedSpace = System.Convert.ToBoolean(cylinderObject.CustomData["InHeatedSpace"]);  
@@ -70,6 +71,31 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapCylinder.CommissioningCertificate  = (cylinderObject.CustomData["CommissioningCertificate"] as string);
 
             return sapCylinder;
+        }
+        public static Dictionary<string, object> FromCylinder(Cylinder obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("Volume", obj.Volume);
+            rtn.Add("ManuSpecified", obj.ManufacturerSpecified);
+            rtn.Add("DeclaredLoss", obj.DeclaredLoss);
+            rtn.Add("Insulation", obj.Insulation);
+            rtn.Add("InsThick", obj.InsulationThickness);
+            rtn.Add("InHeatedSpace", obj.InHeatedSpace);
+            rtn.Add("Thermostat", obj.Thermostat);
+            rtn.Add("PipeWorkInsulated", obj.PipeWorkInsulated);
+            rtn.Add("PipeWorkInsulation", obj.PipeWorkInsulation);
+            rtn.Add("Timed", obj.Timed);
+            rtn.Add("SummerImmersion", obj.SummerImmersion);
+            rtn.Add("Immersion", obj.Immersion);
+            rtn.Add("HpImmersion", obj.ImmersionHeater);
+            rtn.Add("HpExchanger", obj.HeatPumpExchanger);
+            rtn.Add("Manufacturer", obj.Manufacturer);
+            rtn.Add("Model", obj.Model);
+            rtn.Add("CommissioningCertificate", obj.CommissioningCertificate);
+ 
+            return rtn;
         }
     }
 }

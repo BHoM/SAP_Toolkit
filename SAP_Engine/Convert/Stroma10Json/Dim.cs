@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -41,6 +42,19 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapDim.Area = System.Convert.ToDouble(dimObject.CustomData["Area"]);
 
             return sapDim;
+        }
+        public static Dictionary<string, object> FromDim(Dim obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("Guid", obj.BHoM_Guid.ToString());
+            rtn.Add("Width", obj.Width);
+            rtn.Add("Length", obj.Length);
+            rtn.Add("Area", obj.Area);
+
+
+            return rtn;
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -45,6 +46,21 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapStorageHeater.ModelQualifier = storageHeaterObject.CustomData["ModelQualifier"] as string;
 
             return sapStorageHeater;
+        }
+        public static Dictionary<string, object> FromStorageHeater(StorageHeater obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("NumberOfHeaters", obj.NumberOfHeaters);
+            rtn.Add("IndexNumber", obj.IndexNumber);
+            rtn.Add("HighRetention", obj.HighRetention);
+            rtn.Add("ManuName", obj.ManufacturerName);
+            rtn.Add("BrandName", obj.BrandName);
+            rtn.Add("ModelName", obj.ModelName);
+            rtn.Add("ModelQualifier", obj.ModelQualifier);
+
+            return rtn;
         }
     }
 }

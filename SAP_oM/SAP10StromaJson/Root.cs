@@ -39,10 +39,10 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual string GUID { get; set; } = null;
 
         [Description("")]
-        public virtual DateTime DateTimeCreated { get; set; } = DateTime.Now;
+        public virtual DateTime DateTimeCreated { get; set; } = System.DateTime.MinValue;
 
         [Description("")]
-        public virtual DateTime DateTimeSaved { get; set; } = DateTime.Now;
+        public virtual DateTime DateTimeSaved { get; set; } = System.DateTime.MinValue;
 
         [Description("")]
         public virtual int UserID { get; set; } = 0;

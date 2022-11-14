@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -29,5 +30,25 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             return sapComplianceVent;
         }
+
+        public static Dictionary<string, object> FromComplianceVent(ComplianceVent obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+
+            rtn.Add("Manufacturer", obj.Manufacturer);
+
+            rtn.Add("Model", obj.Model);
+
+            rtn.Add("CommissioningCertificate", obj.CommissioningCertificate);
+
+            rtn.Add("InstallationEngineer", obj.InstallationEngineer);
+
+            rtn.Add("TestCertificateNumber", obj.TestCertificateNumber);
+
+            return rtn;
+        }
     }
 }
+

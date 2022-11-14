@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP.Stroma10
 {
@@ -68,6 +69,41 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapDwellingDetails.IsCableExport = System.Convert.ToBoolean(dwellingDetailsObject.CustomData["IsCableExport"]);
 
             return sapDwellingDetails;
+        }
+        public static Dictionary<string, object> FromDwellingDetails(DwellingDetails obj)
+        {
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+
+            rtn.Add("Id", obj.ID);
+            rtn.Add("PropertyType", obj.PropertyType);
+            rtn.Add("AssessmentType", obj.AssessmentType);
+            rtn.Add("TransactionType", obj.TransactionType);
+            rtn.Add("TenureType", obj.TenureType);
+            rtn.Add("RelatedParty", obj.RelatedParty);
+            rtn.Add("ThermalMass", obj.ThermalMass);
+            rtn.Add("IndicativeValue", obj.IndicativeValue);
+            rtn.Add("UserThermalMass", obj.UserThermalMass);
+            rtn.Add("BuiltForm", obj.BuiltForm);
+            rtn.Add("FlatType", obj.FlatType);
+            rtn.Add("Location", obj.Location);
+            rtn.Add("Terrain", obj.Terrain);
+            rtn.Add("Orientation", obj.Orientation);
+            rtn.Add("SmokeControl", obj.SmokeControl);
+            rtn.Add("OverShading", obj.OverShading);
+            rtn.Add("Country", obj.Country);
+            rtn.Add("Language", obj.Language);
+            rtn.Add("SummerOverheating", obj.SummerOverheating);
+            rtn.Add("WaterLess125", obj.WaterUseLessThan125);
+            rtn.Add("DateOfAssessment", obj.DateOfAssessment.ToString("yyyy-MM-ddTHH:mm:ss.fffZ"));
+            rtn.Add("DateOfCertificate", obj.DateOfCertificate.ToString("yyyy-MM-ddTHH:mm:ss.fffZ"));
+            rtn.Add("YearBuilt", obj.YearBuilt);
+            rtn.Add("RoomInRoof", obj.RoomInRoof);
+            rtn.Add("StoreysInBlock", obj.StoreysInBlock);
+            rtn.Add("IsGasMeter", obj.IsGasMeter);
+            rtn.Add("IsElectricMeter", obj.IsElectricMeter);
+            rtn.Add("IsCableExport", obj.IsCableExport);
+
+            return rtn;
         }
     }
 }
