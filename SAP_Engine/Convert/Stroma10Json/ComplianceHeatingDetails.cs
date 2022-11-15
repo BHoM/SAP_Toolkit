@@ -44,16 +44,27 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
+            if (obj == null)
+                return null;
+
             rtn.Add("Id", obj.ID);
 
             rtn.Add("Manufacturer", obj.Manufacturer);
+
             rtn.Add("Model", obj.Model);
+
             rtn.Add("SystemType", obj.SystemType);
+
             rtn.Add("CommissioningCertificate", obj.CommissioningCertificate);
+
             rtn.Add("InstallationEngineer", obj.InstallationEngineer);
+
             rtn.Add("ControllerFunction", obj.ControllerFunction);
+
             rtn.Add("ControllerEcodesignClass", obj.ControllerEcodesignClass);
+
             rtn.Add("ControllerManufacturer", obj.ControllerManufacturer);
+
             rtn.Add("ControllerModel", obj.ControllerModel);
 
             return rtn;

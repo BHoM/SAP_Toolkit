@@ -42,16 +42,27 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
-            rtn.Add("Id", obj.ID);
-            rtn.Add("Include", obj.Include);
-            rtn.Add("IsTer", obj.IsTER);
-            rtn.Add("TotalRooms", obj.TotalRooms);
-            rtn.Add("Manufacturer", obj.Manufacturer);
-            rtn.Add("Model", obj.Model);
-            rtn.Add("Efficiency", obj.Efficiency);
-            rtn.Add("IsStorage", obj.IsStorage);
-            rtn.Add("WwhrsSystems", obj.WasteWaterHeatRecoverySystems.Select(x => FromWasteWaterHeatRecoverySystem(x)).ToList());
+            if (obj == null)
+                return null;
 
+            rtn.Add("Id", obj.ID);
+
+            rtn.Add("Include", obj.Include);
+
+            rtn.Add("IsTer", obj.IsTER);
+
+            rtn.Add("TotalRooms", obj.TotalRooms);
+
+            rtn.Add("Manufacturer", obj.Manufacturer);
+
+            rtn.Add("Model", obj.Model);
+
+            rtn.Add("Efficiency", obj.Efficiency);
+
+            rtn.Add("IsStorage", obj.IsStorage);
+
+            if (obj.WasteWaterHeatRecoverySystems != null && obj.WasteWaterHeatRecoverySystems.Any(x => x != null))
+                rtn.Add("WwhrsSystems", obj.WasteWaterHeatRecoverySystems.Select(x => FromWasteWaterHeatRecoverySystem(x)).ToList());
 
             return rtn;
         }

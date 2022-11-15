@@ -63,21 +63,34 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
+            if (obj == null)
+                return null;
+
             rtn.Add("Id", obj.ID);
+
             rtn.Add("Include", obj.Include);
+
             rtn.Add("IsManufacturer", obj.IsManufacturer);
+
             rtn.Add("SGroup", obj.SubHeatingGroup);
+
             rtn.Add("SubHeatingCategory", obj.SubHeatingCategory);
+
             rtn.Add("ComplianceHeatingDetails", FromComplianceHeatingDetails(obj.ComplianceHeatingDetails));
+
             rtn.Add("Fuel", obj.Fuel);
+
             rtn.Add("IsHetas", obj.HeatingEquipmentTestingAndApprovalsScheme);
+
             rtn.Add("Efficiency", obj.Efficiency);
+
             rtn.Add("SapTableCode", obj.SAPTableCode);
+
             rtn.Add("MDescription", obj.ManufacturerDescription);
+
             rtn.Add("TestMethod", obj.TestMethod);
+
             rtn.Add("FlueType", obj.FlueType);
-
-
 
             return rtn;
         }

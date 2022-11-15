@@ -57,16 +57,29 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
+            if (obj == null)
+                return null;
+
             rtn.Add("Id", obj.ID);
+
             rtn.Add("PPower", obj.PanelPower);
+
             rtn.Add("PvTilt", obj.PhotovoltaicTilt);
+
             rtn.Add("PvOrientation", obj.PhotovoltaicOrientation);
+
             rtn.Add("PvOvershading", obj.PhotovoltaicOvershading);
+
             rtn.Add("DirectlyConnected", obj.DirectlyConnected);
+
             rtn.Add("FlatConnection", obj.FlatConnection);
+
             rtn.Add("McsCert", obj.MicroCertificationSchemeCertificate);
+
             rtn.Add("OverShadingFactor", obj.OverShadingFactor);
+
             rtn.Add("Manufacturer", obj.Manufacturer);  
+
             rtn.Add("McsCertificateReference", obj.MicroCertificationSchemeCertificateReference);
 
             return rtn;

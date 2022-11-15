@@ -95,33 +95,56 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
+            if (obj == null)
+                return null;
+
             rtn.Add("Id", obj.ID);
 
             rtn.Add("Include", obj.Include);
+
             rtn.Add("SolarWaterCollectorType", obj.SolarWaterCollectorType);
+
             rtn.Add("OverRide", obj.OverRide);
+
             rtn.Add("SolarZero", obj.SolarZero);
+
             rtn.Add("SolarHLoss", obj.SolarHeatLoss);
+
             rtn.Add("SolarHLoss2", obj.SolarHeatLoss2);
+
             rtn.Add("SolarArea", obj.SolarArea);
+
             rtn.Add("Gross", obj.Gross);
+
             rtn.Add("SolarTilt", obj.SolarTilt);
+
             rtn.Add("SolarPitch", obj.SolarPitch);
+
             rtn.Add("SolarOrientation", obj.SolarOrientation);
+
             rtn.Add("SolarOverShading", obj.SolarOverShading);
+
             rtn.Add("SolarVolume", obj.SolarVolume);
+
             rtn.Add("SolarSeparate", obj.SolarSeparate);
+
             rtn.Add("Pumped", obj.Pumped);
+
             rtn.Add("ShowerType", obj.ShowerType);
+
             rtn.Add("NloopDeclared", obj.LoopEfficiencyDeclared);
+
             rtn.Add("Nloop", obj.Nloop);
+
             rtn.Add("Khem", obj.IncidenceAngleModifier);
+
             rtn.Add("HlSystem", obj.SystemHeatLoss);
+
             rtn.Add("ServiceProvision", obj.ServiceProvision);
+
             rtn.Add("Manufacturer", obj.Manufacturer);
+
             rtn.Add("Certificate", obj.Certificate);
-
-
 
             return rtn;
         }

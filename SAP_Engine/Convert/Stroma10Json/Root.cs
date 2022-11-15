@@ -50,6 +50,9 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
+            if (obj == null)
+                return null;
+
             rtn.Add("Id", obj.ID);
 
             rtn.Add("Guid", obj.BHoM_Guid.ToString());
@@ -64,7 +67,9 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             rtn.Add("Reference", obj.Reference);
 
-            rtn.Add("Dwellings", obj.Dwellings.Select(x => FromDwelling(x)).ToList());
+            if (obj.Dwellings != null && obj.Dwellings.Any(x => x != null))
+
+                rtn.Add("Dwellings", obj.Dwellings.Select(x => FromDwelling(x)).ToList());
 
             rtn.Add("Address", FromAddress(obj.Address));
 

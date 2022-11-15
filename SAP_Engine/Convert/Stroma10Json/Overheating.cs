@@ -53,14 +53,26 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
+            if (obj == null)
+                return null;
+
             rtn.Add("Id", obj.ID);
+
             rtn.Add("EaCBuildType", obj.EaCBuildType);
+
             rtn.Add("EaCWindow", obj.EaCWindow);
+
             rtn.Add("EaCOveride", obj.EaCOveride);
+
             rtn.Add("EaCAirChange", obj.EaCAirChange);
+
             rtn.Add("Night", obj.Night);
+
             rtn.Add("Conservatory", obj.Conservatory);
-            rtn.Add("Lights", obj.Lights.Select(x => FromLight(x)).ToList());
+
+            if (obj.Lights != null && obj.Lights.Any(x => x != null))
+                rtn.Add("Lights", obj.Lights.Select(x => FromLight(x)).ToList());
+
             rtn.Add("LowerEnergyLights", obj.LowerEnergyLights);
 
             return rtn;

@@ -36,14 +36,22 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
-            rtn.Add("Id", obj.ID);
-            rtn.Add("FabricElement", obj.FabricElement);
-            rtn.Add("VentilationElement", obj.VentilationElement);
-            rtn.Add("HeatingElement", obj.HeatingElement);
-            rtn.Add("WaterElement", obj.WaterElement);
-            rtn.Add("RenewableElement", obj.RenewableElement);
-            rtn.Add("OverheatingElement", obj.OverheatingElement);
+            if (obj == null)
+                return null;
 
+            rtn.Add("Id", obj.ID);
+
+            rtn.Add("FabricElement", obj.FabricElement);
+
+            rtn.Add("VentilationElement", obj.VentilationElement);
+
+            rtn.Add("HeatingElement", obj.HeatingElement);
+
+            rtn.Add("WaterElement", obj.WaterElement);
+
+            rtn.Add("RenewableElement", obj.RenewableElement);
+
+            rtn.Add("OverheatingElement", obj.OverheatingElement);
 
             return rtn;
         }

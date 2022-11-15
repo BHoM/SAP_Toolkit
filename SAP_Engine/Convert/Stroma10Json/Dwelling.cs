@@ -51,14 +51,23 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
-            rtn.Add("Id", obj.ID);
-            rtn.Add("Guid", obj.BHoM_Guid.ToString());
-            rtn.Add("Selected", obj.Selected);
-            rtn.Add("Name", obj.Name);
-            rtn.Add("Orientation", obj.Orientation);
-            rtn.Add("IsLodged", obj.IsLodged);
-            rtn.Add("DwellingVersions", obj.DwellingVersions.Select(x => FromDwellingVersion(x)).ToList());  
+            if (obj == null)
+                return null;
 
+            rtn.Add("Id", obj.ID);
+
+            rtn.Add("Guid", obj.BHoM_Guid.ToString());
+
+            rtn.Add("Selected", obj.Selected);
+
+            rtn.Add("Name", obj.Name);
+
+            rtn.Add("Orientation", obj.Orientation);
+
+            rtn.Add("IsLodged", obj.IsLodged);
+
+            if (obj.DwellingVersions != null && obj.DwellingVersions.Any(x => x != null))
+                rtn.Add("DwellingVersions", obj.DwellingVersions.Select(x => FromDwellingVersion(x)).ToList());  
 
             return rtn;
         }

@@ -42,15 +42,27 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
+            if (obj == null)
+                return null;
+
             rtn.Add("Id", obj.ID);
+
             rtn.Add("Include", obj.Include);
+
             rtn.Add("SystemType", obj.SystemType);
+
             rtn.Add("EnergyLabel", obj.EnergyLabel);
+
             rtn.Add("Overide", obj.Overide);
+
             rtn.Add("CompressorControl", obj.CompressorControl);
+
             rtn.Add("CooledArea", obj.CooledArea);
+
             rtn.Add("EerMeasuredInclude", obj.EERMeasuredInclude);
+
             rtn.Add("Eer", obj.EER);
+
             rtn.Add("Description", obj.Description);
 
             return rtn;

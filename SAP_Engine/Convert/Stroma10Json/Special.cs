@@ -29,10 +29,15 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
-            rtn.Add("Id", obj.ID);
-            rtn.Add("Include", obj.Include);
-            rtn.Add("SpecialFeatures", obj.SpecialFeatures.Select(x => FromSpecialFeature(x)).ToList());
+            if (obj == null)
+                return null;
 
+            rtn.Add("Id", obj.ID);
+
+            rtn.Add("Include", obj.Include);
+
+            if (obj.SpecialFeatures != null && obj.SpecialFeatures.Any(x => x != null))
+                rtn.Add("SpecialFeatures", obj.SpecialFeatures.Select(x => FromSpecialFeature(x)).ToList());
 
             return rtn;
         }

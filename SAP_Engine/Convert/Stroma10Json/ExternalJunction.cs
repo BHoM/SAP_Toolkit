@@ -82,22 +82,38 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
-            rtn.Add("Id", obj.ID);
-            rtn.Add("Guid", obj.BHoM_Guid.ToString());
-            rtn.Add("Ref", obj.Reference);
-            rtn.Add("JunctionDetail", obj.JunctionDetail);
-            rtn.Add("ThermalTransmittance", obj.ThermalTransmittance);
-            rtn.Add("Length", obj.Length);
-            rtn.Add("IsAccredited", obj.IsAccredited);
-            rtn.Add("IsDefault", obj.IsDefault);
-            rtn.Add("Accredited", obj.Accredited);
-            rtn.Add("Default", obj.Default);
-            rtn.Add("Notes", obj.Notes);
-            rtn.Add("RowIdCreated", obj.RowIDCreated);
-            rtn.Add("ImportLenght", obj.ImportLength);
-            rtn.Add("Count", obj.Count);
-            rtn.Add("Result", obj.Result);
+            if (obj == null)
+                return null;
 
+            rtn.Add("Id", obj.ID);
+
+            rtn.Add("Guid", obj.BHoM_Guid.ToString());
+
+            rtn.Add("Ref", obj.Reference);
+
+            rtn.Add("JunctionDetail", obj.JunctionDetail);
+
+            rtn.Add("ThermalTransmittance", obj.ThermalTransmittance);
+
+            rtn.Add("Length", obj.Length);
+
+            rtn.Add("IsAccredited", obj.IsAccredited);
+
+            rtn.Add("IsDefault", obj.IsDefault);
+
+            rtn.Add("Accredited", obj.Accredited);
+
+            rtn.Add("Default", obj.Default);
+
+            rtn.Add("Notes", obj.Notes);
+
+            rtn.Add("RowIdCreated", obj.RowIDCreated);
+
+            rtn.Add("ImportLenght", obj.ImportLength);
+
+            rtn.Add("Count", obj.Count);
+
+            rtn.Add("Result", obj.Result);
 
             return rtn;
         }

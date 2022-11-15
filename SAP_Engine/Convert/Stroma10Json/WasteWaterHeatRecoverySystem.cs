@@ -21,9 +21,6 @@ namespace BH.Engine.Environment.SAP.Stroma10
             }
             return rtn;
         }
-
-
-
         public static BH.oM.Environment.SAP.Stroma10.WasteWaterHeatRecoverySystem ToWasteWaterHeatRecoverySystem(CustomObject wasteWaterHeatRecoverySystemObject)
         {
 
@@ -48,16 +45,20 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
+            if (obj == null)
+                return null;
+
             rtn.Add("Id", obj.ID);
 
             rtn.Add("SystemRef", obj.SystemReference);
-            rtn.Add("DedicatedStorage", obj.DedicatedStorage);
-            rtn.Add("WithBath", obj.WithBath);
-            rtn.Add("WithNoBath", obj.WithNoBath);
 
+            rtn.Add("DedicatedStorage", obj.DedicatedStorage);
+
+            rtn.Add("WithBath", obj.WithBath);
+
+            rtn.Add("WithNoBath", obj.WithNoBath);
 
             return rtn;
         }
-
     }
 }

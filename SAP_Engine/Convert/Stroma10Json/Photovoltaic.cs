@@ -33,11 +33,19 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
+            if (obj == null)
+                return null;
+
             rtn.Add("Id", obj.ID);
+
             rtn.Add("Include", obj.Include);
+
             rtn.Add("Diverter", obj.Diverter);
+
             rtn.Add("BatterCapacity", obj.BatteryCapacity);
-            rtn.Add("Photovoltaics", obj.Photovoltaic2s.Select(x => FromPhotovoltaic2(x)).ToList());
+
+            if (obj.Photovoltaic2s != null && obj.Photovoltaic2s.Any(x => x != null))
+                rtn.Add("Photovoltaics", obj.Photovoltaic2s.Select(x => FromPhotovoltaic2(x)).ToList());
 
             return rtn;
         }

@@ -34,14 +34,20 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
+            if (obj == null)
+                return null;
+
             rtn.Add("Id", obj.ID);
+
             rtn.Add("ProductName", obj.ProductName);
+
             rtn.Add("DuctingType", obj.DuctingType);
+
             rtn.Add("Sfp", obj.SpecificFanPower);
+
             rtn.Add("Hee", obj.HeatExchangerEfficiency);
+
             rtn.Add("DuctProductId", obj.DuctProductID);
-
-
 
             return rtn;
         }

@@ -47,12 +47,18 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
-            rtn.Add("Id", obj.ID);
-            rtn.Add("Guid", obj.BHoM_Guid.ToString());
-            rtn.Add("Width", obj.Width);
-            rtn.Add("Length", obj.Length);
-            rtn.Add("Area", obj.Area);
+            if (obj == null)
+                return null;
 
+            rtn.Add("Id", obj.ID);
+
+            rtn.Add("Guid", obj.BHoM_Guid.ToString());
+
+            rtn.Add("Width", obj.Width);
+
+            rtn.Add("Length", obj.Length);
+
+            rtn.Add("Area", obj.Area);
 
             return rtn;
         }

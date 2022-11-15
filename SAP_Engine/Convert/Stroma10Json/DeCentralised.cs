@@ -48,21 +48,34 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
+            if (obj == null)
+                return null;
+
             rtn.Add("Id", obj.ID);
 
             rtn.Add("KspF1", obj.KitchenFanPower1);
-            rtn.Add("KspF2", obj.KitchenFanPower2);
-            rtn.Add("KspF3", obj.KitchenFanPower3);
-            rtn.Add("OspF1", obj.OtherRoomFanPower1);
-            rtn.Add("OspF2", obj.OtherRoomFanPower2);
-            rtn.Add("OspF3", obj.OtherRoomFanPower3 );
-            rtn.Add("Ktp1", obj.KitchenNumberOfFans1 );
-            rtn.Add("Ktp2", obj.KitchenNumberOfFans2 );
-            rtn.Add("Ktp3", obj.KitchenNumberOfFans3 );
-            rtn.Add("Otp1", obj.OtherRoomNumberOfFans1);
-            rtn.Add("Otp2", obj.OtherRoomNumberOfFans2);
-            rtn.Add("Otp3", obj.OtherRoomNumberOfFans3);
 
+            rtn.Add("KspF2", obj.KitchenFanPower2);
+
+            rtn.Add("KspF3", obj.KitchenFanPower3);
+
+            rtn.Add("OspF1", obj.OtherRoomFanPower1);
+
+            rtn.Add("OspF2", obj.OtherRoomFanPower2);
+
+            rtn.Add("OspF3", obj.OtherRoomFanPower3);
+
+            rtn.Add("Ktp1", obj.KitchenNumberOfFans1);
+
+            rtn.Add("Ktp2", obj.KitchenNumberOfFans2);
+
+            rtn.Add("Ktp3", obj.KitchenNumberOfFans3);
+
+            rtn.Add("Otp1", obj.OtherRoomNumberOfFans1);
+
+            rtn.Add("Otp2", obj.OtherRoomNumberOfFans2);
+
+            rtn.Add("Otp3", obj.OtherRoomNumberOfFans3);
 
             return rtn;
         }

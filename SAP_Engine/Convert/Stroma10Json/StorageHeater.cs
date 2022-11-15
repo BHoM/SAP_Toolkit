@@ -21,8 +21,6 @@ namespace BH.Engine.Environment.SAP.Stroma10
             }
             return rtn;
         }
-
-
         public static BH.oM.Environment.SAP.Stroma10.StorageHeater ToStorageHeater(CustomObject storageHeaterObject)
         {
             if (storageHeaterObject == null)
@@ -51,13 +49,23 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
+            if (obj == null)
+                return null;
+
             rtn.Add("Id", obj.ID);
+
             rtn.Add("NumberOfHeaters", obj.NumberOfHeaters);
+
             rtn.Add("IndexNumber", obj.IndexNumber);
+
             rtn.Add("HighRetention", obj.HighRetention);
+
             rtn.Add("ManuName", obj.ManufacturerName);
+
             rtn.Add("BrandName", obj.BrandName);
+
             rtn.Add("ModelName", obj.ModelName);
+
             rtn.Add("ModelQualifier", obj.ModelQualifier);
 
             return rtn;

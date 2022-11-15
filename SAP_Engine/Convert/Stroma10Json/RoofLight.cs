@@ -119,35 +119,64 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
-            rtn.Add("Id", obj.ID);
-            rtn.Add("Guid", obj.BHoM_Guid.ToString());
-            rtn.Add("Name", obj.Name);
-            rtn.Add("Location", obj.Location);
-            rtn.Add("UValueSource", obj.UValueSource);
-            rtn.Add("Orientation", obj.Orientation);
-            rtn.Add("OverShading", obj.OverShading);
-            rtn.Add("GlazingType", obj.GlazingType);
-            rtn.Add("AirGap", obj.AirGap);
-            rtn.Add("FrameType", obj.FrameType);
-            rtn.Add("ThermalBreak", obj.ThermalBreak);
-            rtn.Add("Area", obj.Area);
-            rtn.Add("Width", obj.Width);
-            rtn.Add("Height", obj.Height);
-            rtn.Add("Count", obj.Count);
-            rtn.Add("OverhangWidth", obj.OverhangWidth);
-            rtn.Add("OverhangDepth", obj.OverhangDepth);
-            rtn.Add("CurtainType", obj.CurtainType);
-            rtn.Add("FractionClosed", obj.FractionClosed);
-            rtn.Add("Transmittance", obj.Transmittance);
-            rtn.Add("FrameFactor", obj.FrameFactor);
-            rtn.Add("Uvalue", obj.UValue);
-            rtn.Add("FromXml", obj.FromXml);
-            rtn.Add("OpeningType", obj.OpeningType);
-            rtn.Add("DoorType", obj.DoorType);
-            rtn.Add("Pitch", obj.Pitch);
-            rtn.Add("PitchKnown", obj.PitchKnown);
-            rtn.Add("IsArgonFilled", obj.IsArgonFilled);
+            if (obj == null)
+                return null;
 
+            rtn.Add("Id", obj.ID);
+
+            rtn.Add("Guid", obj.BHoM_Guid.ToString());
+
+            rtn.Add("Name", obj.Name);
+
+            rtn.Add("Location", obj.Location);
+
+            rtn.Add("UValueSource", obj.UValueSource);
+
+            rtn.Add("Orientation", obj.Orientation);
+
+            rtn.Add("OverShading", obj.OverShading);
+
+            rtn.Add("GlazingType", obj.GlazingType);
+
+            rtn.Add("AirGap", obj.AirGap);
+
+            rtn.Add("FrameType", obj.FrameType);
+
+            rtn.Add("ThermalBreak", obj.ThermalBreak);
+
+            rtn.Add("Area", obj.Area);
+
+            rtn.Add("Width", obj.Width);
+
+            rtn.Add("Height", obj.Height);
+
+            rtn.Add("Count", obj.Count);
+
+            rtn.Add("OverhangWidth", obj.OverhangWidth);
+
+            rtn.Add("OverhangDepth", obj.OverhangDepth);
+
+            rtn.Add("CurtainType", obj.CurtainType);
+
+            rtn.Add("FractionClosed", obj.FractionClosed);
+
+            rtn.Add("Transmittance", obj.Transmittance);
+
+            rtn.Add("FrameFactor", obj.FrameFactor);
+
+            rtn.Add("Uvalue", obj.UValue);
+
+            rtn.Add("FromXml", obj.FromXml);
+
+            rtn.Add("OpeningType", obj.OpeningType);
+
+            rtn.Add("DoorType", obj.DoorType);
+
+            rtn.Add("Pitch", obj.Pitch);
+
+            rtn.Add("PitchKnown", obj.PitchKnown);
+
+            rtn.Add("IsArgonFilled", obj.IsArgonFilled);
 
             return rtn;
         }
