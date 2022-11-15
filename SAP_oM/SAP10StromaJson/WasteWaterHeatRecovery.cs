@@ -45,10 +45,10 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int TotalRooms { get; set; } = 0;
 
         [Description("")]
-        public virtual object Manufacturer { get; set; } = null;
+        public virtual string Manufacturer { get; set; } = null;
 
         [Description("")]
-        public virtual object Model { get; set; } = null;
+        public virtual string Model { get; set; } = null;
 
         [Description("")]
         public virtual double Efficiency { get; set; } = 0;

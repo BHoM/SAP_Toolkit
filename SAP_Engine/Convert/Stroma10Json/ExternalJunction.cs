@@ -67,7 +67,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapExternalJunction.RowIDCreated = System.Convert.ToBoolean(externalJunctionObject.CustomData["RowIdCreated"]); 
 
         
-            sapExternalJunction.ImportLength = System.Convert.ToBoolean(externalJunctionObject.CustomData["ImportLenght"]); // ...
+            sapExternalJunction.ImportLength = System.Convert.ToBoolean(externalJunctionObject.CustomData["ImportLenght"]); 
 
         
             sapExternalJunction.Count = System.Convert.ToInt32(externalJunctionObject.CustomData["Count"]); 

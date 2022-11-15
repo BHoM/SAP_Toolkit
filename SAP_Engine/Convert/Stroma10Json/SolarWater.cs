@@ -86,7 +86,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapSolarWater.Manufacturer = (solarWaterObject.CustomData["Manufacturer"] as string);
 
 
-            sapSolarWater.Certificate = (solarWaterObject.CustomData["Certificate"] as CustomObject); 
+            sapSolarWater.Certificate = (solarWaterObject.CustomData["Certificate"] as string); 
 
 
             return sapSolarWater;

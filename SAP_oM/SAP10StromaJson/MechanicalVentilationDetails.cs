@@ -48,6 +48,6 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual double HeatExchangerEfficiency { get; set; } = 0;
 
         [Description("")]
-        public virtual object DuctProductID { get; set; } = null;
+        public virtual string DuctProductID { get; set; } = null;
     }
 }

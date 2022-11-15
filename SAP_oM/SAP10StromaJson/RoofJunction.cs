@@ -63,7 +63,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual double Default { get; set; } = 0;
 
         [Description("")]
-        public virtual object Notes { get; set; } = null;
+        public virtual string Notes { get; set; } = null;
 
         [Description("")]
         public virtual bool RowIDCreated { get; set; } = false;

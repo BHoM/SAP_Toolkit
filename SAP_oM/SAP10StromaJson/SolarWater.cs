@@ -102,7 +102,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual string Manufacturer { get; set; } = null;
 
         [Description("")]
-        public virtual object Certificate { get; set; } = null;
+        public virtual string Certificate { get; set; } = null;
 
     }
 }

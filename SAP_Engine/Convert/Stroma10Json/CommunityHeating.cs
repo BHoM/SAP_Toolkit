@@ -76,7 +76,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapCommunityHeating.CommunityHeatingName = communityHeatingObject.CustomData["CommunityHeatingName"] as string; 
 
 
-            sapCommunityHeating.SubNetworkName = (communityHeatingObject.CustomData["SubNetworkName"] as CustomObject);
+            sapCommunityHeating.SubNetworkName = (communityHeatingObject.CustomData["SubNetworkName"] as string);
 
 
             return sapCommunityHeating;

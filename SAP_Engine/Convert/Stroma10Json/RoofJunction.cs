@@ -58,13 +58,13 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapRoofJunction.Default = System.Convert.ToDouble(roofJunctionObject.CustomData["Default"]);
 
 
-            sapRoofJunction.Notes = (roofJunctionObject.CustomData["Notes"] as CustomObject);
+            sapRoofJunction.Notes = (roofJunctionObject.CustomData["Notes"] as string);
 
 
             sapRoofJunction.RowIDCreated = System.Convert.ToBoolean(roofJunctionObject.CustomData["RowIdCreated"]);
 
 
-            sapRoofJunction.ImportLength = System.Convert.ToBoolean(roofJunctionObject.CustomData["ImportLenght"]);//
+            sapRoofJunction.ImportLength = System.Convert.ToBoolean(roofJunctionObject.CustomData["ImportLenght"]);
 
 
             sapRoofJunction.Count = System.Convert.ToInt32(roofJunctionObject.CustomData["Count"]);

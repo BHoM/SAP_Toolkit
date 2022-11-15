@@ -39,13 +39,13 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual bool Include { get; set; } = false;
 
         [Description("")]
-        public virtual object Group { get; set; } = null;
+        public virtual string Group { get; set; } = null;
 
         [Description("")]
         public virtual int HeatingCategory { get; set; } = 0;
 
         [Description("")]
-        public virtual object SubHeatingGroup { get; set; } = null;
+        public virtual string SubHeatingGroup { get; set; } = null;
 
         [Description("")]
         public virtual int SubHeatingCategory { get; set; } = 0;

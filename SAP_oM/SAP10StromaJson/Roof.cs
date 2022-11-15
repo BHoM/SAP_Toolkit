@@ -76,9 +76,9 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual bool UValueSelected { get; set; } = false;
 
         [Description("")]
-        public virtual object EnergyPerformanceCertificateDescription { get; set; } = null;
+        public virtual string EnergyPerformanceCertificateDescription { get; set; } = null;
 
         [Description("")]
-        public virtual object LoftInsulation { get; set; } = null;
+        public virtual string LoftInsulation { get; set; } = null;
     }
 }

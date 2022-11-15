@@ -52,6 +52,8 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapDwellingDetails.Language = System.Convert.ToInt32(dwellingDetailsObject.CustomData["Language"]);
 
+            sapDwellingDetails.WaterUseLessThan125 = System.Convert.ToBoolean(dwellingDetailsObject.CustomData["WaterLess125"]);
+
             sapDwellingDetails.DateOfAssessment = System.Convert.ToDateTime(dwellingDetailsObject.CustomData["DateOfAssessment"]);
 
             sapDwellingDetails.DateOfCertificate = System.Convert.ToDateTime(dwellingDetailsObject.CustomData["DateOfCertificate"]);

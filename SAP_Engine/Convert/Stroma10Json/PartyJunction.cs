@@ -58,13 +58,13 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapPartyJunction.Default = System.Convert.ToDouble(partyJunctionObject.CustomData["Default"]); 
 
 
-            sapPartyJunction.Notes = (partyJunctionObject.CustomData["Notes"] as CustomObject); 
+            sapPartyJunction.Notes = (partyJunctionObject.CustomData["Notes"] as string); 
 
             
             sapPartyJunction.RowIDCreated = System.Convert.ToBoolean(partyJunctionObject.CustomData["RowIdCreated"]); 
 
             
-            sapPartyJunction.ImportLength = System.Convert.ToBoolean(partyJunctionObject.CustomData["ImportLenght"]); //
+            sapPartyJunction.ImportLength = System.Convert.ToBoolean(partyJunctionObject.CustomData["ImportLenght"]); 
 
             
             sapPartyJunction.Count = System.Convert.ToInt32(partyJunctionObject.CustomData["Count"]); 

@@ -53,7 +53,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual List<Dim> Dims { get; set; } = null;
 
         [Description("")]
-        public virtual object Type { get; set; } = null;
+        public virtual string Type { get; set; } = null;
 
         [Description("")]
         public virtual int Floor { get; set; } = 0;

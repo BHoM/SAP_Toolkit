@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 using BH.oM.Base;
 using BH.oM.Environment.SAP.Stroma10;
@@ -9,13 +10,13 @@ namespace BH.Engine.Environment.SAP.Stroma10
 {
     public static partial class Convert
     {
-        public static List<BH.oM.Environment.SAP.Stroma10.ShowerUnit> ToShowerUnits(CustomObject showerUnitsObject)
+        public static List<BH.oM.Environment.SAP.Stroma10.ShowerUnit> ToShowerUnits(List<CustomObject> showerUnitsObject)
         {
             if (showerUnitsObject == null)
                 return null;
 
             List<BH.oM.Environment.SAP.Stroma10.ShowerUnit> rtn = new List<BH.oM.Environment.SAP.Stroma10.ShowerUnit>();
-            foreach (var value in showerUnitsObject.CustomData["ShowerUnits"] as List<CustomObject>)
+            foreach (var value in showerUnitsObject)
             {
                 rtn.Add(ToShowerUnit(value));
             }
@@ -32,6 +33,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
 
             sapShowerUnit.BHoM_Guid = (Guid.Parse(showerUnitObject.CustomData["Guid"] as string));
+
 
             sapShowerUnit.Name = showerUnitObject.Name;
 
@@ -52,6 +54,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             return sapShowerUnit;
         }
+
         public static Dictionary<string, object> FromShowerUnit(ShowerUnit obj)
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();

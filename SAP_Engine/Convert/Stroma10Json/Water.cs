@@ -138,39 +138,58 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             if (obj.Doors != null && obj.Doors.Any(x => x != null))
                 rtn.Add("Doors", obj.Doors.Select(x => FromDoor(x)).ToList());
+    
 
             if (obj.Windows != null && obj.Windows.Any(x => x != null))
                 rtn.Add("Windows", obj.Windows.Select(x => FromWindow(x)).ToList());
+           
+
 
             if (obj.RoofLights != null && obj.RoofLights.Any(x => x != null))
                 rtn.Add("RoofLights", obj.RoofLights.Select(x => FromRoofLight(x)).ToList());
+            
+
 
             if (obj.Floors != null && obj.Floors.Any(x => x != null))
                 rtn.Add("Floors", obj.Floors.Select(x => FromFloor(x)).ToList());
 
+
+
             if (obj.Walls != null && obj.Walls.Any(x => x != null))
                 rtn.Add("Walls", obj.Walls.Select(x => FromWall(x)).ToList());
+
+
 
             if (obj.Roofs != null && obj.Roofs.Any(x => x != null))
                 rtn.Add("Roofs", obj.Roofs.Select(x => FromRoof(x)).ToList());
 
+
             if (obj.PartyFloors != null && obj.PartyFloors.Any(x => x != null))
                 rtn.Add("PFloors", obj.PartyFloors.Select(x => FromPartyFloor(x)).ToList());
+
 
             if (obj.PartyWalls != null && obj.PartyWalls.Any(x => x != null))
                 rtn.Add("PWalls", obj.PartyWalls.Select(x => FromPartyWall(x)).ToList());
 
+
             if (obj.PartyCeilings != null && obj.PartyCeilings.Any(x => x != null))
                 rtn.Add("PCeilings", obj.PartyCeilings.Select(x => FromPartyCeiling(x)).ToList());
+
+
 
             if (obj.InteriorFloors != null && obj.InteriorFloors.Any(x => x != null))
                 rtn.Add("IFloors", obj.InteriorFloors.Select(x => FromInteriorFloor(x)).ToList());
 
+
+
             if (obj.InteriorWalls!= null && obj.InteriorWalls.Any(x => x != null))
                 rtn.Add("IWalls", obj.InteriorWalls.Select(x => FromInteriorWall(x)).ToList());
 
+
             if (obj.InteriorCeilings != null && obj.InteriorCeilings.Any(x => x != null))
                 rtn.Add("ICeilings", obj.InteriorCeilings.Select(x => FromInteriorCeiling(x)).ToList());
+
+
 
             rtn.Add("Thermal", FromThermal(obj.Thermal));
 

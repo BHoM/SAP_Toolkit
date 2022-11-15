@@ -24,13 +24,13 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapPrimaryHeating.Include = System.Convert.ToBoolean(primaryHeatingObject.CustomData["Include"]);
 
 
-            sapPrimaryHeating.Group = (primaryHeatingObject.CustomData["Group"] as CustomObject); 
+            sapPrimaryHeating.Group = (primaryHeatingObject.CustomData["Group"] as string); 
 
             
             sapPrimaryHeating.HeatingCategory = System.Convert.ToInt32(primaryHeatingObject.CustomData["HeatingCategory"]);
 
 
-            sapPrimaryHeating.SubHeatingGroup = (primaryHeatingObject.CustomData["SGroup"] as CustomObject); 
+            sapPrimaryHeating.SubHeatingGroup = (primaryHeatingObject.CustomData["SGroup"] as string); 
 
             
             sapPrimaryHeating.SubHeatingCategory = System.Convert.ToInt32(primaryHeatingObject.CustomData["SubHeatingCategory"]); 

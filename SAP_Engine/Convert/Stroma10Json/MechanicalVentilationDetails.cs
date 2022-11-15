@@ -26,7 +26,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapMechanicalVentilationDetails.HeatExchangerEfficiency = System.Convert.ToDouble(mechanicalVentilationDetailsObject.CustomData["Hee"]);
 
-            sapMechanicalVentilationDetails.DuctProductID = ToAssessor(mechanicalVentilationDetailsObject.CustomData["DuctProductId"] as CustomObject);
+            sapMechanicalVentilationDetails.DuctProductID = (mechanicalVentilationDetailsObject.CustomData["DuctProductId"] as string);
 
             return sapMechanicalVentilationDetails;
         }

@@ -28,7 +28,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapWindTurbine.Name = windTurbineObject.Name;
 
-            sapWindTurbine.Certificate =(windTurbineObject.CustomData["Certificate"] as CustomObject);
+            sapWindTurbine.Certificate =(windTurbineObject.CustomData["Certificate"] as string);
 
             return sapWindTurbine;
         }
