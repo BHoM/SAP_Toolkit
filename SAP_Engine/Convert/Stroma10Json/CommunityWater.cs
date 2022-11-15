@@ -60,10 +60,10 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapCommunityWater.FromDatabase = System.Convert.ToBoolean(communityWaterObject.CustomData["FromDatabase"]);
 
 
-            sapCommunityWater.SystemReference = (communityWaterObject.CustomData["SystemRef"] as CustomObject);
+            sapCommunityWater.SystemReference = (communityWaterObject.CustomData["SystemRef"] as string);
 
 
-            sapCommunityWater.SubNetworkName = (communityWaterObject.CustomData["SubNetworkName"] as CustomObject);
+            sapCommunityWater.SubNetworkName = (communityWaterObject.CustomData["SubNetworkName"] as string);
 
 
             sapCommunityWater.HeatNetworkExisting = System.Convert.ToBoolean(communityWaterObject.CustomData["HeatNetworkExisting"]);

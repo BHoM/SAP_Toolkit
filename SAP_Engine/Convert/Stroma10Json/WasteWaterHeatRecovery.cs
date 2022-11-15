@@ -26,9 +26,9 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapWasteWaterHeatRecovery.TotalRooms = System.Convert.ToInt32(wasteWaterHeatRecoveryObject.CustomData["TotalRooms"]);
 
-            sapWasteWaterHeatRecovery.Manufacturer = (wasteWaterHeatRecoveryObject.CustomData["Manufacturer"] as CustomObject);
+            sapWasteWaterHeatRecovery.Manufacturer = (wasteWaterHeatRecoveryObject.CustomData["Manufacturer"] as string);
 
-            sapWasteWaterHeatRecovery.Model = (wasteWaterHeatRecoveryObject.CustomData["Model"] as CustomObject);
+            sapWasteWaterHeatRecovery.Model = (wasteWaterHeatRecoveryObject.CustomData["Model"] as string);
 
             sapWasteWaterHeatRecovery.Efficiency = System.Convert.ToDouble(wasteWaterHeatRecoveryObject.CustomData["Efficiency"]);
 

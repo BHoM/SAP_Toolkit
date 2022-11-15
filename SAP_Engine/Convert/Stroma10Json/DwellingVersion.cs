@@ -54,10 +54,10 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapDwellingVersion.DwellingDetails = ToDwellingDetails(dwellingVersionObject.CustomData["DwellingDetails"] as CustomObject);
 
 
-            sapDwellingVersion.TotalFloorArea = System.Convert.ToInt32(dwellingVersionObject.CustomData["TotalFloorArea"]);
+            sapDwellingVersion.TotalFloorArea = System.Convert.ToDouble(dwellingVersionObject.CustomData["TotalFloorArea"]);
 
 
-            sapDwellingVersion.TotalVolume = System.Convert.ToInt32(dwellingVersionObject.CustomData["TotalVolume"]);
+            sapDwellingVersion.TotalVolume = System.Convert.ToDouble(dwellingVersionObject.CustomData["TotalVolume"]);
 
             
             sapDwellingVersion.Dimensions = ToDimensions((dwellingVersionObject.CustomData["Dimensions"] as List<object>).Cast<CustomObject>().ToList());
@@ -120,10 +120,9 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapDwellingVersion.Overheating = ToOverheating(dwellingVersionObject.CustomData["Overheating"] as CustomObject);
 
-            //404
+            //Missing Class- not relevant for calculations
             sapDwellingVersion.DwellingPhotos = (List<object>)dwellingVersionObject.CustomData["DwellingPhotos"];
-            //sapDwellingVersion.DwellingPhotos = ToDwellingPhotos((dwellingVersionObject.CustomData["DwellingPhotos"] as List<object>).Cast<CustomObject>().ToList());
-
+            
 
             sapDwellingVersion.ElementSelections = ToElementSelections(dwellingVersionObject.CustomData["ElementSelections"] as CustomObject);
 

@@ -53,6 +53,6 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual MonthlyValues MonthlyValues { get; set; } = null;
 
         [Description("")]
-        public virtual object Certificate { get; set; } = null;
+        public virtual string Certificate { get; set; } = null;
     }
 }

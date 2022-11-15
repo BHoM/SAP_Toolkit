@@ -59,9 +59,9 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapWall.UValueSelected = System.Convert.ToBoolean(wallObject.CustomData["UValueSelected"]);
 
-            sapWall.EnergyPerformanceCertificateDescription = wallObject.CustomData["EpcDescription"] as CustomObject;
+            sapWall.EnergyPerformanceCertificateDescription = wallObject.CustomData["EpcDescription"] as string;
 
-            sapWall.LoftInsulation = wallObject.CustomData["LoftInsulation"] as CustomObject;
+            sapWall.LoftInsulation = wallObject.CustomData["LoftInsulation"] as string;
 
             return sapWall;
         }
@@ -98,6 +98,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             if (obj.Dims != null && obj.Dims.Any(x => x != null))
                 rtn.Add("Dims", obj.Dims.Select(x => FromDim(x)).ToList());
+
 
             rtn.Add("UValueSelectionId", obj.UValueSelectionID);
 

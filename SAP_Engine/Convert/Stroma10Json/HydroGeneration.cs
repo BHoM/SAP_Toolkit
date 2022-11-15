@@ -30,7 +30,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapHydroGeneration.MonthlyValues = ToMonthlyValues(hydroGenerationObject.CustomData["MonthlyValues"] as CustomObject);
 
-            sapHydroGeneration.Certificate = (hydroGenerationObject.CustomData["Certificate"] as CustomObject);
+            sapHydroGeneration.Certificate = (hydroGenerationObject.CustomData["Certificate"] as string);
 
             return sapHydroGeneration;
         }

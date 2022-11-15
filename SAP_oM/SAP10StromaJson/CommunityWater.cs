@@ -74,10 +74,10 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual bool FromDatabase { get; set; } = false;
 
         [Description("")]
-        public virtual object SystemReference { get; set; } = null;
+        public virtual string SystemReference { get; set; } = null;
 
         [Description("")]
-        public virtual object SubNetworkName { get; set; } = null;
+        public virtual string SubNetworkName { get; set; } = null;
 
         [Description("")]
         public virtual bool HeatNetworkExisting { get; set; } = false;

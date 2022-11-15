@@ -41,7 +41,6 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual string PolicyNumber { get; set; } = null;
 
-        //Not sure if object type is correct
         [Description("")]
         public virtual int PublicLiabilityInsuranceLimit { get; set; } = 0;
 

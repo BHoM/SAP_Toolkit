@@ -45,7 +45,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapDimension.Dims = ToDims((dimensionObject.CustomData["Dims"] as List<object>).Cast<CustomObject>().ToList());
 
-            sapDimension.Type = dimensionObject.CustomData["Type"];
+            sapDimension.Type = dimensionObject.CustomData["Type"] as string;
 
             sapDimension.Name = dimensionObject.Name;
 
@@ -76,6 +76,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             if (obj.Dims != null && obj.Dims.Any(x => x != null))
                 rtn.Add("Dims", obj.Dims.Select(x => FromDim(x)).ToList());
+    
 
             rtn.Add("Type", obj.Type);
 

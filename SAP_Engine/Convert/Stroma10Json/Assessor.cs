@@ -38,9 +38,9 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapAssessor.Insurance = ToInsurance(assessorObject.CustomData["Insurance"] as CustomObject);
 
-
             return sapAssessor;
         }
+
         public static Dictionary<string, object> FromAssessor(BH.oM.Environment.SAP.Stroma10.Assessor obj)
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();

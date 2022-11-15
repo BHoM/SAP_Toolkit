@@ -55,7 +55,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapWaterHeating.DomesticHotWaterVessel = System.Convert.ToBoolean(waterHeatingObject.CustomData["DhwVessel"]); 
 
 
-            sapWaterHeating.ShowerUnits =  ToShowerUnits(waterHeatingObject.CustomData["ShowerUnits"] as CustomObject);
+            sapWaterHeating.ShowerUnits =  ToShowerUnits((waterHeatingObject.CustomData["ShowerUnits"] as List<object>).Cast<CustomObject>().ToList());
 
       
             sapWaterHeating.WaterSource = System.Convert.ToInt32(waterHeatingObject.CustomData["WaterSource"]); 
@@ -103,9 +103,11 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             rtn.Add("DhwVessel", obj.DomesticHotWaterVessel);
 
+
             if (obj.ShowerUnits != null && obj.ShowerUnits.Any(x => x != null))
                 rtn.Add("ShowerUnits", obj.ShowerUnits.Select(x => FromShowerUnit(x)).ToList());
-     
+           
+
             rtn.Add("WaterSource", obj.WaterSource);
 
             rtn.Add("NoBaths", obj.NumberOfBaths);
