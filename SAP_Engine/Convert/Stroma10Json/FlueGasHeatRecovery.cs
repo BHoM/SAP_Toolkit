@@ -31,9 +31,15 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
+            if (obj == null)
+                return null;
+
             rtn.Add("Id", obj.ID);
+
             rtn.Add("Include", obj.Include);
+
             rtn.Add("IndexNo", obj.IndexNumber);
+
             rtn.Add("Photovoltaics", FromPhotovoltaic2(obj.Photovoltaic2));
 
             return rtn;

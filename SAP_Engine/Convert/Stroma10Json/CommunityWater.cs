@@ -16,7 +16,6 @@ namespace BH.Engine.Environment.SAP.Stroma10
             if (communityWaterObject == null)
                 return null;
 
-
             BH.oM.Environment.SAP.Stroma10.CommunityWater sapCommunityWater = new BH.oM.Environment.SAP.Stroma10.CommunityWater();
 
             sapCommunityWater.ID = System.Convert.ToInt32(communityWaterObject.CustomData["Id"]);
@@ -79,36 +78,55 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapCommunityWater.CommunityHeatingName = (communityWaterObject.CustomData["CommunityHeatingName"] as string);
 
 
-
             return sapCommunityWater;
         }
         public static Dictionary<string, object> FromCommunityWater(CommunityWater obj)
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
+            if (obj == null)
+                return null;
+
             rtn.Add("Id", obj.ID);
 
-
             rtn.Add("CylinderInDwelling", obj.CylinderInDwelling);
+
             rtn.Add("ChpRatio", obj.CHPRatio);
+
             rtn.Add("KnownLossFactor", obj.KnownLossFactor);
+
             rtn.Add("LossFactor", obj.LossFactor);
+
             rtn.Add("ChpPowerEff", obj.CHPPowerEfficiency);
+
             rtn.Add("HeatDistributionSystem", obj.HeatDistributionSystem);
+
             rtn.Add("HeatSourceType", obj.HeatSourceType);
+
             rtn.Add("Efficiency", obj.Efficiency);
+
             rtn.Add("Boiler1Fraction", obj.Boiler1Fraction);
+
             rtn.Add("ChargingSystem", obj.ChargingSystem);
+
             rtn.Add("ChargingLinkedToHeatUse", obj.ChargingLinkedToHeatUse);
+
             rtn.Add("NoOfAdditionalHeatSources", obj.NumberOfAdditionalHeatSources);
+
             rtn.Add("FromDatabase", obj.FromDatabase);
+
             rtn.Add("SystemRef", obj.SystemReference);
+
             rtn.Add("SubNetworkName", obj.SubNetworkName);
+
             rtn.Add("HeatNetworkExisting", obj.HeatNetworkExisting);
+
             rtn.Add("ChpElectricityGeneration", obj.CHPElectricityGeneration);
-            rtn.Add("HeatSources", obj.HeatSources.Select(x => FromHeatSource(x)).ToList());
+
+            if (obj.HeatSources != null && obj.HeatSources.Any(x => x != null))
+                rtn.Add("HeatSources", obj.HeatSources.Select(x => FromHeatSource(x)).ToList());
+
             rtn.Add("CommunityHeatingName", obj.CommunityHeatingName);
-      
 
             return rtn;
         }

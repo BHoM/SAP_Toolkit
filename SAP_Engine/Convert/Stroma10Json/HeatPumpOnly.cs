@@ -38,15 +38,24 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
-            rtn.Add("Id", obj.ID);
-            rtn.Add("HotWaterOnlyHp", obj.HotWaterOnlyHeatPump);
-            rtn.Add("HotWaterHpIntegral", obj.HotWaterHeatPumpIntegral);
-            rtn.Add("Volume", obj.Volume);
-            rtn.Add("DeclaredValue", obj.DeclaredValue);
-            rtn.Add("ManuSpecified", obj.ManufacturerSpecified);
-            rtn.Add("SummerEff", obj.SummerEfficiency);
-            rtn.Add("WinterEff", obj.WinterEfficiency);
+            if (obj == null)
+                return null;
 
+            rtn.Add("Id", obj.ID);
+
+            rtn.Add("HotWaterOnlyHp", obj.HotWaterOnlyHeatPump);
+
+            rtn.Add("HotWaterHpIntegral", obj.HotWaterHeatPumpIntegral);
+
+            rtn.Add("Volume", obj.Volume);
+
+            rtn.Add("DeclaredValue", obj.DeclaredValue);
+
+            rtn.Add("ManuSpecified", obj.ManufacturerSpecified);
+
+            rtn.Add("SummerEff", obj.SummerEfficiency);
+
+            rtn.Add("WinterEff", obj.WinterEfficiency);
 
             return rtn;
         }

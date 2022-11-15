@@ -194,58 +194,113 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
+            if (obj == null)
+                return null;
+
             rtn.Add("Id", obj.ID);
+
             rtn.Add("ChimneysMain", obj.ChimneysMain);
+
             rtn.Add("ChimneysSec", obj.ChimneysSecondary);
+
             rtn.Add("ChimneysOther", obj.ChimneysOther);
+
             rtn.Add("Chimneys", obj.Chimneys);
+
             rtn.Add("ChimneysClosedFire", obj.ChimneysClosedFire);
+
             rtn.Add("ChimneysClosedFireMain", obj.ChimneysClosedFireMain);
+
             rtn.Add("ChimneysClosedFireSec", obj.ChimneysClosedFireSecondary);
+
             rtn.Add("ChimneysClosedFireOther", obj.ChimneysClosedFireOther);
+
             rtn.Add("FluesSolidBoiler", obj.FluesSolidBoiler);
+
             rtn.Add("FluesSolidBoilerMain", obj.FluesSolidBoilerMain);
+
             rtn.Add("FluesSolidBoilerSec", obj.FluesSolidBoilerSecondary);
+
             rtn.Add("FluesSolidBoilerOther", obj.FluesSolidBoilerOther);
+
             rtn.Add("FluesOtherHeater", obj.FluesOtherHeater);
+
             rtn.Add("FluesOtherHeaterMain", obj.FluesOtherHeaterMain);
+
             rtn.Add("FluesOtherHeaterSec", obj.FluesOtherHeaterSecondary);
+
             rtn.Add("FluesOtherHeaterOther", obj.FluesOtherHeaterOther);
+
             rtn.Add("ChimneyBlocked", obj.ChimneyBlocked);
+
             rtn.Add("FluesMain", obj.FluesMain);
+
             rtn.Add("FluesSec", obj.FluesSecondary);
+
             rtn.Add("FluesOther", obj.FluesOther);
+
             rtn.Add("Flues", obj.Flues);
+
             rtn.Add("Fans", obj.Fans);
+
             rtn.Add("Vents", obj.Vents);
+
             rtn.Add("Fires", obj.Fires);
+
             rtn.Add("Shelter", obj.Shelter);
+
             rtn.Add("MechVent", obj.MechanicalVentilation);
+
             rtn.Add("Parameters", obj.Parameters);
+
             rtn.Add("WetRooms", obj.WetRooms);
+
             rtn.Add("DuctType", obj.DuctType);
+
             rtn.Add("DuctSpec", obj.DuctSpecification);
+
             rtn.Add("SystemPosition", obj.SystemPosition);
+
             rtn.Add("ProductId", obj.ProductID);
+
             rtn.Add("ApprovedScheme", obj.ApprovedScheme);
-            rtn.Add("MeasuredInstallation", obj.MeasuredInstallation);  
+
+            rtn.Add("MeasuredInstallation", obj.MeasuredInstallation); 
+            
             rtn.Add("MeasuredSfp", obj.MeasuredSpecificFanPower);
+
             rtn.Add("DeCentralised", FromDeCentralised(obj.DeCentralised));
+
             rtn.Add("MvDetails", FromMechanicalVentilationDetails(obj.MechanicalVentilationDetails));
+
             rtn.Add("Pressure", obj.Pressure);
+
             rtn.Add("DesignAir", obj.DesignAir);
+
             rtn.Add("AssumedAir", obj.AssumedAir);
+
             rtn.Add("MeasuredAir", obj.MeasuredAir);
+
             rtn.Add("MeasuredPulse", obj.MeasuredPulse);
+
             rtn.Add("DateAir", obj.DateAir.ToString("yyyy-MM-ddTHH:mm:ss.fffZ"));
-            rtn.Add("AveragePerm", obj.AverageAirPermeability); 
+
+            rtn.Add("AveragePerm", obj.AverageAirPermeability);
+            
             rtn.Add("ConstructType", obj.ConstructType);
+
             rtn.Add("LobbyDetail", obj.LobbyDetail);
+
             rtn.Add("FloorDetail", obj.FloorDetail);
+
             rtn.Add("Draught", obj.Draught);
+
             rtn.Add("MultiSystem", obj.MultiSystem);
+
             rtn.Add("DuctPlacement", obj.DuctPlacement);
+
             rtn.Add("ComplianceVent", FromComplianceVent(obj.ComplianceVent));
+
             rtn.Add("PressureTestResult", obj.PressureTestResult);
 
             return rtn;

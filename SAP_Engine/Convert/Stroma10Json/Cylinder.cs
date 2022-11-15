@@ -76,23 +76,43 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
+            if (obj == null)
+                return null;
+
             rtn.Add("Id", obj.ID);
+
             rtn.Add("Volume", obj.Volume);
+
             rtn.Add("ManuSpecified", obj.ManufacturerSpecified);
+
             rtn.Add("DeclaredLoss", obj.DeclaredLoss);
+
             rtn.Add("Insulation", obj.Insulation);
+
             rtn.Add("InsThick", obj.InsulationThickness);
+
             rtn.Add("InHeatedSpace", obj.InHeatedSpace);
+
             rtn.Add("Thermostat", obj.Thermostat);
+
             rtn.Add("PipeWorkInsulated", obj.PipeWorkInsulated);
+
             rtn.Add("PipeWorkInsulation", obj.PipeWorkInsulation);
+
             rtn.Add("Timed", obj.Timed);
+
             rtn.Add("SummerImmersion", obj.SummerImmersion);
+
             rtn.Add("Immersion", obj.Immersion);
+
             rtn.Add("HpImmersion", obj.ImmersionHeater);
+
             rtn.Add("HpExchanger", obj.HeatPumpExchanger);
+
             rtn.Add("Manufacturer", obj.Manufacturer);
+
             rtn.Add("Model", obj.Model);
+
             rtn.Add("CommissioningCertificate", obj.CommissioningCertificate);
  
             return rtn;

@@ -56,15 +56,24 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
-            rtn.Add("Id", obj.ID);
-            rtn.Add("Guid", obj.BHoM_Guid.ToString());
-            rtn.Add("Name", obj.Name);
-            rtn.Add("Type", obj.Type);
-            rtn.Add("ShowerWwhrs", obj.ShowerWasteWaterHeatRecoverySystem);
-            rtn.Add("OverRide", obj.OverRide);
-            rtn.Add("Flow", obj.Flow);
-            rtn.Add("Power", obj.Power);
+            if (obj == null)
+                return null;
 
+            rtn.Add("Id", obj.ID);
+
+            rtn.Add("Guid", obj.BHoM_Guid.ToString());
+
+            rtn.Add("Name", obj.Name);
+
+            rtn.Add("Type", obj.Type);
+
+            rtn.Add("ShowerWwhrs", obj.ShowerWasteWaterHeatRecoverySystem);
+
+            rtn.Add("OverRide", obj.OverRide);
+
+            rtn.Add("Flow", obj.Flow);
+
+            rtn.Add("Power", obj.Power);
 
             return rtn;
         }

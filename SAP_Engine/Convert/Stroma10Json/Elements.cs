@@ -37,13 +37,28 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
+            if (obj == null)
+                return null;
+
             rtn.Add("Id", obj.ID);
-            rtn.Add("Fabric", obj.Fabrics.Select(x => FromFabric(x)).ToList());
-            rtn.Add("Heating", obj.Heatings.Select(x => FromHeating(x)).ToList());
-            rtn.Add("Water", obj.Waters.Select(x => FromWater(x)).ToList());
-            rtn.Add("Ventilation", obj.Ventilations.Select(x => FromVentilation(x)).ToList());
-            rtn.Add("Renewable", obj.Renewables.Select(x => FromRenewable(x)).ToList());
-            rtn.Add("Overheating", obj.Overheatings.Select(x => FromOverheating(x)).ToList());
+
+            if (obj.Fabrics != null && obj.Fabrics.Any(x => x != null))
+                rtn.Add("Fabric", obj.Fabrics.Select(x => FromFabric(x)).ToList());
+
+            if (obj.Heatings != null && obj.Heatings.Any(x => x != null))
+                rtn.Add("Heating", obj.Heatings.Select(x => FromHeating(x)).ToList());
+
+            if (obj.Waters != null && obj.Waters.Any(x => x != null))
+                rtn.Add("Water", obj.Waters.Select(x => FromWater(x)).ToList());
+
+            if (obj.Ventilations != null && obj.Ventilations.Any(x => x != null))
+                rtn.Add("Ventilation", obj.Ventilations.Select(x => FromVentilation(x)).ToList());
+
+            if (obj.Renewables != null && obj.Renewables.Any(x => x != null))
+                rtn.Add("Renewable", obj.Renewables.Select(x => FromRenewable(x)).ToList());
+
+            if (obj.Overheatings != null && obj.Overheatings.Any(x => x != null))
+                rtn.Add("Overheating", obj.Overheatings.Select(x => FromOverheating(x)).ToList());
 
             return rtn;
         }

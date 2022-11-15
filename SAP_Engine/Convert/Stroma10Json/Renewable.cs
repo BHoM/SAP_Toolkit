@@ -46,11 +46,19 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
+            if (obj == null)
+                return null;
+
             rtn.Add("Id", obj.ID);
+
             rtn.Add("WindTurbine", FromWindTurbine(obj.WindTurbine));
+
             rtn.Add("Photovoltaic", FromPhotovoltaic(obj.Photovoltaic));
+
             rtn.Add("Special", FromSpecial(obj.Special));
+
             rtn.Add("AAEGeneration", FromAdditionalGeneration(obj.AdditionalGeneration));
+
             rtn.Add("HydroGeneration", FromHydroGeneration(obj.HydroGeneration));
 
             return rtn;

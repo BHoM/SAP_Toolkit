@@ -36,12 +36,21 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
+            if (obj == null)
+                return null;
+
             rtn.Add("Id", obj.ID);
+
             rtn.Add("Include", obj.Include);
+
             rtn.Add("WNumber", obj.WindTurbineNumber);
+
             rtn.Add("WrDiameter", obj.WindTurbineRotarDiameter);
+
             rtn.Add("WHeight", obj.WindTurbineHeight);
+
             rtn.Add("Name", obj.Name);
+
             rtn.Add("Certificate", obj.Certificate);
 
             return rtn;

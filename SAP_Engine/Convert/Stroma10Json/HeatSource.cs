@@ -48,11 +48,19 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
+            if (obj == null)
+                return null;
+
             rtn.Add("Id", obj.ID);
+
             rtn.Add("Type", obj.Type);
+
             rtn.Add("Fuel", obj.Fuel);
+
             rtn.Add("HeatFraction", obj.HeatFraction);
+
             rtn.Add("Efficiency", obj.Efficiency);
+
             rtn.Add("HeatSourceType", obj.HeatSourceType);
 
             return rtn;

@@ -38,17 +38,24 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
 
+            if (obj == null)
+                return null;
+
             rtn.Add("Id", obj.ID);
 
             rtn.Add("Yearly", obj.Yearly);
+
             rtn.Add("Include", obj.Include);
+
             rtn.Add("HydroGenerated", obj.HydroGenerated);
+
             rtn.Add("ConnectedToMeter", obj.ConnectedToMeter);
+
             rtn.Add("TotalArea", obj.TotalArea);
+
             rtn.Add("MonthlyValues", FromMonthlyValues(obj.MonthlyValues));
+
             rtn.Add("Certificate", obj.Certificate);
-
-
 
             return rtn;
         }
