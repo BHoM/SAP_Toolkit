@@ -16,7 +16,7 @@ namespace BH.Engine.Environment.SAP
             string line = sr.ReadToEnd();
             sr.Close();
 
-            CustomObject obj = BH.Engine.Serialiser.Convert.FromJson(line)as CustomObject;
+            CustomObject obj = BH.Engine.Serialiser.Convert.FromJson(line) as CustomObject;
 
             return BH.Engine.Environment.SAP.Stroma10.Convert.ToRoot(obj);
         }
