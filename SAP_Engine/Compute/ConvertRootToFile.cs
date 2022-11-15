@@ -13,13 +13,13 @@ namespace BH.Engine.Environment.SAP
     public static partial class Compute
     {
      
-        public static bool ConvertRootToFile(BH.oM.Environment.SAP.Stroma10.Root obj)
+        public static bool ConvertRootToFile(BH.oM.Environment.SAP.Stroma10.Root obj, string filePath)
         {
             Dictionary<string, object> dic = BH.Engine.Environment.SAP.Stroma10.Convert.FromRoot(obj);
 
             string JSONFile = BH.Engine.Serialiser.Convert.ToJson(dic);
 
-            File.WriteAllText("C:\\Users\\eadebowale\\Desktop\\SAP Toolkit Work\\Test.txt", JSONFile);
+            File.WriteAllText(filePath, JSONFile);
 
             return true;
         }       
