@@ -38,13 +38,13 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual bool Include { get; set; } = false;
 
-        [Description("")]
+        [Description("")] 
         public virtual int Type { get; set; } = 0;
 
-        [Description("")]
+        [Description("")] 
         public virtual int Location { get; set; } = 0;
 
-        [Description("")]
+        [Description("")] 
         public virtual int Connection { get; set; } = 0;
     }
 }

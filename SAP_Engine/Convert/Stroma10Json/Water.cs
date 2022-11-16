@@ -35,6 +35,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapWater.BHoM_Guid = (Guid.Parse(waterObject.CustomData["Guid"] as string));
 
+
             sapWater.Name = waterObject.Name;
 
 

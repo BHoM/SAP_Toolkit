@@ -55,7 +55,5 @@ namespace BH.oM.Environment.SAP.Stroma10
 
         [Description("")]
         public virtual string ModelQualifier { get; set; } = null;
-
-
     }
 }
