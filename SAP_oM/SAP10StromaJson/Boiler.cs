@@ -43,19 +43,19 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual double FlowTemperature { get; set; } = 0;
 
-        [Description("")]
+        [Description("")] //
         public virtual int EmitterTemperature { get; set; } = 0;
 
-        [Description("")]
+        [Description("")] //
         public virtual int PumpAge { get; set; } = 0;
 
         [Description("")]
         public virtual string Description { get; set; } = null;
 
-        [Description("")]
+        [Description("")] //
         public virtual int GasBurningType { get; set; } = 0;
 
-        [Description("")]
+        [Description("")] //
         public virtual int FlueType { get; set; } = 0;
 
         [Description("")]
@@ -79,7 +79,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual bool KeepHotTimed { get; set; } = false;
 
-        [Description("")]
+        [Description("")] //
         public virtual int KeepHotFuel { get; set; } = 0;
 
         [Description("")]

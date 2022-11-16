@@ -58,7 +58,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual bool PipeWorkInsulated { get; set; } = false;
 
-        [Description("")]
+        [Description("")] //
         public virtual int PipeWorkInsulation { get; set; } = 0;
 
         [Description("")]
@@ -67,7 +67,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual bool SummerImmersion { get; set; } = false;
 
-        [Description("")]
+        [Description("")] //
         public virtual int Immersion { get; set; } = 0;
 
         [Description("")]

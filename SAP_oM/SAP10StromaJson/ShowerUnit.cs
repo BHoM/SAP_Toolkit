@@ -38,23 +38,19 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual string GUID { get; set; } = null;
 
-        [Description("")]
+        [Description("")] //
         public virtual int Type { get; set; } = 0;
 
-
-        [Description("")]
+        [Description("")] //
         public virtual int ShowerWasteWaterHeatRecoverySystem { get; set; } = 0;
-
 
         [Description("")]
         public virtual bool OverRide { get; set; } = false;
 
-
-        [Description("")]
+        [Description("")] // these are connected to the Type but can change if override == True
         public virtual double Flow { get; set; } = 0;
 
-
-        [Description("")]
+        [Description("")]// these are connected to the Type but can change if override == True
         public virtual double Power { get; set; } = 0;
 
 

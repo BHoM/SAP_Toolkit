@@ -40,7 +40,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual double Boiler1HeatFraction { get; set; } = 0;
 
-        [Description("")]
+        [Description("")] //
         public virtual int HeatDistributionSystem { get; set; } = 0;
 
         [Description("")]
@@ -70,7 +70,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual bool FromDatabase { get; set; } = false;
 
-        [Description("")]
+        [Description("")]//
         public virtual int Boiler2CHPFuel { get; set; } = 0;
 
         [Description("")]
@@ -82,7 +82,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual bool HeatNetworkExisting { get; set; } = false;
 
-        [Description("")]
+        [Description("")] //
         public virtual int CHPElectricityGeneration { get; set; } = 0;
 
         [Description("")]

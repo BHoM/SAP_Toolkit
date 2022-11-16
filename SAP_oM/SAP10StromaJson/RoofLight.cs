@@ -29,7 +29,7 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description("Roof Openings")]
     public class RoofLight : BHoMObject
     {
 
@@ -39,49 +39,49 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual string Guid { get; set; } = null;
 
-        [Description("")]
+        [Description("")] // t - selection based on prior data
         public virtual string Location { get; set; } = null;
 
-        [Description("")]
+        [Description("")] //
         public virtual int UValueSource { get; set; } = 0;
 
-        [Description("")]
+        [Description("")] //
         public virtual int Orientation { get; set; } = 0;
 
-        [Description("")]
+        [Description("")] //
         public virtual int OverShading { get; set; } = 0;
 
-        [Description("")]
+        [Description("")] //
         public virtual int GlazingType { get; set; } = 0;
 
-        [Description("")]
+        [Description("")] //
         public virtual int AirGap { get; set; } = 0;
 
-        [Description("")]
+        [Description("")] //
         public virtual int FrameType { get; set; } = 0;
 
-        [Description("")]
+        [Description("")] //
         public virtual int ThermalBreak { get; set; } = 0;
 
-        [Description("")]
+        [Description("Area of roof opening m2")]
         public virtual double Area { get; set; } = 0;
 
-        [Description("")]
+        [Description("Width of roof opening mm")]
         public virtual int Width { get; set; } = 0;
 
-        [Description("")]
+        [Description("Height of roof opening mm")]
         public virtual int Height { get; set; } = 0;
 
         [Description("")]
         public virtual int Count { get; set; } = 0;
 
-        [Description("")]
+        [Description("Overhang width of roof opening mm")]
         public virtual int OverhangWidth { get; set; } = 0;
 
-        [Description("")]
+        [Description("Overhang depth of roof opening mm")]
         public virtual int OverhangDepth { get; set; } = 0;
 
-        [Description("")]
+        [Description("")]  //
         public virtual int CurtainType { get; set; } = 0;
 
         [Description("")]

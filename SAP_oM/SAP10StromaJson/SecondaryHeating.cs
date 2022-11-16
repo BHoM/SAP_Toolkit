@@ -35,22 +35,22 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual int ID { get; set; } = -1;
 
-        [Description("")]
+        [Description("Is Secondary Heating Present")]
         public virtual bool Include { get; set; } = false;
 
-        [Description("")]
+        [Description("Is the manufacturer specified")]
         public virtual bool IsManufacturer { get; set; } = false;
 
-        [Description("")]
+        [Description("")] // - but input as string and value in SubHeatingCategrory
         public virtual string SubHeatingGroup { get; set; } = null;
 
-        [Description("")]
+        [Description("Heating Type")] //
         public virtual int SubHeatingCategory { get; set; } = 0;
 
         [Description("")]
         public virtual ComplianceHeatingDetails ComplianceHeatingDetails { get; set; } = null;
 
-        [Description("")]
+        [Description("")] //
         public virtual int Fuel { get; set; } = 0;
 
         [Description("")]

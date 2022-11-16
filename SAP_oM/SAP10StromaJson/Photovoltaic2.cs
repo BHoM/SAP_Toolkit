@@ -35,22 +35,22 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual int ID { get; set; } = -1;
 
-        [Description("")]
-        public virtual double PanelPower { get; set; } = 0;
+        [Description("Peak Power kWp")] // ?
+        public virtual double PeakPower { get; set; } = 0;
 
-        [Description("")]
+        [Description("")] //
         public virtual int PhotovoltaicTilt { get; set; } = 0;
 
-        [Description("")]
+        [Description("")] //
         public virtual int PhotovoltaicOrientation { get; set; } = 0;
 
-        [Description("")]
+        [Description("")] //
         public virtual int PhotovoltaicOvershading { get; set; } = 0;
 
         [Description("")]
         public virtual bool DirectlyConnected { get; set; } = false;
 
-        [Description("")]
+        [Description("")] //
         public virtual int FlatConnection { get; set; } = 0;
 
         [Description("")]

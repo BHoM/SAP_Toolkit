@@ -54,7 +54,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
             sapPrimaryHeating.WinterEfficiency = System.Convert.ToDouble(primaryHeatingObject.CustomData["WinterEfficiency"]); 
 
             
-            sapPrimaryHeating.SummerEfficiency = System.Convert.ToDouble(primaryHeatingObject.CustomData["WinterEfficiency"]); 
+            sapPrimaryHeating.SummerEfficiency = System.Convert.ToDouble(primaryHeatingObject.CustomData["SummerEfficiency"]); 
 
             
             sapPrimaryHeating.Emitter = System.Convert.ToInt32(primaryHeatingObject.CustomData["Emitter"]); 

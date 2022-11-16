@@ -35,7 +35,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual int ID { get; set; } = -1;
 
-        [Description("")]
+        [Description("Include a special feature - renewables")]
         public virtual bool Include { get; set; } = false;
 
         [Description("")]

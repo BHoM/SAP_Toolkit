@@ -36,7 +36,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int ID { get; set; } = -1;
 
         [Description("")]
-        public virtual bool Include { get; set; } = false;
+        public virtual bool Include { get; set; } = true;
 
         [Description("")]
         public virtual string Group { get; set; } = null;

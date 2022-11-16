@@ -146,7 +146,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual MechanicalVentilationDetails MechanicalVentilationDetails { get; set; } = null;
 
-        [Description("")]
+        [Description("")] 
         public virtual int Pressure { get; set; } = 0;
 
         [Description("")]
@@ -167,16 +167,16 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual bool AverageAirPermeability { get; set; } = false;
 
-        [Description("")]
+        [Description("")] 
         public virtual int ConstructType { get; set; } = 0;
 
-        [Description("")]
+        [Description("")] 
         public virtual int LobbyDetail { get; set; } = 0;
 
-        [Description("")]
+        [Description("")] 
         public virtual int FloorDetail { get; set; } = 0;
 
-        [Description("")]
+        [Description("Percentage of Windows and Doors Draught Stripped")]
         public virtual double Draught { get; set; } = 0;
 
         [Description("")]

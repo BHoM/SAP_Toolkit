@@ -62,22 +62,22 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual int ThermalBreak { get; set; } = 0;
 
-        [Description("")]
+        [Description("Area of window in m2")]
         public virtual double Area { get; set; } = 0;
 
-        [Description("")]
+        [Description("Width of window in mm")]
         public virtual int Width { get; set; } = 0;
 
-        [Description("")]
+        [Description("Width of window in mm")]
         public virtual int Height { get; set; } = 0;
 
         [Description("")]
         public virtual int Count { get; set; } = 0;
 
-        [Description("")]
+        [Description("Overhang Width in mm")]
         public virtual int OverhangWidth { get; set; } = 0;
 
-        [Description("")]
+        [Description("Overhang Depth in mm")]
         public virtual int OverhangDepth { get; set; } = 0;
 
         [Description("")]

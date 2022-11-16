@@ -30,7 +30,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapPhotovoltaic2.ID = System.Convert.ToInt32(photovoltaic2Object.CustomData["Id"]);
 
-            sapPhotovoltaic2.PanelPower = System.Convert.ToDouble(photovoltaic2Object.CustomData["PPower"]);
+            sapPhotovoltaic2.PeakPower = System.Convert.ToDouble(photovoltaic2Object.CustomData["PPower"]);
 
             sapPhotovoltaic2.PhotovoltaicTilt = System.Convert.ToInt32(photovoltaic2Object.CustomData["PvTilt"]);
 
@@ -62,7 +62,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             rtn.Add("Id", obj.ID);
 
-            rtn.Add("PPower", obj.PanelPower);
+            rtn.Add("PPower", obj.PeakPower);
 
             rtn.Add("PvTilt", obj.PhotovoltaicTilt);
 

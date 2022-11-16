@@ -24,6 +24,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Security.Cryptography;
 using BH.oM.Base;
 using BH.oM.Environment.SAP.Stroma10;
 
@@ -41,61 +42,61 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public double EnergySaved { get; set; } = 0;
 
-        [Description("")]
+        [Description("")] 
         public int FuelSaved { get; set; } = 0;
 
         [Description("")]
         public double EnergyUsed { get; set; } = 0;
 
-        [Description("")]
+        [Description("")] 
         public int FuelUsed { get; set; } = 0;
 
-        [Description("")]
+        [Description("Include Monthly Effectuve Air Change Rates")]
         public bool IncludeMonthly { get; set; } = false;
 
-        [Description("")]
+        [Description("This feature is only concerned with CO2 emissions")]
         public bool MakeEmissionsOnly { get; set; } = false;
 
-        [Description("")]
+        [Description("Emissions saved kgCO2")] // maybe
         public double EmissionsAmount { get; set; } = 0;
 
-        [Description("")]
+        [Description("Emissions Used - maybe")]
         public double EmissionsAmountCreated { get; set; } = 0;
 
-        [Description("")]
+        [Description("Jan - Effective Air Change Rate")]
         public double Month01 { get; set; } = 0;
 
-        [Description("")]
+        [Description("Feb - Effective Air Change Rate")]
         public double Month02 { get; set; } = 0;
 
-        [Description("")]
+        [Description("Mar  - Effective Air Change Rate")]
         public double Month03 { get; set; } = 0;
 
-        [Description("")]
+        [Description("Apr - Effective Air Change Rate")]
         public double Month04 { get; set; } = 0;
 
-        [Description("")]
+        [Description("May - Effective Air Change Rate")]
         public double Month05 { get; set; } = 0;
 
-        [Description("")]
+        [Description("Jun - Effective Air Change Rate")]
         public double Month06 { get; set; } = 0;
 
-        [Description("")]
+        [Description("Jul - Effective Air Change Rate")]
         public double Month07 { get; set; } = 0;
 
-        [Description("")]
+        [Description("Aug - Effective Air Change Rate")]
         public double Month08 { get; set; } = 0;
 
-        [Description("")]
+        [Description("Sept - Effective Air Change Rate")]
         public double Month09 { get; set; } = 0;
 
-        [Description("")]
+        [Description("Oct - Effective Air Change Rate")]
         public double Month10 { get; set; } = 0;
 
-        [Description("")]
+        [Description("Nov - Effective Air Change Rate")]
         public double Month11 { get; set; } = 0;
 
-        [Description("")]
+        [Description("Dec - Effective Air Change Rate")]
         public double Month12 { get; set; } = 0;
     }
 }

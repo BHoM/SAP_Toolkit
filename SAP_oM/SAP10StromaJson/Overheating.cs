@@ -50,7 +50,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual bool Night { get; set; } = false;
 
-        [Description("")]
+        [Description("")] //
         public virtual int Conservatory { get; set; } = 0;
 
         [Description("")]

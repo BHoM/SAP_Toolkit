@@ -29,19 +29,19 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description("Solar Panel Details")]
     public class SolarWater : BHoMObject
     {
         [Description("")]
         public virtual int ID { get; set; } = -1;
 
-        [Description("")]
+        [Description("Include Solar Panels - Solar Panel Present")]
         public virtual bool Include { get; set; } = false;
 
-        [Description("")]
+        [Description("")] 
         public virtual int SolarWaterCollectorType { get; set; } = 0;
 
-        [Description("")]
+        [Description("Overide default values")]
         public virtual bool OverRide { get; set; } = false;
 
         [Description("")]
@@ -59,16 +59,16 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual bool Gross { get; set; } = false;
 
-        [Description("")]
+        [Description("")] 
         public virtual int SolarTilt { get; set; } = 0;
 
-        [Description("")]
+        [Description("")] 
         public virtual double SolarPitch { get; set; } = 0;
 
-        [Description("")]
+        [Description("")] 
         public virtual int SolarOrientation { get; set; } = 0;
 
-        [Description("")]
+        [Description("")] 
         public virtual int SolarOverShading { get; set; } = 0;
 
         [Description("")]

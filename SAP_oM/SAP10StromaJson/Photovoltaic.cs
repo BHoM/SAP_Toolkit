@@ -35,13 +35,13 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual int ID { get; set; } = -1;
 
-        [Description("")]
+        [Description("Photovoltaics present")]
         public virtual bool Include { get; set; } = false;
 
         [Description("")]
         public virtual bool Diverter { get; set; } = false;
 
-        [Description("")]
+        [Description("Battery Capacity kWh")]
         public virtual double BatteryCapacity { get; set; } = 0;
 
         [Description("")]

@@ -38,10 +38,10 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual SolarWater SolarWater { get; set; } = null;
 
-        [Description("")]
+        [Description("")] 
         public virtual int System { get; set; } = 0;
 
-        [Description("")]
+        [Description("")] 
         public virtual int Fuel { get; set; } = 0;
 
         [Description("")]
@@ -56,7 +56,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual Thermal2 Thermal2 { get; set; } = null;
 
-        [Description("")]
+        [Description("")] 
         public virtual int CombiType { get; set; } = 0;
 
         [Description("")]
