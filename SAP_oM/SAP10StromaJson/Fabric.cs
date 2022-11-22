@@ -44,7 +44,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int ElementType { get; set; } = 0;
 
         [Description("")]
-        public virtual string ElementTypeName { get; set; } = null;
+        public virtual string ElementTypeName { get; set; } = "";
 
         [Description("")]
         public virtual Ventilation Ventilation { get; set; } = null;

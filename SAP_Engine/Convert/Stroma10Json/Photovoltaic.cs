@@ -46,6 +46,11 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             if (obj.Photovoltaic2s != null && obj.Photovoltaic2s.Any(x => x != null))
                 rtn.Add("Photovoltaics", obj.Photovoltaic2s.Select(x => FromPhotovoltaic2(x)).ToList());
+            else
+            {
+                List<object> temp = new List<object>();
+                rtn.Add("Photovoltaics", temp);
+            }
 
             return rtn;
         }

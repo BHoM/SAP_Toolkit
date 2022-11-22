@@ -81,23 +81,42 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             rtn.Add("Id", obj.ID);
 
+            if (obj.SolarWater == null)
+                obj.SolarWater = new BH.oM.Environment.SAP.Stroma10.SolarWater();
+
             rtn.Add("SolarWater", FromSolarWater(obj.SolarWater));
 
             rtn.Add("System", obj.System);
 
             rtn.Add("Fuel", obj.Fuel);
 
+            if (obj.Cylinder == null)
+                obj.Cylinder = new BH.oM.Environment.SAP.Stroma10.Cylinder();
+
             rtn.Add("Cylinder", FromCylinder(obj.Cylinder));
+
 
             rtn.Add("CpsuTemp", obj.CombinedPrimaryStorageUnitTemperature);
 
+            if (obj.CommunityWater == null)
+                obj.CommunityWater = new BH.oM.Environment.SAP.Stroma10.CommunityWater();
+
             rtn.Add("CommunityWater", FromCommunityWater(obj.CommunityWater));
+
+            if (obj.Thermal2 == null)
+                obj.Thermal2 = new BH.oM.Environment.SAP.Stroma10.Thermal2();
 
             rtn.Add("Thermal", FromThermal2(obj.Thermal2));
 
             rtn.Add("CombiType", obj.CombiType);
 
+            if (obj.WasteWaterHeatRecovery == null)
+                obj.WasteWaterHeatRecovery = new BH.oM.Environment.SAP.Stroma10.WasteWaterHeatRecovery();
+
             rtn.Add("Wwhrs", FromWasteWaterHeatRecovery(obj.WasteWaterHeatRecovery));
+
+            if (obj.FlueGasHeatRecovery == null)
+                obj.FlueGasHeatRecovery = new BH.oM.Environment.SAP.Stroma10.FlueGasHeatRecovery();
 
             rtn.Add("FlueGasHeatRecovery", FromFlueGasHeatRecovery(obj.FlueGasHeatRecovery));
 
@@ -106,7 +125,12 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             if (obj.ShowerUnits != null && obj.ShowerUnits.Any(x => x != null))
                 rtn.Add("ShowerUnits", obj.ShowerUnits.Select(x => FromShowerUnit(x)).ToList());
-           
+            else
+            {
+                List<object> temp = new List<object>();
+                rtn.Add("ShowerUnits", temp);
+            }
+
 
             rtn.Add("WaterSource", obj.WaterSource);
 

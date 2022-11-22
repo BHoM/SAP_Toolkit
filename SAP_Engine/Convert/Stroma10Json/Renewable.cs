@@ -51,13 +51,28 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             rtn.Add("Id", obj.ID);
 
+            if (obj.WindTurbine == null)
+                obj.WindTurbine = new BH.oM.Environment.SAP.Stroma10.WindTurbine();
+
             rtn.Add("WindTurbine", FromWindTurbine(obj.WindTurbine));
+
+            if (obj.Photovoltaic == null)
+                obj.Photovoltaic = new BH.oM.Environment.SAP.Stroma10.Photovoltaic();
 
             rtn.Add("Photovoltaic", FromPhotovoltaic(obj.Photovoltaic));
 
+            if (obj.Special == null)
+                obj.Special = new BH.oM.Environment.SAP.Stroma10.Special();
+
             rtn.Add("Special", FromSpecial(obj.Special));
 
+            if (obj.AdditionalGeneration == null)
+                obj.AdditionalGeneration = new BH.oM.Environment.SAP.Stroma10.AdditionalGeneration();
+
             rtn.Add("AAEGeneration", FromAdditionalGeneration(obj.AdditionalGeneration));
+
+            if (obj.HydroGeneration == null)
+                obj.HydroGeneration = new BH.oM.Environment.SAP.Stroma10.HydroGeneration();
 
             rtn.Add("HydroGeneration", FromHydroGeneration(obj.HydroGeneration));
 

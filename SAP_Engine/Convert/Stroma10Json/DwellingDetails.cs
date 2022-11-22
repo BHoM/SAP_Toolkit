@@ -56,6 +56,8 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             sapDwellingDetails.WaterUseLessThan125 = System.Convert.ToBoolean(dwellingDetailsObject.CustomData["WaterLess125"]);
 
+
+
             sapDwellingDetails.DateOfAssessment = System.Convert.ToDateTime(dwellingDetailsObject.CustomData["DateOfAssessment"]);
 
             sapDwellingDetails.DateOfCertificate = System.Convert.ToDateTime(dwellingDetailsObject.CustomData["DateOfCertificate"]);
@@ -120,6 +122,7 @@ namespace BH.Engine.Environment.SAP.Stroma10
             rtn.Add("SummerOverheating", obj.SummerOverheating);
 
             rtn.Add("WaterLess125", obj.WaterUseLessThan125);
+
 
             rtn.Add("DateOfAssessment", obj.DateOfAssessment.ToString("yyyy-MM-ddTHH:mm:ss.fffZ"));
 

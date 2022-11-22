@@ -44,21 +44,51 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             if (obj.Fabrics != null && obj.Fabrics.Any(x => x != null))
                 rtn.Add("Fabric", obj.Fabrics.Select(x => FromFabric(x)).ToList());
+            else
+            {
+                List< object> temp = new List<object>();
+                rtn.Add("Fabric", temp);
+            }
 
             if (obj.Heatings != null && obj.Heatings.Any(x => x != null))
                 rtn.Add("Heating", obj.Heatings.Select(x => FromHeating(x)).ToList());
+            else
+            {
+                List<object> temp = new List<object>();
+                rtn.Add("Heating", temp);
+            }
 
             if (obj.Waters != null && obj.Waters.Any(x => x != null))
                 rtn.Add("Water", obj.Waters.Select(x => FromWater(x)).ToList());
+            else
+            {
+                List<object> temp = new List<object>();
+                rtn.Add("Water", temp);
+            }
 
             if (obj.Ventilations != null && obj.Ventilations.Any(x => x != null))
                 rtn.Add("Ventilation", obj.Ventilations.Select(x => FromVentilation(x)).ToList());
+            else
+            {
+                List<object> temp = new List<object>();
+                rtn.Add("Ventilation", temp);
+            }
 
             if (obj.Renewables != null && obj.Renewables.Any(x => x != null))
                 rtn.Add("Renewable", obj.Renewables.Select(x => FromRenewable(x)).ToList());
+            else
+            {
+                List<object> temp = new List<object>();
+                rtn.Add("Renewable", temp);
+            }
 
             if (obj.Overheatings != null && obj.Overheatings.Any(x => x != null))
                 rtn.Add("Overheating", obj.Overheatings.Select(x => FromOverheating(x)).ToList());
+            else
+            {
+                List<object> temp = new List<object>();
+                rtn.Add("Overheating", temp);
+            }
 
             return rtn;
         }

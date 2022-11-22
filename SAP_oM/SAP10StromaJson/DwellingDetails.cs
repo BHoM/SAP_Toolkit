@@ -32,7 +32,7 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class DwellingDetails : BHoMObject
     {
         [Description("")]
-        public virtual int ID { get; set; } = -1;
+        public virtual int ID { get; set; } = 0;
 
         [Description("")]
         public virtual int PropertyType { get; set; } = 0;
@@ -98,7 +98,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual DateTime DateOfCertificate { get; set; } = DateTime.Now;
 
         [Description("")]
-        public virtual int YearBuilt { get; set; } = 0;
+        public virtual int YearBuilt { get; set; } = (DateTime.Now.Year); 
 
         [Description("")]
         public virtual bool RoomInRoof { get; set; } = false;

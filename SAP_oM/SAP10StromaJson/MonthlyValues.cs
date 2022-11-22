@@ -68,6 +68,6 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual double Month12 { get; set; } = 0;
 
         [Description("")]
-        public virtual int ID { get; set; } = -1;
+        public virtual int ID { get; set; } = 0;
     }
 }

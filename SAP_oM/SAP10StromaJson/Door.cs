@@ -34,7 +34,7 @@ namespace BH.oM.Environment.SAP.Stroma10
     {
 
         [Description("")]
-        public virtual int ID { get; set; } = -1;
+        public virtual int ID { get; set; } = 0;
 
         [Description("")]
         public virtual string Guid { get; set; } = null;

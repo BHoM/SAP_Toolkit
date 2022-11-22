@@ -63,6 +63,11 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             if (obj.WasteWaterHeatRecoverySystems != null && obj.WasteWaterHeatRecoverySystems.Any(x => x != null))
                 rtn.Add("WwhrsSystems", obj.WasteWaterHeatRecoverySystems.Select(x => FromWasteWaterHeatRecoverySystem(x)).ToList());
+            else
+            {
+                List<object> temp = new List<object>();
+                rtn.Add("WwhrsSystems", temp);
+            }
 
             return rtn;
         }

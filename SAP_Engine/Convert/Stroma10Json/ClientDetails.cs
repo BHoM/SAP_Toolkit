@@ -44,7 +44,12 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             rtn.Add("Name", obj.Name);
 
+
+            if (obj.Address == null)
+                obj.Address = new BH.oM.Environment.SAP.Stroma10.Address();
+
             rtn.Add("Address", FromAddress(obj.Address));
+
 
             rtn.Add("PhoneNumber", obj.PhoneNumber);
 

@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class MechanicalVentilationDetails : BHoMObject
     {
         [Description("")]
-        public virtual int ID { get; set; } = -1;
+        public virtual int ID { get; set; } = 0;
 
         [Description("")]
         public virtual string ProductName { get; set; } = null;

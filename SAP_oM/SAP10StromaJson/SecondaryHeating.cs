@@ -17,7 +17,7 @@
  * GNU Lesser General Public License for more details.                          
  *                                                                            
  * You should have received a copy of the GNU Lesser General Public License     
- * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
+ * along with this code. If not, see <https:www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
 using System;
@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class SecondaryHeating : BHoMObject
     {
         [Description("")]
-        public virtual int ID { get; set; } = -1;
+        public virtual int ID { get; set; } = 0;
 
         [Description("Is Secondary Heating Present")]
         public virtual bool Include { get; set; } = false;
@@ -41,16 +41,16 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("Is the manufacturer specified")]
         public virtual bool IsManufacturer { get; set; } = false;
 
-        [Description("")] // - but input as string and value in SubHeatingCategrory
+        [Description("")] 
         public virtual string SubHeatingGroup { get; set; } = null;
 
-        [Description("Heating Type")] //
+        [Description("Heating Type")] 
         public virtual int SubHeatingCategory { get; set; } = 0;
 
         [Description("")]
         public virtual ComplianceHeatingDetails ComplianceHeatingDetails { get; set; } = null;
 
-        [Description("")] //
+        [Description("")] 
         public virtual int Fuel { get; set; } = 0;
 
         [Description("")]
