@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class SolarWater : BHoMObject
     {
         [Description("")]
-        public virtual int ID { get; set; } = -1;
+        public virtual int ID { get; set; } = 0;
 
         [Description("Include Solar Panels - Solar Panel Present")]
         public virtual bool Include { get; set; } = false;

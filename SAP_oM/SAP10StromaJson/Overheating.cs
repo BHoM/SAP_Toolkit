@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Overheating : BHoMObject
     {
         [Description("")]
-        public virtual int ID { get; set; } = -1;
+        public virtual int ID { get; set; } = 0;
 
         [Description("")]
         public virtual int EaCBuildType { get; set; } = 0;
@@ -50,7 +50,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual bool Night { get; set; } = false;
 
-        [Description("")] //
+        [Description("")] 
         public virtual int Conservatory { get; set; } = 0;
 
         [Description("")]

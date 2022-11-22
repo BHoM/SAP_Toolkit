@@ -38,6 +38,11 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             if (obj.SpecialFeatures != null && obj.SpecialFeatures.Any(x => x != null))
                 rtn.Add("SpecialFeatures", obj.SpecialFeatures.Select(x => FromSpecialFeature(x)).ToList());
+            else
+            {
+                List<object> temp = new List<object>();
+                rtn.Add("SpecialFeatures", temp);
+            }
 
             return rtn;
         }

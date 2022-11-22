@@ -159,9 +159,15 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             rtn.Add("IsHetas", obj.HeatingEquipmentTestingAndApprovalsScheme);
 
+            if (obj.Boiler == null)
+                obj.Boiler = new BH.oM.Environment.SAP.Stroma10.Boiler();
+
             rtn.Add("Boiler", FromBoiler(obj.Boiler));
 
             rtn.Add("ElectricityTariff", obj.ElectricityTariff);
+
+            if (obj.Range == null)
+                obj.Range = new BH.oM.Environment.SAP.Stroma10.Range();
 
             rtn.Add("Range", FromRange(obj.Range));
 
@@ -179,14 +185,29 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             rtn.Add("McsHeatPump", obj.MicroCertificationSchemeHeatPump);
 
+            if (obj.CommunityHeating == null)
+                obj.CommunityHeating = new BH.oM.Environment.SAP.Stroma10.CommunityHeating();
+
             rtn.Add("CommunityHeating", FromCommunityHeating(obj.CommunityHeating));
 
+            if (obj.ComplianceHeatingDetails == null)
+                obj.ComplianceHeatingDetails = new BH.oM.Environment.SAP.Stroma10.ComplianceHeatingDetails();
+
             rtn.Add("ComplianceHeatingDetails", FromComplianceHeatingDetails(obj.ComplianceHeatingDetails));
+
+            if (obj.HeatPumpOnly == null)
+                obj.HeatPumpOnly = new BH.oM.Environment.SAP.Stroma10.HeatPumpOnly();
 
             rtn.Add("HpOnly", FromHeatPumpOnly(obj.HeatPumpOnly));
 
             if (obj.StorageHeaters != null && obj.StorageHeaters.Any(x => x != null))
                 rtn.Add("StorageHeaters", obj.StorageHeaters.Select(x => FromStorageHeater(x)).ToList());
+            else
+            {
+                List<object> temp = new List<object>();
+                rtn.Add("StorageHeaters", temp);
+            }
+     
 
             return rtn;
         }

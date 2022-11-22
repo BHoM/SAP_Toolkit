@@ -32,7 +32,7 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class CommunityWater : BHoMObject
     {
         [Description("")]
-        public virtual int ID { get; set; } = -1;
+        public virtual int ID { get; set; } = 0;
 
         [Description("")]
         public virtual bool CylinderInDwelling { get; set; } = false;
@@ -49,10 +49,10 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual double CHPPowerEfficiency { get; set; } = 0;
 
-        [Description("")]//
+        [Description("")]
         public virtual int HeatDistributionSystem { get; set; } = 0;
 
-        [Description("")] //
+        [Description("")]
         public virtual int HeatSourceType { get; set; } = 0;
 
         [Description("")]
@@ -61,7 +61,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual double Boiler1Fraction { get; set; } = 0;
 
-        [Description("")] //
+        [Description("")]
         public virtual int ChargingSystem { get; set; } = 0;
 
         [Description("")]
@@ -82,7 +82,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual bool HeatNetworkExisting { get; set; } = false;
 
-        [Description("")] //
+        [Description("")]
         public virtual int CHPElectricityGeneration { get; set; } = 0;
 
         [Description("")]

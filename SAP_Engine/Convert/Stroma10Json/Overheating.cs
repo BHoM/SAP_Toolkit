@@ -72,6 +72,11 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             if (obj.Lights != null && obj.Lights.Any(x => x != null))
                 rtn.Add("Lights", obj.Lights.Select(x => FromLight(x)).ToList());
+            else
+            {
+                List<object> temp = new List<object>();
+                rtn.Add("Lights", temp);
+            }
 
             rtn.Add("LowerEnergyLights", obj.LowerEnergyLights);
 

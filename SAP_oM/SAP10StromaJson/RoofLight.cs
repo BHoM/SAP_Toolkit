@@ -34,33 +34,33 @@ namespace BH.oM.Environment.SAP.Stroma10
     {
 
         [Description("")]
-        public virtual int ID { get; set; } = -1;
+        public virtual int ID { get; set; } = 0;
 
         [Description("")]
         public virtual string Guid { get; set; } = null;
 
-        [Description("")] // t - selection based on prior data
+        [Description("")] 
         public virtual string Location { get; set; } = null;
 
-        [Description("")] //
+        [Description("")] 
         public virtual int UValueSource { get; set; } = 0;
 
-        [Description("")] //
+        [Description("")] 
         public virtual int Orientation { get; set; } = 0;
 
-        [Description("")] //
+        [Description("")] 
         public virtual int OverShading { get; set; } = 0;
 
-        [Description("")] //
+        [Description("")] 
         public virtual int GlazingType { get; set; } = 0;
 
-        [Description("")] //
+        [Description("")] 
         public virtual int AirGap { get; set; } = 0;
 
-        [Description("")] //
+        [Description("")] 
         public virtual int FrameType { get; set; } = 0;
 
-        [Description("")] //
+        [Description("")] 
         public virtual int ThermalBreak { get; set; } = 0;
 
         [Description("Area of roof opening m2")]
@@ -81,7 +81,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("Overhang depth of roof opening mm")]
         public virtual int OverhangDepth { get; set; } = 0;
 
-        [Description("")]  //
+        [Description("")]  
         public virtual int CurtainType { get; set; } = 0;
 
         [Description("")]

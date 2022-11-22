@@ -67,17 +67,39 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             rtn.Add("Reference", obj.Reference);
 
+
             if (obj.Dwellings != null && obj.Dwellings.Any(x => x != null))
-
                 rtn.Add("Dwellings", obj.Dwellings.Select(x => FromDwelling(x)).ToList());
+            else
+            {
+                List<object> temp = new List<object>();
+                rtn.Add("Dwellings", temp);
+            }
 
+
+            if (obj.Address == null)
+                obj.Address = new BH.oM.Environment.SAP.Stroma10.Address();
+            
             rtn.Add("Address", FromAddress(obj.Address));
+
+
+            if (obj.ClientDetails == null)
+                obj.ClientDetails = new BH.oM.Environment.SAP.Stroma10.ClientDetails();
 
             rtn.Add("ClientDetails", FromClientDetails(obj.ClientDetails));
 
+
+            if (obj.Elements == null)
+                obj.Elements = new BH.oM.Environment.SAP.Stroma10.Elements();
+
             rtn.Add("Elements", FromElements(obj.Elements));
 
+
+            if (obj.Assessor == null)
+                obj.Assessor = new BH.oM.Environment.SAP.Stroma10.Assessor();
+
             rtn.Add("Assessor", FromAssessor(obj.Assessor));
+
 
             rtn.Add("DwellingCount", obj.DwellingCount);
 

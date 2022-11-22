@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class PrimaryHeating2 : BHoMObject
     {
         [Description("")]
-        public virtual int ID { get; set; } = -1;
+        public virtual int ID { get; set; } = 0;
 
         [Description("")]
         public virtual bool Include { get; set; } = false;
@@ -41,16 +41,16 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual string Group { get; set; } = null;
 
-        [Description("")] //
+        [Description("")] 
         public virtual int HeatingCategory { get; set; } = 0;
 
         [Description("")]
         public virtual string SubHeatingGroup { get; set; } = null;
 
-        [Description("")] //
+        [Description("")] 
         public virtual int SubHeatingCategory { get; set; } = 0;
 
-        [Description("Information Source")] //
+        [Description("Information Source")] 
         public virtual int Source { get; set; } = 0;
 
         [Description("")]
@@ -89,7 +89,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual Boiler Boiler { get; set; } = null;
 
-        [Description("")] //
+        [Description("")] 
         public virtual int ElectricityTariff { get; set; } = 0;
 
         [Description("")]
@@ -101,7 +101,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual bool DelayedStart { get; set; } = false;
 
-        [Description("")] //
+        [Description("")] 
         public virtual int FuelBurningType { get; set; } = 0;
 
         [Description("")]

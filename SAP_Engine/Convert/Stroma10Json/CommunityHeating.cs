@@ -100,6 +100,11 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             if (obj.HeatSources != null && obj.HeatSources.Any(x => x != null))
                 rtn.Add("HeatSources", obj.HeatSources.Select(x => FromHeatSource(x)).ToList());
+            else
+            {
+                List<object> temp = new List<object>();
+                rtn.Add("HeatSources", temp);
+            }
 
             rtn.Add("NoOfAdditionalHeatSources", obj.NumberOfAdditionalHeatSources);
 

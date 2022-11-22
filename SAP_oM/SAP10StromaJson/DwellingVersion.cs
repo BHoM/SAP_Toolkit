@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class DwellingVersion : BHoMObject
     {
         [Description("")]
-        public virtual int ID { get; set; } = -1;
+        public virtual int ID { get; set; } = 0;
 
         [Description("")]
         public virtual string ReportReferenceNumber { get; set; } = null;
@@ -48,7 +48,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual string GUID { get; set; } = null;
 
         [Description("")]
-        public virtual bool Selected { get; set; } = false;
+        public virtual bool Selected { get; set; } = true;
 
         [Description("")]
         public virtual DwellingDetails DwellingDetails { get; set; } = null;
@@ -72,7 +72,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual double AirTestResult { get; set; } = 0;
 
         [Description("")]
-        public virtual bool GrossAreas { get; set; } = false;
+        public virtual bool GrossAreas { get; set; } = true;
 
         [Description("")]
         public virtual List<Floor> Floors { get; set; } = null;

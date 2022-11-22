@@ -40,6 +40,9 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             rtn.Add("IndexNo", obj.IndexNumber);
 
+            if (obj.Photovoltaic2 == null)
+                obj.Photovoltaic2 = new BH.oM.Environment.SAP.Stroma10.Photovoltaic2();
+
             rtn.Add("Photovoltaics", FromPhotovoltaic2(obj.Photovoltaic2));
 
             return rtn;

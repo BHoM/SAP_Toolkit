@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class PrimaryHeating : BHoMObject
     {
         [Description("")]
-        public virtual int ID { get; set; } = -1;
+        public virtual int ID { get; set; } = 0;
 
         [Description("")]
         public virtual bool Include { get; set; } = true;
@@ -78,7 +78,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int ControlCode { get; set; } = 0;
 
         [Description("")]
-        public virtual string ControlCodeProductCharacteristicsDatabase { get; set; } = null;
+        public virtual string ControlCodeProductCharacteristicsDatabase { get; set; } = "";
 
         [Description("")]
         public virtual int Fuel { get; set; } = 0;

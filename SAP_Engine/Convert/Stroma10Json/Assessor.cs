@@ -53,8 +53,13 @@ namespace BH.Engine.Environment.SAP.Stroma10
             rtn.Add("FirstName", obj.FirstName);
 
             rtn.Add("LastName", obj.LastName);
+            
+
+            if (obj.Address == null)
+                obj.Address = new BH.oM.Environment.SAP.Stroma10.Address();
 
             rtn.Add("Address", FromAddress(obj.Address));
+
 
             rtn.Add("WebSite", obj.WebSite);
 
@@ -67,6 +72,10 @@ namespace BH.Engine.Environment.SAP.Stroma10
             rtn.Add("CompanyName", obj.CompanyName);
 
             rtn.Add("StromaNumber", obj.StromaNumber);
+
+
+            if (obj.Insurance == null)
+                obj.Insurance = new BH.oM.Environment.SAP.Stroma10.Insurance();
 
             rtn.Add("Insurance", FromInsurance(obj.Insurance));    
 

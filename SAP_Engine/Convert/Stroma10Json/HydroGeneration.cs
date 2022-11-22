@@ -53,6 +53,9 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             rtn.Add("TotalArea", obj.TotalArea);
 
+            if (obj.MonthlyValues == null)
+                obj.MonthlyValues = new BH.oM.Environment.SAP.Stroma10.MonthlyValues();
+
             rtn.Add("MonthlyValues", FromMonthlyValues(obj.MonthlyValues));
 
             rtn.Add("Certificate", obj.Certificate);

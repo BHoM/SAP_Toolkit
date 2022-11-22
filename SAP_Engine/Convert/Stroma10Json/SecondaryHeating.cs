@@ -76,6 +76,9 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             rtn.Add("SubHeatingCategory", obj.SubHeatingCategory);
 
+            if (obj.ComplianceHeatingDetails == null)
+                obj.ComplianceHeatingDetails = new BH.oM.Environment.SAP.Stroma10.ComplianceHeatingDetails();
+
             rtn.Add("ComplianceHeatingDetails", FromComplianceHeatingDetails(obj.ComplianceHeatingDetails));
 
             rtn.Add("Fuel", obj.Fuel);

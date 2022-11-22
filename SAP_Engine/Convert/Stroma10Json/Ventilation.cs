@@ -269,7 +269,14 @@ namespace BH.Engine.Environment.SAP.Stroma10
             
             rtn.Add("MeasuredSfp", obj.MeasuredSpecificFanPower);
 
+            if (obj.DeCentralised == null)
+                obj.DeCentralised = new BH.oM.Environment.SAP.Stroma10.DeCentralised();
+
             rtn.Add("DeCentralised", FromDeCentralised(obj.DeCentralised));
+
+
+            if (obj.MechanicalVentilationDetails == null)
+                obj.MechanicalVentilationDetails = new BH.oM.Environment.SAP.Stroma10.MechanicalVentilationDetails();
 
             rtn.Add("MvDetails", FromMechanicalVentilationDetails(obj.MechanicalVentilationDetails));
 
@@ -298,6 +305,10 @@ namespace BH.Engine.Environment.SAP.Stroma10
             rtn.Add("MultiSystem", obj.MultiSystem);
 
             rtn.Add("DuctPlacement", obj.DuctPlacement);
+
+
+            if (obj.ComplianceVent == null)
+                obj.ComplianceVent = new BH.oM.Environment.SAP.Stroma10.ComplianceVent();
 
             rtn.Add("ComplianceVent", FromComplianceVent(obj.ComplianceVent));
 

@@ -32,24 +32,24 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class ElementSelections : BHoMObject
     {
         [Description("")]
-        public virtual int ID { get; set; } = -1;
+        public virtual int ID { get; set; } = 0;
 
         [Description("")]
-        public virtual string FabricElement { get; set; } = null;
+        public virtual string FabricElement { get; set; } = "";
 
         [Description("")]
-        public virtual string VentilationElement { get; set; } = null;
+        public virtual string VentilationElement { get; set; } = "";
 
         [Description("")]
-        public virtual string HeatingElement { get; set; } = null;
+        public virtual string HeatingElement { get; set; } = "";
 
         [Description("")]
-        public virtual string WaterElement { get; set; } = null;
+        public virtual string WaterElement { get; set; } = "";
 
         [Description("")]
-        public virtual string RenewableElement { get; set; } = null;
+        public virtual string RenewableElement { get; set; } = "";
 
         [Description("")]
-        public virtual string OverheatingElement { get; set; } = null;
+        public virtual string OverheatingElement { get; set; } = "";
     }
 }

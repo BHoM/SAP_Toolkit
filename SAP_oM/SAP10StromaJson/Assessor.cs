@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Assessor : BHoMObject
     {
         [Description("")]
-        public virtual int ID { get; set; } = -1;
+        public virtual int ID { get; set; } = 0;
 
         [Description("")]
         public virtual string FirstName { get; set; } = null;
@@ -45,22 +45,22 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual Address Address { get; set; } = null;
 
         [Description("")]
-        public virtual string WebSite { get; set; } = null;
+        public virtual string WebSite { get; set; } = "";
 
         [Description("")]
-        public virtual string Email { get; set; } = null;
+        public virtual string Email { get; set; } = "";
 
         [Description("")]
-        public virtual string Telephone { get; set; } = null;
+        public virtual string Telephone { get; set; } = "";
 
         [Description("")]
-        public virtual string Fax { get; set; } = null;
+        public virtual string Fax { get; set; } = "";
 
         [Description("")]
-        public virtual string CompanyName { get; set; } = null;
+        public virtual string CompanyName { get; set; } = "";
 
         [Description("")]
-        public virtual string StromaNumber { get; set; } = null;
+        public virtual string StromaNumber { get; set; } = "";
 
         [Description("")]
         public virtual Insurance Insurance { get; set; } = null;

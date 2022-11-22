@@ -67,7 +67,12 @@ namespace BH.Engine.Environment.SAP.Stroma10
             rtn.Add("IsLodged", obj.IsLodged);
 
             if (obj.DwellingVersions != null && obj.DwellingVersions.Any(x => x != null))
-                rtn.Add("DwellingVersions", obj.DwellingVersions.Select(x => FromDwellingVersion(x)).ToList());  
+                rtn.Add("DwellingVersions", obj.DwellingVersions.Select(x => FromDwellingVersion(x)).ToList());
+            else
+            {
+                List<object> temp = new List<object>();
+                rtn.Add("DwellingVersions", temp);
+            }
 
             return rtn;
         }

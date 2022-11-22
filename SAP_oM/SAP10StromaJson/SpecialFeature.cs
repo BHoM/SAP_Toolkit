@@ -34,7 +34,7 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class SpecialFeature : BHoMObject
     {
         [Description("")]
-        public virtual int ID { get; set; } = -1;
+        public virtual int ID { get; set; } = 0;
 
         [Description("")]
         public string Description { get; set; } = null;
@@ -57,7 +57,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("This feature is only concerned with CO2 emissions")]
         public bool MakeEmissionsOnly { get; set; } = false;
 
-        [Description("Emissions saved kgCO2")] // maybe
+        [Description("")] 
         public double EmissionsAmount { get; set; } = 0;
 
         [Description("Emissions Used - maybe")]

@@ -100,6 +100,11 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             if (obj.Dims != null && obj.Dims.Any(x => x != null))
                 rtn.Add("Dims", obj.Dims.Select(x => FromDim(x)).ToList());
+            else
+            {
+                List<object> temp = new List<object>();
+                rtn.Add("Dims", temp);
+            }
 
 
             rtn.Add("UValueSelectionId", obj.UValueSelectionID);

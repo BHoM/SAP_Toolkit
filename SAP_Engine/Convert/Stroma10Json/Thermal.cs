@@ -68,14 +68,29 @@ namespace BH.Engine.Environment.SAP.Stroma10
 
             if (obj.ExternalJunctions != null && obj.ExternalJunctions.Any(x => x != null))
                 rtn.Add("ExternalJunctions", obj.ExternalJunctions.Select(x => FromExternalJunction(x)).ToList());
+            else
+            {
+                List<object> temp = new List<object>();
+                rtn.Add("ExternalJunctions", temp);
+            }
 
 
             if (obj.PartyJunctions != null && obj.PartyJunctions.Any(x => x != null))
                 rtn.Add("PartyJunctions", obj.PartyJunctions.Select(x => FromPartyJunction(x)).ToList());
+            else
+            {
+                List<object> temp = new List<object>();
+                rtn.Add("PartyJunctions", temp);
+            }
 
 
             if (obj.RoofJunctions != null && obj.RoofJunctions.Any(x => x != null))
                 rtn.Add("RoofJunctions", obj.RoofJunctions.Select(x => FromRoofJunction(x)).ToList());
+            else
+            {
+                List<object> temp = new List<object>();
+                rtn.Add("RoofJunctions", temp);
+            }
 
 
             rtn.Add("Reference", obj.Reference);
