@@ -47,10 +47,10 @@ namespace BH.oM.Environment.SAP.Stroma10
         [Description("")]
         public virtual bool OverRide { get; set; } = false;
 
-        [Description("")]  these are connected to the Type but can change if override == True
+        [Description("")]  
         public virtual double Flow { get; set; } = 0;
 
-        [Description("")] these are connected to the Type but can change if override == True
+        [Description("")] 
         public virtual double Power { get; set; } = 0;
 
 
