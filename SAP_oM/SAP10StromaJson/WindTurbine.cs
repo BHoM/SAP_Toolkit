@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,25 +28,56 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class WindTurbine : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool Include { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool Include
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int WindTurbineNumber { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual int WindTurbineNumber
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double WindTurbineRotarDiameter { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double WindTurbineRotarDiameter
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double WindTurbineHeight { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double WindTurbineHeight
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string Certificate { get; set; } = null ;
+        = 0;
+        [Description(".")]
+        public virtual string Certificate
+        {
+            get;
+            set;
+        }
+
+        = null;
     }
 }

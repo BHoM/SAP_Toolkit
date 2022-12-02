@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,37 +27,88 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class Dimension : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string GUID { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual string GUID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool Basement { get; set; } = false;
+        = null;
+        [Description(".")]
+        public virtual bool Basement
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Area { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual double Area
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Perimeter { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Perimeter
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Height { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Height
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<Dim> Dims { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual List<Dim> Dims
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string Type { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual string Type
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int Floor { get; set; } = 0;
+        = null;
+        [Description(".")]
+        public virtual int Floor
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Volume { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Volume
+        {
+            get;
+            set;
+        }
+
+        = 0;
     }
 }

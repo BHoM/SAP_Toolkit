@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,103 +28,264 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class PrimaryHeating : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool Include { get; set; } = true;
+        = 0;
+        [Description(".")]
+        public virtual bool Include
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string Group { get; set; } = null;
+        = true;
+        [Description(".")]
+        public virtual string Group
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int HeatingCategory { get; set; } = 0;
+        = null;
+        [Description(".")]
+        public virtual int HeatingCategory
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string SubHeatingGroup { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual string SubHeatingGroup
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int SubHeatingCategory { get; set; } = 0;
+        = null;
+        [Description(".")]
+        public virtual int SubHeatingCategory
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int Source { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int Source
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int SAPTableCode { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int SAPTableCode
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string SeasonalEfficiencyOfDomesticBoilersUK { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual string SeasonalEfficiencyOfDomesticBoilersUK
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Efficiency { get; set; } = 0;
+        = null;
+        [Description(".")]
+        public virtual double Efficiency
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool TER { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool TER
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double WinterEfficiency { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual double WinterEfficiency
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double SummerEfficiency { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double SummerEfficiency
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int Emitter { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int Emitter
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int ControlCode { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int ControlCode
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string ControlCodeProductCharacteristicsDatabase { get; set; } = "";
+        = 0;
+        [Description(".")]
+        public virtual string ControlCodeProductCharacteristicsDatabase
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int Fuel { get; set; } = 0;
+        = "";
+        [Description(".")]
+        public virtual int Fuel
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool HeatingEquipmentTestingAndApprovalsScheme { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool HeatingEquipmentTestingAndApprovalsScheme
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual Boiler Boiler { get; set; } = null;
+        = false;
+        [Description(".")]
+        public virtual Boiler Boiler
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int ElectricityTariff { get; set; } = 0;
+        = null;
+        [Description(".")]
+        public virtual int ElectricityTariff
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual Range Range { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual Range Range
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool OilPump { get; set; } = false;
+        = null;
+        [Description(".")]
+        public virtual bool OilPump
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool DelayedStart { get; set; } = false;
+        = false;
+        [Description(".")]
+        public virtual bool DelayedStart
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int FuelBurningType { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual int FuelBurningType
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool SeasonalEfficiencyOfDomesticBoilersUK2005 { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool SeasonalEfficiencyOfDomesticBoilersUK2005
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool SeasonalEfficiencyOfDomesticBoilersUK2009 { get; set; } = false;
+        = false;
+        [Description(".")]
+        public virtual bool SeasonalEfficiencyOfDomesticBoilersUK2009
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool WinterSummer { get; set; } = false;
+        = false;
+        [Description(".")]
+        public virtual bool WinterSummer
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool MicroCertificationSchemeHeatPump { get; set; } = false;
+        = false;
+        [Description(".")]
+        public virtual bool MicroCertificationSchemeHeatPump
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual CommunityHeating CommunityHeating { get; set; } = null;
+        = false;
+        [Description(".")]
+        public virtual CommunityHeating CommunityHeating
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual ComplianceHeatingDetails ComplianceHeatingDetails { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual ComplianceHeatingDetails ComplianceHeatingDetails
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual HeatPumpOnly HeatPumpOnly { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual HeatPumpOnly HeatPumpOnly
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<StorageHeater> StorageHeaters { get; set; } = null; 
+        = null;
+        [Description(".")]
+        public virtual List<StorageHeater> StorageHeaters
+        {
+            get;
+            set;
+        }
+
+        = null;
     }
 }

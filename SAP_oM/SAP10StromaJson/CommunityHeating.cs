@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,67 +27,168 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class CommunityHeating : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Boiler1Efficiency { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Boiler1Efficiency
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Boiler1HeatFraction { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Boiler1HeatFraction
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int HeatDistributionSystem { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int HeatDistributionSystem
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double HeatToPowerRatio { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double HeatToPowerRatio
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<HeatSource> HeatSources { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual List<HeatSource> HeatSources
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int NumberOfAdditionalHeatSources { get; set; } = 0;
+        = null;
+        [Description(".")]
+        public virtual int NumberOfAdditionalHeatSources
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool Boiler2CHP { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool Boiler2CHP
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Boiler2CHPEfficiency { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual double Boiler2CHPEfficiency
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double CHPHeatFraction { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double CHPHeatFraction
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double CHPHeatEfficiency { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double CHPHeatEfficiency
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double CHPElectricalEfficiency { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double CHPElectricalEfficiency
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool FromDatabase { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool FromDatabase
+        {
+            get;
+            set;
+        }
 
-        [Description("")]//
-        public virtual int Boiler2CHPFuel { get; set; } = 0;
+        = false;
+        [Description(".")] //
+        public virtual int Boiler2CHPFuel
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool KnownLoss { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool KnownLoss
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double KnownLossValue { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual double KnownLossValue
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool HeatNetworkExisting { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool HeatNetworkExisting
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int CHPElectricityGeneration { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual int CHPElectricityGeneration
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string CommunityHeatingName { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual string CommunityHeatingName
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string SubNetworkName { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual string SubNetworkName
+        {
+            get;
+            set;
+        }
+
+        = null;
     }
 }

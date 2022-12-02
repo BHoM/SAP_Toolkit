@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,52 +28,128 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class RoofJunction : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string GUID { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual string GUID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string Reference { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual string Reference
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string JunctionDetail { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual string JunctionDetail
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double ThermalTransmittance { get; set; } = 0;
+        = null;
+        [Description(".")]
+        public virtual double ThermalTransmittance
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Length { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Length
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool IsAccredited { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool IsAccredited
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool IsDefault { get; set; } = false;
+        = false;
+        [Description(".")]
+        public virtual bool IsDefault
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Accredited { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual double Accredited
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Default { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Default
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string Notes { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual string Notes
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool RowIDCreated { get; set; } = false;
+        = null;
+        [Description(".")]
+        public virtual bool RowIDCreated
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool ImportLength { get; set; } = false;
+        = false;
+        [Description(".")]
+        public virtual bool ImportLength
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int Count { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual int Count
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Result { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Result
+        {
+            get;
+            set;
+        }
+
+        = 0;
     }
 }

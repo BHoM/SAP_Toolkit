@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,22 +28,48 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class Photovoltaic : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("Photovoltaics present")]
-        public virtual bool Include { get; set; } = false;
+        = 0;
+        [Description("Photovoltaics present.")]
+        public virtual bool Include
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool Diverter { get; set; } = false;
+        = false;
+        [Description(".")]
+        public virtual bool Diverter
+        {
+            get;
+            set;
+        }
 
-        [Description("Battery Capacity kWh")]
-        public virtual double BatteryCapacity { get; set; } = 0;
+        = false;
+        [Description("Battery Capacity kWh.")]
+        public virtual double BatteryCapacity
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<Photovoltaic2> Photovoltaic2s { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual List<Photovoltaic2> Photovoltaic2s
+        {
+            get;
+            set;
+        }
+
+        = null;
     }
 }

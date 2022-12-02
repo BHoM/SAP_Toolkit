@@ -19,12 +19,10 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using BH.oM.Base;
 using BH.oM.Environment.SAP.Stroma10;
 
@@ -36,57 +34,41 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             if (dwellingsObject == null)
                 return null;
-
             List<Dwelling> rtn = new List<Dwelling>();
             foreach (var value in dwellingsObject)
             {
                 rtn.Add(ToDwelling(value));
             }
+
             return rtn;
         }
+
         public static BH.oM.Environment.SAP.Stroma10.Dwelling ToDwelling(CustomObject dwellingObject)
         {
-
             if (dwellingObject == null)
                 return null;
-
             BH.oM.Environment.SAP.Stroma10.Dwelling sapDwelling = new BH.oM.Environment.SAP.Stroma10.Dwelling();
-
             sapDwelling.ID = System.Convert.ToInt32(dwellingObject.CustomData["Id"]);
-
             sapDwelling.BHoM_Guid = Guid.Parse(dwellingObject.CustomData["Guid"] as string);
-
             sapDwelling.Selected = System.Convert.ToBoolean(dwellingObject.CustomData["Selected"]);
-
             sapDwelling.Name = dwellingObject.Name;
-
             sapDwelling.Orientation = dwellingObject.CustomData["Orientation"] as string;
-
             sapDwelling.IsLodged = System.Convert.ToBoolean(dwellingObject.CustomData["IsLodged"]);
-
             sapDwelling.DwellingVersions = ToDwellingVersions((dwellingObject.CustomData["DwellingVersions"] as List<object>).Cast<CustomObject>().ToList());
-
             return sapDwelling;
         }
+
         public static Dictionary<string, object> FromDwelling(Dwelling obj)
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
-
             if (obj == null)
                 return null;
-
             rtn.Add("Id", obj.ID);
-
             rtn.Add("Guid", obj.BHoM_Guid.ToString());
-
             rtn.Add("Selected", obj.Selected);
-
             rtn.Add("Name", obj.Name);
-
             rtn.Add("Orientation", obj.Orientation);
-
             rtn.Add("IsLodged", obj.IsLodged);
-
             if (obj.DwellingVersions != null && obj.DwellingVersions.Any(x => x != null))
                 rtn.Add("DwellingVersions", obj.DwellingVersions.Select(x => FromDwellingVersion(x)).ToList());
             else
@@ -99,4 +81,3 @@ namespace BH.Engine.Environment.SAP.Stroma10
         }
     }
 }
-

@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,86 +27,215 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class Water : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string Guid { get; set; }
+        = 0;
+        [Description(".")]
+        public virtual string Guid
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int ItemID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ItemID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int ElementType { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int ElementType
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string ElementTypeName { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual string ElementTypeName
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual Ventilation Ventilation { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual Ventilation Ventilation
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual Renewable Renewable { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual Renewable Renewable
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual Overheating Overheating { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual Overheating Overheating
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<Door> Doors { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<Door> Doors
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<Window> Windows { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<Window> Windows
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<RoofLight> RoofLights { get; set; } = null; 
+        = null;
+        [Description(".")]
+        public virtual List<RoofLight> RoofLights
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<Floor> Floors { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<Floor> Floors
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<Wall> Walls { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<Wall> Walls
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<Roof> Roofs { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<Roof> Roofs
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<PartyFloor> PartyFloors { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<PartyFloor> PartyFloors
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<PartyWall> PartyWalls { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<PartyWall> PartyWalls
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<PartyCeiling> PartyCeilings { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<PartyCeiling> PartyCeilings
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<InteriorFloor> InteriorFloors { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<InteriorFloor> InteriorFloors
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<InteriorWall> InteriorWalls { get; set; } = null; 
+        = null;
+        [Description(".")]
+        public virtual List<InteriorWall> InteriorWalls
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<InteriorCeiling> InteriorCeilings { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<InteriorCeiling> InteriorCeilings
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual Thermal Thermal { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual Thermal Thermal
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual CoolingSystem CoolingSystem { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual CoolingSystem CoolingSystem
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual PrimaryHeating PrimaryHeating { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual PrimaryHeating PrimaryHeating
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual PrimaryHeating2 PrimaryHeating2 { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual PrimaryHeating2 PrimaryHeating2
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual SecondaryHeating SecondaryHeating { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual SecondaryHeating SecondaryHeating
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual WaterHeating WaterHeating { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual WaterHeating WaterHeating
+        {
+            get;
+            set;
+        }
 
+        = null;
     }
 }

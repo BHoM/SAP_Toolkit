@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,41 +28,96 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class Assessor : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string FirstName { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual string FirstName
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string LastName { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual string LastName
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual Address Address { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual Address Address
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string WebSite { get; set; } = "";
+        = null;
+        [Description(".")]
+        public virtual string WebSite
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string Email { get; set; } = "";
+        = "";
+        [Description(".")]
+        public virtual string Email
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string Telephone { get; set; } = "";
+        = "";
+        [Description(".")]
+        public virtual string Telephone
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string Fax { get; set; } = "";
+        = "";
+        [Description(".")]
+        public virtual string Fax
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string CompanyName { get; set; } = "";
+        = "";
+        [Description(".")]
+        public virtual string CompanyName
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string StromaNumber { get; set; } = "";
+        = "";
+        [Description(".")]
+        public virtual string StromaNumber
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual Insurance Insurance { get; set; } = null;
+        = "";
+        [Description(".")]
+        public virtual Insurance Insurance
+        {
+            get;
+            set;
+        }
+
+        = null;
     }
 }
-

@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,37 +27,88 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class CoolingSystem : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool Include { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool Include
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int SystemType { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual int SystemType
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int EnergyLabel { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int EnergyLabel
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool Overide { get; set; } = false ;
+        = 0;
+        [Description(".")]
+        public virtual bool Overide
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int CompressorControl { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual int CompressorControl
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double CooledArea { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double CooledArea
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool EERMeasuredInclude { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool EERMeasuredInclude
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double EER { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual double EER
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string Description { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual string Description
+        {
+            get;
+            set;
+        }
+
+        = null;
     }
 }

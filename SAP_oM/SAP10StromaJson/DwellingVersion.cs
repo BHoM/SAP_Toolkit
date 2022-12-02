@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,132 +26,338 @@ using System.Linq;
 using System.Net;
 using BH.oM.Base;
 
-namespace BH.oM.Environment.SAP.Stroma10    
+namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class DwellingVersion : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string ReportReferenceNumber { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual string ReportReferenceNumber
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string Reference { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual string Reference
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual Address Address { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual Address Address
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string GUID { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual string GUID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool Selected { get; set; } = true;
+        = null;
+        [Description(".")]
+        public virtual bool Selected
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual DwellingDetails DwellingDetails { get; set; } = null;
+        = true;
+        [Description(".")]
+        public virtual DwellingDetails DwellingDetails
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double TotalFloorArea { get; set; } = 0;
+        = null;
+        [Description(".")]
+        public virtual double TotalFloorArea
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double TotalVolume { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double TotalVolume
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<Dimension> Dimensions { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual List<Dimension> Dimensions
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double LivingArea { get; set; } = 0;
+        = null;
+        [Description(".")]
+        public virtual double LivingArea
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double LivingAreaFraction { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double LivingAreaFraction
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double AirTestResult { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double AirTestResult
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool GrossAreas { get; set; } = true;
+        = 0;
+        [Description(".")]
+        public virtual bool GrossAreas
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<Floor> Floors { get; set; } = null;
+        = true;
+        [Description(".")]
+        public virtual List<Floor> Floors
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<Wall> Walls { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<Wall> Walls
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<Roof> Roofs { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<Roof> Roofs
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<PartyFloor> PartyFloors { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<PartyFloor> PartyFloors
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<PartyWall> PartyWalls { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<PartyWall> PartyWalls
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<PartyCeiling> PartyCeilings { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<PartyCeiling> PartyCeilings
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<InteriorFloor> InteriorFloors { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<InteriorFloor> InteriorFloors
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<InteriorWall> InteriorWalls { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<InteriorWall> InteriorWalls
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<InteriorCeiling> InteriorCeilings { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<InteriorCeiling> InteriorCeilings
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<Door> Doors { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<Door> Doors
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<Window> Windows { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<Window> Windows
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<RoofLight> RoofLights { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<RoofLight> RoofLights
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual Ventilation Ventilation { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual Ventilation Ventilation
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual Renewable Renewable { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual Renewable Renewable
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual Overheating Overheating { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual Overheating Overheating
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<object> DwellingPhotos { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<object> DwellingPhotos
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual ElementSelections ElementSelections { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual ElementSelections ElementSelections
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual Thermal Thermal { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual Thermal Thermal
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual CoolingSystem CoolingSystem { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual CoolingSystem CoolingSystem
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual PrimaryHeating PrimaryHeating { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual PrimaryHeating PrimaryHeating
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual PrimaryHeating2 PrimaryHeating2 { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual PrimaryHeating2 PrimaryHeating2
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual SecondaryHeating SecondaryHeating { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual SecondaryHeating SecondaryHeating
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual WaterHeating WaterHeating { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual WaterHeating WaterHeating
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double SecondaryHeatingFraction { get; set; } = 0;
+        = null;
+        [Description(".")]
+        public virtual double SecondaryHeatingFraction
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int HeatSystemInteraction { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int HeatSystemInteraction
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool WaterOnlyHeatPump { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool WaterOnlyHeatPump
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double LowestFloorArea { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual double LowestFloorArea
+        {
+            get;
+            set;
+        }
+
+        = 0;
     }
 }

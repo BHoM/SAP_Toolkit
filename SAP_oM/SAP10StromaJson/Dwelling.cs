@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,25 +27,56 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class Dwelling : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string GUID { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual string GUID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool Selected { get; set; } = true;
+        = null;
+        [Description(".")]
+        public virtual bool Selected
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string Orientation { get; set; } = null;
+        = true;
+        [Description(".")]
+        public virtual string Orientation
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool IsLodged { get; set; } = false;
+        = null;
+        [Description(".")]
+        public virtual bool IsLodged
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<DwellingVersion> DwellingVersions { get; set; } = null;
+        = false;
+        [Description(".")]
+        public virtual List<DwellingVersion> DwellingVersions
+        {
+            get;
+            set;
+        }
+
+        = null;
     }
 }

@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,91 +27,232 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class DwellingDetails : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int PropertyType { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int PropertyType
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int AssessmentType { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int AssessmentType
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int TransactionType { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int TransactionType
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int TenureType { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int TenureType
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int RelatedParty { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int RelatedParty
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int ThermalMass { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int ThermalMass
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int IndicativeValue { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int IndicativeValue
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double UserThermalMass { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double UserThermalMass
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int BuiltForm { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int BuiltForm
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int FlatType { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int FlatType
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int Location { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int Location
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int Terrain { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int Terrain
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int Orientation { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int Orientation
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int SmokeControl { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int SmokeControl
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int OverShading { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int OverShading
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int Country { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int Country
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int Language { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int Language
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool SummerOverheating { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool SummerOverheating
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool WaterUseLessThan125 { get; set; } = false;
+        = false;
+        [Description(".")]
+        public virtual bool WaterUseLessThan125
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual DateTime DateOfAssessment { get; set; } = DateTime.Now;
+        = false;
+        [Description(".")]
+        public virtual DateTime DateOfAssessment
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual DateTime DateOfCertificate { get; set; } = DateTime.Now;
+        = DateTime.Now;
+        [Description(".")]
+        public virtual DateTime DateOfCertificate
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int YearBuilt { get; set; } = (DateTime.Now.Year); 
+        = DateTime.Now;
+        [Description(".")]
+        public virtual int YearBuilt
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool RoomInRoof { get; set; } = false;
+        = (DateTime.Now.Year);
+        [Description(".")]
+        public virtual bool RoomInRoof
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int StoreysInBlock { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual int StoreysInBlock
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool IsGasMeter { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool IsGasMeter
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool IsElectricMeter { get; set; } = false;
+        = false;
+        [Description(".")]
+        public virtual bool IsElectricMeter
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool IsCableExport { get; set; } = false;
+        = false;
+        [Description(".")]
+        public virtual bool IsCableExport
+        {
+            get;
+            set;
+        }
+
+        = false;
     }
 }
