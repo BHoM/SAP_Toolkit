@@ -19,12 +19,10 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-
 using BH.oM.Base;
 using BH.oM.Environment.SAP.Stroma10;
 
@@ -36,39 +34,28 @@ namespace BH.Engine.Environment.SAP.Stroma10
         {
             if (elementsObject == null)
                 return null;
-
             BH.oM.Environment.SAP.Stroma10.Elements sapElements = new BH.oM.Environment.SAP.Stroma10.Elements();
-
             sapElements.ID = System.Convert.ToInt32(elementsObject.CustomData["Id"]);
-
             sapElements.Fabrics = ToFabrics((elementsObject.CustomData["Fabric"] as List<object>).Cast<CustomObject>().ToList());
-
             sapElements.Heatings = ToHeatings((elementsObject.CustomData["Heating"] as List<object>).Cast<CustomObject>().ToList());
-
             sapElements.Waters = ToWaters((elementsObject.CustomData["Water"] as List<object>).Cast<CustomObject>().ToList());
-
             sapElements.Ventilations = ToVentilations((elementsObject.CustomData["Ventilation"] as List<object>).Cast<CustomObject>().ToList());
-
             sapElements.Renewables = ToRenewables((elementsObject.CustomData["Renewable"] as List<object>).Cast<CustomObject>().ToList());
-
             sapElements.Overheatings = ToOverheatings((elementsObject.CustomData["Overheating"] as List<object>).Cast<CustomObject>().ToList());
-
             return sapElements;
         }
+
         public static Dictionary<string, object> FromElements(Elements obj)
         {
             Dictionary<string, object> rtn = new Dictionary<string, object>();
-
             if (obj == null)
                 return null;
-
             rtn.Add("Id", obj.ID);
-
             if (obj.Fabrics != null && obj.Fabrics.Any(x => x != null))
                 rtn.Add("Fabric", obj.Fabrics.Select(x => FromFabric(x)).ToList());
             else
             {
-                List< object> temp = new List<object>();
+                List<object> temp = new List<object>();
                 rtn.Add("Fabric", temp);
             }
 
@@ -116,4 +103,3 @@ namespace BH.Engine.Environment.SAP.Stroma10
         }
     }
 }
-

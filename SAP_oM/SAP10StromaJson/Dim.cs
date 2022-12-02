@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,22 +27,48 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")] 
+    [Description(".")]
     public class Dim : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string GUID { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual string GUID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Width { get; set; } = 0;
+        = null;
+        [Description(".")]
+        public virtual double Width
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Length { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Length
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Area { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Area
+        {
+            get;
+            set;
+        }
+
+        = 0;
     }
 }

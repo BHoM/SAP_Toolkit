@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,40 +28,96 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class Photovoltaic2 : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("Peak Power kWp")]  
-        public virtual double PeakPower { get; set; } = 0;
+        = 0;
+        [Description("Peak Power kWp.")]
+        public virtual double PeakPower
+        {
+            get;
+            set;
+        }
 
-        [Description("")] 
-        public virtual int PhotovoltaicTilt { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int PhotovoltaicTilt
+        {
+            get;
+            set;
+        }
 
-        [Description("")] 
-        public virtual int PhotovoltaicOrientation { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int PhotovoltaicOrientation
+        {
+            get;
+            set;
+        }
 
-        [Description("")] 
-        public virtual int PhotovoltaicOvershading { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int PhotovoltaicOvershading
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool DirectlyConnected { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool DirectlyConnected
+        {
+            get;
+            set;
+        }
 
-        [Description("")] 
-        public virtual int FlatConnection { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual int FlatConnection
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool MicroCertificationSchemeCertificate { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool MicroCertificationSchemeCertificate
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double OverShadingFactor { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual double OverShadingFactor
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string Manufacturer { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual string Manufacturer
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string MicroCertificationSchemeCertificateReference { get; set; } = null ;
+        = null;
+        [Description(".")]
+        public virtual string MicroCertificationSchemeCertificateReference
+        {
+            get;
+            set;
+        }
+
+        = null;
     }
 }

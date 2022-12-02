@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,31 +27,72 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class HydroGeneration : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool Yearly { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool Yearly
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool Include { get; set; } = false;
+        = false;
+        [Description(".")]
+        public virtual bool Include
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double HydroGenerated { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual double HydroGenerated
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool ConnectedToMeter { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool ConnectedToMeter
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double TotalArea { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual double TotalArea
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual MonthlyValues MonthlyValues { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual MonthlyValues MonthlyValues
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string Certificate { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual string Certificate
+        {
+            get;
+            set;
+        }
+
+        = null;
     }
 }

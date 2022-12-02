@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,61 +27,152 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class Cylinder : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Volume { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Volume
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool ManufacturerSpecified { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool ManufacturerSpecified
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double DeclaredLoss { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual double DeclaredLoss
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int Insulation { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int Insulation
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double InsulationThickness { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double InsulationThickness
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool InHeatedSpace { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool InHeatedSpace
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool Thermostat { get; set; } = false;
+        = false;
+        [Description(".")]
+        public virtual bool Thermostat
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool PipeWorkInsulated { get; set; } = false;
+        = false;
+        [Description(".")]
+        public virtual bool PipeWorkInsulated
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int PipeWorkInsulation { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual int PipeWorkInsulation
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool Timed { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool Timed
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool SummerImmersion { get; set; } = false;
+        = false;
+        [Description(".")]
+        public virtual bool SummerImmersion
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int Immersion { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual int Immersion
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool ImmersionHeater { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool ImmersionHeater
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double HeatPumpExchanger { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual double HeatPumpExchanger
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string Manufacturer { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual string Manufacturer
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string Model { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual string Model
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string CommissioningCertificate { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual string CommissioningCertificate
+        {
+            get;
+            set;
+        }
+
+        = null;
     }
 }

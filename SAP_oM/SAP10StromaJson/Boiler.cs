@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,64 +27,160 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class Boiler : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool InHeatedSpace { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool InHeatedSpace
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool FlowTemperatureKnown { get; set; } = false ;
+        = false;
+        [Description(".")]
+        public virtual bool FlowTemperatureKnown
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double FlowTemperature { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual double FlowTemperature
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int EmitterTemperature { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int EmitterTemperature
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int PumpAge { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int PumpAge
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string Description { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual string Description
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int GasBurningType { get; set; } = 0;
+        = null;
+        [Description(".")]
+        public virtual int GasBurningType
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int FlueType { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int FlueType
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool FanFlued { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool FanFlued
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool PumpHeatPump { get; set; } = false;
+        = false;
+        [Description(".")]
+        public virtual bool PumpHeatPump
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool BoilerInterlock { get; set; } = false;
+        = false;
+        [Description(".")]
+        public virtual bool BoilerInterlock
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool LoadWeather { get; set; } = false;
+        = false;
+        [Description(".")]
+        public virtual bool LoadWeather
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string LoadWeatherIndexNumber { get; set; } = null;
+        = false;
+        [Description(".")]
+        public virtual string LoadWeatherIndexNumber
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool IncludeKeepHot { get; set; } = false;
+        = null;
+        [Description(".")]
+        public virtual bool IncludeKeepHot
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool KeepHotTimed { get; set; } = false;
+        = false;
+        [Description(".")]
+        public virtual bool KeepHotTimed
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int KeepHotFuel { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual int KeepHotFuel
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int CondensingBoilerDistributionTemperature { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int CondensingBoilerDistributionTemperature
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int HeatPumpDistributionTemperature { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int HeatPumpDistributionTemperature
+        {
+            get;
+            set;
+        }
+
+        = 0;
     }
 }

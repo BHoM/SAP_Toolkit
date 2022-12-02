@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,26 +28,56 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]   
+    [Description(".")]
     public class HeatSource : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int Type { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int Type
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int Fuel { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int Fuel
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double HeatFraction { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double HeatFraction
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Efficiency { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Efficiency
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int HeatSourceType { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int HeatSourceType
+        {
+            get;
+            set;
+        }
 
+        = 0;
     }
 }

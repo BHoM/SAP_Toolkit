@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,48 +28,112 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class SecondaryHeating : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("Is Secondary Heating Present")]
-        public virtual bool Include { get; set; } = false;
+        = 0;
+        [Description("Is Secondary Heating Present.")]
+        public virtual bool Include
+        {
+            get;
+            set;
+        }
 
-        [Description("Is the manufacturer specified")]
-        public virtual bool IsManufacturer { get; set; } = false;
+        = false;
+        [Description("Is the manufacturer specified.")]
+        public virtual bool IsManufacturer
+        {
+            get;
+            set;
+        }
 
-        [Description("")] 
-        public virtual string SubHeatingGroup { get; set; } = null;
+        = false;
+        [Description(".")]
+        public virtual string SubHeatingGroup
+        {
+            get;
+            set;
+        }
 
-        [Description("Heating Type")] 
-        public virtual int SubHeatingCategory { get; set; } = 0;
+        = null;
+        [Description("Heating Type.")]
+        public virtual int SubHeatingCategory
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual ComplianceHeatingDetails ComplianceHeatingDetails { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual ComplianceHeatingDetails ComplianceHeatingDetails
+        {
+            get;
+            set;
+        }
 
-        [Description("")] 
-        public virtual int Fuel { get; set; } = 0;
+        = null;
+        [Description(".")]
+        public virtual int Fuel
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool HeatingEquipmentTestingAndApprovalsScheme { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool HeatingEquipmentTestingAndApprovalsScheme
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Efficiency { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual double Efficiency
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int SAPTableCode { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int SAPTableCode
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string ManufacturerDescription { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual string ManufacturerDescription
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string TestMethod { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual string TestMethod
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int FlueType { get; set; } = 0;
+        = null;
+        [Description(".")]
+        public virtual int FlueType
+        {
+            get;
+            set;
+        }
+
+        = 0;
     }
-
 }
-

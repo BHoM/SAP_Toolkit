@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,55 +27,136 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class InteriorFloor : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string GUID { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual string GUID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int Type { get; set; } = 0;
+        = null;
+        [Description(".")]
+        public virtual int Type
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int Construction { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int Construction
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Area { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Area
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double UValueStart { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double UValueStart
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double UValue { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double UValue
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double ResultantUValue { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double ResultantUValue
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool Curtain { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool Curtain
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool ManualInputKappa { get; set; } = false;
+        = false;
+        [Description(".")]
+        public virtual bool ManualInputKappa
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Kappa { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual double Kappa
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<Dim> Dims { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual List<Dim> Dims
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int UValueSelectionID { get; set; } = 0;
+        = null;
+        [Description(".")]
+        public virtual int UValueSelectionID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool UValueSelected { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool UValueSelected
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string EnergyPerformanceCertificateDescription { get; set; } = null;
+        = false;
+        [Description(".")]
+        public virtual string EnergyPerformanceCertificateDescription
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string LoftInsulation { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual string LoftInsulation
+        {
+            get;
+            set;
+        }
+
+        = null;
     }
 }

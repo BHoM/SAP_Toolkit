@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,25 +28,56 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class Insurance : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string Insurer { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual string Insurer
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string PolicyNumber { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual string PolicyNumber
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int PublicLiabilityInsuranceLimit { get; set; } = 0;
+        = null;
+        [Description(".")]
+        public virtual int PublicLiabilityInsuranceLimit
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual DateTime StartDate { get; set; } = DateTime.Now;
+        = 0;
+        [Description(".")]
+        public virtual DateTime StartDate
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual DateTime EndDate { get; set; } = DateTime.Now;
+        = DateTime.Now;
+        [Description(".")]
+        public virtual DateTime EndDate
+        {
+            get;
+            set;
+        }
+
+        = DateTime.Now;
     }
 }

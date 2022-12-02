@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,43 +28,103 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class Root : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string GUID { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual string GUID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual DateTime DateTimeCreated { get; set; } = System.DateTime.MinValue;
+        = null;
+        [Description(".")]
+        public virtual DateTime DateTimeCreated
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual DateTime DateTimeSaved { get; set; } = System.DateTime.MinValue;
+        = System.DateTime.MinValue;
+        [Description(".")]
+        public virtual DateTime DateTimeSaved
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int UserID { get; set; } = 0;
+        = System.DateTime.MinValue;
+        [Description(".")]
+        public virtual int UserID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string Reference { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual string Reference
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<Dwelling> Dwellings { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<Dwelling> Dwellings
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual Address Address { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual Address Address
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual ClientDetails ClientDetails { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual ClientDetails ClientDetails
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual Elements Elements { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual Elements Elements
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual Assessor Assessor { get; set; }
+        = null;
+        [Description(".")]
+        public virtual Assessor Assessor
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int DwellingCount { get; set; } = 0;
+        [Description(".")]
+        public virtual int DwellingCount
+        {
+            get;
+            set;
+        }
+
+        = 0;
     }
 }

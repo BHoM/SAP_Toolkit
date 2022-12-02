@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,58 +28,144 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class WaterHeating : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual SolarWater SolarWater { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual SolarWater SolarWater
+        {
+            get;
+            set;
+        }
 
-        [Description("")] 
-        public virtual int System { get; set; } = 0;
+        = null;
+        [Description(".")]
+        public virtual int System
+        {
+            get;
+            set;
+        }
 
-        [Description("")] 
-        public virtual int Fuel { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int Fuel
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual Cylinder Cylinder { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual Cylinder Cylinder
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double CombinedPrimaryStorageUnitTemperature { get; set; } = 0;
+        = null;
+        [Description(".")]
+        public virtual double CombinedPrimaryStorageUnitTemperature
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual CommunityWater CommunityWater { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual CommunityWater CommunityWater
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual Thermal2 Thermal2 { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual Thermal2 Thermal2
+        {
+            get;
+            set;
+        }
 
-        [Description("")] 
-        public virtual int CombiType { get; set; } = 0;
+        = null;
+        [Description(".")]
+        public virtual int CombiType
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual WasteWaterHeatRecovery WasteWaterHeatRecovery { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual WasteWaterHeatRecovery WasteWaterHeatRecovery
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual FlueGasHeatRecovery FlueGasHeatRecovery { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual FlueGasHeatRecovery FlueGasHeatRecovery
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool DomesticHotWaterVessel { get; set; } = false;
+        = null;
+        [Description(".")]
+        public virtual bool DomesticHotWaterVessel
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<ShowerUnit> ShowerUnits { get; set; } = null;
+        = false;
+        [Description(".")]
+        public virtual List<ShowerUnit> ShowerUnits
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int WaterSource { get; set; } = 0;
+        = null;
+        [Description(".")]
+        public virtual int WaterSource
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int NumberOfBaths { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int NumberOfBaths
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string ControllerManufacturer { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual string ControllerManufacturer
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string Model { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual string Model
+        {
+            get;
+            set;
+        }
+
+        = null;
     }
 }

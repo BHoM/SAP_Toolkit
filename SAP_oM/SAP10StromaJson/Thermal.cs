@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,44 +28,104 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class Thermal : BHoMObject
     {
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual string GUID { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual string GUID
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool ManualThermalBridgingCalcuation { get; set; } = false;
+        = null;
+        [Description(".")]
+        public virtual bool ManualThermalBridgingCalcuation
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double ThermalBridgingValue { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual double ThermalBridgingValue
+        {
+            get;
+            set;
+        }
 
-        [Description("")] 
-        public virtual string ConstrunctionDetails { get; set; } = null;
+        = 0;
+        [Description(".")]
+        public virtual string ConstrunctionDetails
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool ManualThermalBridgingYValue { get; set; } = false;
+        = null;
+        [Description(".")]
+        public virtual bool ManualThermalBridgingYValue
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double YValue { get; set; } = 0;
+        = false;
+        [Description(".")]
+        public virtual double YValue
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool CustomApproved { get; set; } = false;
+        = 0;
+        [Description(".")]
+        public virtual bool CustomApproved
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<ExternalJunction> ExternalJunctions { get; set; } = null;
+        = false;
+        [Description(".")]
+        public virtual List<ExternalJunction> ExternalJunctions
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<PartyJunction> PartyJunctions { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<PartyJunction> PartyJunctions
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual List<RoofJunction> RoofJunctions { get; set; } = null;
+        = null;
+        [Description(".")]
+        public virtual List<RoofJunction> RoofJunctions
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual bool Reference { get; set; } = false;
+        = null;
+        [Description(".")]
+        public virtual bool Reference
+        {
+            get;
+            set;
+        }
 
+        = false;
     }
 }

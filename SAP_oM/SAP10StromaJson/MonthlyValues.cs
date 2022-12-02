@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,46 +27,112 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class MonthlyValues : BHoMObject
     {
-        [Description("")]
-        public virtual double Month01 { get; set; } = 0;
+        [Description(".")]
+        public virtual double Month01
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Month02 { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Month02
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Month03 { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Month03
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Month04 { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Month04
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Month05 { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Month05
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Month06 { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Month06
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Month07 { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Month07
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Month08 { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Month08
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Month09 { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Month09
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Month10 { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Month10
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Month11 { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Month11
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual double Month12 { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual double Month12
+        {
+            get;
+            set;
+        }
 
-        [Description("")]
-        public virtual int ID { get; set; } = 0;
+        = 0;
+        [Description(".")]
+        public virtual int ID
+        {
+            get;
+            set;
+        }
+
+        = 0;
     }
 }
