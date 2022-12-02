@@ -84,7 +84,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         public virtual int CurtainType { get; set; } = 0;
 
         [Description("")]
-        public virtual double FractionClosed { get; set; } = 0;
+        public virtual double FractionClosed { get; set; } = 1;
 
         [Description("")]
         public virtual double Transmittance { get; set; } = 0;
