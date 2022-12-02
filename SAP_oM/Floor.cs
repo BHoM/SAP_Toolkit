@@ -38,7 +38,7 @@ namespace BH.oM.Environment.SAP
         public virtual double Area { get; set; } = 0;
 
         [Description("U-value of the floor.")]
-        public virtual string uValue { get; set; } = "0.13";
+        public virtual double uValue { get; set; } = 0.13;
 
         [Description("The name of the dwelling that the floor is part of")]
         public virtual string DwellingName { get; set; } = "";
