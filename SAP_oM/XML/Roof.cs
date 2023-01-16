@@ -36,17 +36,17 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Name")]
         public virtual string Name { get; set; } = "Roof";
 
-        [XmlElement("Description")]
-        public virtual string Description { get; set; } = "A heat loss roof";
-
-        [XmlElement("Roof-Type")]
-        public virtual string Type { get; set; } = "4";
+        //[XmlElement("Description")]
+        //public virtual string Description { get; set; } = "A heat loss roof";
+        
+        [XmlElement("U-Value")]
+        public virtual double UValue { get; set; } = 0.13;
 
         [XmlElement("Total-Roof-Area")]
         public virtual double Area { get; set; } = 0;
 
-        [XmlElement("U-Value")]
-        public virtual double UValue { get; set; } = 0.13;
+        [XmlElement("Roof-Type")]
+        public virtual int Type { get; set; } = 4;
 
         [XmlElement("Kappa-Value")]
         public virtual double KappaValue { get; set; } = 9;

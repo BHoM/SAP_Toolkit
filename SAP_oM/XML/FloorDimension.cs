@@ -34,28 +34,31 @@ namespace BH.oM.Environment.SAP.XML
     public class FloorDimension : IObject
     {
         [XmlElement("Storey")]
-        public virtual string Storey { get; set; } = "0";
+        public virtual int Storey { get; set; } = 0;
 
         [XmlElement("Description")]
         public virtual string Description { get; set; } = "A dwelling storey";
 
         [XmlElement("Floor-Type")]
-        public virtual string Type { get; set; } = "4";
+        public virtual string Type { get; set; } = "0";
 
         [XmlElement("Total-Floor-Area")]
-        public virtual string Area { get; set; } = null;
+        public virtual double Area { get; set; } = 0;
 
         [XmlElement("Storey-Height")]
-        public virtual string StoreyHeight { get; set; } = null;
+        public virtual double StoreyHeight { get; set; } = 0;
 
         [XmlElement("Heat-Loss-Area")]
-        public virtual string HeatLossArea { get; set; } = null;
+        public virtual double HeatLossArea { get; set; } = 0;
 
         [XmlElement("U-Value")]
-        public virtual string uValue { get; set; } = null;
+        public virtual double uValue { get; set; } = 0;
 
         [XmlElement("Kappa-Value")]
         public virtual string KappaValue { get; set; } = null;
+
+        [XmlElement("Kappa-Value-From-Below")]
+        public virtual string KappaValueFromBelow { get; set; } = null;//check - null
     }
 }
 

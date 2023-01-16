@@ -33,32 +33,32 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "SAP-Building-Part", IsNullable = false)]
     public class BuildingPart : IObject
     {
+        [XmlElement("Identifier")]
+        public virtual string Identifier { get; set; } = "0";
+
+        [XmlElement("SAP-Thermal-Bridges")]
+        public virtual ThermalBridges ThermalBridges { get; set; }
+
         [XmlElement("Building-Part-Number")]
         public virtual string BuildingPartNumber { get; set; } = "1";
 
-        [XmlElement("Identifier")]
-        public virtual string Identifier { get; set; } = "Main dwelling";
-
         [XmlElement("Construction-Year")]
-        public virtual string ConstructionYear { get; set; } = DateTime.Now.Year.ToString();
+        public virtual string ConstructionYear { get; set; } = "0"; //check - as seen in schema
 
-        [XmlElement("Overshading")]
-        public virtual string Overshading { get; set; } = "2";
+        [XmlElement("Construction-Age-Band")]
+        public virtual string ConstructionAgeBand { get; set; } = "0"; //check - null value 
+
+        [XmlElement(ElementName = "SAP-Floor-Dimensions")]
+        public FloorDimensions FloorDimensions { get; set; }
 
         [XmlElement("SAP-Openings")]
         public virtual Openings Openings { get; set; }
-
-        [XmlElement("SAP-Floor-Dimensions")]
-        public virtual FloorDimensions Floors { get; set; }
 
         [XmlElement("SAP-Roofs")]
         public virtual Roofs Roofs { get; set; }
 
         [XmlElement("SAP-Walls")]
         public virtual Walls Walls { get; set; }
-
-        [XmlElement("SAP-Thermal-Bridges")]
-        public virtual List<ThermalBridge> ThermalBridges { get; set; }
     }
 }
 

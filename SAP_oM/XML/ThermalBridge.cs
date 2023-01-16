@@ -34,7 +34,7 @@ namespace BH.oM.Environment.SAP.XML
     public class ThermalBridge : IObject
     {
         [XmlElement("Thermal-Bridge-Type")]
-        public virtual string Type { get; set; } = "E2";
+        public virtual string Type { get; set; } = "E2"; //check - null values for file
 
         [XmlElement("Length")]
         public virtual double Length { get; set; } = 0;
@@ -43,7 +43,7 @@ namespace BH.oM.Environment.SAP.XML
         public virtual double PsiValue { get; set; } = 0;
 
         [XmlElement("Psi-Value-Source")]
-        public virtual string Source { get; set; } = "4";
+        public virtual string PsiSource { get; set; } = "4";
     }
 }
 

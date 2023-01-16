@@ -33,23 +33,27 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "SAP-Opening", IsNullable = false)]
     public class Opening : IObject
     {
+        [XmlElement("Location")]
+        public virtual string Location { get; set; } = "Walls (1)";
+
         [XmlElement("Name")]
-        public virtual string Name { get; set; }
+        public virtual string Name { get; set; } = "Opening";
 
         [XmlElement("Type")]
-        public virtual string Type { get; set; }
-
-        [XmlElement("Location")]
-        public virtual string Location { get; set; }
-
-        [XmlElement("Orientation")]
-        public virtual string Orientation { get; set; }
-
-        [XmlElement("Width")]
-        public virtual string Width { get; set; }
+        public virtual string Type { get; set; } = "Windows (1)";
 
         [XmlElement("Height")]
-        public virtual string Height { get; set; }
+        public virtual double Height { get; set; } = 0;
+
+        [XmlElement("Width")]
+        public virtual double Width { get; set; } = 0;
+
+        [XmlElement("Pitch")]
+        public virtual double Pitch { get; set; } = 0;
+
+        [XmlElement("Orientation")]
+        public virtual int Orientation { get; set; } = 3;
+
 
     }
 }

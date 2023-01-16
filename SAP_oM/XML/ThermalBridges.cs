@@ -30,29 +30,14 @@ using System.Xml.Serialization;
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "SAP-Wall", IsNullable = false)]
-    public class Wall : IObject
+    [XmlRoot(ElementName = "SAP-Thermal-Bridges", IsNullable = false)]
+    public class ThermalBridges : IObject
     {
-        [XmlElement("Name")]
-        public virtual string Name { get; set; } = "Wall";
+        [XmlElement("Thermal-Bridge-Code")]
+        public virtual int ThermalBridgeCode { get; set; } = 1;
 
-        //[XmlElement("Description")]
-        //public virtual string Description { get; set; } = "A heat loss wall";
-        
-        [XmlElement("Total-Wall-Area")]
-        public virtual double Area { get; set; } = 0;
-
-        [XmlElement("U-Value")]
-        public virtual double UValue { get; set; } = 0.18;
-
-        [XmlElement("Wall-Type")]
-        public virtual int Type { get; set; } = 2;
-
-        [XmlElement("Is-Curtain-Walling")]
-        public virtual bool CurtainWall { get; set; } = false;
-
-        [XmlElement("Kappa-Value")]
-        public virtual double KappaValue { get; set; } = 14;
+        [XmlElement(ElementName = "SAP-Thermal-Bridge")] 
+        public List<ThermalBridge> ThermalBridge { get; set; }
     }
 }
 
