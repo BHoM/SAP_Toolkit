@@ -31,32 +31,11 @@ using BH.oM.Environment.SAP.Stroma10;
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "SAP-Energy-Source", IsNullable = false)]
-    public class EnergySource : IObject
+    [XmlRoot(ElementName = "Wind-Turbines", IsNullable = false)]
+    public class WindTurbines : IObject
     {
-
-        [XmlElement("PV-Arrays")]
-        public virtual PhotovoltaicArrays PhotovoltaicArrays { get; set; } = null;
-
-        [XmlElement(ElementName = "Wind-Turbines")]
-        public WindTurbines WindTurbines { get; set; }
-
-        [XmlElement(ElementName = "Electricity-Tariff")]
-        public int ElectricityTariff { get; set; }
-
-        [XmlElement(ElementName = "Hydro-Electric-Generation")]
-        public int HydroElectricGeneration { get; set; }
-
-        [XmlElement(ElementName = "Hydro-Electric-Certificate")]
-        public string HydroElectricCertificate { get; set; }
-
-        [XmlElement(ElementName = "Hydro-Electric-Generation-Months")]
-        public HydroElectricGenerationMonths HydroElectricGenerationMonths { get; set; }
-
-        [XmlElement(ElementName = "Is-Hydro-Output-Connected-To-Dwelling-Meter")]
-        public bool IsHydroOutputConnectedToDwellingMeter { get; set; } = false;
+        [XmlElement("SAP-Wall")]
+        public virtual List<WindTurbine> WindTurbine { get; set; } = new List<WindTurbine>();
 
     }
 }
-
-

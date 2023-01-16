@@ -26,37 +26,46 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
-using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "SAP-Energy-Source", IsNullable = false)]
-    public class EnergySource : IObject
+    [XmlRoot(ElementName = "Home-Inspector", IsNullable = false)]
+    public class HomeInspector : IObject
     {
+        [XmlElement(ElementName = "Name")]
+        public string Name { get; set; }
 
-        [XmlElement("PV-Arrays")]
-        public virtual PhotovoltaicArrays PhotovoltaicArrays { get; set; } = null;
+        [XmlElement(ElementName = "Notify-Lodgement")]
+        public string NotifyLodgement { get; set; }
 
-        [XmlElement(ElementName = "Wind-Turbines")]
-        public WindTurbines WindTurbines { get; set; }
+        [XmlElement(ElementName = "Contact-Address")] //check
+        public Address ContactAddress { get; set; } //check - changed this from ContactAdress type to this as address encapsulates the original object definition of contactaddress
 
-        [XmlElement(ElementName = "Electricity-Tariff")]
-        public int ElectricityTariff { get; set; }
+        [XmlElement(ElementName = "Web-Site")]
+        public string WebSite { get; set; }
 
-        [XmlElement(ElementName = "Hydro-Electric-Generation")]
-        public int HydroElectricGeneration { get; set; }
+        [XmlElement(ElementName = "E-Mail")]
+        public string EMail { get; set; }
 
-        [XmlElement(ElementName = "Hydro-Electric-Certificate")]
-        public string HydroElectricCertificate { get; set; }
+        [XmlElement(ElementName = "Fax")]
+        public string Fax { get; set; }
 
-        [XmlElement(ElementName = "Hydro-Electric-Generation-Months")]
-        public HydroElectricGenerationMonths HydroElectricGenerationMonths { get; set; }
+        [XmlElement(ElementName = "Telephone")]
+        public string Telephone { get; set; }
 
-        [XmlElement(ElementName = "Is-Hydro-Output-Connected-To-Dwelling-Meter")]
-        public bool IsHydroOutputConnectedToDwellingMeter { get; set; } = false;
+        [XmlElement(ElementName = "Company-Name")]
+        public string CompanyName { get; set; }
 
+        [XmlElement(ElementName = "Scheme-Name")]
+        public string SchemeName { get; set; }
+
+        [XmlElement(ElementName = "Scheme-Web-Site")]
+        public string SchemeWebSite { get; set; }
+
+        [XmlElement(ElementName = "Identification-Number")]
+        public IdentificationNumber IdentificationNumber { get; set; }
+
+        //several other objects may be added (as seen on schema (It's rlly confusing me and so I'm stopping here - none of them appear on example and not necessary for calc))
     }
 }
-
-
