@@ -36,11 +36,14 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Name")]
         public virtual string Name { get; set; } = "Window type 1";
 
-        [XmlElement("Description")]
-        public virtual string Description { get; set; } = "Double-glazed windows with aluminimum frame";
-
         [XmlElement("Data-Source")]
         public virtual string DataSource { get; set; } = "2";
+
+        [XmlElement("U-Value")]
+        public virtual double uValue { get; set; } = 1.4;
+
+        //[XmlElement("Description")]
+        //public virtual string Description { get; set; } = "Double-glazed windows with aluminimum frame";
 
         [XmlElement("Type")]
         public virtual string Type { get; set; } = "4";
@@ -48,14 +51,20 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Glazing-Type")]
         public virtual string GlazingType { get; set; } = "7";
 
+        [XmlElement(ElementName = "IsArgonFilled")]
+        public bool IsArgonFilled { get; set; } = false;
+
         [XmlElement("Solar-Transmittance")]
         public virtual double gValue { get; set; } = 0.4;
 
         [XmlElement("Frame-Factor")]
         public virtual double FrameFactor { get; set; } = 0.8;
 
-        [XmlElement("U-Value")]
-        public virtual double uValue { get; set; } = 1.4;
+        [XmlElement(ElementName = "Glazing-Gap")]
+        public int GlazingGap { get; set; } = 0;
+
+        [XmlElement(ElementName = "Frame-Type")]
+        public int FrameType { get; set; } = 0;
 
     }
 }
