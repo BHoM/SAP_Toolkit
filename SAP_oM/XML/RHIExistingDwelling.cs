@@ -26,37 +26,43 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
-using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "SAP-Energy-Source", IsNullable = false)]
-    public class EnergySource : IObject
+    [XmlRoot(ElementName = "RHI-Existing-Dwelling", IsNullable = false)]
+    public class RHIExistingDwelling : IObject
     {
+        [Description("Space heating requirement for existing dwelling.")]
+        [XmlElement(ElementName = "Space - Heating - Existing - Dwelling")]
+        public string SpaceHeatingExistingDwelling { get; set; }
 
-        [XmlElement("PV-Arrays")]
-        public virtual PhotovoltaicArrays PhotovoltaicArrays { get; set; } = null;
+        [Description("")]
+        [XmlElement(ElementName = "Space-Heating-With-Loft-Insulation")]
+        public string SpaceHeatingWithLoftInsulation { get; set; }
 
-        [XmlElement(ElementName = "Wind-Turbines")]
-        public WindTurbines WindTurbines { get; set; }
+        [Description("Space-Heating-With-Cavity-Insulation")]
+        [XmlElement(ElementName = "Space-Heating-With-Cavity-Insulation")]
+        public string SpaceHeatingWithCavityInsulation {get; set;}
 
-        [XmlElement(ElementName = "Electricity-Tariff")]
-        public int ElectricityTariff { get; set; }
+        [Description("")]
+        [XmlElement(ElementName = "Space-Heating-With-Loft-And-Cavity-Insulation")]
+        public string SpaceHeatingWithLoftAndCavityInsulation {get; set;}
 
-        [XmlElement(ElementName = "Hydro-Electric-Generation")]
-        public int HydroElectricGeneration { get; set; }
+        [Description("")]
+        [XmlElement(ElementName = "Water-Heating")]
+        public string WaterHeating { get; set; }
 
-        [XmlElement(ElementName = "Hydro-Electric-Certificate")]
-        public string HydroElectricCertificate { get; set; }
+        [Description("")]
+        [XmlElement(ElementName = "Impact-Of-Loft-Insulation")]
+        public string ImpactOfLoftInsulation { get; set; }
 
-        [XmlElement(ElementName = "Hydro-Electric-Generation-Months")]
-        public HydroElectricGenerationMonths HydroElectricGenerationMonths { get; set; }
+        [Description("Impact-Of-Cavity-Insulation")]
+        [XmlElement(ElementName = "")]
+        public string ImpactOfCavityInsulation { get; set; }
 
-        [XmlElement(ElementName = "Is-Hydro-Output-Connected-To-Dwelling-Meter")]
-        public bool IsHydroOutputConnectedToDwellingMeter { get; set; } = false;
-
+        [Description("")]
+        [XmlElement(ElementName = "Impact-Of-Solid-Wall-Insulation")]
+        public string ImpactOfSolidWallInsulation { get; set; }
     }
 }
-
-

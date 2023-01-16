@@ -26,37 +26,36 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
-using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "SAP-Energy-Source", IsNullable = false)]
-    public class EnergySource : IObject
+    [XmlRoot(ElementName = "PV-Array", IsNullable = false)]
+    public class PhotovoltaicArray : IObject
     {
+        [Description("Peak kW of photovoltaics (PVs) (kWp); 0.0 if none")]
+        [XmlElement("Peak-Power")]
+        public virtual string PeakPower { get; set; } = null;
 
-        [XmlElement("PV-Arrays")]
-        public virtual PhotovoltaicArrays PhotovoltaicArrays { get; set; } = null;
+        [Description("PV orientation; only if peak kWp &gt; 0.")]
+        [XmlElement("Orientation")]
+        public virtual string Orientation { get; set; } = null;
 
-        [XmlElement(ElementName = "Wind-Turbines")]
-        public WindTurbines WindTurbines { get; set; }
+        [Description("PV pitch; only if peak kWp &gt; 0.")]
+        [XmlElement("Pitch")]
+        public virtual string Pitch { get; set; } = null;
 
-        [XmlElement(ElementName = "Electricity-Tariff")]
-        public int ElectricityTariff { get; set; }
+        [Description("PV overshading; only if peak kWp &gt; 0.")]
+        [XmlElement("Overshading")]
+        public virtual string Overshading { get; set; } = null;
 
-        [XmlElement(ElementName = "Hydro-Electric-Generation")]
-        public int HydroElectricGeneration { get; set; }
+        [XmlElement("MCS-Certificate-Reference")]
+        public virtual bool MCSCertificateReference { get; set; }
 
-        [XmlElement(ElementName = "Hydro-Electric-Certificate")]
-        public string HydroElectricCertificate { get; set; }
+        [XmlElement("PV-Panel-Manufacturer-Name")]
+        public virtual bool ManufacturerName { get; set; }
 
-        [XmlElement(ElementName = "Hydro-Electric-Generation-Months")]
-        public HydroElectricGenerationMonths HydroElectricGenerationMonths { get; set; }
-
-        [XmlElement(ElementName = "Is-Hydro-Output-Connected-To-Dwelling-Meter")]
-        public bool IsHydroOutputConnectedToDwellingMeter { get; set; } = false;
-
+        [XmlElement("Overshading-MCS")]
+        public virtual bool OvershadingMCS { get; set; }
     }
 }
-
-

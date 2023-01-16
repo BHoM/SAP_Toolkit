@@ -26,37 +26,33 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
-using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "SAP-Energy-Source", IsNullable = false)]
-    public class EnergySource : IObject
+    [XmlRoot(ElementName = "Energy-Assessment", IsNullable = false)]
+    public class EnergyAssessment : IObject
     {
+        [XmlElement(ElementName = "Assessment-Date")]
+        public DateTime AssessmentDate { get; set; }
 
-        [XmlElement("PV-Arrays")]
-        public virtual PhotovoltaicArrays PhotovoltaicArrays { get; set; } = null;
+        [XmlElement(ElementName = "Property-Summary")]
+        public PropertySummary PropertySummary { get; set; }
 
-        [XmlElement(ElementName = "Wind-Turbines")]
-        public WindTurbines WindTurbines { get; set; }
+        [XmlElement(ElementName = "Energy-Use")]
+        public EnergyUse EnergyUse { get; set; }
 
-        [XmlElement(ElementName = "Electricity-Tariff")]
-        public int ElectricityTariff { get; set; }
+        [XmlElement(ElementName = "Suggested-Improvements")]
+        public SuggestedImprovements SuggestedImprovements { get; set; }
 
-        [XmlElement(ElementName = "Hydro-Electric-Generation")]
-        public int HydroElectricGeneration { get; set; }
+        [XmlElement(ElementName = "LZC-Energy-Sources")]
+        public LowZeroCarbonEnergySources LowZeroCarbonEnergySources { get; set; }
 
-        [XmlElement(ElementName = "Hydro-Electric-Certificate")]
-        public string HydroElectricCertificate { get; set; }
+        [XmlElement(ElementName = "Renewable-Heat-Incentive")]
+        public RenewableHeatIncentive RenewableHeatIncentive { get; set; }
 
-        [XmlElement(ElementName = "Hydro-Electric-Generation-Months")]
-        public HydroElectricGenerationMonths HydroElectricGenerationMonths { get; set; }
+        //may need to include: Green-Deal-Package, Alternative-Improvements (Type:suggested-improvements), Addendum (Type:Addendum)
 
-        [XmlElement(ElementName = "Is-Hydro-Output-Connected-To-Dwelling-Meter")]
-        public bool IsHydroOutputConnectedToDwellingMeter { get; set; } = false;
-
+        
     }
 }
-
-

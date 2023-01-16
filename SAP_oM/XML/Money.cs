@@ -30,27 +30,13 @@ using System.Xml.Serialization;
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "PV-Array", IsNullable = false)]
-    public class PVArray : IObject
+    [XmlRoot(ElementName = "Money", IsNullable = false)]
+    public class Money : IObject
     {
-        [Description("Peak kW of photovoltaics (PVs) (kWp); 0.0 if none")]
-        [XmlElement("Paek-Power")]
-        public virtual string PeakPower { get; set; } = null;
+        [XmlAttribute(AttributeName = "currency")]
+        public string Currency { get; set; }
 
-        [Description("PV orientation; only if peak kWp &gt; 0.")]
-        [XmlElement("Orientation")]
-        public virtual string Orientation { get; set; } = null;
-
-        [Description("PV pitch; only if peak kWp &gt; 0.")]
-        [XmlElement("Pitch")]
-        public virtual string Pitch { get; set; } = null;
-
-        [Description("PV overshading; only if peak kWp &gt; 0.")]
-        [XmlElement("Overshading")]
-        public virtual string Overshading { get; set; } = null;
-
-        [Description("")]
-        [XmlElement("PV-Connection")]
-        public virtual string PVConnection { get; set; } = null;
+        [XmlText]
+        public int Text { get; set; }
     }
 }

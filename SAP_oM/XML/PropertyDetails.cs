@@ -45,6 +45,10 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Living-Area")]
         public virtual string LivingArea { get; set; } = null;
 
+        [Description("The Area of the lowest storey in square meters including unheated or communal areas such as garages or corridors.")]
+        [XmlElement("Lowest-Storey-Area")]
+        public virtual string LowestStoreyArea { get; set; } = null;
+
         [Description("The orientation of the front of the property.")]
         [XmlElement("Orientation")]
         public virtual string Orientation { get; set; } = null;
@@ -53,45 +57,91 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Conservatory-Type")]
         public virtual string ConservatoryType { get; set; } = "1";
 
+        [Description("Terrain type. Needed for wind-turbines and for applying measures.")]
+        [XmlElement(ElementName = "Terrain-Type")]
+        public virtual int TerrainType { get; set; }
+
+        //may need the following : Has-Special-Feature, Special-Feature-Description,Energy-Saved-Or-Generated, Saved-Or-Generated-Fuel, Energy-Used, Energy-Used-Fule
+
         [Description("Is property in a smoke control area?  Only if a solid fuel appliance is used.")]
         [XmlElement("Is-In-Smoke-Control-Area")]
         public virtual bool IsInSmokeControlArea { get; set; } = true;
 
-        [Description("Additional allowable electricity generation applicable to this dwelling in kWh per square metre; only if Zero Carbon Home assessment.")]
-        [XmlElement("Additional-Allowable-Electricity-Generation")]
-        public virtual string AdditionalAllowableElectricityGeneration { get; set; } = "0";
+        [Description("What is the cold water source?  Either mains or header tank.")]
+        [XmlElement(ElementName = "Cold-Water-Source")]
+        public virtual int ColdWaterSource { get; set; }
+
+        [Description("Average amount of overshading of windows.")]
+        [XmlElement(ElementName = "Windows-Overshading")]
+        public virtual int WindowsOvershading { get; set; }
+
+        [Description("Average thermal mass parameter for the dwelling in kJ/m²K. If omitted it is calculated using the kappa values of each element.")]
+        [XmlElement(ElementName = "Thermal-Mass-Parameter")]
+        public virtual int ThermalMassParameter { get; set; }
+
+        //May need Additional-Allowable-Electricity-Generation:
+
+        //[Description("Additional allowable electricity generation applicable to this dwelling in kWh per square metre; only if Zero Carbon Home assessment.")]
+        //[XmlElement("Additional-Allowable-Electricity-Generation")]
+        //public virtual virtual string AdditionalAllowableElectricityGeneration { get; set; } = "0";
 
         [Description("")]
-        [XmlElement("SAP-Heating")]
-        public virtual Heating Heating { get; set; } = new Heating();
+        [XmlElement(ElementName = "Gas-Smart-Meter-Present")]
+        public virtual bool GasSmartMeterPresent { get; set; }
 
         [Description("")]
-        [XmlElement("SAP-Energy-Source")]
-        public virtual EnergySource EnergySource { get; set; } = new EnergySource();
+        [XmlElement(ElementName = "Electricity-Smart-Meter-Present")]
+        public virtual bool ElectricitySmartMeterPresent { get; set; }
 
         [Description("")]
-        [XmlElement("SAP-Building-Parts")]
-        public virtual BuildingParts BuildingParts { get; set; } = new BuildingParts();
+        [XmlElement(ElementName = "Is-Dwelling-Export-Capable")]
+        public virtual bool IsDwellingExportCapable { get; set; }
 
         [Description("")]
-        [XmlElement("SAP-Opening-Types")]
-        public virtual OpeningTypes OpeningTypes { get; set; } = new OpeningTypes();
+        [XmlElement(ElementName = "PV-Connection")]
+        public virtual int PVConnection { get; set; }
 
-        [Description("")]
-        [XmlElement("SAP-Ventilation")]
-        public virtual Ventilation Ventilation { get; set; } = new Ventilation();
+        [Description("Diverter present.")]
+        [XmlElement(ElementName = "PV-Diverter")]
+        public virtual bool PVDiverter { get; set; } = false;
+
+        [Description("Battery capacity capacity if diverter present")]
+        [XmlElement(ElementName = "Battery-Capacity")]
+        public virtual int BatteryCapacity { get; set; }
+
+        //may need Is-Wind-Turbine-Connected-To-Dwelling-Meter
+
+        [XmlElement(ElementName = "SAP-Heating")]
+        public virtual Heating Heating { get; set; }
+
+        [XmlElement(ElementName = "SAP-Energy-Source")]
+        public virtual EnergySource EnergySource { get; set; }
+
+        [XmlElement(ElementName = "SAP-Building-Parts")]
+        public virtual BuildingParts BuildingParts { get; set; }
+
+        [XmlElement(ElementName = "SAP-Opening-Types")]
+        public virtual OpeningTypes OpeningTypes { get; set; }
+
+        [XmlElement(ElementName = "SAP-Ventilation")]
+        public virtual Ventilation Ventilation { get; set; }
+
+        [XmlElement(ElementName = "SAP-Lighting")]
+        public virtual Lighting Lighting { get; set; }
 
         [Description("")]
         [XmlElement("SAP-Deselected-Improvements")]
         public virtual DeselectedImprovements DeselectedImprovements { get; set; } = null;
 
-        [Description("")]
-        [XmlElement("SAP-Flat-Details")]
-        public virtual FlatDetails FlatDetails { get; set; } = new FlatDetails();
+        //may need to include the following
 
-        [Description("For backwards compatibility, do not use")]
-        [XmlElement("SAP-Special-Features")]
-        public virtual SpecialFeatures SpecialFeatures { get; set; } = null;
+        //[Description("")]
+        //[XmlElement("SAP-Flat-Details")]
+        //public virtual FlatDetails FlatDetails { get; set; } = new FlatDetails();
+
+
+        [XmlElement(ElementName = "SAP-Special-Features")]
+        public SpecialFeatures SpecialFeatures { get; set; }
 
         [Description("Design limit for total water use.")]
         [XmlElement("Design-Water-Use")]
@@ -100,7 +150,7 @@ namespace BH.oM.Environment.SAP.XML
         [Description("")]
         [XmlElement("SAP-Cooling")]
         public virtual Cooling Cooling { get; set; } = null;
-        
+
     }
 }
 

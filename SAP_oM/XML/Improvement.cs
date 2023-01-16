@@ -30,11 +30,34 @@ using System.Xml.Serialization;
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "PV-Arrays", IsNullable = false)]
-    public class PVArrays : IObject
+    [XmlRoot(ElementName = "Improvement", IsNullable = false)]
+    public class Improvement : IObject
     {
-        [Description("")]
-        [XmlElement("PV-Array")]
-        public virtual PVArray PVArray { get; set; } = new PVArray();
+
+        [XmlElement(ElementName = "Improvement-Category")] //check docu
+        public int ImprovementCategory { get; set; }
+
+        [XmlElement(ElementName = "Improvement-Type")]
+        public string ImprovementType { get; set; }
+
+        [XmlElement(ElementName = "Typical-Saving")]
+        public Money TypicalSaving { get; set; }
+
+        [XmlElement(ElementName = "Energy-Performance-Rating")] //check - null
+        public int EnergyPerformanceRating { get; set; }
+
+        [XmlElement(ElementName = "Environmental-Impact-Rating")]
+        public int EnvironmentalImpactRating { get; set; }
+
+        [XmlElement(ElementName = "Improvement-Details")]
+        public ImprovementDetails ImprovementDetails { get; set; }
+
+        [XmlElement(ElementName = "Indicative-Cost")]
+        public string IndicativeCost { get; set; }
+
+        [XmlElement(ElementName = "Green-Deal-Category")]
+        public string GreenDealCategory { get; set; }
+
     }
 }
+
