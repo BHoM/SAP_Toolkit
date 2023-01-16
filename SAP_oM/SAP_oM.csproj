@@ -228,9 +228,13 @@
     <Compile Include="XML\FlatDetails.cs" />
     <Compile Include="XML\FloorDimensions.cs" />
     <Compile Include="XML\HeatingDeclaredValues.cs" />
+    <Compile Include="XML\Lighting.cs" />
+    <Compile Include="XML\FixedLights.cs" />
+    <Compile Include="XML\FixedLight.cs" />
     <Compile Include="XML\Openings.cs" />
     <Compile Include="XML\OpeningTypes.cs" />
     <Compile Include="XML\Roofs.cs" />
+    <Compile Include="XML\SAP10Data.cs" />
     <Compile Include="XML\SAP2012Data.cs" />
     <Compile Include="XML\SpecialFeature.cs" />
     <Compile Include="XML\SpecialFeatures.cs" />
