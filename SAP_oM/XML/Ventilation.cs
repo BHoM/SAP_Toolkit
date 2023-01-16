@@ -34,28 +34,60 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "SAP-Ventilation", IsNullable = false)]
     public class Ventilation : IObject
     {
-        [Description("The number of Open Fireplaces in the Property. An Open Fireplace is a fireplace that still allows air to pass between the inside of the Property and the outside.")]
-        [XmlElement("Open-Fireplaces-Count")]
-        public virtual string numOpenFireplaces { get; set; } = null;
+        [Description("The number of Closed Flues or chimneys in the Property.")]
+        [XmlElement(ElementName = "Closed-Flues-Count")]
+        public string ClosedFluesCount { get; set; } = null;
 
         [Description("The number of Open Flues in the Property.")]
-        [XmlElement("Open-Flues-Count")]
-        public virtual string numOpenFlues { get; set; } = null;
+        [XmlElement(ElementName = "Open-Flues-Count")]
+        public int OpenFluesCount { get; set; }
+
+        [Description("The number of Boiler Flues or chimneys in the Property.")]
+        [XmlElement(ElementName = "Boilers-Flues-Count")]
+        public int BoilersFluesCount { get; set; }
+
+        [Description("The number of Other Flues or chimneys in the Property.")]
+        [XmlElement(ElementName = "Other-Flues-Count")]
+        public int OtherFluesCount { get; set; }
+
+        [Description("The number of Open Chimneys in the Property.")]
+        [XmlElement(ElementName = "Open-Chimneys-Count")]
+        public int OpenChimneysCount { get; set; }
+
+        [Description("The number of Blocked Chimneys in the Property.")]
+        [XmlElement(ElementName = "Blocked-Chimneys-Count")]
+        public int BlockedChimneysCount { get; set; }
+
         [Description("Do not use, for backwards compatibility only.")]
         [XmlElement("Fans-Vents-Count")]
         public virtual string FansVentCount { get; set; } = null;
 
+        [XmlElement(ElementName = "Extract-Fans-Count")]
+        public int ExtractFansCount { get; set; }
+
+        [Description("")]
+        [XmlElement(ElementName = "PSV-Count")] //check - can't remeber what this stands for
+        public int PSVCount { get; set; }
+
         [Description("The number of flueless gas fires in the Property.")]
-        [XmlElement("Flueless-Gas-Fires-Count")]
-        public virtual string numFluelessGasFires { get; set; } = null;
+        [XmlElement(ElementName = "Flueless-Gas-Fires-Count")]
+        public int FluelessGasFiresCount { get; set; }
+
+        [Description("The number of sheltered sides in the Property.")]
+        [XmlElement(ElementName = "Sheltered-Sides-Count")]
+        public int ShelteredSidesCount { get; set; }
 
         [Description("Whether there has been a pressure test, or whether an assumed value is used for the air permeability.")]
-        [XmlElement("Pressure-Test")]
-        public virtual string PressureTest { get; set; } = null;
+        [XmlElement(ElementName = "Pressure-Test")]
+        public int PressureTest { get; set; }
+
+        [Description("Whether there has been a pressure test, or whether an assumed value is used for the air permeability.")]
+        [XmlElement(ElementName = "Pressure-Test-Certificate-Number")]
+        public int PressureTestCertificateNumber { get; set; }
 
         [Description("Air permeability; only if pressure test (yes or assumed).")]
-        [XmlElement("Air-Permeability")]
-        public virtual string AirPermability { get; set; } = null;
+        [XmlElement(ElementName = "Air-Permeability")]
+        public int AirPermeability { get; set; }
 
         [Description("The type of ground floor; only if no pressure test.")]
         [XmlElement("Ground-Floor-Type")]
@@ -66,108 +98,116 @@ namespace BH.oM.Environment.SAP.XML
         public virtual string WallType { get; set; } = null;
 
         [Description("Is there a draft lobby?  Only if no pressure test.")]
-        [XmlElement("Has-Draught-Lobby")]
-        public virtual bool? HasDraughtLobby { get; set; } = null;
+        [XmlElement(ElementName = "Has-Draught-Lobby")]
+        public bool HasDraughtLobby { get; set; }
 
         [Description("Draughtstripping percentage; only if no pressure test.")]
         [XmlElement("DraughtStripping")]
         public virtual string DraughtStripping { get; set; } = null;
 
-        [Description("The number of sheltered sides in the Property.")]
-        [XmlElement("Sheltered-Sides-Count")]
-        public virtual string numShelteredSides { get; set; } = null;
-
         [Description("The type of ventilation.")]
-        [XmlElement("Ventilation-Type")]
-        public virtual string Type { get; set; } = null;
+        [XmlElement(ElementName = "Ventilation-Type")]
+        public int VentilationType { get; set; }
 
         [Description("Source of mechanical ventilation data; only if mechanical ventilation.")]
-        [XmlElement("Mechanical-Ventilation-Data-Source")]
-        public virtual string MechanicalVentilationDataSource { get; set; } = null;
+        [XmlElement(ElementName = "Mechanical-Ventilation-Data-Source")]
+        public int MechanicalVentilationDataSource { get; set; }
 
         [Description("Mechanical vent system index number; if mechanical vent data from database (MEV c, MEV dc, MV, MVHR).")]
-        [XmlElement("Mechanical-Vent-System-Index-Number")]
-        public virtual string MechanicalVentSystemIndexNumber { get; set; } = null;
+        [XmlElement(ElementName = "Mechanical-Vent-System-Index-Number")]
+        public int MechanicalVentSystemIndexNumber { get; set; }
 
-        [Description("Mechanical ventilation system make and model; if mech vent system data is manufacturer declaration.")]
-        [XmlElement("Mechanical-Vent-System-Make-Model")]
-        public virtual string MechanicalVentSystemMakeModel { get; set; } = null;
+        [Description("Mechanical ventilation installation engineer registration reference.")]
+        [XmlElement(ElementName = "Mechanical-Vent-Comissioning-Certificate-Number")]
+        public int MechanicalVentComissioningCertificateNumber { get; set; }
 
-        [Description("Number of wet rooms, including the kitchen; if mech vent data from manufacturer declaration or database (MEV c, MV, MVHR).")]
-        [XmlElement("Wet-Rooms-Count")]
-        public virtual string numWetRooms { get; set; } = null;
+        [Description("Mechanical ventilation system make and model.")]
+        [XmlElement(ElementName = "Mechanical-Vent-System-Make-Model")]
+        public string MechanicalVentSystemMakeModel { get; set; }
 
-        [Description("Mechanical vent specific fan power in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV c, MV, MVHR).")]
-        [XmlElement("Mechanical-Vent-Specific-Fan-Power")]
-        public virtual string MechanicalVentSpecificFanPower { get; set; } = null;
-
-        [Description("Mechanical vent heat recovery efficiency percentage; if mechanical vent data from manufacturer declaration (MVHR).")]
-        [XmlElement("Mechanical-Vent-Heat-Recovery-Efficiency")]
-        public virtual string MechanicalVentHeatRecoveryEfficiency { get; set; } = null;
+        [Description("Mechanical ventilation Commissioning certificate number.")]
+        [XmlElement(ElementName = "Mechanical-Vent-Installation-Engineer")]
+        public string MechanicalVentInstallationEngineer { get; set; }
 
         [Description("Mechanical vent duct type; if MEV c, MV or MVHR.")]
-        [XmlElement("Mechanical-Vent-Duct-Type")]
-        public virtual string MechanicalVentDuctType { get; set; } = null;
-
-        [Description("Mechanical vent duct insulation; if MVHR.")]
-        [XmlElement("Mechanical-Vent-Duct-Insulation")]
-        public virtual string MechanicalVentDuctInsulation { get; set; } = null;
+        [XmlElement(ElementName = "Mechanical-Vent-Duct-Type")]
+        public int MechanicalVentDuctType { get; set; }
 
         [Description("MEV dc, number of fans in room, kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        [XmlElement("Kitchen-Room-Fans-Count")]
-        public virtual int? numKitchenRoomFans { get; set; } = null;
-
-        [Description("MEV dc, specific fan power of fans in room, kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
-        [XmlElement("Kitchen-Room-Fans-Specific-Power")]
-        public virtual string KitchenRoomFansSpecificPower { get; set; } = null;
+        [XmlElement(ElementName = "Kitchen-Room-Fans-Count")]
+        public int KitchenRoomFansCount { get; set; }
 
         [Description("MEV dc, number of fans in room, rooms other than kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        [XmlElement("Non-Kitchen-Room-Fans-Count")]
-        public virtual int? numNonKitchenRoomFans { get; set; } = null;
-
-        [Description("MEV dc, specific fan power of fans in room, rooms other than kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
-        [XmlElement("Non-Kitchen-Room-Fans-Specific-Power")]
-        public virtual string NonKitchenRoomFansSpecificPower { get; set; } = null;
+        [XmlElement(ElementName = "Non-Kitchen-Room-Fans-Count")]
+        public int NonKitchenRoomFansCount { get; set; }
 
         [Description("MEV dc, number of fans via duct, kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        [XmlElement("Kitchen-Duct-Fans-Count")]
-        public virtual int? numKitchenDuctFans { get; set; } = null;
-
-        [Description("MEV dc, specific fan power of fans via duct, kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
-        [XmlElement("Kitchen-Duct-Fans-Specific-Power")]
-        public virtual string KitchenDuctFansSpecificPower { get; set; } = null;
+        [XmlElement(ElementName = "Kitchen-Duct-Fans-Count")]
+        public int KitchenDuctFansCount { get; set; }
 
         [Description("MEV dc, number of fans via duct, rooms other than kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        [XmlElement("Non-Kitchen-Duct-Fans-Count")]
-        public virtual int? numNonKitchenDuctFans { get; set; } = null;
-
-        [Description("MEV dc, specific fan power of fans via duct, rooms other than kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
-        [XmlElement("Non-Kitchen-Duct-Fans-Specific-Power")]
-        public virtual string NonKitchenDuctFansSpecificPower { get; set; } = null;
+        [XmlElement(ElementName = "Non-Kitchen-Duct-Fans-Count")]
+        public int NonKitchenDuctFansCount { get; set; }
 
         [Description("MEV dc, number of fans through wall, kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        [XmlElement("Kitchen-Wall-Fans-Count")]
-        public virtual int? numKitchenWallFans { get; set; } = null;
-
-        [Description("MEV dc, specific fan power of fans through wall, kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
-        [XmlElement("Kitchen-Wall-Fans-Specific-Power")]
-        public virtual string KitchenWallFansSpecificPower { get; set; } = null;
+        [XmlElement(ElementName = "Kitchen-Wall-Fans-Count")]
+        public int KitchenWallFansCount { get; set; }
 
         [Description("MEV dc, number of fans through wall, rooms other than kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        [XmlElement("Non-Kitchen-Wall-Fans-Count")]
-        public virtual int? numNonKitchenWallFans { get; set; } = null;
+        [XmlElement(ElementName = "Non-Kitchen-Wall-Fans-Count")]
+        public int NonKitchenWallFansCount { get; set; }
+
+        [Description("MEV dc, specific fan power of fans in room, kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
+        [XmlElement(ElementName = "Kitchen-Room-Fans-Specific-Power")]
+        public double KitchenRoomFansSpecificPower { get; set; }
+
+        [Description("MEV dc, specific fan power of fans in room, rooms other than kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
+        [XmlElement(ElementName = "Non-Kitchen-Room-Fans-Specific-Power")]
+        public int NonKitchenRoomFansSpecificPower { get; set; }
+
+        [Description("MEV dc, specific fan power of fans via duct, kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
+        [XmlElement(ElementName = "Kitchen-Duct-Fans-Specific-Power")]
+        public int KitchenDuctFansSpecificPower { get; set; }
+
+        [Description("MEV dc, specific fan power of fans via duct, rooms other than kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
+        [XmlElement(ElementName = "Non-Kitchen-Duct-Fans-Specific-Power")]
+        public double NonKitchenDuctFansSpecificPower { get; set; }
+
+        [Description("MEV dc, specific fan power of fans through wall, kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
+        [XmlElement(ElementName = "Kitchen-Wall-Fans-Specific-Power")]
+        public int KitchenWallFansSpecificPower { get; set; }
 
         [Description("MEV dc, specific fan power of fans through wall, rooms other than kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
-        [XmlElement("Non-Kitchen-Wall-Fans-Specific-Power")]
-        public virtual string NonKitchenWallFansSpecificPower { get; set; } = null;
+        [XmlElement(ElementName = "Non-Kitchen-Wall-Fans-Specific-Power")]
+        public double NonKitchenWallFansSpecificPower { get; set; }
 
-        [Description("Extract-Fans-Count")]
-        [XmlElement("")]
-        public virtual int? ExtractFansCount { get; set; } = null;
+        [Description("Mechanical vent heat recovery efficiency percentage; if mechanical vent (MVHR)")]
+        [XmlElement(ElementName = "Mechanical-Vent-Heat-Recovery-Efficiency")]
+        public int MechanicalVentHeatRecoveryEfficiency { get; set; }
 
-        [Description("")]
-        [XmlElement("PSV-Count")]
-        public virtual string PSVCount { get; set; } = null;
+        [Description("Mechanical ventilation duct insulation; if MVHR.")]
+        [XmlElement(ElementName = "Mechanical-Vent-Duct-Placement")]
+        public int MechanicalVentDuctPlacement { get; set; }
+
+        [Description("Mechanical vent duct insulation; if MVHR.")]
+        [XmlElement(ElementName = "Mechanical-Vent-Duct-Insulation-Level")]
+        public int MechanicalVentDuctInsulationLevel { get; set; }
+
+        [Description("Mechanical vent duct insulation; if MVHR.")]
+        [XmlElement(ElementName = "Mechanical-Vent-Duct-Insulation")]
+        public int MechanicalVentDuctInsulation { get; set; }
+
+        [Description("Mechanical ventilation SPF measured in situ; if MVHR or balanced.")]
+        [XmlElement(ElementName = "Mechanical-Vent-Measured-Installation")]
+        public bool MechanicalVentMeasuredInstallation { get; set; }
+
+        [Description("MEV dc, specific fan power of fans in room, kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
+        [XmlElement(ElementName = "Mechanical-Vent-Specific-Fan-Power")]
+        public double MechanicalVentSpecificFanPower { get; set; }
+
+        [Description("Number of wet rooms, including the kitchen; if mech vent data from manufacturer declaration or database (MEV c, MV, MVHR).")]
+        [XmlElement(ElementName = "Wet-Rooms-Count")]
+        public int WetRoomsCount { get; set; }
 
         [Description("")]
         [XmlElement("Is-Mechanical-Vent-Approved-Installer-Scheme")]
@@ -177,37 +217,38 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Mechanical-Vent-Ducts-Index-Number")]
         public virtual string MechanicalVentDuctsIndexNumber { get; set; } = null;
 
-        public bool ShouldSerializenumKitchenRoomFans()
-        {
-            return numKitchenRoomFans.HasValue;
-        }
-        public bool ShouldSerializenumNonKitchenRoomFans()
-        {
-            return numNonKitchenRoomFans.HasValue;
-        }
-        public bool ShouldSerializenumKitchenDuctFans()
-        {
-            return numKitchenDuctFans.HasValue;
-        }
-        public bool ShouldSerializenumNonKitchenDuctFans()
-        {
-            return numNonKitchenDuctFans.HasValue;
-        }
-        public bool ShouldSerializenumKitchenWallFans()
-        {
-            return numKitchenWallFans.HasValue;
-        }
-        public bool ShouldSerializenumNonKitchenWallFans()
-        {
-            return numNonKitchenWallFans.HasValue;
-        }
-        public bool ShouldSerializeIsMechanicalVentApprovedInstallerScheme()
-        {
-            return IsMechanicalVentApprovedInstallerScheme.HasValue;
-        }
-        public bool ShouldSerializeHasDraughtLobby()
-        {
-            return HasDraughtLobby.HasValue;
-        }
+
+        //public bool ShouldSerializenumKitchenRoomFans()
+        //{
+        //    return numKitchenRoomFans.HasValue;
+        //}
+        //public bool ShouldSerializenumNonKitchenRoomFans()
+        //{
+        //    return numNonKitchenRoomFans.HasValue;
+        //}
+        //public bool ShouldSerializenumKitchenDuctFans()
+        //{
+        //    return numKitchenDuctFans.HasValue;
+        //}
+        //public bool ShouldSerializenumNonKitchenDuctFans()
+        //{
+        //    return numNonKitchenDuctFans.HasValue;
+        //}
+        //public bool ShouldSerializenumKitchenWallFans()
+        //{
+        //    return numKitchenWallFans.HasValue;
+        //}
+        //public bool ShouldSerializenumNonKitchenWallFans()
+        //{
+        //    return numNonKitchenWallFans.HasValue;
+        //}
+        //public bool ShouldSerializeIsMechanicalVentApprovedInstallerScheme()
+        //{
+        //    return IsMechanicalVentApprovedInstallerScheme.HasValue;
+        //}
+        //public bool ShouldSerializeHasDraughtLobby()
+        //{
+        //    return HasDraughtLobby.HasValue;
+        //}
     }
 }
