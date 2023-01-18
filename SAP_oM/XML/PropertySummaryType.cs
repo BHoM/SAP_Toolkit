@@ -34,7 +34,7 @@ namespace BH.oM.Environment.SAP.XML
     public class PropertySummaryType : IObject
     {
         [XmlElement(ElementName = "Description")]
-        public Description Description { get; set; }
+        public string Description { get; set; }
 
         [XmlElement(ElementName = "Energy-Efficiency-Rating")]
         public int EnergyEfficiencyRating { get; set; }

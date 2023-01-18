@@ -74,7 +74,7 @@ namespace BH.oM.Environment.SAP.XML
         public bool HasHeatedSeparateConservatory { get; set; } = false;
 
         [XmlElement(ElementName = "Dwelling-Type")]
-        public DwellingType DwellingType { get; set; }
+        public string DwellingType { get; set; }
 
         [XmlElement(ElementName = "Total-Floor-Area")]
         public int TotalFloorArea { get; set; }

@@ -43,7 +43,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Type of wall (exposure).")]
         [XmlElement("Wall-Type")]
-        public virtual int Type { get; set; } = 2;
+        public virtual string Type { get; set; } = "2";
 
         [Description("Total wall area in square metres, inclusive of any openings.")]
         [XmlElement("Total-Wall-Area")]

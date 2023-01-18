@@ -52,11 +52,11 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("The type of glazing")]
         [XmlElement("Glazing-Type")]
-        public virtual string GlazingType { get; set; } = "7";//may be: single/double/triple but also a code?
+        public virtual string GlazingType { get; set; } = "3";
 
         [Description("Gap between glass panes")]
         [XmlElement(ElementName = "Glazing-Gap")]
-        public virtual int GlazingGap { get; set; } = 0;
+        public virtual string GlazingGap { get; set; } = "1";
 
         [Description("Is the opening argon-filled?")]
         [XmlElement(ElementName = "IsArgonFilled")]
@@ -68,7 +68,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("The type of frame")]
         [XmlElement(ElementName = "Frame-Type")]
-        public virtual int FrameType { get; set; } = 0;
+        public virtual string FrameType { get; set; } = "1";
 
         [Description("The solar transmittance; not if a door.")]
         [XmlElement("Solar-Transmittance")]
@@ -81,19 +81,6 @@ namespace BH.oM.Environment.SAP.XML
         [Description("The U-value.")]
         [XmlElement("U-Value")]
         public virtual double uValue { get; set; } = 1.4;
-
-        
-        
-
-        
-        
-
-        
-
-        
-
-        
-
         
     }
 }
