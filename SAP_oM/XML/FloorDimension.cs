@@ -35,7 +35,7 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("A name describing the floor dimensioned.")]
         [XmlElement("Name")]
-        public virtual string Name { get; set; } = null;
+        public virtual string Name { get; set; } = "Floor";
 
         [Description("Building storey on which the floor is located.")]
         [XmlElement("Storey")]
@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Type of floor (exposure).")]
         [XmlElement("Floor-Type")]
-        public virtual string Type { get; set; } = "0";
+        public virtual string Type { get; set; } = "2";
 
         [Description("The total floor area of the storey in square metres.")]
         [XmlElement("Total-Floor-Area")]
@@ -67,11 +67,11 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Heat capacity of floor per unit area in kJ/m²K.")]
         [XmlElement("Kappa-Value")]
-        public virtual string KappaValue { get; set; } = null;
+        public virtual double KappaValue { get; set; } = 0;
 
         [Description("Heat capacity of ceiling below.  Applies to the non-heat-loss area of an upper floor.")]
         [XmlElement("Kappa-Value-From-Below")]
-        public virtual string KappaValueFromBelow { get; set; } = null;//check - null
+        public virtual double KappaValueFromBelow { get; set; } = 0;
     }
 }
 

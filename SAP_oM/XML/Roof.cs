@@ -43,7 +43,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("")]
         [XmlElement("Roof-Type")]
-        public virtual int Type { get; set; } = 4;
+        public virtual string Type { get; set; } = "2";
 
         [Description("Total roof area in square metres, inclusive of any openings.")]
         [XmlElement("Total-Roof-Area")]

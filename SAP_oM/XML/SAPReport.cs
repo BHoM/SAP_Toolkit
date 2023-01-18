@@ -34,19 +34,20 @@ namespace BH.oM.Environment.SAP.XML
     public class SAPReport : IObject
     {
         [XmlElement(ElementName = "Schema-Version-Original")]
-        public string SchemaVersionOriginal { get; set; }
+        public string SchemaVersionOriginal { get; set; } = "SAP-Schema-19.0.0";
 
         [XmlElement(ElementName = "Schema-Version-Current")]
-        public string SchemaVersionCurrent{ get; set; }
+        public string SchemaVersionCurrent { get; set; } = "SAP-Schema-19.0.0";
 
         [XmlElement(ElementName = "SAP-Version")]
-        public DateTime SAPVersion { get; set; }
+        public string SAPVersion { get; set; } = "10.2";
 
         [XmlElement(ElementName = "SAP-Data-Version")]
-        public DateTime SAPDataVersion { get; set; }
+        public string SAPDataVersion { get; set; } = "10.2";
 
+        [Description("Revision Number of the PCDF file used for the calculations")]
         [XmlElement(ElementName = "PCDF-Revision-Number")]
-        public int PCDFRevisionNumber { get; set; }
+        public int PCDFRevisionNumber { get; set; } = 0;
 
         [XmlElement(ElementName = "Calculation-Software-Name")]
         public string CalculationSoftwareName { get; set; } = null;

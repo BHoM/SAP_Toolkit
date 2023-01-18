@@ -234,8 +234,6 @@
     <Compile Include="XML\RHINewDwelling.cs" />
     <Compile Include="XML\RenewableHeatIncentive.cs" />
     <Compile Include="XML\SuggestedImprovements.cs" />
-    <Compile Include="XML\DwellingType.cs" />
-    <Compile Include="XML\Description.cs" />
     <Compile Include="XML\EnergyAssessment.cs" />
     <Compile Include="XML\EnergyUse.cs" />
     <Compile Include="XML\PropertySummaryType.cs" />

@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Compass direction in which the opening faces.")]
         [XmlElement("Orientation")]
-        public virtual int Orientation { get; set; } = 3;
+        public virtual string Orientation { get; set; } = "3";
 
         [Description("The width of the opening in metres.  If the Width field is used to record the opening area, set the Height to 1.")]
         [XmlElement("Width")]
@@ -59,10 +59,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Pitch of roof containing roof window.")]
         [XmlElement("Pitch")]
-        public virtual double Pitch { get; set; } = 0;
-
-        
-
+        public virtual string Pitch { get; set; } = "1";
 
     }
 }
