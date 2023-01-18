@@ -33,6 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "SAP-Building-Parts", IsNullable = false)]
     public class BuildingParts : IObject
     {
+        [Description("A permanent structure that forms part of the Property and is built primarily for human habitation. A Building Part is usually made up of one or more Storey's and may contain a number of Internal Structural Features. An extension is also a Building Part.")]
         [XmlElement("SAP-Building-Part")]
         public virtual List<BuildingPart> BuildingPart { get; set; } = null;
     }

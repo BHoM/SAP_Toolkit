@@ -41,21 +41,21 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Cooling-System-Data-Source")]
         public virtual string CoolingSystemDataSource { get; set; } = null;
 
-        [Description("Cooling-System-Type")]
-        [XmlElement("Cooling-System-Type")]
-        public virtual string CoolingSystemType { get; set; } = null;
+        //[Description("Cooling-System-Type")]
+        //[XmlElement("Cooling-System-Type")]
+        //public virtual string CoolingSystemType { get; set; } = null;
 
-        [Description("Data set includes either class or EER, not both.")]
+        [Description("Data set includes either class or SEER, not both.")]
         [XmlElement("Cooling-System-Class")]
         public virtual string CoolingSystemClass { get; set; } = null;
 
-        [Description("Energy Efficiency Ratio.  Data set includes either class or EER, not both.")]
-        [XmlElement("Cooling-System-EER")]
-        public virtual string CoolingSystemEER { get; set; } = null;
+        [Description("System-Energy Efficiency Ratio.  Data set includes either class or EER, not both.")]
+        [XmlElement("System-Energy-Efficiency-Ratio")]
+        public virtual string CoolingSystemSEER { get; set; } = null;
 
-        [Description("Cooling-System-Control")]
-        [XmlElement("Cooling-System-Control")]
-        public virtual string CoolingSystemControl { get; set; } = null;
+        //[Description("Cooling-System-Control")]
+        //[XmlElement("Cooling-System-Control")]
+        //public virtual string CoolingSystemControl { get; set; } = null;
     }
 }
 

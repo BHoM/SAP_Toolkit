@@ -33,30 +33,43 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "SAP-Floor-Dimension", IsNullable = false)]
     public class FloorDimension : IObject
     {
+        [Description("A name describing the floor dimensioned.")]
+        [XmlElement("Name")]
+        public virtual string Name { get; set; } = null;
+
+        [Description("Building storey on which the floor is located.")]
         [XmlElement("Storey")]
         public virtual int Storey { get; set; } = 0;
 
+        [Description("Descriptive notes about the floor.")]
         [XmlElement("Description")]
         public virtual string Description { get; set; } = "A dwelling storey";
 
+        [Description("Type of floor (exposure).")]
         [XmlElement("Floor-Type")]
         public virtual string Type { get; set; } = "0";
 
+        [Description("The total floor area of the storey in square metres.")]
         [XmlElement("Total-Floor-Area")]
         public virtual double Area { get; set; } = 0;
 
+        [Description("Average height of the storey in metres.")]
         [XmlElement("Storey-Height")]
         public virtual double StoreyHeight { get; set; } = 0;
 
+        [Description("The estimated total heat loss area for the floor in square metres.")]
         [XmlElement("Heat-Loss-Area")]
         public virtual double HeatLossArea { get; set; } = 0;
 
+        [Description("Heat loss floor U-value.")]
         [XmlElement("U-Value")]
         public virtual double uValue { get; set; } = 0;
 
+        [Description("Heat capacity of floor per unit area in kJ/m²K.")]
         [XmlElement("Kappa-Value")]
         public virtual string KappaValue { get; set; } = null;
 
+        [Description("Heat capacity of ceiling below.  Applies to the non-heat-loss area of an upper floor.")]
         [XmlElement("Kappa-Value-From-Below")]
         public virtual string KappaValueFromBelow { get; set; } = null;//check - null
     }

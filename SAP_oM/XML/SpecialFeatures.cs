@@ -35,6 +35,6 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("")]
         [XmlElement("SAP-Special-Feature")]
-        public virtual SpecialFeature SpecialFeature { get; set; } = new SpecialFeature();
+        public virtual List<SpecialFeature> SpecialFeature { get; set; } = new List<SpecialFeature>();
     }
 }

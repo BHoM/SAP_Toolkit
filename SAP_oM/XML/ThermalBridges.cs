@@ -33,9 +33,19 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "SAP-Thermal-Bridges", IsNullable = false)]
     public class ThermalBridges : IObject
     {
+        [Description("Code which indicates how the thermal bridge data has been recorded.")]
         [XmlElement("Thermal-Bridge-Code")]
         public virtual int ThermalBridgeCode { get; set; } = 1;
 
+        [Description("Global y-value for all thermal bridges in watts per square metre per kelvin; only if thermal bridge code is: user defined (global y-value)")]
+        [XmlElement(ElementName ="User-Defined-Y-Value")]
+        public virtual int UserDefinedYValue { get; set; }  
+
+        [Description("Reference to the details of the calculation of the global y-value; only if thermal bridging is user defined global y-value.")]
+        [XmlElement(ElementName = "Calculation-Reference")]
+        public virtual string CalculationReference { get; set; }
+
+        [Description("Various measurements for each thermal bridge that makes up a particular Building-Part.")]
         [XmlElement(ElementName = "SAP-Thermal-Bridge")] 
         public List<ThermalBridge> ThermalBridge { get; set; }
     }

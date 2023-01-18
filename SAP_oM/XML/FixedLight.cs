@@ -33,15 +33,18 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "Fixed-Light", IsNullable = false)]
     public class FixedLight : IObject
     {
-        [XmlElement(ElementName = "Lighting-Outlets")]
-        public int LightingOutlets { get; set; }
-
+        [Description("The efficacy of the lighting type in lumens/Watt.")]
         [XmlElement(ElementName = "Lighting-Efficacy")]
-        public double LightingEfficacy { get; set; }
+        public virtual double LightingEfficacy { get; set; }
 
+        [Description("The power of the selected lighting type in Watts.")]
         [XmlElement(ElementName = "Lighting-Power")]
-        public int LightingPower { get; set; }
+        public virtual int LightingPower { get; set; }
 
+        [Description("The number of light fitting outlets of that type.")]
+        [XmlElement(ElementName = "Lighting-Outlets")]
+        public virtual int LightingOutlets { get; set; }
+        
     }
 }
 
