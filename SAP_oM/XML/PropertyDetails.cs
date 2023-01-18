@@ -117,15 +117,19 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "SAP-Energy-Source")]
         public virtual EnergySource EnergySource { get; set; }
 
+        [Description("Details of the significant building parts that comprise the main habitable building in the property.")]
         [XmlElement(ElementName = "SAP-Building-Parts")]
         public virtual BuildingParts BuildingParts { get; set; }
 
+        [Description("Types of exposed openings that make up a particular property.")]
         [XmlElement(ElementName = "SAP-Opening-Types")]
         public virtual OpeningTypes OpeningTypes { get; set; }
 
+        [Description("Details of the means by which the building is ventilated")]
         [XmlElement(ElementName = "SAP-Ventilation")]
         public virtual Ventilation Ventilation { get; set; }
 
+        [Description("Details of the main lighting for the property")]
         [XmlElement(ElementName = "SAP-Lighting")]
         public virtual Lighting Lighting { get; set; }
 
@@ -133,13 +137,11 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("SAP-Deselected-Improvements")]
         public virtual DeselectedImprovements DeselectedImprovements { get; set; } = null;
 
-        //may need to include the following
+        [Description("Detials of location of flat in building")]
+        [XmlElement("SAP-Flat-Details")]
+        public virtual FlatDetails FlatDetails { get; set; } = new FlatDetails();
 
-        //[Description("")]
-        //[XmlElement("SAP-Flat-Details")]
-        //public virtual FlatDetails FlatDetails { get; set; } = new FlatDetails();
-
-
+        [Description("")]
         [XmlElement(ElementName = "SAP-Special-Features")]
         public SpecialFeatures SpecialFeatures { get; set; }
 

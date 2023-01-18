@@ -44,7 +44,7 @@ namespace BH.Engine.Environment.SAP
             xmlCooling.CoolingSystemDataSource = heating.Cooling.DataSource;
             xmlCooling.CoolingSystemType = heating.Cooling.Type;
             xmlCooling.CoolingSystemClass = heating.Cooling.EnergyLabel;
-            xmlCooling.CoolingSystemEER = heating.Cooling.EER;
+            xmlCooling.CoolingSystemSEER = heating.Cooling.SEER;
             xmlCooling.CoolingSystemControl = heating.Cooling.CompressorControl;
 
             List<oM.Environment.SAP.XML.MainHeating> xmlMainHeatingList = new List<oM.Environment.SAP.XML.MainHeating>();

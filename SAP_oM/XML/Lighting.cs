@@ -33,6 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "SAP-Lighting", IsNullable = false)]
     public class Lighting : IObject
     {
+        [Description("he record of a lighting type within the building.")]
         [XmlElement("Fixed-Lights")]
         public virtual FixedLights FixedLights { get; set; }
 

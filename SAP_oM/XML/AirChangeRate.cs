@@ -37,7 +37,7 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Air-Change-Rate-Month")]
         public virtual string Month { get; set; } = null;
 
-        [Description("")]
+        [Description("Air change rate in month")]
         [XmlElement("Air-Change-Rate-Value")]
         public virtual string Value { get; set; } = null;
     }
