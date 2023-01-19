@@ -19,38 +19,34 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.IO;
+using System.Text;
 using System.Linq;
+using BH.oM.Environment.SAP.Stroma10;
 using BH.oM.Base;
+using System.Security.Cryptography.X509Certificates;
+using System.Runtime.InteropServices.ComTypes;
 using System.Xml.Serialization;
 
-namespace BH.oM.Environment.SAP.XML
+namespace BH.Engine.Environment.SAP
 {
-    [Serializable]
-    [XmlRoot(ElementName = "Energy-Feature", IsNullable = false)]
-    public class EnergyFeature : IObject
+    public static partial class Compute
     {
-        [Description("Energy saved or generated in kWh/year.")]
-        [XmlElement("Energy-Saved-Or-Generated")]
-        public virtual double EnergySavedOrGenerated { get; set; } = 0;
-        
-        [Description("")]
-        [XmlElement("Saved-Or-Generated-Fuel")]
-        public virtual string SavedOrGeneratedFuel { get; set; } = "1";
+        public static bool TestToXMLFile(BH.oM.Environment.SAP.XML.SAPReport data, string filePath, string fileName, bool run = false)
+        {
 
-        [Description("Energy used in kWh/year.")]
-        [XmlElement("Energy-Used")]
-        public virtual double EnergyUsed { get; set; } = 0;
+            if (!run)
+                return false;
 
-        [Description("")]
-        [XmlElement("Energy-Used-Fuel")]
-        public virtual string EnergyUsedFuel { get; set; } = "1";
+            XmlSerializerNamespaces xns = new XmlSerializerNamespaces();
+            XmlSerializer szer = new XmlSerializer(typeof(BH.oM.Environment.SAP.XML.SAPReport));
+            TextWriter ms = new StreamWriter(Path.Combine(filePath, fileName));
+            szer.Serialize(ms, data, xns);
+            ms.Close();
 
-        [Description("For Appendix Q procedure that provides air change rates. Only one Special Feature can have data on air change rates.")]
-        [XmlElement("Air-Change-Rates")]
-        public virtual AirChangeRates AirChangeRates { get; set; } = null;
+            return true;
+        }
     }
 }

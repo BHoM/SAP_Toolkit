@@ -33,10 +33,6 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "Solar-Heating-Details", IsNullable = false)]
     public class SolarHeatingDetails : IObject
     {
-        //[Description("")]
-        //[XmlElement(ElementName = "")]
-        //public virtual string  {get; set;} = null;
-
         [Description("Panel manufacturer")]
         [XmlElement(ElementName = "Solar-Heating-Collector-Manufacturer")]
         public virtual string SolarHeatingCollectorManufacturer { get; set; } = null;
@@ -118,11 +114,11 @@ namespace BH.oM.Environment.SAP.XML
         public virtual double OverallHeatLoss { get; set; } = 0;
 
 
-        //public bool ShouldSerializeHasSolarPoweredPump()
+        //public virtual bool ShouldSerializeHasSolarPoweredPump()
         //{
         //    return HasSolarPoweredPump.HasValue;
         //}
-        //public bool ShouldSerializeIsSolarStoreCombinedCylinder()
+        //public virtual bool ShouldSerializeIsSolarStoreCombinedCylinder()
         //{
         //    return IsSolarStoreCombinedCylinder.HasValue;
         //}

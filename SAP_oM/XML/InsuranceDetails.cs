@@ -35,23 +35,23 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("The name of the insurance company that underwrites / issued the insurance policy")]
         [XmlElement(ElementName = "Insurer")]
-        public string Insurer { get; set; }
+        public virtual string Insurer { get; set; } = null;
 
         [Description("The policy number of the insurance policy")]
         [XmlElement(ElementName = "Policy-No")]
-        public int PolicyNo { get; set; }
+        public virtual string PolicyNo { get; set; } = null;
 
         [Description("The date that the insurance policy becomes effective")]
         [XmlElement(ElementName = "Effective-Date")]
-        public DateTime EffectiveDate { get; set; }
+        public virtual DateTime EffectiveDate { get; set; } = DateTime.Now;
 
         [Description("The date that the insurance policy is supposed to expire.")]
         [XmlElement(ElementName = "Expiry-Date")]
-        public DateTime ExpiryDate { get; set; }
+        public virtual DateTime ExpiryDate { get; set; } = DateTime.Now;
 
         [Description("The upper limit of the Professional Indemnity cover provided by the insurance policy.")]
         [XmlElement(ElementName = "PI-Limit")]
-        public int PILimit { get; set; }
+        public virtual Money PILimit { get; set; } = null;
 
     }
 }

@@ -35,7 +35,7 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("")]
         [XmlElement("WWHRS-Index-Number")]
-        public virtual string WWHRSIndexNumber { get; set; } = null;
+        public virtual int WWHRSIndexNumber { get; set; } = 0;
 
         [Description("Dedicated store volume in litres.")]
         [XmlElement("WWHRS-Store-Volume")]

@@ -33,70 +33,74 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "Energy-Use", IsNullable = false)]
     public class EnergyUse : IObject
     {
-        //[Description("The DER of the property")]
-        //[XmlElement(ElementName ="DER")]
+        [Description("The DER of the property")]
+        [XmlElement(ElementName = "DER")]
+        public virtual double DER { get; set; } = 0;
 
-        //[Description("")]
-        //[XmlElement(ElementName = "TER")]
+        [Description("")]
+        [XmlElement(ElementName = "TER")]
+        public virtual double TER { get; set; } = 0;
 
-        //[Description("")]
-        //[XmlElement(ElementName = "DPER")]
+        [Description("")]
+        [XmlElement(ElementName = "DPER")]
+        public virtual double DPER { get; set; } = 0;
 
-        //[Description("")]
-        //[XmlElement(ElementName = "TPER")]
+        [Description("")]
+        [XmlElement(ElementName = "TPER")]
+        public virtual double TPER { get; set; } = 0;
 
-        //[Description("")]
-        //[XmlElement(ElementName = "DFEE")]
+        [Description("")]
+        [XmlElement(ElementName = "DFEE")]
+        public virtual double DFEE { get; set; } = 0;
 
-        //[Description("")]
-        //[XmlElement(ElementName = "TFEE")]
-
+        [Description("")]
+        [XmlElement(ElementName = "TFEE")]
+        public virtual double TFEE { get; set; } = 0;
 
         [XmlElement(ElementName = "Energy-Rating-Current")]
-        public int EnergyRatingCurrent { get; set; }
+        public virtual int EnergyRatingCurrent { get; set; } = 0;
 
         [XmlElement(ElementName = "Energy-Rating-Potential")]
-        public int EnergyRatingPotential { get; set; }
+        public virtual int EnergyRatingPotential { get; set; } = 0;
 
         [XmlElement(ElementName = "Energy-Rating-Average")]
-        public int EnergyRatingAverage { get; set; }
+        public virtual int EnergyRatingAverage { get; set; } = 0;
 
         [XmlElement(ElementName = "Environmental-Impact-Current")]
-        public int EnvironmentalImpactCurrent { get; set; }
+        public virtual int EnvironmentalImpactCurrent { get; set; } = 0;
 
         [XmlElement(ElementName = "Environmental-Impact-Potential")]
-        public int EnvironmentalImpactPotential { get; set; }
+        public virtual int EnvironmentalImpactPotential { get; set; } = 0;
 
         [XmlElement(ElementName = "Energy-Consumption-Current")]
-        public int EnergyConsumptionCurrent { get; set; }
+        public virtual int EnergyConsumptionCurrent { get; set; } = 0;
 
         [XmlElement(ElementName = "Energy-Consumption-Potential")]
-        public int EnergyConsumptionPotential { get; set; }
+        public virtual int EnergyConsumptionPotential { get; set; } = 0;
 
         [XmlElement(ElementName = "CO2-Emissions-Current")]
-        public double CO2EmissionsCurrent { get; set; }
+        public virtual double CO2EmissionsCurrent { get; set; } = 0;
 
         [XmlElement(ElementName = "CO2-Emissions-Current-Per-Floor-Area")]
-        public double CO2EmissionsCurrentPerFloorArea { get; set; }
+        public virtual double CO2EmissionsCurrentPerFloorArea { get; set; } = 0;
 
-
-        [XmlElement(ElementName = "Lighting-Cost-Current")] //check - type! Type was "money" have replaced this with double ( same as all the following )
-        public double LightingCostCurrent { get; set; }
+        [XmlElement(ElementName = "Lighting-Cost-Current")] 
+        public Money LightingCostCurrent { get; set; } = null;
 
         [XmlElement(ElementName = "Lighting-Cost-Potential")]
-        public double LightingCostPotential { get; set; }
+        public Money LightingCostPotential { get; set; } = null;
 
         [XmlElement(ElementName = "Heating-Cost-Current")]
-        public double HeatingCostCurrent { get; set; }
+        public Money HeatingCostCurrent { get; set; } = null;
 
         [XmlElement(ElementName = "Heating-Cost-Potential")]
-        public double HeatingCostPotential { get; set; }
+        public Money HeatingCostPotential { get; set; } = null;
 
         [XmlElement(ElementName = "Hot-Water-Cost-Current")]
-        public double HotWaterCostCurrent { get; set; }
+        public Money HotWaterCostCurrent { get; set; } = null;
 
         [XmlElement(ElementName = "Hot-Water-Cost-Potential")]
-        public double HotWaterCostPotential { get; set; }
+        public Money HotWaterCostPotential { get; set; } = null;
     }
 }
 

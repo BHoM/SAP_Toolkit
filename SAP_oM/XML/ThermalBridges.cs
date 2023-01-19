@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Various measurements for each thermal bridge that makes up a particular Building-Part.")]
         [XmlElement(ElementName = "SAP-Thermal-Bridge")] 
-        public List<ThermalBridge> ThermalBridge { get; set; } = new List<ThermalBridge>();
+        public virtual List<ThermalBridge> ThermalBridge { get; set; } = null;
     }
 }
 

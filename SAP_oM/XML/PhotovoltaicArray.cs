@@ -35,27 +35,34 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("Peak kW of photovoltaics (PVs) (kWp); 0.0 if none")]
         [XmlElement("Peak-Power")]
-        public virtual string PeakPower { get; set; } = null;
+        public virtual double PeakPower { get; set; } = 0;
 
         [Description("PV orientation; only if peak kWp &gt; 0.")]
         [XmlElement("Orientation")]
-        public virtual string Orientation { get; set; } = null;
+        public virtual string Orientation { get; set; } = "1";
 
         [Description("PV pitch; only if peak kWp &gt; 0.")]
         [XmlElement("Pitch")]
-        public virtual string Pitch { get; set; } = null;
+        public virtual string Pitch { get; set; } = "2";
 
         [Description("PV overshading; only if peak kWp &gt; 0.")]
         [XmlElement("Overshading")]
-        public virtual string Overshading { get; set; } = null;
+        public virtual string Overshading { get; set; } = "2";
 
+        [Description("")]
+        [XmlElement("MCS-Certificate")]
+        public virtual bool MCSCertificate { get; set; } = false;
+
+        [Description("")]
         [XmlElement("MCS-Certificate-Reference")]
-        public virtual bool MCSCertificateReference { get; set; }
+        public virtual string MCSCertificateReference { get; set; } = null;
 
+        [Description("")]
         [XmlElement("PV-Panel-Manufacturer-Name")]
-        public virtual bool ManufacturerName { get; set; }
+        public virtual string ManufacturerName { get; set; } = null;
 
+        [Description("")]
         [XmlElement("Overshading-MCS")]
-        public virtual bool OvershadingMCS { get; set; }
+        public virtual double OvershadingMCS { get; set; } = 0;
     }
 }

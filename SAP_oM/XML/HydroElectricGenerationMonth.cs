@@ -34,9 +34,9 @@ namespace BH.oM.Environment.SAP.XML
     public class HydroElectricGenerationMonth : IObject
     {
         [XmlElement(ElementName = "Hydro-Month")]
-        public string HydroMonth { get; set; }
+        public virtual string HydroMonth { get; set; } = "Jan";
 
         [XmlElement(ElementName = "Hydro-Value")]
-        public int HydroValue { get; set; }
+        public virtual double HydroValue { get; set; } = 0;
     }
 }

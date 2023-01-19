@@ -35,7 +35,7 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("Code to indicate a particular type of thermal bridge; only if thermal bridge code is: user defined (individual values).")]
         [XmlElement("Thermal-Bridge-Type")]
-        public virtual string Type { get; set; } = "E2"; //check - null values for file
+        public virtual string Type { get; set; } = "ND"; //if this doesn't work, replace with "E1"
 
         [Description("Length of the thermal bridge in metres; only if thermal bridge code is: user defined (individual values).")]
         [XmlElement("Length")]
@@ -51,7 +51,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Reference to the details of the calculation of the psi-value.")]
         [XmlElement("Psi-Value-Calculation-Reference")]
-        public virtual string CalculationReference { get; set; }
+        public virtual string CalculationReference { get; set; } = null;
     }
 }
 

@@ -34,8 +34,9 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "Wind-Turbines", IsNullable = false)]
     public class WindTurbines : IObject
     {
-        [XmlElement("SAP-Wall")]
-        public virtual List<WindTurbine> WindTurbine { get; set; } = new List<WindTurbine>();
+        [Description("")]
+        [XmlElement("Wind-Turbine")]
+        public virtual List<WindTurbine> WindTurbine { get; set; } = null;
 
     }
 }

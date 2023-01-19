@@ -35,7 +35,7 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("Fixed lighting present in the property.")]
         [XmlElement("Fixed-Light")]
-        public virtual List<FixedLight> FixedLight { get; set; } = new List<FixedLight>();
+        public virtual List<FixedLight> FixedLight { get; set; } = null;
 
     }
 }

@@ -34,7 +34,7 @@ namespace BH.oM.Environment.SAP.XML
     public class LowZeroCarbonEnergySources : IObject
     {
         [XmlElement("LZC-Energy-Source")]
-        public virtual List<int> LowZeroCarbonEnergySource { get; set; }
+        public virtual List<string> LowZeroCarbonEnergySource { get; set; } = null;
 
     }
 }

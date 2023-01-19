@@ -35,6 +35,6 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("")]
         [XmlElement("Storage-Heater")]
-        public virtual List<StorageHeater> StorageHeater { get; set; } = new List<StorageHeater>();
+        public virtual List<StorageHeater> StorageHeater { get; set; } = null;
     }
 }

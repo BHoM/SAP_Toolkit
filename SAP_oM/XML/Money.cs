@@ -20,6 +20,7 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+//HELP - what even is this
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,9 +35,9 @@ namespace BH.oM.Environment.SAP.XML
     public class Money : IObject
     {
         [XmlAttribute(AttributeName = "currency")]
-        public string Currency { get; set; }
+        public virtual string Currency { get; set; } = "GBP";
 
         [XmlText]
-        public int Text { get; set; }
+        public virtual int Text { get; set; } = 0;
     }
 }

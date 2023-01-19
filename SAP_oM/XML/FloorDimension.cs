@@ -39,7 +39,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Building storey on which the floor is located.")]
         [XmlElement("Storey")]
-        public virtual int Storey { get; set; } = 0;
+        public virtual string Storey { get; set; } = "0";
 
         [Description("Descriptive notes about the floor.")]
         [XmlElement("Description")]

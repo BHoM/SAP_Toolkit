@@ -67,7 +67,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("")]
         [XmlElement("Community-Heat-Sources")]
-        public virtual CommunityHeatSources CommunityHeatSources { get; set; } = new CommunityHeatSources();
+        public virtual CommunityHeatSources CommunityHeatSources { get; set; } = null;// CommunityHeatSources();
 
         [Description("Used when Community-Heating-Distribution-Type is calculated.")]
         [XmlElement("Community-Heating-Distribution-Loss-Factor")]

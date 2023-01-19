@@ -35,8 +35,7 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("Various measurements for each exposed opening that makes up a particular Building-Part.")]
         [XmlElement("SAP-Opening")]
-        public virtual List<Opening> Opening { get; set; } = new List<Opening>();
-
+        public virtual List<Opening> Opening { get; set; } = null;
     }
 }
 

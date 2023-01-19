@@ -33,38 +33,49 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "Home-Inspector", IsNullable = false)]
     public class HomeInspector : IObject
     {
+        [Description("")]
         [XmlElement(ElementName = "Name")]
-        public string Name { get; set; }
+        public virtual string Name { get; set; } = null;
 
+        [Description("")]
         [XmlElement(ElementName = "Notify-Lodgement")]
-        public string NotifyLodgement { get; set; }
+        public virtual string NotifyLodgement { get; set; } = null;
 
-        [XmlElement(ElementName = "Contact-Address")] //check
-        public Address ContactAddress { get; set; } //check - changed this from ContactAdress type to this as address encapsulates the original object definition of contactaddress
+        [Description("")]
+        [XmlElement(ElementName = "Contact-Address")]
+        public virtual Address ContactAddress { get; set; } = null;
 
+        [Description("")]
         [XmlElement(ElementName = "Web-Site")]
-        public string WebSite { get; set; }
+        public virtual string WebSite { get; set; } = null;
 
+        [Description("")]
         [XmlElement(ElementName = "E-Mail")]
-        public string EMail { get; set; }
+        public virtual string EMail { get; set; } = null;
 
+        [Description("")]
         [XmlElement(ElementName = "Fax")]
-        public string Fax { get; set; }
+        public virtual string Fax { get; set; } = null;
 
+        [Description("")]
         [XmlElement(ElementName = "Telephone")]
-        public string Telephone { get; set; }
+        public virtual string Telephone { get; set; } = null;
 
+        [Description("")]
         [XmlElement(ElementName = "Company-Name")]
-        public string CompanyName { get; set; }
+        public virtual string CompanyName { get; set; } = null;
 
+        [Description("")]
         [XmlElement(ElementName = "Scheme-Name")]
-        public string SchemeName { get; set; }
+        public virtual string SchemeName { get; set; } = null;
 
+        [Description("")]
         [XmlElement(ElementName = "Scheme-Web-Site")]
-        public string SchemeWebSite { get; set; }
+        public virtual string SchemeWebSite { get; set; } = null;
 
+        [Description("")]
         [XmlElement(ElementName = "Identification-Number")]
-        public IdentificationNumber IdentificationNumber { get; set; }
+        public virtual IdentificationNumber IdentificationNumber { get; set; } = null;
 
         //several other objects may be added (as seen on schema (It's rlly confusing me and so I'm stopping here - none of them appear on example and not necessary for calc))
     }

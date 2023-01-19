@@ -35,7 +35,7 @@ namespace BH.oM.Environment.SAP.XML
     {
   
         [XmlElement("Improvement")]
-        public virtual List<Improvement> Improvement { get; set; } = new List<Improvement>();
+        public virtual List<Improvement> Improvement { get; set; } = null;
 
     }
 }

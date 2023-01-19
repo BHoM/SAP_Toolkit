@@ -35,7 +35,7 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("Type of SAP data that has been collected. 1 = new dwelling as designed.")]
         [XmlElement("Data-Type")]
-        public virtual string DataType { get; set; } = "1"; //check - null , enums
+        public virtual string DataType { get; set; } = "1"; 
 
         [Description("Various measurements a particular Property.")]
         [XmlElement("SAP-Property-Details")]
