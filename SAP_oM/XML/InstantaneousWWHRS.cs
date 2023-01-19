@@ -35,34 +35,36 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("")]
         [XmlElement("WWHRS-Index-Number1")]
-        public virtual string WWHRSIndexNumber1 { get; set; } = null;
+        public virtual int WWHRSIndexNumber1 { get; set; } = 1;
 
         [Description("Omit if no second system.")]
         [XmlElement("WWHRS-Index-Number2")]
-        public virtual string WWHRSIndexNumber2 { get; set; } = null;
+        public virtual int WWHRSIndexNumber2 { get; set; } = 2;
 
         [Description("")]
-        [XmlElement("Rooms-With-Bath-And-Or-Shower")]
-        public virtual string RoomsWithBathAndOrShower { get; set; } = null;
-
-        [Description("")]
-        [XmlElement("Mixer-Showers-With-System1-With-Bath")]
-        public virtual string MixerShowersWithSystem1WithBath { get; set; } = null;
-
-        [Description("")]
-        [XmlElement("Mixer-Showers-With-System1-Without-Bath")]
-        public virtual string MixerShowersWithSystem1WithoutBath { get; set; } = null;
+        [XmlElement("WWHRS-Efficiency1")]
+        public virtual double WWHRSEfficiency1 { get; set; } = 0;
 
         [Description("Omit if no second system.")]
-        [XmlElement("Mixer-Showers-With-System2-With-Bath")]
-        public virtual string MixerShowersWithSystem2WithBath { get; set; } = null;
+        [XmlElement("WWHRS-Manufacturer1")]
+        public virtual string WWHRSManufacturer1 { get; set; } = null;
 
-        [Description("Collector 2nd order heat loss coefficient; only if declared values.")]
-        [XmlElement("Solar-Panel-Collector-Second-Order-Heat-Loss-Coefficient")]
-        public virtual string SecondOrderHeatLossCoefficient { get; set; } = null;
+        [Description("")]
+        [XmlElement("WWHRS-Model1")]
+        public virtual string WWHRSModel1 { get; set; } = null;
+
+        [Description("")]
+        [XmlElement("WWHRS-Efficiency2")]
+        public virtual double WWHRSEfficiency2 { get; set; } = 0;
 
         [Description("Omit if no second system.")]
-        [XmlElement("Mixer-Showers-With-System2-Without-Bath")]
-        public virtual string MixerShowersWithSystem2WithoutBath { get; set; } = null;
+        [XmlElement("WWHRS-Manufacturer2")]
+        public virtual string WWHRSManufacturer2 { get; set; } = null;
+
+        [Description("")]
+        [XmlElement("WWHRS-Model2")]
+        public virtual string WWHRSModel2 { get; set; } = null;
+
+
     }
 }

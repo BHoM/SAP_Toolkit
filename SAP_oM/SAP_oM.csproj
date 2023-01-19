@@ -233,6 +233,8 @@
     <Compile Include="XML\RHIExistingDwelling.cs" />
     <Compile Include="XML\RHINewDwelling.cs" />
     <Compile Include="XML\RenewableHeatIncentive.cs" />
+    <Compile Include="XML\ShowerOutlets.cs" />
+    <Compile Include="XML\ShowerOutlet.cs" />
     <Compile Include="XML\SuggestedImprovements.cs" />
     <Compile Include="XML\EnergyAssessment.cs" />
     <Compile Include="XML\EnergyUse.cs" />

@@ -34,17 +34,21 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "Wind-Turbine", IsNullable = false)]
     public class WindTurbine : IObject
     {
+        [Description("Wind turbine manufacturer name.")]
         [XmlElement(ElementName = "Wind-Turbine-Manufacturer-Name")]
-        public string ManufacturerName { get; set; }
+        public virtual string ManufacturerName { get; set; } = null;
 
+        [Description("Wind turbine certificate.")]
         [XmlElement(ElementName = "Wind-Turbine-Certificate")]
-        public string Certificate { get; set; }
+        public virtual string Certificate { get; set; } = null;
 
+        [Description("Wind turbine rotor diameter in metres")]
         [XmlElement(ElementName = "Wind-Turbine-Rotor-Diameter")]
-        public DateTime WindTurbineRotorDiameter { get; set; }
+        public virtual double RotorDiameter { get; set; } = 0;
 
+        [Description("Wind turbine hub height above building in metres.")]
         [XmlElement(ElementName = "Wind-Turbine-Hub-Height")]
-        public int WindTurbineHubHeight { get; set; }
+        public virtual double HubHeight { get; set; } = 0;
 
         
 
