@@ -33,9 +33,21 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "Solar-Heating-Details", IsNullable = false)]
     public class SolarHeatingDetails : IObject
     {
+        //[Description("")]
+        //[XmlElement(ElementName = "")]
+        //public virtual string  {get; set;} = null;
+
+        [Description("Panel manufacturer")]
+        [XmlElement(ElementName = "Solar-Heating-Collector-Manufacturer")]
+        public virtual string SolarHeatingCollectorManufacturer { get; set; } = null;
+
+        [Description("Solar-Heating-Certificate")]
+        [XmlElement(ElementName = "Solar-Heating-Certificate")]
+        public virtual string SolarHeatingCertificate { get; set; } = null;
+
         [Description("Panel aperture area in square metres.")]
         [XmlElement("Solar-Panel-Aperture-Area")]
-        public virtual string ApertureArea { get; set; } = null;
+        public virtual double ApertureArea { get; set; } = 0;
 
         [Description("Type of solar panel collector.")]
         [XmlElement("Solar-Panel-Collector-Type")]
@@ -47,19 +59,19 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Collector zero-loss efficiency; only if declared values.")]
         [XmlElement("Solar-Panel-Collector-Zero-Loss-Efficiency")]
-        public virtual string ZeroLossEfficiency { get; set; } = null;
+        public virtual double ZeroLossEfficiency { get; set; } = 0;
 
         [Description("Collector heat loss rate; for backward compatibility only, do not use.")]
         [XmlElement("Solar-Panel-Collector-Heat-Loss-Rate")]
-        public virtual string HeatLossRate { get; set; } = null;
+        public virtual double HeatLossRate { get; set; } = 0;
 
         [Description("Collector linear heat loss coefficient; only if declared values.")]
         [XmlElement("Solar-Panel-Collector-Linear-Heat-Loss-Coefficient")]
-        public virtual string LinearHeatLossCoefficient { get; set; } = null;
+        public virtual double LinearHeatLossCoefficient { get; set; } = 0;
 
         [Description("Collector 2nd order heat loss coefficient; only if declared values.")]
         [XmlElement("Solar-Panel-Collector-Second-Order-Heat-Loss-Coefficient")]
-        public virtual string SecondOrderHeatLossCoefficient { get; set; } = null;
+        public virtual double SecondOrderHeatLossCoefficient { get; set; } = 0;
 
         [Description("Collector orientation.")]
         [XmlElement("Solar-Panel-Collector-Orientation")]
@@ -75,7 +87,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("")]
         [XmlElement("Has-Solar-Powered-Pump")]
-        public virtual bool? HasSolarPoweredPump { get; set; } = null;
+        public virtual bool? HasSolarPoweredPump { get; set; } = false;
 
         [Description("")]
         [XmlElement("Is-Solar-Store-Combined-Cylinder")]
@@ -85,17 +97,34 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Solar-Store-Volume")]
         public virtual string SolarStoreVolume { get; set; } = null;
 
-        [Description("Type of showers in the property.")]
-        [XmlElement("Shower-Types")]
-        public virtual string ShowerTypes { get; set; } = null;
+        [Description("Collector loop efficiency; only if declared values.")]
+        [XmlElement("Collector-Loop-Efficiency")]
+        public virtual double CollectorLoopEfficiency { get; set; } = 0;
 
-        public bool ShouldSerializeHasSolarPoweredPump()
-        {
-            return HasSolarPoweredPump.HasValue;
-        }
-        public bool ShouldSerializeIsSolarStoreCombinedCylinder()
-        {
-            return IsSolarStoreCombinedCylinder.HasValue;
-        }
+        [Description("Incidence angle modifier; only if declared values.")]
+        [XmlElement("Incidence-Angle-Modifier")]
+        public virtual double IncidenceAngleModifier { get; set; } = 0;
+
+        [Description("")]
+        [XmlElement("Is-Community-Solar")]
+        public virtual bool? IsCommunitySolar { get; set; } = null;
+
+        [Description("")]
+        [XmlElement(ElementName = "Service-Provision")]
+        public virtual int ServiceProvision { get; set; }
+
+        [Description("Overall heat loss coefficient of system; only if declared values.")]
+        [XmlElement("Overall-Heat-Loss")]
+        public virtual double OverallHeatLoss { get; set; } = 0;
+
+
+        //public bool ShouldSerializeHasSolarPoweredPump()
+        //{
+        //    return HasSolarPoweredPump.HasValue;
+        //}
+        //public bool ShouldSerializeIsSolarStoreCombinedCylinder()
+        //{
+        //    return IsSolarStoreCombinedCylinder.HasValue;
+        //}
     }
 }

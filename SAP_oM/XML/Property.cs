@@ -33,16 +33,19 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "Property", IsNullable = false)]
     public class Property : IObject
     {
+        [Description("Address for the property.")]
         [XmlElement(ElementName = "Address")]
-        public virtual Address Address { get; set; }
+        public virtual Address Address { get; set; } = new Address();
 
-        [Description("Unique Property Reference Number")] //check - null
+        [Description("Unique Property Reference Number")] 
         [XmlElement(ElementName = "UPRN")]
-        public virtual int UniquePropertyReferenceNumber { get; set; }
+        public virtual string UniquePropertyReferenceNumber { get; set; } = null;
 
+        [Description("A site reference")]
         [XmlElement(ElementName = "Site-Reference")]
         public virtual string SiteReference { get; set; } = null;
 
+        [Description("A plot reference")]
         [XmlElement(ElementName = "Plot-Reference")]
         public virtual string PlotReference { get; set; } = null;
 

@@ -30,40 +30,11 @@ using System.Xml.Serialization;
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "Community-Heat-Source", IsNullable = false)]
-    public class CommunityHeatSource : IObject
+    [XmlRoot(ElementName = "Shower-Outlets", IsNullable = false)]
+    public class ShowerOutlets : IObject
     {
         [Description("")]
-        [XmlElement("Heat-Source-Type")]
-        public virtual string HeatSourceType { get; set; } = null;
-
-        [Description("Fraction of heat for the system provided by this heat source.")]
-        [XmlElement("Heat-Fraction")]
-        public virtual double HeatFraction { get; set; } = 0;
-
-        [Description("")]
-        [XmlElement("Fuel-Type")]
-        public virtual string FuelType { get; set; } = null;
-
-        [Description("")]
-        [XmlElement(ElementName = "PCDF-Fuel-Index")]
-        public virtual int PCDFFuelIndex { get; set; } = 0;
-
-        [Description("Heat efficiency in %.")]
-        [XmlElement("Heat-Efficiency")]
-        public virtual double HeatEfficiency { get; set; } = 0;
-
-        [Description("Power efficiency in %. Include when heat source is CHP.")]
-        [XmlElement("Power-Efficiency")]
-        public virtual double PowerEfficiency { get; set; } = 0;
-
-        [Description("")]
-        [XmlElement("Description")]
-        public virtual string Description { get; set; } = null;
-
-        [Description("")]
-        [XmlElement(ElementName = "CHP-Electricity-Generation")]
-        public virtual string CHPElectricityGeneration { get; set; } = null;
+        [XmlElement("Shower-Outlet")]
+        public virtual List<ShowerOutlet> ShowerOutlet { get; set; } = new List<ShowerOutlet>();
     }
 }
-

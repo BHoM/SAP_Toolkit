@@ -33,6 +33,18 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "SAP-Community-Heating-System", IsNullable = false)]
     public class CommunityHeatingSystem : IObject
     {
+        [Description("")]
+        [XmlElement(ElementName = "Community-Heating-Name")]
+        public virtual string CommunityHeatingName {get; set;} = null;
+
+        [Description("")]
+        [XmlElement(ElementName = "Community-Heating-CO2-Emission-Factor")]
+        public virtual double CommunityHeatingCO2EmissionFactor { get; set; } = 0;
+
+        [Description("")]
+        [XmlElement(ElementName = "Community-Heating-Primary-Energy-Factor")]
+        public virtual double CommunityHeatingPrimaryEnergyFactor { get; set; } = 0;
+
         [Description("Specifies what kind of heating the community system is used for.")]
         [XmlElement("Community-Heating-Use")]
         public virtual string CommunityHeatingUse { get; set; } = null;
@@ -40,6 +52,14 @@ namespace BH.oM.Environment.SAP.XML
         [Description("Community heating, hot water cylinder in dwelling?")]
         [XmlElement("Is-Community-Heating-Cylinder-In-Dwelling")]
         public virtual string IsCommunityHeatingCylinderInDwelling { get; set; } = null;
+
+        [Description("Heat interface unit in Dwelling?")]
+        [XmlElement(ElementName = "Is-HIU-In-Dwelling")]
+        public virtual bool? IsHeatInterfaceUnitInDwelling { get; set; } = null;
+
+        [Description("Heat Interface Unit index number, if present.")]
+        [XmlElement(ElementName = "HIU-Index-Number")]
+        public virtual int HeatInterfaceUnitIndexNumber { get; set; } = 0;
 
         [Description("Community heating distribution")]
         [XmlElement("Community-Heating-Distribution-Type")]
@@ -51,14 +71,22 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Used when Community-Heating-Distribution-Type is calculated.")]
         [XmlElement("Community-Heating-Distribution-Loss-Factor")]
-        public virtual string CommunityHeatingDistributionLossFactor { get; set; } = null;
+        public virtual double CommunityHeatingDistributionLossFactor { get; set; } = 0;
 
         [Description("Used for hot-water-only systems.")]
         [XmlElement("Charging-Linked-To-Heat-Use")]
-        public virtual string ChargingLinkedToHeatUse { get; set; } = null;
+        public virtual bool? ChargingLinkedToHeatUse { get; set; } = null;
 
         [Description("Index number of heat network, if applicable.")]
         [XmlElement("Heat-Network-Index-Number")]
-        public virtual string HeatNetworkIndexNumber { get; set; } = null;
+        public virtual int HeatNetworkIndexNumber { get; set; } = 0;
+
+        [Description("The name by which the sub community heat network is known.")]
+        [XmlElement(ElementName = "Sub-Network-Name")]
+        public virtual string SubNetworkName { get; set; } = null;
+
+        [Description("Whether the heat network is existing or new.")]
+        [XmlElement(ElementName = "Heat-Network-Existing")]
+        public virtual bool HeatNetworkExisting { get; set; } = true;
     }
 }

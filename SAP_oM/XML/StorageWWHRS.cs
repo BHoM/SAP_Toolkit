@@ -37,16 +37,21 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("WWHRS-Index-Number")]
         public virtual string WWHRSIndexNumber { get; set; } = null;
 
-        [Description("")]
-        [XmlElement("Total-Showers-And-Baths")]
-        public virtual string TotalShowersAndBaths { get; set; } = null;
-
-        [Description("")]
-        [XmlElement("Baths-And-Showers-To-WWHRS")]
-        public virtual string BathsAndShowersToWWHRS { get; set; } = null;
-
         [Description("Dedicated store volume in litres.")]
         [XmlElement("WWHRS-Store-Volume")]
-        public virtual string WWHRSStoreVolume { get; set; } = null;
+        public virtual double WWHRSStoreVolume { get; set; } = 0;
+
+        [Description("")]
+        [XmlElement("Storage-WWHRS-Efficiency")]
+        public virtual double StorageWWHRSEfficiency { get; set; } = 0;
+
+        [Description("")]
+        [XmlElement("Storage-WWHRS-Manufacturer")]
+        public virtual string StorageWWHRSManufacturer { get; set; } = null;
+
+        [Description("")]
+        [XmlElement("Storage-WWHRS-Model")]
+        public virtual string StorageWWHRSModel { get; set; } = null;
+
     }
 }

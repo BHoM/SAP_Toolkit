@@ -30,40 +30,23 @@ using System.Xml.Serialization;
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "Community-Heat-Source", IsNullable = false)]
-    public class CommunityHeatSource : IObject
+    [XmlRoot(ElementName = "Shower-Outlet", IsNullable = false)]
+    public class ShowerOutlet : IObject
     {
-        [Description("")]
-        [XmlElement("Heat-Source-Type")]
-        public virtual string HeatSourceType { get; set; } = null;
+        [Description("Hot water type for this shower outlet.")]
+        [XmlElement(ElementName = "Shower-Outlet-Type")]
+        public virtual string ShowerOutletType { get; set; } = null;
 
-        [Description("Fraction of heat for the system provided by this heat source.")]
-        [XmlElement("Heat-Fraction")]
-        public virtual double HeatFraction { get; set; } = 0;
+        [Description("The flow rate. Only when a shower is not instantaneous electric. Leave blank if NO flow limiter fitted.")]
+        [XmlElement(ElementName = "Shower-Flow-Rate")]
+        public virtual double ShowerFlowRate { get; set; } = 0;
 
-        [Description("")]
-        [XmlElement("Fuel-Type")]
-        public virtual string FuelType { get; set; } = null;
+        [Description("The shower power, only if shower outlet type is instantaneous electric.")]
+        [XmlElement(ElementName = "Shower-Power")]
+        public virtual double ShowerPower { get; set; } = 0;
 
-        [Description("")]
-        [XmlElement(ElementName = "PCDF-Fuel-Index")]
-        public virtual int PCDFFuelIndex { get; set; } = 0;
-
-        [Description("Heat efficiency in %.")]
-        [XmlElement("Heat-Efficiency")]
-        public virtual double HeatEfficiency { get; set; } = 0;
-
-        [Description("Power efficiency in %. Include when heat source is CHP.")]
-        [XmlElement("Power-Efficiency")]
-        public virtual double PowerEfficiency { get; set; } = 0;
-
-        [Description("")]
-        [XmlElement("Description")]
-        public virtual string Description { get; set; } = null;
-
-        [Description("")]
-        [XmlElement(ElementName = "CHP-Electricity-Generation")]
-        public virtual string CHPElectricityGeneration { get; set; } = null;
+        [Description("The WWHRS with which the shower is connected. If shower outlet type is instantaneous electric shower then only a storage WWHRS can be selected or none.")]
+        [XmlElement(ElementName = "Shower-WWHRS")]
+        public virtual string ShowerWWHRS { get; set; } = null;
     }
 }
-
