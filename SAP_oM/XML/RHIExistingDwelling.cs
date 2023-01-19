@@ -35,34 +35,34 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("Space heating requirement for existing dwelling.")]
         [XmlElement(ElementName = "Space - Heating - Existing - Dwelling")]
-        public string SpaceHeatingExistingDwelling { get; set; }
+        public virtual double SpaceHeatingExistingDwelling { get; set; } = 0;
 
-        [Description("")]
+        [Description("For backwards compatibility only, do not use")]
         [XmlElement(ElementName = "Space-Heating-With-Loft-Insulation")]
-        public string SpaceHeatingWithLoftInsulation { get; set; }
+        public virtual double SpaceHeatingWithLoftInsulation { get; set; } = 0;
 
-        [Description("Space-Heating-With-Cavity-Insulation")]
+        [Description("For backwards compatibility only, do not use")]
         [XmlElement(ElementName = "Space-Heating-With-Cavity-Insulation")]
-        public string SpaceHeatingWithCavityInsulation {get; set;}
+        public virtual double SpaceHeatingWithCavityInsulation { get; set; } = 0;
 
-        [Description("")]
+        [Description("For backwards compatibility only, do not use")]
         [XmlElement(ElementName = "Space-Heating-With-Loft-And-Cavity-Insulation")]
-        public string SpaceHeatingWithLoftAndCavityInsulation {get; set;}
+        public virtual double SpaceHeatingWithLoftAndCavityInsulation { get; set; } = 0;
 
-        [Description("")]
+        [Description("Water heating requirement.")]
         [XmlElement(ElementName = "Water-Heating")]
-        public string WaterHeating { get; set; }
+        public virtual double WaterHeating { get; set; } = 0;
 
-        [Description("")]
+        [Description("Reduction in space heating requirement with loft insulation")]
         [XmlElement(ElementName = "Impact-Of-Loft-Insulation")]
-        public string ImpactOfLoftInsulation { get; set; }
+        public virtual int ImpactOfLoftInsulation { get; set; } = -1;
 
-        [Description("Impact-Of-Cavity-Insulation")]
-        [XmlElement(ElementName = "")]
-        public string ImpactOfCavityInsulation { get; set; }
+        [Description("Reduction in space heating requirement with cavity insulation")]
+        [XmlElement(ElementName = "Impact-Of-Cavity-Insulation")]
+        public virtual int ImpactOfCavityInsulation { get; set; } = -1;
 
-        [Description("")]
+        [Description("Reduction in space heating requirement with solid wall insulation ")]
         [XmlElement(ElementName = "Impact-Of-Solid-Wall-Insulation")]
-        public string ImpactOfSolidWallInsulation { get; set; }
+        public virtual int ImpactOfSolidWallInsulation { get; set; } = -1;
     }
 }

@@ -35,7 +35,7 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("Various measurements for the floor of a particular storey.")]
         [XmlElement("SAP-Floor-Dimension")]
-        public virtual List<FloorDimension> FloorDimension { get; set; } = new List<FloorDimension>();
+        public virtual List<FloorDimension> FloorDimension { get; set; } = null;
 
     }
 }

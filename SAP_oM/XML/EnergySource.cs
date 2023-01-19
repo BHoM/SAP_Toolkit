@@ -34,27 +34,33 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "SAP-Energy-Source", IsNullable = false)]
     public class EnergySource : IObject
     {
-
+        [Description("")]
         [XmlElement("PV-Arrays")]
         public virtual PhotovoltaicArrays PhotovoltaicArrays { get; set; } = null;
 
+        [Description("")]
         [XmlElement(ElementName = "Wind-Turbines")]
-        public WindTurbines WindTurbines { get; set; }
+        public virtual WindTurbines WindTurbines { get; set; } = null;
 
+        [Description("")]
         [XmlElement(ElementName = "Electricity-Tariff")]
-        public int ElectricityTariff { get; set; }
+        public virtual string ElectricityTariff { get; set; } = "1";
 
+        [Description("")]
         [XmlElement(ElementName = "Hydro-Electric-Generation")]
-        public int HydroElectricGeneration { get; set; }
+        public virtual double HydroElectricGeneration { get; set; } = 0;
 
+        [Description("")]
         [XmlElement(ElementName = "Hydro-Electric-Certificate")]
-        public string HydroElectricCertificate { get; set; }
+        public virtual string HydroElectricCertificate { get; set; } = null;
 
+        [Description("")]
         [XmlElement(ElementName = "Hydro-Electric-Generation-Months")]
-        public HydroElectricGenerationMonths HydroElectricGenerationMonths { get; set; }
+        public virtual HydroElectricGenerationMonths HydroElectricGenerationMonths { get; set; } = null;
 
+        [Description("")]
         [XmlElement(ElementName = "Is-Hydro-Output-Connected-To-Dwelling-Meter")]
-        public bool IsHydroOutputConnectedToDwellingMeter { get; set; } = false;
+        public virtual bool IsHydroOutputConnectedToDwellingMeter { get; set; } = false;
 
     }
 }

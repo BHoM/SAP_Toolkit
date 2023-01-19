@@ -35,10 +35,10 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("Emissions saved in kg/year.")]
         [XmlElement("Emissions-Saved")]
-        public virtual string EmissionsSaved { get; set; } = null;
+        public virtual double EmissionsSaved { get; set; } = 0;
 
         [Description("Additional emissions in kg/year.")]
         [XmlElement("Emissions-Created")]
-        public virtual string EmissionsCreated { get; set; } = null;
+        public virtual double EmissionsCreated { get; set; } = 0;
     }
 }

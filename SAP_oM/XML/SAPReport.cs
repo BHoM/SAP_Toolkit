@@ -72,19 +72,19 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("")]
         [XmlElement(ElementName = "Report-Header")]
-        public virtual ReportHeader ReportHeader { get; set; } = new ReportHeader();
+        public virtual ReportHeader ReportHeader { get; set; } = null;
 
         [Description("")]
         [XmlElement(ElementName = "Energy-Assessment")]
-        public virtual EnergyAssessment EnergyAssessment { get; set; } = new EnergyAssessment();
+        public virtual EnergyAssessment EnergyAssessment { get; set; } = null;
 
         [Description("")]
         [XmlElement(ElementName = "SAP10-Data")] 
-        public virtual SAP10Data SAP10Data { get; set; } = new SAP10Data();
+        public virtual SAP10Data SAP10Data { get; set; } = null;
 
         [Description("Details of the Professional Indemnity Insurance policy used to provide cover against a compensation claim against any particular Home Condition Report.")]
         [XmlElement(ElementName = "Insurance-Details")] 
-        public virtual InsuranceDetails InsuranceDetails { get; set; } = new InsuranceDetails();
+        public virtual InsuranceDetails InsuranceDetails { get; set; } =null;
 
         [Description("A number indicating the version of related ExternalDefinitions")]
         [XmlElement(ElementName = "ExternalDefinitions-Revision-Number")] 
@@ -92,15 +92,15 @@ namespace BH.oM.Environment.SAP.XML
 
         //PDF element in schema?? with type base64binary
         //[XmlAttribute(AttributeName = "xmlns")]
-        //public string Xmlns { get; set; }
+        //public virtual string Xmlns { get; set; }
 
         //[XmlAttribute(AttributeName = "xsi")]
-        //public string Xsi { get; set; }
+        //public virtual string Xsi { get; set; }
 
         //[XmlAttribute(AttributeName = "schemaLocation")]
-        //public string SchemaLocation { get; set; }
+        //public virtual string SchemaLocation { get; set; }
 
         //[XmlText]
-        //public string Text { get; set; }
+        //public virtual string Text { get; set; }
     }
 }

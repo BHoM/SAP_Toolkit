@@ -35,11 +35,11 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("The unique identifier assigned to the assessor by the scheme by which they can be identified throughout their membership of the scheme.")]
         [XmlElement(ElementName = "Certificate-Number")]
-        public string CertificateNumber { get; set; }
+        public virtual string CertificateNumber { get; set; } = null;
 
         [Description("For Scottish DEAs only")]
         [XmlElement(ElementName = "Membership-Number")]
-        public virtual string MembershipNumber { get; set; }
+        public virtual string MembershipNumber { get; set; } = null;
 
 
     }

@@ -33,31 +33,41 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "Improvement", IsNullable = false)]
     public class Improvement : IObject
     {
+        [Description("")]
+        [XmlElement("Sequence")]
+        public virtual int Sequence { get; set; } = 0;
 
-        [XmlElement(ElementName = "Improvement-Category")] //check docu
-        public int ImprovementCategory { get; set; }
+        [Description("")]
+        [XmlElement(ElementName = "Improvement-Category")]
+        public virtual string ImprovementCategory { get; set; } = "5";
 
+        [Description("")]
         [XmlElement(ElementName = "Improvement-Type")]
-        public string ImprovementType { get; set; }
+        public virtual string ImprovementType { get; set; } = null;
 
+        [Description("")]
         [XmlElement(ElementName = "Typical-Saving")]
-        public Money TypicalSaving { get; set; }
+        public Money TypicalSaving { get; set; } = null;
 
-        [XmlElement(ElementName = "Energy-Performance-Rating")] //check - null
-        public int EnergyPerformanceRating { get; set; }
+        [Description("")]
+        [XmlElement(ElementName = "Energy-Performance-Rating")]
+        public virtual int EnergyPerformanceRating { get; set; } = 0;
 
+        [Description("")]
         [XmlElement(ElementName = "Environmental-Impact-Rating")]
-        public int EnvironmentalImpactRating { get; set; }
+        public virtual int EnvironmentalImpactRating { get; set; } = 0;
 
+        [Description("")]
         [XmlElement(ElementName = "Improvement-Details")]
-        public ImprovementDetails ImprovementDetails { get; set; }
+        public ImprovementDetails ImprovementDetails { get; set; } = null;
 
+        [Description("")]
         [XmlElement(ElementName = "Indicative-Cost")]
-        public string IndicativeCost { get; set; }
+        public virtual string IndicativeCost { get; set; } = null;
 
+        [Description("")]
         [XmlElement(ElementName = "Green-Deal-Category")]
-        public string GreenDealCategory { get; set; }
-
+        public virtual string GreenDealCategory { get; set; } = "NI";
     }
 }
 

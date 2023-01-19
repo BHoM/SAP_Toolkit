@@ -34,13 +34,13 @@ namespace BH.oM.Environment.SAP.XML
     public class PropertySummaryType : IObject
     {
         [XmlElement(ElementName = "Description")]
-        public string Description { get; set; }
+        public virtual string Description { get; set; } = null;
 
         [XmlElement(ElementName = "Energy-Efficiency-Rating")]
-        public int EnergyEfficiencyRating { get; set; }
+        public virtual string EnergyEfficiencyRating { get; set; } = null;
 
         [XmlElement(ElementName = "Environmental-Efficiency-Rating")]
-        public int EnvironmentalEfficiencyRating { get; set; }
+        public virtual string EnvironmentalEfficiencyRating { get; set; } = null;
 
     }
 }

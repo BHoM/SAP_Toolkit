@@ -35,6 +35,6 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("")]
         [XmlElement("PV-Array")]
-        public virtual PhotovoltaicArray PhotovoltaicArray { get; set; } = new PhotovoltaicArray();
+        public virtual List<PhotovoltaicArray> PhotovoltaicArray { get; set; } = null;
     }
 }

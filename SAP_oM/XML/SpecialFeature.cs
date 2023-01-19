@@ -39,10 +39,9 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("")]
         [XmlElement("Energy-Feature")]
-        public virtual EnergyFeature EnergyFeature { get; set; } = new EnergyFeature();
-
+        public virtual EnergyFeature EnergyFeature { get; set; } = null;
         [Description("")]
         [XmlElement("Emissions-Feature")]
-        public virtual EmissionFeature EmissionsFeature { get; set; } = new EmissionFeature();
+        public virtual EmissionFeature EmissionsFeature { get; set; } = null;
     }
 }

@@ -50,7 +50,5 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "Wind-Turbine-Hub-Height")]
         public virtual double HubHeight { get; set; } = 0;
 
-        
-
     }
 }

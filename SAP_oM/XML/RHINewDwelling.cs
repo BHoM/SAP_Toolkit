@@ -33,10 +33,12 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "RHI-New-Dwelling", IsNullable = false)]
     public class RHINewDwelling : IObject
     {
+        [Description("Space heating requirement.")]
         [XmlElement(ElementName = "Space-Heating")]
-        public int SpaceHeating { get; set; }
+        public virtual double SpaceHeating { get; set; } = 0;
 
+        [Description("Water heating requirement.")]
         [XmlElement(ElementName = "Water-Heating")]
-        public int WaterHeating { get; set; }
+        public virtual double WaterHeating { get; set; } = 0;
     }
 }

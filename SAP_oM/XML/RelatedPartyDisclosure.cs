@@ -36,7 +36,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("")]
         [XmlElement(ElementName = "Related-Party-Disclosure-Number")] //check - null , should be "0" maybe enum?
-        public virtual int RelatedPartyDisclosureNumber { get; set; } = 0;
+        public virtual string RelatedPartyDisclosureNumber { get; set; } = "1";
 
         [Description("")]
         [XmlElement(ElementName = "Related-Party-Disclosure-Text")]

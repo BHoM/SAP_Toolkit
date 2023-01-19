@@ -35,7 +35,7 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("Address for the property.")]
         [XmlElement(ElementName = "Address")]
-        public virtual Address Address { get; set; } = new Address();
+        public virtual Address Address { get; set; } = null;
 
         [Description("Unique Property Reference Number")] 
         [XmlElement(ElementName = "UPRN")]

@@ -68,7 +68,7 @@ namespace BH.oM.Environment.SAP.XML
         [Description("For backwards compatibility only, do not use.")]
         [XmlElement(ElementName = "Special-Feature-Description")]
         public virtual string SpecialFeatureDescription { get; set; } = null;
--
+
         [Description("For backwards compatibility only, do not use.")]
         [XmlElement(ElementName = "Energy-Saved-Or-Generated")]
         public virtual double EnergySavedOrGenerated { get; set; } = 0;
@@ -135,27 +135,27 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("")]
         [XmlElement(ElementName = "SAP-Heating")]
-        public virtual Heating Heating { get; set; } = new Heating();
+        public virtual Heating Heating { get; set; } = null;
 
         [Description("")]
         [XmlElement(ElementName = "SAP-Energy-Source")]
-        public virtual EnergySource EnergySource { get; set; } = new EnergySource();
+        public virtual EnergySource EnergySource { get; set; } = null;
 
         [Description("Details of the significant building parts that comprise the main habitable building in the property.")]
         [XmlElement(ElementName = "SAP-Building-Parts")]
-        public virtual BuildingParts BuildingParts { get; set; } = new BuildingParts();
+        public virtual BuildingParts BuildingParts { get; set; } = null;
 
         [Description("Types of exposed openings that make up a particular property.")]
         [XmlElement(ElementName = "SAP-Opening-Types")]
-        public virtual OpeningTypes OpeningTypes { get; set; } = new OpeningTypes();
+        public virtual OpeningTypes OpeningTypes { get; set; } = null;
 
         [Description("Details of the means by which the building is ventilated")]
         [XmlElement(ElementName = "SAP-Ventilation")]
-        public virtual Ventilation Ventilation { get; set; } = new Ventilation();
+        public virtual Ventilation Ventilation { get; set; } = null;
 
         [Description("Details of the main lighting for the property")]
         [XmlElement(ElementName = "SAP-Lighting")]
-        public virtual Lighting Lighting { get; set; } = new Lighting();
+        public virtual Lighting Lighting { get; set; } = null;
 
         [Description("")]
         [XmlElement("SAP-Deselected-Improvements")]
@@ -163,7 +163,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Detials of location of flat in building")]
         [XmlElement("SAP-Flat-Details")]
-        public virtual FlatDetails FlatDetails { get; set; } = new FlatDetails();
+        public virtual FlatDetails FlatDetails { get; set; } = null;
 
         [Description("")]
         [XmlElement(ElementName = "SAP-Special-Features")]

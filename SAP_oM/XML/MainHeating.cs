@@ -145,12 +145,6 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Has-Separate-Delayed-Start")]
         public virtual bool? HasSeparateDelayedStart { get; set; } = null;
 
-
-
-        //[Description("For backward compatibility only, do not use.")]
-        //[XmlElement("Has-Load-Or-Weather-Compensation")]
-        //public virtual bool? HasLoadOrWeatherCompensation { get; set; } = null;
-
         [Description("The type of boiler fuel feed; only if solid fuel boiler with manufacturer declaration.")]
         [XmlElement("Boiler-Fuel-Feed")]
         public virtual string BoilerFuelFeed { get; set; } = null;
@@ -162,10 +156,6 @@ namespace BH.oM.Environment.SAP.XML
         [Description("Electric CPSU operating temperature in Celcius; only if main heating is electric CPSU.")]
         [XmlElement("Electric-CPSU-Operating-Temperature")]
         public virtual double ElectricCPSUOperatingTemperature { get; set; } = 0;
-
-        //[Description("Has load or weather compensation?")]
-        //[XmlElement("Load-Or-Weather-Compensation")]
-        //public virtual string LoadOrWeatherCompensation { get; set; } = null;
 
         [Description("Fraction of main heating provided by this system, is 1 if only one main system.")]
         [XmlElement("Main-Heating-Fraction")]
@@ -249,43 +239,43 @@ namespace BH.oM.Environment.SAP.XML
 
 
 
-        //public bool ShouldSerializeIsMainHeatingHETASApproved()
+        //public virtual bool ShouldSerializeIsMainHeatingHETASApproved()
         //{
         //    return IsMainHeatingHETASApproved.HasValue;
         //}
-        //public bool ShouldSerializeIsCondensingBoiler()
+        //public virtual bool ShouldSerializeIsCondensingBoiler()
         //{
         //    return IsCondensingBoiler.HasValue;
         //}
-        //public bool ShouldSerializeIsFlueFanPresent()
+        //public virtual bool ShouldSerializeIsFlueFanPresent()
         //{
         //    return IsFlueFanPresent.HasValue;
         //}
-        //public bool ShouldSerializeIsCentralHeatingPumpInHeatedSpace()
+        //public virtual bool ShouldSerializeIsCentralHeatingPumpInHeatedSpace()
         //{
         //    return IsCentralHeatingPumpInHeatedSpace.HasValue;
         //}
-        //public bool ShouldSerializeIsOilPumpInHeatedSpace()
+        //public virtual bool ShouldSerializeIsOilPumpInHeatedSpace()
         //{
         //    return IsOilPumpInHeatedSpace.HasValue;
         //}
-        //public bool ShouldSerializeIsInterLockedSystem()
+        //public virtual bool ShouldSerializeIsInterLockedSystem()
         //{
         //    return IsInterLockedSystem.HasValue;
         //}
-        //public bool ShouldSerializeHasSeparateDelayedStart()
+        //public virtual bool ShouldSerializeHasSeparateDelayedStart()
         //{
         //    return HasSeparateDelayedStart.HasValue;
         //}
-        //public bool ShouldSerializeHasLoadOrWeatherCompensation()
+        //public virtual bool ShouldSerializeHasLoadOrWeatherCompensation()
         //{
         //    return HasLoadOrWeatherCompensation.HasValue;
         //}
-        //public bool ShouldSerializeHasFGHRS()
+        //public virtual bool ShouldSerializeHasFGHRS()
         //{
         //    return HasFGHRS.HasValue;
         //}
-        //public bool ShouldSerializeMCSInstalledHeatPump()
+        //public virtual bool ShouldSerializeMCSInstalledHeatPump()
         //{
         //    return MCSInstalledHeatPump.HasValue;
         //}

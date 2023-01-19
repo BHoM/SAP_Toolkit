@@ -33,52 +33,68 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "Report-Header", IsNullable = false)]
     public class ReportHeader : IObject
     {
+        [Description("Report Reference Number is the unique report Identifier that the report will be publicly known by.")]
         [XmlElement(ElementName = "RRN")]
-        public string ReportReferenceNumber { get; set; }
+        public virtual string ReportReferenceNumber { get; set; } = null;
 
+        [Description("The date that the inspection was actually carried out by the Home Inspector.")]
         [XmlElement(ElementName = "Inspection-Date")]
-        public DateTime InspectionDate { get; set; }
+        public virtual DateTime InspectionDate { get; set; } = DateTime.Now;
 
-        [XmlElement(ElementName = "Report-Type")] //check - null, enum?
-        public int ReportType { get; set; }
+        [Description("The type of Home Inspection that was carried out.")]
+        [XmlElement(ElementName = "Report-Type")]
+        public virtual string ReportType { get; set; } = "3";
 
+        [Description("The date that the Home Inspector completed the report.")]
         [XmlElement(ElementName = "Completion-Date")]
-        public DateTime CompletionDate { get; set; }
+        public virtual DateTime CompletionDate { get; set; } = DateTime.Now;
 
+        [Description("The date that the report was submitted to the HCR Registration Organisation for lodging in the HCR Register.")]
         [XmlElement(ElementName = "Registration-Date")]
-        public DateTime RegistrationDate { get; set; }
+        public virtual DateTime RegistrationDate { get; set; } = DateTime.Now;
 
-        [XmlElement(ElementName = "Status")] //check - null, enum?
-        public string Status { get; set; }
+        [Description("The Status of the Report.")]
+        [XmlElement(ElementName = "Status")]
+        public virtual string Status { get; set; } = "entered";
 
-        [XmlElement(ElementName = "Language-Code")] //check - null, ennum?
-        public int LanguageCode { get; set; }
+        [Description("The language that the report is written in.")]
+        [XmlElement(ElementName = "Language-Code")] 
+        public virtual string LanguageCode { get; set; } = "1";
 
-        [XmlElement(ElementName = "Tenure")] //check - null, ennum?
-        public string Tenure { get; set; }
+        [Description("")]
+        [XmlElement(ElementName = "Tenure")]
+        public virtual string Tenure { get; set; } = "3";
 
-        [XmlElement(ElementName = "Transaction-Type")] //check - null, ennum?
-        public int TransactionType { get; set; }
+        [Description("")]
+        [XmlElement(ElementName = "Transaction-Type")]
+        public virtual string TransactionType { get; set; } = "6";
 
-        [XmlElement(ElementName = "Seller-Commission-Report")] //check - null, ennum?
-        public string SellerCommissionReport { get; set; }
+        [Description("")]
+        [XmlElement(ElementName = "Seller-Commission-Report")]
+        public virtual string SellerCommissionReport { get; set; } = null;
 
+        [Description("Describes the type of Property that is being inspected. This should be the same as the Property-Type recorded in the Property-Details section.")]
         [XmlElement(ElementName = "Property-Type")] //check - null, ennum?
-        public int PropertyType { get; set; }
+        public virtual string PropertyType { get; set; } = "2";
 
+        [Description("")]
         [XmlElement(ElementName = "Home-Inspector")]
-        public HomeInspector HomeInspector { get; set; }
+        public virtual HomeInspector HomeInspector { get; set; } = null;
 
+        [Description("")]
         [XmlElement(ElementName = "Property")]
-        public Property Property { get; set; }
+        public virtual Property Property { get; set; } = null;
 
+        [Description("")]
         [XmlElement(ElementName = "Region-Code")]
-        public int RegionCode { get; set; }
+        public virtual string RegionCode { get; set; } = "6"; //means the midlands
 
+        [Description("")]
         [XmlElement(ElementName = "Country-Code")]
-        public string CountryCode { get; set; }
+        public virtual string CountryCode { get; set; } = "ENG";
 
+        [Description("")]
         [XmlElement(ElementName = "Related-Party-Disclosure")]
-        public RelatedPartyDisclosure RelatedPartyDisclosure { get; set; }
+        public virtual RelatedPartyDisclosure RelatedPartyDisclosure { get; set; } = null;
     }
 }

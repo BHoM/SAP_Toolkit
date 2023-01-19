@@ -34,25 +34,25 @@ namespace BH.oM.Environment.SAP.XML
     public class EnergyAssessment : IObject
     {
         [XmlElement(ElementName = "Assessment-Date")]
-        public DateTime AssessmentDate { get; set; }
+        public virtual DateTime AssessmentDate { get; set; } = default(DateTime);
 
         [XmlElement(ElementName = "Property-Summary")]
-        public PropertySummary PropertySummary { get; set; }
+        public virtual PropertySummary PropertySummary { get; set; } = null;
 
         [XmlElement(ElementName = "Energy-Use")]
-        public EnergyUse EnergyUse { get; set; }
+        public virtual EnergyUse EnergyUse { get; set; } = null;
 
         [XmlElement(ElementName = "Suggested-Improvements")]
-        public SuggestedImprovements SuggestedImprovements { get; set; }
+        public virtual SuggestedImprovements SuggestedImprovements { get; set; } = null;
 
         [XmlElement(ElementName = "LZC-Energy-Sources")]
-        public LowZeroCarbonEnergySources LowZeroCarbonEnergySources { get; set; }
+        public virtual LowZeroCarbonEnergySources LowZeroCarbonEnergySources { get; set; } = null;
 
         [XmlElement(ElementName = "Renewable-Heat-Incentive")]
-        public RenewableHeatIncentive RenewableHeatIncentive { get; set; }
+        public virtual RenewableHeatIncentive RenewableHeatIncentive { get; set; } = null;
 
         //may need to include: Green-Deal-Package, Alternative-Improvements (Type:suggested-improvements), Addendum (Type:Addendum)
 
-        
+
     }
 }

@@ -60,7 +60,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Do not use, for backwards compatibility only.")]
         [XmlElement("Fans-Vents-Count")]
-        public virtual int FansVentCount { get; set; } =  = 0;
+        public virtual int FansVentCount { get; set; } = 0;
 
         [Description("The number of flueless gas fires in the Property.")]
         [XmlElement(ElementName = "Flueless-Gas-Fires-Count")]
