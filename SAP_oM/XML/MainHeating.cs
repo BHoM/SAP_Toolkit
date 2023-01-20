@@ -39,7 +39,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Category of heating system for the main heating system.")]
         [XmlElement("Main-Heating-Category")]
-        public virtual string MainHeatingCategory { get; set; } = null;
+        public virtual string MainHeatingCategory { get; set; } = "1";
 
         [Description("Source of main heating system data.")]
         [XmlElement("Main-Heating-Data-Source")]
@@ -71,11 +71,11 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("The temperature distribution of the condensing boiler.")]
         [XmlElement("Condensing-Boiler-Heat-Distribution")]
-        public virtual int CondensingBoilerHeatDistribution { get; set; } = 80;
+        public virtual string CondensingBoilerHeatDistribution { get; set; } = "80";
 
         [Description("The temperature distribution of the heat pump, for wet systems only.")]
         [XmlElement("Heat-Pump-Heat-Distribution")]
-        public virtual int HeatPumpHeatDistribution { get; set; } = 80;
+        public virtual string HeatPumpHeatDistribution { get; set; } = "80";
 
         [Description("Boiler type; if boiler efficiency is manufacturer declaration and fuel is gas or oil.")]
         [XmlElement("Gas-Or-Oil-Boiler-Type")]
@@ -87,11 +87,11 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Case heat emission at full load in kW; if it is a range cooker boiler and boiler efficiency is manufacturer declaration.")]
         [XmlElement("Case-Heat-Emission")]
-        public virtual double CaseHeatEmission { get; set; } = 0;
+        public virtual string CaseHeatEmission { get; set; } = null;
 
         [Description("Heat transfer to water at full load in kW; if it is a range cooker boiler and boiler efficiency is manufacturer declaration.")]
         [XmlElement("Heat-Transfer-To-Water")]
-        public virtual double HeatTransferToWater { get; set; } = 0;
+        public virtual string HeatTransferToWater { get; set; } = "0";
 
         [Description("Boiler type; if boiler efficiency is manufacturer declaration and fuel is solid.")]
         [XmlElement("Solid-Fuel-Boiler-Type")]
@@ -191,7 +191,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("FGHRS index number; only if FGHRS")]
         [XmlElement("FGHRS-Index-Number")]
-        public virtual int FGHRSIndexNumber { get; set; } = 0;
+        public virtual string FGHRSIndexNumber { get; set; } = "0";
 
         [Description("")]
         [XmlElement("FGHRS-Energy-Source")]

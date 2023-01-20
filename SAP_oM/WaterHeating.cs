@@ -31,11 +31,11 @@ namespace BH.oM.Environment.SAP
     [Description("Strategy for the ventilation of the dwelling.")]
     public class WaterHeating : BHoMObject
     {
+        [Description("")]
+        public virtual HeatingFuelTypeCode Fuel { get; set; } = new HeatingFuelTypeCode();
+
         [Description("The type of Water Heating present in the Property. Code which indicates the type of heating system, as defined in SAP table 4a (codes 901-999).")]
         public virtual string Type { get; set; } = null;
-
-        [Description("")] 
-        public virtual HeatingFuelTypeCode Fuel { get; set; } = new HeatingFuelTypeCode();
 
         [Description("")]
         public virtual CylinderSpecification CylinderSpecification { get; set; } = null;

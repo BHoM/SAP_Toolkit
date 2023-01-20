@@ -80,7 +80,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("")]
         [XmlElement(ElementName = "SAP10-Data")] 
-        public virtual SAP10Data SAP10Data { get; set; } = null;
+        public virtual SAP10Data SAP10Data { get; set; } = new SAP10Data();
 
         [Description("Details of the Professional Indemnity Insurance policy used to provide cover against a compensation claim against any particular Home Condition Report.")]
         [XmlElement(ElementName = "Insurance-Details")] 

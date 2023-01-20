@@ -1103,7 +1103,8 @@ namespace BH.Engine.Environment.SAP
         public EnergyAssessment EnergyAssessment { get; set; }
 
         [XmlElement(ElementName = "SAP2012-Data")]
-        public BH.oM.Environment.SAP.XML.SAP2012Data SAP2012Data { get; set; }
+        public BH.oM.Environment.SAP.XML.SAP10Data SAP10Data { get; set; }
+        //public BH.oM.Environment.SAP.XML.SAP2012Data SAP2012Data { get; set; }
 
         [XmlElement(ElementName = "Insurance-Details")]
         public InsuranceDetails InsuranceDetails { get; set; }

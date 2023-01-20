@@ -24,17 +24,24 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base;
 
-namespace BH.oM.Environment.SAP.XML
+namespace BH.oM.Environment.SAP
 {
-    [Serializable]
-    [XmlRoot(ElementName = "Storage-Heaters", IsNullable = false)]
-    public class StorageHeaters : IObject
+    [Description("Strategy for the ventilation of the dwelling.")]
+    public class InstantaneousWWHRSSystem : BHoMObject
     {
+        [Description("WWHRS-Index-Number1")]
+        public virtual int IndexNumber { get; set; } = 1;
+
         [Description("")]
-        [XmlElement("Storage-Heater")]
-        public virtual StorageHeater StorageHeater { get; set; } = null;
+        public virtual double Efficiency { get; set; } = 0;
+
+        [Description("Omit if no second system.")]
+        public virtual string Manufacturer { get; set; } = null;
+
+        [Description("")]
+        public virtual string Model { get; set; } = null;
     }
 }

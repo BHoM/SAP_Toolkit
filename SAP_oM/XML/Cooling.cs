@@ -35,7 +35,7 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("Cooled-Area")]
         [XmlElement("Cooled-Area")]
-        public virtual double CooledArea { get; set; } = 0;
+        public virtual string CooledArea { get; set; } = "0";
 
         [Description("Cooling-System-Data-Source")]
         [XmlElement("Cooling-System-Data-Source")]
@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("System-Energy Efficiency Ratio.  Data set includes either class or EER, not both.")]
         [XmlElement("System-Energy-Efficiency-Ratio")]
-        public virtual double CoolingSystemSEER { get; set; } = 0;
+        public virtual string CoolingSystemSEER { get; set; } ="0";
 
     }
 }
