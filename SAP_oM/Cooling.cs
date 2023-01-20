@@ -31,23 +31,12 @@ namespace BH.oM.Environment.SAP
     [Description("Strategy for the ventilation of the dwelling.")]
     public class Cooling : BHoMObject
     {
-        [Description("")]
-        public virtual string Type { get; set; } = null;
 
         [Description("")] //enum A-G plus unknown
         public virtual string EnergyLabel { get; set; } = null;
 
-        [Description("EER measured in accordance with BS EN 14511")]
-        public virtual bool? MeasuredEER { get; set; } = null;
-
         [Description("")]
-        public virtual string Description { get; set; } = null;
-
-        [Description("")]
-        public virtual string EER { get; set; } = null;
-
-        [Description("")]
-        public virtual string CompressorControl { get; set; } = null;
+        public virtual string SEER { get; set; } = null;
 
         [Description("")]
         public virtual string CooledArea { get; set; } = null;

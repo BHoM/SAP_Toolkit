@@ -43,7 +43,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("The size of the living area in square metres.  The living area is the room marked on a plan as the lounge or living room, or the largest public room (irrespective of usage by particular occupants), together with any rooms not separated from the lounge or living room by doors, and including any cupboards directly accessed from the lounge or living room. Living area does not, however, extend over more than one storey, even when stairs enter the living area directly.")]
         [XmlElement("Living-Area")]
-        public virtual double LivingArea { get; set; } = 0;
+        public virtual string LivingArea { get; set; } = "0";
 
         [Description("The Area of the lowest storey in square meters including unheated or communal areas such as garages or corridors.")]
         [XmlElement("Lowest-Storey-Area")]

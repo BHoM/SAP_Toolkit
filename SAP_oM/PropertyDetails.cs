@@ -24,7 +24,10 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Xml.Serialization;
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
+using BH.oM.Environment.SAP.XML;
 
 namespace BH.oM.Environment.SAP
 {
@@ -43,6 +46,12 @@ namespace BH.oM.Environment.SAP
         [Description("The orientation of the front of the property. Default = 3 (East).")]
         public virtual string Orientation { get; set; } = "3";
 
+        [Description("The Area of the lowest storey in square meters including unheated or communal areas such as garages or corridors.")]
+        public virtual string LowestStoreyArea { get; set; } = "0";
+
+        [Description("The average amount of overshading of windows.")]
+        public virtual oM.Environment.SAP.WindowOvershading Overshading { get; set; } = oM.Environment.SAP.WindowOvershading.AverageOrUnknown;
+
         [Description("")]
         public virtual Heating Heating { get; set; } = null;
 
@@ -50,7 +59,14 @@ namespace BH.oM.Environment.SAP
         public virtual List<BuildingPart> BuildingParts { get; set; } = null;
 
         [Description("")]
+        public virtual List<OpeningType> OpeningTypes { get; set; } = null;
+
+        [Description("")]
         public virtual Ventilation Ventilation { get; set; } = null;
+
+        [Description("")]
+        public virtual Cooling Cooling { get; set; } = null;
     }
+
 }
 

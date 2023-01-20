@@ -20,31 +20,31 @@
 // * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
 // */
 
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-//using System.ComponentModel;
-//using BH.oM.Base.Attributes;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
+using BH.oM.Base.Attributes;
 
-//namespace BH.Engine.Environment.SAP
-//{
-//    public static partial class Convert
-//    {
-//        [Description("Convert SAP thermal bridge to XML thermal bridge.")]
-//        [Input("sapThermalBridge", "SAP thermal bridge to convert.")]
-//        [Output("xmlThermalBridge", "XML thermal bridge.")]
-//        public static BH.oM.Environment.SAP.XML.ThermalBridge ToXML(this BH.oM.Environment.SAP.ThermalBridge sapThermalBridge)
-//        {
-//            BH.oM.Environment.SAP.XML.ThermalBridge xmlThermalBridge = new BH.oM.Environment.SAP.XML.ThermalBridge();
-//            xmlThermalBridge.Type = sapThermalBridge.Reference;
-//            xmlThermalBridge.Length = sapThermalBridge.Length;
-//            xmlThermalBridge.PsiValue = sapThermalBridge.PsiValue;
-//            xmlThermalBridge.Source = sapThermalBridge.Source;
+namespace BH.Engine.Environment.SAP
+{
+    public static partial class Convert
+    {
+        [Description("Convert SAP thermal bridge to XML thermal bridge.")]
+        [Input("sapThermalBridge", "SAP thermal bridge to convert.")]
+        [Output("xmlThermalBridge", "XML thermal bridge.")]
+        public static BH.oM.Environment.SAP.XML.ThermalBridge ToXML(this BH.oM.Environment.SAP.ThermalBridge sapThermalBridge)
+        {
+            BH.oM.Environment.SAP.XML.ThermalBridge xmlThermalBridge = new BH.oM.Environment.SAP.XML.ThermalBridge();
+            xmlThermalBridge.Type = sapThermalBridge.Reference;
+            xmlThermalBridge.Length = sapThermalBridge.Length;
+            xmlThermalBridge.PsiValue = sapThermalBridge.PsiValue;
+            xmlThermalBridge.Source = sapThermalBridge.Source;
 
-//            return xmlThermalBridge;
-//        }
-//    }
-//}
+            return xmlThermalBridge;
+        }
+    }
+}
 

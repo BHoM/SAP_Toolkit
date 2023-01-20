@@ -20,64 +20,64 @@
 // * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
 // */
 
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-//using System.ComponentModel;
-//using BH.oM.Base.Attributes;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
+using BH.oM.Base.Attributes;
 
-//namespace BH.Engine.Environment.SAP
-//{
-//    public static partial class Convert
-//    {
-//        [Description("Convert SAP Floor to XML floor.")]
-//        [Input("sapFloor", "SAP floor to convert.")]
-//        [Input("sapStorey", "SAP storey to convert.")]
-//        [Output("xmlFloor", "XML floor.")]
-//        public static BH.oM.Environment.SAP.XML.FloorDimension ToXML(this List<BH.oM.Environment.SAP.Floor> sapFloor, List<BH.oM.Environment.SAP.Storey> sapStorey)
-//        {
-//            BH.oM.Environment.SAP.XML.FloorDimension xmlFloor = new BH.oM.Environment.SAP.XML.FloorDimension();
-//            for (int i = 0; i < sapFloor.Count; i++)
-//            {
-//                xmlFloor.Description = "Type-" + sapFloor[i].Type.ToString() + "_Area-" + sapFloor[i].Area.ToString() + "_Uvalue-" + sapFloor[i].uValue;
-//                xmlFloor.Type = sapFloor[i].Type.FromSAPToXMLNumber();
-//                xmlFloor.HeatLossArea = sapFloor[i].Area.ToString();
-//                xmlFloor.uValue = sapFloor[i].uValue.ToString();
-//                xmlFloor.KappaValue = "80";
-//            }
+namespace BH.Engine.Environment.SAP
+{
+    public static partial class Convert
+    {
+        [Description("Convert SAP Floor to XML floor.")]
+        [Input("sapFloor", "SAP floor to convert.")]
+        [Input("sapStorey", "SAP storey to convert.")]
+        [Output("xmlFloor", "XML floor.")]
+        public static BH.oM.Environment.SAP.XML.FloorDimension ToXML(this List<BH.oM.Environment.SAP.Floor> sapFloor, List<BH.oM.Environment.SAP.Storey> sapStorey)
+        {
+            BH.oM.Environment.SAP.XML.FloorDimension xmlFloor = new BH.oM.Environment.SAP.XML.FloorDimension();
+            for (int i = 0; i < sapFloor.Count; i++)
+            {
+                xmlFloor.Description = "Type-" + sapFloor[i].Type.ToString() + "_Area-" + sapFloor[i].Area.ToString() + "_Uvalue-" + sapFloor[i].uValue;
+                xmlFloor.Type = sapFloor[i].Type.FromSAPToXMLNumber();
+                xmlFloor.HeatLossArea = sapFloor[i].Area.ToString();
+                xmlFloor.uValue = sapFloor[i].uValue.ToString();
+                xmlFloor.KappaValue = "80";
+            }
 
-//            for (int i = 0; i < sapStorey.Count; i++)
-//            {
-//                xmlFloor.Storey = sapStorey[i].StoreyNumber.ToString();
-//                xmlFloor.StoreyHeight = sapStorey[i].Height.ToString();
-//                xmlFloor.Area = sapStorey[i].Area.ToString();
-//            }
+            for (int i = 0; i < sapStorey.Count; i++)
+            {
+                xmlFloor.Storey = sapStorey[i].StoreyNumber.ToString();
+                xmlFloor.StoreyHeight = sapStorey[i].Height.ToString();
+                xmlFloor.Area = sapStorey[i].Area.ToString();
+            }
 
-//            return xmlFloor;
-//        }
-//        private static string FromSAPToXMLNumber(this BH.oM.Environment.SAP.TypeOfFloor typeOfFloor)
-//        {
-//            switch (typeOfFloor)
-//            {
-//                case BH.oM.Environment.SAP.TypeOfFloor.BasementFloor:
-//                    return "1";
+            return xmlFloor;
+        }
+        private static string FromSAPToXMLNumber(this BH.oM.Environment.SAP.TypeOfFloor typeOfFloor)
+        {
+            switch (typeOfFloor)
+            {
+                case BH.oM.Environment.SAP.TypeOfFloor.BasementFloor:
+                    return "1";
 
-//                case BH.oM.Environment.SAP.TypeOfFloor.GroundFloor:
-//                    return "2";
+                case BH.oM.Environment.SAP.TypeOfFloor.GroundFloor:
+                    return "2";
 
-//                case BH.oM.Environment.SAP.TypeOfFloor.UpperFloor:
-//                    return "3";
+                case BH.oM.Environment.SAP.TypeOfFloor.UpperFloor:
+                    return "3";
 
-//                case BH.oM.Environment.SAP.TypeOfFloor.PartyFloor:
-//                    return "4";
+                case BH.oM.Environment.SAP.TypeOfFloor.PartyFloor:
+                    return "4";
 
-//                default:
-//                    return "";
-//            }
-//        }
-//    }
-//}
+                default:
+                    return "";
+            }
+        }
+    }
+}
 
 

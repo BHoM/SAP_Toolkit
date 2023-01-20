@@ -33,7 +33,7 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Compute
     {
-        public static bool pushToXMLFile(FileSettings fileSettingsInput, FileSettings fileSettingsOutput, BH.oM.Environment.SAP.XML.SAP2012Data sAP2012Data , bool run = false)
+        public static bool pushToXMLFile(FileSettings fileSettingsInput, FileSettings fileSettingsOutput, BH.oM.Environment.SAP.XML.SAP10Data sAP10Data , bool run = false)
         {
             if (!run)
                 return false;
@@ -45,7 +45,7 @@ namespace BH.Engine.Environment.SAP
             var data = (SAPReport)szer.Deserialize(tr);
             tr.Close();
 
-            data.SAP2012Data = sAP2012Data;
+            data.SAP10Data = sAP10Data;
 
             TextWriter tw = new StreamWriter(Path.Combine(fileSettingsOutput.Directory, fileSettingsOutput.FileName));
             szer.Serialize(tw, data, xns);

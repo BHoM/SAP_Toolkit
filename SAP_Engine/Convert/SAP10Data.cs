@@ -20,29 +20,30 @@
 // * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
 // */
 
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-//using System.ComponentModel;
-//using BH.oM.Base.Attributes;
-//using BH.oM.Base;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
+using BH.oM.Base.Attributes;
+using BH.oM.Base;
 
-//namespace BH.Engine.Environment.SAP
-//{
-//    public static partial class Convert
-//    {
-//        [Description("Convert SAP PropertyDetails to XML SAP2012Data.")]
-//        [Input("sapPropertyDetails", "SAP PropertyDeatils to convert.")]
-//        [Output("xmlSAP2012Data", "XML PropertyDetails.")]
-//        public static BH.oM.Environment.SAP.XML.SAP2012Data FromSAPToXML(this oM.Environment.SAP.PropertyDetails sapPropertyDetails)
-//        {
-//            BH.oM.Environment.SAP.XML.SAP2012Data xmlSAP2012Data = new BH.oM.Environment.SAP.XML.SAP2012Data();
-//            xmlSAP2012Data.DataType = 1;
-//            xmlSAP2012Data.PropertyDetails = sapPropertyDetails.ToXML();
+namespace BH.Engine.Environment.SAP
+{
+    public static partial class Convert
+    {
+        //Ellie - changes:all occurences of 2012 were changed to 10
+        [Description("Convert SAP PropertyDetails to XML SAP10Data.")]
+        [Input("sapPropertyDetails", "SAP PropertyDeatils to convert.")]
+        [Output("xmlSAP10Data", "XML PropertyDetails.")]
+        public static BH.oM.Environment.SAP.XML.SAP10Data FromSAPToXML(this oM.Environment.SAP.PropertyDetails sapPropertyDetails)
+        {
+            BH.oM.Environment.SAP.XML.SAP10Data xmlSAP10Data = new BH.oM.Environment.SAP.XML.SAP10Data();
+            xmlSAP10Data.DataType = "1";
+            xmlSAP10Data.PropertyDetails = sapPropertyDetails.ToXML();
 
-//            return xmlSAP2012Data;
-//        }
-//    }
-//}
+            return xmlSAP10Data;
+        }
+    }
+}

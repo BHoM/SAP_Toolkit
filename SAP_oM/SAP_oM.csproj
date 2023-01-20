@@ -199,7 +199,10 @@
     <Compile Include="Ventilation.cs" />
     <Compile Include="VentilationRates.cs" />
     <Compile Include="WaterHeating.cs" />
+    <Compile Include="WasteWaterHRS.cs" />
     <Compile Include="WWHRS.cs" />
+    <Compile Include="InstantaneousWWHRSSystem.cs" />
+    <Compile Include="WWHRSSystem - Copy.cs" />
     <Compile Include="WWHRSSystem.cs" />
     <Compile Include="XML\HydroElectricGenerationMonths.cs" />
     <Compile Include="XML\HydroElectricGenerationMonth.cs" />

@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP
         public virtual WaterHeating WaterHeating { get; set; } = new WaterHeating();
 
         [Description("")]
-        public virtual WWHRS WWHRS { get; set; } = null;
+        public virtual WasteWaterHRS WasteWaterHRS { get; set; } = null;
 
         [Description("")]
         public virtual SolarPanelDetails SolarPanelDetails { get; set; } = new SolarPanelDetails();
