@@ -92,7 +92,10 @@
     <Compile Include="Enums\TypeOfDuct.cs" />
     <Compile Include="Enums\TypeOfDuctInsulation.cs" />
     <Compile Include="Enums\TypeOfFloor.cs" />
+    <Compile Include="Enums\GlazingGap.cs" />
+    <Compile Include="Enums\TypeOfThermalBridge.cs" />
     <Compile Include="Enums\TypeOfGlazing.cs" />
+    <Compile Include="Enums\TypeOfFrame.cs" />
     <Compile Include="Enums\TypeOfRoof.cs" />
     <Compile Include="Enums\TypeOfVentilation.cs" />
     <Compile Include="Enums\TypeOfWall.cs" />
@@ -191,6 +194,7 @@
     <Compile Include="SecondaryHeating.cs" />
     <Compile Include="SecondaryHeatingDetails.cs" />
     <Compile Include="SolarPanelDetails.cs" />
+    <Compile Include="ShowerOutlet.cs" />
     <Compile Include="VentilationStrategy.cs" />
     <Compile Include="LivingArea.cs" />
     <Compile Include="MechanicalVentilationDetails.cs" />
@@ -202,7 +206,7 @@
     <Compile Include="WasteWaterHRS.cs" />
     <Compile Include="WWHRS.cs" />
     <Compile Include="InstantaneousWWHRSSystem.cs" />
-    <Compile Include="WWHRSSystem - Copy.cs" />
+    <Compile Include="StorageWWHRS.cs" />
     <Compile Include="WWHRSSystem.cs" />
     <Compile Include="XML\HydroElectricGenerationMonths.cs" />
     <Compile Include="XML\HydroElectricGenerationMonth.cs" />

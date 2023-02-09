@@ -33,15 +33,9 @@ namespace BH.oM.Environment.SAP
     public class InstantaneousWWHRSSystem : BHoMObject
     {
         [Description("WWHRS-Index-Number1")]
-        public virtual int IndexNumber { get; set; } = 1;
+        public virtual string IndexNumber { get; set; } = null;
 
         [Description("")]
-        public virtual double Efficiency { get; set; } = 0;
-
-        [Description("Omit if no second system.")]
-        public virtual string Manufacturer { get; set; } = null;
-
-        [Description("")]
-        public virtual string Model { get; set; } = null;
+        public virtual string Efficiency { get; set; } = null;
     }
 }

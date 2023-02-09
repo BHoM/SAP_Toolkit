@@ -24,6 +24,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Xml.Serialization;
 using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
@@ -46,10 +47,16 @@ namespace BH.oM.Environment.SAP
         [Description("Mechanical vent duct insulation; if MVHR.")]
         public virtual TypeofDuctInsulation? DuctInsulationType { get; set; } = null;
 
+        [Description("Mechanical vent duct insulation; if MVHR.")]//check
+        public virtual string DuctInsulationLevel { get; set; } = "1";
+
         [Description("Mechanical vent ducts index number; if applicable.")]
         public virtual string MechVentSystemIndexNumber { get; set; } = null;
 
         [Description("If mechanical ventilation, extra details is needed.")]
         public virtual MechanicalVentilationDetails MechVentDetails { get; set; } = null;
+
+        [Description("Additional information about the fans.")]
+        public virtual ExtraFanDetails ExtraFanDetails { get; set; } = null;
     }
 }

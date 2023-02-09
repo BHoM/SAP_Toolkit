@@ -39,6 +39,6 @@ namespace BH.oM.Environment.SAP
         public virtual InstantaneousWWHRSSystem InstantaneousSystem2 { get; set; } = null;
 
         [Description("")]
-        public virtual StorageWWHRSSystem StorageSystem { get; set; } = null;
+        public virtual StorageWWHRS StorageSystem { get; set; } = null;
     }
 }

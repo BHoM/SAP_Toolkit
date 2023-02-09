@@ -29,6 +29,6 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("The opening type defines the thermal properties of a series of openings.")]
-    public enum TypeOfOpening {SolidDoor, HalfGlazedDoor, GlazedWindow, Rooflight }
+    public enum TypeOfOpening {SolidDoor, SemiGlazedDoor, DoorToCorridor, Window, RoofWindow, HalfGlazedDoor, Rooflight }
 }
 

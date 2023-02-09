@@ -51,5 +51,9 @@ namespace BH.oM.Environment.SAP
 
         [Description("")]
         public virtual SolarPanelDetails SolarPanelDetails { get; set; } = new SolarPanelDetails();
+
+        [Description("")]
+        public virtual List<SAP.ShowerOutlet> ShowerOutlets { get; set; } = new List<ShowerOutlet>();
+
     }
 }

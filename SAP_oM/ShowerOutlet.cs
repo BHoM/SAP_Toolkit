@@ -29,22 +29,22 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Strategy for the ventilation of the dwelling.")]
-    public class StorageWWHRSSystem : BHoMObject
+    [Description("")]
+    public class ShowerOutlet : BHoMObject
     {
-        [Description("")]
-        public virtual int IndexNumber { get; set; } = 0;
+        [Description("Hot water type for this shower outlet.")]
+        public virtual string Type { get; set; } = null;
 
-        [Description("Dedicated store volume in litres.")]
-        public virtual double StoreVolume { get; set; } = 0;
+        [Description("The flow rate. Only when a shower is not instantaneous electric. Leave blank if NO flow limiter fitted.")]
+        public virtual double FlowRate { get; set; } = 0;
 
-        [Description("")]
-        public virtual double Efficiency { get; set; } = 0;
+        [Description("The shower power, only if shower outlet type is instantaneous electric.")]
+        public virtual double Power { get; set; } = 0;
 
-        [Description("")]
-        public virtual string Manufacturer { get; set; } = null;
+        [Description("The WWHRS with which the shower is connected. If shower outlet type is instantaneous electric shower then only a storage WWHRS can be selected or none.")]
+        public virtual string ShowerWWHRS { get; set; } = null;
 
-        [Description("")]
-        public virtual string Model { get; set; } = null;
     }
+
 }
+

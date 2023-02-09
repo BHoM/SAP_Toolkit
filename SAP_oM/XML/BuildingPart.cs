@@ -44,7 +44,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("The year when this building part was constructed.  Not used if 'Construction-Age-Band' is used.")]
         [XmlElement("Construction-Year")]
-        public virtual int ConstructionYear { get; set; } = 2012; 
+        public virtual string ConstructionYear { get; set; } = "2012"; 
 
         [Description("The age band when this building part was constructed.  Not used if 'Construction-Year' is used.")]
         [XmlElement("Construction-Age-Band")]

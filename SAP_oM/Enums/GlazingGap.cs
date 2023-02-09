@@ -25,28 +25,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
-
+//change to display 6mm and etc somehow
 namespace BH.oM.Environment.SAP
 {
-    [Description("A thermal bridge between two thermal elements of the dwelling")]
-    public class ThermalBridge : BHoMObject
-    {
-        [Description("The thermal bridge type reference according to Table K1 in SAP 2012")]
-        public virtual TypeOfThermalBridge Reference { get; set; } = TypeOfThermalBridge.OtherLintel;
-        
-
-        [Description("The length of the thermal bridge")]
-        public virtual double Length { get; set; } = 0;
-
-        [Description("The psi-value (heat loss per linear metre) to be applied to the thermal bridge")]
-        public virtual double PsiValue { get; set; } = 1;
-
-        [Description("The source of the psi-value applied to the thermal bridge")]
-        public virtual string Source { get; set; } = "Default";
-        //<to be enum>
-
-        [Description("The name of the dwelling that the thermal bridge is part of")]
-        public virtual string DwellingName { get; set; } = "";
-    }
+    [Description("Code which indicates the type of glazing; if U-value is from BFRC or manufacturer declaration, give as one of: single, double, triple.")]
+    public enum GlazingGap { _6mm = 1, _12mm, _16mmOrMore }
 }
 

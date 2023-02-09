@@ -39,11 +39,11 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("the community heating CO2 emission factor")]
         [XmlElement(ElementName = "Community-Heating-CO2-Emission-Factor")]
-        public virtual double CommunityHeatingCO2EmissionFactor { get; set; } = 0;
+        public virtual string CommunityHeatingCO2EmissionFactor { get; set; } = null;
 
         [Description("The community heating Primary Energy Factor")]
         [XmlElement(ElementName = "Community-Heating-Primary-Energy-Factor")]
-        public virtual double CommunityHeatingPrimaryEnergyFactor { get; set; } = 0;
+        public virtual string CommunityHeatingPrimaryEnergyFactor { get; set; } = null;
 
         [Description("Specifies what kind of heating the community system is used for.")]
         [XmlElement("Community-Heating-Use")]
@@ -59,7 +59,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Heat Interface Unit index number, if present.")]
         [XmlElement(ElementName = "HIU-Index-Number")]
-        public virtual int HeatInterfaceUnitIndexNumber { get; set; } = 0;
+        public virtual string HeatInterfaceUnitIndexNumber { get; set; } = null;
 
         [Description("Community heating distribution")]
         [XmlElement("Community-Heating-Distribution-Type")]
@@ -71,7 +71,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Used when Community-Heating-Distribution-Type is calculated.")]
         [XmlElement("Community-Heating-Distribution-Loss-Factor")]
-        public virtual double CommunityHeatingDistributionLossFactor { get; set; } = 0;
+        public virtual string CommunityHeatingDistributionLossFactor { get; set; } = null;
 
         [Description("Used for hot-water-only systems.")]
         [XmlElement("Charging-Linked-To-Heat-Use")]
@@ -79,7 +79,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Index number of heat network, if applicable.")]
         [XmlElement("Heat-Network-Index-Number")]
-        public virtual int HeatNetworkIndexNumber { get; set; } = 0;
+        public virtual string HeatNetworkIndexNumber { get; set; } = null;
 
         [Description("The name by which the sub community heat network is known.")]
         [XmlElement(ElementName = "Sub-Network-Name")]

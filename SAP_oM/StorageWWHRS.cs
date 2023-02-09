@@ -24,29 +24,22 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Xml.Serialization;
 using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("A thermal bridge between two thermal elements of the dwelling")]
-    public class ThermalBridge : BHoMObject
+    [Description("Strategy for the ventilation of the dwelling.")]
+    public class StorageWWHRS : BHoMObject
     {
-        [Description("The thermal bridge type reference according to Table K1 in SAP 2012")]
-        public virtual TypeOfThermalBridge Reference { get; set; } = TypeOfThermalBridge.OtherLintel;
-        
+        [Description("")]
+        public virtual string IndexNumber { get; set; } = null;
 
-        [Description("The length of the thermal bridge")]
-        public virtual double Length { get; set; } = 0;
+        [Description("Dedicated store volume in litres.")]
+        public virtual string StoreVolume { get; set; } = null;
 
-        [Description("The psi-value (heat loss per linear metre) to be applied to the thermal bridge")]
-        public virtual double PsiValue { get; set; } = 1;
+        [Description("")]
+        public virtual string Efficiency { get; set; } = null;
 
-        [Description("The source of the psi-value applied to the thermal bridge")]
-        public virtual string Source { get; set; } = "Default";
-        //<to be enum>
-
-        [Description("The name of the dwelling that the thermal bridge is part of")]
-        public virtual string DwellingName { get; set; } = "";
     }
 }
-

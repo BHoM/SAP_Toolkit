@@ -39,7 +39,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("The index number of the heater from the product database.")]
         [XmlElement("Index-Number")]
-        public virtual int IndexNumber { get; set; } = 0;
+        public virtual string IndexNumber { get; set; } = null;
 
         [Description("Whether heater is high heat retention type.")]
         [XmlElement("High-Heat-Retention")]

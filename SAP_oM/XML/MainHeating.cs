@@ -107,7 +107,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("PCDF index number of the fuel type, only if Main-Fuel-Type is 99 (fuel from database).")]
         [XmlElement(ElementName = "PCDF - Fuel - Index")]
-        public virtual int PCDFFuelIndex { get; set; }
+        public virtual string PCDFFuelIndex { get; set; } = null;
 
         [Description("Type of Main Control for the Heating System.")]
         [XmlElement("Main-Heating-Control")]
@@ -155,7 +155,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Electric CPSU operating temperature in Celcius; only if main heating is electric CPSU.")]
         [XmlElement("Electric-CPSU-Operating-Temperature")]
-        public virtual double ElectricCPSUOperatingTemperature { get; set; } = 0;
+        public virtual string ElectricCPSUOperatingTemperature { get; set; } = null;
 
         [Description("Fraction of main heating provided by this system, is 1 if only one main system.")]
         [XmlElement("Main-Heating-Fraction")]
@@ -171,15 +171,15 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("To be used if main heating data is manufacturer declaration and Efficiency-Type is winter and summer.")]
         [XmlElement("Main-Heating-Efficiency-Winter")]
-        public virtual double MainHeatingEfficiencyWinter { get; set; } = 0;
+        public virtual string MainHeatingEfficiencyWinter { get; set; } = null;
 
         [Description("To be used if main heating data is manufacturer declaration and Efficiency-Type is winter and summer.")]
         [XmlElement("Main-Heating-Efficiency-Summer")]
-        public virtual double MainHeatingEfficiencySummer { get; set; } = 0;
+        public virtual string MainHeatingEfficiencySummer { get; set; } = null;
 
         [Description("If main heating is any system other than heat network.")]
         [XmlElement("Main-Heating-Efficiency")]
-        public virtual double MainHeatingEfficiency { get; set; } = 0;
+        public virtual string MainHeatingEfficiency { get; set; } = null;
 
         [Description("")]
         [XmlElement("Main-Heating-System-Type")]
@@ -187,7 +187,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Flue Gas Heat Recovery System.")]
         [XmlElement("Has-FGHRS")]
-        public virtual bool HasFGHRS { get; set; } = false;
+        public virtual bool? HasFGHRS { get; set; } = false;
 
         [Description("FGHRS index number; only if FGHRS")]
         [XmlElement("FGHRS-Index-Number")]

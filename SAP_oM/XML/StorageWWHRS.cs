@@ -35,15 +35,15 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("")]
         [XmlElement("WWHRS-Index-Number")]
-        public virtual int WWHRSIndexNumber { get; set; } = 0;
+        public virtual string WWHRSIndexNumber { get; set; } = null;
 
         [Description("Dedicated store volume in litres.")]
         [XmlElement("WWHRS-Store-Volume")]
-        public virtual double WWHRSStoreVolume { get; set; } = 0;
+        public virtual string WWHRSStoreVolume { get; set; } = null;
 
         [Description("")]
         [XmlElement("Storage-WWHRS-Efficiency")]
-        public virtual double StorageWWHRSEfficiency { get; set; } = 0;
+        public virtual string StorageWWHRSEfficiency { get; set; } = null;
 
         [Description("")]
         [XmlElement("Storage-WWHRS-Manufacturer")]

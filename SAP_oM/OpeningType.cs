@@ -24,6 +24,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Xml.Serialization;
 using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
@@ -35,10 +36,16 @@ namespace BH.oM.Environment.SAP
         public virtual OpeningDataSource DataSource { get; set; } = OpeningDataSource.ManufacturerDeclaration;
 
         [Description("The type of opening e.g. solid door, glazed window or rooflight. This should be selected in line with the SAP 2012 guidance")]
-        public virtual TypeOfOpening Type { get; set; } = TypeOfOpening.GlazedWindow;
+        public virtual TypeOfOpening Type { get; set; } = TypeOfOpening.Window;
 
         [Description("The type of glazing; if U-value is from BFRC or manufacturer declaration, give as one of: single, double, triple")]
         public virtual TypeOfGlazing GlazingType { get; set; } = TypeOfGlazing.NotAppicable;
+
+        [Description("Gap between glass panes")]
+        public virtual GlazingGap GlazingGap { get; set; } = GlazingGap._6mm;
+
+        [Description("The type of frame")]
+        public virtual TypeOfFrame FrameType { get; set; } = TypeOfFrame.Unknown;
 
         [Description("The U-value or thermal conductance of an opening including panes, panels and frame")]
         public virtual double uValue { get; set; } = 1.4;
