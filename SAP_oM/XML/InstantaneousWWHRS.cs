@@ -35,15 +35,15 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("")]
         [XmlElement("WWHRS-Index-Number1")]
-        public virtual int WWHRSIndexNumber1 { get; set; } = 1;
+        public virtual string WWHRSIndexNumber1 { get; set; } = "1";
 
         [Description("Omit if no second system.")]
         [XmlElement("WWHRS-Index-Number2")]
-        public virtual int WWHRSIndexNumber2 { get; set; } = 2;
+        public virtual string WWHRSIndexNumber2 { get; set; } = "2";
 
         [Description("")]
         [XmlElement("WWHRS-Efficiency1")]
-        public virtual double WWHRSEfficiency1 { get; set; } = 0;
+        public virtual string WWHRSEfficiency1 { get; set; } = null;
 
         [Description("Omit if no second system.")]
         [XmlElement("WWHRS-Manufacturer1")]
@@ -55,7 +55,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("")]
         [XmlElement("WWHRS-Efficiency2")]
-        public virtual double WWHRSEfficiency2 { get; set; } = 0;
+        public virtual string WWHRSEfficiency2 { get; set; } = null;
 
         [Description("Omit if no second system.")]
         [XmlElement("WWHRS-Manufacturer2")]

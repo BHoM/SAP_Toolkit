@@ -33,7 +33,6 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "SAP-Opening-Type", IsNullable = false)]
     public class OpeningType : IObject
     {
-
         [Description("Unique name which identifies this opening type.")]
         [XmlElement("Name")]
         public virtual string Name { get; set; } = "Window type 1";

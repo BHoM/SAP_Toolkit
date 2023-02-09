@@ -28,25 +28,16 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("A thermal bridge between two thermal elements of the dwelling")]
-    public class ThermalBridge : BHoMObject
-    {
-        [Description("The thermal bridge type reference according to Table K1 in SAP 2012")]
-        public virtual TypeOfThermalBridge Reference { get; set; } = TypeOfThermalBridge.OtherLintel;
-        
-
-        [Description("The length of the thermal bridge")]
-        public virtual double Length { get; set; } = 0;
-
-        [Description("The psi-value (heat loss per linear metre) to be applied to the thermal bridge")]
-        public virtual double PsiValue { get; set; } = 1;
-
-        [Description("The source of the psi-value applied to the thermal bridge")]
-        public virtual string Source { get; set; } = "Default";
-        //<to be enum>
-
-        [Description("The name of the dwelling that the thermal bridge is part of")]
-        public virtual string DwellingName { get; set; } = "";
-    }
+    [Description("Code which indicates a particular type of thermal bridge.")]
+    public enum TypeOfThermalBridge { NotDefined = 1, SteelLintelWithPerforatedBase, OtherLintel, Sill, Jamb, GroundFloor_Normal,
+        IntermediateFloorWithinDwelling, PartyFloorBetweenDwellings, BalconyWithinDwelling_InsulationContinous, BalconyBetweenDwellings_InsulationContinous,
+        Eaves_InsulationAtCeiling, Eaves_InsulationAtRafters, Gable_InsulationAtCeiling, Gable_InsulationAtRafter, FlatRoof, FlatRoofWithParapet,
+        Corner_Normal, Corner_Inverted, PartyWallBetweenDwellings, GroundFloor_Inverted, ExposedFloor_Normal, ExposedFloor_Inverted, BasementFloor,
+        Balcony_SupportPenetratesWallInsulation, Eaves_InsulationAtCeiling_Inverted, StaggeredPartyWall }
+    //P
+    //,GroundFloor,ItermediateFloorWithinADwelling, IntermediateFloorBetweenDwellings, Roof_InsulationAtCeiling, Roof_InsulationAtRafters, GroundFloor_Inverted, ExposedFloor_Normal, ExposedFloor_Inverted, 
+    //R
+    //, HeadOfRoofWindow, SillOfRoofWindow, JambOfRoofWinodw, Ridge_VaultedCeiling, Ridge_Inverted, FlatCeiling, FlatCeiling_Inverted, RoofToWall_Rafter, RoofToWall_FlatCeiling,AllOtherRoofJunction, UpstandsOrKerbs, OtherType1, OtherType2
+}
 }
 

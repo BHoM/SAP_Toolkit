@@ -37,20 +37,20 @@ namespace BH.oM.Environment.SAP
         [Description("How windows are overshaded.")]
         public virtual oM.Environment.SAP.WindowOvershading Overshading { get; set; } = oM.Environment.SAP.WindowOvershading.AverageOrUnknown;
 
+        [Description("List of roofs.")]
+        public virtual List<BH.oM.Environment.SAP.Roof> Roofs { get; set; } = null;
+
         [Description("List of floors.")]
         public virtual List<BH.oM.Environment.SAP.Floor> Floor { get; set; } = null;
 
         [Description("List of floors.")]
         public virtual List<BH.oM.Environment.SAP.Storey> Storeys { get; set; } = null;
 
-        [Description("List of roofs.")]
-        public virtual List<BH.oM.Environment.SAP.Roof> Roofs { get; set; } = null;
-
-        [Description("List of walls.")]
-        public virtual List<BH.oM.Environment.SAP.Wall> Walls { get; set; } = null;
-
         [Description("List of thermal bridges.")]
         public virtual List<BH.oM.Environment.SAP.ThermalBridge> ThermalBridges { get; set; } = null;
+        
+        [Description("List of walls.")]
+        public virtual List<BH.oM.Environment.SAP.Wall> Walls { get; set; } = null;
     }
 }
 

@@ -87,7 +87,7 @@ namespace BH.oM.Environment.SAP.XML
        
         [Description("Is property in a smoke control area?  Only if a solid fuel appliance is used.")]
         [XmlElement("Is-In-Smoke-Control-Area")]
-        public virtual bool IsInSmokeControlArea { get; set; } = true;
+        public virtual bool? IsInSmokeControlArea { get; set; } = true;
 
         [Description("What is the cold water source?  Either mains or header tank.")]
         [XmlElement(ElementName = "Cold-Water-Source")]
@@ -123,7 +123,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Diverter present.")]
         [XmlElement(ElementName = "PV-Diverter")]
-        public virtual bool PVDiverter { get; set; } = false;
+        public virtual bool? PVDiverter { get; set; } = false;
 
         [Description("Battery capacity capacity if diverter present")]
         [XmlElement(ElementName = "Battery-Capacity")]
@@ -131,7 +131,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Whether the wind turbine is connected to the Dwelling's meter.")]
         [XmlElement(ElementName = "Is-Wind-Turbine-Connected-To-Dwelling-Meter")]
-        public virtual bool IsWindTurbineConnectedToDwellingMeter { get; set; } = false;
+        public virtual bool? IsWindTurbineConnectedToDwellingMeter { get; set; } = false;
 
         [Description("")]
         [XmlElement(ElementName = "SAP-Heating")]

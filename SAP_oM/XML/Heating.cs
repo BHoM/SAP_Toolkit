@@ -57,7 +57,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("")]
         [XmlElement("Secondary-Heating-Efficiency")]
-        public virtual double SecondaryHeatingEfficiency { get; set; } = 0;
+        public virtual string SecondaryHeatingEfficiency { get; set; } = null;
 
         [Description("Secondary heating system commisioning certificate number.")]
         [XmlElement("Secondary-Heating-Commisioning-Certificate")]
@@ -77,7 +77,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("PCDF index number of the fuel type, only if Secondary-Fuel-Type is 99 (fuel from database).")]
         [XmlElement("Secondary-Heating-PCDF-Fuel-Index")]
-        public virtual int SecondaryHeatingPCDFFuelIndex { get; set; } = 0;
+        public virtual string SecondaryHeatingPCDFFuelIndex { get; set; } = null;
 
         [Description("Secondary flue type; only if secondary efficiency is manufacturer declaration and if there is a flue.")]
         [XmlElement("Secondary-Heating-Flue-Type")]
@@ -129,11 +129,11 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Hot water store size in litres; if there is a hot water store.  Store refers to hot water store type which can be cylinder (if thermal store is 'none'), hot-water only thermal store or integrated thermal store.  Not applicable if (a) combi boiler whose data source database or (b) instantaneous combi boiler or (c) combi boiler from SAP table or (d) instantaneous water heater.")]
         [XmlElement("Hot-Water-Store-Size")]
-        public virtual double HotWaterStoreSize { get; set; } = 0;
+        public virtual string HotWaterStoreSize { get; set; } = null;
 
         [Description("Used when a heat pump is associated with a separate and specified hot water vessel.")]
         [XmlElement("Hot-Water-Store-Heat-Transfer-Area")]
-        public virtual double HotWaterStoreHeatTransferArea { get; set; } = 0;
+        public virtual string HotWaterStoreHeatTransferArea { get; set; } = null;
 
         [Description("The source of the hot water store heat loss information; if there is a hot water store.  Not applicable if (a) combi boiler whose data source database or (b) instantaneous combi boiler or (c) combi boiler from SAP table or (d) instantaneous water heater.")]
         [XmlElement("Hot-Water-Store-Heat-Loss-Source")]
@@ -141,7 +141,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Hot water store declared loss in kWh/day; only if there is a hot water store and if manufacturer declared loss.  Not applicable if (a) combi boiler whose data source database or (b) instantaneous combi boiler or (c) combi boiler from SAP table or (d) instantaneous water heater.")]
         [XmlElement("Hot-Water-Store-Heat-Loss")]
-        public virtual double HotWaterStoreHeatLoss { get; set; } = 0;
+        public virtual string HotWaterStoreHeatLoss { get; set; } = null;
 
         [Description("Hot water store insulation; only if there is a hot water store and if loss from SAP table.  Not applicable if (a) combi boiler whose data source database or (b) instantaneous combi boiler or (c) combi boiler from SAP table or (d) instantaneous water heater.")]
         [XmlElement("Hot-Water-Store-Insulation-Type")]
@@ -149,7 +149,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Hot water store insulation thickness in mm; only if there is a hot water store and if loss from SAP table.  Not applicable if (a) combi boiler whose data source database or (b) instantaneous combi boiler or (c) combi boiler from SAP table or (d) instantaneous water heater.")]
         [XmlElement("Hot-Water-Store-Insulation-Thickness")]
-        public virtual double HotWaterInsulationThickness { get; set; } = 0;
+        public virtual string HotWaterInsulationThickness { get; set; } = null;
 
         [Description("Thermal store connected to boiler by no more than 1.5 m of insulated pipework?  Only if thermal store.  Not applicable if combi boiler or instantaneous water heater.")]
         [XmlElement("Is-Thermal-Store-Near-Boiler")]

@@ -43,6 +43,8 @@ namespace BH.oM.Environment.SAP
         [Description("The ventilation strategy for the dwelling.")]
         public virtual VentilationStrategy VentilationStrategy { get; set; } = null;
 
+        
+
     }
 }
 

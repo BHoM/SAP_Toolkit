@@ -35,7 +35,7 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("")]
         [XmlElement("Efficiency")]
-        public virtual double Efficiency { get; set; } = 0;
+        public virtual string Efficiency { get; set; } = null;
 
         [Description("")]
         [XmlElement("Make-Model")]
