@@ -41,7 +41,7 @@ namespace BH.Engine.Environment.SAP
         {
             BH.oM.Environment.SAP.XML.Roof xmlRoof = new BH.oM.Environment.SAP.XML.Roof();
             xmlRoof.Name = sapRoof.Name;
-            xmlRoof.Description = "Type-" + sapRoof.Type.ToString() + "_Area-" + sapRoof.Area.ToString() + "_Uvalue-" + sapRoof.uValue.ToString(); 
+            xmlRoof.Description = "Type-" + sapRoof.Type.ToString() + "_Area-" + sapRoof.Area.ToString() + "_Uvalue-" + sapRoof.uValue.ToString();
             xmlRoof.Type = sapRoof.Type.FromSAPToXMLNumber();
             xmlRoof.Area = sapRoof.Area;
             xmlRoof.UValue = sapRoof.uValue;
@@ -54,8 +54,8 @@ namespace BH.Engine.Environment.SAP
                 xmlOpening.Type = sapRoof.Openings[i].OpeningType.Type.ToString();
                 xmlOpening.Location = sapRoof.Name;
                 xmlOpening.Orientation = sapRoof.Openings[i].Orientation.FromSAPToXMLNumber();
-                xmlOpening.Width = Math.Sqrt(sapRoof.Openings[i].Area); //why sqrt??
-                xmlOpening.Height = Math.Sqrt(sapRoof.Openings[i].Area);
+                xmlOpening.Width = sapRoof.Openings[i].Width; 
+                xmlOpening.Height = sapRoof.Openings[i].Height;
                 //Add in pitch
                 xmlOpenings.Add(xmlOpening);
             }
