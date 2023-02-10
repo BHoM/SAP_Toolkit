@@ -55,9 +55,9 @@ namespace BH.Engine.Environment.SAP
                 xmlOpening.Type = sapWall.Openings[i].OpeningType.Type.ToString();
                 xmlOpening.Location = sapWall.Name;
                 xmlOpening.Orientation = sapWall.Openings[i].Orientation.FromSAPToXMLNumber();
-                xmlOpening.Width = Math.Sqrt(sapWall.Openings[i].Area);
-                xmlOpening.Height = Math.Sqrt(sapWall.Openings[i].Area);
-                //Add in pitch
+                xmlOpening.Width = sapWall.Openings[i].Width;
+                xmlOpening.Height = sapWall.Openings[i].Height;
+                //Add in pitchgit a
                 xmlOpenings.Add(xmlOpening);
             }
             return new Output<BH.oM.Environment.SAP.XML.Wall, List<BH.oM.Environment.SAP.XML.Opening>>() { Item1 = xmlWall, Item2 = xmlOpenings };
