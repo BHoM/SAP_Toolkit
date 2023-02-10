@@ -1,33 +1,33 @@
-///*
-// * This file is part of the Buildings and Habitats object Model (BHoM)
-// * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
-// *
-// * Each contributor holds copyright over their respective contributions.
-// * The project versioning (Git) records all such contribution source information.
-// *                                           
-// *                                                                              
-// * The BHoM is free software: you can redistribute it and/or modify         
-// * it under the terms of the GNU Lesser General Public License as published by  
-// * the Free Software Foundation, either version 3.0 of the License, or          
-// * (at your option) any later version.                                          
-// *                                                                              
-// * The BHoM is distributed in the hope that it will be useful,              
-// * but WITHOUT ANY WARRANTY; without even the implied warranty of               
-// * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                 
-// * GNU Lesser General Public License for more details.                          
-// *                                                                            
-// * You should have received a copy of the GNU Lesser General Public License     
-// * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
-// */
+/*
+ * This file is part of the Buildings and Habitats object Model (BHoM)
+ * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
+ *
+ * Each contributor holds copyright over their respective contributions.
+ * The project versioning (Git) records all such contribution source information.
+ *                                           
+ *                                                                              
+ * The BHoM is free software: you can redistribute it and/or modify         
+ * it under the terms of the GNU Lesser General Public License as published by  
+ * the Free Software Foundation, either version 3.0 of the License, or          
+ * (at your option) any later version.                                          
+ *                                                                              
+ * The BHoM is distributed in the hope that it will be useful,              
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of               
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                 
+ * GNU Lesser General Public License for more details.                          
+ *                                                                            
+ * You should have received a copy of the GNU Lesser General Public License     
+ * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
+ */
 
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-//using System.ComponentModel;
-//using BH.oM.Base.Attributes;
-//using BH.oM.Base;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel;
+using BH.oM.Base.Attributes;
+using BH.oM.Base;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -55,8 +55,9 @@ namespace BH.Engine.Environment.SAP
                 xmlOpening.Type = sapWall.Openings[i].OpeningType.Type.ToString();
                 xmlOpening.Location = sapWall.Name;
                 xmlOpening.Orientation = sapWall.Openings[i].Orientation.FromSAPToXMLNumber();
-                xmlOpening.Width = Math.Sqrt(sapWall.Openings[i].Area).ToString();
-                xmlOpening.Height = Math.Sqrt(sapWall.Openings[i].Area).ToString();
+                xmlOpening.Width = Math.Sqrt(sapWall.Openings[i].Area);
+                xmlOpening.Height = Math.Sqrt(sapWall.Openings[i].Area);
+                //Add in pitch
                 xmlOpenings.Add(xmlOpening);
             }
             return new Output<BH.oM.Environment.SAP.XML.Wall, List<BH.oM.Environment.SAP.XML.Opening>>() { Item1 = xmlWall, Item2 = xmlOpenings };

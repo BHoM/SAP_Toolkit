@@ -40,37 +40,101 @@ namespace BH.Engine.Environment.SAP
         {
             List<oM.Environment.SAP.XML.OpeningType> xmlOpeningTypes = new List<oM.Environment.SAP.XML.OpeningType>();
 
-            
-                BH.oM.Environment.SAP.XML.OpeningType xmlOpeningType = new BH.oM.Environment.SAP.XML.OpeningType();
-                xmlOpeningType.Name = sapOpeningtype.Name;
-                xmlOpeningType.Description = "Type-" + sapOpeningtype.Type.ToString() + "_Uvalue-" + sapOpeningtype.uValue.ToString(); ;
-                xmlOpeningType.DataSource = sapOpeningtype.DataSource.FromSAPToXMLData();
-                xmlOpeningType.Type = sapOpeningtype.Type.FromSAPToXMLNumber();
-                xmlOpeningType.GlazingType = sapOpeningtype.GlazingType.FromSAPToXMLGlazing();
-                xmlOpeningType.gValue = sapOpeningtype.gValue;
-                xmlOpeningType.FrameFactor = sapOpeningtype.FrameFactor;
-                xmlOpeningType.uValue = sapOpeningtype.uValue;
-                xmlOpeningTypes.Add(xmlOpeningType);
-            
+
+            BH.oM.Environment.SAP.XML.OpeningType xmlOpeningType = new BH.oM.Environment.SAP.XML.OpeningType();
+            xmlOpeningType.Name = sapOpeningtype.Name;
+            xmlOpeningType.Description = "Type-" + sapOpeningtype.Type.ToString() + "_Uvalue-" + sapOpeningtype.uValue.ToString(); ;
+            xmlOpeningType.DataSource = sapOpeningtype.DataSource.FromSAPToXMLData();
+            xmlOpeningType.Type = sapOpeningtype.Type.FromSAPToXMLNumber();
+            xmlOpeningType.GlazingType = sapOpeningtype.GlazingType.FromSAPToXMLGlazing();
+            xmlOpeningType.GlazingGap = sapOpeningtype.GlazingGap.FromSAPToXMLNumber();
+            xmlOpeningType.FrameType = sapOpeningtype.FrameType.FromSAPToXMLNumber();
+            xmlOpeningType.gValue = sapOpeningtype.gValue;
+            xmlOpeningType.FrameFactor = sapOpeningtype.FrameFactor;
+            xmlOpeningType.uValue = sapOpeningtype.uValue;
+            xmlOpeningTypes.Add(xmlOpeningType);
+            //Is argon filleD/is krypton filled
+
             oM.Environment.SAP.XML.OpeningTypes finalXML = new oM.Environment.SAP.XML.OpeningTypes();
             finalXML.OpeningType = xmlOpeningTypes;
             return finalXML;
         }
         private static string FromSAPToXMLNumber(this TypeOfOpening typeOfOpening)
         {
-            switch(typeOfOpening)
+            switch (typeOfOpening)
             {
                 case TypeOfOpening.SolidDoor:
                     return "0";
 
-                case TypeOfOpening.HalfGlazedDoor:
+                case TypeOfOpening.SemiGlazedDoor:
                     return "1";
 
-                case TypeOfOpening.GlazedWindow:
+                case TypeOfOpening.DoorToCorridor:
                     return "2";
 
-                case TypeOfOpening.Rooflight:
+                case TypeOfOpening.Window:
                     return "3";
+
+                case TypeOfOpening.RoofWindow:
+                    return "4";
+
+                case TypeOfOpening.HalfGlazedDoor:
+                    return "5";
+
+                case TypeOfOpening.Rooflight:
+                    return "6";
+
+                default:
+                    return "";
+            }
+        }
+        private static string FromSAPToXMLNumber(this GlazingGap glazingGap)
+        {
+            switch (glazingGap)
+            {
+                case GlazingGap._6mm:
+                    return "1";
+
+                case GlazingGap._12mm:
+                    return "1";
+
+                case GlazingGap._16mmOrMore:
+                    return "2";
+
+                default:
+                    return "";
+            }
+        }
+        private static string FromSAPToXMLNumber(this TypeOfFrame typeOfFrame)
+        {
+            switch (typeOfFrame)
+            {
+                case TypeOfFrame.Wood:
+                    return "1";
+
+                case TypeOfFrame.PVC:
+                    return "2";
+
+                case TypeOfFrame.MetalNoBreak:
+                    return "3";
+
+                case TypeOfFrame.Metal4mmBreak:
+                    return "4";
+
+                case TypeOfFrame.Metal8mmBreak:
+                    return "5";
+
+                case TypeOfFrame.Metal12mmBreak:
+                    return "6";
+
+                case TypeOfFrame.Metal20mmBreak:
+                    return "7";
+
+                case TypeOfFrame.Metal32mmBreak:
+                    return "8";
+
+                case TypeOfFrame.Unknown:
+                    return "9";
 
                 default:
                     return "";
@@ -105,7 +169,7 @@ namespace BH.Engine.Environment.SAP
 
                 case TypeOfGlazing.Double:
                     return "3";
-                
+
                 case TypeOfGlazing.DoubleLowEHard02:
                     return "4";
 

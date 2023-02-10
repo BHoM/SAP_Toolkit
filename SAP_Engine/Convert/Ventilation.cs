@@ -38,41 +38,67 @@ namespace BH.Engine.Environment.SAP
         public static BH.oM.Environment.SAP.XML.Ventilation ToXML(this BH.oM.Environment.SAP.Ventilation sapVentilation)
         {
             BH.oM.Environment.SAP.XML.Ventilation xmlVentilation = new BH.oM.Environment.SAP.XML.Ventilation();
+
+            //Add in Fan count and power etc
+            xmlVentilation.ClosedFluesCount = 0;
+            xmlVentilation.BoilersFluesCount = 0;
+            xmlVentilation.OtherFluesCount = 0;
+            xmlVentilation.BlockedChimneysCount = 0;
+            //FansVentCount
+            xmlVentilation.PressureTestCertificateNumber = null;
+            xmlVentilation.HasDraughtLobby = null;
+            xmlVentilation.DraughtStripping = null;
+            xmlVentilation.ShelteredSidesCount = sapVentilation.numShelteredSides;
+            xmlVentilation.MechanicalVentComissioningCertificateNumber = null;
+            xmlVentilation.MechanicalVentInstallationEngineer = null;
+            xmlVentilation.MechanicalVentDuctPlacement = null;
+            xmlVentilation.MechanicalVentDuctPlacement = null;
+            xmlVentilation.MechanicalVentMeasuredInstallation = null;
+
             if (sapVentilation.VentilationRates == null)
             {
-                xmlVentilation.numOpenFireplaces = null;
-                xmlVentilation.numOpenFlues = null;
-                xmlVentilation.numFluelessGasFires = null;
-                xmlVentilation.ExtractFansCount = null;
+                xmlVentilation.OpenFluesCount = null;
+                xmlVentilation.OpenChimneysCount = null;
+                xmlVentilation.FluelessGasFiresCount = null;
+                xmlVentilation.ExtractFansCount = 0;
                 xmlVentilation.PSVCount = null;
             }
             else if (sapVentilation.VentilationRates != null)
             {
-                xmlVentilation.numOpenFireplaces = sapVentilation.VentilationRates.OpenFireplaces;
-                xmlVentilation.numOpenFlues = sapVentilation.VentilationRates.OpenFlues;
-                xmlVentilation.numFluelessGasFires = sapVentilation.VentilationRates.FluelessGasFires;
+                xmlVentilation.OpenFluesCount = sapVentilation.VentilationRates.OpenFlues;
+                xmlVentilation.OpenChimneysCount = sapVentilation.VentilationRates.OpenChimneys;
+                xmlVentilation.FluelessGasFiresCount = sapVentilation.VentilationRates.FluelessGasFires;
                 xmlVentilation.ExtractFansCount = sapVentilation.VentilationRates.FansCount;
                 xmlVentilation.PSVCount = sapVentilation.VentilationRates.PSVCount;
             }
 
+
             if (sapVentilation.AirPermability == null)
             {
                 xmlVentilation.PressureTest = null;
-                xmlVentilation.AirPermability = null;
+                xmlVentilation.AirPermeability = null;
+                //xmlVentilation.GroundFloorType = sapVentilation.GroundFloor.FromSAPToXML();
+                //xmlVentilation.WallType = sapVentilation.WallFloor.FromSAPToXML();
+                //xmlVentilation.HasDraughtLobby = null;
+                //xmlVentilation.DraughtStripping = null;
             }
             else if (sapVentilation.AirPermability != null)
             {
                 xmlVentilation.PressureTest = sapVentilation.AirPermability.PressureTest.FromSAPToXML();
-                xmlVentilation.AirPermability = sapVentilation.AirPermability.DesignAirPermability;
+                xmlVentilation.AirPermeability = sapVentilation.AirPermability.DesignAirPermability;
+                //xmlVentilation.GroundFloorType = sapVentilation.GroundFloor.FromSAPToXML();
+                //xmlVentilation.WallType = sapVentilation.WallFloor.FromSAPToXML();
+                //xmlVentilation.HasDraughtLobby = null;
+                //xmlVentilation.DraughtStripping = null;
             }
 
             if (sapVentilation.VentilationStrategy == null)
             {
-                xmlVentilation.Type = null;
+
                 xmlVentilation.MechanicalVentilationDataSource = null;
                 xmlVentilation.MechanicalVentSystemIndexNumber = null;
                 xmlVentilation.MechanicalVentSystemMakeModel = null;
-                xmlVentilation.numWetRooms = null;
+                xmlVentilation.numWetRooms = 0;
                 xmlVentilation.MechanicalVentSpecificFanPower = null;
                 xmlVentilation.MechanicalVentHeatRecoveryEfficiency = null;
                 xmlVentilation.MechanicalVentDuctType = null;
@@ -86,13 +112,15 @@ namespace BH.Engine.Environment.SAP
             }
             else if (sapVentilation.VentilationStrategy != null)
             {
-                xmlVentilation.Type = sapVentilation.VentilationStrategy.Type.FromSAPToXML();
+                xmlVentilation.VentilationType = sapVentilation.VentilationStrategy.Type.FromSAPToXML();
                 xmlVentilation.MechanicalVentilationDataSource = sapVentilation.VentilationStrategy.DetailsTakenFrom.FromSAPToXML();
                 xmlVentilation.MechanicalVentSystemIndexNumber = sapVentilation.VentilationStrategy.MechVentSystemIndexNumber;
-                xmlVentilation.numWetRooms = sapVentilation.VentilationStrategy.numWetRooms;
-                xmlVentilation.MechanicalVentDuctInsulation = sapVentilation.VentilationStrategy.DuctInsulationType.FromSAPToXML();
+                xmlVentilation.WetRoomsCount = sapVentilation.VentilationStrategy.numWetRooms;
                 xmlVentilation.IsMechanicalVentApprovedInstallerScheme = sapVentilation.VentilationStrategy.ApprovedInstallation;
+                xmlVentilation.MechanicalVentDuctInsulation = sapVentilation.VentilationStrategy.DuctInsulationType.FromSAPToXML();
+                xmlVentilation.MechanicalVentDuctInsulationLevel = sapVentilation.VentilationStrategy.DuctInsulationLevel;
                 xmlVentilation.MechanicalVentDuctsIndexNumber = sapVentilation.VentilationStrategy.MechVentSystemIndexNumber;
+
                 if (sapVentilation.VentilationStrategy.MechVentDetails == null)
                 {
                     xmlVentilation.MechanicalVentSystemMakeModel = null;
@@ -102,14 +130,45 @@ namespace BH.Engine.Environment.SAP
                 }
                 else if (sapVentilation.VentilationStrategy.MechVentDetails != null)
                 {
-                    xmlVentilation.MechanicalVentSystemMakeModel = sapVentilation.VentilationStrategy.MechVentDetails.SystemMakeModel;
                     xmlVentilation.MechanicalVentSpecificFanPower = sapVentilation.VentilationStrategy.MechVentDetails.SpecificFanPower;
                     xmlVentilation.MechanicalVentHeatRecoveryEfficiency = sapVentilation.VentilationStrategy.MechVentDetails.HeatRecoveryEfficiency;
                     xmlVentilation.MechanicalVentDuctType = sapVentilation.VentilationStrategy.MechVentDetails.DuctType.FromSAPToXML();
+                    xmlVentilation.MechanicalVentSystemMakeModel = sapVentilation.VentilationStrategy.MechVentDetails.SystemMakeModel;
+                }
+                if (sapVentilation.VentilationStrategy.ExtraFanDetails == null)
+                {
+                    xmlVentilation.KitchenRoomFansCount = null;
+                    xmlVentilation.KitchenRoomFansSpecificPower = null;
+                    xmlVentilation.KitchenDuctFansCount = null;
+                    xmlVentilation.KitchenDuctFansSpecificPower = null;
+                    xmlVentilation.KitchenWallFansCount = null;
+                    xmlVentilation.KitchenWallFansSpecificPower = null;
+                    xmlVentilation.NonKitchenRoomFansCount = null;
+                    xmlVentilation.NonKitchenRoomFansSpecificPower = null;
+                    xmlVentilation.NonKitchenDuctFansCount = null;
+                    xmlVentilation.NonKitchenDuctFansSpecificPower = null;
+                    xmlVentilation.NonKitchenWallFansCount = null;
+                    xmlVentilation.NonKitchenWallFansSpecificPower = null;
+                }
+                else if (sapVentilation.VentilationStrategy.ExtraFanDetails != null)
+                {
+                    xmlVentilation.KitchenRoomFansCount = sapVentilation.VentilationStrategy.ExtraFanDetails.KitchenRoomFans;
+                    xmlVentilation.KitchenRoomFansSpecificPower = sapVentilation.VentilationStrategy.ExtraFanDetails.KitchenRoomFansSpecificPower;
+                    xmlVentilation.KitchenDuctFansCount = sapVentilation.VentilationStrategy.ExtraFanDetails.KitchenDuctFans;
+                    xmlVentilation.KitchenDuctFansSpecificPower = sapVentilation.VentilationStrategy.ExtraFanDetails.KitchenDuctFansSpecificPower;
+                    xmlVentilation.KitchenWallFansCount = sapVentilation.VentilationStrategy.ExtraFanDetails.KitchenWallFans;
+                    xmlVentilation.KitchenWallFansSpecificPower = sapVentilation.VentilationStrategy.ExtraFanDetails.KitchenWallFansSpecificPower;
+                    xmlVentilation.NonKitchenRoomFansCount = sapVentilation.VentilationStrategy.ExtraFanDetails.nonKitchenRoomFans;
+                    xmlVentilation.NonKitchenRoomFansSpecificPower = sapVentilation.VentilationStrategy.ExtraFanDetails.nonKitchenRoomFansSpecificPower;
+                    xmlVentilation.NonKitchenDuctFansCount = sapVentilation.VentilationStrategy.ExtraFanDetails.nonKitchenDuctFans;
+                    xmlVentilation.NonKitchenDuctFansSpecificPower = sapVentilation.VentilationStrategy.ExtraFanDetails.nonKitchenDuctFansSpecificPower;
+                    xmlVentilation.NonKitchenWallFansCount = sapVentilation.VentilationStrategy.ExtraFanDetails.nonKitchenWallFans;
+                    xmlVentilation.NonKitchenWallFansSpecificPower = sapVentilation.VentilationStrategy.ExtraFanDetails.nonKitchenWallFansSpecificPower;
+
                 }
             }
 
-            xmlVentilation.numShelteredSides = sapVentilation.numShelteredSides;
+            xmlVentilation.ShelteredSidesCount = sapVentilation.numShelteredSides;
 
             return xmlVentilation;
         }
