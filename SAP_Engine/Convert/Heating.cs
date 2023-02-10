@@ -160,7 +160,7 @@ namespace BH.Engine.Environment.SAP
                 xmlSecondaryMainHeating.BoilerFuelFeed = null;
                 xmlSecondaryMainHeating.IsMainHeatingHETASApproved = null;
                 xmlSecondaryMainHeating.ElectricCPSUOperatingTemperature = null;
-                xmlSecondaryMainHeating.MainHeatingFraction = null;
+                xmlSecondaryMainHeating.MainHeatingFraction = 0;
                 xmlSecondaryMainHeating.BurnerControl = null;
                 xmlSecondaryMainHeating.EfficiencyType = null;
                 xmlSecondaryMainHeating.MainHeatingEfficiencyWinter = null;
@@ -204,9 +204,9 @@ namespace BH.Engine.Environment.SAP
             else if (heating.SecondaryMain != null)
             {
                 xmlSecondaryMainHeating.MainHeatingNumber = "2";
-                xmlSecondaryMainHeating.MainHeatingCategory = heating.Main.HeatingCategoryCode.FromSAPToXML();
-                xmlSecondaryMainHeating.MainHeatingDataSource = heating.Main.HeatingDetails.Source.FromSAPToXML();
-                xmlSecondaryMainHeating.MainHeatingIndexNumber = heating.Main.HeatingDetails.ProductIndex;
+                xmlSecondaryMainHeating.MainHeatingCategory = heating.SecondaryMain.HeatingCategoryCode.FromSAPToXML();
+                xmlSecondaryMainHeating.MainHeatingDataSource = heating.SecondaryMain.HeatingDetails.Source.FromSAPToXML();
+                xmlSecondaryMainHeating.MainHeatingIndexNumber = heating.SecondaryMain.HeatingDetails.ProductIndex;
                 xmlSecondaryMainHeating.MainHeatingManufacturer = null;
                 xmlSecondaryMainHeating.MainHeatingModel = null;
                 xmlSecondaryMainHeating.MainHeatingCommissioningCertificate = null;
@@ -219,32 +219,32 @@ namespace BH.Engine.Environment.SAP
                 xmlSecondaryMainHeating.HeatTransferToWater = null;
                 xmlSecondaryMainHeating.SolidFuelBoilerType = null;
                 xmlSecondaryMainHeating.MainHeatingCode = null;
-                xmlSecondaryMainHeating.MainFuelType = heating.Main.HeatingFuel.Fuel.FromSAPToXML();
+                xmlSecondaryMainHeating.MainFuelType = heating.SecondaryMain.HeatingFuel.Fuel.FromSAPToXML();
                 xmlSecondaryMainHeating.PCDFFuelIndex = null;
-                xmlSecondaryMainHeating.MainHeatingControl = heating.Main.HeatingControls.Controls;
-                xmlSecondaryMainHeating.HeatEmitterType = heating.Main.HeatingDetails.EmitterType.FromSAPToXML();
+                xmlSecondaryMainHeating.MainHeatingControl = heating.SecondaryMain.HeatingControls.Controls;
+                xmlSecondaryMainHeating.HeatEmitterType = heating.SecondaryMain.HeatingDetails.EmitterType.FromSAPToXML();
                 xmlSecondaryMainHeating.UnderfloorHeatEmitterType = null;
-                xmlSecondaryMainHeating.MainHeatingFlueType = heating.Main.BoilerInformation.FlueType.FromSAPToXML();
-                xmlSecondaryMainHeating.IsFlueFanPresent = heating.Main.BoilerInformation.FanFlued;
-                xmlSecondaryMainHeating.IsCentralHeatingPumpInHeatedSpace = heating.Main.BoilerInformation.PumpInHeatedSpace;//only if wet system, Need to check these two
+                xmlSecondaryMainHeating.MainHeatingFlueType = heating.SecondaryMain.BoilerInformation.FlueType.FromSAPToXML();
+                xmlSecondaryMainHeating.IsFlueFanPresent = heating.SecondaryMain.BoilerInformation.FanFlued;
+                xmlSecondaryMainHeating.IsCentralHeatingPumpInHeatedSpace = heating.SecondaryMain.BoilerInformation.PumpInHeatedSpace;//only if wet system, Need to check these two
                 xmlSecondaryMainHeating.IsOilPumpInHeatedSpace = null;// only if oil boiler NEED TO DIFFERENTIATE THESE DEPENIDING ON TYPE
-                xmlSecondaryMainHeating.IsInterLockedSystem = heating.Main.BoilerInformation.BoilerInterlock;
-                xmlSecondaryMainHeating.HasSeparateDelayedStart = heating.Main.HeatingControls.DelayedStartThermostat;
+                xmlSecondaryMainHeating.IsInterLockedSystem = heating.SecondaryMain.BoilerInformation.BoilerInterlock;
+                xmlSecondaryMainHeating.HasSeparateDelayedStart = heating.SecondaryMain.HeatingControls.DelayedStartThermostat;
                 xmlSecondaryMainHeating.BoilerFuelFeed = null;
-                xmlSecondaryMainHeating.IsMainHeatingHETASApproved = heating.Main.HETASApproved;
+                xmlSecondaryMainHeating.IsMainHeatingHETASApproved = heating.SecondaryMain.HETASApproved;
                 xmlSecondaryMainHeating.ElectricCPSUOperatingTemperature = null;
-                xmlSecondaryMainHeating.MainHeatingFraction = heating.Main.FractionOfHeat;
+                xmlSecondaryMainHeating.MainHeatingFraction = heating.SecondaryMain.FractionOfHeat;
                 xmlSecondaryMainHeating.BurnerControl = null;
                 xmlSecondaryMainHeating.EfficiencyType = null;
                 xmlSecondaryMainHeating.MainHeatingEfficiencyWinter = null;
                 xmlSecondaryMainHeating.MainHeatingEfficiencySummer = null;
                 xmlSecondaryMainHeating.MainHeatingEfficiency = null;
                 xmlSecondaryMainHeating.MainHeatingSystemType = null;
-                if (heating.Main.FGHRS != null)
+                if (heating.SecondaryMain.FGHRS != null)
                 { xmlSecondaryMainHeating.HasFGHRS = true; }
-                else if (heating.Main.FGHRS == null)
+                else if (heating.SecondaryMain.FGHRS == null)
                 { xmlSecondaryMainHeating.HasFGHRS = false; }
-                xmlSecondaryMainHeating.FGHRSIndexNumber = heating.Main.FGHRS.IndexNumber;
+                xmlSecondaryMainHeating.FGHRSIndexNumber = heating.SecondaryMain.FGHRS.IndexNumber;
                 xmlSecondaryMainHeating.FGHRSEnergySource = null;
 
 
@@ -266,9 +266,9 @@ namespace BH.Engine.Environment.SAP
                 xmlSecondaryMainHeating.StorageHeaters = xmlSecondaryStorageHeaters;
                 //
 
-                xmlSecondaryMainHeating.EmitterTemperature = heating.Main.HeatingDetails.EmitterTemperature.FromSAPToXML();
-                xmlSecondaryMainHeating.MCSInstalledHeatPump = heating.Main.MCSCertificate;
-                xmlSecondaryMainHeating.CentralHeatingPumpAge = heating.Main.HeatingDetails.PumpAge.FromSAPToXML();
+                xmlSecondaryMainHeating.EmitterTemperature = heating.SecondaryMain.HeatingDetails.EmitterTemperature.FromSAPToXML();
+                xmlSecondaryMainHeating.MCSInstalledHeatPump = heating.SecondaryMain.MCSCertificate;
+                xmlSecondaryMainHeating.CentralHeatingPumpAge = heating.SecondaryMain.HeatingDetails.PumpAge.FromSAPToXML();
                 xmlSecondaryMainHeating.ControlIndexNumber = null;
                 xmlSecondaryMainHeating.HeatingControllerFunction = null;
                 xmlSecondaryMainHeating.HeatingControllerEcodesignClass = null;
@@ -277,7 +277,7 @@ namespace BH.Engine.Environment.SAP
 
                 xmlMainHeatingList.Add(xmlSecondaryMainHeating);
             }
-            
+
             xmlMainHeatingDetails.MainHeating = xmlMainHeatingList;
             xmlHeating.MainHeatingDetails = xmlMainHeatingDetails;
 
@@ -326,11 +326,11 @@ namespace BH.Engine.Environment.SAP
             xmlHeating.IsHeatPumpInstalledToMIS = null; //Add to sap class
             xmlHeating.IsImmersionForSummerUse = heating.WaterHeating.Immersion.SummerImmersion;
             xmlHeating.IsSecondaryHeatingHETASApproved = heating.SecondaryHeating.HETASApproved;
-            xmlHeating.HotWaterControlsManufacturer= null;
+            xmlHeating.HotWaterControlsManufacturer = null;
             xmlHeating.HotWaterStoreModel = null;
-            xmlHeating.HotWaterStoreCommissioningCertificate= null;
-            xmlHeating.HotWaterStoreInstallerEngineerRegistration= null;
-                //Needs to be added in some method
+            xmlHeating.HotWaterStoreCommissioningCertificate = null;
+            xmlHeating.HotWaterStoreInstallerEngineerRegistration = null;
+            //Needs to be added in some method
             xmlHeating.HotWaterStoreHeatLossSource = null;
             xmlHeating.IsThermalStoreNearBoiler = null;
             xmlHeating.IsThermalStoreOrCPSUInAiringCupboard = null;
@@ -345,7 +345,7 @@ namespace BH.Engine.Environment.SAP
             xmlCommunityHeatingSystem.CommunityHeatingPrimaryEnergyFactor = null;
             xmlCommunityHeatingSystem.CommunityHeatingUse = null;
             xmlCommunityHeatingSystem.IsCommunityHeatingCylinderInDwelling = null;
-            xmlCommunityHeatingSystem.IsHeatInterfaceUnitInDwelling= null;
+            xmlCommunityHeatingSystem.IsHeatInterfaceUnitInDwelling = null;
             xmlCommunityHeatingSystem.HeatInterfaceUnitIndexNumber = null;
             xmlCommunityHeatingSystem.CommunityHeatingDistributionType = null;
 
@@ -370,7 +370,7 @@ namespace BH.Engine.Environment.SAP
             xmlCommunityHeatingSystem.HeatNetworkExisting = null;
             xmlCommunityHeatingSystems.CommunityHeatingSystem = xmlCommunityHeatingSystem;
             xmlHeating.CommunityHeatingSystems = xmlCommunityHeatingSystems;
-            
+
             xmlHeating.HeatingDesignWaterUse = null;
             xmlHeating.MainHeatingSystemsInteraction = null;
 
@@ -410,124 +410,56 @@ namespace BH.Engine.Environment.SAP
             oM.Environment.SAP.XML.InstantaneousWWHRS xmlInstantaneousWWHRS = new oM.Environment.SAP.XML.InstantaneousWWHRS();
             oM.Environment.SAP.XML.StorageWWHRS xmlStorageWWHRS = new oM.Environment.SAP.XML.StorageWWHRS();
 
+            //check if cases are correct - tried to make them as similar to prev closed but ultimatley not sure how the diff cases should be treated
             if (heating.WasteWaterHRS == null)
             {
                 xmlInstantaneousWWHRS.WWHRSIndexNumber1 = null;
                 xmlInstantaneousWWHRS.WWHRSEfficiency1 = null;
-                xmlInstantaneousWWHRS.WWHRSManufacturer1 = null;
-                xmlInstantaneousWWHRS.WWHRSModel1= null; 
                 xmlInstantaneousWWHRS.WWHRSIndexNumber2 = null;
                 xmlInstantaneousWWHRS.WWHRSEfficiency2 = null;
-                xmlInstantaneousWWHRS.WWHRSManufacturer2 = null;
-                xmlInstantaneousWWHRS.WWHRSModel2 = null;
                 xmlStorageWWHRS.WWHRSIndexNumber = null;
                 xmlStorageWWHRS.WWHRSStoreVolume = null;
                 xmlStorageWWHRS.StorageWWHRSEfficiency = null;
-                xmlStorageWWHRS.StorageWWHRSManufacturer = null;
-                xmlStorageWWHRS.StorageWWHRSModel = null;
-            }
-            else if (heating.WasteWaterHRS.InstantaneousSystem1 != null && heating.WasteWaterHRS.InstantaneousSystem2 != null)
-            {
-                xmlInstantaneousWWHRS.WWHRSIndexNumber1 = "1";
-                xmlInstantaneousWWHRS.WWHRSEfficiency1 = heating.WasteWaterHRS.InstantaneousSystem1.Efficiency;
-                xmlInstantaneousWWHRS.WWHRSManufacturer1 = heating.WasteWaterHRS.InstantaneousSystem1.Manufacturer;
-                xmlInstantaneousWWHRS.WWHRSModel1 = heating.WasteWaterHRS.InstantaneousSystem1.Model;
-                xmlInstantaneousWWHRS.WWHRSIndexNumber2 = "2";
-                xmlInstantaneousWWHRS.WWHRSEfficiency2 = heating.WasteWaterHRS.InstantaneousSystem2.Efficiency;
-                xmlInstantaneousWWHRS.WWHRSManufacturer2 = heating.WasteWaterHRS.InstantaneousSystem2.Manufacturer;
-                xmlInstantaneousWWHRS.WWHRSModel2 = heating.WasteWaterHRS.InstantaneousSystem2.Model;
 
             }
             else if (heating.WasteWaterHRS.InstantaneousSystem1 != null)
             {
-                xmlInstantaneousWWHRS.WWHRSIndexNumber1 = "1";
+                xmlInstantaneousWWHRS.WWHRSIndexNumber1 = heating.WasteWaterHRS.InstantaneousSystem1.IndexNumber;
                 xmlInstantaneousWWHRS.WWHRSEfficiency1 = heating.WasteWaterHRS.InstantaneousSystem1.Efficiency;
-                xmlInstantaneousWWHRS.WWHRSManufacturer1 = heating.WasteWaterHRS.InstantaneousSystem1.Manufacturer;
-                xmlInstantaneousWWHRS.WWHRSModel1 = heating.WasteWaterHRS.InstantaneousSystem1.Model;
-                xmlInstantaneousWWHRS.WWHRSIndexNumber2 = null;
-                xmlInstantaneousWWHRS.WWHRSEfficiency2 = null;
-                xmlInstantaneousWWHRS.WWHRSManufacturer2 = null;
-                xmlInstantaneousWWHRS.WWHRSModel2 = null;
             }
             else if (heating.WasteWaterHRS.InstantaneousSystem2 != null)
             {
-                xmlInstantaneousWWHRS.WWHRSIndexNumber1 = "1";
-                xmlInstantaneousWWHRS.WWHRSEfficiency1 = heating.WasteWaterHRS.InstantaneousSystem1.Efficiency;
-                xmlInstantaneousWWHRS.WWHRSManufacturer1 = heating.WasteWaterHRS.InstantaneousSystem1.Manufacturer;
-                xmlInstantaneousWWHRS.WWHRSModel1 = heating.WasteWaterHRS.InstantaneousSystem1.Model;
-                xmlInstantaneousWWHRS.WWHRSIndexNumber2 = "2";
+                xmlInstantaneousWWHRS.WWHRSIndexNumber2 = heating.WasteWaterHRS.InstantaneousSystem2.IndexNumber;
                 xmlInstantaneousWWHRS.WWHRSEfficiency2 = heating.WasteWaterHRS.InstantaneousSystem2.Efficiency;
-                xmlInstantaneousWWHRS.WWHRSManufacturer2 = heating.WasteWaterHRS.InstantaneousSystem2.Manufacturer;
-                xmlInstantaneousWWHRS.WWHRSModel2 = heating.WasteWaterHRS.InstantaneousSystem2.Model;
+            }
+            else if (heating.WasteWaterHRS.StorageSystem != null)
+            {
+                xmlStorageWWHRS.WWHRSIndexNumber = heating.WasteWaterHRS.StorageSystem.IndexNumber;
+                xmlStorageWWHRS.WWHRSStoreVolume = heating.WasteWaterHRS.StorageSystem.StoreVolume;
+                xmlStorageWWHRS.StorageWWHRSEfficiency = heating.WasteWaterHRS.StorageSystem.Efficiency;
             }
 
+            xmlHeating.InstantaneousWHRS = xmlInstantaneousWWHRS;
+            xmlHeating.StorageWHRS = xmlStorageWWHRS;
 
-            //else if (heating.WWHRS.System1.System.InstantaneousOrStorage == "1")
-            //{
-            //    xmlInstantaneousWWHRS.WWHRSIndexNumber1 = heating.WWHRS.System1.System.Index;
-            //    xmlInstantaneousWWHRS.MixerShowersWithSystem1WithBath = heating.WWHRS.System1.MixerShowersWithBath;
-            //    xmlInstantaneousWWHRS.MixerShowersWithSystem1WithoutBath = heating.WWHRS.System1.MixerSHowersWithoutBath;
-            //    xmlInstantaneousWWHRS.SecondOrderHeatLossCoefficient = null;
-            //    xmlInstantaneousWWHRS.RoomsWithBathAndOrShower = heating.WWHRS.TotalRoomsWithShowerOrBath;
-            //}
-            //else if (heating.WWHRS.System2.System.InstantaneousOrStorage == "1")
-            //{
-            //    xmlInstantaneousWWHRS.WWHRSIndexNumber2 = heating.WWHRS.System2.System.Index;
-            //    xmlInstantaneousWWHRS.MixerShowersWithSystem2WithBath = heating.WWHRS.System2.MixerShowersWithBath;
-            //    xmlInstantaneousWWHRS.SecondOrderHeatLossCoefficient = null;
-            //    xmlInstantaneousWWHRS.MixerShowersWithSystem2WithoutBath = heating.WWHRS.System2.MixerSHowersWithoutBath;
-            //    xmlInstantaneousWWHRS.RoomsWithBathAndOrShower = heating.WWHRS.TotalRoomsWithShowerOrBath;
-            //}
-            //else if (heating.WWHRS.System1.System.InstantaneousOrStorage == "2")
-            //{
-            //    xmlStorageWWHRS.WWHRSIndexNumber = heating.WWHRS.System1.System.Index;
-            //    xmlStorageWWHRS.TotalShowersAndBaths = null;
-            //    xmlStorageWWHRS.BathsAndShowersToWWHRS = null;
-            //    xmlStorageWWHRS.WWHRSStoreVolume = heating.WWHRS.System1.System.TestDedicatedVolume;
-            //    xmlInstantaneousWWHRS.RoomsWithBathAndOrShower = heating.WWHRS.TotalRoomsWithShowerOrBath;
-            //}
-            //else if (heating.WWHRS.System2.System.InstantaneousOrStorage == "2")
-            //{
-            //    xmlStorageWWHRS.WWHRSIndexNumber = heating.WWHRS.System2.System.Index;
-            //    xmlStorageWWHRS.TotalShowersAndBaths = null;
-            //    xmlStorageWWHRS.BathsAndShowersToWWHRS = null;
-            //    xmlStorageWWHRS.WWHRSStoreVolume = heating.WWHRS.System2.System.TestDedicatedVolume;
-            //    xmlInstantaneousWWHRS.RoomsWithBathAndOrShower = heating.WWHRS.TotalRoomsWithShowerOrBath;
-            //}
-            //else if (heating.WWHRS.System1.System.InstantaneousOrStorage != "2" && heating.WWHRS.System1.System.InstantaneousOrStorage != "1")
-            //{
-            //    xmlInstantaneousWWHRS.WWHRSIndexNumber1 = null;
-            //    xmlInstantaneousWWHRS.MixerShowersWithSystem1WithBath = null;
-            //    xmlInstantaneousWWHRS.MixerShowersWithSystem1WithoutBath = null;
-            //    xmlInstantaneousWWHRS.SecondOrderHeatLossCoefficient = null;
-            //    xmlInstantaneousWWHRS.WWHRSIndexNumber2 = null;
-            //    xmlInstantaneousWWHRS.MixerShowersWithSystem2WithBath = null;
-            //    xmlInstantaneousWWHRS.SecondOrderHeatLossCoefficient = null;
-            //    xmlInstantaneousWWHRS.MixerShowersWithSystem2WithoutBath = null;
-            //    xmlStorageWWHRS.WWHRSIndexNumber = null;
-            //    xmlStorageWWHRS.TotalShowersAndBaths = null;
-            //    xmlStorageWWHRS.BathsAndShowersToWWHRS = null;
-            //    xmlStorageWWHRS.WWHRSStoreVolume = null;
-            //    xmlInstantaneousWWHRS.RoomsWithBathAndOrShower = heating.WWHRS.TotalRoomsWithShowerOrBath;
-            //}
-            //else if (heating.WWHRS.System2.System.InstantaneousOrStorage != "2" && heating.WWHRS.System2.System.InstantaneousOrStorage != "1")
-            //{
-            //    xmlInstantaneousWWHRS.WWHRSIndexNumber1 = null;
-            //    xmlInstantaneousWWHRS.MixerShowersWithSystem1WithBath = null;
-            //    xmlInstantaneousWWHRS.MixerShowersWithSystem1WithoutBath = null;
-            //    xmlInstantaneousWWHRS.SecondOrderHeatLossCoefficient = null;
-            //    xmlInstantaneousWWHRS.WWHRSIndexNumber2 = null;
-            //    xmlInstantaneousWWHRS.MixerShowersWithSystem2WithBath = null;
-            //    xmlInstantaneousWWHRS.SecondOrderHeatLossCoefficient = null;
-            //    xmlInstantaneousWWHRS.MixerShowersWithSystem2WithoutBath = null;
-            //    xmlStorageWWHRS.WWHRSIndexNumber = null;
-            //    xmlStorageWWHRS.TotalShowersAndBaths = null;
-            //    xmlStorageWWHRS.BathsAndShowersToWWHRS = null;
-            //    xmlStorageWWHRS.WWHRSStoreVolume = null;
-            //    xmlInstantaneousWWHRS.RoomsWithBathAndOrShower = heating.WWHRS.TotalRoomsWithShowerOrBath;
-            //}
-            //xmlHeating.InstantaneousWHRS = xmlInstantaneousWWHRS;
-            //xmlHeating.StorageWHRS = xmlStorageWWHRS;
+
+
+            List<oM.Environment.SAP.XML.ShowerOutlet> xmlShowerOutlets = new List<oM.Environment.SAP.XML.ShowerOutlet>();
+
+            for (int i = 0; i < heating.ShowerOutlets.Count; i++)
+            {
+                oM.Environment.SAP.XML.ShowerOutlet xmlShowerOutlet = new oM.Environment.SAP.XML.ShowerOutlet();
+                xmlShowerOutlet.ShowerOutletType = heating.ShowerOutlets[i].Type;
+                xmlShowerOutlet.ShowerFlowRate = heating.ShowerOutlets[i].FlowRate;
+                xmlShowerOutlet.ShowerPower = heating.ShowerOutlets[i].Power;
+                xmlShowerOutlet.ShowerWWHRS = heating.ShowerOutlets[i].ShowerWWHRS;//connect with the WWHRS names
+                xmlShowerOutlets.Add(xmlShowerOutlet);
+            }
+
+            xmlHeating.ShowerOutlets.ShowerOutlet = xmlShowerOutlets;
+
+            xmlHeating.NumberBaths = 0;//check these ( wheres best to include)
+            xmlHeating.NumberBathsWWHRS = 0;//check these ( wheres best to include)
 
             return new Output<oM.Environment.SAP.XML.Heating, oM.Environment.SAP.XML.Cooling>() { Item1 = xmlHeating, Item2 = xmlCooling };
         }

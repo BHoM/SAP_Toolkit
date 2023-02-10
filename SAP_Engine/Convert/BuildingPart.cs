@@ -44,7 +44,7 @@ namespace BH.Engine.Environment.SAP
             for (int i = 0; i < sapBuildingPart.Count; i++)
             {
                 BH.oM.Environment.SAP.XML.BuildingPart xmlBuildingPart = new BH.oM.Environment.SAP.XML.BuildingPart();
-                xmlBuildingPart.BuildingPartNumber = (i + 1).ToString();
+                xmlBuildingPart.BuildingPartNumber = (i + 1);
                 xmlBuildingPart.Identifier = sapBuildingPart[i].identifier;
                 xmlBuildingPart.ConstructionYear = DateTime.Today.Year.ToString();
                 //Ellie - changes : moved below line to diff propertydetails file as overshading no longer in building parts

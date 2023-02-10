@@ -41,18 +41,19 @@ namespace BH.Engine.Environment.SAP
             BH.oM.Environment.SAP.XML.FloorDimension xmlFloor = new BH.oM.Environment.SAP.XML.FloorDimension();
             for (int i = 0; i < sapFloor.Count; i++)
             {
+                xmlFloor.Name = sapFloor[i].Name;
                 xmlFloor.Description = "Type-" + sapFloor[i].Type.ToString() + "_Area-" + sapFloor[i].Area.ToString() + "_Uvalue-" + sapFloor[i].uValue;
                 xmlFloor.Type = sapFloor[i].Type.FromSAPToXMLNumber();
-                xmlFloor.HeatLossArea = sapFloor[i].Area.ToString();
-                xmlFloor.uValue = sapFloor[i].uValue.ToString();
-                xmlFloor.KappaValue = "80";
+                xmlFloor.HeatLossArea = sapFloor[i].Area;
+                xmlFloor.uValue = sapFloor[i].uValue;
+                xmlFloor.KappaValue = 80;
             }
 
             for (int i = 0; i < sapStorey.Count; i++)
             {
                 xmlFloor.Storey = sapStorey[i].StoreyNumber.ToString();
-                xmlFloor.StoreyHeight = sapStorey[i].Height.ToString();
-                xmlFloor.Area = sapStorey[i].Area.ToString();
+                xmlFloor.StoreyHeight = sapStorey[i].Height;
+                xmlFloor.Area = sapStorey[i].Area;
             }
 
             return xmlFloor;
