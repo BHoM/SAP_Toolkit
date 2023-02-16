@@ -33,37 +33,37 @@ namespace BH.oM.Environment.SAP
     public class ExtraFanDetails : BHoMObject
     {
         [Description("MEV dc, number of fans in room, kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        public virtual int KitchenRoomFans { get; set; } = 0; 
+        public virtual string KitchenRoomFans { get; set; } = null; 
 
         [Description("MEV dc, specific fan power of fans in room, kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
         public virtual string KitchenRoomFansSpecificPower { get; set; } = ""; 
 
         [Description("MEV dc, number of fans via duct, kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        public virtual int KitchenDuctFans { get; set; } = 0;
+        public virtual string KitchenDuctFans { get; set; } = null;
 
         [Description("MEV dc, specific fan power of fans via duct, kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
         public virtual string KitchenDuctFansSpecificPower { get; set; } = "";
 
         [Description("MEV dc, number of fans through wall, kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        public virtual int KitchenWallFans { get; set; } = 0; 
+        public virtual string KitchenWallFans { get; set; } = null; 
 
         [Description("MEV dc, specific fan power of fans through wall, kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
         public virtual string KitchenWallFansSpecificPower { get; set; } = ""; 
 
         [Description("MEV dc, number of fans in room, rooms other than kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        public virtual int nonKitchenRoomFans { get; set; } = 0;
+        public virtual string nonKitchenRoomFans { get; set; } = null;
 
         [Description("MEV dc, specific fan power of fans in room, rooms other than kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
         public virtual string nonKitchenRoomFansSpecificPower { get; set; } = ""; 
 
         [Description("MEV dc, number of fans via duct, rooms other than kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        public virtual int nonKitchenDuctFans { get; set; } = 0; 
+        public virtual string nonKitchenDuctFans { get; set; } = null; 
 
         [Description("MEV dc, specific fan power of fans via duct, rooms other than kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
         public virtual string nonKitchenDuctFansSpecificPower { get; set; } = ""; 
 
         [Description("MEV dc, number of fans through wall, rooms other than kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
-        public virtual int nonKitchenWallFans { get; set; } = 0; 
+        public virtual string nonKitchenWallFans { get; set; } = null; 
 
         [Description("MEV dc, specific fan power of fans through wall, rooms other than kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
         public virtual string nonKitchenWallFansSpecificPower { get; set; } = ""; 

@@ -40,10 +40,10 @@ namespace BH.Engine.Environment.SAP
             BH.oM.Environment.SAP.XML.Ventilation xmlVentilation = new BH.oM.Environment.SAP.XML.Ventilation();
 
             //Add in Fan count and power etc
-            xmlVentilation.ClosedFluesCount = 0;
-            xmlVentilation.BoilersFluesCount = 0;
-            xmlVentilation.OtherFluesCount = 0;
-            xmlVentilation.BlockedChimneysCount = 0;
+            xmlVentilation.ClosedFluesCount = "0";
+            xmlVentilation.BoilersFluesCount = "0";
+            xmlVentilation.OtherFluesCount = "0";
+            xmlVentilation.BlockedChimneysCount = "0";
             //FansVentCount
             xmlVentilation.PressureTestCertificateNumber = null;
             xmlVentilation.HasDraughtLobby = null;
@@ -60,7 +60,7 @@ namespace BH.Engine.Environment.SAP
                 xmlVentilation.OpenFluesCount = null;
                 xmlVentilation.OpenChimneysCount = null;
                 xmlVentilation.FluelessGasFiresCount = null;
-                xmlVentilation.ExtractFansCount = 0;
+                xmlVentilation.ExtractFansCount = null;
                 xmlVentilation.PSVCount = null;
             }
             else if (sapVentilation.VentilationRates != null)
@@ -98,7 +98,7 @@ namespace BH.Engine.Environment.SAP
                 xmlVentilation.MechanicalVentilationDataSource = null;
                 xmlVentilation.MechanicalVentSystemIndexNumber = null;
                 xmlVentilation.MechanicalVentSystemMakeModel = null;
-                xmlVentilation.numWetRooms = 0;
+                //xmlVentilation.numWetRooms = 0;
                 xmlVentilation.MechanicalVentSpecificFanPower = null;
                 xmlVentilation.MechanicalVentHeatRecoveryEfficiency = null;
                 xmlVentilation.MechanicalVentDuctType = null;

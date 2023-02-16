@@ -39,7 +39,7 @@ namespace BH.oM.Environment.SAP
         public virtual string OpenChimneys { get; set; } = null;
 
         [Description("Total amount of fans in the dwelling.")]
-        public virtual int? FansCount { get; set; } = null;
+        public virtual string FansCount { get; set; } = null;
 
         [Description("The number of passive stack vents.")]
         public virtual string PSVCount { get; set; } = null;
