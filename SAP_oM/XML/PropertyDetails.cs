@@ -87,7 +87,7 @@ namespace BH.oM.Environment.SAP.XML
        
         [Description("Is property in a smoke control area?  Only if a solid fuel appliance is used.")]
         [XmlElement("Is-In-Smoke-Control-Area")]
-        public virtual bool? IsInSmokeControlArea { get; set; } = true;
+        public virtual string IsInSmokeControlArea { get; set; } = "true";
 
         [Description("What is the cold water source?  Either mains or header tank.")]
         [XmlElement(ElementName = "Cold-Water-Source")]

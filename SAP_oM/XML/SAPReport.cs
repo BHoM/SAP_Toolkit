@@ -26,12 +26,13 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Analytical.Results;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "SAP-Report", IsNullable = false)]
-    public class SAPReport : IObject
+    [XmlRoot(ElementName = "SAP-Report", IsNullable = false, Namespace = "http://www.epcregister.com/xsd/sap")]
+    public class SAPReport : IObject, IResultObject
     {
 
         [Description("The schema version that the data conformed to when it was lodged.")]

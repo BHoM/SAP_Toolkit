@@ -128,11 +128,11 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("MEV dc, specific fan power of fans in room, kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
         [XmlElement(ElementName = "Mechanical-Vent-Specific-Fan-Power")]
-        public virtual double MechanicalVentSpecificFanPower { get; set; } = 0;
+        public virtual string MechanicalVentSpecificFanPower { get; set; } = null;
 
         [Description("Mechanical vent heat recovery efficiency percentage; if mechanical vent (MVHR)")]
         [XmlElement(ElementName = "Mechanical-Vent-Heat-Recovery-Efficiency")]
-        public virtual double MechanicalVentHeatRecoveryEfficiency { get; set; } = 0;
+        public virtual string MechanicalVentHeatRecoveryEfficiency { get; set; } = null;
 
         [Description("Mechanical vent duct type; if MEV c, MV or MVHR.")]
         [XmlElement(ElementName = "Mechanical-Vent-Duct-Type")]
@@ -156,54 +156,54 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("MEV dc, number of fans in room, kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
         [XmlElement(ElementName = "Kitchen-Room-Fans-Count")]
-        public virtual int KitchenRoomFansCount { get; set; } = 0;
+        public virtual string KitchenRoomFansCount { get; set; } = null;
 
         [Description("MEV dc, specific fan power of fans in room, kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
         [XmlElement(ElementName = "Kitchen-Room-Fans-Specific-Power")]
-        public virtual double KitchenRoomFansSpecificPower { get; set; } = 0;
+        public virtual string KitchenRoomFansSpecificPower { get; set; } = null;
 
         [Description("MEV dc, number of fans in room, rooms other than kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
         [XmlElement(ElementName = "Non-Kitchen-Room-Fans-Count")]
-        public virtual int NonKitchenRoomFansCount { get; set; } = 0;
+        public virtual string NonKitchenRoomFansCount { get; set; } = null;
 
         [Description("MEV dc, specific fan power of fans in room, rooms other than kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
         [XmlElement(ElementName = "Non-Kitchen-Room-Fans-Specific-Power")]
-        public virtual double NonKitchenRoomFansSpecificPower { get; set; } = 0;
+        public virtual string NonKitchenRoomFansSpecificPower { get; set; } = null;
 
         [Description("MEV dc, number of fans via duct, kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
         [XmlElement(ElementName = "Kitchen-Duct-Fans-Count")]
-        public virtual int KitchenDuctFansCount { get; set; } = 0;
+        public virtual string KitchenDuctFansCount { get; set; } = null;
 
         [Description("MEV dc, specific fan power of fans via duct, kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
         [XmlElement(ElementName = "Kitchen-Duct-Fans-Specific-Power")]
-        public virtual double KitchenDuctFansSpecificPower { get; set; } = 0;
+        public virtual string KitchenDuctFansSpecificPower { get; set; } = null;
 
         [Description("MEV dc, number of fans via duct, rooms other than kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
         [XmlElement(ElementName = "Non-Kitchen-Duct-Fans-Count")]
-        public virtual int NonKitchenDuctFansCount { get; set; } = 0;
+        public virtual string NonKitchenDuctFansCount { get; set; } = null;
 
         [Description("MEV dc, specific fan power of fans via duct, rooms other than kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
         [XmlElement(ElementName = "Non-Kitchen-Duct-Fans-Specific-Power")]
-        public virtual double NonKitchenDuctFansSpecificPower { get; set; } = 0;
+        public virtual string NonKitchenDuctFansSpecificPower { get; set; } = null;
 
         [Description("MEV dc, number of fans through wall, kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
         [XmlElement(ElementName = "Kitchen-Wall-Fans-Count")]
-        public virtual int KitchenWallFansCount { get; set; } = 0;
+        public virtual string KitchenWallFansCount { get; set; } = null;
 
         [Description("MEV dc, specific fan power of fans through wall, kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
         [XmlElement(ElementName = "Kitchen-Wall-Fans-Specific-Power")]
-        public virtual double KitchenWallFansSpecificPower { get; set; } = 0;
+        public virtual string KitchenWallFansSpecificPower { get; set; } = null;
 
         [Description("MEV dc, number of fans through wall, rooms other than kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
         [XmlElement(ElementName = "Non-Kitchen-Wall-Fans-Count")]
-        public virtual int NonKitchenWallFansCount { get; set; } = 0;
+        public virtual string NonKitchenWallFansCount { get; set; } = null;
 
         [Description("MEV dc, specific fan power of fans through wall, rooms other than kitchen, in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV dc).")]
         [XmlElement(ElementName = "Non-Kitchen-Wall-Fans-Specific-Power")]
-        public virtual double NonKitchenWallFansSpecificPower { get; set; } = 0;
+        public virtual string NonKitchenWallFansSpecificPower { get; set; } = null;
 
         [XmlElement(ElementName = "Extract-Fans-Count")]
-        public virtual int? ExtractFansCount { get; set; } = 0;
+        public virtual string ExtractFansCount { get; set; } = null;
 
         [Description("")]
         [XmlElement(ElementName = "PSV-Count")] 

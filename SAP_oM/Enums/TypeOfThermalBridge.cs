@@ -39,5 +39,5 @@ namespace BH.oM.Environment.SAP
     //R
     //, HeadOfRoofWindow, SillOfRoofWindow, JambOfRoofWinodw, Ridge_VaultedCeiling, Ridge_Inverted, FlatCeiling, FlatCeiling_Inverted, RoofToWall_Rafter, RoofToWall_FlatCeiling,AllOtherRoofJunction, UpstandsOrKerbs, OtherType1, OtherType2
 }
-}
+
 

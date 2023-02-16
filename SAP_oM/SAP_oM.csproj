@@ -108,6 +108,7 @@
     <Compile Include="HeatingFuel.cs" />
     <Compile Include="HeatingDetails.cs" />
     <Compile Include="Immersion.cs" />
+    <Compile Include="IResultObject.cs" />
     <Compile Include="PCDBTables\IPCDBObject.cs" />
     <Compile Include="ManufacturerDescription.cs" />
     <Compile Include="PCDBTables\CommunityHeatNetworksTable.cs" />

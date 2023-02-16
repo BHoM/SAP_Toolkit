@@ -19,50 +19,34 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using BH.oM.Base;
+using System.Text;
 using System.Xml.Serialization;
-using BH.oM.Environment.SAP.Stroma10;
+using System.IO;
+using BH.oM.Environment.SAP.XML;
+using BH.Engine.Environment.SAP;
+using BH.oM.Base;
+using BH.oM.Adapter;
 
-namespace BH.oM.Environment.SAP.XML
+namespace BH.Engine.Environment.SAP
 {
-    [Serializable]
-    //[XmlRoot(ElementName = "SAP-Energy-Source", IsNullable = false)]
-    public class EnergySource : IObject
+    public static partial class Compute
     {
-        [Description("")]
-        [XmlElement("PV-Arrays")]
-        public virtual PhotovoltaicArrays PhotovoltaicArrays { get; set; } = null;
+        public static SAPReport pullFromXML (FileSettings fileSettingsInput, bool run = false)
+        {
+            if (!run)
+                return null;
 
-        [Description("")]
-        [XmlElement(ElementName = "Wind-Turbines")]
-        public virtual WindTurbines WindTurbines { get; set; } = null;
+            XmlSerializerNamespaces xns = new XmlSerializerNamespaces();
+            XmlSerializer szer = new XmlSerializer(typeof(SAPReport));
 
-        [Description("")]
-        [XmlElement(ElementName = "Electricity-Tariff")]
-        public virtual string ElectricityTariff { get; set; } = "1";
+            TextReader tr = new StreamReader(Path.Combine(fileSettingsInput.Directory, fileSettingsInput.FileName));
+            var data = (SAPReport)szer.Deserialize(tr);
+            tr.Close();
 
-        [Description("")]
-        [XmlElement(ElementName = "Hydro-Electric-Generation")]
-        public virtual double HydroElectricGeneration { get; set; } = 0;
-
-        [Description("")]
-        [XmlElement(ElementName = "Hydro-Electric-Certificate")]
-        public virtual string HydroElectricCertificate { get; set; } = null;
-
-        [Description("")]
-        [XmlElement(ElementName = "Hydro-Electric-Generation-Months")]
-        public virtual HydroElectricGenerationMonths HydroElectricGenerationMonths { get; set; } = null;
-
-        [Description("")]
-        [XmlElement(ElementName = "Is-Hydro-Output-Connected-To-Dwelling-Meter")]
-        public virtual bool IsHydroOutputConnectedToDwellingMeter { get; set; } = false;
-
+            return data;
+        }
     }
 }
-
 

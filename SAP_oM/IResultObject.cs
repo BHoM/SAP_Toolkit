@@ -29,9 +29,9 @@ using System.Threading.Tasks;
 using BH.oM.Base;
 
 
-namespace BH.Engine.Environment.SAP
+namespace BH.oM.Environment.SAP
 {
-    public interface IResultObject : IBHoMObject
+    public interface IResultObject
     {
         /***************************************************/
         /**** Properties                                ****/

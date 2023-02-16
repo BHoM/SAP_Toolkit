@@ -27,6 +27,7 @@ using System.Text;
 using BH.oM.Base;
 using BH.oM.Adapter;
 using BH.oM.Environment.SAP;
+using BH.oM.Environment.SAP.XML;
 using BH.Engine.Environment.SAP;
 
 using System.Net.Http;

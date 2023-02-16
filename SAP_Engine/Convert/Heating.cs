@@ -105,12 +105,14 @@ namespace BH.Engine.Environment.SAP
             //
 
             //STORAGEHEATERS
-            oM.Environment.SAP.XML.StorageHeaters xmlStorageHeaters = new oM.Environment.SAP.XML.StorageHeaters();
+            oM.Environment.SAP.XML.StorageHeaters xmlStorageHeaters = new oM.Environment.SAP.XML.StorageHeaters(); 
+            List<oM.Environment.SAP.XML.StorageHeater> xmlStorageHeaterList = new List<oM.Environment.SAP.XML.StorageHeater>();
             oM.Environment.SAP.XML.StorageHeater xmlStorageHeater = new oM.Environment.SAP.XML.StorageHeater();
             xmlStorageHeater.NumberOfHeaters = 0;
             xmlStorageHeater.IndexNumber = null;
             xmlStorageHeater.HighHeatRetention = null;
-            xmlStorageHeaters.StorageHeater = xmlStorageHeater;
+            xmlStorageHeaterList.Add(xmlStorageHeater);//clean up
+            xmlStorageHeaters.StorageHeater = xmlStorageHeaterList;
             xmlMainHeating.StorageHeaters = xmlStorageHeaters;
             //
 
@@ -181,13 +183,18 @@ namespace BH.Engine.Environment.SAP
 
                 //STORAGEHEATERS
                 oM.Environment.SAP.XML.StorageHeaters xmlSecondaryStorageHeaters = new oM.Environment.SAP.XML.StorageHeaters();
+                List<oM.Environment.SAP.XML.StorageHeater> xmlSecondaryStorageHeaterList = new List<oM.Environment.SAP.XML.StorageHeater>();
                 oM.Environment.SAP.XML.StorageHeater xmlSecondaryStorageHeater = new oM.Environment.SAP.XML.StorageHeater();
+
                 xmlSecondaryStorageHeater.NumberOfHeaters = 0;
                 xmlSecondaryStorageHeater.IndexNumber = null;
                 xmlSecondaryStorageHeater.HighHeatRetention = null;
-                xmlSecondaryStorageHeaters.StorageHeater = xmlSecondaryStorageHeater;
+                xmlSecondaryStorageHeaterList.Add(xmlSecondaryStorageHeater);
+                xmlSecondaryStorageHeaters.StorageHeater = xmlSecondaryStorageHeaterList;
                 xmlSecondaryMainHeating.StorageHeaters = xmlSecondaryStorageHeaters;
-                //
+
+
+                
 
                 xmlSecondaryMainHeating.EmitterTemperature = null;
                 xmlSecondaryMainHeating.MCSInstalledHeatPump = null;
@@ -258,11 +265,13 @@ namespace BH.Engine.Environment.SAP
 
                 //STORAGEHEATERS
                 oM.Environment.SAP.XML.StorageHeaters xmlSecondaryStorageHeaters = new oM.Environment.SAP.XML.StorageHeaters();
+                List<oM.Environment.SAP.XML.StorageHeater> xmlSecondaryStorageHeaterList = new List<oM.Environment.SAP.XML.StorageHeater>();
                 oM.Environment.SAP.XML.StorageHeater xmlSecondaryStorageHeater = new oM.Environment.SAP.XML.StorageHeater();
                 xmlSecondaryStorageHeater.NumberOfHeaters = 0;
                 xmlSecondaryStorageHeater.IndexNumber = null;
                 xmlSecondaryStorageHeater.HighHeatRetention = null;
-                xmlSecondaryStorageHeaters.StorageHeater = xmlSecondaryStorageHeater;
+                xmlSecondaryStorageHeaterList.Add(xmlSecondaryStorageHeater); //clean up
+                xmlSecondaryStorageHeaters.StorageHeater = xmlSecondaryStorageHeaterList;
                 xmlSecondaryMainHeating.StorageHeaters = xmlSecondaryStorageHeaters;
                 //
 
@@ -339,7 +348,9 @@ namespace BH.Engine.Environment.SAP
 
 
             oM.Environment.SAP.XML.CommunityHeatingSystems xmlCommunityHeatingSystems = new oM.Environment.SAP.XML.CommunityHeatingSystems();
+            List<oM.Environment.SAP.XML.CommunityHeatingSystem> xmlCommunityHeatingSystemList = new List<oM.Environment.SAP.XML.CommunityHeatingSystem>();
             oM.Environment.SAP.XML.CommunityHeatingSystem xmlCommunityHeatingSystem = new oM.Environment.SAP.XML.CommunityHeatingSystem();
+
             xmlCommunityHeatingSystem.CommunityHeatingName = null;
             xmlCommunityHeatingSystem.CommunityHeatingCO2EmissionFactor = null; //add to class
             xmlCommunityHeatingSystem.CommunityHeatingPrimaryEnergyFactor = null;
@@ -351,7 +362,9 @@ namespace BH.Engine.Environment.SAP
 
             //CommunityHeatSource
             oM.Environment.SAP.XML.CommunityHeatSources xmlCommunityHeatSources = new oM.Environment.SAP.XML.CommunityHeatSources();
+            List<oM.Environment.SAP.XML.CommunityHeatSource> xmlCommunityHeatSourceList = new List<oM.Environment.SAP.XML.CommunityHeatSource>();
             oM.Environment.SAP.XML.CommunityHeatSource xmlCommunityHeatSource = new oM.Environment.SAP.XML.CommunityHeatSource();
+
             xmlCommunityHeatSource.HeatSourceType = null;
             xmlCommunityHeatSource.HeatFraction = null;
             xmlCommunityHeatSource.FuelType = null;
@@ -360,15 +373,18 @@ namespace BH.Engine.Environment.SAP
             xmlCommunityHeatSource.PowerEfficiency = null;
             xmlCommunityHeatSource.Description = null;
             xmlCommunityHeatSource.CHPElectricityGeneration = null;
-            xmlCommunityHeatSources.CommunityHeatSource = xmlCommunityHeatSource;
+            xmlCommunityHeatSourceList.Add(xmlCommunityHeatSource);
+            xmlCommunityHeatSources.CommunityHeatSource = xmlCommunityHeatSourceList;
             xmlCommunityHeatingSystem.CommunityHeatSources = xmlCommunityHeatSources;
+
 
             xmlCommunityHeatingSystem.CommunityHeatingDistributionLossFactor = null;
             xmlCommunityHeatingSystem.ChargingLinkedToHeatUse = null;
             xmlCommunityHeatingSystem.HeatNetworkIndexNumber = null;
             xmlCommunityHeatingSystem.SubNetworkName = null;
             xmlCommunityHeatingSystem.HeatNetworkExisting = null;
-            xmlCommunityHeatingSystems.CommunityHeatingSystem = xmlCommunityHeatingSystem;
+            xmlCommunityHeatingSystemList.Add(xmlCommunityHeatingSystem);
+            xmlCommunityHeatingSystems.CommunityHeatingSystem = xmlCommunityHeatingSystemList;
             xmlHeating.CommunityHeatingSystems = xmlCommunityHeatingSystems;
 
             xmlHeating.HeatingDesignWaterUse = null;

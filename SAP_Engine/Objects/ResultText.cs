@@ -32,6 +32,7 @@ using BH.oM.Environment.Elements;
 using BH.oM.Base;
 using System.Text.Json.Serialization;
 using System.ComponentModel;
+using BH.oM.Environment.SAP;
 
 
 namespace BH.Engine.Environment.SAP

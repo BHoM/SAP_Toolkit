@@ -78,6 +78,9 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "Energy-Consumption-Potential")]
         public virtual int EnergyConsumptionPotential { get; set; } = 0;
 
+        [XmlElement(ElementName = "CO2-Emissions-Potential")]
+        public string CO2EmissionsPotential { get; set; } = null;
+
         [XmlElement(ElementName = "CO2-Emissions-Current")]
         public virtual double CO2EmissionsCurrent { get; set; } = 0;
 
