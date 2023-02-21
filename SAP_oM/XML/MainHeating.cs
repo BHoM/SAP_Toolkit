@@ -75,7 +75,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("The temperature distribution of the heat pump, for wet systems only.")]
         [XmlElement("Heat-Pump-Heat-Distribution")]
-        public virtual string HeatPumpHeatDistribution { get; set; } = "80";
+        public virtual string HeatPumpHeatDistribution { get; set; } = null;
 
         [Description("Boiler type; if boiler efficiency is manufacturer declaration and fuel is gas or oil.")]
         [XmlElement("Gas-Or-Oil-Boiler-Type")]
@@ -91,7 +91,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Heat transfer to water at full load in kW; if it is a range cooker boiler and boiler efficiency is manufacturer declaration.")]
         [XmlElement("Heat-Transfer-To-Water")]
-        public virtual string HeatTransferToWater { get; set; } = "0";
+        public virtual string HeatTransferToWater { get; set; } = null;
 
         [Description("Boiler type; if boiler efficiency is manufacturer declaration and fuel is solid.")]
         [XmlElement("Solid-Fuel-Boiler-Type")]
@@ -131,19 +131,19 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Central heating pump in heated space?  Only when wet system (radiators or underfloor).")]
         [XmlElement("Is-Central-Heating-Pump-In-Heated-Space")]
-        public virtual bool? IsCentralHeatingPumpInHeatedSpace { get; set; } = false;
+        public virtual bool IsCentralHeatingPumpInHeatedSpace { get; set; } = false;
 
         [Description("Oil pump in heated space?  Only if oil boiler.")]
         [XmlElement("Is-Oil-Pump-In-Heated-Space")]
-        public virtual bool? IsOilPumpInHeatedSpace { get; set; } = false;
+        public virtual bool IsOilPumpInHeatedSpace { get; set; } = false;
 
         [Description("Interlocked system?  Only when wet system (radiators or underfloor).")]
         [XmlElement("Is-Interlocked-System")]
-        public virtual bool? IsInterLockedSystem { get; set; } = false;
+        public virtual bool IsInterLockedSystem { get; set; } = false;
 
         [Description("True if there is a delayed start control separate from a controller in the database.")]
         [XmlElement("Has-Separate-Delayed-Start")]
-        public virtual bool? HasSeparateDelayedStart { get; set; } = false;
+        public virtual bool HasSeparateDelayedStart { get; set; } = false;
 
         [Description("The type of boiler fuel feed; only if solid fuel boiler with manufacturer declaration.")]
         [XmlElement("Boiler-Fuel-Feed")]
@@ -151,7 +151,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Main heating appliance is HETAS approved?  Only if solid fuel.")]
         [XmlElement("Is-Main-Heating-HETAS-Approved")]
-        public virtual bool? IsMainHeatingHETASApproved { get; set; } = false;
+        public virtual bool IsMainHeatingHETASApproved { get; set; } = false;
 
         [Description("Electric CPSU operating temperature in Celcius; only if main heating is electric CPSU.")]
         [XmlElement("Electric-CPSU-Operating-Temperature")]
@@ -187,7 +187,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Flue Gas Heat Recovery System.")]
         [XmlElement("Has-FGHRS")]
-        public virtual bool? HasFGHRS { get; set; } = false;
+        public virtual bool HasFGHRS { get; set; } = false;
 
         [Description("FGHRS index number; only if FGHRS")]
         [XmlElement("FGHRS-Index-Number")]

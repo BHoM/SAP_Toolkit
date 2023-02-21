@@ -50,7 +50,7 @@ namespace BH.oM.Environment.SAP
         public virtual FGHRS FGHRS { get; set; } = null;
 
         [Description("Is the appliance HETAS approved?")]
-        public virtual bool? HETASApproved { get; set; } = null;
+        public virtual bool HETASApproved { get; set; } = false;
         
         [Description("")]
         public virtual bool? MCSCertificate { get; set; } = null;

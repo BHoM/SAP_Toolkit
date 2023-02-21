@@ -32,13 +32,16 @@ namespace BH.oM.Environment.SAP
     public class BoilerInformation : BHoMObject
     {
         [Description("")]
-        public virtual bool? PumpInHeatedSpace { get; set; } = null;
+        public virtual bool PumpInHeatedSpace { get; set; } = false;
+
+        [Description("")]
+        public virtual bool OilPumpInHeatedSpace { get; set; } = false; 
 
         [Description("")]
         public virtual string PumpType { get; set; } = null;
 
         [Description("")]
-        public virtual bool? BoilerInterlock { get; set; } = null;
+        public virtual bool BoilerInterlock { get; set; } = false;
 
         [Description("")]
         public virtual string DesignFlowTemp { get; set; } = null;
