@@ -75,7 +75,7 @@ namespace BH.Engine.Environment.SAP
             xmlMainHeating.MainHeatingFlueType = heating.Main.BoilerInformation.FlueType.FromSAPToXML();
             xmlMainHeating.IsFlueFanPresent = heating.Main.BoilerInformation.FanFlued;
             xmlMainHeating.IsCentralHeatingPumpInHeatedSpace = heating.Main.BoilerInformation.PumpInHeatedSpace;//only if wet system, Need to check these two
-            xmlMainHeating.IsOilPumpInHeatedSpace = null;// only if oil boiler NEED TO DIFFERENTIATE THESE DEPENIDING ON TYPE
+            xmlMainHeating.IsOilPumpInHeatedSpace = heating.Main.BoilerInformation.OilPumpInHeatedSpace;// only if oil boiler NEED TO DIFFERENTIATE THESE DEPENIDING ON TYPE
             xmlMainHeating.IsInterLockedSystem = heating.Main.BoilerInformation.BoilerInterlock;
             xmlMainHeating.HasSeparateDelayedStart = heating.Main.HeatingControls.DelayedStartThermostat;
             xmlMainHeating.BoilerFuelFeed = null;
@@ -155,12 +155,12 @@ namespace BH.Engine.Environment.SAP
                 xmlSecondaryMainHeating.UnderfloorHeatEmitterType = null;
                 xmlSecondaryMainHeating.MainHeatingFlueType = null;
                 xmlSecondaryMainHeating.IsFlueFanPresent = null;
-                xmlSecondaryMainHeating.IsCentralHeatingPumpInHeatedSpace = null;
-                xmlSecondaryMainHeating.IsOilPumpInHeatedSpace = null;
-                xmlSecondaryMainHeating.IsInterLockedSystem = null;
-                xmlSecondaryMainHeating.HasSeparateDelayedStart = null;
+                xmlSecondaryMainHeating.IsCentralHeatingPumpInHeatedSpace = false;
+                xmlSecondaryMainHeating.IsOilPumpInHeatedSpace = false;
+                xmlSecondaryMainHeating.IsInterLockedSystem = false;
+                xmlSecondaryMainHeating.HasSeparateDelayedStart = false;
                 xmlSecondaryMainHeating.BoilerFuelFeed = null;
-                xmlSecondaryMainHeating.IsMainHeatingHETASApproved = null;
+                xmlSecondaryMainHeating.IsMainHeatingHETASApproved = false;
                 xmlSecondaryMainHeating.ElectricCPSUOperatingTemperature = null;
                 xmlSecondaryMainHeating.MainHeatingFraction = 0;
                 xmlSecondaryMainHeating.BurnerControl = null;
@@ -169,7 +169,7 @@ namespace BH.Engine.Environment.SAP
                 xmlSecondaryMainHeating.MainHeatingEfficiencySummer = null;
                 xmlSecondaryMainHeating.MainHeatingEfficiency = null;
                 xmlSecondaryMainHeating.MainHeatingSystemType = null;
-                xmlSecondaryMainHeating.HasFGHRS = null;
+                xmlSecondaryMainHeating.HasFGHRS = false;
                 xmlSecondaryMainHeating.FGHRSIndexNumber = null;
                 xmlSecondaryMainHeating.FGHRSEnergySource = null;
 
@@ -234,7 +234,7 @@ namespace BH.Engine.Environment.SAP
                 xmlSecondaryMainHeating.MainHeatingFlueType = heating.SecondaryMain.BoilerInformation.FlueType.FromSAPToXML();
                 xmlSecondaryMainHeating.IsFlueFanPresent = heating.SecondaryMain.BoilerInformation.FanFlued;
                 xmlSecondaryMainHeating.IsCentralHeatingPumpInHeatedSpace = heating.SecondaryMain.BoilerInformation.PumpInHeatedSpace;//only if wet system, Need to check these two
-                xmlSecondaryMainHeating.IsOilPumpInHeatedSpace = null;// only if oil boiler NEED TO DIFFERENTIATE THESE DEPENIDING ON TYPE
+                xmlSecondaryMainHeating.IsOilPumpInHeatedSpace = heating.SecondaryMain.BoilerInformation.OilPumpInHeatedSpace;// only if oil boiler NEED TO DIFFERENTIATE THESE DEPENIDING ON TYPE
                 xmlSecondaryMainHeating.IsInterLockedSystem = heating.SecondaryMain.BoilerInformation.BoilerInterlock;
                 xmlSecondaryMainHeating.HasSeparateDelayedStart = heating.SecondaryMain.HeatingControls.DelayedStartThermostat;
                 xmlSecondaryMainHeating.BoilerFuelFeed = null;
@@ -332,7 +332,7 @@ namespace BH.Engine.Environment.SAP
             xmlHeating.HasFixedAirConditioning = false;
             xmlHeating.ImmersionHeatingType = heating.WaterHeating.Immersion.Type;
             xmlHeating.IsHeatPumpAssistedByImmersion = heating.WaterHeating.Immersion.UseOfImmersion;
-            xmlHeating.IsHeatPumpInstalledToMIS = null; //Add to sap class
+            xmlHeating.IsHeatPumpInstalledToMIS = false; //Add to sap class
             xmlHeating.IsImmersionForSummerUse = heating.WaterHeating.Immersion.SummerImmersion;
             xmlHeating.IsSecondaryHeatingHETASApproved = heating.SecondaryHeating.HETASApproved;
             xmlHeating.HotWaterControlsManufacturer = null;
@@ -382,7 +382,7 @@ namespace BH.Engine.Environment.SAP
             xmlCommunityHeatingSystem.ChargingLinkedToHeatUse = null;
             xmlCommunityHeatingSystem.HeatNetworkIndexNumber = null;
             xmlCommunityHeatingSystem.SubNetworkName = null;
-            xmlCommunityHeatingSystem.HeatNetworkExisting = null;
+            xmlCommunityHeatingSystem.HeatNetworkExisting = false;
             xmlCommunityHeatingSystemList.Add(xmlCommunityHeatingSystem);
             xmlCommunityHeatingSystems.CommunityHeatingSystem = xmlCommunityHeatingSystemList;
             xmlHeating.CommunityHeatingSystems = xmlCommunityHeatingSystems;

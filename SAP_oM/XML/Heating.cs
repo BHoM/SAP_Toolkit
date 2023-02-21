@@ -37,7 +37,7 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("The type of Water Heating present in the Property.")]
         [XmlElement("Water-Heating-Code")]
-        public virtual string WaterHeatingCode { get; set; } = null; //somewhere from 901-999
+        public virtual string WaterHeatingCode { get; set; } = "901"; //somewhere from 901-999
 
         [Description("The type of fuel used to power the central heating e.g. Gas, Electricity.  Not used if water system is main or secondary system.")]
         [XmlElement("Water-Fuel-Type")]
@@ -45,7 +45,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Hot water cylinder?")]
         [XmlElement("Has-Hot-Water-Cylinder")]
-        public virtual bool? HasHotWaterCylinder { get; set; } = null;
+        public virtual bool? HasHotWaterCylinder { get; set; } = false;
 
         [Description("Category of heating system for the secondary heating system.")]
         [XmlElement("Secondary-Heating-Category")]
@@ -85,11 +85,11 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("The type of thermal store; not used if main heating system is community heating scheme.")]
         [XmlElement("Thermal-Store")]
-        public virtual string ThermalStore { get; set; } = null;
+        public virtual string ThermalStore { get; set; } = "1";
 
         [Description("Fixed air conditioning?")]
         [XmlElement("Has-Fixed-Air-Conditioning")]
-        public virtual bool? HasFixedAirConditioning { get; set; } = null;
+        public virtual bool? HasFixedAirConditioning { get; set; } = false;
 
         [Description("The type of immersion heating; only if immersion.")]
         [XmlElement("Immersion-Heating-Type")]
@@ -97,15 +97,15 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Heat pump assisted by immersion?  Only if main heating is heat pump and water heating from heat pump.")]
         [XmlElement("Is-Heat-Pump-Assisted-By-Immersion")]
-        public virtual bool? IsHeatPumpAssistedByImmersion { get; set; } = null;
+        public virtual bool? IsHeatPumpAssistedByImmersion { get; set; } = false;
 
         [Description("Is heat pump installed to MIS standard?  Only if water heating from hot water only heat pump.")]
         [XmlElement("Is-Heat-Pump-Installed-To-MIS")]
-        public virtual bool? IsHeatPumpInstalledToMIS { get; set; } = null;
+        public virtual bool IsHeatPumpInstalledToMIS { get; set; } = false;
 
         [Description("Immersion for summer use?  Only if main heating is solid fuel fire or room heater with boiler.")]
         [XmlElement("Is-Immersion-For-Summer-Use")]
-        public virtual bool? IsImmersionForSummerUse { get; set; } = null;
+        public virtual bool? IsImmersionForSummerUse { get; set; } = false;
 
         [Description("Secondary heating appliance is HETAS approved?  Only if solid fuel.")]
         [XmlElement("Is-Secondary-Heating-HETAS-Approved")]
@@ -161,7 +161,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Hot water cylinder thermostat?  Not applicable if combi boiler or instantaneous water heater.")]
         [XmlElement("Has-Cylinder-Thermostat")]
-        public virtual bool? HasCylinderThermostat { get; set; } = null;
+        public virtual bool? HasCylinderThermostat { get; set; } = true;
 
         [Description("Hot water cylinder in heated space?  Not applicable if combi boiler or instantaneous water heater.")]
         [XmlElement("Is-Cylinder-In-Heated-Space")]
@@ -169,7 +169,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(">Hot water separately timed?  Not applicable if combi boiler or instantaneous water heater.")]
         [XmlElement("Is-Hot-Water-Separately-Timed")]
-        public virtual bool? IsHotWaterSeperatlyTimed { get; set; } = null;
+        public virtual bool? IsHotWaterSeperatlyTimed { get; set; } = false;
 
         [Description("")]
         [XmlElement(ElementName = "Hot-Water-Controls-Manufacturer")]
@@ -221,7 +221,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("")]
         [XmlElement("Number-Baths")]
-        public virtual int NumberBaths { get; set; } = 0;
+        public virtual int NumberBaths { get; set; } = 1;
 
         [Description("")]
         [XmlElement("Number-Baths-WWHRS")]
