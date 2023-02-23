@@ -28,6 +28,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using BH.oM.Base.Attributes;
 using BH.oM.Base;
+using BH.oM.Environment.SAP;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -78,12 +79,99 @@ namespace BH.Engine.Environment.SAP
 
             //Ellie - changes: moved this line from BuildingPart file
             xmlPropertyDetails.WindowsOvershading = sapPropertyDetails.Overshading.FromSAPToXML();
-            xmlPropertyDetails.PropertyType = sapPropertyDetails.PropertyType;
-            xmlPropertyDetails.BuiltForm = sapPropertyDetails.BuiltForm;
+            xmlPropertyDetails.PropertyType = sapPropertyDetails.PropertyType.FromSAPToXML();
+            xmlPropertyDetails.BuiltForm = sapPropertyDetails.BuiltForm.FromSAPToXML();
             xmlPropertyDetails.LivingArea = sapPropertyDetails.LivingArea;
-            xmlPropertyDetails.Orientation = sapPropertyDetails.Orientation;
-
+            xmlPropertyDetails.Orientation = sapPropertyDetails.Orientation.FromSAPToXML();
+            //Other prop details? to inc?
             return xmlPropertyDetails;
+        }
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfProperty typeOfProperty)
+        {
+            switch (typeOfProperty)
+            {
+                case BH.oM.Environment.SAP.TypeOfProperty.House:
+                    return "0";
+
+                case BH.oM.Environment.SAP.TypeOfProperty.Bungalow:
+                    return "1";
+
+                case BH.oM.Environment.SAP.TypeOfProperty.Flat:
+                    return "2";
+
+                case BH.oM.Environment.SAP.TypeOfProperty.Maisonette:
+                    return "3";
+
+                case BH.oM.Environment.SAP.TypeOfProperty.ParkHome:
+                    return "4";
+
+                default:
+                    return "";
+            }
+        }
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.BuiltFormCode builtFormCode)
+        {
+            switch (builtFormCode)
+            {
+                case BH.oM.Environment.SAP.BuiltFormCode.Detached:
+                    return "1";
+
+                case BH.oM.Environment.SAP.BuiltFormCode.SemiDetached:
+                    return "2";
+
+                case BH.oM.Environment.SAP.BuiltFormCode.EndTerrace:
+                    return "3";
+
+                case BH.oM.Environment.SAP.BuiltFormCode.MidTerrace:
+                    return "4";
+
+                case BH.oM.Environment.SAP.BuiltFormCode.EnclosedEndTerrace:
+                    return "5";
+
+                case BH.oM.Environment.SAP.BuiltFormCode.EnclosedMidTerrace:
+                    return "6";
+
+                default:
+                    return "";
+            }
+        }
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.OrientationCode orientationCode)
+        {
+            switch (orientationCode)
+            {
+                case BH.oM.Environment.SAP.OrientationCode.unknown:
+                    return "0";
+
+                case BH.oM.Environment.SAP.OrientationCode.North:
+                    return "1";
+
+                case BH.oM.Environment.SAP.OrientationCode.NorthEast:
+                    return "2";
+
+                case BH.oM.Environment.SAP.OrientationCode.East:
+                    return "3";
+
+                case BH.oM.Environment.SAP.OrientationCode.SouthEast:
+                    return "4";
+
+                case BH.oM.Environment.SAP.OrientationCode.South:
+                    return "5";
+
+                case BH.oM.Environment.SAP.OrientationCode.SouthWest:
+                    return "6";
+
+                case BH.oM.Environment.SAP.OrientationCode.West:
+                    return "7";
+
+                case BH.oM.Environment.SAP.OrientationCode.NorthWest:
+                    return "8";
+
+                case BH.oM.Environment.SAP.OrientationCode.Horizontal:
+                    return "9";
+
+                default:
+                    return "";
+            }
         }
     }
 }

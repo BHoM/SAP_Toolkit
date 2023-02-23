@@ -32,8 +32,7 @@ namespace BH.oM.Environment.SAP
     public class ThermalBridge : BHoMObject
     {
         [Description("The thermal bridge type reference according to Table K1 in SAP 2012")]
-        public virtual TypeOfThermalBridge Reference { get; set; } = TypeOfThermalBridge.OtherLintel;
-        
+        public virtual TypeOfThermalBridge Reference { get; set; } = TypeOfThermalBridge.OtherLintels;
 
         [Description("The length of the thermal bridge")]
         public virtual double Length { get; set; } = 0;
@@ -42,8 +41,7 @@ namespace BH.oM.Environment.SAP
         public virtual double PsiValue { get; set; } = 1;
 
         [Description("The source of the psi-value applied to the thermal bridge")]
-        public virtual string Source { get; set; } = "Default";
-        //<to be enum>
+        public virtual PsiSourceCode Source { get; set; } = PsiSourceCode.SAPTableDefault;
 
         [Description("The name of the dwelling that the thermal bridge is part of")]
         public virtual string DwellingName { get; set; } = "";

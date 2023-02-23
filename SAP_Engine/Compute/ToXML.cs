@@ -29,13 +29,13 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Compute
     {
-        public static bool ToXMLFile(string filePath, string fileName, BH.oM.Environment.SAP.XML.SAP2012Data data, bool run = false)
+        public static bool ToXMLFile(string filePath, string fileName, BH.oM.Environment.SAP.XML.SAP10Data data, bool run = false)
         {
             if (!run)
                 return false;
 
             XmlSerializerNamespaces xns = new XmlSerializerNamespaces();
-            XmlSerializer szer = new XmlSerializer(typeof(BH.oM.Environment.SAP.XML.SAP2012Data));
+            XmlSerializer szer = new XmlSerializer(typeof(BH.oM.Environment.SAP.XML.SAP10Data));
             TextWriter ms = new StreamWriter(Path.Combine(filePath, fileName));
             szer.Serialize(ms, data, xns);
             ms.Close();

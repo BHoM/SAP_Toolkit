@@ -43,7 +43,7 @@ namespace BH.Engine.Environment.SAP
             {
                 xmlFloor.Name = sapFloor[i].Name;
                 xmlFloor.Description = "Type-" + sapFloor[i].Type.ToString() + "_Area-" + sapFloor[i].Area.ToString() + "_Uvalue-" + sapFloor[i].uValue;
-                xmlFloor.Type = sapFloor[i].Type.FromSAPToXMLNumber();
+                xmlFloor.Type = sapFloor[i].Type.FromSAPToXML();
                 xmlFloor.HeatLossArea = sapFloor[i].Area;
                 xmlFloor.uValue = sapFloor[i].uValue;
                 xmlFloor.KappaValue = 80;
@@ -58,7 +58,7 @@ namespace BH.Engine.Environment.SAP
 
             return xmlFloor;
         }
-        private static string FromSAPToXMLNumber(this BH.oM.Environment.SAP.TypeOfFloor typeOfFloor)
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfFloor typeOfFloor)
         {
             switch (typeOfFloor)
             {

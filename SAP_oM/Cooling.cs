@@ -42,6 +42,6 @@ namespace BH.oM.Environment.SAP
         public virtual string CooledArea { get; set; } = null;
 
         [Description("")]
-        public virtual string DataSource { get; set; } = null;
+        public virtual DataSourceCode DataSource { get; set; } = DataSourceCode.FromDatabase;
     }
 }

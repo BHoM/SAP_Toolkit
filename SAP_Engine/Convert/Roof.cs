@@ -69,7 +69,7 @@ namespace BH.Engine.Environment.SAP
                 case BH.oM.Environment.SAP.TypeOfRoof.ExposedRoof:
                     return "2";
 
-                case BH.oM.Environment.SAP.TypeOfRoof.PartyCieling:
+                case BH.oM.Environment.SAP.TypeOfRoof.PartyCeiling:
                     return "4";
 
                 default:

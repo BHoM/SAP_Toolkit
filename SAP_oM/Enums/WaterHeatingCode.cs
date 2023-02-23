@@ -25,14 +25,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
-using BH.oM.Environment.SAP.Stroma10;
-using Microsoft.SqlServer.Server;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates a particular type of thermal bridge.")]
-    public enum TypeOfThermalBridge { NotDefined = 1, SteelLintelWithPerforatedSteelBasePlate, OtherLintels, Sill, Jamb, GroundFloor_Normal, IntermediateFloorWithinDwelling, PartyFloorBetweenDwellings, BalconyWithinADwelling, BalconyBetweenDwellings, WallInsulationContinuous , Eaves_InsulationAtCeilingLevel, Eaves_InsulationAtRafterLevel, Gable_InsulationAtCeilingLevel, Gable_InsulationAtRafterLevel, FlatRoof , FlatRoofWithParapet , Corner_Normal, Corner_Inverted, PartyWallBetweenDwellings , GroundFloor_Inverted, ExposedFloor_Normal , ExposedFloor_Inverted, BasementFloor, BalconyWithinOrBetweenDwellings, Eaves_InsulationAtCeilingLevel_Inverted , StaggeredPartyWall , GroundFloor , IntermediateFloorWithinADwelling , IntermediateFloorBetweenDwellings, Roof_InsulationAtCeilingLevel, Roof_InsulationAtRafterLevel,   HeadOfRoofWindow , SillOfRoofWindow , JambOfRoofWindow , Ridge_VaultedCeiling , Ridge_Inverted , FlatCeiling , FlatCeiling_Inverted, RoofToWall_Rafter, RoofToWall_FlatCeiling, AllOtherRoofOrRoomInRoofJunctions, UpstandsOfRooflights , OtherType1 , OtherType2 }
+    [Description("Code which indicates the type of heating system, as defined in SAP table 4a")]
+    public enum WaterHeatingCode { NoHotWaterSystem = 999, MainSystem = 901, SecondMainSystem = 914, SecondarySystem = 902, ElectricImmersion, SinglePointGas = 907, MultiPointGas,ElectricInstantaneous, GasBoilerOnlyForWater = 911, LiquidFuelOnlyForWater, SolidFuelOnlyForWater, RangeCookerGasSinglePermanent = 921, RangeCookerGasSingleAutomatic,RangeCookerGasTwinPermanentPre1998, RangeCookerGasTwinAutoPre1998, RangeCookerGasTwinPermanentPost1998, RangeCookerGasTwinAutoPost1998, RangeCookerLiquidSingle,  RangeCookerLiquidTwinPre1998, RangeCookerLiquidTwinPost1998, RangeCookerSolidIntegralOvenBoiler, RangeCookerSolidIndependentOvenBoiler, ElectricPumpOnlyWater = 941,Boilers_RdSAP = 950, CHP_RdSAP, HeatPumpRdSAP = 952}
 }
-
-
 

@@ -44,11 +44,11 @@ namespace BH.Engine.Environment.SAP
             BH.oM.Environment.SAP.XML.OpeningType xmlOpeningType = new BH.oM.Environment.SAP.XML.OpeningType();
             xmlOpeningType.Name = sapOpeningtype.Name;
             xmlOpeningType.Description = "Type-" + sapOpeningtype.Type.ToString() + "_Uvalue-" + sapOpeningtype.uValue.ToString(); ;
-            xmlOpeningType.DataSource = sapOpeningtype.DataSource.FromSAPToXMLData();
-            xmlOpeningType.Type = sapOpeningtype.Type.FromSAPToXMLNumber();
-            xmlOpeningType.GlazingType = sapOpeningtype.GlazingType.FromSAPToXMLGlazing();
-            xmlOpeningType.GlazingGap = sapOpeningtype.GlazingGap.FromSAPToXMLNumber();
-            xmlOpeningType.FrameType = sapOpeningtype.FrameType.FromSAPToXMLNumber();
+            xmlOpeningType.DataSource = sapOpeningtype.DataSource.FromSAPToXML();
+            xmlOpeningType.Type = sapOpeningtype.Type.FromSAPToXML();
+            xmlOpeningType.GlazingType = sapOpeningtype.GlazingType.FromSAPToXML();
+            xmlOpeningType.GlazingGap = sapOpeningtype.GlazingGap.FromSAPToXML();
+            xmlOpeningType.FrameType = sapOpeningtype.FrameType.FromSAPToXML();
             xmlOpeningType.gValue = sapOpeningtype.gValue;
             xmlOpeningType.FrameFactor = sapOpeningtype.FrameFactor;
             xmlOpeningType.uValue = sapOpeningtype.uValue;
@@ -59,36 +59,34 @@ namespace BH.Engine.Environment.SAP
             finalXML.OpeningType = xmlOpeningTypes;
             return finalXML;
         }
-        private static string FromSAPToXMLNumber(this TypeOfOpening typeOfOpening)
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfOpening typeOfOpening)
         {
             switch (typeOfOpening)
             {
-                case TypeOfOpening.SolidDoor:
-                    return "0";
-
-                case TypeOfOpening.SemiGlazedDoor:
+                case BH.oM.Environment.SAP.TypeOfOpening.SolidDoor:
                     return "1";
 
-                case TypeOfOpening.DoorToCorridor:
+                case BH.oM.Environment.SAP.TypeOfOpening.SemiGlazedDoor:
                     return "2";
 
-                case TypeOfOpening.Window:
+                case BH.oM.Environment.SAP.TypeOfOpening.DoorToCorridor:
                     return "3";
 
-                case TypeOfOpening.RoofWindow:
+                case BH.oM.Environment.SAP.TypeOfOpening.Window:
                     return "4";
 
-                case TypeOfOpening.HalfGlazedDoor:
+                case BH.oM.Environment.SAP.TypeOfOpening.RoofWindow:
                     return "5";
 
-                case TypeOfOpening.Rooflight:
+                case BH.oM.Environment.SAP.TypeOfOpening.Rooflight:
                     return "6";
 
                 default:
                     return "";
             }
         }
-        private static string FromSAPToXMLNumber(this GlazingGap glazingGap)
+
+        private static string FromSAPToXML(this GlazingGap glazingGap)
         {
             switch (glazingGap)
             {
@@ -105,7 +103,7 @@ namespace BH.Engine.Environment.SAP
                     return "";
             }
         }
-        private static string FromSAPToXMLNumber(this TypeOfFrame typeOfFrame)
+        private static string FromSAPToXML(this TypeOfFrame typeOfFrame)
         {
             switch (typeOfFrame)
             {
@@ -140,7 +138,7 @@ namespace BH.Engine.Environment.SAP
                     return "";
             }
         }
-        private static string FromSAPToXMLData(this OpeningDataSource dataSource)
+        private static string FromSAPToXML(this OpeningDataSource dataSource)
         {
             switch (dataSource)
             {
@@ -157,7 +155,7 @@ namespace BH.Engine.Environment.SAP
                     return "";
             }
         }
-        private static string FromSAPToXMLGlazing(this TypeOfGlazing glazingType)
+        private static string FromSAPToXML(this TypeOfGlazing glazingType)
         {
             switch (glazingType)
             {

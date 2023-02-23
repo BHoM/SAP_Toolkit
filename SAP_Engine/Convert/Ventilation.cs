@@ -27,6 +27,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using BH.oM.Base.Attributes;
+using BH.oM.Environment.SAP;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -194,6 +195,9 @@ namespace BH.Engine.Environment.SAP
 
                 case BH.oM.Environment.SAP.PressureTestCode.YesExistingDwelling:
                     return "6";
+
+                case BH.oM.Environment.SAP.PressureTestCode.YesMeasuredLowPressure:
+                    return "7";
 
                 default:
                     return "";

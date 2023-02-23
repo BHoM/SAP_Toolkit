@@ -25,20 +25,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
-using System.Xml.Serialization;
 
-namespace BH.oM.Environment.SAP.XML
+namespace BH.oM.Environment.SAP
 {
-    [Serializable]
-    [XmlRoot(ElementName = "SAP2012-Data", IsNullable = false)]
-    public class SAP2012Data : IObject
-    {
-        [Description("Type of SAP data that has been collected. 1 = new dwelling as designed.")]
-        [XmlElement("Data-Type")]
-        public virtual int DataType { get; set; } = 1;
-
-        [Description("Various measurements a particular Property.")]
-        [XmlElement("SAP-Property-Details")]
-        public virtual PropertyDetails PropertyDetails { get; set; } = null;
-    }
+    [Description("Code which indicates the type of property.")]
+    public enum TypeOfProperty { House = 0, Bungalow = 1, Flat = 2, Maisonette = 3, ParkHome = 4 }
 }
+

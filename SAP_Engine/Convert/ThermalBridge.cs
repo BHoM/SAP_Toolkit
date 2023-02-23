@@ -27,6 +27,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using BH.oM.Base.Attributes;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -41,7 +42,7 @@ namespace BH.Engine.Environment.SAP
             xmlThermalBridge.Type = sapThermalBridge.Reference.FromSAPToXML();
             xmlThermalBridge.Length = sapThermalBridge.Length;
             xmlThermalBridge.PsiValue = sapThermalBridge.PsiValue;
-            xmlThermalBridge.PsiSource = sapThermalBridge.Source;
+            xmlThermalBridge.PsiSource = sapThermalBridge.Source.FromSAPToXML();
 
             return xmlThermalBridge;
         }
@@ -50,12 +51,12 @@ namespace BH.Engine.Environment.SAP
             switch (typeOfThermalBridge)
             {
                 case BH.oM.Environment.SAP.TypeOfThermalBridge.NotDefined:
-                    return "";
+                    return "ND";
 
-                case BH.oM.Environment.SAP.TypeOfThermalBridge.SteelLintelWithPerforatedBase:
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.SteelLintelWithPerforatedSteelBasePlate:
                     return "E1";
 
-                case BH.oM.Environment.SAP.TypeOfThermalBridge.OtherLintel:
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.OtherLintels:
                     return "E2";
 
                 case BH.oM.Environment.SAP.TypeOfThermalBridge.Sill:
@@ -73,22 +74,22 @@ namespace BH.Engine.Environment.SAP
                 case BH.oM.Environment.SAP.TypeOfThermalBridge.PartyFloorBetweenDwellings:
                     return "E7";
 
-                case BH.oM.Environment.SAP.TypeOfThermalBridge.BalconyWithinDwelling_InsulationContinous:
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.BalconyWithinADwelling:
                     return "E8";
 
-                case BH.oM.Environment.SAP.TypeOfThermalBridge.BalconyBetweenDwellings_InsulationContinous:
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.BalconyBetweenDwellings:
                     return "E9";
 
-                case BH.oM.Environment.SAP.TypeOfThermalBridge.Eaves_InsulationAtCeiling:
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.Eaves_InsulationAtCeilingLevel:
                     return "E10";
 
-                case BH.oM.Environment.SAP.TypeOfThermalBridge.Eaves_InsulationAtRafters:
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.Eaves_InsulationAtRafterLevel:
                     return "E11";
 
-                case BH.oM.Environment.SAP.TypeOfThermalBridge.Gable_InsulationAtCeiling:
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.Gable_InsulationAtCeilingLevel:
                     return "E12";
 
-                case BH.oM.Environment.SAP.TypeOfThermalBridge.Gable_InsulationAtRafter:
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.Gable_InsulationAtRafterLevel:
                     return "E13";
 
                 case BH.oM.Environment.SAP.TypeOfThermalBridge.FlatRoof:
@@ -118,19 +119,95 @@ namespace BH.Engine.Environment.SAP
                 case BH.oM.Environment.SAP.TypeOfThermalBridge.BasementFloor:
                     return "E22";
 
-                case BH.oM.Environment.SAP.TypeOfThermalBridge.Balcony_SupportPenetratesWallInsulation:
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.BalconyWithinOrBetweenDwellings:
                     return "E23";
 
-                case BH.oM.Environment.SAP.TypeOfThermalBridge.Eaves_InsulationAtCeiling_Inverted:
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.Eaves_InsulationAtCeilingLevel_Inverted:
                     return "E24";
 
                 case BH.oM.Environment.SAP.TypeOfThermalBridge.StaggeredPartyWall:
                     return "E25";
 
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.GroundFloor:
+                    return "P1";
+
+                case oM.Environment.SAP.TypeOfThermalBridge.IntermediateFloorWithinADwelling:
+                    return "P2";
+
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.IntermediateFloorBetweenDwellings:
+                    return "P3";
+
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.Roof_InsulationAtCeilingLevel:
+                    return "P4";
+
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.Roof_InsulationAtRafterLevel:
+                    return "P5";
+
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.HeadOfRoofWindow:
+                    return "R1";
+
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.SillOfRoofWindow:
+                    return "R2";
+
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.JambOfRoofWindow:
+                    return "R3";
+
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.Ridge_VaultedCeiling:
+                    return "R4";
+
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.Ridge_Inverted:
+                    return "R5";
+
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.FlatCeiling:
+                    return "R6";
+
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.FlatCeiling_Inverted:
+                    return "R7";
+
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.RoofToWall_Rafter:
+                    return "R8";
+
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.RoofToWall_FlatCeiling:
+                    return "R9";
+
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.AllOtherRoofOrRoomInRoofJunctions:
+                    return "R10";
+
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.UpstandsOfRooflights:
+                    return "R11";
+
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.OtherType1:
+                    return "O1";
+
+                case BH.oM.Environment.SAP.TypeOfThermalBridge.OtherType2:
+                    return "O2";
+
                 default:
                     return "";
             }
         }
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.PsiSourceCode psiSourceCode)
+        {
+            switch (psiSourceCode)
+            {
+                case BH.oM.Environment.SAP.PsiSourceCode.CalculatedByPersonWithSuitableExpertise:
+                    return "1";
+
+                case BH.oM.Environment.SAP.PsiSourceCode.GovernmentApprovedScheme:
+                    return "2";
+
+                case BH.oM.Environment.SAP.PsiSourceCode.NotGovernmentApprovedScheme:
+                    return "3";
+
+                case BH.oM.Environment.SAP.PsiSourceCode.SAPTableDefault:
+                    return "4";
+
+                default:
+                    return "";
+            }
+        }
+
+
     }
 }
 

@@ -41,6 +41,6 @@ namespace BH.oM.Environment.SAP
         public virtual bool? SummerImmersion { get; set; } = null;
 
         [Description("")]
-        public virtual string Type { get; set; } = null;
+        public virtual TypeOfImmersion Type { get; set; } = new TypeOfImmersion();
     }
 }
