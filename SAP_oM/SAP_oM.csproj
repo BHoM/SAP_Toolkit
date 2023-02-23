@@ -75,6 +75,10 @@
     <Compile Include="BuildingPart.cs" />
     <Compile Include="Cooling.cs" />
     <Compile Include="CylinderSpecification.cs" />
+    <Compile Include="Enums\CoolingClassCode.cs" />
+    <Compile Include="Enums\StoreyCode.cs" />
+    <Compile Include="Enums\DataTypeCode.cs" />
+    <Compile Include="Enums\PsiSourceCode.cs" />
     <Compile Include="Enums\DataSourceCode.cs" />
     <Compile Include="Enums\EmitterTemperatureCode.cs" />
     <Compile Include="Enums\FlueTypeCode.cs" />
@@ -91,8 +95,12 @@
     <Compile Include="Enums\ThermalStoreCode.cs" />
     <Compile Include="Enums\TypeOfDuct.cs" />
     <Compile Include="Enums\TypeOfDuctInsulation.cs" />
+    <Compile Include="Enums\TypeOfImmersion.cs" />
     <Compile Include="Enums\TypeOfFloor.cs" />
     <Compile Include="Enums\GlazingGap.cs" />
+    <Compile Include="Enums\BuiltFormCode.cs" />
+    <Compile Include="Enums\TypeOfProperty.cs" />
+    <Compile Include="Enums\WaterHeatingCode.cs" />
     <Compile Include="Enums\TypeOfThermalBridge.cs" />
     <Compile Include="Enums\TypeOfGlazing.cs" />
     <Compile Include="Enums\TypeOfFrame.cs" />
@@ -267,7 +275,6 @@
     <Compile Include="XML\ReportHeader.cs" />
     <Compile Include="XML\SAPReport.cs" />
     <Compile Include="XML\SAP10Data.cs" />
-    <Compile Include="XML\SAP2012Data.cs" />
     <Compile Include="XML\SpecialFeature.cs" />
     <Compile Include="XML\SpecialFeatures.cs" />
     <Compile Include="XML\StorageHeater.cs" />

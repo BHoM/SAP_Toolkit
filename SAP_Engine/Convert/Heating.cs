@@ -29,6 +29,7 @@ using System.ComponentModel;
 using BH.oM.Base.Attributes;
 using BH.oM.Base;
 using System.Xml;
+using BH.oM.Environment.SAP;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -42,7 +43,7 @@ namespace BH.Engine.Environment.SAP
         {
             oM.Environment.SAP.XML.Cooling xmlCooling = new oM.Environment.SAP.XML.Cooling();
             xmlCooling.CooledArea = heating.Cooling.CooledArea;
-            xmlCooling.CoolingSystemDataSource = heating.Cooling.DataSource;
+            xmlCooling.CoolingSystemDataSource = heating.Cooling.DataSource.FromSAPToXML();
             xmlCooling.CoolingSystemClass = null;
             xmlCooling.CoolingSystemSEER = heating.Cooling.SEER;
 
@@ -61,12 +62,12 @@ namespace BH.Engine.Environment.SAP
             xmlMainHeating.MainHeatingInstallationEngineer = null;
             xmlMainHeating.IsCondensingBoiler = null;
             xmlMainHeating.HeatPumpHeatDistribution = null;
-            xmlMainHeating.GasOrOilBoilerType = null;
-            xmlMainHeating.CombiBoilerType = null;
+            xmlMainHeating.GasOrOilBoilerType = null;//aAdd enum????
+            xmlMainHeating.CombiBoilerType = null;//Add enum
             xmlMainHeating.CaseHeatEmission = null;
             xmlMainHeating.HeatTransferToWater = null;
-            xmlMainHeating.SolidFuelBoilerType = null;
-            xmlMainHeating.MainHeatingCode = null;
+            xmlMainHeating.SolidFuelBoilerType = null;//Add enum
+            xmlMainHeating.MainHeatingCode = null;//Add enum
             xmlMainHeating.MainFuelType = heating.Main.HeatingFuel.Fuel.FromSAPToXML();
             xmlMainHeating.PCDFFuelIndex = null;
             xmlMainHeating.MainHeatingControl = heating.Main.HeatingControls.Controls;
@@ -324,13 +325,13 @@ namespace BH.Engine.Environment.SAP
             xmlHeating.SecondaryHeatingEfficiency = null;
             xmlHeating.SecondaryHeatingCommisioningCertificate = null;
             xmlHeating.SecondaryHeatingInstallationEngineer = null;
-            xmlHeating.SecondaryHeatingCode = heating.SecondaryHeating.HeatingDetails.HeatingCode;
+            xmlHeating.SecondaryHeatingCode = heating.SecondaryHeating.HeatingDetails.HeatingCode.FromSAPToXML();
             xmlHeating.SecondaryFuelType = heating.SecondaryHeating.Fuel.FromSAPToXML();
             xmlHeating.SecondaryHeatingPCDFFuelIndex = null;
             xmlHeating.SecondaryHeatingFlueType = heating.SecondaryHeating.HeatingDetails.FlueType.FromSAPToXML();
             xmlHeating.ThermalStore = heating.WaterHeating.ThermalStore.FromSAPToXML();
             xmlHeating.HasFixedAirConditioning = false;
-            xmlHeating.ImmersionHeatingType = heating.WaterHeating.Immersion.Type;
+            xmlHeating.ImmersionHeatingType = heating.WaterHeating.Immersion.Type.FromSAPToXML();
             xmlHeating.IsHeatPumpAssistedByImmersion = heating.WaterHeating.Immersion.UseOfImmersion;
             xmlHeating.IsHeatPumpInstalledToMIS = false; //Add to sap class
             xmlHeating.IsImmersionForSummerUse = heating.WaterHeating.Immersion.SummerImmersion;
@@ -520,10 +521,59 @@ namespace BH.Engine.Environment.SAP
                     return "";
             }
         }
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfImmersion typeOfImmersion)
+        {
+            switch (typeOfImmersion)
+            {
+                case BH.oM.Environment.SAP.TypeOfImmersion.Dual:
+                    return "1";
+
+                case BH.oM.Environment.SAP.TypeOfImmersion.Single:
+                    return "2";
+
+                default:
+                    return "";
+            }
+        }
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.CoolingClassCode typeOfImmersion)
+        {
+            switch (typeOfImmersion)
+            {
+                case BH.oM.Environment.SAP.CoolingClassCode.A3:
+                    return "1";
+                case BH.oM.Environment.SAP.CoolingClassCode.A2:
+                    return "2";
+                case BH.oM.Environment.SAP.CoolingClassCode.A1:
+                    return "3";
+                case BH.oM.Environment.SAP.CoolingClassCode.A:
+                    return "4";
+                case BH.oM.Environment.SAP.CoolingClassCode.B:
+                    return "5";
+                case BH.oM.Environment.SAP.CoolingClassCode.C:
+                    return "6";
+                case BH.oM.Environment.SAP.CoolingClassCode.D:
+                    return "7";
+                case BH.oM.Environment.SAP.CoolingClassCode.E:
+                    return "8";
+                case BH.oM.Environment.SAP.CoolingClassCode.F:
+                    return "9";
+                case BH.oM.Environment.SAP.CoolingClassCode.G:
+                    return "10";
+                case BH.oM.Environment.SAP.CoolingClassCode.ND:
+                    return "11";
+                case BH.oM.Environment.SAP.CoolingClassCode.Unknown:
+                    return "12";
+                default:
+                    return "";
+            }
+        }
         private static string FromSAPToXML(this BH.oM.Environment.SAP.DataSourceCode sourceCode)
         {
             switch (sourceCode)
             {
+                case BH.oM.Environment.SAP.DataSourceCode.FromDatabase:
+                    return "1";
+
                 case BH.oM.Environment.SAP.DataSourceCode.ManufacturerDeclaration:
                     return "2";
 
@@ -661,7 +711,7 @@ namespace BH.Engine.Environment.SAP
                 case BH.oM.Environment.SAP.HeatingFuelTypeCode.Bioethanol:
                     return "76";
 
-                case BH.oM.Environment.SAP.HeatingFuelTypeCode.CommunitySpecial:
+                case BH.oM.Environment.SAP.HeatingFuelTypeCode.FuelDataFromPcdb:
                     return "99";
 
                 default:
@@ -681,11 +731,14 @@ namespace BH.Engine.Environment.SAP
                 case BH.oM.Environment.SAP.EmitterTemperatureCode.Over35:
                     return "2";
 
-                case BH.oM.Environment.SAP.EmitterTemperatureCode.Over35LessThan45:
+                case BH.oM.Environment.SAP.EmitterTemperatureCode.Over35LessThanOrEqual45:
                     return "3";
 
-                case BH.oM.Environment.SAP.EmitterTemperatureCode.LessThan35:
+                case BH.oM.Environment.SAP.EmitterTemperatureCode.LessThanOrEqual35:
                     return "4";
+
+                case BH.oM.Environment.SAP.EmitterTemperatureCode.NotApplicable:
+                    return "NA";
 
                 default:
                     return "";
@@ -796,5 +849,92 @@ namespace BH.Engine.Environment.SAP
                     return "";
             }
         }
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.WaterHeatingCode heatingCode)
+        {
+            switch (heatingCode)
+            {
+                case BH.oM.Environment.SAP.WaterHeatingCode.NoHotWaterSystem:
+                    return "999";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.MainSystem:
+                    return "901";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.SecondMainSystem:
+                    return "914";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.SecondarySystem:
+                    return "902";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.ElectricImmersion:
+                    return "903";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.SinglePointGas:
+                    return "907";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.MultiPointGas:
+                    return "908";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.ElectricInstantaneous:
+                    return "908";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.GasBoilerOnlyForWater:
+                    return "911";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.LiquidFuelOnlyForWater:
+                    return "912";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.SolidFuelOnlyForWater:
+                    return "913";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.RangeCookerGasSinglePermanent:
+                    return "921";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.RangeCookerGasSingleAutomatic:
+                    return "922";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.RangeCookerGasTwinPermanentPre1998:
+                    return "923";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.RangeCookerGasTwinAutoPre1998:
+                    return "924";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.RangeCookerGasTwinPermanentPost1998:
+                    return "925";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.RangeCookerGasTwinAutoPost1998:
+                    return "926";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.RangeCookerLiquidSingle:
+                    return "927";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.RangeCookerLiquidTwinPre1998:
+                    return "928";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.RangeCookerLiquidTwinPost1998:
+                    return "929";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.RangeCookerSolidIntegralOvenBoiler:
+                    return "930";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.RangeCookerSolidIndependentOvenBoiler:
+                    return "931";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.ElectricPumpOnlyWater:
+                    return "941";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.Boilers_RdSAP:
+                    return "950";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.CHP_RdSAP:
+                    return "951";
+
+                case BH.oM.Environment.SAP.WaterHeatingCode.HeatPumpRdSAP:
+                    return "952";
+
+                default:
+                    return "";
+            }
+        }
     }
 }
+

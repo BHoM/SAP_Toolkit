@@ -34,17 +34,20 @@ namespace BH.oM.Environment.SAP
     [Description("List of parts that makes up the building.")]
     public class PropertyDetails : BHoMObject
     {
+        [Description("Type of SAP data that has been collected.")]
+        public virtual DataTypeCode TypeCode { get; set; } = DataTypeCode.NewDwellingAsDesigned;
+
         [Description("The type of Property, such as House, Flat = 2, Mansion, Maisonette etc. Default = 2 (Flat).")]
-        public virtual string PropertyType { get; set; } = "2"; 
+        public virtual TypeOfProperty PropertyType { get; set; } = TypeOfProperty.Flat; 
 
         [Description("The building type of the Property e.g. Detached, Semi-Detached, Terrace etc. Together with the Property Type, the Built Form provides a structured description of the property. Default value = 4 (Mid-Terrace)")]
-        public virtual string BuiltForm { get; set; } = "4";
+        public virtual BuiltFormCode BuiltForm { get; set; } = BuiltFormCode.MidTerrace;
 
         [Description("The size of the living area in square metres.  The living area is the room marked on a plan as the lounge or living room, or the largest public room (irrespective of usage by particular occupants), together with any rooms not separated from the lounge or living room by doors, and including any cupboards directly accessed from the lounge or living room. Living area does not, however, extend over more than one storey, even when stairs enter the living area directly.")]
         public virtual string LivingArea { get; set; } = "0";
 
-        [Description("The orientation of the front of the property. Default = 3 (East).")]
-        public virtual string Orientation { get; set; } = "3";
+        [Description("The orientation of the front of the property. Default: East")]
+        public virtual OrientationCode Orientation { get; set; } = OrientationCode.East;
 
         [Description("The Area of the lowest storey in square meters including unheated or communal areas such as garages or corridors.")]
         public virtual string LowestStoreyArea { get; set; } = "0";

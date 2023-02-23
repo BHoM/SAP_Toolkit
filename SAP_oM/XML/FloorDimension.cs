@@ -73,5 +73,7 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Kappa-Value-From-Below")]
         public virtual double KappaValueFromBelow { get; set; } = 0;
     }
+
+
 }
 

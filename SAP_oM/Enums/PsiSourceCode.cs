@@ -25,14 +25,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
-using BH.oM.Environment.SAP.Stroma10;
-using Microsoft.SqlServer.Server;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates a particular type of thermal bridge.")]
-    public enum TypeOfThermalBridge { NotDefined = 1, SteelLintelWithPerforatedSteelBasePlate, OtherLintels, Sill, Jamb, GroundFloor_Normal, IntermediateFloorWithinDwelling, PartyFloorBetweenDwellings, BalconyWithinADwelling, BalconyBetweenDwellings, WallInsulationContinuous , Eaves_InsulationAtCeilingLevel, Eaves_InsulationAtRafterLevel, Gable_InsulationAtCeilingLevel, Gable_InsulationAtRafterLevel, FlatRoof , FlatRoofWithParapet , Corner_Normal, Corner_Inverted, PartyWallBetweenDwellings , GroundFloor_Inverted, ExposedFloor_Normal , ExposedFloor_Inverted, BasementFloor, BalconyWithinOrBetweenDwellings, Eaves_InsulationAtCeilingLevel_Inverted , StaggeredPartyWall , GroundFloor , IntermediateFloorWithinADwelling , IntermediateFloorBetweenDwellings, Roof_InsulationAtCeilingLevel, Roof_InsulationAtRafterLevel,   HeadOfRoofWindow , SillOfRoofWindow , JambOfRoofWindow , Ridge_VaultedCeiling , Ridge_Inverted , FlatCeiling , FlatCeiling_Inverted, RoofToWall_Rafter, RoofToWall_FlatCeiling, AllOtherRoofOrRoomInRoofJunctions, UpstandsOfRooflights , OtherType1 , OtherType2 }
+    [Description("")]
+    public enum PsiSourceCode { CalculatedByPersonWithSuitableExpertise = 1, GovernmentApprovedScheme = 2, NotGovernmentApprovedScheme = 3, SAPTableDefault = 4 }
 }
-
 
 
