@@ -26,12 +26,13 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//Check
+//Renamed this from ProductType to TypeOfProduct
+//error incoming somewhere
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-    public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR,
-        NaturalIntermittentExtractFansAndPassiveVents = 10 } //NaturalIntermittentExtractFansAndOrPassiveVents = 9
+    [Description("Product type to query from database.")]  
+    public enum TypeOfProduct { GasAndOilBoiler = 105, FlueGasHeatRecoverySystem = 313, MEVdc = 322, MEVcAndMVHR = 323, MVInUseFactors = 329, MVHRDuct = 341,
+        WasteWaterHeatRecoverySystem = 353, HeatPump = 362, HeatingControls = 371, HeatingControlRequirements = 372, WarmAirSystem = 381, StorageHeaters = 391,
+        CommunityHeatNetworks = 501 }
 }
-

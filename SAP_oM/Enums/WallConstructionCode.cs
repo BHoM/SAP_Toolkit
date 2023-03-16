@@ -28,7 +28,23 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of heating fuel, as defined in SAP table 12.")]
-    public enum HeatingFuelTypeCode { MainsGas = 1, BulkLPG, BottledLPG, HeatingOil, Biogas = 7, LNG, LPGSpecialCondition , SolidFuelMineralAndWood , HouseCoal , ManufacturedSmokelessFuel , Anthracite = 15 , WoodLogs = 20 , WoodChips , WoodPelletsSecondaryHeating , WoodPelletsMainHeating , ElectricitySoldToGrid = 36 , ElectricityDisplacedFromGrid , ElectricityUnspecTariff = 39 , CommunityHeatPump = 41 , CommunityBoilersWaste , CommunityBoilersBiomass , CommunityBoilersBiogas , CommunityWastePowerStations , CommunityGeothermal , CommunityCHP = 48 , CommunityElectricityCHP , CommunityElectricityNetwork , CommunityMainsGas , CommunityLPG , CommunityOil , CommunityCoal , CommunityB30D , CommunityBoilersMineralOilBiodiesel , CommunityBoilersBiodiesel , CommunityBiodieselVegetableOil , Biodiesel = 71 , BiodieselUsedCookingOil , BiodieselVegetableOil , MineralOilLiquidBiofuel , B30K , Bioethanol , FuelDataFromPcdb = 99}
+    [Description("Code which indicates the type of wall construction.")]
+    public enum WallConstructionCode {  SteelOrTimberFrame = 1, Other = 2 }
 }
 
+/*private static string FromSAPToXML(this BH.oM.Environment.SAP.WallConstructionCode wallConstructionCode)
+{
+	switch (wallConstructionCode)
+	{
+		case BH.oM.Environment.SAP.WallConstructionCode.SteelOrTimberFrame:
+			return "1";
+
+		case BH.oM.Environment.SAP.WallConstructionCode.Other:
+			return "2";
+
+		default:
+			return"";
+	}
+}
+
+ */

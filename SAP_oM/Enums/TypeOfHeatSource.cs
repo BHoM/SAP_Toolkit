@@ -26,12 +26,33 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//Check
-
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-    public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR,
-        NaturalIntermittentExtractFansAndPassiveVents = 10 } //NaturalIntermittentExtractFansAndOrPassiveVents = 9
+    [Description("")]
+    public enum TypeOfHeatSource { CHP = 1, Boilers = 2, HeatPump = 3, WasteHeat = 4, Geothermal = 5 }
 }
 
+/* private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfHeatSource typeOfHeatSource)
+{
+	switch (typeOfHeatSource)
+	{
+		case BH.oM.Environment.SAP.TypeOfHeatSource.CHP:
+			return "1";
+
+		case BH.oM.Environment.SAP.TypeOfHeatSource.Boilers:
+			return "2";
+
+		case BH.oM.Environment.SAP.TypeOfHeatSource.HeatPump:
+			return "3";
+
+		case BH.oM.Environment.SAP.TypeOfHeatSource.WasteHeat:
+			return "4";
+
+		case BH.oM.Environment.SAP.TypeOfHeatSource.Geothermal:
+			return "5";
+
+		default:
+			return"";
+	}
+}
+ */

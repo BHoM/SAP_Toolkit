@@ -26,12 +26,51 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//Check
-
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-    public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR,
-        NaturalIntermittentExtractFansAndPassiveVents = 10 } //NaturalIntermittentExtractFansAndOrPassiveVents = 9
+    [Description("Code which indicates the type of combi boiler.")]
+    public enum TypeOfCombiBoiler {  Instantaneous,NoStoreOrKeepHot = 1, PrimaryStorage = 2, SecondaryStorage = 3, CPSU = 4, 
+        UntimedKeepHotByFuel = 5, TimedKeepHotByFuel = 6, UntimedKeepHotByElectricity = 7, TimedKeepHotByElectricity = 8, UntimedKeepHotByFuelAndElectricity = 9, 
+        TimedKeepHotByFuelAndElectricity = 10 }
 }
 
+/*
+ * private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfCombiBoiler typeOfCombiBoiler)
+{
+	switch (typeOfCombiBoiler)
+	{
+		case BH.oM.Environment.SAP.TypeOfCombiBoiler.Instantaneous,NoStoreOrKeepHot:
+			return "1";
+
+		case BH.oM.Environment.SAP.TypeOfCombiBoiler.PrimaryStorage:
+			return "2";
+
+		case BH.oM.Environment.SAP.TypeOfCombiBoiler.SecondaryStorage:
+			return "3";
+
+		case BH.oM.Environment.SAP.TypeOfCombiBoiler.CPSU:
+			return "4";
+
+		case BH.oM.Environment.SAP.TypeOfCombiBoiler.UntimedKeepHotByFuel:
+			return "5";
+
+		case BH.oM.Environment.SAP.TypeOfCombiBoiler.TimedKeepHotByFuel:
+			return "6";
+
+		case BH.oM.Environment.SAP.TypeOfCombiBoiler.UntimedKeepHotByElectricity:
+			return "7";
+
+		case BH.oM.Environment.SAP.TypeOfCombiBoiler.TimedKeepHotByElectricity:
+			return "8";
+
+		case BH.oM.Environment.SAP.TypeOfCombiBoiler.UntimedKeepHotByFuelAndElectricity:
+			return "9";
+
+		case BH.oM.Environment.SAP.TypeOfCombiBoiler.TimedKeepHotByFuelAndElectricity:
+			return "10";
+
+		default:
+			return"";
+	}
+}
+ */

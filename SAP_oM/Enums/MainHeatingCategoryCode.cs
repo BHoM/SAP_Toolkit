@@ -29,6 +29,8 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Codes used to indicate a category of main heating system.")]
-    public enum MainHeatingCategoryCode { None = 1, BoilerWRadiatorsOrUnderfloor, MicroCogeneration, HeatPumpWRadiatorsOrUnderfloor, HeatPumpWWarmAirDistribution , CommunityHeatingSystem , ElectricStorageHeaters , ElectricUnderfloorHeating, WarmAirSystem , RoomHeaters, OtherSystem }
+    public enum MainHeatingCategoryCode { None = 1, BoilerWRadiatorsOrUnderfloor, MicroCogeneration, HeatPumpWRadiatorsOrUnderfloor, 
+        HeatPumpWWarmAirDistribution , CommunityHeatingSystem , ElectricStorageHeaters , ElectricUnderfloorHeating, WarmAirSystem , 
+        RoomHeaters, OtherSystem }
 }
 

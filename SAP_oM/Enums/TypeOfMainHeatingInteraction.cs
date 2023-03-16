@@ -26,12 +26,27 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//Check
-
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-    public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR,
-        NaturalIntermittentExtractFansAndPassiveVents = 10 } //NaturalIntermittentExtractFansAndOrPassiveVents = 9
+    [Description("")]
+    public enum TypeOfMainHeatingInteraction { BothSystemsProvideHeatToWholeProperty = 1, SystemsAreSeparateAndHeatDifferentPartsOfProperty = 2 }
 }
+
+/*
+private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfMainHeatingInteraction typeOfMainHeatingInteraction)
+{
+	switch (typeOfMainHeatingInteraction)
+	{
+		case BH.oM.Environment.SAP.TypeOfMainHeatingInteraction.BothSystemsProvideHeatToWholeProperty:
+			return "1";
+
+		case BH.oM.Environment.SAP.TypeOfMainHeatingInteraction.SystemsAreSeparateAndHeatDifferentPartsOfProperty:
+			return "2";
+
+		default:
+			return"";
+	}
+}
+
+ */
 

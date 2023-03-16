@@ -26,12 +26,24 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//Check
-
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-    public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR,
-        NaturalIntermittentExtractFansAndPassiveVents = 10 } //NaturalIntermittentExtractFansAndOrPassiveVents = 9
+    [Description("Code which indicates the duct placement.")]
+    public enum TypeOfDuctPlacement {  InsideHeatedEnvelope = 1, OutsideHeatedEnvelope = 2 }
 }
 
+/*private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfDuctPlacement typeOfDuctPlacement)
+{
+	switch (typeOfDuctPlacement)
+	{
+		case BH.oM.Environment.SAP.TypeOfDuctPlacement.InsideHeatedEnvelope:
+			return "1";
+
+		case BH.oM.Environment.SAP.TypeOfDuctPlacement.OutsideHeatedEnvelope:
+			return "2";
+
+		default:
+			return"";
+	}
+}
+ */

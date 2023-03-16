@@ -28,6 +28,25 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Product type to query from database.")]  
-    public enum ProductType { GasAndOilBoiler = 105, FlueGasHeatRecoverySystem = 313, MEVdc = 322, MEVcAndMVHR = 323, MVInUseFactors = 329, MVHRDuct = 341, WasteWaterHeatRecoverySystem = 353, HeatPump = 362, HeatingControls = 371, HeatingControlRequirements = 372, WarmAirSystem = 381, StorageHeaters = 391, CommunityHeatNetworks = 501 }
+    [Description("Code which indicates the source of the cold water.")]
+    public enum ColdWaterSourceCode { Mains = 1, HeaderTank = 2 }
 }
+
+
+/*
+ * private static string FromSAPToXML(this BH.oM.Environment.SAP.ColdWaterSourceCode coldWaterSourceCode)
+{
+	switch (coldWaterSourceCode)
+	{
+		case BH.oM.Environment.SAP.ColdWaterSourceCode.Mains:
+			return "1";
+
+		case BH.oM.Environment.SAP.ColdWaterSourceCode.HeaderTank:
+			return "2";
+
+		default:
+			return"";
+	}
+}
+
+ */

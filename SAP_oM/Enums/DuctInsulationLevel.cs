@@ -26,12 +26,26 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//Check
-
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-    public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR,
-        NaturalIntermittentExtractFansAndPassiveVents = 10 } //NaturalIntermittentExtractFansAndOrPassiveVents = 9
+    [Description("Code which indicates the level of duct insulation.")]
+    public enum DuctInsulationLevel {  Level1 = 1, Level2 = 2 }
 }
 
+
+/*private static string FromSAPToXML(this BH.oM.Environment.SAP.DuctInsulationLevel ductInsulationLevel)
+{
+	switch (ductInsulationLevel)
+	{
+		case BH.oM.Environment.SAP.DuctInsulationLevel.Level1:
+			return "1";
+
+		case BH.oM.Environment.SAP.DuctInsulationLevel.Level2:
+			return "2";
+
+		default:
+			return"";
+	}
+}
+
+ */

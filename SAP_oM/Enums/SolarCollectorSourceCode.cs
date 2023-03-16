@@ -20,18 +20,34 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//Check
-
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-    public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR,
-        NaturalIntermittentExtractFansAndPassiveVents = 10 } //NaturalIntermittentExtractFansAndOrPassiveVents = 9
+    [Description("Code which indicates the source of solar collector data.")]
+    public enum SolarCollectorSourceCode { Default = 1, DeclaredValues = 2, ForBackwardsCompatabilityOnlyDoNotUse = 10 } //value is not actually 10
 }
 
+/*private static string FromSAPToXML(this BH.oM.Environment.SAP.SolarCollectorSourceCode solarCollectorSourceCode)
+{
+	switch (solarCollectorSourceCode)
+	{
+		case BH.oM.Environment.SAP.SolarCollectorSourceCode.Default:
+			return "1";
+
+		case BH.oM.Environment.SAP.SolarCollectorSourceCode.DeclaredValues:
+			return "2";
+
+		case BH.oM.Environment.SAP.SolarCollectorSourceCode.ForBackwardsCompatabilityOnlDoNotUse:
+			return "ND";
+
+		default:
+			return"";
+	}
+}
+ */
