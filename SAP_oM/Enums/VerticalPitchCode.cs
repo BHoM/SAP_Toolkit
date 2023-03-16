@@ -26,12 +26,34 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//Check
-
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-    public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR,
-        NaturalIntermittentExtractFansAndPassiveVents = 10 } //NaturalIntermittentExtractFansAndOrPassiveVents = 9
+    [Description("Code which indicates the vertical pitch (angle).")]
+    public enum VerticalPitchCode { Horizontal = 1, _30Degrees = 2, _45Degrees = 3, _60Degrees = 4, Vertical = 5 }
 }
 
+/*
+private static string FromSAPToXML(this BH.oM.Environment.SAP.VerticalPitchCode verticalPitchCode)
+{
+	switch (verticalPitchCode)
+	{
+		case BH.oM.Environment.SAP.VerticalPitchCode.Horizontal:
+			return "1";
+
+		case BH.oM.Environment.SAP.VerticalPitchCode._30Degrees:
+			return "2";
+
+		case BH.oM.Environment.SAP.VerticalPitchCode._45Degrees:
+			return "3";
+
+		case BH.oM.Environment.SAP.VerticalPitchCode._60Degrees:
+			return "4";
+
+		case BH.oM.Environment.SAP.VerticalPitchCode.Vertical:
+			return "5";
+
+		default:
+			return"";
+	}
+}
+ */

@@ -26,12 +26,28 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//Check
-
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-    public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR,
-        NaturalIntermittentExtractFansAndPassiveVents = 10 } //NaturalIntermittentExtractFansAndOrPassiveVents = 9
+    [Description("Code which indicates the type of underfloor heat emitter.")]
+    public enum UnderfloorHeatEmitterCode { InConcreteSlab = 1, InScreedAboveInsulation = 2, InTimberFloor = 3 }
 }
 
+/*
+ * private static string FromSAPToXML(this BH.oM.Environment.SAP.UnderfloorHeatEmitterCode underfloorHeatEmitterCode)
+{
+	switch (underfloorHeatEmitterCode)
+	{
+		case BH.oM.Environment.SAP.UnderfloorHeatEmitterCode.InConcreteSlab:
+			return "1";
+
+		case BH.oM.Environment.SAP.UnderfloorHeatEmitterCode.InScreedAboveInsulation:
+			return "2";
+
+		case BH.oM.Environment.SAP.UnderfloorHeatEmitterCode.InTimberFloor:
+			return "3";
+
+		default:
+			return"";
+	}
+}
+ */

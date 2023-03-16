@@ -26,12 +26,31 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//Check
-
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-    public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR,
-        NaturalIntermittentExtractFansAndPassiveVents = 10 } //NaturalIntermittentExtractFansAndOrPassiveVents = 9
+    [Description("")]
+    public enum EfficiencyTypeCode { NotGasOrOilBoiler = 1, SEDBUK2005 = 2, SEDBUK2009 = 3, WinterAndSummer = 4 }
 }
 
+/*private static string FromSAPToXML(this BH.oM.Environment.SAP.EfficiencyTypeCode sEfficiencyTypeCode)
+{
+	switch (sEfficiencyTypeCode)
+	{
+		case BH.oM.Environment.SAP.EfficiencyTypeCode.NotGasOrOilBoiler:
+			return "1";
+
+		case BH.oM.Environment.SAP.EfficiencyTypeCode.SEDBUK2005:
+			return "2";
+
+		case BH.oM.Environment.SAP.EfficiencyTypeCode.SEDBUK2009:
+			return "3";
+
+		case BH.oM.Environment.SAP.EfficiencyTypeCode.WinterAndSummer:
+			return "4";
+
+		default:
+			return"";
+	}
+}
+
+ */

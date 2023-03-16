@@ -26,12 +26,28 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//Check
 
+//Error incoming
+//name change HotWaterStoreInsulationTypeCode to TypeOfHotWaterStoreInsulation
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-    public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR,
-        NaturalIntermittentExtractFansAndPassiveVents = 10 } //NaturalIntermittentExtractFansAndOrPassiveVents = 9
+    [Description("Code which indicates the type of hot water storage insulation.")]
+    public enum TypeOfHotWaterStoreInsulation { FactoryApplied = 1, LooseJacket = 2 }
 }
 
+/*
+ * private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfHotWaterStoreInsulation typeOfHotWaterStoreInsulation)
+{
+	switch (typeOfHotWaterStoreInsulation)
+	{
+		case BH.oM.Environment.SAP.TypeOfHotWaterStoreInsulation.FactoryApplied:
+			return "1";
+
+		case BH.oM.Environment.SAP.TypeOfHotWaterStoreInsulation.LooseJacket:
+			return "2";
+
+		default:
+			return"";
+	}
+}
+ */

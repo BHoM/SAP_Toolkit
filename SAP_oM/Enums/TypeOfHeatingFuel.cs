@@ -26,12 +26,19 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//Check
-
+//Error incoming
+//Name change HeatingFuelTypeCode to TypeOfHeatingFuel
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-    public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR,
-        NaturalIntermittentExtractFansAndPassiveVents = 10 } //NaturalIntermittentExtractFansAndOrPassiveVents = 9
+    [Description("Code which indicates the type of heating fuel, as defined in SAP table 12.")]
+    public enum TypeOfHeatingFuel { MainsGas = 1, BulkLPG, BottledLPG, HeatingOil, Biogas = 7, 
+        LNG, LPGSpecialCondition , SolidFuelMineralAndWood , HouseCoal , ManufacturedSmokelessFuel , 
+        Anthracite = 15 , WoodLogs = 20 , WoodChips , WoodPelletsSecondaryHeating , WoodPelletsMainHeating ,
+        ElectricitySoldToGrid = 36 , ElectricityDisplacedFromGrid , ElectricityUnspecTariff = 39 , CommunityHeatPump = 41 , 
+        CommunityBoilersWaste , CommunityBoilersBiomass , CommunityBoilersBiogas , CommunityWastePowerStations ,
+        CommunityGeothermal , CommunityCHP = 48 , CommunityElectricityCHP , CommunityElectricityNetwork , CommunityMainsGas , 
+        CommunityLPG , CommunityOil , CommunityCoal , CommunityB30D , CommunityBoilersMineralOilBiodiesel ,
+        CommunityBoilersBiodiesel , CommunityBiodieselVegetableOil , Biodiesel = 71 , BiodieselUsedCookingOil ,
+        BiodieselVegetableOil , MineralOilLiquidBiofuel , B30K , Bioethanol , FuelDataFromPcdb = 99}
 }
 

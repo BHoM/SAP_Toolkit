@@ -26,12 +26,34 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//Check
-
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-    public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR,
-        NaturalIntermittentExtractFansAndPassiveVents = 10 } //NaturalIntermittentExtractFansAndOrPassiveVents = 9
+    [Description("Code which indicates the country within the UK, taken from BS 6879.")]
+    public enum UKCountryCode { EnglandAndWales, England , Wales, Scotland, NorthernIreland } //ForBackwardsCompatibilityOnly = EAW
 }
 
+//private static string FromSAPToXML(this BH.oM.Environment.SAP.UKCountryCode uKCountryCode)
+//{
+//    switch (uKCountryCode)
+//    {
+//        
+//		case BH.oM.Environment.SAP.UKCountryCode.England:
+//			return "ENG";
+
+//		case BH.oM.Environment.SAP.UKCountryCode.Wales:
+//			return "WLS";
+
+//		case BH.oM.Environment.SAP.UKCountryCode.Scotland:
+//			return "SCT";
+
+//		case BH.oM.Environment.SAP.UKCountryCode.NorthernIreland:
+//			return "NIR";
+
+
+//      //case BH.oM.Environment.SAP.UKCountryCode.EnglandAndWales,ForBackwardsCompatibilityOnly.:
+//			//return "EAW";
+
+//default:
+//			return "";
+//	}
+//}

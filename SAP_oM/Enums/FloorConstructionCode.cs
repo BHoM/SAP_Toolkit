@@ -26,12 +26,27 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//Check
-
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-    public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR,
-        NaturalIntermittentExtractFansAndPassiveVents = 10 } //NaturalIntermittentExtractFansAndOrPassiveVents = 9
+    [Description("Code which indicates the type of floor construction.")]
+    public enum FloorConstructionCode {  NotSuspendedTimber = 1, SuspendedTimberSealed = 2, SuspendedTimberUnsealed = 3 }
 }
 
+/*
+private static string FromSAPToXML(this BH.oM.Environment.SAP.FloorConstructionCode floorConstructionCode)
+{
+	switch (floorConstructionCode)
+	{
+		case BH.oM.Environment.SAP.FloorConstructionCode.NotSuspendedTimber:
+			return "1";
+
+		case BH.oM.Environment.SAP.FloorConstructionCode.SuspendedTimberSealed:
+			return "2";
+
+		case BH.oM.Environment.SAP.FloorConstructionCode.SuspendedTimberUnsealed:
+			return "3";
+
+		default:
+			return"";
+	}
+ */

@@ -26,12 +26,32 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//Check
-
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-    public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR,
-        NaturalIntermittentExtractFansAndPassiveVents = 10 } //NaturalIntermittentExtractFansAndOrPassiveVents = 9
+    [Description("Code which indicates the type of heating distribution system.")]
+    public enum HeatingDistributionCode { Calculated = 5, Unknown = 6, NetworkNotCompliantWithCodeOfPractice = 7, NetworkCompliantWithCodeOfPractice = 8 }
 }
 
+/*
+ * private static string FromSAPToXML(this BH.oM.Environment.SAP.HeatingDistributionCode heatingDistributionCode)
+{
+	switch (heatingDistributionCode)
+	{
+		case BH.oM.Environment.SAP.HeatingDistributionCode.Calculated:
+			return "5";
+
+		case BH.oM.Environment.SAP.HeatingDistributionCode.Unknown:
+			return "6";
+
+		case BH.oM.Environment.SAP.HeatingDistributionCode.NetworkNotCompliantWithCodeOfPractice:
+			return "7";
+
+		case BH.oM.Environment.SAP.HeatingDistributionCode.NetworkCompliantWithCodeOfPractice:
+			return "8";
+
+		default:
+			return"";
+	}
+}
+
+ */

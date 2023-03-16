@@ -25,13 +25,31 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
-
-//Check
+using BH.oM.Environment.SAP;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-    public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR,
-        NaturalIntermittentExtractFansAndPassiveVents = 10 } //NaturalIntermittentExtractFansAndOrPassiveVents = 9
+    [Description("Codes which indicates where a flat is located within a building.")]
+    public enum FlatLevelCode {  Basement = 0, GroundFloor = 1, MidFloor = 2, TopFloor = 3 }
 }
 
+//private static string FromSAPToXML(this BH.oM.Environment.SAP.FlatLevelCode flatLevelCode)
+//{
+//    switch (flatLevelCode)
+//    {
+//        case BH.oM.Environment.SAP.FlatLevelCode.Basement:
+//            return "0";
+
+//        case BH.oM.Environment.SAP.FlatLevelCode.GroundFloor:
+//            return "1";
+
+//        case BH.oM.Environment.SAP.FlatLevelCode.MidFloor:
+//            return "2";
+
+//        case BH.oM.Environment.SAP.FlatLevelCode.TopFloor:
+//            return "3";
+
+//        default:
+//            return "";
+//    }
+//}

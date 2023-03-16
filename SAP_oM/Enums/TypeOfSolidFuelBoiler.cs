@@ -26,12 +26,31 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//Check
-
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-    public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR,
-        NaturalIntermittentExtractFansAndPassiveVents = 10 } //NaturalIntermittentExtractFansAndOrPassiveVents = 9
+    [Description("Code which indicates the type of boiler for the case where the fuel is solid.")]
+    public enum TypeOfSolidFuelBoiler { Independent = 1, OpenFire = 2, ClosedRoomHeater = 3, RangeCooker = 4 }
 }
 
+/*private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfSolidFuelBoiler typeOfSolidFuelBoiler)
+{
+	switch (typeOfSolidFuelBoiler)
+	{
+		case BH.oM.Environment.SAP.TypeOfSolidFuelBoiler.Independent:
+			return "1";
+
+		case BH.oM.Environment.SAP.TypeOfSolidFuelBoiler.OpenFire:
+			return "2";
+
+		case BH.oM.Environment.SAP.TypeOfSolidFuelBoiler.ClosedRoomHeater:
+			return "3";
+
+		case BH.oM.Environment.SAP.TypeOfSolidFuelBoiler.RangeCooker:
+			return "4";
+
+		default:
+			return"";
+	}
+}
+
+ */

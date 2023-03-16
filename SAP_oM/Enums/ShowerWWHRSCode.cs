@@ -26,12 +26,35 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//Check
-
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-    public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR,
-        NaturalIntermittentExtractFansAndPassiveVents = 10 } //NaturalIntermittentExtractFansAndOrPassiveVents = 9
+    [Description("")]
+    public enum ShowerWWHRSCode { None = 1, InstantaneousWWHRS1 = 2, InstantaneousWWHRS2 = 3, StorageWWHRS = 4 }
 }
+
+
+/*
+private static string FromSAPToXML(this BH.oM.Environment.SAP.ShowerWWHRSCode showerWWHRSCode)
+{
+	switch (showerWWHRSCode)
+	{
+		case BH.oM.Environment.SAP.ShowerWWHRSCode.None:
+			return "1";
+
+		case BH.oM.Environment.SAP.ShowerWWHRSCode.InstantaneousWWHRS1:
+			return "2";
+
+		case BH.oM.Environment.SAP.ShowerWWHRSCode.InstantaneousWWHRS2:
+			return "3";
+
+		case BH.oM.Environment.SAP.ShowerWWHRSCode.StorageWWHRS:
+			return "4";
+
+		default:
+			return"";
+	}
+}
+
+
+ */
 

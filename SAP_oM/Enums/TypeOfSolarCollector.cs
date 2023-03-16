@@ -26,12 +26,30 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//Check
-
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-    public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR,
-        NaturalIntermittentExtractFansAndPassiveVents = 10 } //NaturalIntermittentExtractFansAndOrPassiveVents = 9
+    [Description("Code which indicates the type of solar collector.")]
+    public enum TypeOfSolarCollector { Unglazed = 1, FlatPanel = 2, EvacuatedTube = 3, ForBackwardsCompatabilityOnlyDoNotUse = 10 } //Do i keep in the Do not use?
 }
 
+/*private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfSolarCollector typeOfSolarCollector)
+{
+	switch (typeOfSolarCollector)
+	{
+		case BH.oM.Environment.SAP.TypeOfSolarCollector.Unglazed:
+			return "1";
+
+		case BH.oM.Environment.SAP.TypeOfSolarCollector.FlatPanel:
+			return "2";
+
+		case BH.oM.Environment.SAP.TypeOfSolarCollector.EvacuatedTube:
+			return "3";
+
+		case BH.oM.Environment.SAP.TypeOfSolarCollector.ForBackwardsCompatabilityOnlyDoNotUse:
+			return "ND";
+
+		default:
+			return"";
+	}
+}
+ */

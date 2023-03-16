@@ -25,10 +25,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
-//change to display 6mm and etc somehow
+
+
+//Oooh this is gonna cause an error when it is uncommented!
+//Ask about display stuff!
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of glazing; if U-value is from BFRC or manufacturer declaration, give as one of: single, double, triple.")]
-    public enum GlazingGap { _6mm = 1, _12mm, _16mmOrMore }
+    public enum GlazingGap { Sixmm = 1, Twelvemm, SixteenOrMore }
 }
 

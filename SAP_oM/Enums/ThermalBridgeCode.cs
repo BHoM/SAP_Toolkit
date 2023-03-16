@@ -26,12 +26,12 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//Check
+//TF is going on, I need to check the schema I don't think I pulled this through properly
+// Also IDEK know where this is used
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-    public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR,
-        NaturalIntermittentExtractFansAndPassiveVents = 10 } //NaturalIntermittentExtractFansAndOrPassiveVents = 9
+    [Description("Code which indicates how the thermal bridge data has been recorded.")]
+    public enum ThermalBridgeCode {  Default = 1,  UserDefinedGlobalYValue = 4, 
+        UserDefinedIndividualValues = 5 } //2002Regulations.ForBackwardsCompatibilityOnly, DoNotUse. = 2, Accredited.ForBackwardsCompatibilityOnly,DoNotUse. = 3
 }
-

@@ -26,9 +26,10 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
+// Gonna be an error as I changed case of unknown :D
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the compass direction.")]
-    public enum OrientationCode { unknown = 0, North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest, Horizontal }
+    public enum OrientationCode { Unknown = 0, North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest, Horizontal }
 }
 

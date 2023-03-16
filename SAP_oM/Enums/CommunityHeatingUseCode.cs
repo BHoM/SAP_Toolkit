@@ -25,13 +25,28 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
-
-//Check
+using BH.oM.Environment.SAP;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of ventilation.")]
-    public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR,
-        NaturalIntermittentExtractFansAndPassiveVents = 10 } //NaturalIntermittentExtractFansAndOrPassiveVents = 9
+    [Description("Code which indicates what kind of heating a community heating system is used for.")]
+    public enum CommunityHeatingUseCode {  SpaceHeatingOnly = 1, WaterHeatingOnly = 2, SpaceAndWaterHeating = 3 }
 }
 
+//private static string FromSAPToXML(this BH.oM.Environment.SAP.CommunityHeatingUseCode communityHeatingUseCode)
+//{
+//    switch (communityHeatingUseCode)
+//    {
+//        case BH.oM.Environment.SAP.CommunityHeatingUseCode.SpaceHeatingOnly:
+//            return "1";
+
+//        case BH.oM.Environment.SAP.CommunityHeatingUseCode.WaterHeatingOnly:
+//            return "2";
+
+//        case BH.oM.Environment.SAP.CommunityHeatingUseCode.SpaceAndWaterHeating:
+//            return "3";
+
+//        default:
+//            return "";
+//    }
+//}
