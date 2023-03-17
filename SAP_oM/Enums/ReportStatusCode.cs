@@ -24,35 +24,44 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of boiler fuel feed.")]
-    public enum BoilerFuelFeedCode { Gravity = 1, Manual = 2, Screw = 3, Other = 4 }
+	[Description("")]
+    public enum ReportStatusCode { Cancelled, EnteredOnTheRegister, UnderAppeal, 
+		Removed, Rejected , UnderInvestigation, NotForIssue }
 }
-
 /*
- * private static string FromSAPToXML(this BH.oM.Environment.SAP.BoilerFuelFeedCode boilerFuelFeedCode)
+private static string FromSAPToXML(this BH.oM.Environment.SAP.ReportStatusCode reportStatusCode)
 {
-	switch (boilerFuelFeedCode)
+	switch (reportStatusCode)
 	{
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Gravity:
-			return "1";
+		case BH.oM.Environment.SAP.ReportStatusCode.Cancelled:
+			return "cancelled";
 
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Manual:
-			return "2";
+		case BH.oM.Environment.SAP.ReportStatusCode.EnteredOnTheRegister:
+			return "entered";
 
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Screw:
-			return "3";
+		case BH.oM.Environment.SAP.ReportStatusCode.UnderAppeal:
+			return "appeal";
 
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Other:
-			return "4";
+		case BH.oM.Environment.SAP.ReportStatusCode.Removed:
+			return "removed";
+
+		case BH.oM.Environment.SAP.ReportStatusCode.Rejected:
+			return "rejected";
+
+		case BH.oM.Environment.SAP.ReportStatusCode.UnderInvestigation:
+			return "under investigation";
+
+		case BH.oM.Environment.SAP.ReportStatusCode.NotForIssue:
+			return "not for issue";
 
 		default:
 			return"";
 	}
 }
-
- */
+*/
 

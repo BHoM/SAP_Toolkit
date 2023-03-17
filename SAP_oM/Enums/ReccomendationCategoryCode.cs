@@ -28,26 +28,34 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of boiler fuel feed.")]
-    public enum BoilerFuelFeedCode { Gravity = 1, Manual = 2, Screw = 3, Other = 4 }
+    [Description("")]
+    public enum RecommendationCategoryCode { LowerCostThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed = 1, HigherCostThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed = 2, 
+		FurtherMeasureThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed = 3, Deselected_ThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed= 4, 
+		NormalMeasure = 5, AlternativeMeasure = 6 }
 }
 
 /*
- * private static string FromSAPToXML(this BH.oM.Environment.SAP.BoilerFuelFeedCode boilerFuelFeedCode)
+private static string FromSAPToXML(this BH.oM.Environment.SAP.RecommendationCategoryCode recommendationCategoryCode)
 {
-	switch (boilerFuelFeedCode)
+	switch (recommendationCategoryCode)
 	{
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Gravity:
+		case BH.oM.Environment.SAP.RecommendationCategoryCode.LowerCostThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed:
 			return "1";
 
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Manual:
+		case BH.oM.Environment.SAP.RecommendationCategoryCode.HigherCostThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed:
 			return "2";
 
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Screw:
+		case BH.oM.Environment.SAP.RecommendationCategoryCode.FurtherMeasureThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed:
 			return "3";
 
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Other:
+		case BH.oM.Environment.SAP.RecommendationCategoryCode.DeselectedThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed:
 			return "4";
+
+		case BH.oM.Environment.SAP.RecommendationCategoryCode.NormalMeasure:
+			return "5";
+
+		case BH.oM.Environment.SAP.RecommendationCategoryCode.AlternativeMeasure:
+			return "6";
 
 		default:
 			return"";
