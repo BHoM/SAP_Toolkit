@@ -24,6 +24,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Xml.Serialization;
 using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
@@ -31,11 +32,23 @@ namespace BH.oM.Environment.SAP
     [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
     public class AirPermability : BHoMObject
     {
-        [Description("Whether there has been a pressure test, or whether an assumed value is used for the air permeability.")]
+        [Description("PressureTest")]
         public virtual PressureTestCode? PressureTest { get; set; } = null;
 
         [Description("Air permeability; only if pressure test (yes or assumed).")]
-        public virtual string DesignAirPermability { get; set; } = null;
+        public virtual string AirPermabilityValue { get; set; } = null;
+
+        [Description("The type of ground floor; only if no pressure test.")]
+        public virtual FloorConstructionCode GroundFloorType { get; set; } = FloorConstructionCode.NotSuspendedTimber;
+
+        [Description("The construction of the walls; only if no pressure test.")]
+        public virtual WallConstructionCode WallType { get; set; } = WallConstructionCode.SteelOrTimberFrame;
+
+        [Description("Is there a draft lobby?  Only if no pressure test.")]
+        public virtual bool HasDraughtLobby { get; set; } = false;
+
+        [Description("Draughtstripping percentage; only if no pressure test.")]
+        public virtual string DraughtStripping { get; set; } = null;
     }
 }
 

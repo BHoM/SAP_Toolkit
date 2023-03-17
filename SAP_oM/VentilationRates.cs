@@ -31,21 +31,34 @@ namespace BH.oM.Environment.SAP
     [Description("Details of the means by which the building is ventilated")]
     public class VentilationRates : BHoMObject
     {
+        [Description("The number of Closed Flues in the Property.")]
+        public virtual string ClosedFlues { get; set; } = "0";
 
         [Description("The number of Open Flues in the Property.")]
-        public virtual string OpenFlues { get; set; } = null;
+        public virtual string OpenFlues { get; set; } = "0";
+
+        [Description("The number of Boiler Flues or chimneys in the Property.")]
+        public virtual string BoilerFlues { get; set; } = "0";
+
+        [Description("The number of Other Flues or chimneys in the Property.")]
+        public virtual string OtherFlues { get; set; } = "0";
 
         [Description("The number of Open Chimneys in the Property.")]
-        public virtual string OpenChimneys { get; set; } = null;
+        public virtual string OpenChimneys { get; set; } = "0";
+
+        [Description("The number of Blocked Chimneys in the Property.")]
+        public virtual string BlockedChimneys { get; set; } = "0";
 
         [Description("Total amount of fans in the dwelling.")]
-        public virtual string FansCount { get; set; } = null;
+        public virtual string FansCount { get; set; } = "0";
+
+        //[Description("The number of flueless gas fires in the Property.")]
+        //public virtual string FluelessGasFires { get; set; } = "0";
 
         [Description("The number of passive stack vents.")]
-        public virtual string PSVCount { get; set; } = null;
+        public virtual string PSV { get; set; } = "0";
 
-        [Description("The number of flueless gas fires in the Property.")]
-        public virtual string FluelessGasFires { get; set; } = null;
+        
     }
 }
 
