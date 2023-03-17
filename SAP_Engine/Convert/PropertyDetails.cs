@@ -41,6 +41,7 @@ namespace BH.Engine.Environment.SAP
         {
             BH.oM.Environment.SAP.XML.PropertyDetails xmlPropertyDetails = new BH.oM.Environment.SAP.XML.PropertyDetails();
             List<BH.oM.Environment.SAP.OpeningType> openingTypes = new List<oM.Environment.SAP.OpeningType>();
+
             if (sapPropertyDetails.Heating == null)
             {
                 xmlPropertyDetails.Heating = null;
@@ -57,6 +58,35 @@ namespace BH.Engine.Environment.SAP
             {
                 xmlPropertyDetails.Ventilation = null;
             }
+
+            if (sapPropertyDetails.SpecialFeatures == null)
+            {
+                xmlPropertyDetails.SpecialFeatures = null;
+            }
+
+            /*if(sapPropertyDetails.EnergySource == null)//add
+            {
+                xmlPropertyDetails.EnergySource = null;
+            }
+
+            if (sapPropertyDetails.Lighting == null)//add
+            {
+                xmlPropertyDetails.Lighting = null;
+            }
+
+            if (sapPropertyDetails.DeselectedImprovements == null)//add
+            {
+                xmlPropertyDetails.DeselectedImprovements = null;
+            }
+
+            if (sapPropertyDetails.FlatDetails == null)//add
+            {
+                xmlPropertyDetails.FlatDetails = null;
+            }
+
+            
+
+            */
 
             if (sapPropertyDetails.Heating != null)
             {
@@ -77,13 +107,45 @@ namespace BH.Engine.Environment.SAP
                 xmlPropertyDetails.Ventilation = sapPropertyDetails.Ventilation.ToXML();
             }
 
-            //Ellie - changes: moved this line from BuildingPart file
-            xmlPropertyDetails.WindowsOvershading = sapPropertyDetails.Overshading.FromSAPToXML();
+            if (sapPropertyDetails.SpecialFeatures != null)
+            {
+                xmlPropertyDetails.SpecialFeatures = sapPropertyDetails.SpecialFeatures.ToXML();
+            }
+
+
             xmlPropertyDetails.PropertyType = sapPropertyDetails.PropertyType.FromSAPToXML();
             xmlPropertyDetails.BuiltForm = sapPropertyDetails.BuiltForm.FromSAPToXML();
             xmlPropertyDetails.LivingArea = sapPropertyDetails.LivingArea;
+            xmlPropertyDetails.LowestStoreyArea = sapPropertyDetails.LowestStoreyArea;
             xmlPropertyDetails.Orientation = sapPropertyDetails.Orientation.FromSAPToXML();
-            //Other prop details? to inc?
+            xmlPropertyDetails.ConservatoryType = sapPropertyDetails.ConservatoryType.FromSAPToXML();
+            xmlPropertyDetails.TerrainType = sapPropertyDetails.TerrainType.FromSAPToXML();
+
+            /*
+            FOR BACKWARDS COMPATABILITY ONLY DO NOT USE - xmlPropertyDetails.HasSpecialFeature = false; 
+            FOR BACKWARDS COMPATABILITY ONLY DO NOT USE - xmlPropertyDetails.SpecialFeatureDescription = null;
+            FOR BACKWARDS COMPATABILITY ONLY DO NOT USE - xmlPropertyDetails.EnergySavedOrGenerated = 0;
+            FOR BACKWARDS COMPATABILITY ONLY DO NOT USE - xmlPropertyDetails.SavedOrGeneratedFuel = "0";
+            FOR BACKWARDS COMPATABILITY ONLY DO NOT USE - xmlPropertyDetails.EnergyUsed = 0;
+            FOR BACKWARDS COMPATABILITY ONLY DO NOT USE - xmlPropertyDetails.EnergyUsedFuel = "0";
+            */
+
+            xmlPropertyDetails.IsInSmokeControlArea = "true";
+            xmlPropertyDetails.ColdWaterSource = "1";
+            xmlPropertyDetails.WindowsOvershading = sapPropertyDetails.Overshading.FromSAPToXML();
+            xmlPropertyDetails.ThermalMassParameter = 0;
+            xmlPropertyDetails.AdditionalAllowableElectricityGeneration = "0";
+            xmlPropertyDetails.GasSmartMeterPresent = false;
+            xmlPropertyDetails.ElectricitySmartMeterPresent= false;
+            xmlPropertyDetails.IsDwellingExportCapable = false;
+
+            //Come Back to this - needs adding to a class
+            xmlPropertyDetails.PVConnection = "0";
+            xmlPropertyDetails.PVDiverter = false;
+            xmlPropertyDetails.BatteryCapacity = 0;
+            xmlPropertyDetails.IsWindTurbineConnectedToDwellingMeter= false;
+            xmlPropertyDetails.DesignWaterUse = "1";//Enum? .FromSAPToXML    for DesignWaterUseCode
+
             return xmlPropertyDetails;
         }
         private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfProperty typeOfProperty)
@@ -135,11 +197,28 @@ namespace BH.Engine.Environment.SAP
                     return "";
             }
         }
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfTerrain typeOfTerrain)
+        {
+            switch (typeOfTerrain)
+            {
+                case BH.oM.Environment.SAP.TypeOfTerrain.Urban:
+                    return "1";
+
+                case BH.oM.Environment.SAP.TypeOfTerrain.Suburban:
+                    return "2";
+
+                case BH.oM.Environment.SAP.TypeOfTerrain.Rural:
+                    return "3";
+
+                default:
+                    return "";
+            }
+        }
         private static string FromSAPToXML(this BH.oM.Environment.SAP.OrientationCode orientationCode)
         {
             switch (orientationCode)
             {
-                case BH.oM.Environment.SAP.OrientationCode.unknown:
+                case BH.oM.Environment.SAP.OrientationCode.Unknown:
                     return "0";
 
                 case BH.oM.Environment.SAP.OrientationCode.North:
@@ -173,5 +252,41 @@ namespace BH.Engine.Environment.SAP
                     return "";
             }
         }
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfConservatory typeOfConservatory)
+        {
+            switch (typeOfConservatory)
+            {
+                case BH.oM.Environment.SAP.TypeOfConservatory.NoConservatory:
+                    return "1";
+
+                case BH.oM.Environment.SAP.TypeOfConservatory.SeparatedUnheatedConservatory:
+                    return "2";
+
+                case BH.oM.Environment.SAP.TypeOfConservatory.SeparatedHeatedConservatory:
+                    return "3";
+
+                case BH.oM.Environment.SAP.TypeOfConservatory.NotSeparated:
+                    return "4";
+
+                default:
+                    return "";
+            }
+        }
+
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.DesignWaterUseCode designWaterUseCode)
+        {
+            switch (designWaterUseCode)
+            {
+                case BH.oM.Environment.SAP.DesignWaterUseCode.LessThan125LitresPerPersonPerDay:
+                    return "1";
+
+                case BH.oM.Environment.SAP.DesignWaterUseCode.MoreThan125LitresPerPersonPerDay:
+                    return "";
+
+                default:
+                    return "";
+            }
+        }
+
     }
 }

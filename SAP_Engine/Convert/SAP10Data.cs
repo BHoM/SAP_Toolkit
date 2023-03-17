@@ -28,22 +28,49 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using BH.oM.Base.Attributes;
 using BH.oM.Base;
+using BH.oM.Environment.SAP;
 
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Convert
     {
-        //Ellie - changes:all occurences of 2012 were changed to 10
         [Description("Convert SAP PropertyDetails to XML SAP10Data.")]
         [Input("sapPropertyDetails", "SAP PropertyDeatils to convert.")]
         [Output("xmlSAP10Data", "XML PropertyDetails.")]
         public static BH.oM.Environment.SAP.XML.SAP10Data FromSAPToXML(this oM.Environment.SAP.PropertyDetails sapPropertyDetails)
         {
             BH.oM.Environment.SAP.XML.SAP10Data xmlSAP10Data = new BH.oM.Environment.SAP.XML.SAP10Data();
-            xmlSAP10Data.DataType = "1";
+            xmlSAP10Data.DataType = DataTypeCode.NewDwellingAsDesigned.FromSAPToXML();
             xmlSAP10Data.PropertyDetails = sapPropertyDetails.ToXML();
 
             return xmlSAP10Data;
         }
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.DataTypeCode dataTypeCode)
+        {
+            switch (dataTypeCode)
+            {
+                case BH.oM.Environment.SAP.DataTypeCode.NewDwellingAsDesigned:
+                    return "1";
+
+                case BH.oM.Environment.SAP.DataTypeCode.NewDwellingAsBuilt:
+                    return "2";
+
+                case BH.oM.Environment.SAP.DataTypeCode.NewExtensionToExistingDwelling:
+                    return "3";
+
+                case BH.oM.Environment.SAP.DataTypeCode.NewDwellingCreatedByChangeOfUse:
+                    return "4";
+
+                case BH.oM.Environment.SAP.DataTypeCode.ExistingDwelling:
+                    return "5";
+
+                case BH.oM.Environment.SAP.DataTypeCode.Other:
+                    return "6";
+
+                default:
+                    return "";
+            }
+        }
     }
+    
 }
