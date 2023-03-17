@@ -26,28 +26,55 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
+//AirChangeRateMonth
+//HydroElecMonth
+
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of boiler fuel feed.")]
-    public enum BoilerFuelFeedCode { Gravity = 1, Manual = 2, Screw = 3, Other = 4 }
+    public enum Months { January, February, March, April, May, June, July, August, September, October, November, December }
 }
 
 /*
- * private static string FromSAPToXML(this BH.oM.Environment.SAP.BoilerFuelFeedCode boilerFuelFeedCode)
+ * private static string FromSAPToXML(this BH.oM.Environment.SAP.Months months)
 {
-	switch (boilerFuelFeedCode)
+	switch (months)
 	{
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Gravity:
-			return "1";
+		case BH.oM.Environment.SAP.Months.January
+			return "Jan";
 
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Manual:
-			return "2";
+		case BH.oM.Environment.SAP.Months.February
+			return "Feb";
 
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Screw:
-			return "3";
+		case BH.oM.Environment.SAP.Months.March
+			return "Mar";
 
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Other:
-			return "4";
+		case BH.oM.Environment.SAP.Months.April
+			return "Apr";
+		
+		case BH.oM.Environment.SAP.Months.May
+			return "May";
+		
+		case BH.oM.Environment.SAP.Months.June
+			return "Jun";
+
+		case BH.oM.Environment.SAP.Months.July
+			return "Jul";
+
+		case BH.oM.Environment.SAP.Months.August
+					return "Aug";
+
+		case BH.oM.Environment.SAP.Months.September
+					return "Sep";
+
+		case BH.oM.Environment.SAP.Months.October
+					return "Oct";
+
+		case BH.oM.Environment.SAP.Months.November
+					return "Nov";
+
+		case BH.oM.Environment.SAP.Months.December
+					return "Dec";
 
 		default:
 			return"";

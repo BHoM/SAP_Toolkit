@@ -52,10 +52,25 @@ namespace BH.oM.Environment.SAP
         WarmAir_GasBalancedOrOpenFlueDuctedOnOffControlPre1998 = 506, WarmAir_GasBalancedOrOpenFlueDuctedOnOffControlPost1998,
         WarmAir_GasBalancedOrOpenFlueDuctedModulatingControlPre1998, WarmAir_GasBalancedOrOpenFlueDuctedModulationControlPost1998,
         WarmAir_GasBalancedOrOpenFlueDuctedWithFlueHeatRecovery, WarmAir_GasBalancedOrOpenFlueCondensing, WarmAir_LiquidDuctedOnOffControl = 512,
-        WarmAir_LiquidDuctedModulatingControl, WarmAir_LiquidStubDuctSystem, WarmAir_ElectricaireSystem = 515,
-
-
-
+        WarmAir_LiquidDuctedModulatingControl, WarmAir_LiquidStubDuctSystem, WarmAir_ElectricaireSystem = 515,RoomHeater_GasOpenFluePre1980 = 601, 
+        RoomHeater_OpenFluePre1980BackBoiler, RoomHeater_OpenFluePost1980, RoomHeater_OpenFluePost1980BackBoiler, RoomHeater_FlushFittingGasFire, 
+        RoomHeater_FlushFittingGasFireBackBoiler, RoomHeater_FlushFittingGasFireFanAssisted, RoomHeater_GasFireOrWallHeaterBalancedFlue = 609,
+        RoomHeater_GasFireClosedFrontedFanAssistes = 610, RoomHeater_CondensingGasFire = 611, RoomHeater_DecorativeFuelGasFire = 612, RoomHeater_FluelessGasFire = 614,
+        RoomHeater_LiquidFuelPre2000 = 621, RoomHeater_LiquidFuelPre200WithBoiler = 622, RoomHeater_LiquidFuelPost2000 = 623, RoomHeater_LiquidFuelPost2000WithBoiler, 
+        RoomHeater_LiquidFuelBioethanolHeaterSecondaryOnly = 625, RoomHeater_SolidFuelOpenFire = 631, RoomHeater_SolidFuelOpenFireWithBackBoiler = 632, RoomHeater_SolidFuelClosed,
+        RoomHeater_SolidFuelClosedWithBoiler, RoomHeater_SolidFuelStove, RoomHeater_SolidFuelStoveWithBoiler, RoomHeater_ElectricPanelConvectorOrRadiant = 691, RoomHeater_ElectricWaterOrOil = 694,
+        RoomHeater_ElectricFanHeater = 692, RoomHeater_ElectricPortable = 693, Other_ElectricCeilingHeating = 701, GasBoiler_Post1998NonCondensingAutomaticIgnition = 101,
+        GasBoiler_Post1998CondensingWithAutomaticIgnition = 102, GasBoiler_Post1998NonCondensingCombiWithAutomaticIgnition, GasBoiler_Post1998CondensingCombiWithAutomaticIgnition,
+        GasBoiler_Post1998NonCondensingWithPilotLight, GasBoiler_Post1998RCondensingWithPilotLight, GasBoiler_Post1998NonCondensingCombiWithPilotLight,
+        GasBoiler_Post1998CondensingCombiWithPilotLight, GasBoiler_Post1998BackBoilerToRadiators, GasBoiler_Pre1998WithFanAssistedFlueLowThermalCapacity = 110, 
+        GasBoiler_Pre1998WithFanAssistedFlueHighOrUnknownThermalCapacity, GasBoiler_Pre1998WithFanAssistedFlueCombi, GasBoiler_Pre1998WithFanAssistedFlueCondensingCombi,
+        GasBoiler_Pre1998WithFanAssistedFlueRegularCondensing, GasBoiler_Pre1998WithOpenFlueWallMounted, GasBoiler_Pre1998WithOpenFlueFloorMountedPre1979, GasBoiler_Pre1998WithOpenFlueFloorMountedPost1979,
+        GasBoiler_Pre1998WithOpenFlueCombi, GasBoiler_Pre1998WithOpenFlueBackBoilerToRadiators, CPSU_AutomaticIgnitionNonCondensing, CPSU_AutomaticIgnitionCondensing,
+        CPSU_PermanentPilotLightNonCondensing, CPSU_PermanentPilotLightCondensing, LiquidFuel_OilStandardPre1965 = 124, LiquidFuel_OilStandard1985To1997, LiquidFuel_OilStandardPost1998,
+        LiquidFuel_CondensingOil = 127, LiquidFuel_CombiOilPre1998, LiquidFuel_CombiOilPost1998, LiquidFuel_CondensingCombiOil, LiquidFuel_OilRoomHeaterWithBoilerToRadiatorsPre2000,
+        LiquidFuel_OilRoomHeaterWithBoilerToRadiatorsPost2000, RangeCooker_SingleBurnerWithPermanentPilot, RangeCooker_SingleBurnerWithAutomaticIgnition,
+        RangeCooker_TwinBurnerWithPermanentPilotPre1998, RangeCooker_TwinBurnerWithAutomaticIgnitionPre1998, RangeCooker_TwinBurnerWithPermanentPilotPost1998,
+        RangeCooker_TwinBurnerWithAutomaticIgnitionPost1998,RangeCookerLiquidFuel_SingleBurner = 139, RangeCookerLiquidFuel_TwinBurnerPre1998, RangeCookerLiquidFuel_TwinBurnerPost1998 = 141 
     }
 
 }

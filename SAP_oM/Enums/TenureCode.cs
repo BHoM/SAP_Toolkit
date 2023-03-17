@@ -28,31 +28,29 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of boiler fuel feed.")]
-    public enum BoilerFuelFeedCode { Gravity = 1, Manual = 2, Screw = 3, Other = 4 }
+    [Description("")]
+    public enum TenureCode { OwnerOccupied = 1, Rented_Social = 2, Rented_Private = 3, Unknown }
 }
-
 /*
- * private static string FromSAPToXML(this BH.oM.Environment.SAP.BoilerFuelFeedCode boilerFuelFeedCode)
+
+private static string FromSAPToXML(this BH.oM.Environment.SAP.TenureCode tenureCode)
 {
-	switch (boilerFuelFeedCode)
+	switch (tenureCode)
 	{
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Gravity:
+		case BH.oM.Environment.SAP.TenureCode.OwnerOccupied:
 			return "1";
 
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Manual:
+		case BH.oM.Environment.SAP.TenureCode.Rented_Social:
 			return "2";
 
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Screw:
+		case BH.oM.Environment.SAP.TenureCode.Rented_Private:
 			return "3";
 
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Other:
-			return "4";
+		case BH.oM.Environment.SAP.TenureCode.Unknown:
+			return "ND";
 
 		default:
 			return"";
 	}
-}
-
- */
+}*/
 
