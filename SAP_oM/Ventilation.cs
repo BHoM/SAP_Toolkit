@@ -32,7 +32,7 @@ namespace BH.oM.Environment.SAP
     public class Ventilation : BHoMObject
     {
         [Description("The number of sheltered sides in the Property. Min/max 0/4.")]
-        public virtual string numShelteredSides { get; set; } = null;
+        public virtual string numberShelteredSides { get; set; } = null;
 
         [Description("The ventilation rates of the dwelling.")]
         public virtual VentilationRates VentilationRates { get; set; } = null;
@@ -42,8 +42,6 @@ namespace BH.oM.Environment.SAP
 
         [Description("The ventilation strategy for the dwelling.")]
         public virtual VentilationStrategy VentilationStrategy { get; set; } = null;
-
-        
 
     }
 }

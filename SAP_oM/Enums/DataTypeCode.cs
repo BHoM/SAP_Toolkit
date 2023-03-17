@@ -29,7 +29,7 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of SAP data.")]
-    public enum DataTypeCode {  NewDwellingAsDesigned = 1, NewDwellingAbuilt = 2, NewExtensionToExistingDwelling = 3, NewDwellingCreatedByChangeOfUse = 4, ExistingDwelling = 5, Other = 6 }
+    public enum DataTypeCode {  NewDwellingAsDesigned = 1, NewDwellingAsBuilt = 2, NewExtensionToExistingDwelling = 3, NewDwellingCreatedByChangeOfUse = 4, ExistingDwelling = 5, Other = 6 }
 
 }
 

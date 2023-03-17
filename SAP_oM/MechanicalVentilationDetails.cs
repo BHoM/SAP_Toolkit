@@ -32,19 +32,22 @@ namespace BH.oM.Environment.SAP
     public class MechanicalVentilationDetails : BHoMObject
     {
         [Description("Mechanical vent duct type; if MEV c, MV or MVHR.")]
-        public virtual TypeofDuct? DuctType { get; set; } = null; 
+        public virtual TypeofDuct DuctType { get; set; } = TypeofDuct.Flexible;
+
+        [Description("Mechanical ventilation duct placement; if MVHR.")]
+        public virtual TypeOfDuctPlacement DuctPlacement { get; set; } = TypeOfDuctPlacement.InsideHeatedEnvelope;
 
         [Description("Mechanical vent system index number; if mechanical vent data from database (MEV c, MEV dc, MV, MVHR).")]
-        public virtual string SystemIndexNumber { get; set; } = null; 
+        public virtual string SystemIndexNumber { get; set; } = null;
 
         [Description("Mechanical ventilation system make and model; if mech vent system data is manufacturer declaration.")]
-        public virtual string SystemMakeModel { get; set; } = null; 
+        public virtual string SystemMakeModel { get; set; } = null;
 
         [Description("Mechanical vent specific fan power in watts per (litres per second); if mechanical vent data from manufacturer declaration (MEV c, MV, MVHR).")]
-        public virtual string SpecificFanPower { get; set; } = null; 
+        public virtual string SpecificFanPower { get; set; } = null;
 
         [Description("Mechanical vent heat recovery efficiency percentage; if mechanical vent data from manufacturer declaration (MVHR).")]
-        public virtual string HeatRecoveryEfficiency { get; set; } = null; 
+        public virtual string HeatRecoveryEfficiency { get; set; } = null;
     }
 }
 

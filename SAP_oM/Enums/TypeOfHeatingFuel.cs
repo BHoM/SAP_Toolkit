@@ -26,8 +26,7 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//Error incoming
-//Name change HeatingFuelTypeCode to TypeOfHeatingFuel
+
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of heating fuel, as defined in SAP table 12.")]

@@ -33,22 +33,22 @@ namespace BH.oM.Environment.SAP
     public class VentilationStrategy : BHoMObject
     {
         [Description("The type of ventilation.")]
-        public virtual TypeOfVentilation? Type { get; set; } = null;
+        public virtual TypeOfVentilation Type { get; set; } = TypeOfVentilation.NaturalIntermittentExtractFans;
 
         [Description("Is mechanical vent an approved installer scheme.")]
-        public virtual bool? ApprovedInstallation { get; set; } = null;
+        public virtual bool? ApprovedInstallation { get; set; } = true;
 
         [Description("Source of mechanical ventilation data.")]
-        public virtual VentilationDataSource? DetailsTakenFrom { get; set; } = null;
+        public virtual VentilationDataSource MechVentDataSource { get; set; } = VentilationDataSource.ManufacturerDeclaration;
 
         [Description("Number of wet rooms, including the kitchen; if mech vent data from manufacturer declaration or database (MEV c, MV, MVHR).")]
-        public virtual string numWetRooms { get; set; } = null;
+        public virtual string numberWetRooms { get; set; } = "0";
 
         [Description("Mechanical vent duct insulation; if MVHR.")]
-        public virtual TypeofDuctInsulation? DuctInsulationType { get; set; } = null;
+        public virtual TypeofDuctInsulation DuctInsulationType { get; set; } = TypeofDuctInsulation.NotInsulated;
 
         [Description("Mechanical vent duct insulation; if MVHR.")]//check
-        public virtual string DuctInsulationLevel { get; set; } = "1";
+        public virtual DuctInsulationLevel DuctInsulationLevel { get; set; } = DuctInsulationLevel.Level1;
 
         [Description("Mechanical vent ducts index number; if applicable.")]
         public virtual string MechVentSystemIndexNumber { get; set; } = null;
