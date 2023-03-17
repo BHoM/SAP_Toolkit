@@ -44,7 +44,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("The number of Boiler Flues or chimneys in the Property.")]
         [XmlElement(ElementName = "Boilers-Flues-Count")]
-        public virtual string BoilersFluesCount { get; set; } = null;
+        public virtual string BoilerFluesCount { get; set; } = null;
 
         [Description("The number of Other Flues or chimneys in the Property.")]
         [XmlElement(ElementName = "Other-Flues-Count")]
@@ -202,10 +202,11 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "Non-Kitchen-Wall-Fans-Specific-Power")]
         public virtual string NonKitchenWallFansSpecificPower { get; set; } = null;
 
+        [Description("")]
         [XmlElement(ElementName = "Extract-Fans-Count")]
         public virtual string ExtractFansCount { get; set; } = null;
 
-        [Description("")]
+        [Description("The number of passive stack vents.")]
         [XmlElement(ElementName = "PSV-Count")] 
         public virtual string PSVCount { get; set; } = null;
 
