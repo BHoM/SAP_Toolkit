@@ -39,24 +39,24 @@ namespace BH.Engine.Environment.SAP
         public static BH.oM.Environment.SAP.XML.OpeningTypes ToXML(this BH.oM.Environment.SAP.OpeningType sapOpeningtype)
         {
             List<oM.Environment.SAP.XML.OpeningType> xmlOpeningTypes = new List<oM.Environment.SAP.XML.OpeningType>();
-
-
             BH.oM.Environment.SAP.XML.OpeningType xmlOpeningType = new BH.oM.Environment.SAP.XML.OpeningType();
+
             xmlOpeningType.Name = sapOpeningtype.Name;
             xmlOpeningType.Description = "Type-" + sapOpeningtype.Type.ToString() + "_Uvalue-" + sapOpeningtype.uValue.ToString(); ;
             xmlOpeningType.DataSource = sapOpeningtype.DataSource.FromSAPToXML();
             xmlOpeningType.Type = sapOpeningtype.Type.FromSAPToXML();
             xmlOpeningType.GlazingType = sapOpeningtype.GlazingType.FromSAPToXML();
             xmlOpeningType.GlazingGap = sapOpeningtype.GlazingGap.FromSAPToXML();
+            xmlOpeningType.IsArgonFilled = sapOpeningtype.IsArgonFilled;
+            xmlOpeningType.IsKryptonFilled= sapOpeningtype.IsKryptonFilled;
             xmlOpeningType.FrameType = sapOpeningtype.FrameType.FromSAPToXML();
             xmlOpeningType.gValue = sapOpeningtype.gValue;
             xmlOpeningType.FrameFactor = sapOpeningtype.FrameFactor;
             xmlOpeningType.uValue = sapOpeningtype.uValue;
-            xmlOpeningTypes.Add(xmlOpeningType);
-            //Is argon filleD/is krypton filled
 
             oM.Environment.SAP.XML.OpeningTypes finalXML = new oM.Environment.SAP.XML.OpeningTypes();
             finalXML.OpeningType = xmlOpeningTypes;
+
             return finalXML;
         }
         private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfOpening typeOfOpening)
@@ -90,13 +90,13 @@ namespace BH.Engine.Environment.SAP
         {
             switch (glazingGap)
             {
-                case GlazingGap._6mm:
+                case GlazingGap.Sixmm:
                     return "1";
 
-                case GlazingGap._12mm:
+                case GlazingGap.Twelvemm:
                     return "1";
 
-                case GlazingGap._16mmOrMore:
+                case GlazingGap.SixteenOrMore:
                     return "2";
 
                 default:

@@ -24,6 +24,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Xml.Serialization;
 using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
@@ -37,17 +38,17 @@ namespace BH.oM.Environment.SAP
         [Description("The total (gross - including opening areas) surface area of the wall as seen from inside the dwelling")]
         public virtual double Area { get; set; } = 0;
 
-        [Description("Is the wall a 'curtain wall' according to the definition in the SAP guidance")]
-        public virtual bool CurtainWall { get; set; } = false;
-        
         [Description("U-value of the floor.")]
         public virtual double uValue { get; set; } = 0.18;
 
-        [Description("Openings (windows & doors) that are hosted within the wall")]
-        public virtual List<SAP.Opening> Openings { get; set; } = new List<SAP.Opening>();
+        [Description("Is the wall a 'curtain wall' according to the definition in the SAP guidance")]
+        public virtual bool CurtainWall { get; set; } = false;
 
-        [Description("The name of the dwelling that the wall is part of")]
-        public virtual string DwellingName { get; set; } = "";
+        [Description("Heat capacity per unit area in kJ/m²K.")]
+        public virtual double KappaValue { get; set; } = 14;
+
+        [Description("Openings (windows & doors) that are hosted within the wall")]
+        public virtual List<BH.oM.Environment.SAP.Opening> Openings { get; set; } = new List<BH.oM.Environment.SAP.Opening>();
 
     }
 }

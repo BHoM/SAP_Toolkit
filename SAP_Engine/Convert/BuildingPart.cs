@@ -40,18 +40,22 @@ namespace BH.Engine.Environment.SAP
         public static Output<BH.oM.Environment.SAP.XML.BuildingParts, BH.oM.Environment.SAP.XML.OpeningTypes> ToXML(this List<oM.Environment.SAP.BuildingPart> sapBuildingPart)
         {
             List<BH.oM.Environment.SAP.XML.BuildingPart> xmlBuildingParts = new List<BH.oM.Environment.SAP.XML.BuildingPart>();
+
             BH.oM.Environment.SAP.XML.OpeningTypes openingTypes = new oM.Environment.SAP.XML.OpeningTypes();
+
             for (int i = 0; i < sapBuildingPart.Count; i++)
             {
                 BH.oM.Environment.SAP.XML.BuildingPart xmlBuildingPart = new BH.oM.Environment.SAP.XML.BuildingPart();
+
                 xmlBuildingPart.BuildingPartNumber = (i + 1);
-                xmlBuildingPart.Identifier = sapBuildingPart[i].identifier;
-                xmlBuildingPart.ConstructionYear = DateTime.Today.Year.ToString();
-                //Ellie - changes : moved below line to diff propertydetails file as overshading no longer in building parts
-                //xmlBuildingPart.Overshading = sapBuildingPart[i].Overshading.FromSAPToXML();
+                xmlBuildingPart.Identifier = sapBuildingPart[i].Identifier;
+                xmlBuildingPart.ConstructionYear = sapBuildingPart[i].ConstructionYear;
+
                 var outputWall = sapBuildingPart[i].Walls.Select(x => x.ToXML()).ToList();
                 var outputRoof = sapBuildingPart[i].Roofs.Select(x => x.ToXML()).ToList();
-                List<oM.Environment.SAP.Opening> opening = new List<oM.Environment.SAP.Opening>();
+
+                List<oM.Environment.SAP.Opening> openings = new List<oM.Environment.SAP.Opening>();
+
                 if (sapBuildingPart[i].Walls.SelectMany(x => x.Openings).ToList() == null && sapBuildingPart[i].Roofs.SelectMany(x => x.Openings).ToList() == null)
                 {
                     xmlBuildingPart.Openings = null;
@@ -59,11 +63,12 @@ namespace BH.Engine.Environment.SAP
 
                 else
                 {
-                    opening.AddRange(sapBuildingPart[i].Walls.SelectMany(x => x.Openings).ToList());
-                    opening.AddRange(sapBuildingPart[i].Roofs.SelectMany(x => x.Openings).ToList());
-                    for (int u = 0; u < opening.Count; u++)
+                    openings.AddRange(sapBuildingPart[i].Walls.SelectMany(x => x.Openings).ToList());
+                    openings.AddRange(sapBuildingPart[i].Roofs.SelectMany(x => x.Openings).ToList());
+
+                    for (int u = 0; u < openings.Count; u++)
                     {
-                        openingTypes.OpeningType.AddRange(opening[u].OpeningType.ToXML().OpeningType); //method to only keep unique ones
+                        openingTypes.OpeningType.AddRange(openings[u].OpeningType.ToXML().OpeningType); //method to only keep unique ones
                     }
 
                     xmlBuildingPart.Openings = new oM.Environment.SAP.XML.Openings();
@@ -77,6 +82,7 @@ namespace BH.Engine.Environment.SAP
                     }
                 }
 
+                //Hmm IDK bout this one :D
                 oM.Environment.SAP.XML.FloorDimensions xmlFloorDimensions = new oM.Environment.SAP.XML.FloorDimensions();
                 xmlFloorDimensions.FloorDimension.Add(ToXML(sapBuildingPart[i].Floor, sapBuildingPart[i].Storeys));
                 xmlBuildingPart.FloorDimensions = xmlFloorDimensions; //Ellie - changes

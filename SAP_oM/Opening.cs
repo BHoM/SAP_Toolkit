@@ -32,7 +32,13 @@ namespace BH.oM.Environment.SAP
     public class Opening : BHoMObject
     {
         [Description("The opening type which defines its thermal properties e.g. u-value")]
-        public virtual SAP.OpeningType OpeningType { get; set; } = new SAP.OpeningType();
+        public virtual BH.oM.Environment.SAP.OpeningType OpeningType { get; set; } = new BH.oM.Environment.SAP.OpeningType();
+
+        [Description("Unique name that identifies the opening")]
+        public virtual string OpeningName { get; set; } = "Opening";
+
+        [Description("Orientation of Opening")]
+        public virtual OrientationCode Orientation { get; set; } = OrientationCode.Unknown;
 
         [Description("The total width of the opening as seen from inside the dwelling (including frame)")]
         public virtual double Width { get; set; } = 0;
@@ -40,17 +46,6 @@ namespace BH.oM.Environment.SAP
         [Description("The total height of the opening as seen from inside the dwelling (including frame)")]
         public virtual double Height { get; set; } = 0;
 
-        [Description("Enum.")]
-        public virtual OrientationCode Orientation { get; set; } = 0;
-
-        [Description("The width of any elements that overhang the opening (e.g. window reveal or balcony)")]
-        public virtual double OverhangWidth { get; set; } = 0;
-
-        [Description("The depth (i.e. distance of projection from the facade) of any elements that overhang the opening (e.g. window reveal or balcony)")]
-        public virtual double OverhangDepth { get; set; } = 0;
-
-        [Description("The name of the dwelling that the opening is part of")]
-        public virtual string DwellingName { get; set; } = "";
     }
 
 }

@@ -40,12 +40,14 @@ namespace BH.Engine.Environment.SAP
         public static Output<BH.oM.Environment.SAP.XML.Roof, List<BH.oM.Environment.SAP.XML.Opening>> ToXML(this BH.oM.Environment.SAP.Roof sapRoof)
         {
             BH.oM.Environment.SAP.XML.Roof xmlRoof = new BH.oM.Environment.SAP.XML.Roof();
+
             xmlRoof.Name = sapRoof.Name;
             xmlRoof.Description = "Type-" + sapRoof.Type.ToString() + "_Area-" + sapRoof.Area.ToString() + "_Uvalue-" + sapRoof.uValue.ToString();
-            xmlRoof.Type = sapRoof.Type.FromSAPToXMLNumber();
+            xmlRoof.Type = sapRoof.Type.FromSAPToXML();
             xmlRoof.Area = sapRoof.Area;
             xmlRoof.UValue = sapRoof.uValue;
-            xmlRoof.KappaValue = 9;
+            xmlRoof.KappaValue = sapRoof.KappaValue
+                ;
             List<BH.oM.Environment.SAP.XML.Opening> xmlOpenings = new List<BH.oM.Environment.SAP.XML.Opening>();
             for (int i = 0; i < sapRoof.Openings.Count; i++)
             {
@@ -53,16 +55,16 @@ namespace BH.Engine.Environment.SAP
                 xmlOpening.Name = sapRoof.Openings[i].Name;
                 xmlOpening.Type = sapRoof.Openings[i].OpeningType.Type.ToString();
                 xmlOpening.Location = sapRoof.Name;
-                xmlOpening.Orientation = sapRoof.Openings[i].Orientation.FromSAPToXMLNumber();
+                xmlOpening.Orientation = sapRoof.Openings[i].Orientation.FromSAPToXML();
                 xmlOpening.Width = sapRoof.Openings[i].Width; 
                 xmlOpening.Height = sapRoof.Openings[i].Height;
-                //Add in pitch
+                xmlOpening.Pitch = sapRoof.Pitch.FromSAPToXML();
                 xmlOpenings.Add(xmlOpening);
             }
 
             return new Output<BH.oM.Environment.SAP.XML.Roof, List<BH.oM.Environment.SAP.XML.Opening>>() { Item1 = xmlRoof, Item2 = xmlOpenings };
         }
-        private static string FromSAPToXMLNumber(this BH.oM.Environment.SAP.TypeOfRoof typeOfRoof)
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfRoof typeOfRoof)
         {
             switch (typeOfRoof)
             {
@@ -76,44 +78,31 @@ namespace BH.Engine.Environment.SAP
                     return "";
             }
         }
-        private static string FromSAPToXMLNumber(this BH.oM.Environment.SAP.OrientationCode orientationCode)
-        {
-            switch (orientationCode)
-            {
-                case BH.oM.Environment.SAP.OrientationCode.unknown:
-                    return "0";
 
-                case BH.oM.Environment.SAP.OrientationCode.North:
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.VerticalPitchCode verticalPitchCode)
+        {
+            switch (verticalPitchCode)
+            {
+                case BH.oM.Environment.SAP.VerticalPitchCode.Horizontal:
                     return "1";
 
-                case BH.oM.Environment.SAP.OrientationCode.NorthEast:
+                case BH.oM.Environment.SAP.VerticalPitchCode._30Degrees:
                     return "2";
 
-                case BH.oM.Environment.SAP.OrientationCode.East:
+                case BH.oM.Environment.SAP.VerticalPitchCode._45Degrees:
                     return "3";
 
-                case BH.oM.Environment.SAP.OrientationCode.SouthEast:
+                case BH.oM.Environment.SAP.VerticalPitchCode._60Degrees:
                     return "4";
 
-                case BH.oM.Environment.SAP.OrientationCode.South:
+                case BH.oM.Environment.SAP.VerticalPitchCode.Vertical:
                     return "5";
-
-                case BH.oM.Environment.SAP.OrientationCode.SouthWest:
-                    return "6";
-
-                case BH.oM.Environment.SAP.OrientationCode.West:
-                    return "7";
-
-                case BH.oM.Environment.SAP.OrientationCode.NorthWest:
-                    return "8";
-
-                case BH.oM.Environment.SAP.OrientationCode.Horizontal:
-                    return "9";
 
                 default:
                     return "";
             }
         }
+
     }
 }
 

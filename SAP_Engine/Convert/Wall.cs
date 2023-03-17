@@ -41,12 +41,13 @@ namespace BH.Engine.Environment.SAP
         {
             BH.oM.Environment.SAP.XML.Wall xmlWall = new BH.oM.Environment.SAP.XML.Wall();
             xmlWall.Name = sapWall.Name;
-            xmlWall.Description = "Type-" + sapWall.Type.ToString() + "_Area-" + sapWall.Area.ToString() + "_Uvalue-" + "0.18";// summary of inputs type_area_uvalue
-            xmlWall.Type = sapWall.Type.FromSAPToXMLNumber();
+            xmlWall.Description = "Type-" + sapWall.Type.ToString() + "_Area-" + sapWall.Area.ToString() + "_Uvalue-" + "0.18";
+            xmlWall.Type = sapWall.Type.FromSAPToXML();
             xmlWall.Area = sapWall.Area;
             xmlWall.UValue = sapWall.uValue;
-            xmlWall.KappaValue = 14;
+            xmlWall.KappaValue = sapWall.KappaValue;
             xmlWall.CurtainWall = sapWall.CurtainWall;
+
             List<BH.oM.Environment.SAP.XML.Opening> xmlOpenings = new List<BH.oM.Environment.SAP.XML.Opening>();
             for (int i = 0; i < sapWall.Openings.Count; i++)
             {
@@ -54,15 +55,14 @@ namespace BH.Engine.Environment.SAP
                 xmlOpening.Name = sapWall.Openings[i].Name;
                 xmlOpening.Type = sapWall.Openings[i].OpeningType.Type.ToString();
                 xmlOpening.Location = sapWall.Name;
-                xmlOpening.Orientation = sapWall.Openings[i].Orientation.FromSAPToXMLNumber();
+                xmlOpening.Orientation = sapWall.Openings[i].Orientation.FromSAPToXML();
                 xmlOpening.Width = sapWall.Openings[i].Width;
                 xmlOpening.Height = sapWall.Openings[i].Height;
-                //Add in pitchgit a
                 xmlOpenings.Add(xmlOpening);
             }
             return new Output<BH.oM.Environment.SAP.XML.Wall, List<BH.oM.Environment.SAP.XML.Opening>>() { Item1 = xmlWall, Item2 = xmlOpenings };
         }
-        private static string FromSAPToXMLNumber(this BH.oM.Environment.SAP.TypeOfWall typeOfWall)
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfWall typeOfWall)
         {
             switch (typeOfWall)
             {
