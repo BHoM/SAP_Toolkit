@@ -24,6 +24,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Xml.Serialization;
 using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
@@ -40,11 +41,15 @@ namespace BH.oM.Environment.SAP
         [Description("U-value of the floor.")]
         public virtual double uValue { get; set; } = 0.13;
 
-        [Description("Openings (skylights) that are hosted within the roof")]
-        public virtual List<SAP.Opening> Openings { get; set; } = new List<SAP.Opening>();
+        [Description("Heat capacity per unit area in kJ/m²K.")]
 
-        [Description("The name of the dwelling that the roof is part of")]
-        public virtual string DwellingName { get; set; } = "";
+        public virtual double KappaValue { get; set; } = 9;
+
+        [Description("Pitch of roof")]
+        public virtual VerticalPitchCode Pitch { get; set; } =  VerticalPitchCode._30Degrees;
+
+        [Description("Openings (skylights) that are hosted within the roof")]
+        public virtual List<BH.oM.Environment.SAP.Opening> Openings { get; set; } = new List<BH.oM.Environment.SAP.Opening>();
 
     }
 }

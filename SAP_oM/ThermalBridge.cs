@@ -43,8 +43,6 @@ namespace BH.oM.Environment.SAP
         [Description("The source of the psi-value applied to the thermal bridge")]
         public virtual PsiSourceCode Source { get; set; } = PsiSourceCode.SAPTableDefault;
 
-        [Description("The name of the dwelling that the thermal bridge is part of")]
-        public virtual string DwellingName { get; set; } = "";
     }
 }
 
