@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("The Area of the lowest storey in square meters including unheated or communal areas such as garages or corridors.")]
         [XmlElement("Lowest-Storey-Area")]
-        public virtual double LowestStoreyArea { get; set; } = 0;
+        public virtual string LowestStoreyArea { get; set; } = "0";
 
         [Description("The orientation of the front of the property.")]
         [XmlElement("Orientation")]

@@ -79,10 +79,10 @@ namespace BH.Engine.Environment.SAP
             //    xmlPropertyDetails.DeselectedImprovements = null;
             //}
 
-            //if (sapPropertyDetails.FlatDetails == null)//add
-            //{
-            //    xmlPropertyDetails.FlatDetails = null;
-            //}
+            if (sapPropertyDetails.FlatDetails == null)
+            {
+                xmlPropertyDetails.FlatDetails = null;
+            }
 
 
 
@@ -127,6 +127,14 @@ namespace BH.Engine.Environment.SAP
             {
                 xmlPropertyDetails.SpecialFeatures = sapPropertyDetails.SpecialFeatures.ToXML();
             }
+
+            if (sapPropertyDetails.FlatDetails != null) //and property type not house or bungalow
+            {
+                xmlPropertyDetails.FlatDetails.Level= sapPropertyDetails.FlatDetails.Level.FromSAPToXML();
+                xmlPropertyDetails.FlatDetails.Storeys = sapPropertyDetails.FlatDetails.Storeys;
+
+            }
+
 
 
             xmlPropertyDetails.PropertyType = sapPropertyDetails.PropertyType.FromSAPToXML();
@@ -298,6 +306,27 @@ namespace BH.Engine.Environment.SAP
 
                 case BH.oM.Environment.SAP.DesignWaterUseCode.MoreThan125LitresPerPersonPerDay:
                     return "";
+
+                default:
+                    return "";
+            }
+        }
+
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.FlatLevelCode flatLevelCode)
+        {
+            switch (flatLevelCode)
+            {
+                case BH.oM.Environment.SAP.FlatLevelCode.Basement:
+                    return "0";
+
+                case BH.oM.Environment.SAP.FlatLevelCode.GroundFloor:
+                    return "1";
+
+                case BH.oM.Environment.SAP.FlatLevelCode.MidFloor:
+                    return "2";
+
+                case BH.oM.Environment.SAP.FlatLevelCode.TopFloor:
+                    return "3";
 
                 default:
                     return "";
