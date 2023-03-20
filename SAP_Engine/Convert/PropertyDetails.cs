@@ -59,21 +59,19 @@ namespace BH.Engine.Environment.SAP
                 xmlPropertyDetails.Ventilation = null;
             }
 
-            if (sapPropertyDetails.SpecialFeatures == null)
-            {
-                xmlPropertyDetails.SpecialFeatures = null;
-            }
+            
 
             if (sapPropertyDetails.EnergySource == null)
             {
                 xmlPropertyDetails.EnergySource = null;
             }
 
-            if (sapPropertyDetails.LightingDetails == null)//add
+            if (sapPropertyDetails.LightingDetails == null)
             {
                 xmlPropertyDetails.Lighting = null;
             }
 
+            //IDK what to do with this one
             //if (sapPropertyDetails.DeselectedImprovements == null)//add
             //{
             //    xmlPropertyDetails.DeselectedImprovements = null;
@@ -84,7 +82,10 @@ namespace BH.Engine.Environment.SAP
                 xmlPropertyDetails.FlatDetails = null;
             }
 
-
+            if (sapPropertyDetails.SpecialFeatures == null)
+            {
+                xmlPropertyDetails.SpecialFeatures = null;
+            }
 
 
 
@@ -128,11 +129,7 @@ namespace BH.Engine.Environment.SAP
                 xmlPropertyDetails.Lighting.FixedLights.FixedLight = sapLighting;
             }
 
-            if (sapPropertyDetails.SpecialFeatures != null)
-            {
-                xmlPropertyDetails.SpecialFeatures = sapPropertyDetails.SpecialFeatures.ToXML();
-            }
-
+            
             if (sapPropertyDetails.FlatDetails != null) //and property type not house or bungalow
             {
                 xmlPropertyDetails.FlatDetails.Level= sapPropertyDetails.FlatDetails.Level.FromSAPToXML();
@@ -140,6 +137,10 @@ namespace BH.Engine.Environment.SAP
 
             }
 
+            if (sapPropertyDetails.SpecialFeatures != null)
+            {
+                xmlPropertyDetails.SpecialFeatures = sapPropertyDetails.SpecialFeatures.ToXML();
+            }
 
 
             xmlPropertyDetails.PropertyType = sapPropertyDetails.PropertyType.FromSAPToXML();
@@ -168,11 +169,18 @@ namespace BH.Engine.Environment.SAP
             xmlPropertyDetails.ElectricitySmartMeterPresent= false;
             xmlPropertyDetails.IsDwellingExportCapable = false;
 
+
+        
+            xmlPropertyDetails.PVConnection = sapPropertyDetails.EnergySource.PvConnection.PVConnection.FromSAPToXML();
+            xmlPropertyDetails.PVDiverter = sapPropertyDetails.EnergySource.PvConnection.PVDiverter;
+            xmlPropertyDetails.BatteryCapacity = sapPropertyDetails.EnergySource.PvConnection.BatteryCapacity;
+            xmlPropertyDetails.IsWindTurbineConnectedToDwellingMeter= sapPropertyDetails.EnergySource.IsWindTurbineConnectedToDwellingMeter;
+
+
+
+
             //Come Back to this - needs adding to a class
-            xmlPropertyDetails.PVConnection = "0";
-            xmlPropertyDetails.PVDiverter = false;
-            xmlPropertyDetails.BatteryCapacity = 0;
-            xmlPropertyDetails.IsWindTurbineConnectedToDwellingMeter= false;
+
             xmlPropertyDetails.DesignWaterUse = "1";//Enum? .FromSAPToXML    for DesignWaterUseCode
 
             return xmlPropertyDetails;
@@ -238,6 +246,23 @@ namespace BH.Engine.Environment.SAP
 
                 case BH.oM.Environment.SAP.TypeOfTerrain.Rural:
                     return "3";
+
+                default:
+                    return "";
+            }
+        }
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.PVConnectionCode pVConnectionCode)
+        {
+            switch (pVConnectionCode)
+            {
+                case BH.oM.Environment.SAP.PVConnectionCode.NotApplicable_FGHRS:
+                    return "0";
+
+                case BH.oM.Environment.SAP.PVConnectionCode.NotConnectedToElectricityMeter:
+                    return "1";
+
+                case BH.oM.Environment.SAP.PVConnectionCode.ConnectedToElectricityMeter:
+                    return "2";
 
                 default:
                     return "";

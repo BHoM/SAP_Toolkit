@@ -38,9 +38,19 @@ namespace BH.oM.Environment.SAP
         [Description("Photovoltaic Arrays")]
         public virtual List<PhotovolaticArray> PhotovoltaicArrays { get; set; } = new List<PhotovolaticArray>();
 
+        [Description("PV connection details")]
+        public virtual PvConnection PvConnection { get; set; } = new PvConnection();
+
         [Description("Wind Turbines")]
         public virtual List<WindTurbine> WindTurbines { get; set; } = new List<WindTurbine>();
-        
+
+        [Description("Whether the wind turbine is connected to the Dwelling's meter.")]
+        public virtual bool? IsWindTurbineConnectedToDwellingMeter { get; set; } = false;
+
+        [Description("Hydro Electric Generation")]
+        public virtual HydroElectric HydroElectricGeneration { get; set; }  = new HydroElectric();
+
+
     }
 }
 

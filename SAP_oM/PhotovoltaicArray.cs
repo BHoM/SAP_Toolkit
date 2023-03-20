@@ -46,6 +46,7 @@ namespace BH.oM.Environment.SAP
 
         [Description("")]
         public virtual PVDetails ArrayDetails { get; set; } = null;
+
         
     }
 }

@@ -26,25 +26,20 @@ using System.ComponentModel;
 using System.Linq;
 using System.Xml.Serialization;
 using BH.oM.Base;
-using BH.oM.Environment.SAP.XML;
 
 namespace BH.oM.Environment.SAP
 {
     [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
-    public class HydroElectric : BHoMObject
+    public class PvConnection : BHoMObject
     {
-        [Description("")]
-        public virtual double Generation { get; set; } = 0;
+        [Description("PVConnection")]
+        public virtual PVConnectionCode PVConnection { get; set; } = PVConnectionCode.NotApplicable_FGHRS;
 
-        [Description("")]
-        public virtual string HydroElectricCertificate { get; set; } = null;
+        [Description("Is a diverter present.")]
+        public virtual bool? PVDiverter { get; set; } = false;
 
-        [Description("")]
-        public virtual MonthlyValues HydroElectricGenerationMonths { get; set; } = null;
-
-        [Description("Is Hydro Output Connected To Dwelling Meter")]
-        public virtual bool IsHydroOutputConnectedToDwellingMeter { get; set; } = false;
-
+        [Description("Battery capacity capacity if diverter present")]
+        public virtual double BatteryCapacity { get; set; } = 0;
     }
 }
 
