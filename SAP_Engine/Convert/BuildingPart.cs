@@ -82,11 +82,9 @@ namespace BH.Engine.Environment.SAP
                     }
                 }
 
-                //Hmm IDK bout this one :D
-                oM.Environment.SAP.XML.FloorDimensions xmlFloorDimensions = new oM.Environment.SAP.XML.FloorDimensions();
-                xmlFloorDimensions.FloorDimension.Add(ToXML(sapBuildingPart[i].Floor, sapBuildingPart[i].Storeys));
-                xmlBuildingPart.FloorDimensions = xmlFloorDimensions; //Ellie - changes
-                //xmlBuildingPart.Floors = xmlFloorDimensions; 
+
+                xmlBuildingPart.FloorDimensions = ToXML(sapBuildingPart[i].Floors);
+
 
                 BH.oM.Environment.SAP.XML.Roofs xmlRoofList = new BH.oM.Environment.SAP.XML.Roofs();
                 for (int u = 0; u < outputRoof.Count; u++)
@@ -104,13 +102,17 @@ namespace BH.Engine.Environment.SAP
                 }
 
                 xmlBuildingPart.Walls = xmlWallList;
-                xmlBuildingPart.ThermalBridges.ThermalBridge = sapBuildingPart[i].ThermalBridges.Select(x => x.ToXML()).ToList();//Ellie - changes
-                //xmlBuildingPart.ThermalBridges = sapBuildingPart[i].ThermalBridges.Select(x => x.ToXML()).ToList();
+
+                xmlBuildingPart.ThermalBridges.ThermalBridge = sapBuildingPart[i].ThermalBridges.Select(x => x.ToXML()).ToList();
+                xmlBuildingPart.ThermalBridges.ThermalBridgeCode = sapBuildingPart[i].ThermalBridgeInfo.ThermalBridgeCode.FromSAPToXML();
+
                 xmlBuildingParts.Add(xmlBuildingPart);
             }
 
             oM.Environment.SAP.XML.BuildingParts finalXML = new oM.Environment.SAP.XML.BuildingParts();
+
             finalXML.BuildingPart = xmlBuildingParts;
+
             return new Output<BH.oM.Environment.SAP.XML.BuildingParts, BH.oM.Environment.SAP.XML.OpeningTypes>() { Item1 = finalXML, Item2 = openingTypes };
         }
 
@@ -134,6 +136,31 @@ namespace BH.Engine.Environment.SAP
                     return "";
             }
         }
+
+        private static string FromSAPToXML(this BH.oM.Environment.SAP.ThermalBridgeCode thermalBridgeCode)
+        {
+            switch (thermalBridgeCode)
+            {
+                case BH.oM.Environment.SAP.ThermalBridgeCode.Default:
+                    return "1";
+
+                case BH.oM.Environment.SAP.ThermalBridgeCode.DoNotUse2002Regs:
+                    return "2";
+
+                case BH.oM.Environment.SAP.ThermalBridgeCode.DoNotUseAccredited:
+                    return "3";
+
+                case BH.oM.Environment.SAP.ThermalBridgeCode.UserDefinedGlobalYValue:
+                    return "4";
+
+                case BH.oM.Environment.SAP.ThermalBridgeCode.UserDefinedIndividualValues:
+                    return "5";
+
+                default:
+                    return "";
+            }
+        }
+
     }
 }
 

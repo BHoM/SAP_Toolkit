@@ -24,6 +24,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Xml.Serialization;
 using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
@@ -32,23 +33,23 @@ namespace BH.oM.Environment.SAP
     public class BuildingPart : BHoMObject
     {
         [Description("Identifier for the Building part - generally only required if there are more that one Building Parts of the same type e.g. West Wing and East Wing Extensions.")]
-        public virtual string identifier { get; set; } = "MainDwelling";
+        public virtual string Identifier { get; set; } = null;
 
-        [Description("How windows are overshaded.")]
-        public virtual oM.Environment.SAP.WindowOvershading Overshading { get; set; } = oM.Environment.SAP.WindowOvershading.AverageOrUnknown;
+        [Description("The year when this building part was constructed.")]
+        public virtual string ConstructionYear { get; set; } = "2012";
 
         [Description("List of roofs.")]
         public virtual List<BH.oM.Environment.SAP.Roof> Roofs { get; set; } = null;
 
         [Description("List of floors.")]
-        public virtual List<BH.oM.Environment.SAP.Floor> Floor { get; set; } = null;
-
-        [Description("List of floors.")]
-        public virtual List<BH.oM.Environment.SAP.Storey> Storeys { get; set; } = null;
+        public virtual List<BH.oM.Environment.SAP.FloorDimension> Floors { get; set; } = null;
 
         [Description("List of thermal bridges.")]
         public virtual List<BH.oM.Environment.SAP.ThermalBridge> ThermalBridges { get; set; } = null;
-        
+
+        [Description("Further Global thermal bridge information")]
+        public virtual ThermalBridgeInfo ThermalBridgeInfo { get; set;} = null;
+
         [Description("List of walls.")]
         public virtual List<BH.oM.Environment.SAP.Wall> Walls { get; set; } = null;
     }

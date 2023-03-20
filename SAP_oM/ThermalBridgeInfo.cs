@@ -29,28 +29,17 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("An exposed/heat loss floor that forms part of the thermal line of the dwelling")]
-    public class Floor : BHoMObject
+    [Description("Global ThermalBridge Info")]
+    public class ThermalBridgeInfo : BHoMObject
     {
-        [Description("Type of floor (exposure).")]
-        public virtual TypeOfFloor Type { get; set; } = TypeOfFloor.GroundFloor;
+        [Description("Code which indicates how the thermal bridge data has been recorded.")]
+        public virtual ThermalBridgeCode ThermalBridgeCode { get; set; } = ThermalBridgeCode.Default;
 
-        [Description("The total exposed area of the floor as seen from inside the dwelling (Heat loss area).")]
-        public virtual double HeatLossArea { get; set; } = 0;
+        [Description("Global y-value for all thermal bridges in watts per square metre per kelvin; only if thermal bridge code is: user defined (global y-value)")]
+        public virtual double UserDefinedYValue { get; set; } = 0;
 
-        [Description("U-value of the floor.")]
-        public virtual double uValue { get; set; } = 0.13;
-
-        [Description("Heat capacity of floor per unit area in kJ/m²K.")]
-        public virtual double KappaValue { get; set; } = 80;
-
-        [Description("Heat capacity of ceiling below.  Applies to the non-heat-loss area of an upper floor.")]
-        public virtual double KappaValueFromBelow { get; set; } = 0;
-
-        [Description("The name of the dwelling that the floor is part of")]
-        public virtual string DwellingName { get; set; } = "";
-
+        [Description("Reference to the details of the calculation of the global y-value; only if thermal bridging is user defined global y-value.")]
+        public virtual string CalculationReference { get; set; } = null;
     }
 }
-
 
