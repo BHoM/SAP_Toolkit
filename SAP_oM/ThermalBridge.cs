@@ -24,6 +24,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Xml.Serialization;
 using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
@@ -42,6 +43,9 @@ namespace BH.oM.Environment.SAP
 
         [Description("The source of the psi-value applied to the thermal bridge")]
         public virtual PsiSourceCode Source { get; set; } = PsiSourceCode.SAPTableDefault;
+
+        [Description("Reference to the details of the calculation of the psi-value.")]
+        public virtual string CalculationReference { get; set; } = null;
 
     }
 }

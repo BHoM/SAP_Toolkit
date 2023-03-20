@@ -39,10 +39,12 @@ namespace BH.Engine.Environment.SAP
         public static BH.oM.Environment.SAP.XML.ThermalBridge ToXML(this BH.oM.Environment.SAP.ThermalBridge sapThermalBridge)
         {
             BH.oM.Environment.SAP.XML.ThermalBridge xmlThermalBridge = new BH.oM.Environment.SAP.XML.ThermalBridge();
+
             xmlThermalBridge.Type = sapThermalBridge.Reference.FromSAPToXML();
             xmlThermalBridge.Length = sapThermalBridge.Length;
             xmlThermalBridge.PsiValue = sapThermalBridge.PsiValue;
             xmlThermalBridge.PsiSource = sapThermalBridge.Source.FromSAPToXML();
+            xmlThermalBridge.CalculationReference = sapThermalBridge.CalculationReference;
 
             return xmlThermalBridge;
         }

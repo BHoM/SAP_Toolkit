@@ -36,27 +36,33 @@ namespace BH.Engine.Environment.SAP
         [Input("sapFloor", "SAP floor to convert.")]
         [Input("sapStorey", "SAP storey to convert.")]
         [Output("xmlFloor", "XML floor.")]
-        public static BH.oM.Environment.SAP.XML.FloorDimension ToXML(this List<BH.oM.Environment.SAP.Floor> sapFloor, List<BH.oM.Environment.SAP.Storey> sapStorey)
+        public static BH.oM.Environment.SAP.XML.FloorDimensions ToXML(this List<BH.oM.Environment.SAP.FloorDimension> sapFloorDimensions)
         {
-            BH.oM.Environment.SAP.XML.FloorDimension xmlFloor = new BH.oM.Environment.SAP.XML.FloorDimension();
-            for (int i = 0; i < sapFloor.Count; i++)
+            List<BH.oM.Environment.SAP.XML.FloorDimension> xmlFloors = new List<oM.Environment.SAP.XML.FloorDimension>();
+
+            for (int i = 0; i < sapFloorDimensions.Count; i++)
             {
-                xmlFloor.Name = sapFloor[i].Name;
-                xmlFloor.Description = "Type-" + sapFloor[i].Type.ToString() + "_Area-" + sapFloor[i].Area.ToString() + "_Uvalue-" + sapFloor[i].uValue;
-                xmlFloor.Type = sapFloor[i].Type.FromSAPToXML();
-                xmlFloor.HeatLossArea = sapFloor[i].Area;
-                xmlFloor.uValue = sapFloor[i].uValue;
-                xmlFloor.KappaValue = 80;
+
+                BH.oM.Environment.SAP.XML.FloorDimension xmlFloor = new BH.oM.Environment.SAP.XML.FloorDimension();
+
+                xmlFloor.Name = sapFloorDimensions[i].Floor.DwellingName;
+                xmlFloor.Description = "Type-" + sapFloorDimensions[i].Floor.Type.ToString() + "_Area-" + sapFloorDimensions[i].Floor.HeatLossArea.ToString() + "_Uvalue-" + sapFloorDimensions[i].Floor.uValue.ToString() + "_Kappavalue-" + sapFloorDimensions[i].Floor.KappaValue.ToString();
+                xmlFloor.Type = sapFloorDimensions[i].Floor.Type.FromSAPToXML();
+                xmlFloor.HeatLossArea = sapFloorDimensions[i].Floor.HeatLossArea;
+                xmlFloor.uValue = sapFloorDimensions[i].Floor.uValue;
+                xmlFloor.KappaValue = sapFloorDimensions[i].Floor.KappaValue;
+                xmlFloor.KappaValueFromBelow = sapFloorDimensions[i].Floor.KappaValueFromBelow;
+
+                xmlFloor.Storey = sapFloorDimensions[i].Storey.StoreyNumber.ToString();
+                xmlFloor.StoreyHeight = sapFloorDimensions[i].Storey.StoreyNumber;
+                xmlFloor.Area = sapFloorDimensions[i].Storey.Area;
+
+                xmlFloors.Add(xmlFloor);
             }
 
-            for (int i = 0; i < sapStorey.Count; i++)
-            {
-                xmlFloor.Storey = sapStorey[i].StoreyNumber.ToString();
-                xmlFloor.StoreyHeight = sapStorey[i].Height;
-                xmlFloor.Area = sapStorey[i].Area;
-            }
-
-            return xmlFloor;
+            BH.oM.Environment.SAP.XML.FloorDimensions xmlFloorDims = new oM.Environment.SAP.XML.FloorDimensions();
+            xmlFloorDims.FloorDimension = xmlFloors;
+            return xmlFloorDims;
         }
         private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfFloor typeOfFloor)
         {
