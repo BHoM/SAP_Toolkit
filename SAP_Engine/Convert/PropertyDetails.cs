@@ -64,29 +64,29 @@ namespace BH.Engine.Environment.SAP
                 xmlPropertyDetails.SpecialFeatures = null;
             }
 
-            /*if(sapPropertyDetails.EnergySource == null)//add
-            {
-                xmlPropertyDetails.EnergySource = null;
-            }
+            //if (sapPropertyDetails.EnergySource == null)//add
+            //{
+            //    xmlPropertyDetails.EnergySource = null;
+            //}
 
-            if (sapPropertyDetails.Lighting == null)//add
+            if (sapPropertyDetails.LightingDetails == null)//add
             {
                 xmlPropertyDetails.Lighting = null;
             }
 
-            if (sapPropertyDetails.DeselectedImprovements == null)//add
-            {
-                xmlPropertyDetails.DeselectedImprovements = null;
-            }
+            //if (sapPropertyDetails.DeselectedImprovements == null)//add
+            //{
+            //    xmlPropertyDetails.DeselectedImprovements = null;
+            //}
 
-            if (sapPropertyDetails.FlatDetails == null)//add
-            {
-                xmlPropertyDetails.FlatDetails = null;
-            }
+            //if (sapPropertyDetails.FlatDetails == null)//add
+            //{
+            //    xmlPropertyDetails.FlatDetails = null;
+            //}
 
-            
 
-            */
+
+
 
             if (sapPropertyDetails.Heating != null)
             {
@@ -105,6 +105,22 @@ namespace BH.Engine.Environment.SAP
             if (sapPropertyDetails.Ventilation != null)
             {
                 xmlPropertyDetails.Ventilation = sapPropertyDetails.Ventilation.ToXML();
+            }
+
+            if (sapPropertyDetails.LightingDetails != null)
+            {
+                List<BH.oM.Environment.SAP.XML.FixedLight> sapLighting = new List<BH.oM.Environment.SAP.XML.FixedLight>();
+                foreach (var LightFixture in sapPropertyDetails.LightingDetails)
+                {
+                    BH.oM.Environment.SAP.XML.FixedLight light = new oM.Environment.SAP.XML.FixedLight();
+                    light.LightingEfficacy= LightFixture.LightingEfficacy;
+                    light.LightingPower= LightFixture.LightingPower;
+                    light.LightingOutlets= LightFixture.LightingOutlets;
+
+                    sapLighting.Add(light);
+                }
+
+                xmlPropertyDetails.Lighting.FixedLights.FixedLight = sapLighting;
             }
 
             if (sapPropertyDetails.SpecialFeatures != null)
