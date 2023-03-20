@@ -64,10 +64,10 @@ namespace BH.Engine.Environment.SAP
                 xmlPropertyDetails.SpecialFeatures = null;
             }
 
-            //if (sapPropertyDetails.EnergySource == null)//add
-            //{
-            //    xmlPropertyDetails.EnergySource = null;
-            //}
+            if (sapPropertyDetails.EnergySource == null)
+            {
+                xmlPropertyDetails.EnergySource = null;
+            }
 
             if (sapPropertyDetails.LightingDetails == null)//add
             {
@@ -93,6 +93,11 @@ namespace BH.Engine.Environment.SAP
                 var outputs = sapPropertyDetails.Heating.ToXML();
                 xmlPropertyDetails.Heating = outputs.Item1;
                 xmlPropertyDetails.Cooling = outputs.Item2;
+            }
+
+            if (sapPropertyDetails.EnergySource != null)
+            {
+                xmlPropertyDetails.EnergySource = sapPropertyDetails.EnergySource.ToXML();
             }
 
             if (sapPropertyDetails.BuildingParts != null)
