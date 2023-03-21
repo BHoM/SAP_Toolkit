@@ -14,7 +14,7 @@
  * The BHoM is distributed in the hope that it will be useful,              
  * but WITHOUT ANY WARRANTY; without even the implied warranty of               
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                 
- //* GNU Lesser General Public License for more details.                          
+ * GNU Lesser General Public License for more details.                          
  *                                                                            
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
@@ -29,21 +29,17 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Strategy for the ventilation of the dwelling.")]
-    public class BoilerInformation : BHoMObject
+    [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
+    public class StorageHeater : BHoMObject
     {
-        [Description("")]
-        public virtual TypeOfBoiler TypeOfBoiler { get; set; } = null;
+        [Description("The number of storage heaters with this index number.")]
+        public virtual int NumberOfHeaters { get; set; } = 0;
 
-        [Description("")]
-        public virtual Boiler BoilerDetails { get; set; } = null;
+        [Description("The index number of the heater from the product database.")]
+        public virtual string IndexNumber { get; set; } = null;
 
-        [Description("")]
-        public virtual Pump PumpDetails { get; set; } = null;
-
-        [Description("")]
-        public virtual Flue FlueDetails { get; set; } = null;
-
-
+        [Description("Whether heater is high heat retention type.")]
+        public virtual bool? HighHeatRetention { get; set; } = null;
     }
 }
+

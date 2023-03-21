@@ -57,77 +57,15 @@ namespace BH.Engine.Environment.SAP
                 //This is messed up - But its friday 
                 List<AirChangeRate> airChangeRates = new List<AirChangeRate>();
 
-                AirChangeRate jan = new AirChangeRate();
+                foreach (var monthData in specialFeature.AirChangeRates)
+                {
+                    AirChangeRate month = new AirChangeRate();
+                    month.Month = monthData.Month.FromSAPToXML();
+                    month.Value = monthData.Value;
 
-                jan.Month = Months.January.FromSAPToXML();
-                jan.Value = specialFeature.AirChangeRates.Jan;
-                airChangeRates.Add(jan);
+                    airChangeRates.Add(month);
 
-                AirChangeRate feb = new AirChangeRate();
-
-                feb.Month = Months.February.FromSAPToXML();
-                feb.Value = specialFeature.AirChangeRates.Feb;
-                airChangeRates.Add(feb);
-
-                AirChangeRate mar = new AirChangeRate();
-
-                mar.Month = Months.March.FromSAPToXML();
-                mar.Value = specialFeature.AirChangeRates.Mar;
-                airChangeRates.Add(mar);
-
-                AirChangeRate apr= new AirChangeRate();
-
-                apr.Month = Months.April.FromSAPToXML();
-                apr.Value = specialFeature.AirChangeRates.Apr;
-                airChangeRates.Add(apr);
-
-                AirChangeRate may = new AirChangeRate();
-
-                may.Month = Months.May.FromSAPToXML();
-                may.Value = specialFeature.AirChangeRates.May;
-                airChangeRates.Add(may);
-
-                AirChangeRate jun = new AirChangeRate();
-
-                jun.Month = Months.June.FromSAPToXML();
-                jun.Value = specialFeature.AirChangeRates.Jun;
-                airChangeRates.Add(jun);
-
-                AirChangeRate jul= new AirChangeRate();
-
-                jul.Month = Months.July.FromSAPToXML();
-                jul.Value = specialFeature.AirChangeRates.Jul;
-                airChangeRates.Add(jul);
-
-                AirChangeRate aug= new AirChangeRate();
-
-                aug.Month = Months.August.FromSAPToXML();
-                aug.Value = specialFeature.AirChangeRates.Aug;
-                airChangeRates.Add(aug);
-
-                AirChangeRate sep= new AirChangeRate();
-
-                sep.Month = Months.September.FromSAPToXML();
-                sep.Value = specialFeature.AirChangeRates.Sep;
-                airChangeRates.Add(sep);
-
-                AirChangeRate oct= new AirChangeRate();
-
-                oct.Month = Months.October.FromSAPToXML();
-                oct.Value = specialFeature.AirChangeRates.Oct;
-                airChangeRates.Add(oct);
-
-                AirChangeRate nov= new AirChangeRate();
-
-                nov.Month = Months.November.FromSAPToXML();
-                nov.Value = specialFeature.AirChangeRates.Nov;
-                airChangeRates.Add(nov);
-
-                AirChangeRate dec= new AirChangeRate();
-
-                dec.Month = Months.December.FromSAPToXML();
-                dec.Value = specialFeature.AirChangeRates.Dec;
-                airChangeRates.Add(dec);
+                }
 
                 xmlSpecialFeature.EnergyFeature.AirChangeRates.AirChangeRate = airChangeRates;
 

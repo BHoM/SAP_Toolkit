@@ -24,6 +24,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Xml.Serialization;
 using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
@@ -32,12 +33,27 @@ namespace BH.oM.Environment.SAP
     public class HeatingControls : BHoMObject
     {
         [Description("Code which indicates the type of heating control, as described in SAP table 4e. Max 2999 min 2001.")]
-        public virtual string Controls { get; set; } = null;
+        public virtual HeatingControlCode Controls { get; set; } = HeatingControlCode.HeatNetworks_FlatRateProgrammerAndTRVs;
 
         [Description("")]
         public virtual bool DelayedStartThermostat { get; set; } = false;
 
         [Description("")]
+        public virtual string BurnerControl { get; set; } = null;
+
+        [Description("")]
         public virtual HasLoadOrWeatherCompensation HasLoadOrWeatherCompensation { get; set; } = new HasLoadOrWeatherCompensation();
+
+        [Description("The ID of the time and temperature zone control from the product database.")]
+        public virtual string ControlIndexNumber { get; set; } = null;
+
+        [Description("")]
+        public virtual string HeatingControllerFunction { get; set; } = null;
+
+        [Description("")]
+        public virtual string HeatingControllerEcodesignClass { get; set; } = null;
+
+        [Description("")]
+        public virtual Details HeatingControllerDetails { get; set; } = null;   
     }
 }

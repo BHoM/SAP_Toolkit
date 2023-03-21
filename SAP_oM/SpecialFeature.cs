@@ -52,7 +52,7 @@ namespace BH.oM.Environment.SAP
         public virtual TypeOfHeatingFuel EnergyUsedFuel { get; set; } = TypeOfHeatingFuel.MainsGas;
 
         [Description("Air Change Rate for each month")]
-        public virtual MonthlyValues AirChangeRates { get; set; } = null;
+        public virtual List<MonthlyValues> AirChangeRates { get; set; } = null;
 
         [Description("")]
         public virtual string Description { get; set; } = null;

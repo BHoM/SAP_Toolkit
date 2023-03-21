@@ -38,7 +38,7 @@ namespace BH.oM.Environment.SAP
         public virtual DataSourceCode Source { get; set; } = new DataSourceCode();
 
         [Description("Type of secondary heating present in the property; only if required and if heating data source is SAP table. Code which indicates the type of heating system, as defined in SAP tables 4a/4b (codes 101 to 899).")]
-        public virtual HeatingFuelTypeCode HeatingCode { get; set; } = new HeatingFuelTypeCode();
+        public virtual TypeOfHeatingFuel HeatingCode { get; set; } = new TypeOfHeatingFuel();
 
         [Description("")]
         public virtual FlueTypeCode FlueType { get; set; } = new FlueTypeCode();

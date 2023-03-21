@@ -161,7 +161,7 @@
 //        public string Tenure { get; set; }
 
 //        [XmlElement(ElementName = "Transaction-Type")]
-//        public int TransactionType { get; set; }
+//        public int TypeOfTransaction { get; set; }
 
 //        [XmlElement(ElementName = "Seller-Commission-Report")]
 //        public string SellerCommissionReport { get; set; }

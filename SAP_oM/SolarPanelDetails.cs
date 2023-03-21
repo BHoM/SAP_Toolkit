@@ -24,6 +24,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Xml.Serialization;
 using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
@@ -32,7 +33,7 @@ namespace BH.oM.Environment.SAP
     public class SolarPanelDetails : BHoMObject
     {
         [Description("")]
-        public virtual string CollectorType { get; set; } = null;
+        public virtual TypeOfSolarCollector CollectorType { get; set; } = TypeOfSolarCollector.Unglazed;
 
         [Description("Zero-loss collector efficiency.")]  //Following three can be set to default values within enum
         public virtual string CollectorEfficiencyη0 { get; set; } = null;
@@ -47,24 +48,25 @@ namespace BH.oM.Environment.SAP
         public virtual string AreaCollector { get; set; } = null;
 
         [Description("")]
-        public virtual string TiltOfCollector { get; set; } = null;
+        public virtual VerticalPitchCode TiltOfCollector { get; set; } = VerticalPitchCode._30Degrees;
 
         [Description("")]
-        public virtual string Orientation { get; set; } = null;
+        public virtual CompassDirectionCode Orientation { get; set; } = CompassDirectionCode.North;
 
         [Description("")]
-        public virtual string Overshading { get; set; } = null;
+        public virtual SolarCollectorOvershadingCode Overshading { get; set; } = SolarCollectorOvershadingCode.Modest;
 
         [Description("")]
-        public virtual string DedicatedSolarStorVolume { get; set; } = null;
+        public virtual string DedicatedSolarStoreVolume { get; set; } = null;
 
-        [Description("")]
-        public virtual string ShowersPresent { get; set; } = null;
 
         [Description("")]
         public virtual bool? IsSolarStoreCombined { get; set; } = null;
 
         [Description("")]
-        public virtual bool? SolarPoweredPump{ get; set; } = null;
+        public virtual bool? SolarPoweredPump { get; set; } = null;
+
+        [Description("Is Solar Community")]
+        public virtual bool? IsCommunitySolar { get; set; } = null;
     }
 }

@@ -31,19 +31,29 @@ namespace BH.oM.Environment.SAP
     [Description("Strategy for the ventilation of the dwelling.")]
     public class WaterHeating : BHoMObject
     {
-        [Description("")]
-        public virtual HeatingFuelTypeCode Fuel { get; set; } = new HeatingFuelTypeCode();
 
         [Description("The type of Water Heating present in the Property. Code which indicates the type of heating system, as defined in SAP table 4a (codes 901-999).")]
         public virtual string Type { get; set; } = null;
+
+        [Description("")]
+        public virtual DesignWaterUseCode HeatingDesignWaterUse { get; set; } = DesignWaterUseCode.LessThan125LitresPerPersonPerDay;
+
+        [Description("")]
+        public virtual TypeOfHeatingFuel Fuel { get; set; } = new TypeOfHeatingFuel();
 
         [Description("")]
         public virtual CylinderSpecification CylinderSpecification { get; set; } = null;
 
         [Description("")]
         public virtual Immersion Immersion { get; set; } = new Immersion();
-        
+
         [Description("")]
         public virtual ThermalStoreCode ThermalStore { get; set; } = new ThermalStoreCode();
+
+        [Description("")]
+        public virtual bool? ThermalStoreNearBoiler { get; set; } = false;
+
+        [Description("")]
+        public virtual bool? ThermalStoreOrCPSUInAiringCupboard {get; set; } = false;
     }
 }

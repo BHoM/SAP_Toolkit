@@ -24,6 +24,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Xml.Serialization;
 using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
@@ -34,11 +35,20 @@ namespace BH.oM.Environment.SAP
         [Description("")]
         public virtual string ProductIndex { get; set; } = null;
 
+        [Description("")]
+        public virtual Details Details { get; set; } = null;
+
         [Description("Enum which specifies data source.")]
         public virtual DataSourceCode Source { get; set; } = new DataSourceCode();
 
+        [Description("Main heating code; when heating data source is SAP table.")]
+        public virtual TypeOfSpaceHeating MainHeatingCode { get; set; } = TypeOfSpaceHeating.NonePresent;
+
         [Description("")]
         public virtual HeatEmitterCode EmitterType { get; set; } = new HeatEmitterCode();
+
+        [Description("")]
+        public virtual UnderfloorHeatEmitterCode UnderfloorEmitterType { get; set; } = UnderfloorHeatEmitterCode.InConcreteSlab;
 
         [Description("")]
         public virtual EmitterTemperatureCode EmitterTemperature { get; set; } = new EmitterTemperatureCode();

@@ -40,7 +40,7 @@ namespace BH.oM.Environment.SAP
         public virtual string HydroElectricCertificate { get; set; } = null;
 
         [Description("")]
-        public virtual MonthlyValues HydroElectricGenerationMonths { get; set; } = null;
+        public virtual List<MonthlyValues> HydroElectricGenerationMonths { get; set; } = null;
 
         [Description("Is Hydro Output Connected To Dwelling Meter")]
         public virtual bool IsHydroOutputConnectedToDwellingMeter { get; set; } = false;

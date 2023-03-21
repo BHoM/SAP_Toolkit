@@ -50,7 +50,7 @@
 //            xmlReportHeader.Status = "entered";
 //            xmlReportHeader.LanguageCode = "1";
 //            xmlReportHeader.Tenure = sapRoot.Dwellings[1].DwellingVersions[1].DwellingDetails.TenureType.FromStromaToXML();
-//            xmlReportHeader.TransactionType = sapRoot.Dwellings[1].DwellingVersions[1].DwellingDetails.TransactionType.ToString();//Add - Not correctly aligned
+//            xmlReportHeader.TypeOfTransaction = sapRoot.Dwellings[1].DwellingVersions[1].DwellingDetails.TypeOfTransaction.ToString();//Add - Not correctly aligned
 //            xmlReportHeader.SellerCommissionReport = null;
 //            xmlReportHeader.PropertyType = sapRoot.Dwellings[1].DwellingVersions[1].DwellingDetails.PropertyType.ToString();//Add - Not correctly aligned
 

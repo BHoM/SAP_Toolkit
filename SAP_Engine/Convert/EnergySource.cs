@@ -102,81 +102,17 @@ namespace BH.Engine.Environment.SAP
                 xmlEnergySource.HydroElectricCertificate = sapEnergySource.HydroElectricGeneration.HydroElectricCertificate;
                 xmlEnergySource.IsHydroOutputConnectedToDwellingMeter = sapEnergySource.HydroElectricGeneration.IsHydroOutputConnectedToDwellingMeter;
 
-
-                //This is messed up - But its friday 
                 List<HydroElectricGenerationMonth> hydroElectricGeneration = new List<HydroElectricGenerationMonth>();
 
-                HydroElectricGenerationMonth jan = new HydroElectricGenerationMonth();
+                foreach (var monthData in sapEnergySource.HydroElectricGeneration.HydroElectricGenerationMonths)
+                {
+                    HydroElectricGenerationMonth month = new HydroElectricGenerationMonth();
+                    month.HydroMonth = monthData.Month.FromSAPToXML();
+                    month.HydroValue= monthData.Value;
 
-                jan.HydroMonth = Months.January.FromSAPToXML();
-                jan.HydroValue = sapEnergySource.HydroElectricGeneration.HydroElectricGenerationMonths.Jan;
-                hydroElectricGeneration.Add(jan);
+                    hydroElectricGeneration.Add(month);
 
-                HydroElectricGenerationMonth feb = new HydroElectricGenerationMonth();
-
-                feb.HydroMonth = Months.February.FromSAPToXML();
-                feb.HydroValue = sapEnergySource.HydroElectricGeneration.HydroElectricGenerationMonths.Feb;
-                hydroElectricGeneration.Add(feb);
-
-                HydroElectricGenerationMonth mar = new HydroElectricGenerationMonth();
-
-                mar.HydroMonth = Months.March.FromSAPToXML();
-                mar.HydroValue = sapEnergySource.HydroElectricGeneration.HydroElectricGenerationMonths.Mar;
-                hydroElectricGeneration.Add(mar);
-
-                HydroElectricGenerationMonth apr = new HydroElectricGenerationMonth();
-
-                apr.HydroMonth = Months.April.FromSAPToXML();
-                apr.HydroValue = sapEnergySource.HydroElectricGeneration.HydroElectricGenerationMonths.Apr;
-                hydroElectricGeneration.Add(apr);
-
-                HydroElectricGenerationMonth may = new HydroElectricGenerationMonth();
-
-                may.HydroMonth = Months.May.FromSAPToXML();
-                may.HydroValue = sapEnergySource.HydroElectricGeneration.HydroElectricGenerationMonths.May;
-                hydroElectricGeneration.Add(may);
-
-                HydroElectricGenerationMonth jun = new HydroElectricGenerationMonth();
-
-                jun.HydroMonth = Months.June.FromSAPToXML();
-                jun.HydroValue = sapEnergySource.HydroElectricGeneration.HydroElectricGenerationMonths.Jun;
-                hydroElectricGeneration.Add(jun);
-
-                HydroElectricGenerationMonth jul = new HydroElectricGenerationMonth();
-
-                jul.HydroMonth = Months.July.FromSAPToXML();
-                jul.HydroValue = sapEnergySource.HydroElectricGeneration.HydroElectricGenerationMonths.Jul;
-                hydroElectricGeneration.Add(jul);
-
-                HydroElectricGenerationMonth aug = new HydroElectricGenerationMonth();
-
-                aug.HydroMonth = Months.August.FromSAPToXML();
-                aug.HydroValue = sapEnergySource.HydroElectricGeneration.HydroElectricGenerationMonths.Aug;
-                hydroElectricGeneration.Add(aug);
-
-                HydroElectricGenerationMonth sep = new HydroElectricGenerationMonth();
-
-                sep.HydroMonth = Months.September.FromSAPToXML();
-                sep.HydroValue = sapEnergySource.HydroElectricGeneration.HydroElectricGenerationMonths.Sep;
-                hydroElectricGeneration.Add(sep);
-
-                HydroElectricGenerationMonth oct = new HydroElectricGenerationMonth();
-
-                oct.HydroMonth = Months.October.FromSAPToXML();
-                oct.HydroValue = sapEnergySource.HydroElectricGeneration.HydroElectricGenerationMonths.Oct;
-                hydroElectricGeneration.Add(oct);
-
-                HydroElectricGenerationMonth nov = new HydroElectricGenerationMonth();
-
-                nov.HydroMonth = Months.November.FromSAPToXML();
-                nov.HydroValue = sapEnergySource.HydroElectricGeneration.HydroElectricGenerationMonths.Nov;
-                hydroElectricGeneration.Add(nov);
-
-                HydroElectricGenerationMonth dec = new HydroElectricGenerationMonth();
-
-                dec.HydroMonth = Months.December.FromSAPToXML();
-                dec.HydroValue = sapEnergySource.HydroElectricGeneration.HydroElectricGenerationMonths.Dec;
-                hydroElectricGeneration.Add(dec);
+                }
 
                 xmlEnergySource.HydroElectricGenerationMonths.HydroElectricGenerationMonth= hydroElectricGeneration;
 

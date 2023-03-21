@@ -31,13 +31,14 @@ namespace BH.oM.Environment.SAP
     [Description("Strategy for the ventilation of the dwelling.")]
     public class WWHRS : BHoMObject
     {
-        [Description("")]
-        public virtual string TotalRoomsWithShowerOrBath { get; set; } = null;
 
         [Description("")]
-        public virtual WWHRSSystem System1 { get; set; } = null;
+        public virtual InstantaneousWWHRSSystem InstantaneousSystem1 { get; set; } = null;
 
         [Description("")]
-        public virtual WWHRSSystem System2 { get; set; } = null;
+        public virtual InstantaneousWWHRSSystem InstantaneousSystem2 { get; set; } = null;
+
+        [Description("")]
+        public virtual StorageWWHRS StorageSystem { get; set; } = null;
     }
 }

@@ -14,7 +14,7 @@
  * The BHoM is distributed in the hope that it will be useful,              
  * but WITHOUT ANY WARRANTY; without even the implied warranty of               
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                 
- //* GNU Lesser General Public License for more details.                          
+ * GNU Lesser General Public License for more details.                          
  *                                                                            
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
@@ -29,21 +29,24 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Strategy for the ventilation of the dwelling.")]
-    public class BoilerInformation : BHoMObject
+    [Description("")]
+    public class Boiler : BHoMObject
     {
         [Description("")]
-        public virtual TypeOfBoiler TypeOfBoiler { get; set; } = null;
+        public virtual bool IsCondensingBoiler { get; set; } = false;
 
-        [Description("")]
-        public virtual Boiler BoilerDetails { get; set; } = null;
+        [Description("The temperature distribution of the condensing boiler.")]
+        public virtual string CondensingBoilerHeatDistribution { get; set; } = "55";
 
-        [Description("")]
-        public virtual Pump PumpDetails { get; set; } = null;
+        [Description("Case heat emission at full load in kW; if it is a range cooker boiler and boiler efficiency is manufacturer declaration.")]
+        public virtual string CaseHeatEmission { get; set; } = null;
 
-        [Description("")]
-        public virtual Flue FlueDetails { get; set; } = null;
+        [Description("Heat transfer to water at full load in kW; if it is a range cooker boiler and boiler efficiency is manufacturer declaration.")]
+        public virtual string HeatTransferToWater { get; set; } = null;
 
+        [Description("The type of boiler fuel feed; only if solid fuel boiler with manufacturer declaration.")]
+        public virtual BoilerFuelFeedCode BoilerFuelFeed { get; set; } = BoilerFuelFeedCode.Gravity;
 
     }
 }
+
