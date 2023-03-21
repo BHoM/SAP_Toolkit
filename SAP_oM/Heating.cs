@@ -41,19 +41,21 @@ namespace BH.oM.Environment.SAP
         public virtual SecondaryHeating SecondaryHeating { get; set; } = null;
 
         [Description("")]
+        public virtual List<CommunityHeatingSystem> CommunityHeating { get; set; } = null;
+
+        [Description("")]
         public virtual Cooling Cooling { get; set; } = new Cooling();
 
         [Description("")]
         public virtual WaterHeating WaterHeating { get; set; } = new WaterHeating();
 
         [Description("")]
-        public virtual WasteWaterHRS WasteWaterHRS { get; set; } = null;
+        public virtual WWHRS WasteWaterHRS { get; set; } = null;
 
         [Description("")]
         public virtual SolarPanelDetails SolarPanelDetails { get; set; } = new SolarPanelDetails();
 
         [Description("")]
-        public virtual List<SAP.ShowerOutlet> ShowerOutlets { get; set; } = new List<ShowerOutlet>();
-
+        public virtual BathsAndShowers BathAndShowerDetails { get; set; } = new BathsAndShowers();
     }
 }

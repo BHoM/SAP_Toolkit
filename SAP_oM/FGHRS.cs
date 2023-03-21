@@ -24,6 +24,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Xml.Serialization;
 using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
@@ -33,5 +34,8 @@ namespace BH.oM.Environment.SAP
     {
         [Description("")]
         public virtual string IndexNumber { get; set; } = null;
+
+        [Description("")]
+        public virtual EnergySource FGHRSEnergySource { get; set; } = null;
     }
 }

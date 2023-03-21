@@ -32,41 +32,13 @@ namespace BH.oM.Environment.SAP
     [Description("Monthly Data")]
     public class MonthlyValues: BHoMObject
     {
-        [Description("January values")]
-        public virtual double Jan { get; set; } = 0;
 
-        [Description("February values")]
-        public virtual double Feb { get; set;} = 0;
+        [Description("Month")]
+        public virtual Months Month { get; set; } = Months.January;
 
-        [Description("March values")]
-        public virtual double Mar { get; set; } = 0;
+        [Description("Monthly Value")]
+        public virtual double Value { get; set; } = 0;
 
-        [Description("April values")]
-        public virtual double Apr { get; set; } = 0;
-
-        [Description("May values")]
-        public virtual double May { get; set; } = 0;
-
-        [Description("June values")]
-        public virtual double Jun { get; set; } = 0;
-
-        [Description("July values")]
-        public virtual double Jul { get; set; } = 0;
-
-        [Description("August values")]
-        public virtual double Aug { get; set; } = 0;
-
-        [Description("September values")]
-        public virtual double Sep { get; set; } = 0;
-
-        [Description("October values")]
-        public virtual double Oct { get; set; } = 0;
-
-        [Description("November values")]
-        public virtual double Nov { get; set; } = 0;
-
-        [Description("December values")]
-        public virtual double Dec { get; set; } = 0;
         
     }
 }

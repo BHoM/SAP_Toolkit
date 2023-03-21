@@ -29,23 +29,23 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("")]
-    public enum EfficiencyTypeCode { NotGasOrOilBoiler = 1, SEDBUK2005 = 2, SEDBUK2009 = 3, WinterAndSummer = 4 }
+    public enum TypeOfEfficiency { NotGasOrOilBoiler = 1, SEDBUK2005 = 2, SEDBUK2009 = 3, WinterAndSummer = 4 }
 }
 
-/*private static string FromSAPToXML(this BH.oM.Environment.SAP.EfficiencyTypeCode sEfficiencyTypeCode)
+/*private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfEfficiency typeOfEfficiency)
 {
-	switch (sEfficiencyTypeCode)
+	switch (typeOfEfficiency)
 	{
-		case BH.oM.Environment.SAP.EfficiencyTypeCode.NotGasOrOilBoiler:
+		case BH.oM.Environment.SAP.TypeOfEfficiency.NotGasOrOilBoiler:
 			return "1";
 
-		case BH.oM.Environment.SAP.EfficiencyTypeCode.SEDBUK2005:
+		case BH.oM.Environment.SAP.TypeOfEfficiency.SEDBUK2005:
 			return "2";
 
-		case BH.oM.Environment.SAP.EfficiencyTypeCode.SEDBUK2009:
+		case BH.oM.Environment.SAP.TypeOfEfficiency.SEDBUK2009:
 			return "3";
 
-		case BH.oM.Environment.SAP.EfficiencyTypeCode.WinterAndSummer:
+		case BH.oM.Environment.SAP.TypeOfEfficiency.WinterAndSummer:
 			return "4";
 
 		default:

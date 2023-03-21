@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP
 		None = 2699, Boiler_OnlyDHW = 2100, Boiler_NoTimeOrThermostaticControl, Boiler_ProgrammerOnly, Boiler_ThermostatOnly,
         Boiler_ProgrammerAndThermostat, Boiler_ProgrammerAndMoreThanOneThermostat, Boiler_ThermostatAndTRVs = 2113, Boiler_ProgrammerThermostatAndTRVs = 2106, 
 		Boiler_TRVsAndBypass = 2111,Boiler_ProgrammerTRVsAndBypass = 2107, Boiler_ProgrammerTRVsAndFlowSwitch, Boiler_ProgrammerTRVsAndEnergyManager, 
-		Boiler_TimeAndTempControlByPlumbingAndElectrical, Boiler_TimeAndTempControlByPCDB = 2112, HeatPump_OnlyDHW = 2100, HeatPump_NoTimeOrThermostaticControl = 2201,
+		Boiler_TimeAndTempControlByPlumbingAndElectrical, Boiler_TimeAndTempControlByPCDB = 2112, HeatPump_NoTimeOrThermostaticControl = 2201,
 		HeatPump_ProgrammerOnly, HeatPump_ThermostatOnly, HeatPump_ProgrammerAndThermostat, HeatPump_ProgrammerAndMoreThanOneThermostat,HeatPump_ThermostatAndTRVs = 2209, 
 		HeatPump_ProgrammerThermostatAndTRVs = 2210, HeatPump_ProgrammerTRVsAndBypass = 2206, HeatPump_TimeAndTempControlByPlumbingAndElectrical,
 		HeatPump_TimeAndTempControlByPCDB = 2208, HeatNetworks_FlatRateNoThermostaticControl = 2301, HeatNetworks_FlatRateProgrammerOnly = 2302, 

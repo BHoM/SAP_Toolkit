@@ -441,7 +441,7 @@
 //            //oM.Environment.SAP.XML.StorageWWHRS xmlStorageWWHRS = new oM.Environment.SAP.XML.StorageWWHRS();
 
 //            ////check if cases are correct - tried to make them as similar to prev closed but ultimatley not sure how the diff cases should be treated
-//            //if (heating.WasteWaterHRS == null)
+//            //if (heating.WWHRS == null)
 //            //{
 //            //    xmlInstantaneousWWHRS.WWHRSIndexNumber1 = null;
 //            //    xmlInstantaneousWWHRS.WWHRSEfficiency1 = null;
@@ -452,21 +452,21 @@
 //            //    xmlStorageWWHRS.StorageWWHRSEfficiency = null;
 
 //            //}
-//            //else if (heating.WasteWaterHRS.InstantaneousSystem1 != null)
+//            //else if (heating.WWHRS.InstantaneousSystem1 != null)
 //            //{
-//            //    xmlInstantaneousWWHRS.WWHRSIndexNumber1 = heating.WasteWaterHRS.InstantaneousSystem1.IndexNumber;
-//            //    xmlInstantaneousWWHRS.WWHRSEfficiency1 = heating.WasteWaterHRS.InstantaneousSystem1.Efficiency;
+//            //    xmlInstantaneousWWHRS.WWHRSIndexNumber1 = heating.WWHRS.InstantaneousSystem1.IndexNumber;
+//            //    xmlInstantaneousWWHRS.WWHRSEfficiency1 = heating.WWHRS.InstantaneousSystem1.Efficiency;
 //            //}
-//            //else if (heating.WasteWaterHRS.InstantaneousSystem2 != null)
+//            //else if (heating.WWHRS.InstantaneousSystem2 != null)
 //            //{
-//            //    xmlInstantaneousWWHRS.WWHRSIndexNumber2 = heating.WasteWaterHRS.InstantaneousSystem2.IndexNumber;
-//            //    xmlInstantaneousWWHRS.WWHRSEfficiency2 = heating.WasteWaterHRS.InstantaneousSystem2.Efficiency;
+//            //    xmlInstantaneousWWHRS.WWHRSIndexNumber2 = heating.WWHRS.InstantaneousSystem2.IndexNumber;
+//            //    xmlInstantaneousWWHRS.WWHRSEfficiency2 = heating.WWHRS.InstantaneousSystem2.Efficiency;
 //            //}
-//            //else if (heating.WasteWaterHRS.StorageSystem != null)
+//            //else if (heating.WWHRS.StorageSystem != null)
 //            //{
-//            //    xmlStorageWWHRS.WWHRSIndexNumber = heating.WasteWaterHRS.StorageSystem.IndexNumber;
-//            //    xmlStorageWWHRS.WWHRSStoreVolume = heating.WasteWaterHRS.StorageSystem.StoreVolume;
-//            //    xmlStorageWWHRS.StorageWWHRSEfficiency = heating.WasteWaterHRS.StorageSystem.Efficiency;
+//            //    xmlStorageWWHRS.WWHRSIndexNumber = heating.WWHRS.StorageSystem.IndexNumber;
+//            //    xmlStorageWWHRS.WWHRSStoreVolume = heating.WWHRS.StorageSystem.StoreVolume;
+//            //    xmlStorageWWHRS.StorageWWHRSEfficiency = heating.WWHRS.StorageSystem.Efficiency;
 //            //}
 
 //            //xmlHeating.InstantaneousWHRS = xmlInstantaneousWWHRS;

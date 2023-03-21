@@ -34,8 +34,11 @@ namespace BH.oM.Environment.SAP
         [Description("")]
         public virtual SecondaryHeatingDetails HeatingDetails { get; set; } = new SecondaryHeatingDetails();
 
-        [Description("")] 
-        public virtual HeatingFuelTypeCode Fuel { get; set; } = new HeatingFuelTypeCode();
+        [Description("")]
+        public virtual HeatingDeclared HeatingDeclaredValues { get; set; } = new HeatingDeclared();
+
+        [Description("")]
+        public virtual TypeOfHeatingFuel Fuel { get; set; } = new TypeOfHeatingFuel();
 
         [Description("")]
         public virtual bool? HETASApproved { get; set; } = null;

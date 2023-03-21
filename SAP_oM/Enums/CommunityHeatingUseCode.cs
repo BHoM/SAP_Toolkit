@@ -33,20 +33,22 @@ namespace BH.oM.Environment.SAP
     public enum CommunityHeatingUseCode {  SpaceHeatingOnly = 1, WaterHeatingOnly = 2, SpaceAndWaterHeating = 3 }
 }
 
-//private static string FromSAPToXML(this BH.oM.Environment.SAP.CommunityHeatingUseCode communityHeatingUseCode)
-//{
-//    switch (communityHeatingUseCode)
-//    {
-//        case BH.oM.Environment.SAP.CommunityHeatingUseCode.SpaceHeatingOnly:
-//            return "1";
+/*
+private static string FromSAPToXML(this BH.oM.Environment.SAP.CommunityHeatingUseCode communityHeatingUseCode)
+{
+    switch (communityHeatingUseCode)
+    {
+        case BH.oM.Environment.SAP.CommunityHeatingUseCode.SpaceHeatingOnly:
+            return "1";
 
-//        case BH.oM.Environment.SAP.CommunityHeatingUseCode.WaterHeatingOnly:
-//            return "2";
+        case BH.oM.Environment.SAP.CommunityHeatingUseCode.WaterHeatingOnly:
+            return "2";
 
-//        case BH.oM.Environment.SAP.CommunityHeatingUseCode.SpaceAndWaterHeating:
-//            return "3";
+        case BH.oM.Environment.SAP.CommunityHeatingUseCode.SpaceAndWaterHeating:
+            return "3";
 
-//        default:
-//            return "";
-//    }
-//}
+        default:
+            return "";
+    }
+}
+*/

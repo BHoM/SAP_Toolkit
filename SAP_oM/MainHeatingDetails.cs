@@ -38,6 +38,12 @@ namespace BH.oM.Environment.SAP
         public virtual HeatingDetails HeatingDetails { get; set; } = new HeatingDetails();
 
         [Description("")]
+        public virtual HeatingDeclared HeatingDeclaredValues { get; set; } = new HeatingDeclared();
+
+        [Description("Efficiency data")]
+        public virtual Efficiency Efficiency { get; set; } = new Efficiency();
+
+        [Description("")]
         public virtual HeatingControls HeatingControls { get; set; } = new HeatingControls();
 
         [Description("")]
@@ -47,11 +53,14 @@ namespace BH.oM.Environment.SAP
         public virtual BoilerInformation BoilerInformation { get; set; } = new BoilerInformation();
 
         [Description("")]
+        public virtual List<StorageHeater> StorageHeaters { get; set; } = new List<StorageHeater>();    
+
+        [Description("")]
         public virtual FGHRS FGHRS { get; set; } = null;
 
         [Description("Is the appliance HETAS approved?")]
         public virtual bool HETASApproved { get; set; } = false;
-        
+
         [Description("")]
         public virtual bool? MCSCertificate { get; set; } = null;
 

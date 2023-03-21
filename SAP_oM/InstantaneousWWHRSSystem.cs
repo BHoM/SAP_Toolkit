@@ -37,5 +37,8 @@ namespace BH.oM.Environment.SAP
 
         [Description("")]
         public virtual string Efficiency { get; set; } = null;
+
+        [Description("")]
+        public virtual Details Details { get; set; } = new Details();
     }
 }

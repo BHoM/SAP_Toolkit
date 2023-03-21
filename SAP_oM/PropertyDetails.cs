@@ -62,6 +62,9 @@ namespace BH.oM.Environment.SAP
         public virtual Heating Heating { get; set; } = null;
 
         [Description("")]
+        public virtual EnergySource EnergySource { get; set; } = null;
+
+        [Description("")]
         public virtual List<BuildingPart> BuildingParts { get; set; } = null;
 
         [Description("")]
@@ -74,10 +77,11 @@ namespace BH.oM.Environment.SAP
         public virtual List<Lighting> LightingDetails { get; set; } = null;
 
         [Description("")]
-        public virtual List<SpecialFeature> SpecialFeatures { get; set; } = null;
+        public virtual FlatDetails FlatDetails { get; set; }
 
         [Description("")]
-        public virtual FlatDetails FlatDetails { get; set; }
+        public virtual List<SpecialFeature> SpecialFeatures { get; set; } = null;
+        
     }
 
 }

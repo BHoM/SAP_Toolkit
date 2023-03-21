@@ -38,7 +38,10 @@ namespace BH.oM.Environment.SAP
         public virtual string DeclaredLossFactor { get; set; } = null;
 
         [Description("")]
-        public virtual string InsulationType { get; set; } = null;
+        public virtual DataSourceCode DeclaredLossFactorSource { get; set; } = DataSourceCode.ManufacturerDeclaration;
+
+        [Description("")]
+        public virtual TypeOfHotWaterStoreInsulation InsulationType { get; set; } = TypeOfHotWaterStoreInsulation.FactoryApplied;
 
         [Description("")]
         public virtual string InsulationThickness { get; set; } = null;
@@ -46,17 +49,20 @@ namespace BH.oM.Environment.SAP
         [Description("")]
         public virtual bool InHeatedSpace { get; set; } = false;
 
-        [Description("")]
+        [Description("Has Cylinder Thermostat")]
         public virtual bool Cylinderstat { get; set; } = false;
 
-       /* [Description("")]
-        public virtual bool PrimaryPipeworkInsulated { get; set; } = false;*/
+        [Description("")]
+        public virtual PipeworkInsulationCode PrimaryPipeworkInsulated { get; set; } = PipeworkInsulationCode.NotInsulated;
 
         [Description("Only if primary pipework is insulated")]
         public virtual string InsulatedAmount { get; set; } = null;
 
         [Description("")]
         public virtual bool TimedSeperatly { get; set; } = false;
+
+        [Description("")]
+        public virtual Details CyclinderDetails { get; set; } = null;
 
     }
 }

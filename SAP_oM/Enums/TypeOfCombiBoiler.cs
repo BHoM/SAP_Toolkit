@@ -29,7 +29,7 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of combi boiler.")]
-    public enum TypeOfCombiBoiler {  Instantaneous,NoStoreOrKeepHot = 1, PrimaryStorage = 2, SecondaryStorage = 3, CPSU = 4, 
+    public enum TypeOfCombiBoiler {  InstantaneousNoStoreOrKeepHot = 1, PrimaryStorage = 2, SecondaryStorage = 3, CPSU = 4, 
         UntimedKeepHotByFuel = 5, TimedKeepHotByFuel = 6, UntimedKeepHotByElectricity = 7, TimedKeepHotByElectricity = 8, UntimedKeepHotByFuelAndElectricity = 9, 
         TimedKeepHotByFuelAndElectricity = 10 }
 }
@@ -39,7 +39,7 @@ namespace BH.oM.Environment.SAP
 {
 	switch (typeOfCombiBoiler)
 	{
-		case BH.oM.Environment.SAP.TypeOfCombiBoiler.Instantaneous,NoStoreOrKeepHot:
+		case BH.oM.Environment.SAP.TypeOfCombiBoiler.InstantaneousNoStoreOrKeepHot:
 			return "1";
 
 		case BH.oM.Environment.SAP.TypeOfCombiBoiler.PrimaryStorage:

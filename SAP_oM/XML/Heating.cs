@@ -20,7 +20,6 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-//null - to add
 
 using System;
 using System.Collections.Generic;
@@ -37,7 +36,7 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("The type of Water Heating present in the Property.")]
         [XmlElement("Water-Heating-Code")]
-        public virtual string WaterHeatingCode { get; set; } = "901"; //somewhere from 901-999
+        public virtual string WaterHeatingCode { get; set; } = "901"; 
 
         [Description("The type of fuel used to power the central heating e.g. Gas, Electricity.  Not used if water system is main or secondary system.")]
         [XmlElement("Water-Fuel-Type")]
@@ -69,11 +68,11 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Type of secondary heating present in the property")]
         [XmlElement(ElementName = "Secondary-Heating-Code")]
-        public virtual string SecondaryHeatingCode { get; set; } = null; //RANGES FROM 101-899 INC
+        public virtual string SecondaryHeatingCode { get; set; } = null; 
 
         [Description("The type of fuel used to power the secondary heating e.g. Gas, Electricity; only if required.")]
         [XmlElement("Secondary-Fuel-Type")]
-        public virtual string SecondaryFuelType { get; set; } = "1";//Meaning gas mains
+        public virtual string SecondaryFuelType { get; set; } = "1";
 
         [Description("PCDF index number of the fuel type, only if Secondary-Fuel-Type is 99 (fuel from database).")]
         [XmlElement("Secondary-Heating-PCDF-Fuel-Index")]
@@ -81,7 +80,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Secondary flue type; only if secondary efficiency is manufacturer declaration and if there is a flue.")]
         [XmlElement("Secondary-Heating-Flue-Type")]
-        public virtual string SecondaryHeatingFlueType { get; set; } = "5";//meaning unknow/can't be determinedd
+        public virtual string SecondaryHeatingFlueType { get; set; } = "5";
 
         [Description("The type of thermal store; not used if main heating system is community heating scheme.")]
         [XmlElement("Thermal-Store")]
@@ -101,7 +100,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Is heat pump installed to MIS standard?  Only if water heating from hot water only heat pump.")]
         [XmlElement("Is-Heat-Pump-Installed-To-MIS")]
-        public virtual bool IsHeatPumpInstalledToMIS { get; set; } = false;
+        public virtual bool? IsHeatPumpInstalledToMIS { get; set; } = false;
 
         [Description("Immersion for summer use?  Only if main heating is solid fuel fire or room heater with boiler.")]
         [XmlElement("Is-Immersion-For-Summer-Use")]

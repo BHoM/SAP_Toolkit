@@ -24,20 +24,22 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Xml.Serialization;
 using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Strategy for the ventilation of the dwelling.")]
-    public class WWHRSSystem : BHoMObject
+    [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
+    public class HeatingDeclared : BHoMObject
     {
-        [Description("Number of mixer showers in rooms with a bath.")]
-        public virtual string MixerShowersWithBath { get; set; } = null;
+        [Description("Efficiency")]
+        public virtual string Efficiency { get; set; } = null;
 
-        [Description("Number of mixer showers in rooms without a bath.")]
-        public virtual string MixerSHowersWithoutBath { get; set; } = null;
+        [Description("Make-Model")]
+        public virtual string MakeModel { get; set; } = null;
 
-        [Description("WWHRS from PCDB.")]
-        public virtual WasteWaterHeatRecoverySystemTable System { get; set; } = null;
+        [Description("Test-Method")]
+        public virtual string TestMethod { get; set; } = null;
     }
 }
+

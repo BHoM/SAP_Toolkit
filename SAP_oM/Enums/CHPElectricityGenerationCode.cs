@@ -26,7 +26,7 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-namespace BHoMEnvironmentSAP
+namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the CHP Electricity generation option (table 12f)")]
     public enum CHPElectricityGenerationCode { NewCHPExportOnly = 81, NewCHPFlexibleOperation = 82, NewCHPStandard = 83, ExistingCHP2015ExportOnly = 84, 

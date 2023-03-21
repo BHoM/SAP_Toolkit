@@ -14,7 +14,7 @@
  * The BHoM is distributed in the hope that it will be useful,              
  * but WITHOUT ANY WARRANTY; without even the implied warranty of               
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                 
- //* GNU Lesser General Public License for more details.                          
+ * GNU Lesser General Public License for more details.                          
  *                                                                            
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
@@ -29,21 +29,17 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Strategy for the ventilation of the dwelling.")]
-    public class BoilerInformation : BHoMObject
+    [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
+    public class BathsAndShowers : BHoMObject
     {
         [Description("")]
-        public virtual TypeOfBoiler TypeOfBoiler { get; set; } = null;
+        public virtual List<SAP.ShowerOutlet> ShowerOutlets { get; set; } = new List<ShowerOutlet>();
 
-        [Description("")]
-        public virtual Boiler BoilerDetails { get; set; } = null;
+        [Description("Number of Baths")]
+        public virtual int NumberBaths { get; set; } = 1;
 
-        [Description("")]
-        public virtual Pump PumpDetails { get; set; } = null;
-
-        [Description("")]
-        public virtual Flue FlueDetails { get; set; } = null;
-
-
+        [Description("Number of BathWWHRS")]
+        public virtual int NumberBathsWWHRS { get; set; } = 0;
     }
 }
+

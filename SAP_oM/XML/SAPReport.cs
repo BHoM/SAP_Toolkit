@@ -91,17 +91,6 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "ExternalDefinitions-Revision-Number")] 
         public virtual string ExternalDefinitionsRevisionNumber { get; set; } = null;
 
-        //PDF element in schema?? with type base64binary
-        //[XmlAttribute(AttributeName = "xmlns")]
-        //public virtual string Xmlns { get; set; }
 
-        //[XmlAttribute(AttributeName = "xsi")]
-        //public virtual string Xsi { get; set; }
-
-        //[XmlAttribute(AttributeName = "schemaLocation")]
-        //public virtual string SchemaLocation { get; set; }
-
-        //[XmlText]
-        //public virtual string Text { get; set; }
     }
 }

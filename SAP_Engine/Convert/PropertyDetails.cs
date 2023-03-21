@@ -159,7 +159,8 @@ namespace BH.Engine.Environment.SAP
             FOR BACKWARDS COMPATABILITY ONLY DO NOT USE - xmlPropertyDetails.EnergyUsed = 0;
             FOR BACKWARDS COMPATABILITY ONLY DO NOT USE - xmlPropertyDetails.EnergyUsedFuel = "0";
             */
-
+            
+            //HELLo ELLLIEEEE
             xmlPropertyDetails.IsInSmokeControlArea = "true";
             xmlPropertyDetails.ColdWaterSource = "1";
             xmlPropertyDetails.WindowsOvershading = sapPropertyDetails.Overshading.FromSAPToXML();

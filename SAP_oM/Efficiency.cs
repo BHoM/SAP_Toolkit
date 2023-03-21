@@ -14,7 +14,7 @@
  * The BHoM is distributed in the hope that it will be useful,              
  * but WITHOUT ANY WARRANTY; without even the implied warranty of               
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                 
- //* GNU Lesser General Public License for more details.                          
+ * GNU Lesser General Public License for more details.                          
  *                                                                            
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
@@ -29,21 +29,24 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Strategy for the ventilation of the dwelling.")]
-    public class BoilerInformation : BHoMObject
+    [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
+    public class Efficiency : BHoMObject
     {
-        [Description("")]
-        public virtual TypeOfBoiler TypeOfBoiler { get; set; } = null;
 
         [Description("")]
-        public virtual Boiler BoilerDetails { get; set; } = null;
+        public virtual TypeOfEfficiency EfficiencyType { get; set; } = TypeOfEfficiency.SEDBUK2009;
 
         [Description("")]
-        public virtual Pump PumpDetails { get; set; } = null;
+        public virtual string MainHeatingSystemType { get; set; } = null;
 
-        [Description("")]
-        public virtual Flue FlueDetails { get; set; } = null;
+        [Description("To be used if main heating data is manufacturer declaration and Efficiency-Type is winter and summer.")]
+        public virtual string MainHeatingEfficiencyWinter { get; set; } = null;
 
+        [Description("To be used if main heating data is manufacturer declaration and Efficiency-Type is winter and summer.")]
+        public virtual string MainHeatingEfficiencySummer { get; set; } = null;
 
+        [Description("If main heating is any system other than heat network.")]
+        public virtual string MainHeatingEfficiency { get; set; } = null;
     }
 }
+

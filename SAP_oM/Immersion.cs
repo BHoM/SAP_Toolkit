@@ -34,6 +34,9 @@ namespace BH.oM.Environment.SAP
         [Description("Is heat pump assisted by immersion.")]
         public virtual bool? UseOfImmersion { get; set; } = null;
 
+        [Description("Is heat pump installed to MIS standard?")]
+        public virtual bool? InstalledToMIS { get; set; } = null;
+
         [Description("Heat pump immersion")]
         public virtual string HeatExchangerArea { get; set; } = null;
 

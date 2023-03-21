@@ -14,7 +14,7 @@
  * The BHoM is distributed in the hope that it will be useful,              
  * but WITHOUT ANY WARRANTY; without even the implied warranty of               
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                 
- //* GNU Lesser General Public License for more details.                          
+ * GNU Lesser General Public License for more details.                          
  *                                                                            
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
@@ -26,24 +26,32 @@ using System.ComponentModel;
 using System.Linq;
 using System.Xml.Serialization;
 using BH.oM.Base;
+using BH.oM.Environment.SAP;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Strategy for the ventilation of the dwelling.")]
-    public class BoilerInformation : BHoMObject
+    [Description("")]
+    public class CommunityHeatSource : BHoMObject
     {
         [Description("")]
-        public virtual TypeOfBoiler TypeOfBoiler { get; set; } = null;
+        public virtual TypeOfHeatSource HeatSourceType { get; set; } = TypeOfHeatSource.HeatPump;
+
+        public virtual string HeatFraction { get; set; } = "1";
 
         [Description("")]
-        public virtual Boiler BoilerDetails { get; set; } = null;
+        public virtual TypeOfHeatingFuel FuelType { get; set; } = TypeOfHeatingFuel.CommunityHeatPump;
 
         [Description("")]
-        public virtual Pump PumpDetails { get; set; } = null;
+        public virtual string PCDFFuelIndex { get; set; } = null;
+
+        [Description("Heat efficiency in %.")]
+        public virtual string HeatEfficiency { get; set; } = "400";
+
+        [Description("Power efficiency in %. Include when heat source is CHP.")]
+        public virtual string PowerEfficiency { get; set; } = null;
 
         [Description("")]
-        public virtual Flue FlueDetails { get; set; } = null;
-
-
+        public virtual CHPElectricityGenerationCode CHPElectricityGeneration { get; set; } = CHPElectricityGenerationCode.NewCHPStandard;
     }
 }
+

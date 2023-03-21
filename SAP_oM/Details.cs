@@ -24,21 +24,20 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Xml.Serialization;
 using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Strategy for the ventilation of the dwelling.")]
-    public class WasteWaterHRS : BHoMObject
+    [Description("Model Details")]
+    public class Details : BHoMObject
     {
+        [Description("")]
+        public virtual string Manufacturer { get; set; } = null;
 
         [Description("")]
-        public virtual InstantaneousWWHRSSystem InstantaneousSystem1 { get; set; } = null;
+        public virtual string Model { get; set; } = null;
 
-        [Description("")]
-        public virtual InstantaneousWWHRSSystem InstantaneousSystem2 { get; set; } = null;
-
-        [Description("")]
-        public virtual StorageWWHRS StorageSystem { get; set; } = null;
     }
 }
+
