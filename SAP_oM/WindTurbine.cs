@@ -29,7 +29,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
+    [Description("Details about a windturbine connected to a dwelling.")]
     public class WindTurbine : BHoMObject
     {
         [Description("Wind turbine manufacturer name.")]
@@ -39,7 +39,7 @@ namespace BH.oM.Environment.SAP
         [Description("Wind turbine certificate.")]
         public virtual string Certificate { get; set; } = null;
 
-        [Description("Wind turbine rotor diameter in metres")]
+        [Description("Wind turbine rotor diameter in metres.")]
         public virtual double RotorDiameter { get; set; } = 0;
 
         [Description("Wind turbine hub height above building in metres.")]

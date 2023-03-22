@@ -28,10 +28,10 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description(".")]
+    [Description("")]
     public class Ventilation : BHoMObject
     {
-        [Description(".")]
+        [Description("")]
         public virtual int ID
         {
             get;
@@ -39,7 +39,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int ChimneysMain
         {
             get;
@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int ChimneysSecondary
         {
             get;
@@ -55,7 +55,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int ChimneysOther
         {
             get;
@@ -63,7 +63,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int Chimneys
         {
             get;
@@ -71,7 +71,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int ChimneysClosedFire
         {
             get;
@@ -79,7 +79,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int ChimneysClosedFireMain
         {
             get;
@@ -87,7 +87,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int ChimneysClosedFireSecondary
         {
             get;
@@ -95,7 +95,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int ChimneysClosedFireOther
         {
             get;
@@ -103,7 +103,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int FluesSolidBoiler
         {
             get;
@@ -111,7 +111,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int FluesSolidBoilerMain
         {
             get;
@@ -119,7 +119,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int FluesSolidBoilerSecondary
         {
             get;
@@ -127,7 +127,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int FluesSolidBoilerOther
         {
             get;
@@ -135,7 +135,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int FluesOtherHeater
         {
             get;
@@ -143,7 +143,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int FluesOtherHeaterMain
         {
             get;
@@ -151,7 +151,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int FluesOtherHeaterSecondary
         {
             get;
@@ -159,7 +159,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int FluesOtherHeaterOther
         {
             get;
@@ -167,7 +167,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int ChimneyBlocked
         {
             get;
@@ -175,7 +175,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int FluesMain
         {
             get;
@@ -183,7 +183,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int FluesSecondary
         {
             get;
@@ -191,7 +191,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int FluesOther
         {
             get;
@@ -199,7 +199,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int Flues
         {
             get;
@@ -207,7 +207,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int Fans
         {
             get;
@@ -215,7 +215,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int Vents
         {
             get;
@@ -223,7 +223,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int Fires
         {
             get;
@@ -231,7 +231,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual double Shelter
         {
             get;
@@ -239,7 +239,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int MechanicalVentilation
         {
             get;
@@ -247,7 +247,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int Parameters
         {
             get;
@@ -255,7 +255,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int WetRooms
         {
             get;
@@ -263,7 +263,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int DuctType
         {
             get;
@@ -271,7 +271,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int DuctSpecification
         {
             get;
@@ -279,7 +279,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int SystemPosition
         {
             get;
@@ -287,7 +287,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int ProductID
         {
             get;
@@ -295,7 +295,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual bool ApprovedScheme
         {
             get;
@@ -303,7 +303,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description(".")]
+        [Description("")]
         public virtual bool MeasuredInstallation
         {
             get;
@@ -311,7 +311,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description(".")]
+        [Description("")]
         public virtual double MeasuredSpecificFanPower
         {
             get;
@@ -319,7 +319,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual DeCentralised DeCentralised
         {
             get;
@@ -327,7 +327,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description(".")]
+        [Description("")]
         public virtual MechanicalVentilationDetails MechanicalVentilationDetails
         {
             get;
@@ -335,7 +335,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description(".")]
+        [Description("")]
         public virtual int Pressure
         {
             get;
@@ -343,7 +343,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual double DesignAir
         {
             get;
@@ -351,7 +351,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual double AssumedAir
         {
             get;
@@ -359,7 +359,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual double MeasuredAir
         {
             get;
@@ -367,7 +367,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual double MeasuredPulse
         {
             get;
@@ -375,7 +375,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual DateTime DateAir
         {
             get;
@@ -383,7 +383,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = DateTime.Now;
-        [Description(".")]
+        [Description("")]
         public virtual bool AverageAirPermeability
         {
             get;
@@ -391,7 +391,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description(".")]
+        [Description("")]
         public virtual int ConstructType
         {
             get;
@@ -399,7 +399,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int LobbyDetail
         {
             get;
@@ -407,7 +407,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int FloorDetail
         {
             get;
@@ -423,7 +423,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual bool MultiSystem
         {
             get;
@@ -431,7 +431,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description(".")]
+        [Description("")]
         public virtual int DuctPlacement
         {
             get;
@@ -439,7 +439,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual ComplianceVent ComplianceVent
         {
             get;
@@ -447,7 +447,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description(".")]
+        [Description("")]
         public virtual double PressureTestResult
         {
             get;

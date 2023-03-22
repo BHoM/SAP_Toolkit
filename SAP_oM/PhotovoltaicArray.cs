@@ -29,10 +29,10 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
+    [Description("Details about PhotovoltaicArray connected to the dwelling.")]
     public class PhotovolaticArray : BHoMObject
     {
-        [Description("Peak kW of photovoltaics (PVs) (kWp); 0.0 if none")]
+        [Description("Peak kW of photovoltaics (PVs) (kWp); 0.0 if none.")]
         public virtual double PeakPower { get; set; } = 0;
 
         [Description("PV orientation; only if peak kWp &gt; 0.")]

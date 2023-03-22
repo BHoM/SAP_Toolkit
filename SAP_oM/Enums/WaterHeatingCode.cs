@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of heating system, as defined in SAP table 4a")]
+    [Description("Code which indicates the type of heating system, as defined in SAP table 4a.")]
     public enum WaterHeatingCode { NoHotWaterSystem = 999, MainSystem = 901, SecondMainSystem = 914, SecondarySystem = 902, ElectricImmersion, SinglePointGas = 907,
         MultiPointGas,ElectricInstantaneous, GasBoilerOnlyForWater = 911, LiquidFuelOnlyForWater, SolidFuelOnlyForWater, RangeCookerGasSinglePermanent = 921, 
         RangeCookerGasSingleAutomatic,RangeCookerGasTwinPermanentPre1998, RangeCookerGasTwinAutoPre1998, RangeCookerGasTwinPermanentPost1998, RangeCookerGasTwinAutoPost1998, 

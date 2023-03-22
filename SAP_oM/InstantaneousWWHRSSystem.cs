@@ -29,10 +29,10 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Strategy for the ventilation of the dwelling.")]
+    [Description("Details about an instantaneousWWHRSSystem.")]
     public class InstantaneousWWHRSSystem : BHoMObject
     {
-        [Description("WWHRS-Index-Number1")]
+        [Description("WWHRS-Index-Number1.")]
         public virtual string IndexNumber { get; set; } = null;
 
         [Description("")]

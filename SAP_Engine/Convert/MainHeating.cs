@@ -49,7 +49,7 @@ namespace BH.Engine.Environment.SAP
             oM.Environment.SAP.XML.MainHeating xmlHeatingSystem = new oM.Environment.SAP.XML.MainHeating();
 
             /*-*-*-*MainHeating*-*-*-*/
-            xmlHeatingSystem.MainHeatingNumber = "1";
+            xmlHeatingSystem.MainHeatingNumber = null;
             xmlHeatingSystem.MainHeatingCategory = heating.HeatingCategoryCode.FromSAPToXML();
             xmlHeatingSystem.MainHeatingCommissioningCertificate = null;
             xmlHeatingSystem.MainHeatingInstallationEngineer = null;
@@ -59,64 +59,18 @@ namespace BH.Engine.Environment.SAP
             xmlHeatingSystem.ElectricCPSUOperatingTemperature = null;
             xmlHeatingSystem.MCSInstalledHeatPump = heating.MCSCertificate;
 
-            xmlHeatingSystem.MainHeatingDataSource = heating.HeatingDetails.Source.FromSAPToXML();
-            xmlHeatingSystem.MainHeatingIndexNumber = heating.HeatingDetails.ProductIndex;
-            xmlHeatingSystem.MainHeatingManufacturer = heating.HeatingDetails.Details.Manufacturer;
-            xmlHeatingSystem.MainHeatingModel = heating.HeatingDetails.Details.Model;
-            xmlHeatingSystem.MainHeatingCode = heating.HeatingDetails.MainHeatingCode.FromSAPToXML();
-            xmlHeatingSystem.HeatEmitterType = heating.HeatingDetails.EmitterType.FromSAPToXML();
-            xmlHeatingSystem.UnderfloorHeatEmitterType = heating.HeatingDetails.UnderfloorEmitterType.FromSAPToXML();
-            xmlHeatingSystem.EmitterTemperature = heating.HeatingDetails.EmitterTemperature.FromSAPToXML();
-            xmlHeatingSystem.CentralHeatingPumpAge = heating.HeatingDetails.PumpAge.FromSAPToXML();
-
-            xmlHeatingSystem.MainFuelType = heating.HeatingFuel.Fuel.FromSAPToXML();
-
-            xmlHeatingSystem.MainHeatingControl = heating.HeatingControls.Controls.FromSAPToXML();
-            xmlHeatingSystem.HasSeparateDelayedStart = heating.HeatingControls.DelayedStartThermostat;
-            xmlHeatingSystem.BurnerControl = heating.HeatingControls.BurnerControl;
-
-            xmlHeatingSystem.ControlIndexNumber = heating.HeatingControls.ControlIndexNumber;
-            xmlHeatingSystem.HeatingControllerFunction = heating.HeatingControls.HeatingControllerFunction;
-            xmlHeatingSystem.HeatingControllerEcodesignClass = heating.HeatingControls.HeatingControllerEcodesignClass;
-            xmlHeatingSystem.HeatingControllerManufacturer = heating.HeatingControls.HeatingControllerDetails.Manufacturer;
-            xmlHeatingSystem.HeatingControllerModel = heating.HeatingControls.HeatingControllerDetails.Model;
-
-            xmlHeatingSystem.IsCondensingBoiler = heating.BoilerInformation.BoilerDetails.IsCondensingBoiler;
-            xmlHeatingSystem.CondensingBoilerHeatDistribution = heating.BoilerInformation.BoilerDetails.CondensingBoilerHeatDistribution;
-            xmlHeatingSystem.CaseHeatEmission = heating.BoilerInformation.BoilerDetails.CaseHeatEmission;
-            xmlHeatingSystem.HeatTransferToWater = heating.BoilerInformation.BoilerDetails.HeatTransferToWater;
-            xmlHeatingSystem.BoilerFuelFeed = heating.BoilerInformation.BoilerDetails.BoilerFuelFeed.FromSAPToXML();
-
-            xmlHeatingSystem.GasOrOilBoilerType = heating.BoilerInformation.TypeOfBoiler.GasOrOilBoiler.FromSAPToXML();
-            xmlHeatingSystem.CombiBoilerType = heating.BoilerInformation.TypeOfBoiler.CombiBoilerType.FromSAPToXML();
-            xmlHeatingSystem.SolidFuelBoilerType = heating.BoilerInformation.TypeOfBoiler.SolidFuelBoilerType.FromSAPToXML();
-            xmlHeatingSystem.IsInterLockedSystem = heating.BoilerInformation.TypeOfBoiler.BoilerInterlock;
-
-            xmlHeatingSystem.MainHeatingFlueType = heating.BoilerInformation.FlueDetails.FlueType.FromSAPToXML();
-            xmlHeatingSystem.IsFlueFanPresent = heating.BoilerInformation.FlueDetails.FanFlued;
-
-            xmlHeatingSystem.HeatPumpHeatDistribution = heating.BoilerInformation.PumpDetails.HeatPumpHeatDistribution;
-            xmlHeatingSystem.IsCentralHeatingPumpInHeatedSpace = heating.BoilerInformation.PumpDetails.PumpInHeatedSpace;//only if wet system, Need to check these two
-            xmlHeatingSystem.IsOilPumpInHeatedSpace = heating.BoilerInformation.PumpDetails.OilPumpInHeatedSpace;// only if oil boiler NEED TO DIFFERENTIATE THESE DEPENIDING ON TYPE
-
-
-            xmlHeatingSystem.EfficiencyType = heating.Efficiency.EfficiencyType.FromSAPToXML();
-            xmlHeatingSystem.MainHeatingSystemType = heating.Efficiency.MainHeatingSystemType;
-            xmlHeatingSystem.MainHeatingEfficiencyWinter = heating.Efficiency.MainHeatingEfficiencyWinter;
-            xmlHeatingSystem.MainHeatingEfficiencySummer = heating.Efficiency.MainHeatingEfficiencySummer;
-            xmlHeatingSystem.MainHeatingEfficiency = heating.Efficiency.MainHeatingEfficiency;
-
-            /*-*-*-*FGHRS*-*-*-*/
-
-            if (heating.FGHRS != null)
+            if (heating.HeatingDetails != null)
             {
-                xmlHeatingSystem.HasFGHRS = true;
-                xmlHeatingSystem.FGHRSIndexNumber = heating.FGHRS.IndexNumber;
-                xmlHeatingSystem.FGHRSEnergySource = heating.FGHRS.FGHRSEnergySource.ToXML(); // Do we need this? Check example files
-            }
-            else if (heating.FGHRS == null)
-            {
-                xmlHeatingSystem.HasFGHRS = false;
+                xmlHeatingSystem.MainHeatingDataSource = heating.HeatingDetails.Source.FromSAPToXML();
+                xmlHeatingSystem.MainHeatingIndexNumber = heating.HeatingDetails.ProductIndex;
+                xmlHeatingSystem.MainHeatingManufacturer = heating.HeatingDetails.Details.Manufacturer;
+                xmlHeatingSystem.MainHeatingModel = heating.HeatingDetails.Details.Model;
+                xmlHeatingSystem.MainHeatingCode = heating.HeatingDetails.MainHeatingCode.FromSAPToXML();
+                xmlHeatingSystem.HeatEmitterType = heating.HeatingDetails.EmitterType.FromSAPToXML();
+                xmlHeatingSystem.UnderfloorHeatEmitterType = heating.HeatingDetails.UnderfloorEmitterType.FromSAPToXML();
+                xmlHeatingSystem.EmitterTemperature = heating.HeatingDetails.EmitterTemperature.FromSAPToXML();
+                xmlHeatingSystem.CentralHeatingPumpAge = heating.HeatingDetails.PumpAge.FromSAPToXML();
+
             }
 
             /*-*-*-*HeatingDeclared*-*-*-*/
@@ -130,6 +84,80 @@ namespace BH.Engine.Environment.SAP
                 xmlHeatingSystemDeclaredValues.TestMethod = heating.HeatingDeclaredValues.TestMethod;
 
                 xmlHeatingSystem.MainHeatingDeclaredValues = xmlHeatingSystemDeclaredValues;
+            }
+
+            /*-*-*-*Efficiency*-*-*-*/
+
+            if (heating.Efficiency != null)
+            {
+                xmlHeatingSystem.EfficiencyType = heating.Efficiency.EfficiencyType.FromSAPToXML();
+                xmlHeatingSystem.MainHeatingSystemType = heating.Efficiency.MainHeatingSystemType;
+                xmlHeatingSystem.MainHeatingEfficiencyWinter = heating.Efficiency.MainHeatingEfficiencyWinter;
+                xmlHeatingSystem.MainHeatingEfficiencySummer = heating.Efficiency.MainHeatingEfficiencySummer;
+                xmlHeatingSystem.MainHeatingEfficiency = heating.Efficiency.MainHeatingEfficiency;
+            }
+
+            /*-*-*-*Heating Controls*-*-*-*/
+
+            if (heating.HeatingControls != null)
+            {
+                xmlHeatingSystem.MainHeatingControl = heating.HeatingControls.Controls.FromSAPToXML();
+                xmlHeatingSystem.HasSeparateDelayedStart = heating.HeatingControls.DelayedStartThermostat;
+                xmlHeatingSystem.BurnerControl = heating.HeatingControls.BurnerControl;
+                xmlHeatingSystem.ControlIndexNumber = heating.HeatingControls.ControlIndexNumber;
+                xmlHeatingSystem.HeatingControllerFunction = heating.HeatingControls.HeatingControllerFunction;
+                xmlHeatingSystem.HeatingControllerEcodesignClass = heating.HeatingControls.HeatingControllerEcodesignClass;
+
+                if (heating.HeatingControls.HeatingControllerDetails != null)
+                {
+                    xmlHeatingSystem.HeatingControllerManufacturer = heating.HeatingControls.HeatingControllerDetails.Manufacturer;
+                    xmlHeatingSystem.HeatingControllerModel = heating.HeatingControls.HeatingControllerDetails.Model;
+
+
+                }
+            }
+
+
+            /*-*-*-*Heating Fuel*-*-*-*/
+
+            if (heating.HeatingFuel != null)
+            {
+                xmlHeatingSystem.MainFuelType = heating.HeatingFuel.Fuel.FromSAPToXML();
+            }
+
+
+
+            /*-*-*-*Boiler Information*-*-*-*/
+            if (heating.BoilerInformation != null)
+            {
+                if (heating.BoilerInformation.TypeOfBoiler != null)
+                {
+                    xmlHeatingSystem.GasOrOilBoilerType = heating.BoilerInformation.TypeOfBoiler.GasOrOilBoiler.FromSAPToXML();
+                    xmlHeatingSystem.CombiBoilerType = heating.BoilerInformation.TypeOfBoiler.CombiBoilerType.FromSAPToXML();
+                    xmlHeatingSystem.SolidFuelBoilerType = heating.BoilerInformation.TypeOfBoiler.SolidFuelBoilerType.FromSAPToXML();
+                    xmlHeatingSystem.IsInterLockedSystem = heating.BoilerInformation.TypeOfBoiler.BoilerInterlock;
+                }
+
+                if (heating.BoilerInformation.BoilerDetails != null)
+                {
+                    xmlHeatingSystem.IsCondensingBoiler = heating.BoilerInformation.BoilerDetails.IsCondensingBoiler;
+                    xmlHeatingSystem.CondensingBoilerHeatDistribution = heating.BoilerInformation.BoilerDetails.CondensingBoilerHeatDistribution;
+                    xmlHeatingSystem.CaseHeatEmission = heating.BoilerInformation.BoilerDetails.CaseHeatEmission;
+                    xmlHeatingSystem.HeatTransferToWater = heating.BoilerInformation.BoilerDetails.HeatTransferToWater;
+                    xmlHeatingSystem.BoilerFuelFeed = heating.BoilerInformation.BoilerDetails.BoilerFuelFeed.FromSAPToXML();
+                }
+
+                if (heating.BoilerInformation.PumpDetails != null)
+                {
+                    xmlHeatingSystem.IsCentralHeatingPumpInHeatedSpace = heating.BoilerInformation.PumpDetails.PumpInHeatedSpace;//only if wet system, Need to check these two
+                    xmlHeatingSystem.IsOilPumpInHeatedSpace = heating.BoilerInformation.PumpDetails.OilPumpInHeatedSpace;// only if oil boiler NEED TO DIFFERENTIATE THESE DEPENIDING ON TYPE
+                }
+
+                if (heating.BoilerInformation.FlueDetails != null)
+                {
+                    xmlHeatingSystem.MainHeatingFlueType = heating.BoilerInformation.FlueDetails.FlueType.FromSAPToXML();
+                    xmlHeatingSystem.IsFlueFanPresent = heating.BoilerInformation.FlueDetails.FanFlued;
+                }
             }
 
             /*-*-*-*Storage Heaters*-*-*-*/
@@ -152,9 +180,22 @@ namespace BH.Engine.Environment.SAP
 
             }
 
+            /*-*-*-*FGHRS*-*-*-*/
+
+            if (heating.FGHRS != null)
+            {
+                xmlHeatingSystem.HasFGHRS = true;
+                xmlHeatingSystem.FGHRSIndexNumber = heating.FGHRS.IndexNumber;
+                xmlHeatingSystem.FGHRSEnergySource = heating.FGHRS.FGHRSEnergySource.ToXML();
+            }
+            else if (heating.FGHRS == null)
+            {
+                xmlHeatingSystem.HasFGHRS = false;
+            }
+
             return xmlHeatingSystem;
-            
+
         }
-    }
+    }  
 }
 

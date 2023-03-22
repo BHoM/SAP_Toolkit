@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("User defined details")]
+    [Description("User defined details.")]
     public class MechanicalVentilationDetails : BHoMObject
     {
         [Description("Mechanical vent duct type; if MEV c, MV or MVHR.")]

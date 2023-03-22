@@ -26,7 +26,6 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-// Gonna be an error as I changed case of unknown :D
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the compass direction.")]

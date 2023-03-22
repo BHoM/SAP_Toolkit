@@ -126,7 +126,7 @@ namespace BH.oM.Environment.SAP
         [Description("Coded 24 for continuous; 16 for 16 hours/day; 11 for 9 hours on weekdays and 24 at weekends; V for variable – same as 11 but switches to 16 or 24 hours on colder days before supplementary heating is applied.")]
         public virtual string HeatingDuration { get; set; } = null;
 
-        [Description("The MVHR or MEV for which the space heating data applies. Blank if heat source code is not 4, 5 or 6. ")]
+        [Description("The MVHR or MEV for which the space heating data applies. Blank if heat source code is not 4, 5 or 6.")]
         public virtual string MEVorMVHRProductIndex { get; set; } = null;
 
         [Description("Weather compensator or enhanced load compensator included in the results (1 yes; 2 no)")]

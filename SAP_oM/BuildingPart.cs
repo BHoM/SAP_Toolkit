@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP
         [Description("List of thermal bridges.")]
         public virtual List<BH.oM.Environment.SAP.ThermalBridge> ThermalBridges { get; set; } = null;
 
-        [Description("Further Global thermal bridge information")]
+        [Description("Further Global thermal bridge information.")]
         public virtual ThermalBridgeInfo ThermalBridgeInfo { get; set;} = null;
 
         [Description("List of walls.")]

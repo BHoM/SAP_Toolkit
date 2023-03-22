@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Details of the means by which the building is ventilated")]
+    [Description("Details of a main heating system.")]
     public class MainHeatingDetails : BHoMObject
     {
         [Description("")]
@@ -40,7 +40,7 @@ namespace BH.oM.Environment.SAP
         [Description("")]
         public virtual HeatingDeclared HeatingDeclaredValues { get; set; } = new HeatingDeclared();
 
-        [Description("Efficiency data")]
+        [Description("Efficiency data.")]
         public virtual Efficiency Efficiency { get; set; } = new Efficiency();
 
         [Description("")]
@@ -58,7 +58,7 @@ namespace BH.oM.Environment.SAP
         [Description("")]
         public virtual FGHRS FGHRS { get; set; } = null;
 
-        [Description("Is the appliance HETAS approved?")]
+        [Description("Is the appliance HETAS approved?.")]
         public virtual bool HETASApproved { get; set; } = false;
 
         [Description("")]

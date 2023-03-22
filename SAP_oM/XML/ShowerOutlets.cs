@@ -34,7 +34,7 @@ namespace BH.oM.Environment.SAP.XML
     public class ShowerOutlets : IObject
     {
         [Description("")]
-        [XmlElement("Shower-Outlet")]
+        [XmlElement("Shower-Outlet.")]
         public virtual List<ShowerOutlet> ShowerOutlet { get; set; } = null;
     }
 }

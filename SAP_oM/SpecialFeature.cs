@@ -30,7 +30,7 @@ using BH.oM.Environment.SAP.XML;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("SpecialFeature")]
+    [Description("SpecialFeature.")]
     public class SpecialFeature : BHoMObject
     {
         [Description("Emissions saved in kg/year.")]
@@ -51,7 +51,7 @@ namespace BH.oM.Environment.SAP
         [Description("")]
         public virtual TypeOfHeatingFuel EnergyUsedFuel { get; set; } = TypeOfHeatingFuel.MainsGas;
 
-        [Description("Air Change Rate for each month")]
+        [Description("Air Change Rate for each month.")]
         public virtual List<MonthlyValues> AirChangeRates { get; set; } = null;
 
         [Description("")]

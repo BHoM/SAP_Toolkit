@@ -33,23 +33,28 @@ namespace BH.oM.Environment.SAP
     public enum FlatLevelCode {  Basement = 0, GroundFloor = 1, MidFloor = 2, TopFloor = 3 }
 }
 
-//private static string FromSAPToXML(this BH.oM.Environment.SAP.FlatLevelCode flatLevelCode)
-//{
-//    switch (flatLevelCode)
-//    {
-//        case BH.oM.Environment.SAP.FlatLevelCode.Basement:
-//            return "0";
 
-//        case BH.oM.Environment.SAP.FlatLevelCode.GroundFloor:
-//            return "1";
+/*
 
-//        case BH.oM.Environment.SAP.FlatLevelCode.MidFloor:
-//            return "2";
+private static string FromSAPToXML(this BH.oM.Environment.SAP.FlatLevelCode flatLevelCode)
+{
+    switch (flatLevelCode)
+    {
+        case BH.oM.Environment.SAP.FlatLevelCode.Basement:
+            return "0";
 
-//        case BH.oM.Environment.SAP.FlatLevelCode.TopFloor:
-//            return "3";
+        case BH.oM.Environment.SAP.FlatLevelCode.GroundFloor:
+            return "1";
 
-//        default:
-//            return "";
-//    }
-//}
+        case BH.oM.Environment.SAP.FlatLevelCode.MidFloor:
+            return "2";
+
+        case BH.oM.Environment.SAP.FlatLevelCode.TopFloor:
+            return "3";
+
+        default:
+            return "";
+    }
+}
+
+*/

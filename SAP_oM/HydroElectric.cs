@@ -30,7 +30,7 @@ using BH.oM.Environment.SAP.XML;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
+    [Description("Details about HydroElectric energy production.")]
     public class HydroElectric : BHoMObject
     {
         [Description("")]
@@ -42,7 +42,7 @@ namespace BH.oM.Environment.SAP
         [Description("")]
         public virtual List<MonthlyValues> HydroElectricGenerationMonths { get; set; } = null;
 
-        [Description("Is Hydro Output Connected To Dwelling Meter")]
+        [Description("Is Hydro Output Connected To Dwelling Meter.")]
         public virtual bool IsHydroOutputConnectedToDwellingMeter { get; set; } = false;
 
     }

@@ -28,10 +28,10 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description(".")]
+    [Description("")]
     public class Assessor : BHoMObject
     {
-        [Description(".")]
+        [Description("")]
         public virtual int ID
         {
             get;
@@ -39,7 +39,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual string FirstName
         {
             get;
@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description(".")]
+        [Description("")]
         public virtual string LastName
         {
             get;
@@ -55,7 +55,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description(".")]
+        [Description("")]
         public virtual Address Address
         {
             get;
@@ -63,7 +63,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description(".")]
+        [Description("")]
         public virtual string WebSite
         {
             get;
@@ -71,7 +71,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = "";
-        [Description(".")]
+        [Description("")]
         public virtual string Email
         {
             get;
@@ -79,7 +79,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = "";
-        [Description(".")]
+        [Description("")]
         public virtual string Telephone
         {
             get;
@@ -87,7 +87,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = "";
-        [Description(".")]
+        [Description("")]
         public virtual string Fax
         {
             get;
@@ -95,7 +95,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = "";
-        [Description(".")]
+        [Description("")]
         public virtual string CompanyName
         {
             get;
@@ -103,7 +103,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = "";
-        [Description(".")]
+        [Description("")]
         public virtual string StromaNumber
         {
             get;
@@ -111,7 +111,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = "";
-        [Description(".")]
+        [Description("")]
         public virtual Insurance Insurance
         {
             get;

@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Strategy for the ventilation of the dwelling.")]
+    [Description("WWHRS systems for the dwelling.")]
     public class WWHRS : BHoMObject
     {
 

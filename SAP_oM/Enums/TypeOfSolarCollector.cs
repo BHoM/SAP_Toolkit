@@ -28,8 +28,8 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of solar collector.")]
-    public enum TypeOfSolarCollector { Unglazed = 1, FlatPanel = 2, EvacuatedTube = 3, ForBackwardsCompatabilityOnlyDoNotUse = 10 } //Do i keep in the Do not use?
+	[Description("Code which indicates the type of solar collector.")]
+	public enum TypeOfSolarCollector { Unglazed = 1, FlatPanel = 2, EvacuatedTube = 3 }
 }
 
 /*private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfSolarCollector typeOfSolarCollector)
@@ -44,9 +44,6 @@ namespace BH.oM.Environment.SAP
 
 		case BH.oM.Environment.SAP.TypeOfSolarCollector.EvacuatedTube:
 			return "3";
-
-		case BH.oM.Environment.SAP.TypeOfSolarCollector.ForBackwardsCompatabilityOnlyDoNotUse:
-			return "ND";
 
 		default:
 			return"";

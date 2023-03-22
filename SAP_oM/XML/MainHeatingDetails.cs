@@ -34,7 +34,7 @@ namespace BH.oM.Environment.SAP.XML
     public class MainHeatingDetails : IObject
     {
         [Description("")]
-        [XmlElement("Main-Heating")]
+        [XmlElement("Main-Heating.")]
         public virtual List<MainHeating> MainHeating { get; set; } = null;
     }
 }

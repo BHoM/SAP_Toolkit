@@ -26,7 +26,6 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//error! changed capitalisation of SAPtable
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the source of opening data.")]

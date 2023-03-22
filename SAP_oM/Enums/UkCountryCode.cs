@@ -29,31 +29,30 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the country within the UK, taken from BS 6879.")]
-    public enum UKCountryCode { EnglandAndWales, England , Wales, Scotland, NorthernIreland } //ForBackwardsCompatibilityOnly = EAW
+    public enum UKCountryCode { EnglandAndWales, England, Wales, Scotland, NorthernIreland }
 }
 
-//private static string FromSAPToXML(this BH.oM.Environment.SAP.UKCountryCode uKCountryCode)
-//{
-//    switch (uKCountryCode)
-//    {
-//        
-//		case BH.oM.Environment.SAP.UKCountryCode.England:
-//			return "ENG";
+/*
+private static string FromSAPToXML(this BH.oM.Environment.SAP.UKCountryCode uKCountryCode)
+{
+    switch (uKCountryCode)
+    {
+        
+		case BH.oM.Environment.SAP.UKCountryCode.England:
+			return "ENG";
 
-//		case BH.oM.Environment.SAP.UKCountryCode.Wales:
-//			return "WLS";
+		case BH.oM.Environment.SAP.UKCountryCode.Wales:
+			return "WLS";
 
-//		case BH.oM.Environment.SAP.UKCountryCode.Scotland:
-//			return "SCT";
+		case BH.oM.Environment.SAP.UKCountryCode.Scotland:
+			return "SCT";
 
-//		case BH.oM.Environment.SAP.UKCountryCode.NorthernIreland:
-//			return "NIR";
+		case BH.oM.Environment.SAP.UKCountryCode.NorthernIreland:
+			return "NIR";
 
+		default:
+			return "";
+	}
+}
 
-//      //case BH.oM.Environment.SAP.UKCountryCode.EnglandAndWales,ForBackwardsCompatibilityOnly.:
-//			//return "EAW";
-
-//default:
-//			return "";
-//	}
-//}
+*/

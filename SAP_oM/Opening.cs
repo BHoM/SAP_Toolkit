@@ -28,23 +28,26 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("An opening that is hosted on a Wall, Floor or Roof that forms part of the thermal line of the dwelling")]
+    [Description("An opening that is hosted on a Wall, Floor or Roof that forms part of the thermal line of the dwelling.")]
     public class Opening : BHoMObject
     {
-        [Description("The opening type which defines its thermal properties e.g. u-value")]
+        [Description("The opening type which defines its thermal properties e.g. u-value.")]
         public virtual BH.oM.Environment.SAP.OpeningType OpeningType { get; set; } = new BH.oM.Environment.SAP.OpeningType();
 
-        [Description("Unique name that identifies the opening")]
+        [Description("Unique name that identifies the opening.")]
         public virtual string OpeningName { get; set; } = "Opening";
 
-        [Description("Orientation of Opening")]
+        [Description("Orientation of Opening.")]
         public virtual OrientationCode Orientation { get; set; } = OrientationCode.Unknown;
 
-        [Description("The total width of the opening as seen from inside the dwelling (including frame)")]
+        [Description("The total width of the opening as seen from inside the dwelling (including frame).")]
         public virtual double Width { get; set; } = 0;
 
-        [Description("The total height of the opening as seen from inside the dwelling (including frame)")]
+        [Description("The total height of the opening as seen from inside the dwelling (including frame).")]
         public virtual double Height { get; set; } = 0;
+
+        [Description("The name of the dwelling that the opening is part of.")]
+        public virtual string DwellingName { get; set; } = "";
 
     }
 

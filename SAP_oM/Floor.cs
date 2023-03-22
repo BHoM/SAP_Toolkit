@@ -29,7 +29,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("An exposed/heat loss floor that forms part of the thermal line of the dwelling")]
+    [Description("An exposed/heat loss floor that forms part of the thermal line of the dwelling.")]
     public class Floor : BHoMObject
     {
         [Description("Type of floor (exposure).")]
@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP
         [Description("Heat capacity of ceiling below.  Applies to the non-heat-loss area of an upper floor.")]
         public virtual double KappaValueFromBelow { get; set; } = 0;
 
-        [Description("The name of the dwelling that the floor is part of")]
+        [Description("The name of the dwelling that the floor is part of.")]
         public virtual string DwellingName { get; set; } = "";
 
     }

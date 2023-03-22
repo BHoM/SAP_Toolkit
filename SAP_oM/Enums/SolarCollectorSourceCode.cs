@@ -30,7 +30,7 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the source of solar collector data.")]
-    public enum SolarCollectorSourceCode { Default = 1, DeclaredValues = 2, ForBackwardsCompatabilityOnlyDoNotUse = 10 } //value is not actually 10
+    public enum SolarCollectorSourceCode { Default = 1, DeclaredValues = 2} 
 }
 
 /*private static string FromSAPToXML(this BH.oM.Environment.SAP.SolarCollectorSourceCode solarCollectorSourceCode)
@@ -42,9 +42,6 @@ namespace BH.oM.Environment.SAP
 
 		case BH.oM.Environment.SAP.SolarCollectorSourceCode.DeclaredValues:
 			return "2";
-
-		case BH.oM.Environment.SAP.SolarCollectorSourceCode.ForBackwardsCompatabilityOnlDoNotUse:
-			return "ND";
 
 		default:
 			return"";

@@ -28,7 +28,6 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    //Needed if possible to convert all SAP objects to what's defined in the XML schema
     [Description("Additional information about the fans.")]
     public class ExtraFanDetails : BHoMObject
     {

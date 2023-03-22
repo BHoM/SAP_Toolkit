@@ -37,63 +37,65 @@ namespace BH.oM.Environment.SAP
         MicroCHP = 15, ExhaustAirHeatPump = 16, SolarAssistedHeatPump = 17 }
 }
 
-//private static string FromSAPToXML(this BH.oM.Environment.SAP.LZCEnergySourceCode LZCEnergySourceCode)
-//{
-//    switch (LZCEnergySourceCode)
-//    {
-//        case BH.oM.Environment.SAP.LZCEnergySourceCode.BiofuelMainHeating:
-//            return "1";
+/*
+private static string FromSAPToXML(this BH.oM.Environment.SAP.LZCEnergySourceCode LZCEnergySourceCode)
+{
+    switch (LZCEnergySourceCode)
+    {
+        case BH.oM.Environment.SAP.LZCEnergySourceCode.BiofuelMainHeating:
+            return "1";
 
-//        case BH.oM.Environment.SAP.LZCEnergySourceCode.BiofuelCommunityHeating:
-//            return "2";
+        case BH.oM.Environment.SAP.LZCEnergySourceCode.BiofuelCommunityHeating:
+            return "2";
 
-//        case BH.oM.Environment.SAP.LZCEnergySourceCode.BiofuelCommunityHeatingForSomeOfHeatGeneration:
-//            return "3";
+        case BH.oM.Environment.SAP.LZCEnergySourceCode.BiofuelCommunityHeatingForSomeOfHeatGeneration:
+            return "3";
 
-//        case BH.oM.Environment.SAP.LZCEnergySourceCode.BiofuelSecondaryHeating:
-//            return "4";
+        case BH.oM.Environment.SAP.LZCEnergySourceCode.BiofuelSecondaryHeating:
+            return "4";
 
-//        case BH.oM.Environment.SAP.LZCEnergySourceCode.GeothermalHeatSource:
-//            return "5";
+        case BH.oM.Environment.SAP.LZCEnergySourceCode.GeothermalHeatSource:
+            return "5";
 
-//        case BH.oM.Environment.SAP.LZCEnergySourceCode.CommunityCombinedHeatAndPower:
-//            return "6";
+        case BH.oM.Environment.SAP.LZCEnergySourceCode.CommunityCombinedHeatAndPower:
+            return "6";
 
-//        case BH.oM.Environment.SAP.LZCEnergySourceCode.GroundSourceHeatPump:
-//            return "7";
+        case BH.oM.Environment.SAP.LZCEnergySourceCode.GroundSourceHeatPump:
+            return "7";
 
-//        case BH.oM.Environment.SAP.LZCEnergySourceCode.WaterSourceHeatPump:
-//            return "8";
+        case BH.oM.Environment.SAP.LZCEnergySourceCode.WaterSourceHeatPump:
+            return "8";
 
-//        case BH.oM.Environment.SAP.LZCEnergySourceCode.AirSourceHeatPump:
-//            return "9";
+        case BH.oM.Environment.SAP.LZCEnergySourceCode.AirSourceHeatPump:
+            return "9";
 
-//        case BH.oM.Environment.SAP.LZCEnergySourceCode.SolarWaterHeating:
-//            return "10";
+        case BH.oM.Environment.SAP.LZCEnergySourceCode.SolarWaterHeating:
+            return "10";
 
-//        case BH.oM.Environment.SAP.LZCEnergySourceCode.SolarPhotovoltaics:
-//            return "11";
+        case BH.oM.Environment.SAP.LZCEnergySourceCode.SolarPhotovoltaics:
+            return "11";
 
-//        case BH.oM.Environment.SAP.LZCEnergySourceCode.WindTurbine:
-//            return "12";
+        case BH.oM.Environment.SAP.LZCEnergySourceCode.WindTurbine:
+            return "12";
 
-//        case BH.oM.Environment.SAP.LZCEnergySourceCode.CommunityHeatPump:
-//            return "13";
+        case BH.oM.Environment.SAP.LZCEnergySourceCode.CommunityHeatPump:
+            return "13";
 
-//        case BH.oM.Environment.SAP.LZCEnergySourceCode.HydroElectricGeneration:
-//            return "14";
+        case BH.oM.Environment.SAP.LZCEnergySourceCode.HydroElectricGeneration:
+            return "14";
 
-//        case BH.oM.Environment.SAP.LZCEnergySourceCode.MicroCHP:
-//            return "15";
+        case BH.oM.Environment.SAP.LZCEnergySourceCode.MicroCHP:
+            return "15";
 
-//        case BH.oM.Environment.SAP.LZCEnergySourceCode.ExhaustAirHeatPump:
-//            return "16";
+        case BH.oM.Environment.SAP.LZCEnergySourceCode.ExhaustAirHeatPump:
+            return "16";
 
-//        case BH.oM.Environment.SAP.LZCEnergySourceCode.SolarAssistedHeatPump:
-//            return "17";
+        case BH.oM.Environment.SAP.LZCEnergySourceCode.SolarAssistedHeatPump:
+            return "17";
 
-//        default:
-//            return "";
-//    }
-//}
+        default:
+            return "";
+    }
+}
 
+*/

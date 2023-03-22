@@ -29,16 +29,16 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
+    [Description("How the PV is connected.")]
     public class PvConnection : BHoMObject
     {
-        [Description("PVConnection")]
+        [Description("PVConnection.")]
         public virtual PVConnectionCode PVConnection { get; set; } = PVConnectionCode.NotApplicable_FGHRS;
 
         [Description("Is a diverter present.")]
         public virtual bool? PVDiverter { get; set; } = false;
 
-        [Description("Battery capacity capacity if diverter present")]
+        [Description("Battery capacity capacity if diverter present.")]
         public virtual double BatteryCapacity { get; set; } = 0;
     }
 }

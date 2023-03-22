@@ -25,16 +25,30 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
+using System.Xml.Serialization;
 
-namespace BH.oM.Environment.SAP
+namespace BH.oM.Environment.SAP.XML
 {
-    [Description("")]
-    public class ManufacturerDescription : BHoMObject
+    [Serializable]
+    [XmlRoot(ElementName = "Green-Deal-Improvement", IsNullable = false)]
+    public class GreenPackageDeal : IObject
     {
         [Description("")]
-        public virtual string Description { get; set; } = null;
+        [XmlElement(ElementName = "Green-Deal-Improvement.")]
+        public virtual GreenDealImprovement Improvement { get; set; } = null;
 
         [Description("")]
-        public virtual string TestedToStandard { get; set; } = null;
+        [XmlElement(ElementName = "Electricity-Saving.")]
+        public virtual Money ElectricitySaving { get; set; } = null;
+
+        [Description("")]
+        [XmlElement(ElementName = "Gas-Saving.")]
+        public virtual Money GasSaving { get; set; } = null;
+
+        [Description("")]
+        [XmlElement(ElementName = "Other-Fuel-Saving.")]
+        public virtual Money OtherFuelSaving { get; set; } = null;
+
+
     }
 }

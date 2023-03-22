@@ -29,7 +29,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
+    [Description("Storage Heater Details.")]
     public class StorageHeater : BHoMObject
     {
         [Description("The number of storage heaters with this index number.")]

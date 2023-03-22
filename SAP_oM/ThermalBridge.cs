@@ -29,19 +29,19 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("A thermal bridge between two thermal elements of the dwelling")]
+    [Description("A thermal bridge between two thermal elements of the dwelling.")]
     public class ThermalBridge : BHoMObject
     {
-        [Description("The thermal bridge type reference according to Table K1 in SAP 2012")]
+        [Description("The thermal bridge type reference according to Table K1 in SAP 2012.")]
         public virtual TypeOfThermalBridge Reference { get; set; } = TypeOfThermalBridge.OtherLintels;
 
-        [Description("The length of the thermal bridge")]
+        [Description("The length of the thermal bridge.")]
         public virtual double Length { get; set; } = 0;
 
-        [Description("The psi-value (heat loss per linear metre) to be applied to the thermal bridge")]
+        [Description("The psi-value (heat loss per linear metre) to be applied to the thermal bridge.")]
         public virtual double PsiValue { get; set; } = 1;
 
-        [Description("The source of the psi-value applied to the thermal bridge")]
+        [Description("The source of the psi-value applied to the thermal bridge.")]
         public virtual PsiSourceCode Source { get; set; } = PsiSourceCode.SAPTableDefault;
 
         [Description("Reference to the details of the calculation of the psi-value.")]

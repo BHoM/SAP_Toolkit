@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Strategy for the ventilation of the dwelling.")]
+    [Description("Heating Fuel.")]
     public class HeatingFuel : BHoMObject
     {
         [Description("")]

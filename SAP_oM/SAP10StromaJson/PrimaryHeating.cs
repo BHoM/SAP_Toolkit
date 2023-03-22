@@ -28,10 +28,10 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description(".")]
+    [Description("")]
     public class PrimaryHeating : BHoMObject
     {
-        [Description(".")]
+        [Description("")]
         public virtual int ID
         {
             get;
@@ -39,7 +39,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual bool Include
         {
             get;
@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = true;
-        [Description(".")]
+        [Description("")]
         public virtual string Group
         {
             get;
@@ -55,7 +55,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description(".")]
+        [Description("")]
         public virtual int HeatingCategory
         {
             get;
@@ -63,7 +63,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual string SubHeatingGroup
         {
             get;
@@ -71,7 +71,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description(".")]
+        [Description("")]
         public virtual int SubHeatingCategory
         {
             get;
@@ -79,7 +79,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int Source
         {
             get;
@@ -87,7 +87,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int SAPTableCode
         {
             get;
@@ -95,7 +95,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual string SeasonalEfficiencyOfDomesticBoilersUK
         {
             get;
@@ -103,7 +103,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description(".")]
+        [Description("")]
         public virtual double Efficiency
         {
             get;
@@ -111,7 +111,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual bool TER
         {
             get;
@@ -119,7 +119,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description(".")]
+        [Description("")]
         public virtual double WinterEfficiency
         {
             get;
@@ -127,7 +127,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual double SummerEfficiency
         {
             get;
@@ -135,7 +135,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int Emitter
         {
             get;
@@ -143,7 +143,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int ControlCode
         {
             get;
@@ -151,7 +151,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual string ControlCodeProductCharacteristicsDatabase
         {
             get;
@@ -159,7 +159,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = "";
-        [Description(".")]
+        [Description("")]
         public virtual int Fuel
         {
             get;
@@ -167,7 +167,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual bool HeatingEquipmentTestingAndApprovalsScheme
         {
             get;
@@ -175,7 +175,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description(".")]
+        [Description("")]
         public virtual Boiler Boiler
         {
             get;
@@ -183,7 +183,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description(".")]
+        [Description("")]
         public virtual int ElectricityTariff
         {
             get;
@@ -191,7 +191,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual Range Range
         {
             get;
@@ -199,7 +199,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description(".")]
+        [Description("")]
         public virtual bool OilPump
         {
             get;
@@ -207,7 +207,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description(".")]
+        [Description("")]
         public virtual bool DelayedStart
         {
             get;
@@ -215,7 +215,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description(".")]
+        [Description("")]
         public virtual int FuelBurningType
         {
             get;
@@ -223,7 +223,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual bool SeasonalEfficiencyOfDomesticBoilersUK2005
         {
             get;
@@ -231,7 +231,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description(".")]
+        [Description("")]
         public virtual bool SeasonalEfficiencyOfDomesticBoilersUK2009
         {
             get;
@@ -239,7 +239,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description(".")]
+        [Description("")]
         public virtual bool WinterSummer
         {
             get;
@@ -247,7 +247,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description(".")]
+        [Description("")]
         public virtual bool MicroCertificationSchemeHeatPump
         {
             get;
@@ -255,7 +255,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description(".")]
+        [Description("")]
         public virtual CommunityHeating CommunityHeating
         {
             get;
@@ -263,7 +263,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description(".")]
+        [Description("")]
         public virtual ComplianceHeatingDetails ComplianceHeatingDetails
         {
             get;
@@ -271,7 +271,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description(".")]
+        [Description("")]
         public virtual HeatPumpOnly HeatPumpOnly
         {
             get;
@@ -279,7 +279,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description(".")]
+        [Description("")]
         public virtual List<StorageHeater> StorageHeaters
         {
             get;

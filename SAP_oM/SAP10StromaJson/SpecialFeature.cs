@@ -29,10 +29,10 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description(".")]
+    [Description("")]
     public class SpecialFeature : BHoMObject
     {
-        [Description(".")]
+        [Description("")]
         public virtual int ID
         {
             get;
@@ -40,7 +40,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public string Description
         {
             get;
@@ -48,7 +48,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description(".")]
+        [Description("")]
         public double EnergySaved
         {
             get;
@@ -56,7 +56,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public int FuelSaved
         {
             get;
@@ -64,7 +64,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public double EnergyUsed
         {
             get;
@@ -72,7 +72,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public int FuelUsed
         {
             get;
@@ -96,7 +96,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description(".")]
+        [Description("")]
         public double EmissionsAmount
         {
             get;

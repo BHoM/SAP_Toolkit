@@ -29,7 +29,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Model Details")]
+    [Description("Manufacturer and Model.")]
     public class Details : BHoMObject
     {
         [Description("")]

@@ -29,16 +29,16 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
+    [Description("Details about the Baths and Showers in the Dwelling.")]
     public class BathsAndShowers : BHoMObject
     {
         [Description("")]
         public virtual List<SAP.ShowerOutlet> ShowerOutlets { get; set; } = new List<ShowerOutlet>();
 
-        [Description("Number of Baths")]
+        [Description("Number of Baths.")]
         public virtual int NumberBaths { get; set; } = 1;
 
-        [Description("Number of BathWWHRS")]
+        [Description("Number of BathWWHRS.")]
         public virtual int NumberBathsWWHRS { get; set; } = 0;
     }
 }

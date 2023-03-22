@@ -34,7 +34,7 @@ namespace BH.oM.Environment.SAP.XML
     public class SpecialFeatures : IObject
     {
         [Description("")]
-        [XmlElement("SAP-Special-Feature")]
+        [XmlElement("SAP-Special-Feature.")]
         public virtual List<SpecialFeature> SpecialFeature { get; set; } = null;
     }
 }

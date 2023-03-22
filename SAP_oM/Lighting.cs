@@ -29,7 +29,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Lighting Details")]
+    [Description("Lighting Details.")]
     public class Lighting : BHoMObject
     {
         [Description("The efficacy of the lighting type in lumens/Watt.")]

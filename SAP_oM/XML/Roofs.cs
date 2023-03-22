@@ -34,7 +34,7 @@ namespace BH.oM.Environment.SAP.XML
     public class Roofs : IObject
     {
         [Description("Various measurements for each exposed roof that makes up a particular Building-Part.")]
-        [XmlElement("SAP-Roof")]
+        [XmlElement("SAP-Roof.")]
         public virtual List<Roof> Roof { get; set; } = null;
 
     }

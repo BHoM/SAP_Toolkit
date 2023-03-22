@@ -29,16 +29,16 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
+    [Description("Decalred Heating Values.")]
     public class HeatingDeclared : BHoMObject
     {
-        [Description("Efficiency")]
+        [Description("Efficiency.")]
         public virtual string Efficiency { get; set; } = null;
 
-        [Description("Make-Model")]
+        [Description("Make-Model.")]
         public virtual string MakeModel { get; set; } = null;
 
-        [Description("Test-Method")]
+        [Description("Test-Method.")]
         public virtual string TestMethod { get; set; } = null;
     }
 }

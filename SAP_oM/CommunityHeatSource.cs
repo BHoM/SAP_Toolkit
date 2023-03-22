@@ -30,7 +30,7 @@ using BH.oM.Environment.SAP;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("")]
+    [Description("Community Heat Source Information.")]
     public class CommunityHeatSource : BHoMObject
     {
         [Description("")]

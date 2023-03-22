@@ -29,7 +29,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Strategy for the ventilation of the dwelling.")]
+    [Description("Details for a Storage WWHRS.")]
     public class StorageWWHRS : BHoMObject
     {
         [Description("")]

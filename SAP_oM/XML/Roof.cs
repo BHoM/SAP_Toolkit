@@ -34,27 +34,27 @@ namespace BH.oM.Environment.SAP.XML
     public class Roof : IObject
     {
         [Description("Unique name which identifies this roof.  Can be just a number, e.g. \"1\".  However, a roof cannot have the same name as a wall.")]
-        [XmlElement("Name")]
+        [XmlElement("Name.")]
         public virtual string Name { get; set; } = "Roof";
 
         [Description("Descriptive notes about the roof.")]
-        [XmlElement("Description")]
+        [XmlElement("Description.")]
         public virtual string Description { get; set; } = "A heat loss roof";
 
         [Description("")]
-        [XmlElement("Roof-Type")]
+        [XmlElement("Roof-Type.")]
         public virtual string Type { get; set; } = "2";
 
         [Description("Total roof area in square metres, inclusive of any openings.")]
-        [XmlElement("Total-Roof-Area")]
+        [XmlElement("Total-Roof-Area.")]
         public virtual double Area { get; set; } = 0;
 
         [Description("Exposed roof U-value.")]
-        [XmlElement("U-Value")]
+        [XmlElement("U-Value.")]
         public virtual double UValue { get; set; } = 0.13;
 
         [Description("Heat capacity per unit area in kJ/m²K.")]
-        [XmlElement("Kappa-Value")]
+        [XmlElement("Kappa-Value.")]
         public virtual double KappaValue { get; set; } = 9;
 
     }

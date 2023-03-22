@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Strategy for the ventilation of the dwelling.")]
+    [Description("Secondary Heating.")]
     public class SecondaryHeating : BHoMObject
     {
         [Description("")]
@@ -43,10 +43,8 @@ namespace BH.oM.Environment.SAP
         [Description("")]
         public virtual bool? HETASApproved { get; set; } = null;
 
-        [Description("%")]
+        [Description("")]
         public virtual string Efficiency { get; set; } = null;
 
-        [Description("")]
-        public virtual ManufacturerDescription ManufacturerDescription { get; set; } = new ManufacturerDescription();
     }
 }

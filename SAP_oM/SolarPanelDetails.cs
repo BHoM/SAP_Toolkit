@@ -29,13 +29,13 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Strategy for the ventilation of the dwelling.")]
+    [Description("Solar Panel Details.")]
     public class SolarPanelDetails : BHoMObject
     {
         [Description("")]
         public virtual TypeOfSolarCollector CollectorType { get; set; } = TypeOfSolarCollector.Unglazed;
 
-        [Description("Zero-loss collector efficiency.")]  //Following three can be set to default values within enum
+        [Description("Zero-loss collector efficiency.")]  
         public virtual string CollectorEfficiencyη0 { get; set; } = null;
 
         [Description("Heat loss coefficient of collector a1.")]
@@ -66,7 +66,7 @@ namespace BH.oM.Environment.SAP
         [Description("")]
         public virtual bool? SolarPoweredPump { get; set; } = null;
 
-        [Description("Is Solar Community")]
+        [Description("Is Solar Community.")]
         public virtual bool? IsCommunitySolar { get; set; } = null;
     }
 }

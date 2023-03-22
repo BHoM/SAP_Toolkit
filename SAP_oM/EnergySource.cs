@@ -29,25 +29,25 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
+    [Description("Information about the energy source in the dwelling.")]
     public class EnergySource : BHoMObject
     {
         [Description("")]
         public virtual ElectricityTariffCode ElectricityTariff { get; set; } = ElectricityTariffCode.StandardTariff;
 
-        [Description("Photovoltaic Arrays")]
+        [Description("Photovoltaic Arrays.")]
         public virtual List<PhotovolaticArray> PhotovoltaicArrays { get; set; } = new List<PhotovolaticArray>();
 
-        [Description("PV connection details")]
+        [Description("PV connection details.")]
         public virtual PvConnection PvConnection { get; set; } = new PvConnection();
 
-        [Description("Wind Turbines")]
+        [Description("Wind Turbines.")]
         public virtual List<WindTurbine> WindTurbines { get; set; } = new List<WindTurbine>();
 
         [Description("Whether the wind turbine is connected to the Dwelling's meter.")]
         public virtual bool? IsWindTurbineConnectedToDwellingMeter { get; set; } = false;
 
-        [Description("Hydro Electric Generation")]
+        [Description("Hydro Electric Generation.")]
         public virtual HydroElectric HydroElectricGeneration { get; set; }  = new HydroElectric();
 
 

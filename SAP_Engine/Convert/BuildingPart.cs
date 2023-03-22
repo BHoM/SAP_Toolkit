@@ -68,7 +68,7 @@ namespace BH.Engine.Environment.SAP
 
                     for (int u = 0; u < openings.Count; u++)
                     {
-                        openingTypes.OpeningType.AddRange(openings[u].OpeningType.ToXML().OpeningType); //method to only keep unique ones
+                        openingTypes.OpeningType.AddRange(openings[u].OpeningType.ToXML().OpeningType); 
                     }
 
                     xmlBuildingPart.Openings = new oM.Environment.SAP.XML.Openings();
