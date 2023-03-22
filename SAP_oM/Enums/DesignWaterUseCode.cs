@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("")]
+    [Description(".")]
     public enum DesignWaterUseCode {  LessThan125LitresPerPersonPerDay = 1 , MoreThan125LitresPerPersonPerDay}
 }
 

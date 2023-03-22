@@ -37,7 +37,7 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "Improvement-Texts.")]
         public virtual string ImprovementTexts { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Improvement-Number.")] 
         public virtual string ImprovementNumber { get; set; } = "8";
 

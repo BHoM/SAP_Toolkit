@@ -33,13 +33,13 @@ namespace BH.oM.Environment.SAP
     [Description("Details about HydroElectric energy production.")]
     public class HydroElectric : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual double Generation { get; set; } = 0;
 
-        [Description("")]
+        [Description(".")]
         public virtual string HydroElectricCertificate { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual List<MonthlyValues> HydroElectricGenerationMonths { get; set; } = null;
 
         [Description("Is Hydro Output Connected To Dwelling Meter.")]

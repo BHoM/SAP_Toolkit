@@ -32,16 +32,16 @@ namespace BH.oM.Environment.SAP
     [Description("Information about heating in the dwelling.")]
     public class BoilerInformation : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual TypeOfBoiler TypeOfBoiler { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual Boiler BoilerDetails { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual Pump PumpDetails { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual Flue FlueDetails { get; set; } = null;
 
 

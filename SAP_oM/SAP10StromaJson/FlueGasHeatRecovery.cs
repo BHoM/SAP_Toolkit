@@ -27,10 +27,10 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class FlueGasHeatRecovery : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual int ID
         {
             get;
@@ -38,7 +38,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual bool Include
         {
             get;
@@ -46,7 +46,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description("")]
+        [Description(".")]
         public virtual string IndexNumber
         {
             get;
@@ -54,7 +54,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual Photovoltaic2 Photovoltaic2
         {
             get;

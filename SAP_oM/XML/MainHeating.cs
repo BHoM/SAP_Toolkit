@@ -49,19 +49,19 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Main-Heating-Index-Number.")]
         public virtual string MainHeatingIndexNumber { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Main-Heating-Manufacturer.")]
         public virtual string MainHeatingManufacturer { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Main-Heating-Model.")]
         public virtual string MainHeatingModel { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Main-Heating-Commissioning-Certificate.")]
         public virtual string MainHeatingCommissioningCertificate { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Main-Heating-Installation-Engineer.")]
         public virtual string MainHeatingInstallationEngineer { get; set; } = null;
 
@@ -161,11 +161,11 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Main-Heating-Fraction.")]
         public virtual double MainHeatingFraction { get; set; } = 1;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Burner-Control.")]
         public virtual string BurnerControl { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Efficiency-Type.")]
         public virtual string EfficiencyType { get; set; } = null;
 
@@ -181,7 +181,7 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Main-Heating-Efficiency.")]
         public virtual string MainHeatingEfficiency { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Main-Heating-System-Type.")]
         public virtual string MainHeatingSystemType { get; set; } = null;
 
@@ -193,15 +193,15 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("FGHRS-Index-Number.")]
         public virtual string FGHRSIndexNumber { get; set; } = "0";
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("FGHRS-Energy-Source.")]
         public virtual EnergySource FGHRSEnergySource { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Main-Heating-Declared-Values.")]
         public virtual HeatingDeclaredValues MainHeatingDeclaredValues { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Storage-Heaters.")]
         public virtual StorageHeaters StorageHeaters { get; set; } = null;
 
@@ -221,19 +221,19 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Control-Index-Number.")]
         public virtual string ControlIndexNumber { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Heating-Controller-Function.")]
         public virtual string HeatingControllerFunction { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Heating-Controller-Ecodesign-Class.")]
         public virtual string HeatingControllerEcodesignClass { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Heating-Controller-Manufacturer.")]
         public virtual string HeatingControllerManufacturer { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Heating-Controller-Model.")]
         public virtual string HeatingControllerModel { get; set; } = null;
 

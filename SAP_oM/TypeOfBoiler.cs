@@ -36,13 +36,13 @@ namespace BH.oM.Environment.SAP
         [Description("Boiler type; if boiler efficiency is manufacturer declaration and fuel is solid.")]
         public virtual TypeOfSolidFuelBoiler SolidFuelBoilerType { get; set; } = TypeOfSolidFuelBoiler.Independent;
 
-        [Description("")]
+        [Description(".")]
         public virtual TypeOfGasOrOilBoiler GasOrOilBoiler { get; set; } = TypeOfGasOrOilBoiler.Regular;
 
-        [Description("")]
+        [Description(".")]
         public virtual TypeOfCombiBoiler CombiBoilerType { get; set; } = TypeOfCombiBoiler.PrimaryStorage;
 
-        [Description("")]
+        [Description(".")]
         public virtual bool BoilerInterlock { get; set; } = false;
     }
 }

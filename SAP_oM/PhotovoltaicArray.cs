@@ -44,7 +44,7 @@ namespace BH.oM.Environment.SAP
         [Description("PV overshading; only if peak kWp &gt; 0.")]
         public virtual SolarCollectorOvershadingCode Overshading { get; set; } = SolarCollectorOvershadingCode.Modest;
 
-        [Description("")]
+        [Description(".")]
         public virtual PVDetails ArrayDetails { get; set; } = null;
 
         

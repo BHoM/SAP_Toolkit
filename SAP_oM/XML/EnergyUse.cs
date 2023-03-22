@@ -37,23 +37,23 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "DER.")]
         public virtual double DER { get; set; } = 0;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "TER.")]
         public virtual double TER { get; set; } = 0;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "DPER.")]
         public virtual double DPER { get; set; } = 0;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "TPER.")]
         public virtual double TPER { get; set; } = 0;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "DFEE.")]
         public virtual double DFEE { get; set; } = 0;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "TFEE.")]
         public virtual double TFEE { get; set; } = 0;
 

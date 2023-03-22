@@ -36,9 +36,8 @@ namespace BH.Engine.Environment.SAP
     public static partial class Convert
     {
         [Description("Convert SAP Special Feature to XML Special Fetaures.")]
-        [Input("sapRoof", "SAP roof to convert.")]
-        [MultiOutput(0, "xmlRoof", "XML roof.")]
-        [MultiOutput(1, "xmlOpening", "XML opening.")]
+        [Input("sapRoof", "SAP special feature to convert.")]
+        [Output("SpecialFeature", "The xml Special Feature converted")]
         public static BH.oM.Environment.SAP.XML.SpecialFeatures ToXML(this List<BH.oM.Environment.SAP.SpecialFeature> sapSpecialFeatures)
         {
             List<BH.oM.Environment.SAP.XML.SpecialFeature> specialFeatures = new List<BH.oM.Environment.SAP.XML.SpecialFeature>();

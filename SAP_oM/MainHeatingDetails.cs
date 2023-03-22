@@ -31,40 +31,40 @@ namespace BH.oM.Environment.SAP
     [Description("Details of a main heating system.")]
     public class MainHeatingDetails : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual MainHeatingCategoryCode HeatingCategoryCode { get; set; } = new MainHeatingCategoryCode();
 
-        [Description("")]
+        [Description(".")]
         public virtual HeatingDetails HeatingDetails { get; set; } = new HeatingDetails();
 
-        [Description("")]
+        [Description(".")]
         public virtual HeatingDeclared HeatingDeclaredValues { get; set; } = new HeatingDeclared();
 
         [Description("Efficiency data.")]
         public virtual Efficiency Efficiency { get; set; } = new Efficiency();
 
-        [Description("")]
+        [Description(".")]
         public virtual HeatingControls HeatingControls { get; set; } = new HeatingControls();
 
-        [Description("")]
+        [Description(".")]
         public virtual HeatingFuel HeatingFuel { get; set; } = new HeatingFuel();
 
-        [Description("")]
+        [Description(".")]
         public virtual BoilerInformation BoilerInformation { get; set; } = new BoilerInformation();
 
-        [Description("")]
+        [Description(".")]
         public virtual List<StorageHeater> StorageHeaters { get; set; } = new List<StorageHeater>();    
 
-        [Description("")]
+        [Description(".")]
         public virtual FGHRS FGHRS { get; set; } = null;
 
         [Description("Is the appliance HETAS approved?.")]
         public virtual bool HETASApproved { get; set; } = false;
 
-        [Description("")]
+        [Description(".")]
         public virtual bool? MCSCertificate { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual double FractionOfHeat { get; set; } = 1;
     }
 }

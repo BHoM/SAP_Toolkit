@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "Community-Heat-Source", IsNullable = false)]
     public class CommunityHeatSource : IObject
     {
-        [Description("")]
+        [Description(".")]
         [XmlElement("Heat-Source-Type.")]
         public virtual string HeatSourceType { get; set; } = "3";
 
@@ -41,11 +41,11 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Heat-Fraction.")]
         public virtual string HeatFraction { get; set; } = "1";
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Fuel-Type.")]
         public virtual string FuelType { get; set; } = "41";
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "PCDF-Fuel-Index.")]
         public virtual string PCDFFuelIndex { get; set; } = null;
 
@@ -57,11 +57,11 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Power-Efficiency.")]
         public virtual string PowerEfficiency { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Description.")]
         public virtual string Description { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "CHP-Electricity-Generation.")]
         public virtual string CHPElectricityGeneration { get; set; } = null;
     }

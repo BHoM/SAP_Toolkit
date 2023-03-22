@@ -34,11 +34,11 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "Green-Deal-Improvement", IsNullable = false)]
     public class GreenDealImprovement : IObject
     {
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Improvement-Type.")]
         public virtual string ImprovementType { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Improvement-Number.")]
         public virtual string ImprovementNumber { get; set; } = null;
 

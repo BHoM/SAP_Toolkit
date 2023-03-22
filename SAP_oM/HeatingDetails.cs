@@ -32,10 +32,10 @@ namespace BH.oM.Environment.SAP
     [Description("Heating details.")]
     public class HeatingDetails : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual string ProductIndex { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual Details Details { get; set; } = null;
 
         [Description("Enum which specifies data source.")]
@@ -44,22 +44,22 @@ namespace BH.oM.Environment.SAP
         [Description("Main heating code; when heating data source is SAP table.")]
         public virtual TypeOfSpaceHeating MainHeatingCode { get; set; } = TypeOfSpaceHeating.NonePresent;
 
-        [Description("")]
+        [Description(".")]
         public virtual HeatEmitterCode EmitterType { get; set; } = new HeatEmitterCode();
 
-        [Description("")]
+        [Description(".")]
         public virtual UnderfloorHeatEmitterCode UnderfloorEmitterType { get; set; } = UnderfloorHeatEmitterCode.InConcreteSlab;
 
-        [Description("")]
+        [Description(".")]
         public virtual EmitterTemperatureCode EmitterTemperature { get; set; } = new EmitterTemperatureCode();
 
-        [Description("")]
+        [Description(".")]
         public virtual PumpAge PumpAge { get; set; } = new PumpAge();
 
-        [Description("")]
+        [Description(".")]
         public virtual string HeatingGroup { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual string SubGroup { get; set; } = null;
     }
 }

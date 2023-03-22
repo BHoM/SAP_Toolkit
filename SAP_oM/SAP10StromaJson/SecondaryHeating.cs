@@ -28,10 +28,10 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class SecondaryHeating : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual int ID
         {
             get;
@@ -55,7 +55,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description("")]
+        [Description(".")]
         public virtual string SubHeatingGroup
         {
             get;
@@ -71,7 +71,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual ComplianceHeatingDetails ComplianceHeatingDetails
         {
             get;
@@ -79,7 +79,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual int Fuel
         {
             get;
@@ -87,7 +87,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual bool HeatingEquipmentTestingAndApprovalsScheme
         {
             get;
@@ -95,7 +95,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description("")]
+        [Description(".")]
         public virtual double Efficiency
         {
             get;
@@ -103,7 +103,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual int SAPTableCode
         {
             get;
@@ -111,7 +111,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual string ManufacturerDescription
         {
             get;
@@ -119,7 +119,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual string TestMethod
         {
             get;
@@ -127,7 +127,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual int FlueType
         {
             get;

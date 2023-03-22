@@ -28,10 +28,10 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class ClientDetails : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual int ID
         {
             get;
@@ -39,7 +39,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual Address Address
         {
             get;
@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual string PhoneNumber
         {
             get;
@@ -55,7 +55,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual string FaxNumber
         {
             get;
@@ -63,7 +63,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual string Email
         {
             get;
@@ -71,7 +71,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual string CompanyName
         {
             get;

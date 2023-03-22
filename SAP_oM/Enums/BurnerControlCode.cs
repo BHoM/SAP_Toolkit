@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("")]
+    [Description(".")]
     public enum BurnerControlCode { Unknown = 1, OnOffGasAndOilBurners = 2, ModulatingGasAndOilBoilers = 3, 
         ManualSolidFuelBoilers = 4, ElectricalSolidFuelBoilers = 5 }
 }

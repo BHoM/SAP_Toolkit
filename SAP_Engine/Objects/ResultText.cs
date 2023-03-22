@@ -39,7 +39,7 @@ namespace BH.Engine.Environment.SAP
 {
     public class ResultText : BHoMObject, IResultObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual string txt { get; set; } = null;
     }
 }

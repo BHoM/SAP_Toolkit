@@ -33,10 +33,10 @@ namespace BH.oM.Environment.SAP
     public class Efficiency : BHoMObject
     {
 
-        [Description("")]
+        [Description(".")]
         public virtual TypeOfEfficiency EfficiencyType { get; set; } = TypeOfEfficiency.SEDBUK2009;
 
-        [Description("")]
+        [Description(".")]
         public virtual string MainHeatingSystemType { get; set; } = null;
 
         [Description("To be used if main heating data is manufacturer declaration and Efficiency-Type is winter and summer.")]

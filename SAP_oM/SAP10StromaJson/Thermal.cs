@@ -28,10 +28,10 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class Thermal : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual int ID
         {
             get;
@@ -39,7 +39,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual string GUID
         {
             get;
@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual bool ManualThermalBridgingCalcuation
         {
             get;
@@ -55,7 +55,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description("")]
+        [Description(".")]
         public virtual double ThermalBridgingValue
         {
             get;
@@ -63,7 +63,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual string ConstrunctionDetails
         {
             get;
@@ -71,7 +71,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual bool ManualThermalBridgingYValue
         {
             get;
@@ -79,7 +79,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description("")]
+        [Description(".")]
         public virtual double YValue
         {
             get;
@@ -87,7 +87,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual bool CustomApproved
         {
             get;
@@ -95,7 +95,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description("")]
+        [Description(".")]
         public virtual List<ExternalJunction> ExternalJunctions
         {
             get;
@@ -103,7 +103,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual List<PartyJunction> PartyJunctions
         {
             get;
@@ -111,7 +111,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual List<RoofJunction> RoofJunctions
         {
             get;
@@ -119,7 +119,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual bool Reference
         {
             get;

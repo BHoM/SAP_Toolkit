@@ -54,7 +54,7 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Secondary-Heating-Data-Source.")]
         public virtual string SecondaryHeatingDataSource { get; set; } = "3";
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Secondary-Heating-Efficiency.")]
         public virtual string SecondaryHeatingEfficiency { get; set; } = null;
 
@@ -170,11 +170,11 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Is-Hot-Water-Separately-Timed.")]
         public virtual bool? IsHotWaterSeperatlyTimed { get; set; } = false;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Hot-Water-Controls-Manufacturer.")]
         public virtual string HotWaterControlsManufacturer { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Hot-Water-Controls-Model.")]
         public virtual string HotWaterControlsModel { get; set; } = null;
 
@@ -182,15 +182,15 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("SAP-Community-Heating-Systems.")]
         public virtual CommunityHeatingSystems CommunityHeatingSystems { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Main-Heating-Details.")]
         public virtual MainHeatingDetails MainHeatingDetails { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("SAP-Heating-Design-Water-Use.")]
         public virtual string HeatingDesignWaterUse { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Main-Heating-Systems-Interaction.")]
         public virtual string MainHeatingSystemsInteraction { get; set; } = null;
 
@@ -202,7 +202,7 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Primary-Pipework-Insulation.")] 
         public virtual string PrimaryPipeworkInsulation { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Solar-Heating-Details.")]
         public virtual SolarHeatingDetails SolarHeatingDetails { get; set; } = null;
 
@@ -210,19 +210,19 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Instantaneous-WWHRS.")] 
         public virtual InstantaneousWWHRS InstantaneousWHRS { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Storage-WWHRS.")] 
         public virtual StorageWWHRS StorageWHRS { get; set; } =     null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Shower-Outlets.")]
         public virtual ShowerOutlets ShowerOutlets { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Number-Baths.")]
         public virtual int NumberBaths { get; set; } = 1;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Number-Baths-WWHRS.")]
         public virtual int NumberBathsWWHRS { get; set; } = 0;
 

@@ -73,19 +73,19 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Solar-Panel-Collector-Orientation.")]
         public virtual string Orientation { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Solar-Panel-Collector-Pitch.")]
         public virtual string Pitch { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Solar-Panel-Collector-Overshading.")]
         public virtual string Overshading { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Has-Solar-Powered-Pump.")]
         public virtual bool? HasSolarPoweredPump { get; set; } = false;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Is-Solar-Store-Combined-Cylinder.")]
         public virtual bool? IsSolarStoreCombinedCylinder { get; set; } = null;
 
@@ -101,11 +101,11 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Incidence-Angle-Modifier.")]
         public virtual string IncidenceAngleModifier { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Is-Community-Solar.")]
         public virtual bool? IsCommunitySolar { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Service-Provision.")]
         public virtual string ServiceProvision { get; set; } = null;
 

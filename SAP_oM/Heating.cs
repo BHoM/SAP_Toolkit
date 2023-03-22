@@ -31,31 +31,31 @@ namespace BH.oM.Environment.SAP
     [Description("Details of the means by which the building is heated.")]
     public class Heating : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual MainHeatingDetails Main { get; set; } = new MainHeatingDetails();
 
-        [Description("")]
+        [Description(".")]
         public virtual MainHeatingDetails SecondaryMain { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual SecondaryHeating SecondaryHeating { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual List<CommunityHeatingSystem> CommunityHeating { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual Cooling Cooling { get; set; } = new Cooling();
 
-        [Description("")]
+        [Description(".")]
         public virtual WaterHeating WaterHeating { get; set; } = new WaterHeating();
 
-        [Description("")]
+        [Description(".")]
         public virtual WWHRS WasteWaterHRS { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual SolarPanelDetails SolarPanelDetails { get; set; } = new SolarPanelDetails();
 
-        [Description("")]
+        [Description(".")]
         public virtual BathsAndShowers BathAndShowerDetails { get; set; } = new BathsAndShowers();
     }
 }

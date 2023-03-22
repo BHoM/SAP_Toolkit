@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "Air-Change-Rate", IsNullable = false)]
     public class AirChangeRate : IObject
     {
-        [Description("")]
+        [Description(".")]
         [XmlElement("Air-Change-Rate-Month.")]
         public virtual string Month { get; set; } = "Jan";
 

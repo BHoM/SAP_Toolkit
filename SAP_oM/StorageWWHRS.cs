@@ -32,16 +32,16 @@ namespace BH.oM.Environment.SAP
     [Description("Details for a Storage WWHRS.")]
     public class StorageWWHRS : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual string IndexNumber { get; set; } = null;
 
         [Description("Dedicated store volume in litres.")]
         public virtual string StoreVolume { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual string Efficiency { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual Details Details { get; set; } = new Details();
 
     }

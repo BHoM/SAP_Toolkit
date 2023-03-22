@@ -28,10 +28,10 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class Overheating : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual int ID
         {
             get;
@@ -39,7 +39,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual int EaCBuildType
         {
             get;
@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual int EaCWindow
         {
             get;
@@ -55,7 +55,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual bool EaCOveride
         {
             get;
@@ -63,7 +63,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description("")]
+        [Description(".")]
         public virtual double EaCAirChange
         {
             get;
@@ -71,7 +71,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual bool Night
         {
             get;
@@ -79,7 +79,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description("")]
+        [Description(".")]
         public virtual int Conservatory
         {
             get;
@@ -87,7 +87,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual List<Light> Lights
         {
             get;
@@ -95,7 +95,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual int LowerEnergyLights
         {
             get;

@@ -27,10 +27,10 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class Cylinder : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual int ID
         {
             get;
@@ -38,7 +38,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual double Volume
         {
             get;
@@ -46,7 +46,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual bool ManufacturerSpecified
         {
             get;
@@ -54,7 +54,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description("")]
+        [Description(".")]
         public virtual double DeclaredLoss
         {
             get;
@@ -62,7 +62,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual int Insulation
         {
             get;
@@ -70,7 +70,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual double InsulationThickness
         {
             get;
@@ -78,7 +78,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual bool InHeatedSpace
         {
             get;
@@ -86,7 +86,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description("")]
+        [Description(".")]
         public virtual bool Thermostat
         {
             get;
@@ -94,7 +94,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description("")]
+        [Description(".")]
         public virtual bool PipeWorkInsulated
         {
             get;
@@ -102,7 +102,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description("")]
+        [Description(".")]
         public virtual int PipeWorkInsulation
         {
             get;
@@ -110,7 +110,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual bool Timed
         {
             get;
@@ -118,7 +118,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description("")]
+        [Description(".")]
         public virtual bool SummerImmersion
         {
             get;
@@ -126,7 +126,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description("")]
+        [Description(".")]
         public virtual int Immersion
         {
             get;
@@ -134,7 +134,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual bool ImmersionHeater
         {
             get;
@@ -142,7 +142,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description("")]
+        [Description(".")]
         public virtual double HeatPumpExchanger
         {
             get;
@@ -150,7 +150,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual string Manufacturer
         {
             get;
@@ -158,7 +158,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual string Model
         {
             get;
@@ -166,7 +166,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual string CommissioningCertificate
         {
             get;

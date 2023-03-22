@@ -32,7 +32,7 @@ namespace BH.oM.Environment.SAP
     [Description("Information about the energy source in the dwelling.")]
     public class EnergySource : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual ElectricityTariffCode ElectricityTariff { get; set; } = ElectricityTariffCode.StandardTariff;
 
         [Description("Photovoltaic Arrays.")]

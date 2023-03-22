@@ -105,19 +105,19 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Additional-Allowable-Electricity-Generation")]
         public virtual string AdditionalAllowableElectricityGeneration { get; set; } = "0";
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Gas-Smart-Meter-Present")]
         public virtual bool GasSmartMeterPresent { get; set; } = false;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Electricity-Smart-Meter-Present")]
         public virtual bool ElectricitySmartMeterPresent { get; set; } = false;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Is-Dwelling-Export-Capable")]
         public virtual bool IsDwellingExportCapable { get; set; } = false;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "PV-Connection")]
         public virtual string PVConnection { get; set; } = "0";
 
@@ -133,11 +133,11 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "Is-Wind-Turbine-Connected-To-Dwelling-Meter")]
         public virtual bool? IsWindTurbineConnectedToDwellingMeter { get; set; } = false;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "SAP-Heating")]
         public virtual Heating Heating { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "SAP-Energy-Source")]
         public virtual EnergySource EnergySource { get; set; } = null;
 
@@ -157,7 +157,7 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "SAP-Lighting")]
         public virtual Lighting Lighting { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("SAP-Deselected-Improvements")]
         public virtual DeselectedImprovements DeselectedImprovements { get; set; } = null;
 
@@ -165,7 +165,7 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("SAP-Flat-Details")]
         public virtual FlatDetails FlatDetails { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "SAP-Special-Features")]
         public SpecialFeatures SpecialFeatures { get; set; } = null;
 
@@ -173,7 +173,7 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Design-Water-Use")]
         public virtual string DesignWaterUse { get; set; } = "1";
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("SAP-Cooling")]
         public virtual Cooling Cooling { get; set; } = null;
 

@@ -37,7 +37,7 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Energy-Saved-Or-Generated.")]
         public virtual double EnergySavedOrGenerated { get; set; } = 0;
         
-        [Description("")]
+        [Description(".")]
         [XmlElement("Saved-Or-Generated-Fuel.")]
         public virtual string SavedOrGeneratedFuel { get; set; } = "1";
 
@@ -45,7 +45,7 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Energy-Used.")]
         public virtual double EnergyUsed { get; set; } = 0;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Energy-Used-Fuel.")]
         public virtual string EnergyUsedFuel { get; set; } = "1";
 

@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "Storage-WWHRS", IsNullable = false)]
     public class StorageWWHRS : IObject
     {
-        [Description("")]
+        [Description(".")]
         [XmlElement("WWHRS-Index-Number.")]
         public virtual string WWHRSIndexNumber { get; set; } = null;
 
@@ -41,15 +41,15 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("WWHRS-Store-Volume.")]
         public virtual string WWHRSStoreVolume { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Storage-WWHRS-Efficiency.")]
         public virtual string StorageWWHRSEfficiency { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Storage-WWHRS-Manufacturer.")]
         public virtual string StorageWWHRSManufacturer { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Storage-WWHRS-Model.")]
         public virtual string StorageWWHRSModel { get; set; } = null;
 

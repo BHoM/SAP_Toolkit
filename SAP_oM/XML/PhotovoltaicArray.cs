@@ -49,19 +49,19 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Overshading.")]
         public virtual string Overshading { get; set; } = "2";
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("MCS-Certificate.")]
         public virtual bool MCSCertificate { get; set; } = false;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("MCS-Certificate-Reference.")]
         public virtual string MCSCertificateReference { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("PV-Panel-Manufacturer-Name.")]
         public virtual string ManufacturerName { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Overshading-MCS.")]
         public virtual double OvershadingMCS { get; set; } = 0;
     }

@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("")]
+    [Description(".")]
     public enum TypeOfMainHeatingInteraction { BothSystemsProvideHeatToWholeProperty = 1, SystemsAreSeparateAndHeatDifferentPartsOfProperty = 2 }
 }
 

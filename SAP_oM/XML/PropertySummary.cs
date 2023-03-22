@@ -34,63 +34,63 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "Property-Summary", IsNullable = false)]
     public class PropertySummary : IObject
     {
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Walls.")]
         public virtual PropertySummaryType Walls { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Roof.")]
         public virtual PropertySummaryType Roof { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Floor.")]
         public virtual PropertySummaryType Floor { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Windows.")]
         public virtual PropertySummaryType Windows { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Main-Heating.")]
         public virtual PropertySummaryType MainHeating { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Main-Heating-Controls.")]
         public virtual PropertySummaryType MainHeatingControls { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Secondary-Heating.")]
         public virtual PropertySummaryType SecondaryHeating { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Hot-Water.")]
         public virtual PropertySummaryType HotWater { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Lighting.")]
         public virtual PropertySummaryType Lighting { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Air-Tightness.")]
         public virtual PropertySummaryType AirTightness { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Has-Fixed-Air-Conditioning.")]
         public virtual bool HasFixedAirConditioning { get; set; } = false;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Has-Hot-Water-Cylinder.")]
         public virtual bool HasHotWaterCylinder { get; set; } = false;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Has-Heated-Separate-Conservatory.")]
         public virtual bool HasHeatedSeparateConservatory { get; set; } = false;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Dwelling-Type.")]
         public virtual string DwellingType { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Total-Floor-Area.")]
         public virtual double TotalFloorArea { get; set; } = 0;
 

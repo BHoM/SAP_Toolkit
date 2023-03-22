@@ -65,7 +65,7 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Community-Heating-Distribution-Type.")]
         public virtual string CommunityHeatingDistributionType { get; set; } = "8";
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Community-Heat-Sources.")]
         public virtual CommunityHeatSources CommunityHeatSources { get; set; } = null;
 

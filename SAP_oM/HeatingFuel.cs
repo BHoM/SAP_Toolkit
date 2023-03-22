@@ -31,7 +31,7 @@ namespace BH.oM.Environment.SAP
     [Description("Heating Fuel.")]
     public class HeatingFuel : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual TypeOfHeatingFuel Fuel { get; set; } = new TypeOfHeatingFuel();
 
     }

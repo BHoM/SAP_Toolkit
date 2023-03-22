@@ -32,7 +32,7 @@ namespace BH.oM.Environment.SAP
     [Description("Details about the Baths and Showers in the Dwelling.")]
     public class BathsAndShowers : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual List<SAP.ShowerOutlet> ShowerOutlets { get; set; } = new List<ShowerOutlet>();
 
         [Description("Number of Baths.")]

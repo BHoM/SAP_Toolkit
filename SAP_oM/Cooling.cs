@@ -31,16 +31,16 @@ namespace BH.oM.Environment.SAP
     [Description("Strategy for the cooling of the dwelling.")]
     public class Cooling : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual string CooledArea { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual CoolingClassCode EnergyLabel { get; set; } = CoolingClassCode.B;
 
-        [Description("")]
+        [Description(".")]
         public virtual string SEER { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual DataSourceCode DataSource { get; set; } = DataSourceCode.FromDatabase;
     }
 }

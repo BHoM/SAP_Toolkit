@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("")]
+    [Description(".")]
     public enum TypeOfEfficiency { NotGasOrOilBoiler = 1, SEDBUK2005 = 2, SEDBUK2009 = 3, WinterAndSummer = 4 }
 }
 

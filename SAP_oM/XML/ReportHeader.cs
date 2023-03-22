@@ -61,15 +61,15 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "Language-Code.")] 
         public virtual string LanguageCode { get; set; } = "1";
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Tenure.")]
         public virtual string Tenure { get; set; } = "3";
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Transaction-Type.")]
         public virtual string TransactionType { get; set; } = "6";
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Seller-Commission-Report.")]
         public virtual string SellerCommissionReport { get; set; } = null;
 
@@ -77,11 +77,11 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "Property-Type.")] 
         public virtual string PropertyType { get; set; } = "2";
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Home-Inspector.")]
         public virtual HomeInspector HomeInspector { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Property.")]
         public virtual Property Property { get; set; } = null;
 
@@ -89,11 +89,11 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "Region-Code.")]
         public virtual string RegionCode { get; set; } = "6"; 
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Country-Code.")]
         public virtual string CountryCode { get; set; } = "ENG";
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Related-Party-Disclosure.")]
         public virtual RelatedPartyDisclosure RelatedPartyDisclosure { get; set; } = null;
     }

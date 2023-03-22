@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("")]
+    [Description(".")]
     public enum PVConnectionCode { NotApplicable_FGHRS = 0, NotConnectedToElectricityMeter = 1, ConnectedToElectricityMeter = 2 }
 }
 

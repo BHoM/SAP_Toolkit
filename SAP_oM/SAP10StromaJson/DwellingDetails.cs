@@ -27,10 +27,10 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class DwellingDetails : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual int ID
         {
             get;
@@ -38,7 +38,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual int PropertyType
         {
             get;
@@ -46,7 +46,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual int AssessmentType
         {
             get;
@@ -54,7 +54,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual int TransactionType
         {
             get;
@@ -62,7 +62,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual int TenureType
         {
             get;
@@ -70,7 +70,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual int RelatedParty
         {
             get;
@@ -78,7 +78,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual int ThermalMass
         {
             get;
@@ -86,7 +86,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual int IndicativeValue
         {
             get;
@@ -94,7 +94,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual double UserThermalMass
         {
             get;
@@ -102,7 +102,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual int BuiltForm
         {
             get;
@@ -110,7 +110,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual int FlatType
         {
             get;
@@ -118,7 +118,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual int Location
         {
             get;
@@ -126,7 +126,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual int Terrain
         {
             get;
@@ -134,7 +134,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual int Orientation
         {
             get;
@@ -142,7 +142,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual int SmokeControl
         {
             get;
@@ -150,7 +150,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual int OverShading
         {
             get;
@@ -158,7 +158,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual int Country
         {
             get;
@@ -166,7 +166,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual int Language
         {
             get;
@@ -174,7 +174,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual bool SummerOverheating
         {
             get;
@@ -182,7 +182,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description("")]
+        [Description(".")]
         public virtual bool WaterUseLessThan125
         {
             get;
@@ -190,7 +190,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description("")]
+        [Description(".")]
         public virtual DateTime DateOfAssessment
         {
             get;
@@ -198,7 +198,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = DateTime.Now;
-        [Description("")]
+        [Description(".")]
         public virtual DateTime DateOfCertificate
         {
             get;
@@ -206,7 +206,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = DateTime.Now;
-        [Description("")]
+        [Description(".")]
         public virtual int YearBuilt
         {
             get;
@@ -214,7 +214,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = (DateTime.Now.Year);
-        [Description("")]
+        [Description(".")]
         public virtual bool RoomInRoof
         {
             get;
@@ -222,7 +222,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description("")]
+        [Description(".")]
         public virtual int StoreysInBlock
         {
             get;
@@ -230,7 +230,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual bool IsGasMeter
         {
             get;
@@ -238,7 +238,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description("")]
+        [Description(".")]
         public virtual bool IsElectricMeter
         {
             get;
@@ -246,7 +246,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description("")]
+        [Description(".")]
         public virtual bool IsCableExport
         {
             get;

@@ -28,10 +28,10 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class Root : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual int ID
         {
             get;
@@ -39,7 +39,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual string GUID
         {
             get;
@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual DateTime DateTimeCreated
         {
             get;
@@ -55,7 +55,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = System.DateTime.MinValue;
-        [Description("")]
+        [Description(".")]
         public virtual DateTime DateTimeSaved
         {
             get;
@@ -63,7 +63,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = System.DateTime.MinValue;
-        [Description("")]
+        [Description(".")]
         public virtual int UserID
         {
             get;
@@ -71,7 +71,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual string Reference
         {
             get;
@@ -79,7 +79,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual List<Dwelling> Dwellings
         {
             get;
@@ -87,7 +87,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual Address Address
         {
             get;
@@ -95,7 +95,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual ClientDetails ClientDetails
         {
             get;
@@ -103,7 +103,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual Elements Elements
         {
             get;
@@ -111,14 +111,14 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual Assessor Assessor
         {
             get;
             set;
         }
 
-        [Description("")]
+        [Description(".")]
         public virtual int DwellingCount
         {
             get;

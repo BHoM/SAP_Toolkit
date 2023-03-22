@@ -27,10 +27,10 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class Heating : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual int ID
         {
             get;
@@ -38,14 +38,14 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual string Guid
         {
             get;
             set;
         }
 
-        [Description("")]
+        [Description(".")]
         public virtual int ItemID
         {
             get;
@@ -53,7 +53,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual int ElementType
         {
             get;
@@ -61,7 +61,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual string ElementTypeName
         {
             get;
@@ -69,7 +69,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual Ventilation Ventilation
         {
             get;
@@ -77,7 +77,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual Renewable Renewable
         {
             get;
@@ -85,7 +85,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual Overheating Overheating
         {
             get;
@@ -93,7 +93,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual List<Door> Doors
         {
             get;
@@ -101,7 +101,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual List<Window> Windows
         {
             get;
@@ -109,7 +109,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual List<RoofLight> RoofLights
         {
             get;
@@ -117,7 +117,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual List<Floor> Floors
         {
             get;
@@ -125,7 +125,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual List<Wall> Walls
         {
             get;
@@ -133,7 +133,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual List<Roof> Roofs
         {
             get;
@@ -141,7 +141,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual List<PartyFloor> PartyFloors
         {
             get;
@@ -149,7 +149,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual List<PartyWall> PartyWalls
         {
             get;
@@ -157,7 +157,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual List<PartyCeiling> PartyCeilings
         {
             get;
@@ -165,7 +165,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual List<InteriorFloor> InteriorFloors
         {
             get;
@@ -173,7 +173,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual List<InteriorWall> InteriorWalls
         {
             get;
@@ -181,7 +181,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual List<InteriorCeiling> InteriorCeilings
         {
             get;
@@ -189,7 +189,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual Thermal Thermal
         {
             get;
@@ -197,7 +197,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual CoolingSystem CoolingSystem
         {
             get;
@@ -205,7 +205,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual PrimaryHeating PrimaryHeating
         {
             get;
@@ -213,7 +213,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual PrimaryHeating2 PrimaryHeating2
         {
             get;
@@ -221,7 +221,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual SecondaryHeating SecondaryHeating
         {
             get;
@@ -229,7 +229,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description("")]
+        [Description(".")]
         public virtual WaterHeating WaterHeating
         {
             get;

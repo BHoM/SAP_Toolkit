@@ -29,7 +29,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-	[Description("")]
+	[Description(".")]
     public enum ReportStatusCode { Cancelled, EnteredOnTheRegister, UnderAppeal, 
 		Removed, Rejected , UnderInvestigation, NotForIssue }
 }

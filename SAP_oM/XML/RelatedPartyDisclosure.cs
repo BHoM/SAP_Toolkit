@@ -34,11 +34,11 @@ namespace BH.oM.Environment.SAP.XML
     public class RelatedPartyDisclosure: IObject
     {
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Related-Party-Disclosure-Number.")] 
         public virtual string RelatedPartyDisclosureNumber { get; set; } = "1";
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Related-Party-Disclosure-Text.")]
         public virtual string RelatedPartyDisclosureText { get; set; } = null;
     }

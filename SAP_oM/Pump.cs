@@ -32,16 +32,16 @@ namespace BH.oM.Environment.SAP
     [Description("Details about the pump.")]
     public class Pump : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual bool PumpInHeatedSpace { get; set; } = false;
 
         [Description("The temperature distribution of the heat pump, for wet systems only.")]
         public virtual string HeatPumpHeatDistribution { get; set; } = "80";
 
-        [Description("")]
+        [Description(".")]
         public virtual bool OilPumpInHeatedSpace { get; set; } = false;
 
-        [Description("")]
+        [Description(".")]
         public virtual string PumpType { get; set; } = null;
     }
 }
