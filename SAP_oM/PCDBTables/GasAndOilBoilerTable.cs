@@ -106,7 +106,7 @@ namespace BH.oM.Environment.SAP
         [Description("Annual seasonal efficiency, expressed as a percentage and rounded to the nearest 0.1%. This will have been obtained by one of the methods defined for the efficiency category (see field 31 and Note 3.) In the case of efficiency categories 1 and 2 the annual seasonal efficiency will be the SEDBUK(2009) value")]
         public virtual string AnnualSeasonalEfficiency { get; set; } = null;
 
-        [Description("Winter seasonal efficiency for use in SAP, expressed as a percentage and rounded to the nearest 0.1%. This will have been obtained by one of the methods defined for the efficiency category ")]
+        [Description("Winter seasonal efficiency for use in SAP, expressed as a percentage and rounded to the nearest 0.1%. This will have been obtained by one of the methods defined for the efficiency category.")]
         public virtual string SAPWinterSeasonalEfficiency { get; set; } = null;
 
         [Description("Summer seasonal efficiency for use in SAP, expressed as a percentage and rounded to the nearest 0.1%. If separate DHW tests this will have been derived from those tests, otherwise it will have been obtained by one of the methods defined for the efficiency category")]
@@ -187,7 +187,7 @@ namespace BH.oM.Environment.SAP
         [Description("Loss factor F1  in kWh/day related to domestic hot water test 1 for use in conjunction with SAP 2012 Table 3b. If the boiler is not a combi, or if domestic hot water test 1 has not been carried out, this is blank.")]
         public virtual string StorageLossFactor { get; set; } = null;
 
-        [Description("Fuel input energy (corrected) in kWh/day for domestic hot water test 2 carried out on a combi boiler in accordance with EN 13203-2 (gas) or OPS 26 (oil). If “Separate DHW tests” (field 48) is 2 then hot water test 2 means tested under draw-off schedule no. 3 as defined in the standard. If “Separate DHW tests” (field 48) is 3 then hot water test 2 means tested under draw - off schedule no. 1 as defined in the standard.If the boiler is not a combi, or if domestic hot water test 2 has not been carried out, this is blank..")]
+        [Description("Fuel input energy (corrected) in kWh/day for domestic hot water test 2 carried out on a combi boiler in accordance with EN 13203-2 (gas) or OPS 26 (oil). If “Separate DHW tests” (field 48) is 2 then hot water test 2 means tested under draw-off schedule no. 3 as defined in the standard. If “Separate DHW tests” (field 48) is 3 then hot water test 2 means tested under draw - off schedule no. 1 as defined in the standard.If the boiler is not a combi, or if domestic hot water test 2 has not been carried out, this is blank.")]
         public virtual string FuelEnergyForHWTest2 { get; set; } = null;
 
         [Description("Electrical input energy (corrected) in kWh/day for domestic hot water test 2 carried out on a combi boiler in accordance with EN 13203-2 (gas) or OPS 26 (oil). If “Separate DHW tests” (field 48) is 2 then hot water test 2 means tested under draw-off schedule no. 3 as defined in the standard. If “Separate DHW tests” (field 48) is 3 then hot water test 2 means tested under draw-off schedule no. 1 as defined in the standard. If the boiler is not a combi, or if domestic hot water test 2 has not been carried out, this is blank.")]

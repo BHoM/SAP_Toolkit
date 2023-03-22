@@ -34,11 +34,11 @@ namespace BH.oM.Environment.SAP.XML
     public class AirChangeRate : IObject
     {
         [Description("")]
-        [XmlElement("Air-Change-Rate-Month")]
+        [XmlElement("Air-Change-Rate-Month.")]
         public virtual string Month { get; set; } = "Jan";
 
-        [Description("Air change rate in month")]
-        [XmlElement("Air-Change-Rate-Value")]
+        [Description("Air change rate in month.")]
+        [XmlElement("Air-Change-Rate-Value.")]
         public virtual double Value { get; set; } = 0;
     }
 }

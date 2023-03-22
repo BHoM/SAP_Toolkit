@@ -34,11 +34,11 @@ namespace BH.oM.Environment.SAP.XML
     public class RHINewDwelling : IObject
     {
         [Description("Space heating requirement.")]
-        [XmlElement(ElementName = "Space-Heating")]
+        [XmlElement(ElementName = "Space-Heating.")]
         public virtual double SpaceHeating { get; set; } = 0;
 
         [Description("Water heating requirement.")]
-        [XmlElement(ElementName = "Water-Heating")]
+        [XmlElement(ElementName = "Water-Heating.")]
         public virtual double WaterHeating { get; set; } = 0;
     }
 }

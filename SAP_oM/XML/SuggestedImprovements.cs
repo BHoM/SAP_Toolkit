@@ -34,7 +34,7 @@ namespace BH.oM.Environment.SAP.XML
     public class SuggestedImprovements : IObject
     {
   
-        [XmlElement("Improvement")]
+        [XmlElement("Improvement.")]
         public virtual List<Improvement> Improvement { get; set; } = null;
 
     }

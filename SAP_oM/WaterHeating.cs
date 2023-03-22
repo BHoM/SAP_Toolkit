@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Strategy for the ventilation of the dwelling.")]
+    [Description("Strategy for the water heating of the dwelling.")]
     public class WaterHeating : BHoMObject
     {
 

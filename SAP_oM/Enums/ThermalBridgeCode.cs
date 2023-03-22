@@ -26,9 +26,6 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//TF is going on, I need to check the schema I don't think I pulled this through properly
-// Also IDEK know where this is used
-
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates how the thermal bridge data has been recorded.")]

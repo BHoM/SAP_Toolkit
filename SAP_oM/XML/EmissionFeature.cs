@@ -34,11 +34,11 @@ namespace BH.oM.Environment.SAP.XML
     public class EmissionFeature : IObject
     {
         [Description("Emissions saved in kg/year.")]
-        [XmlElement("Emissions-Saved")]
+        [XmlElement("Emissions-Saved.")]
         public virtual double EmissionsSaved { get; set; } = 0;
 
         [Description("Additional emissions in kg/year.")]
-        [XmlElement("Emissions-Created")]
+        [XmlElement("Emissions-Created.")]
         public virtual double EmissionsCreated { get; set; } = 0;
     }
 }

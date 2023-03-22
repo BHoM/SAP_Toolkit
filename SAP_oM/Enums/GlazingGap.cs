@@ -27,8 +27,6 @@ using System.Linq;
 using BH.oM.Base;
 
 
-//Oooh this is gonna cause an error when it is uncommented!
-//Ask about display stuff!
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of glazing; if U-value is from BFRC or manufacturer declaration, give as one of: single, double, triple.")]

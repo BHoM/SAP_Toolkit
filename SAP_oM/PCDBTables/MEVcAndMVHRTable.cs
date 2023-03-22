@@ -94,7 +94,7 @@ namespace BH.oM.Environment.SAP
         [Description("Flow rate for the values in the next two fields.")]
         public virtual string ApplicableFlowRate { get; set; } = null;
 
-        [Description("Specific fan power in watts per (litre per second)..")]
+        [Description("Specific fan power in watts per (litre per second).")]
         public virtual string SpecificFanPower { get; set; } = null;
 
         [Description("Heat exchanger efficiency in %. MVHR only, blank if not applicable.")] 

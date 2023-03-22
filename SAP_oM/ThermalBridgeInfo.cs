@@ -29,13 +29,13 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Global ThermalBridge Info")]
+    [Description("Global ThermalBridge Info.")]
     public class ThermalBridgeInfo : BHoMObject
     {
         [Description("Code which indicates how the thermal bridge data has been recorded.")]
         public virtual ThermalBridgeCode ThermalBridgeCode { get; set; } = ThermalBridgeCode.Default;
 
-        [Description("Global y-value for all thermal bridges in watts per square metre per kelvin; only if thermal bridge code is: user defined (global y-value)")]
+        [Description("Global y-value for all thermal bridges in watts per square metre per kelvin; only if thermal bridge code is: user defined (global y-value).")]
         public virtual double UserDefinedYValue { get; set; } = 0;
 
         [Description("Reference to the details of the calculation of the global y-value; only if thermal bridging is user defined global y-value.")]

@@ -29,37 +29,37 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("The opening type defines the thermal properties of a series of openings")]
+    [Description("The opening type defines the thermal properties of a series of openings.")]
     public class OpeningType : BHoMObject
     {
         [Description("The source of the data for this type of opening.")]
         public virtual OpeningDataSource DataSource { get; set; } = OpeningDataSource.ManufacturerDeclaration;
 
-        [Description("The type of opening e.g. solid door, glazed window or rooflight. This should be selected in line with the SAP 2012 guidance")]
+        [Description("The type of opening e.g. solid door, glazed window or rooflight. This should be selected in line with the SAP 2012 guidance.")]
         public virtual TypeOfOpening Type { get; set; } = TypeOfOpening.Window;
 
-        [Description("The type of glazing; if U-value is from BFRC or manufacturer declaration, give as one of: single, double, triple")]
+        [Description("The type of glazing; if U-value is from BFRC or manufacturer declaration, give as one of: single, double, triple.")]
         public virtual TypeOfGlazing GlazingType { get; set; } = TypeOfGlazing.NotAppicable;
 
-        [Description("Gap between glass panes")]
+        [Description("Gap between glass panes.")]
         public virtual GlazingGap GlazingGap { get; set; } = GlazingGap.Sixmm;
 
-        [Description("Is the opening argon-filled?")]
+        [Description("Is the opening argon-filled?.")]
         public virtual bool IsArgonFilled { get; set; } = false;
 
-        [Description("Is the opening krypton-filled?")]
+        [Description("Is the opening krypton-filled?.")]
         public virtual bool IsKryptonFilled { get; set; } = false;
 
-        [Description("The type of frame")]
+        [Description("The type of frame.")]
         public virtual TypeOfFrame FrameType { get; set; } = TypeOfFrame.Unknown;
 
-        [Description("The g-value or solar heat transmittance of the glazed/transparent part of an opening")]
+        [Description("The g-value or solar heat transmittance of the glazed/transparent part of an opening.")]
         public virtual double gValue { get; set; } = 0.4;
 
-        [Description("The fraction of the total opening area that is glazed/transparent e.g. a value of 0.8 means 20% of the opening area is frame")]
+        [Description("The fraction of the total opening area that is glazed/transparent e.g. a value of 0.8 means 20% of the opening area is frame.")]
         public virtual double FrameFactor { get; set; } = 0.8;
 
-        [Description("The U-value or thermal conductance of an opening including panes, panels and frame")]
+        [Description("The U-value or thermal conductance of an opening including panes, panels and frame.")]
         public virtual double uValue { get; set; } = 1.4;
 
     }

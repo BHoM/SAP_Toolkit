@@ -33,10 +33,10 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "Renewable-Heat-Incentive", IsNullable = false)]
     public class RenewableHeatIncentive : IObject
     {
-        [XmlElement(ElementName = "RHI-New-Dwelling")]
+        [XmlElement(ElementName = "RHI-New-Dwelling.")]
         public RHINewDwelling RHINewDwelling { get; set; } = null;
 
-        [XmlElement(ElementName = "RHI-Existing-Dwelling")]
+        [XmlElement(ElementName = "RHI-Existing-Dwelling.")]
         public RHIExistingDwelling RHIExistingDwelling { get; set; } = null;
 
     }

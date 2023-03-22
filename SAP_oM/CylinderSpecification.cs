@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Strategy for the ventilation of the dwelling.")]
+    [Description("Cylinder Specification.")]
     public class CylinderSpecification : BHoMObject
     {
         [Description("Cylinder volume in litres.")]
@@ -49,13 +49,13 @@ namespace BH.oM.Environment.SAP
         [Description("")]
         public virtual bool InHeatedSpace { get; set; } = false;
 
-        [Description("Has Cylinder Thermostat")]
+        [Description("Has Cylinder Thermostat.")]
         public virtual bool Cylinderstat { get; set; } = false;
 
         [Description("")]
         public virtual PipeworkInsulationCode PrimaryPipeworkInsulated { get; set; } = PipeworkInsulationCode.NotInsulated;
 
-        [Description("Only if primary pipework is insulated")]
+        [Description("Only if primary pipework is insulated.")]
         public virtual string InsulatedAmount { get; set; } = null;
 
         [Description("")]

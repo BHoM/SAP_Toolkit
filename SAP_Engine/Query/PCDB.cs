@@ -45,7 +45,7 @@ namespace BH.Engine.Environment.SAP
         [Input("ProductIndex", "Unique ID for specific product make and model.")]
         [Input("run", "Toggle to activate the component.")]
         [Output("PCDB", "Performance characteristics of the specified product.")]
-        public static BH.oM.Environment.SAP.IPCDBObject PCDB(this BH.oM.Environment.SAP.ProductType ProductType, string ProductIndex = null, bool run = false)
+        public static BH.oM.Environment.SAP.IPCDBObject PCDB(this BH.oM.Environment.SAP.TypeOfProduct ProductType, string ProductIndex = null, bool run = false)
         {
             if (!run)
             { return null; }
@@ -56,7 +56,7 @@ namespace BH.Engine.Environment.SAP
             String content = reader.ReadToEnd();
             string[] contentSplit = content.Split(new string[] { System.Environment.NewLine }, StringSplitOptions.None);
 
-            if (ProductType == BH.oM.Environment.SAP.ProductType.MEVcAndMVHR)
+            if (ProductType == BH.oM.Environment.SAP.TypeOfProduct.MEVcAndMVHR)
             {
                 string firstLine = contentSplit.Where(x => x.StartsWith("# Table 323")).FirstOrDefault();
                 string lastLine = contentSplit.Where(x => x.StartsWith("# ... end of Table 323")).FirstOrDefault();
@@ -101,7 +101,7 @@ namespace BH.Engine.Environment.SAP
                 return productTable;
             }
 
-            if (ProductType == BH.oM.Environment.SAP.ProductType.GasAndOilBoiler)
+            if (ProductType == BH.oM.Environment.SAP.TypeOfProduct.GasAndOilBoiler)
             {
                 string firstLine = contentSplit.Where(x => x.StartsWith("$105,210,175,2022,01,31,2")).FirstOrDefault();
                 string lastLine = contentSplit.Where(x => x.StartsWith("$122,224,48,2021,04,19,1")).FirstOrDefault();
@@ -184,7 +184,7 @@ namespace BH.Engine.Environment.SAP
                 return productTable;
             }
 
-            if (ProductType == BH.oM.Environment.SAP.ProductType.FlueGasHeatRecoverySystem)
+            if (ProductType == BH.oM.Environment.SAP.TypeOfProduct.FlueGasHeatRecoverySystem)
             {
                 string firstLine = contentSplit.Where(x => x.StartsWith("# Table 313")).FirstOrDefault();
                 string lastLine = contentSplit.Where(x => x.StartsWith("# ... end of Table 313")).FirstOrDefault();
@@ -237,7 +237,7 @@ namespace BH.Engine.Environment.SAP
                  return productTable;
             }
 
-            if (ProductType == BH.oM.Environment.SAP.ProductType.MEVdc) 
+            if (ProductType == BH.oM.Environment.SAP.TypeOfProduct.MEVdc) 
             {
                 string firstLine = contentSplit.Where(x => x.StartsWith("# Table 322")).FirstOrDefault();
                 string lastLine = contentSplit.Where(x => x.StartsWith("# ... end of Table 322")).FirstOrDefault();
@@ -276,7 +276,7 @@ namespace BH.Engine.Environment.SAP
                 return productTable;
             }
 
-            if (ProductType == BH.oM.Environment.SAP.ProductType.MVInUseFactors)
+            if (ProductType == BH.oM.Environment.SAP.TypeOfProduct.MVInUseFactors)
             {
                 string firstLine = contentSplit.Where(x => x.StartsWith("# Table 329")).FirstOrDefault();
                 string lastLine = contentSplit.Where(x => x.StartsWith("# ... end of Table 329")).FirstOrDefault();
@@ -310,7 +310,7 @@ namespace BH.Engine.Environment.SAP
                 return productTable;
             }
 
-            if (ProductType == BH.oM.Environment.SAP.ProductType.MVHRDuct)
+            if (ProductType == BH.oM.Environment.SAP.TypeOfProduct.MVHRDuct)
             {
                 string firstLine = contentSplit.Where(x => x.StartsWith("# Table 341")).FirstOrDefault();
                 string lastLine = contentSplit.Where(x => x.StartsWith("# ... end of Table 341")).FirstOrDefault();
@@ -344,7 +344,7 @@ namespace BH.Engine.Environment.SAP
                 return productTable;
             }
 
-            if (ProductType == BH.oM.Environment.SAP.ProductType.WasteWaterHeatRecoverySystem)
+            if (ProductType == BH.oM.Environment.SAP.TypeOfProduct.WasteWaterHeatRecoverySystem)
             {
                 string firstLine = contentSplit.Where(x => x.StartsWith("# Table 353")).FirstOrDefault();
                 string lastLine = contentSplit.Where(x => x.StartsWith("# ... end of Table 353")).FirstOrDefault();
@@ -386,7 +386,7 @@ namespace BH.Engine.Environment.SAP
                 return productTable;
             }
 
-            if (ProductType == BH.oM.Environment.SAP.ProductType.HeatPump)
+            if (ProductType == BH.oM.Environment.SAP.TypeOfProduct.HeatPump)
             {
                 string firstLine = contentSplit.Where(x => x.StartsWith("# Table 362")).FirstOrDefault();
                 string lastLine = contentSplit.Where(x => x.StartsWith("# ... end of Table 362")).FirstOrDefault();
@@ -457,7 +457,7 @@ namespace BH.Engine.Environment.SAP
                 return productTable;
             }
 
-            if (ProductType == BH.oM.Environment.SAP.ProductType.HeatingControls)
+            if (ProductType == BH.oM.Environment.SAP.TypeOfProduct.HeatingControls)
             {
                 string firstLine = contentSplit.Where(x => x.StartsWith("# Table 371")).FirstOrDefault();
                 string lastLine = contentSplit.Where(x => x.StartsWith("# ... end of Table 371")).FirstOrDefault();
@@ -496,7 +496,7 @@ namespace BH.Engine.Environment.SAP
                 return productTable;
             }
 
-            if (ProductType == BH.oM.Environment.SAP.ProductType.HeatingControlRequirements) 
+            if (ProductType == BH.oM.Environment.SAP.TypeOfProduct.HeatingControlRequirements) 
             {
                 string firstLine = contentSplit.Where(x => x.StartsWith("# Table 372")).FirstOrDefault();
                 string lastLine = contentSplit.Where(x => x.StartsWith("# ... end of Table 372")).FirstOrDefault(); 
@@ -521,7 +521,7 @@ namespace BH.Engine.Environment.SAP
                 return productTable;
             }
 
-            if (ProductType == BH.oM.Environment.SAP.ProductType.WarmAirSystem) 
+            if (ProductType == BH.oM.Environment.SAP.TypeOfProduct.WarmAirSystem) 
             {
                 string firstLine = contentSplit.Where(x => x.StartsWith("# Table 381")).FirstOrDefault();
                 string lastLine = contentSplit.Where(x => x.StartsWith("# ... end of Table 381")).FirstOrDefault();
@@ -600,7 +600,7 @@ namespace BH.Engine.Environment.SAP
                 return productTable;
             }
 
-            if (ProductType == BH.oM.Environment.SAP.ProductType.StorageHeaters)
+            if (ProductType == BH.oM.Environment.SAP.TypeOfProduct.StorageHeaters)
             {
                 string firstLine = contentSplit.Where(x => x.StartsWith("# Table 391")).FirstOrDefault();
                 string lastLine = contentSplit.Where(x => x.StartsWith("# ... end of Table 391")).FirstOrDefault();
@@ -637,7 +637,7 @@ namespace BH.Engine.Environment.SAP
                 return productTable;
             }
 
-            if (ProductType == BH.oM.Environment.SAP.ProductType.CommunityHeatNetworks)
+            if (ProductType == BH.oM.Environment.SAP.TypeOfProduct.CommunityHeatNetworks)
             {
                 string firstLine = contentSplit.Where(x => x.StartsWith("# Table 501")).FirstOrDefault();
                 string lastLine = contentSplit.Where(x => x.StartsWith("# ... end of Table 501")).FirstOrDefault();

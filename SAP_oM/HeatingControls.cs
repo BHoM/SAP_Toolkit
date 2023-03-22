@@ -29,7 +29,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Strategy for the ventilation of the dwelling.")]
+    [Description("Information about the Heating Controls in a dwelling.")]
     public class HeatingControls : BHoMObject
     {
         [Description("Code which indicates the type of heating control, as described in SAP table 4e. Max 2999 min 2001.")]
@@ -40,9 +40,6 @@ namespace BH.oM.Environment.SAP
 
         [Description("")]
         public virtual string BurnerControl { get; set; } = null;
-
-        [Description("")]
-        public virtual HasLoadOrWeatherCompensation HasLoadOrWeatherCompensation { get; set; } = new HasLoadOrWeatherCompensation();
 
         [Description("The ID of the time and temperature zone control from the product database.")]
         public virtual string ControlIndexNumber { get; set; } = null;

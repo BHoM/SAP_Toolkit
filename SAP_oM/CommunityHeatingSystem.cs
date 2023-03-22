@@ -30,14 +30,14 @@ using BH.oM.Environment.SAP.XML;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
+    [Description("Community heating system information.")]
     public class CommunityHeatingSystem : BHoMObject
     {
 
-        [Description("the community heating CO2 emission factor")]
+        [Description("the community heating CO2 emission factor.")]
         public virtual string CommunityHeatingCO2EmissionFactor { get; set; } = null;
 
-        [Description("The community heating Primary Energy Factor")]
+        [Description("The community heating Primary Energy Factor.")]
         public virtual string CommunityHeatingPrimaryEnergyFactor { get; set; } = null;
 
         [Description("Specifies what kind of heating the community system is used for.")]
@@ -46,16 +46,16 @@ namespace BH.oM.Environment.SAP
         [Description("Community Heat Sources.")]
         public virtual List<CommunityHeatSource> CommunityHeatSources { get; set;} = new List<CommunityHeatSource>();   
 
-        [Description("Community heating, hot water cylinder in dwelling?")]
+        [Description("Community heating, hot water cylinder in dwelling?.")]
         public virtual bool? IsCommunityHeatingCylinderInDwelling { get; set; } = null;
 
-        [Description("Heat interface unit in Dwelling?")]
+        [Description("Heat interface unit in Dwelling?.")]
         public virtual bool? IsHeatInterfaceUnitInDwelling { get; set; } = null;
 
         [Description("Heat Interface Unit index number, if present.")]
         public virtual string HeatInterfaceUnitIndexNumber { get; set; } = null;
 
-        [Description("Community heating distribution")]
+        [Description("Community heating distribution.")]
         public virtual HeatingDistributionCode CommunityHeatingDistributionType { get; set; } = HeatingDistributionCode.NetworkCompliantWithCodeOfPractice;
 
         [Description("Used when Community-Heating-Distribution-Type is calculated.")]

@@ -34,7 +34,7 @@ namespace BH.oM.Environment.SAP.XML
     public class Lighting : IObject
     {
         [Description("The record of a lighting type within the building.")]
-        [XmlElement("Fixed-Lights")]
+        [XmlElement("Fixed-Lights.")]
         public virtual FixedLights FixedLights { get; set; } = null;
 
     }

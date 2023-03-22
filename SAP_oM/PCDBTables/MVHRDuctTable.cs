@@ -37,7 +37,7 @@ namespace BH.oM.Environment.SAP
         [Description("Reference to current name of manufacturer (see field 2 in Manufacturers Table).")]
         public virtual string ManufacturerReference { get; set; } = null;
 
-        [Description("Status of the data record, encoded as 0=normal status for an actual product, 1=illustrative (non - existent) product, 2 = under investigation, 3 = not valid, 4 = methodology under review. ")]
+        [Description("Status of the data record, encoded as 0=normal status for an actual product, 1=illustrative (non - existent) product, 2 = under investigation, 3 = not valid, 4 = methodology under review.")]
         public virtual string Status { get; set; } = null;
 
         [Description("Date and time this record was created or last amended by the database administrator.")]

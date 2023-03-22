@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the CHP Electricity generation option (table 12f)")]
+    [Description("Code which indicates the CHP Electricity generation option (table 12f).")]
     public enum CHPElectricityGenerationCode { NewCHPExportOnly = 81, NewCHPFlexibleOperation = 82, NewCHPStandard = 83, ExistingCHP2015ExportOnly = 84, 
         ExistingCHP2015FlexibleOperation = 85, ExistingCHP2015Standard = 86, ExistingCHPPre2015ExportOnly = 87, 
         ExistingCHPPre2015FlexibleOperation = 88, ExistingCHPPre2015Standard = 89 }

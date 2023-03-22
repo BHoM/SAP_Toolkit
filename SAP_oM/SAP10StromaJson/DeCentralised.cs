@@ -27,10 +27,10 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description(".")]
+    [Description("")]
     public class DeCentralised : BHoMObject
     {
-        [Description(".")]
+        [Description("")]
         public virtual int ID
         {
             get;
@@ -38,7 +38,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual double KitchenFanPower1
         {
             get;
@@ -46,7 +46,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual double KitchenFanPower2
         {
             get;
@@ -54,7 +54,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual double KitchenFanPower3
         {
             get;
@@ -62,7 +62,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual double OtherRoomFanPower1
         {
             get;
@@ -70,7 +70,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual double OtherRoomFanPower2
         {
             get;
@@ -78,7 +78,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual double OtherRoomFanPower3
         {
             get;
@@ -86,7 +86,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual double KitchenNumberOfFans1
         {
             get;
@@ -94,7 +94,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual double KitchenNumberOfFans2
         {
             get;
@@ -102,7 +102,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual double KitchenNumberOfFans3
         {
             get;
@@ -110,7 +110,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual double OtherRoomNumberOfFans1
         {
             get;
@@ -118,7 +118,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual double OtherRoomNumberOfFans2
         {
             get;
@@ -126,7 +126,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual double OtherRoomNumberOfFans3
         {
             get;

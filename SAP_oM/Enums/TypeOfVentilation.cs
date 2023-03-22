@@ -26,13 +26,12 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//Check
+/*Check*/
 
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of ventilation.")]
     public enum TypeOfVentilation { NaturalIntermittentExtractFans = 1, NaturalPassiveVents, PositiveInputFromLoft, 
-        PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR, NaturalIntermittentExtractFansAndOrPassiveVents = 9,
-        NaturalIntermittentExtractFansAndPassiveVents = 10 } 
+        PositiveInputFromOutside, MEVc, MEVdc, MV, MVHR,NaturalIntermittentExtractFansAndPassiveVents = 10 } 
 }
 

@@ -29,7 +29,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("")]
+    [Description("Details about the pump.")]
     public class Pump : BHoMObject
     {
         [Description("")]

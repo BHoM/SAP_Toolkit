@@ -35,7 +35,7 @@
 //    public static partial class Convert
 //    {
 //        [Description("Convert Stroma10 to XML report header.")]
-//        [Input("Stroma Root", "Stroma properties to convert")]
+//        [Input("Stroma Root", "Stroma properties to convert.")]
 //        [Output("xmlReportHeader", "XML ReportHeader.")]
 //        public static Output<BH.oM.Environment.SAP.XML.ReportHeader,BH.oM.Environment.SAP.XML.SAP10Data> ToXML(this oM.Environment.SAP.Stroma10.Root sapRoot)
 //        {

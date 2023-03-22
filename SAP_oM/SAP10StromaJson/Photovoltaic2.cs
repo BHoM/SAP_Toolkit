@@ -28,10 +28,10 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description(".")]
+    [Description("")]
     public class Photovoltaic2 : BHoMObject
     {
-        [Description(".")]
+        [Description("")]
         public virtual int ID
         {
             get;
@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int PhotovoltaicTilt
         {
             get;
@@ -55,7 +55,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int PhotovoltaicOrientation
         {
             get;
@@ -63,7 +63,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual int PhotovoltaicOvershading
         {
             get;
@@ -71,7 +71,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual bool DirectlyConnected
         {
             get;
@@ -79,7 +79,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description(".")]
+        [Description("")]
         public virtual int FlatConnection
         {
             get;
@@ -87,7 +87,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual bool MicroCertificationSchemeCertificate
         {
             get;
@@ -95,7 +95,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = false;
-        [Description(".")]
+        [Description("")]
         public virtual double OverShadingFactor
         {
             get;
@@ -103,7 +103,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description(".")]
+        [Description("")]
         public virtual string Manufacturer
         {
             get;
@@ -111,7 +111,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = null;
-        [Description(".")]
+        [Description("")]
         public virtual string MicroCertificationSchemeCertificateReference
         {
             get;

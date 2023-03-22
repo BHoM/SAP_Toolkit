@@ -47,20 +47,20 @@ namespace BH.Engine.Environment.SAP
         /**** Public Methods                            ****/
         /***************************************************/
 
-        [Description("Create a SAP export object from BHoM geometry")]
-        [Input("dwelling", "A self-contained unit of accommodation, that could contain smaller spaces")]
-        [Input("spaces", "A collection of spaces within the dwelling")]
-        [Input("panels", "A collection of Environment Panels within the dwelling, with connected space names matching the space names")]
-        [Input("balconies", "A collection of Environment Panels representing any balconies adjacent to the dwelling")]
-        [Input("baseCurves", "A collection of curves representing the outline of the building, one for each modelled floor")]
-        [Input("levels", "A collection of levels containing the elevations of the floors")]
-        [Input("frontDoors", "A collection of opening representing the dwelling entraces. Used to get the orientation of the dwelling")]
-        [Input("ceilingHeight", "The internal height of the dwelling, from floor top to ceiling bottom")]
-        [Input("ceilingVoidHeight", "The ceiling thickness of the dwelling")]
-        [Input("externalWallHeight", "The total floor to floor height of the dwelling")]
+        [Description("Create a SAP export object from BHoM geometry.")]
+        [Input("dwelling", "A self-contained unit of accommodation, that could contain smaller spaces.")]
+        [Input("spaces", "A collection of spaces within the dwelling.")]
+        [Input("panels", "A collection of Environment Panels within the dwelling, with connected space names matching the space names.")]
+        [Input("balconies", "A collection of Environment Panels representing any balconies adjacent to the dwelling.")]
+        [Input("baseCurves", "A collection of curves representing the outline of the building, one for each modelled floor.")]
+        [Input("levels", "A collection of levels containing the elevations of the floors.")]
+        [Input("frontDoors", "A collection of opening representing the dwelling entraces. Used to get the orientation of the dwelling.")]
+        [Input("ceilingHeight", "The internal height of the dwelling, from floor top to ceiling bottom.")]
+        [Input("ceilingVoidHeight", "The ceiling thickness of the dwelling.")]
+        [Input("externalWallHeight", "The total floor to floor height of the dwelling.")]
         [Input("distanceTolerance", "Distance tolerance for calculating discontinuity points, default is set to the value defined by BH.oM.Geometry.Tolerance.Distance.")]
         [Input("angleTolerance", "Angle tolerance for calculating discontinuity points, default is set to the value defined by BH.oM.Geometry.Tolerance.Angle.")]
-        [Output("SAPExport", "A SAP export object")]
+        [Output("SAPExport", "A SAP export object.")]
         public static SAPExport SAPExport(Zone dwelling, List<Space> spaces, List<Panel> panels, List<Panel> balconies, List<Polyline> baseCurves, List<Level> levels, List<BH.oM.Environment.Elements.Opening> frontDoors, double ceilingHeight, double ceilingVoidHeight, double externalWallHeight, double distanceTolerance = BH.oM.Geometry.Tolerance.Distance, double angleTolerance = BH.oM.Geometry.Tolerance.Angle, int crossVentTolerance = 45)
         {
             SAPExport sapExport = new SAPExport();

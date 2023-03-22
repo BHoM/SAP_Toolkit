@@ -31,35 +31,35 @@ using BH.oM.Environment.SAP.Stroma10;
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    //[XmlRoot(ElementName = "SAP-Energy-Source", IsNullable = false)]
+    [XmlRoot(ElementName = "SAP-Energy-Source", IsNullable = false)]
     public class EnergySource : IObject
     {
         [Description("")]
-        [XmlElement("PV-Arrays")]
+        [XmlElement("PV-Arrays.")]
         public virtual PhotovoltaicArrays PhotovoltaicArrays { get; set; } = null;
 
         [Description("")]
-        [XmlElement(ElementName = "Wind-Turbines")]
+        [XmlElement(ElementName = "Wind-Turbines.")]
         public virtual WindTurbines WindTurbines { get; set; } = null;
 
         [Description("")]
-        [XmlElement(ElementName = "Electricity-Tariff")]
+        [XmlElement(ElementName = "Electricity-Tariff.")]
         public virtual string ElectricityTariff { get; set; } = "1";
 
         [Description("")]
-        [XmlElement(ElementName = "Hydro-Electric-Generation")]
+        [XmlElement(ElementName = "Hydro-Electric-Generation.")]
         public virtual double HydroElectricGeneration { get; set; } = 0;
 
         [Description("")]
-        [XmlElement(ElementName = "Hydro-Electric-Certificate")]
+        [XmlElement(ElementName = "Hydro-Electric-Certificate.")]
         public virtual string HydroElectricCertificate { get; set; } = null;
 
         [Description("")]
-        [XmlElement(ElementName = "Hydro-Electric-Generation-Months")]
+        [XmlElement(ElementName = "Hydro-Electric-Generation-Months.")]
         public virtual HydroElectricGenerationMonths HydroElectricGenerationMonths { get; set; } = null;
 
         [Description("")]
-        [XmlElement(ElementName = "Is-Hydro-Output-Connected-To-Dwelling-Meter")]
+        [XmlElement(ElementName = "Is-Hydro-Output-Connected-To-Dwelling-Meter.")]
         public virtual bool IsHydroOutputConnectedToDwellingMeter { get; set; } = false;
 
     }

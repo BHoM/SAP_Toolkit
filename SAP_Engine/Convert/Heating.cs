@@ -136,13 +136,17 @@ namespace BH.Engine.Environment.SAP
 
             if (heating.Main != null)
             {
-                //Add in something to change index no. of heating system 
-                xmlMainHeatingList.Add(heating.Main.ToXML());
+                oM.Environment.SAP.XML.MainHeating xmlMain = heating.Main.ToXML();
+                xmlMain.MainHeatingNumber = "1";
+                xmlMainHeatingList.Add(xmlMain);
 
             }
             if (heating.SecondaryMain != null)
             {
-                xmlMainHeatingList.Add(heating.SecondaryMain.ToXML()); 
+                oM.Environment.SAP.XML.MainHeating xmlSecondary = heating.SecondaryMain.ToXML();
+                xmlSecondary.MainHeatingNumber = "2";
+                xmlMainHeatingList.Add(xmlSecondary);
+
             }
 
             xmlHeating.MainHeatingDetails.MainHeating = xmlMainHeatingList;
@@ -245,7 +249,7 @@ namespace BH.Engine.Environment.SAP
             xmlSolarHeatingDetails.CollectorType = heating.SolarPanelDetails.CollectorType.FromSAPToXML();
             xmlSolarHeatingDetails.DataSource = null;
             xmlSolarHeatingDetails.ZeroLossEfficiency = heating.SolarPanelDetails.CollectorEfficiencyη0;
-            xmlSolarHeatingDetails.HeatLossRate = null; //for backward compatibility only, do not use.
+            xmlSolarHeatingDetails.HeatLossRate = null; 
             xmlSolarHeatingDetails.LinearHeatLossCoefficient = heating.SolarPanelDetails.Coefficienta1;
             xmlSolarHeatingDetails.SecondOrderHeatLossCoefficient = heating.SolarPanelDetails.Coefficienta2;
             xmlSolarHeatingDetails.Orientation = heating.SolarPanelDetails.Orientation.FromSAPToXML();
@@ -451,9 +455,6 @@ namespace BH.Engine.Environment.SAP
 
                 case BH.oM.Environment.SAP.TypeOfSolarCollector.EvacuatedTube:
                     return "3";
-
-                case BH.oM.Environment.SAP.TypeOfSolarCollector.ForBackwardsCompatabilityOnlyDoNotUse:
-                    return "ND";
 
                 default:
                     return "";

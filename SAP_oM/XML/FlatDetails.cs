@@ -34,11 +34,11 @@ namespace BH.oM.Environment.SAP.XML
     public class FlatDetails : IObject
     {
         [Description("Indication of where a flat is located in a building.")]
-        [XmlElement("Level")]
+        [XmlElement("Level.")]
         public virtual string Level { get; set; } = "1";
 
         [Description("Count of number of storeys present in the block of flats.")]
-        [XmlElement("Storeys")]
+        [XmlElement("Storeys.")]
         public virtual string Storeys { get; set; } = "1";
     }
 }

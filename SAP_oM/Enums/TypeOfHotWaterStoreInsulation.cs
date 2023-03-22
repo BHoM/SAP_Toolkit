@@ -27,8 +27,7 @@ using System.Linq;
 using BH.oM.Base;
 
 
-//Error incoming
-//name change HotWaterStoreInsulationTypeCode to TypeOfHotWaterStoreInsulation
+
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of hot water storage insulation.")]

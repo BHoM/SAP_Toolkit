@@ -28,16 +28,16 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("An opening that is hosted on a Wall, Floor or Roof that forms part of the thermal line of the dwelling")]
+    [Description("Storey Details.")]
     public class Storey : BHoMObject
     {
-        [Description("The storey number within the dwelling e.g. 0 = lowest floor")]
+        [Description("The storey number within the dwelling e.g. 0 = lowest floor.")]
         public virtual int StoreyNumber { get; set; } = 0;
 
-        [Description("The total floor area of the storey within the dwelling, measured to the internal surface of the walls")]
+        [Description("The total floor area of the storey within the dwelling, measured to the internal surface of the walls.")]
         public virtual double Area { get; set; } = 0;
 
-        [Description("The average floor to ceiling height of the storey within the dwelling, measured as per SAP 2012 Conventions 2.03")]
+        [Description("The average floor to ceiling height of the storey within the dwelling, measured as per SAP 2012 Conventions 2.03.")]
         public virtual double Height { get; set; } = 0;
 
     }

@@ -34,35 +34,35 @@ namespace BH.oM.Environment.SAP.XML
     public class InstantaneousWWHRS : IObject
     {
         [Description("")]
-        [XmlElement("WWHRS-Index-Number1")]
+        [XmlElement("WWHRS-Index-Number1.")]
         public virtual string WWHRSIndexNumber1 { get; set; } = "1";
 
         [Description("Omit if no second system.")]
-        [XmlElement("WWHRS-Index-Number2")]
+        [XmlElement("WWHRS-Index-Number2.")]
         public virtual string WWHRSIndexNumber2 { get; set; } = "2";
 
         [Description("")]
-        [XmlElement("WWHRS-Efficiency1")]
+        [XmlElement("WWHRS-Efficiency1.")]
         public virtual string WWHRSEfficiency1 { get; set; } = null;
 
         [Description("Omit if no second system.")]
-        [XmlElement("WWHRS-Manufacturer1")]
+        [XmlElement("WWHRS-Manufacturer1.")]
         public virtual string WWHRSManufacturer1 { get; set; } = null;
 
         [Description("")]
-        [XmlElement("WWHRS-Model1")]
+        [XmlElement("WWHRS-Model1.")]
         public virtual string WWHRSModel1 { get; set; } = null;
 
         [Description("")]
-        [XmlElement("WWHRS-Efficiency2")]
+        [XmlElement("WWHRS-Efficiency2.")]
         public virtual string WWHRSEfficiency2 { get; set; } = null;
 
         [Description("Omit if no second system.")]
-        [XmlElement("WWHRS-Manufacturer2")]
+        [XmlElement("WWHRS-Manufacturer2.")]
         public virtual string WWHRSManufacturer2 { get; set; } = null;
 
         [Description("")]
-        [XmlElement("WWHRS-Model2")]
+        [XmlElement("WWHRS-Model2.")]
         public virtual string WWHRSModel2 { get; set; } = null;
 
 

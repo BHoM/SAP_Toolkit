@@ -29,13 +29,13 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Floor Dimension")]
+    [Description("Floor Dimension.")]
     public class FloorDimension : BHoMObject
     {
-        [Description("Floor Information")]
+        [Description("Floor Information.")]
         public virtual Floor Floor { get; set; } = null;
 
-        [Description("Storey Information")]
+        [Description("Storey Information.")]
         public virtual Storey Storey { get; set; } = null;
     }
 }

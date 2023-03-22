@@ -32,7 +32,7 @@ namespace BH.oM.Environment.SAP
     [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
     public class AirPermability : BHoMObject
     {
-        [Description("PressureTest")]
+        [Description("PressureTest.")]
         public virtual PressureTestCode? PressureTest { get; set; } = null;
 
         [Description("Air permeability; only if pressure test (yes or assumed).")]

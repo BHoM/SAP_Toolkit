@@ -29,19 +29,19 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
+    [Description("Further details about the Photovltaic array.")]
     public class PVDetails : BHoMObject
     {
-        [Description("MCSCertificate")]
+        [Description("MCSCertificate.")]
         public virtual bool MCSCertificate { get; set; } = false;
 
-        [Description("MCSCertificateReference")]
+        [Description("MCSCertificateReference.")]
         public virtual string MCSCertificateReference { get; set; } = null;
 
-        [Description("ManufacturerName")]
+        [Description("ManufacturerName.")]
         public virtual string ManufacturerName { get; set; } = null;
 
-        [Description("OvershadingMCS")]
+        [Description("OvershadingMCS.")]
         public virtual double OvershadingMCS { get; set; } = 0;
     }
 }

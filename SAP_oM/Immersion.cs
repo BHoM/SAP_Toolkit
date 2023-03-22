@@ -28,16 +28,16 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Strategy for the ventilation of the dwelling.")]
+    [Description("Details about the use of immersion.")]
     public class Immersion : BHoMObject
     {
         [Description("Is heat pump assisted by immersion.")]
         public virtual bool? UseOfImmersion { get; set; } = null;
 
-        [Description("Is heat pump installed to MIS standard?")]
+        [Description("Is heat pump installed to MIS standard?.")]
         public virtual bool? InstalledToMIS { get; set; } = null;
 
-        [Description("Heat pump immersion")]
+        [Description("Heat pump immersion.")]
         public virtual string HeatExchangerArea { get; set; } = null;
 
         [Description("")]

@@ -26,8 +26,6 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 
-//Renamed this from ProductType to TypeOfProduct
-//error incoming somewhere
 
 namespace BH.oM.Environment.SAP
 {

@@ -29,13 +29,13 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("An exposed/heat loss roof that forms part of the thermal line of the dwelling")]
+    [Description("An exposed/heat loss roof that forms part of the thermal line of the dwelling.")]
     public class Roof : BHoMObject
     {
         [Description("Type of roof (exposure).")]
         public virtual TypeOfRoof Type { get; set; } = TypeOfRoof.ExposedRoof;
 
-        [Description("The total (gross - including opening areas) area of the roof as seen from inside the dwelling")]
+        [Description("The total (gross - including opening areas) area of the roof as seen from inside the dwelling.")]
         public virtual double Area { get; set; } = 0;
 
         [Description("U-value of the floor.")]
@@ -45,10 +45,10 @@ namespace BH.oM.Environment.SAP
 
         public virtual double KappaValue { get; set; } = 9;
 
-        [Description("Pitch of roof")]
+        [Description("Pitch of roof.")]
         public virtual VerticalPitchCode Pitch { get; set; } =  VerticalPitchCode._30Degrees;
 
-        [Description("Openings (skylights) that are hosted within the roof")]
+        [Description("Openings (skylights) that are hosted within the roof.")]
         public virtual List<BH.oM.Environment.SAP.Opening> Openings { get; set; } = new List<BH.oM.Environment.SAP.Opening>();
 
     }

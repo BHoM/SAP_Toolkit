@@ -20,6 +20,7 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,33 +46,33 @@ namespace BH.Engine.Environment.SAP
                 thermalBridge.Reference = thermalBridgeCurves.Reference;
                 thermalBridge.ID = thermalBridgeCurves.ID;
 
-                thermalBridge.E2 = thermalBridgeCurves.E2.Select(y => y.Length()).Sum();
-                thermalBridge.E3 = thermalBridgeCurves.E3.Select(y => y.Length()).Sum();
-                thermalBridge.E4 = thermalBridgeCurves.E4.Select(y => y.Length()).Sum();
-                thermalBridge.E7 = thermalBridgeCurves.E7.Select(y => y.Length()).Sum();
+                thermalBridge.E2 = thermalBridgeCurves.ExternalJunctions.E2.Select(y => y.Length()).Sum();
+                thermalBridge.E3 = thermalBridgeCurves.ExternalJunctions.E3.Select(y => y.Length()).Sum();
+                thermalBridge.E4 = thermalBridgeCurves.ExternalJunctions.E4.Select(y => y.Length()).Sum();
+                thermalBridge.E7 = thermalBridgeCurves.ExternalJunctions.E7.Select(y => y.Length()).Sum();
 
-                if (thermalBridgeCurves.E23 != null)
-                    thermalBridge.E23 = thermalBridgeCurves.E23.Select(y => y.Length()).Sum();
-
-                //if (thermalBridgeCurves.E10 != null)
+                if (thermalBridgeCurves.ExternalJunctions.E23 != null)
+                    thermalBridge.E23 = thermalBridgeCurves.ExternalJunctions.E23.Select(y => y.Length()).Sum();
+                //*******************************************************
+                //if (thermalBridgeCurves.ExternalJunctions.E10 != null)
                 //{
-                //    thermalBridge.E10 = thermalBridgeCurves.E10.Select(y => y.Length()).Sum();
+                //    thermalBridge.E10 = thermalBridgeCurves.ExternalJunctions.E10.Select(y => y.Length()).Sum();
                 //}
+                //*********************************************************
+                if (thermalBridgeCurves.ExternalJunctions.E15 != null)
+                    thermalBridge.E15 = thermalBridgeCurves.ExternalJunctions.E15.Select(y => y.Length()).Sum();
 
-                if (thermalBridgeCurves.E15 != null)
-                    thermalBridge.E15 = thermalBridgeCurves.E15.Select(y => y.Length()).Sum();
+                if (thermalBridgeCurves.ExternalJunctions.E16 != null)
+                    thermalBridge.E16 = thermalBridgeCurves.ExternalJunctions.E16.Select(y => y.Length()).Sum();
 
-                if (thermalBridgeCurves.E16 != null)
-                    thermalBridge.E16 = thermalBridgeCurves.E16.Select(y => y.Length()).Sum();
+                if (thermalBridgeCurves.ExternalJunctions.E17 != null)
+                    thermalBridge.E17 = thermalBridgeCurves.ExternalJunctions.E17.Select(y => y.Length()).Sum();
 
-                if (thermalBridgeCurves.E17 != null)
-                    thermalBridge.E17 = thermalBridgeCurves.E17.Select(y => y.Length()).Sum();
+                if (thermalBridgeCurves.ExternalJunctions.E18 != null)
+                    thermalBridge.E18 = thermalBridgeCurves.ExternalJunctions.E18.Select(y => y.Length()).Sum();
 
-                if (thermalBridgeCurves.E18 != null)
-                    thermalBridge.E18 = thermalBridgeCurves.E18.Select(y => y.Length()).Sum();
-
-                if (thermalBridgeCurves.E25 != null)
-                    thermalBridge.E25 = thermalBridgeCurves.E25.Select(y => y.Length()).Sum();
+                if (thermalBridgeCurves.ExternalJunctions.E25 != null)
+                    thermalBridge.E25 = thermalBridgeCurves.ExternalJunctions.E25.Select(y => y.Length()).Sum();
                 thermalBridges.Add(thermalBridge);
             }
 

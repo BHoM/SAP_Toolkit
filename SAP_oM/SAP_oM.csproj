@@ -75,6 +75,9 @@
     <Compile Include="StorageHeater.cs" />
     <Compile Include="Efficiency.cs" />
     <Compile Include="Flue.cs" />
+    <Compile Include="PartyWallJunctions.cs" />
+    <Compile Include="RoofJunctions.cs" />
+    <Compile Include="ExternalJunctions.cs" />
     <Compile Include="TypeOfBoiler.cs" />
     <Compile Include="Boiler.cs" />
     <Compile Include="Pump.cs" />
@@ -194,7 +197,6 @@
     <Compile Include="Immersion.cs" />
     <Compile Include="IResultObject.cs" />
     <Compile Include="PCDBTables\IPCDBObject.cs" />
-    <Compile Include="ManufacturerDescription.cs" />
     <Compile Include="PCDBTables\CommunityHeatNetworksTable.cs" />
     <Compile Include="PCDBTables\DecentralisedMEVTable.cs" />
     <Compile Include="PCDBTables\FlueGasHeatRecoverySystemTable.cs" />
@@ -284,7 +286,6 @@
     <Compile Include="LivingArea.cs" />
     <Compile Include="MechanicalVentilationDetails.cs" />
     <Compile Include="AirPermability.cs" />
-    <Compile Include="ExtraNoPressureTest.cs" />
     <Compile Include="Ventilation.cs" />
     <Compile Include="VentilationRates.cs" />
     <Compile Include="SpecialFeature.cs" />
@@ -292,6 +293,9 @@
     <Compile Include="WWHRS.cs" />
     <Compile Include="InstantaneousWWHRSSystem.cs" />
     <Compile Include="StorageWWHRS.cs" />
+    <Compile Include="XML\Addendum.cs" />
+    <Compile Include="XML\GreenDealImprovement.cs" />
+    <Compile Include="XML\GreenPackageDeal.cs" />
     <Compile Include="XML\HydroElectricGenerationMonths.cs" />
     <Compile Include="XML\HydroElectricGenerationMonth.cs" />
     <Compile Include="XML\InsuranceDetails.cs" />
@@ -301,13 +305,11 @@
     <Compile Include="XML\AirChangeRate.cs" />
     <Compile Include="XML\AirChangeRates.cs" />
     <Compile Include="XML\BuildingPart.cs" />
-    <Compile Include="Dwelling.cs" />
     <Compile Include="Roof.cs" />
     <Compile Include="Floor.cs" />
     <Compile Include="Opening.cs" />
     <Compile Include="OpeningType.cs" />
     <Compile Include="Output.cs" />
-    <Compile Include="ProjectSpecification.cs" />
     <Compile Include="RunAnalysisCommand.cs" />
     <Compile Include="Storey.cs" />
     <Compile Include="ThermalBridge.cs" />

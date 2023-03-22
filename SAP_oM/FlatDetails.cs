@@ -29,7 +29,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Whether there has been a pressure test, include information depending on if pressure test or not.")]
+    [Description("Further details about a flat.")]
     public class FlatDetails : BHoMObject
     {
         [Description("Indication of where a flat is located in a building.")]

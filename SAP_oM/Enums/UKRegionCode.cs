@@ -36,83 +36,86 @@ namespace BH.oM.Environment.SAP
         IsleOfMan = 24 }
 }
 
-//private static string FromSAPToXML(this BH.oM.Environment.SAP.UKRegionCode uKRegionCode)
-//{
-//    switch (uKRegionCode)
-//    {
-//        case BH.oM.Environment.SAP.UKRegionCode.Borders:
-//            return "1";
+/*
+private static string FromSAPToXML(this BH.oM.Environment.SAP.UKRegionCode uKRegionCode)
+{
+    switch (uKRegionCode)
+    {
+        case BH.oM.Environment.SAP.UKRegionCode.Borders:
+            return "1";
 
-//        case BH.oM.Environment.SAP.UKRegionCode.EastAnglia:
-//            return "2";
+        case BH.oM.Environment.SAP.UKRegionCode.EastAnglia:
+            return "2";
 
-//        case BH.oM.Environment.SAP.UKRegionCode.EastPennines:
-//            return "3";
+        case BH.oM.Environment.SAP.UKRegionCode.EastPennines:
+            return "3";
 
-//        case BH.oM.Environment.SAP.UKRegionCode.EastScotland:
-//            return "4";
+        case BH.oM.Environment.SAP.UKRegionCode.EastScotland:
+            return "4";
 
-//        case BH.oM.Environment.SAP.UKRegionCode.Highland:
-//            return "5";
+        case BH.oM.Environment.SAP.UKRegionCode.Highland:
+            return "5";
 
-//        case BH.oM.Environment.SAP.UKRegionCode.Midlands:
-//            return "6";
+        case BH.oM.Environment.SAP.UKRegionCode.Midlands:
+            return "6";
 
-//        case BH.oM.Environment.SAP.UKRegionCode.NorthEastEngland:
-//            return "7";
+        case BH.oM.Environment.SAP.UKRegionCode.NorthEastEngland:
+            return "7";
 
-//        case BH.oM.Environment.SAP.UKRegionCode.NorthEastScotland:
-//            return "8";
+        case BH.oM.Environment.SAP.UKRegionCode.NorthEastScotland:
+            return "8";
 
-//        case BH.oM.Environment.SAP.UKRegionCode.NorthWestEnglandAndSouthWestScotland:
-//            return "9";
+        case BH.oM.Environment.SAP.UKRegionCode.NorthWestEnglandAndSouthWestScotland:
+            return "9";
 
-//        case BH.oM.Environment.SAP.UKRegionCode.NorthernIreland:
-//            return "10";
+        case BH.oM.Environment.SAP.UKRegionCode.NorthernIreland:
+            return "10";
 
-//        case BH.oM.Environment.SAP.UKRegionCode.Orkney:
-//            return "11";
+        case BH.oM.Environment.SAP.UKRegionCode.Orkney:
+            return "11";
 
-//        case BH.oM.Environment.SAP.UKRegionCode.SevernValley:
-//            return "12";
+        case BH.oM.Environment.SAP.UKRegionCode.SevernValley:
+            return "12";
 
-//        case BH.oM.Environment.SAP.UKRegionCode.Shetland:
-//            return "13";
+        case BH.oM.Environment.SAP.UKRegionCode.Shetland:
+            return "13";
 
-//        case BH.oM.Environment.SAP.UKRegionCode.SouthEastEngland:
-//            return "14";
+        case BH.oM.Environment.SAP.UKRegionCode.SouthEastEngland:
+            return "14";
 
-//        case BH.oM.Environment.SAP.UKRegionCode.SouthWestEngland:
-//            return "15";
+        case BH.oM.Environment.SAP.UKRegionCode.SouthWestEngland:
+            return "15";
 
-//        case BH.oM.Environment.SAP.UKRegionCode.SouthernEngland:
-//            return "16";
+        case BH.oM.Environment.SAP.UKRegionCode.SouthernEngland:
+            return "16";
 
-//        case BH.oM.Environment.SAP.UKRegionCode.ThamesValley:
-//            return "17";
+        case BH.oM.Environment.SAP.UKRegionCode.ThamesValley:
+            return "17";
 
-//        case BH.oM.Environment.SAP.UKRegionCode.Wales:
-//            return "18";
+        case BH.oM.Environment.SAP.UKRegionCode.Wales:
+            return "18";
 
-//        case BH.oM.Environment.SAP.UKRegionCode.WestPennines:
-//            return "19";
+        case BH.oM.Environment.SAP.UKRegionCode.WestPennines:
+            return "19";
 
-//        case BH.oM.Environment.SAP.UKRegionCode.WestScotland:
-//            return "20";
+        case BH.oM.Environment.SAP.UKRegionCode.WestScotland:
+            return "20";
 
-//        case BH.oM.Environment.SAP.UKRegionCode.WesternIsles:
-//            return "21";
+        case BH.oM.Environment.SAP.UKRegionCode.WesternIsles:
+            return "21";
 
-//        case BH.oM.Environment.SAP.UKRegionCode.Jersey:
-//            return "22";
+        case BH.oM.Environment.SAP.UKRegionCode.Jersey:
+            return "22";
 
-//        case BH.oM.Environment.SAP.UKRegionCode.Guernsey:
-//            return "23";
+        case BH.oM.Environment.SAP.UKRegionCode.Guernsey:
+            return "23";
 
-//        case BH.oM.Environment.SAP.UKRegionCode.IsleOfMan:
-//            return "24";
+        case BH.oM.Environment.SAP.UKRegionCode.IsleOfMan:
+            return "24";
 
-//        default:
-//            return "";
-//    }
-//}
+        default:
+            return "";
+    }
+}
+
+*/

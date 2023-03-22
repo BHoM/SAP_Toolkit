@@ -29,14 +29,14 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Monthly Data")]
+    [Description("Monthly Data.")]
     public class MonthlyValues: BHoMObject
     {
 
-        [Description("Month")]
+        [Description("Month.")]
         public virtual Months Month { get; set; } = Months.January;
 
-        [Description("Monthly Value")]
+        [Description("Monthly Value.")]
         public virtual double Value { get; set; } = 0;
 
         

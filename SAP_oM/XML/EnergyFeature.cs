@@ -34,23 +34,23 @@ namespace BH.oM.Environment.SAP.XML
     public class EnergyFeature : IObject
     {
         [Description("Energy saved or generated in kWh/year.")]
-        [XmlElement("Energy-Saved-Or-Generated")]
+        [XmlElement("Energy-Saved-Or-Generated.")]
         public virtual double EnergySavedOrGenerated { get; set; } = 0;
         
         [Description("")]
-        [XmlElement("Saved-Or-Generated-Fuel")]
+        [XmlElement("Saved-Or-Generated-Fuel.")]
         public virtual string SavedOrGeneratedFuel { get; set; } = "1";
 
         [Description("Energy used in kWh/year.")]
-        [XmlElement("Energy-Used")]
+        [XmlElement("Energy-Used.")]
         public virtual double EnergyUsed { get; set; } = 0;
 
         [Description("")]
-        [XmlElement("Energy-Used-Fuel")]
+        [XmlElement("Energy-Used-Fuel.")]
         public virtual string EnergyUsedFuel { get; set; } = "1";
 
         [Description("For Appendix Q procedure that provides air change rates. Only one Special Feature can have data on air change rates.")]
-        [XmlElement("Air-Change-Rates")]
+        [XmlElement("Air-Change-Rates.")]
         public virtual AirChangeRates AirChangeRates { get; set; } = null;
     }
 }

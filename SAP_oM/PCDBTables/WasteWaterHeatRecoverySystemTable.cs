@@ -31,7 +31,7 @@ namespace BH.oM.Environment.SAP
     [Description("Data format specification in database.")]
     public class WasteWaterHeatRecoverySystemTable : BHoMObject, IPCDBObject
     {
-        [Description("Unique index number for each record, assigned automatically by database software and used for control and reference purposes. ")]
+        [Description("Unique index number for each record, assigned automatically by database software and used for control and reference purposes.")]
         public virtual string Index { get; set; } = null;
 
         [Description("Reference to current name of manufacturer (see field 2 in Manufacturers Table).")]

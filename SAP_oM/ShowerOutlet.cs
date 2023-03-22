@@ -29,7 +29,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("")]
+    [Description("Details of a shower outlet.")]
     public class ShowerOutlet : BHoMObject
     {
         [Description("Hot water type for this shower outlet.")]
