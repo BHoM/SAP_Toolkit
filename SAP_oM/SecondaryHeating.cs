@@ -31,19 +31,19 @@ namespace BH.oM.Environment.SAP
     [Description("Secondary Heating.")]
     public class SecondaryHeating : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual SecondaryHeatingDetails HeatingDetails { get; set; } = new SecondaryHeatingDetails();
 
-        [Description("")]
+        [Description(".")]
         public virtual HeatingDeclared HeatingDeclaredValues { get; set; } = new HeatingDeclared();
 
-        [Description("")]
+        [Description(".")]
         public virtual TypeOfHeatingFuel Fuel { get; set; } = new TypeOfHeatingFuel();
 
-        [Description("")]
+        [Description(".")]
         public virtual bool? HETASApproved { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual string Efficiency { get; set; } = null;
 
     }

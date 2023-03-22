@@ -33,9 +33,8 @@ namespace BH.Engine.Environment.SAP
     public static partial class Convert
     {
         [Description("Convert SAP Floor to XML floor.")]
-        [Input("sapFloor", "SAP floor to convert.")]
-        [Input("sapStorey", "SAP storey to convert.")]
-        [Output("xmlFloor", "XML floor.")]
+        [Input("sapFloorDimensions", "SAP floor to convert.")]
+        [Output("xmlFloorDimensions", "XML floor.")]
         public static BH.oM.Environment.SAP.XML.FloorDimensions ToXML(this List<BH.oM.Environment.SAP.FloorDimension> sapFloorDimensions)
         {
             List<BH.oM.Environment.SAP.XML.FloorDimension> xmlFloors = new List<oM.Environment.SAP.XML.FloorDimension>();

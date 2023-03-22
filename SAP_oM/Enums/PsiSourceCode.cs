@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("")]
+    [Description(".")]
     public enum PsiSourceCode { CalculatedByPersonWithSuitableExpertise = 1, GovernmentApprovedScheme = 2, NotGovernmentApprovedScheme = 3, SAPTableDefault = 4 }
 }
 

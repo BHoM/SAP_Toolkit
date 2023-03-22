@@ -32,7 +32,7 @@ namespace BH.oM.Environment.SAP
     [Description("Information about a boiler in the dwelling.")]
     public class Boiler : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual bool IsCondensingBoiler { get; set; } = false;
 
         [Description("The temperature distribution of the condensing boiler.")]

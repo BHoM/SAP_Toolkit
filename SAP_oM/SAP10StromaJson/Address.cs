@@ -27,10 +27,10 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP.Stroma10
 {
-    [Description("")]
+    [Description(".")]
     public class Address : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual int ID
         {
             get;
@@ -38,7 +38,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = 0;
-        [Description("")]
+        [Description(".")]
         public virtual string AddressLine1
         {
             get;
@@ -46,7 +46,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = "";
-        [Description("")]
+        [Description(".")]
         public virtual string AddressLine2
         {
             get;
@@ -54,7 +54,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = "";
-        [Description("")]
+        [Description(".")]
         public virtual string AddressLine3
         {
             get;
@@ -62,7 +62,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = "";
-        [Description("")]
+        [Description(".")]
         public virtual string City
         {
             get;
@@ -70,7 +70,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = "";
-        [Description("")]
+        [Description(".")]
         public virtual string Postcode
         {
             get;
@@ -78,7 +78,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = "";
-        [Description("")]
+        [Description(".")]
         public virtual string UniquePropertyReferenceNumber
         {
             get;
@@ -86,7 +86,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = "";
-        [Description("")]
+        [Description(".")]
         public virtual string Country
         {
             get;
@@ -94,7 +94,7 @@ namespace BH.oM.Environment.SAP.Stroma10
         }
 
         = "";
-        [Description("")]
+        [Description(".")]
         public virtual string DisplayAddress
         {
             get;

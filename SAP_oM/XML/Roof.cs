@@ -41,7 +41,7 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Description.")]
         public virtual string Description { get; set; } = "A heat loss roof";
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Roof-Type.")]
         public virtual string Type { get; set; } = "2";
 

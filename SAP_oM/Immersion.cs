@@ -40,10 +40,10 @@ namespace BH.oM.Environment.SAP
         [Description("Heat pump immersion.")]
         public virtual string HeatExchangerArea { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual bool? SummerImmersion { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual TypeOfImmersion Type { get; set; } = new TypeOfImmersion();
     }
 }

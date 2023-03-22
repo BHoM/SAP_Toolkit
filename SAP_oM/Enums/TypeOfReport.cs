@@ -29,7 +29,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("")]
+    [Description(".")]
     public enum TypeOfReport { HomeConditionReport = 1, RdsapEnergyPerformanceCertificate = 2, SAPEnergyPerformanceCertificate = 3,
 		InterimRdsapEnergyPerformanceCertificate_ToBeSupersededBySAPEPC = 4 }
 }

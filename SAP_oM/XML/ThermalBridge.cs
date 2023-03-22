@@ -45,7 +45,7 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Psi-Value.")]
         public virtual double PsiValue { get; set; } = 0;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Psi-Value-Source.")]
         public virtual string PsiSource { get; set; } = "4";
 

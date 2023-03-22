@@ -35,22 +35,22 @@ namespace BH.oM.Environment.SAP
         [Description("Code which indicates the type of heating control, as described in SAP table 4e. Max 2999 min 2001.")]
         public virtual HeatingControlCode Controls { get; set; } = HeatingControlCode.HeatNetworks_FlatRateProgrammerAndTRVs;
 
-        [Description("")]
+        [Description(".")]
         public virtual bool DelayedStartThermostat { get; set; } = false;
 
-        [Description("")]
+        [Description(".")]
         public virtual string BurnerControl { get; set; } = null;
 
         [Description("The ID of the time and temperature zone control from the product database.")]
         public virtual string ControlIndexNumber { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual string HeatingControllerFunction { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual string HeatingControllerEcodesignClass { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual Details HeatingControllerDetails { get; set; } = null;   
     }
 }

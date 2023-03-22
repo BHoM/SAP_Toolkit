@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "PV-Arrays", IsNullable = false)]
     public class PhotovoltaicArrays : IObject
     {
-        [Description("")]
+        [Description(".")]
         [XmlElement("PV-Array.")]
         public virtual List<PhotovoltaicArray> PhotovoltaicArray { get; set; } = null;
     }

@@ -32,7 +32,7 @@ namespace BH.oM.Environment.SAP
     [Description("Solar Panel Details.")]
     public class SolarPanelDetails : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual TypeOfSolarCollector CollectorType { get; set; } = TypeOfSolarCollector.Unglazed;
 
         [Description("Zero-loss collector efficiency.")]  
@@ -44,26 +44,26 @@ namespace BH.oM.Environment.SAP
         [Description("2nd order heat loss coefficient of collector a2.")]
         public virtual string Coefficienta2 { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual string AreaCollector { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual VerticalPitchCode TiltOfCollector { get; set; } = VerticalPitchCode._30Degrees;
 
-        [Description("")]
+        [Description(".")]
         public virtual CompassDirectionCode Orientation { get; set; } = CompassDirectionCode.North;
 
-        [Description("")]
+        [Description(".")]
         public virtual SolarCollectorOvershadingCode Overshading { get; set; } = SolarCollectorOvershadingCode.Modest;
 
-        [Description("")]
+        [Description(".")]
         public virtual string DedicatedSolarStoreVolume { get; set; } = null;
 
 
-        [Description("")]
+        [Description(".")]
         public virtual bool? IsSolarStoreCombined { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual bool? SolarPoweredPump { get; set; } = null;
 
         [Description("Is Solar Community.")]

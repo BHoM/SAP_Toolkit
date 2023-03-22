@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("")]
+    [Description(".")]
     public enum TypeOfHeatSource { CHP = 1, Boilers = 2, HeatPump = 3, WasteHeat = 4, Geothermal = 5 }
 }
 

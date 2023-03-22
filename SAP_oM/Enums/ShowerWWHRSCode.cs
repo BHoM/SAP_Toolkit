@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("")]
+    [Description(".")]
     public enum ShowerWWHRSCode { None = 1, InstantaneousWWHRS1 = 2, InstantaneousWWHRS2 = 3, StorageWWHRS = 4 }
 }
 

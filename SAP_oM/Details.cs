@@ -32,10 +32,10 @@ namespace BH.oM.Environment.SAP
     [Description("Manufacturer and Model.")]
     public class Details : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual string Manufacturer { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual string Model { get; set; } = null;
 
     }

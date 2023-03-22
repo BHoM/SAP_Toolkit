@@ -33,15 +33,15 @@ namespace BH.oM.Environment.SAP
     [Description("Community Heat Source Information.")]
     public class CommunityHeatSource : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual TypeOfHeatSource HeatSourceType { get; set; } = TypeOfHeatSource.HeatPump;
 
         public virtual string HeatFraction { get; set; } = "1";
 
-        [Description("")]
+        [Description(".")]
         public virtual TypeOfHeatingFuel FuelType { get; set; } = TypeOfHeatingFuel.CommunityHeatPump;
 
-        [Description("")]
+        [Description(".")]
         public virtual string PCDFFuelIndex { get; set; } = null;
 
         [Description("Heat efficiency in %.")]
@@ -50,7 +50,7 @@ namespace BH.oM.Environment.SAP
         [Description("Power efficiency in %. Include when heat source is CHP.")]
         public virtual string PowerEfficiency { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual CHPElectricityGenerationCode CHPElectricityGeneration { get; set; } = CHPElectricityGenerationCode.NewCHPStandard;
     }
 }

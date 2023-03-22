@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "Instantaneous-WWHRS", IsNullable = false)]
     public class InstantaneousWWHRS : IObject
     {
-        [Description("")]
+        [Description(".")]
         [XmlElement("WWHRS-Index-Number1.")]
         public virtual string WWHRSIndexNumber1 { get; set; } = "1";
 
@@ -41,7 +41,7 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("WWHRS-Index-Number2.")]
         public virtual string WWHRSIndexNumber2 { get; set; } = "2";
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("WWHRS-Efficiency1.")]
         public virtual string WWHRSEfficiency1 { get; set; } = null;
 
@@ -49,11 +49,11 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("WWHRS-Manufacturer1.")]
         public virtual string WWHRSManufacturer1 { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("WWHRS-Model1.")]
         public virtual string WWHRSModel1 { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("WWHRS-Efficiency2.")]
         public virtual string WWHRSEfficiency2 { get; set; } = null;
 
@@ -61,7 +61,7 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("WWHRS-Manufacturer2.")]
         public virtual string WWHRSManufacturer2 { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("WWHRS-Model2.")]
         public virtual string WWHRSModel2 { get; set; } = null;
 

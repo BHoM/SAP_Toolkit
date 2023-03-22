@@ -33,39 +33,39 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "Improvement", IsNullable = false)]
     public class Improvement : IObject
     {
-        [Description("")]
+        [Description(".")]
         [XmlElement("Sequence.")]
         public virtual int Sequence { get; set; } = 0;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Improvement-Category.")]
         public virtual string ImprovementCategory { get; set; } = "5";
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Improvement-Type.")]
         public virtual string ImprovementType { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Typical-Saving.")]
         public Money TypicalSaving { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Energy-Performance-Rating.")]
         public virtual int EnergyPerformanceRating { get; set; } = 0;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Environmental-Impact-Rating.")]
         public virtual int EnvironmentalImpactRating { get; set; } = 0;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Improvement-Details.")]
         public ImprovementDetails ImprovementDetails { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Indicative-Cost.")]
         public virtual string IndicativeCost { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Green-Deal-Category.")]
         public virtual string GreenDealCategory { get; set; } = "NI";
     }

@@ -37,7 +37,7 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Name.")]
         public virtual string Name { get; set; } = "Window type 1";
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Description.")]
         public virtual string Description { get; set; } = "Double-glazed windows with aluminimum frame";
 

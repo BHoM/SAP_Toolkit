@@ -35,10 +35,10 @@ namespace BH.oM.Environment.SAP
         [Description("WWHRS-Index-Number1.")]
         public virtual string IndexNumber { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual string Efficiency { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual Details Details { get; set; } = new Details();
     }
 }

@@ -32,13 +32,13 @@ namespace BH.oM.Environment.SAP
     public class WWHRS : BHoMObject
     {
 
-        [Description("")]
+        [Description(".")]
         public virtual InstantaneousWWHRSSystem InstantaneousSystem1 { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual InstantaneousWWHRSSystem InstantaneousSystem2 { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual StorageWWHRS StorageSystem { get; set; } = null;
     }
 }

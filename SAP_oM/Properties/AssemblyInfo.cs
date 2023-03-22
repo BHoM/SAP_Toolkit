@@ -29,12 +29,12 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly: AssemblyTitle("SAP_oM")]
 [assembly: AssemblyDescription("https://github.com/BHoM/SAP_Toolkit")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyConfiguration(".")]
+[assembly: AssemblyCompany(".")]
 [assembly: AssemblyProduct("SAP_oM")]
 [assembly: AssemblyCopyright("Copyright © https://github.com/BHoM")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
+[assembly: AssemblyTrademark(".")]
+[assembly: AssemblyCulture(".")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from

@@ -34,31 +34,31 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "SAP-Energy-Source", IsNullable = false)]
     public class EnergySource : IObject
     {
-        [Description("")]
+        [Description(".")]
         [XmlElement("PV-Arrays.")]
         public virtual PhotovoltaicArrays PhotovoltaicArrays { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Wind-Turbines.")]
         public virtual WindTurbines WindTurbines { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Electricity-Tariff.")]
         public virtual string ElectricityTariff { get; set; } = "1";
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Hydro-Electric-Generation.")]
         public virtual double HydroElectricGeneration { get; set; } = 0;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Hydro-Electric-Certificate.")]
         public virtual string HydroElectricCertificate { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Hydro-Electric-Generation-Months.")]
         public virtual HydroElectricGenerationMonths HydroElectricGenerationMonths { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Is-Hydro-Output-Connected-To-Dwelling-Meter.")]
         public virtual bool IsHydroOutputConnectedToDwellingMeter { get; set; } = false;
 

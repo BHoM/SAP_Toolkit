@@ -63,23 +63,23 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "Calculation-Software-Version.")]
         public virtual string CalculationSoftwareVersion { get; set; } = "1.0.1-alpha";
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "User-Interface-Name.")] 
         public virtual string UserInterfaceName { get; set; } = "BRE SAP interface 10.2";
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "User-Interface-Version.")]
         public virtual string UserInterfaceVersion { get; set; } = "1.0.1-alpha";
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Report-Header.")]
         public virtual ReportHeader ReportHeader { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Energy-Assessment.")]
         public virtual EnergyAssessment EnergyAssessment { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "SAP10-Data.")] 
         public virtual SAP10Data SAP10Data { get; set; } = new SAP10Data();
 

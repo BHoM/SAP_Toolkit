@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("")]
+    [Description(".")]
     public enum ServiceProvisionCode { SpaceAndWaterHeating = 1, SpaceHeatingOnly = 2, WaterHeatingOnly = 3 }
 }
 

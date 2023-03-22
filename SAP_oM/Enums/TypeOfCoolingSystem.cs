@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("")]
+    [Description(".")]
     public enum TypeOfCoolingSystem { SplitOrMultiSplit = 1, Packaged = 2 }
 }
 /*private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfCoolingSystem typeOfCoolingSystem)

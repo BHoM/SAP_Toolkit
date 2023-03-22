@@ -30,7 +30,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("")]
+    [Description(".")]
     public enum RecommendationSummaryCode { InsulateHotWaterCylinderWith80MmJacket = 1, IncreaseHotWaterCylinderInsulation = 2, AddAdditional80MmJacketToHotWaterCylinder = 3, 
 		HotWaterCylinderThermostat = 4, IncreaseLoftInsulationTo270Mm = 5, CavityWallInsulation = 6, InternalOrExternalWallInsulation = 7, ReplaceSingleGlazedWindowsWithLowEDoubleGlazing = 8,
 		SecondaryGlazingToSingleGlazedWindows = 9, DraughtProofing = 10, HeatingControls_Programmer_RoomThermostatAndTrvs = 11, HeatingControls_RoomThermostatAndTrvs = 12,

@@ -34,7 +34,7 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "Wind-Turbines", IsNullable = false)]
     public class WindTurbines : IObject
     {
-        [Description("")]
+        [Description(".")]
         [XmlElement("Wind-Turbine.")]
         public virtual List<WindTurbine> WindTurbine { get; set; } = null;
 

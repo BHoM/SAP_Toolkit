@@ -32,10 +32,10 @@ namespace BH.oM.Environment.SAP
     [Description("Further details about the flue.")]
     public class Flue : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual FlueTypeCode FlueType { get; set; } = new FlueTypeCode();
 
-        [Description("")]
+        [Description(".")]
         public virtual bool? FanFlued { get; set; } = null;
 
     }

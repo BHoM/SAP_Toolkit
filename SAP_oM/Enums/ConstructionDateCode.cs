@@ -33,7 +33,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-	[Description("")]
+	[Description(".")]
 	public enum ConstructionDateCode
 	{
 		EnglandAndWalesPre1900ScotlandAndNIPre1919, EnglandAndWalesAndSoctlandAndNIPre1930, EnglandAndWalesAndSoctlandAndNIPre1950,

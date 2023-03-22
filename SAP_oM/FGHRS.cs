@@ -32,10 +32,10 @@ namespace BH.oM.Environment.SAP
     [Description("Strategy for the ventilation of the dwelling.")]
     public class FGHRS : BHoMObject
     {
-        [Description("")]
+        [Description(".")]
         public virtual string IndexNumber { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual EnergySource FGHRSEnergySource { get; set; } = null;
     }
 }

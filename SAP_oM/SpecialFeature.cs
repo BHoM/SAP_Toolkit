@@ -42,19 +42,19 @@ namespace BH.oM.Environment.SAP
         [Description("Energy saved or generated in kWh/year.")]
         public virtual double EnergySavedOrGenerated { get; set; } = 0;
 
-        [Description("")]
+        [Description(".")]
         public virtual string SavedOrGeneratedFuel { get; set; } = "1";
 
         [Description("Energy used in kWh/year.")]
         public virtual double EnergyUsed { get; set; } = 0;
 
-        [Description("")]
+        [Description(".")]
         public virtual TypeOfHeatingFuel EnergyUsedFuel { get; set; } = TypeOfHeatingFuel.MainsGas;
 
         [Description("Air Change Rate for each month.")]
         public virtual List<MonthlyValues> AirChangeRates { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual string Description { get; set; } = null;
 
 

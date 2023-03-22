@@ -202,7 +202,7 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "Non-Kitchen-Wall-Fans-Specific-Power.")]
         public virtual string NonKitchenWallFansSpecificPower { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement(ElementName = "Extract-Fans-Count.")]
         public virtual string ExtractFansCount { get; set; } = null;
 
@@ -210,7 +210,7 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "PSV-Count.")] 
         public virtual string PSVCount { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         [XmlElement("Is-Mechanical-Vent-Approved-Installer-Scheme.")]
         public virtual bool? IsMechanicalVentApprovedInstallerScheme { get; set; } = true;
 

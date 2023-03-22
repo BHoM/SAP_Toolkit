@@ -58,28 +58,28 @@ namespace BH.oM.Environment.SAP
         [Description("The average amount of overshading of windows.")]
         public virtual oM.Environment.SAP.WindowOvershading Overshading { get; set; } = oM.Environment.SAP.WindowOvershading.AverageOrUnknown;
 
-        [Description("")]
+        [Description(".")]
         public virtual Heating Heating { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual EnergySource EnergySource { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual List<BuildingPart> BuildingParts { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual List<OpeningType> OpeningTypes { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual Ventilation Ventilation { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual List<Lighting> LightingDetails { get; set; } = null;
 
-        [Description("")]
+        [Description(".")]
         public virtual FlatDetails FlatDetails { get; set; }
 
-        [Description("")]
+        [Description(".")]
         public virtual List<SpecialFeature> SpecialFeatures { get; set; } = null;
         
     }

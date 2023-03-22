@@ -38,7 +38,7 @@ namespace BH.Engine.Environment.SAP
     public static partial class Convert
     {
         [Description("Convert SAP Heating to XML Heating.")]
-        [Input("sapHeating", "SAP Heating object to convert.")]
+        [Input("heating", "SAP Heating object to convert.")]
         [MultiOutput(0, "heating", "XML Heating.")]
         [MultiOutput(1, "cooling", "XML Cooling.")]
         public static Output<oM.Environment.SAP.XML.Heating, oM.Environment.SAP.XML.Cooling> ToXML(this oM.Environment.SAP.Heating heating)
