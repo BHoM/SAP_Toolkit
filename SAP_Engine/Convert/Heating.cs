@@ -47,8 +47,7 @@ namespace BH.Engine.Environment.SAP
 
             /************************General Heating************************/
 
-            xmlHeating.WaterHeatingCode = heating.WaterHeating.Type;
-            xmlHeating.WaterFuelType = heating.WaterHeating.Fuel.FromSAPToXML();
+         
             xmlHeating.HasFixedAirConditioning = false;
             xmlHeating.MainHeatingSystemsInteraction = null;
             xmlHeating.PrimaryPipeworkInsulation= null;
@@ -154,9 +153,11 @@ namespace BH.Engine.Environment.SAP
 
             /********************Water Heating**********************/
 
-            xmlHeating.WaterHeatingCode = heating.WaterHeating.Type;
+            xmlHeating.WaterHeatingCode = heating.WaterHeating.Type.FromSAPToXML();
             xmlHeating.WaterFuelType = heating.WaterHeating.Fuel.FromSAPToXML();
 
+
+            //This all needs to be split up? maybe ? I think? ahhhhhhhhhhhhhhhhhhHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH I'm tired, look at example xml file for heating null values (I know what I mean)
             if (heating.WaterHeating.CylinderSpecification != null)
             {
                 xmlHeating.HasHotWaterCylinder = true;

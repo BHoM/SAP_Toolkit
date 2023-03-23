@@ -32,7 +32,7 @@ namespace BH.oM.Environment.SAP
     public class SecondaryHeatingDetails : BHoMObject
     {
         [Description(".")]
-        public virtual SecondaryHeatingCategory HeatingCategory { get; set; } = new SecondaryHeatingCategory();
+        public virtual SecondaryHeatingCategory HeatingCategory { get; set; } = SecondaryHeatingCategory.None;
 
         [Description(".")]
         public virtual DataSourceCode Source { get; set; } = new DataSourceCode();

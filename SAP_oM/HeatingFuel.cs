@@ -32,7 +32,7 @@ namespace BH.oM.Environment.SAP
     public class HeatingFuel : BHoMObject
     {
         [Description(".")]
-        public virtual TypeOfHeatingFuel Fuel { get; set; } = new TypeOfHeatingFuel();
+        public virtual TypeOfHeatingFuel Fuel { get; set; } = TypeOfHeatingFuel.CommunityMainsGas;
 
     }
 }
