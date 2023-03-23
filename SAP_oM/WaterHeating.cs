@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP
     {
 
         [Description("The type of Water Heating present in the Property. Code which indicates the type of heating system, as defined in SAP table 4a (codes 901-999).")]
-        public virtual string Type { get; set; } = null;
+        public virtual WaterHeatingCode Type { get; set; } = WaterHeatingCode.MainSystem;
 
         [Description(".")]
         public virtual DesignWaterUseCode HeatingDesignWaterUse { get; set; } = DesignWaterUseCode.LessThan125LitresPerPersonPerDay;
@@ -48,7 +48,7 @@ namespace BH.oM.Environment.SAP
         public virtual Immersion Immersion { get; set; } = new Immersion();
 
         [Description(".")]
-        public virtual ThermalStoreCode ThermalStore { get; set; } = new ThermalStoreCode();
+        public virtual ThermalStoreCode ThermalStore { get; set; } = ThermalStoreCode.None;
 
         [Description(".")]
         public virtual bool? ThermalStoreNearBoiler { get; set; } = false;

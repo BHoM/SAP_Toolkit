@@ -32,7 +32,7 @@ namespace BH.oM.Environment.SAP
     public class MainHeatingDetails : BHoMObject
     {
         [Description(".")]
-        public virtual MainHeatingCategoryCode HeatingCategoryCode { get; set; } = new MainHeatingCategoryCode();
+        public virtual MainHeatingCategoryCode HeatingCategoryCode { get; set; } = MainHeatingCategoryCode.CommunityHeatingSystem;
 
         [Description(".")]
         public virtual HeatingDetails HeatingDetails { get; set; } = new HeatingDetails();

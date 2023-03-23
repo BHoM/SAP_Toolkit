@@ -49,27 +49,4 @@ namespace BH.oM.Environment.SAP
     }
 }
 
-/*
- * private static string FromSAPToXML(this BH.oM.Environment.SAP.BoilerFuelFeedCode boilerFuelFeedCode)
-{
-	switch (boilerFuelFeedCode)
-	{
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Gravity:
-			return "1";
-
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Manual:
-			return "2";
-
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Screw:
-			return "3";
-
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Other:
-			return "4";
-
-		default:
-			return"";
-	}
-}
-
- */
 

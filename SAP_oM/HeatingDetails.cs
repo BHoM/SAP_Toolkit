@@ -39,7 +39,7 @@ namespace BH.oM.Environment.SAP
         public virtual Details Details { get; set; } = null;
 
         [Description("Enum which specifies data source.")]
-        public virtual DataSourceCode Source { get; set; } = new DataSourceCode();
+        public virtual DataSourceCode Source { get; set; } = DataSourceCode.FromDatabase;
 
         [Description("Main heating code; when heating data source is SAP table.")]
         public virtual TypeOfSpaceHeating MainHeatingCode { get; set; } = TypeOfSpaceHeating.NonePresent;

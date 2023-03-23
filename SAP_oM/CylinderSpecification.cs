@@ -50,7 +50,7 @@ namespace BH.oM.Environment.SAP
         public virtual bool InHeatedSpace { get; set; } = false;
 
         [Description("Has Cylinder Thermostat.")]
-        public virtual bool Cylinderstat { get; set; } = false;
+        public virtual bool Cylinderstat { get; set; } = true;
 
         [Description(".")]
         public virtual PipeworkInsulationCode PrimaryPipeworkInsulated { get; set; } = PipeworkInsulationCode.NotInsulated;
