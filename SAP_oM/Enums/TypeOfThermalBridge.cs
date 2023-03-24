@@ -26,7 +26,6 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using BH.oM.Environment.SAP.Stroma10;
-using Microsoft.SqlServer.Server;
 
 namespace BH.oM.Environment.SAP
 {
