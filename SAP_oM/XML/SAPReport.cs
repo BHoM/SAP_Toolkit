@@ -31,7 +31,7 @@ using BH.oM.Analytical.Results;
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "SAP-Report", IsNullable = false, Namespace = "http://www.epcregister.com/xsd/sap.")]
+    [XmlRoot(ElementName = "SAP-Report", IsNullable = false, Namespace = "http://www.epcregister.com/xsd/sap")]
     public class SAPReport : IObject, IResultObject
     {
 
@@ -91,6 +91,14 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "ExternalDefinitions-Revision-Number.")] 
         public virtual string ExternalDefinitionsRevisionNumber { get; set; } = null;
 
+        [XmlAttribute(AttributeName = "xmlns")]
+        public string Xmlns { get; set; }
+
+        [XmlAttribute(AttributeName = "xsi")]
+        public string Xsi { get; set; }
+
+        [XmlAttribute(AttributeName = "schemaLocation")]
+        public string SchemaLocation { get; set; }
 
     }
 }
