@@ -29,7 +29,7 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Data format specification in database.")]
-    public class GasAndBoilerTable : BHoMObject, IPCDBObject
+    public class GasAndOilBoilerTable : BHoMObject, IPCDBObject
     {
         [Description("Unique index number for each record, assigned automatically by database software and used for control and reference purposes.")]
         public virtual string Index { get; set; } = null;

@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement(ElementName = "Typical-Saving.")]
-        public Money TypicalSaving { get; set; } = null;
+        public virtual Money TypicalSaving { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "Energy-Performance-Rating.")]
@@ -59,7 +59,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement(ElementName = "Improvement-Details.")]
-        public ImprovementDetails ImprovementDetails { get; set; } = null;
+        public virtual ImprovementDetails ImprovementDetails { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "Indicative-Cost.")]

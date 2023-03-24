@@ -29,11 +29,18 @@ using System.Threading.Tasks;
 using BH.oM.Geometry;
 using BH.Engine.Geometry;
 using BH.oM.Environment.Elements;
+using System.ComponentModel;
+using BH.oM.Base.Attributes;
 
 namespace BH.Engine.Environment.SAP
 {
     public static class BalconyLines
     {
+        [Description("Work out balcony lines on the dwelling perimeter.")]
+        [Input("panels","panels in the dwelling.")]
+        [Input("baseCurve","Basecurve.")]
+        [Input("dwellingPerimeter", "Dwelling Perimeter.")]
+        [Output("balconyLines", "List of the balcony lines.")]
         public static List<Polyline> ComputeBalconyLines(List<Panel> panels, Polyline baseCurve, Polyline dwellingPerimeter)
         {
             /*Work out balcony lines on the dwelling perimeter*/

@@ -92,13 +92,13 @@ namespace BH.oM.Environment.SAP.XML
         public virtual string ExternalDefinitionsRevisionNumber { get; set; } = null;
 
         [XmlAttribute(AttributeName = "xmlns")]
-        public string Xmlns { get; set; }
+        public virtual string Xmlns { get; set; }
 
         [XmlAttribute(AttributeName = "xsi")]
-        public string Xsi { get; set; }
+        public virtual string Xsi { get; set; }
 
         [XmlAttribute(AttributeName = "schemaLocation")]
-        public string SchemaLocation { get; set; }
+        public virtual string SchemaLocation { get; set; }
 
     }
 }

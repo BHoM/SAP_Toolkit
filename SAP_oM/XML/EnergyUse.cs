@@ -57,53 +57,69 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "TFEE.")]
         public virtual double TFEE { get; set; } = 0;
 
+        [Description(".")]
         [XmlElement(ElementName = "Energy-Rating-Current.")]
         public virtual int EnergyRatingCurrent { get; set; } = 0;
 
+        [Description(".")]
         [XmlElement(ElementName = "Energy-Rating-Potential.")]
         public virtual int EnergyRatingPotential { get; set; } = 0;
 
+        [Description(".")]
         [XmlElement(ElementName = "Energy-Rating-Average.")]
         public virtual int EnergyRatingAverage { get; set; } = 0;
 
+        [Description(".")]
         [XmlElement(ElementName = "Environmental-Impact-Current.")]
         public virtual int EnvironmentalImpactCurrent { get; set; } = 0;
 
+        [Description(".")]
         [XmlElement(ElementName = "Environmental-Impact-Potential.")]
         public virtual int EnvironmentalImpactPotential { get; set; } = 0;
 
+        [Description(".")]
         [XmlElement(ElementName = "Energy-Consumption-Current.")]
         public virtual int EnergyConsumptionCurrent { get; set; } = 0;
 
+        [Description(".")]
         [XmlElement(ElementName = "Energy-Consumption-Potential.")]
         public virtual int EnergyConsumptionPotential { get; set; } = 0;
 
+        [Description(".")]
         [XmlElement(ElementName = "CO2-Emissions-Potential.")]
         public string CO2EmissionsPotential { get; set; } = null;
 
+        [Description(".")]
         [XmlElement(ElementName = "CO2-Emissions-Current.")]
         public virtual double CO2EmissionsCurrent { get; set; } = 0;
 
+        [Description(".")]
         [XmlElement(ElementName = "CO2-Emissions-Current-Per-Floor-Area.")]
         public virtual double CO2EmissionsCurrentPerFloorArea { get; set; } = 0;
 
+        [Description(".")]
         [XmlElement(ElementName = "Lighting-Cost-Current.")] 
-        public Money LightingCostCurrent { get; set; } = null;
+        public virtual Money LightingCostCurrent { get; set; } = null;
 
+        [Description(".")]
         [XmlElement(ElementName = "Lighting-Cost-Potential.")]
-        public Money LightingCostPotential { get; set; } = null;
+        public virtual Money LightingCostPotential { get; set; } = null;
 
+        [Description(".")]
         [XmlElement(ElementName = "Heating-Cost-Current.")]
-        public Money HeatingCostCurrent { get; set; } = null;
+        public virtual Money HeatingCostCurrent { get; set; } = null;
 
+        [Description(".")]
         [XmlElement(ElementName = "Heating-Cost-Potential.")]
-        public Money HeatingCostPotential { get; set; } = null;
+        public virtual Money HeatingCostPotential { get; set; } = null;
 
+        [Description(".")]
         [XmlElement(ElementName = "Hot-Water-Cost-Current.")]
-        public Money HotWaterCostCurrent { get; set; } = null;
+        public virtual Money HotWaterCostCurrent { get; set; } = null;
 
+        [Description(".")]
         [XmlElement(ElementName = "Hot-Water-Cost-Potential.")]
-        public Money HotWaterCostPotential { get; set; } = null;
+        public virtual Money HotWaterCostPotential { get; set; } = null;
     }
 }
 

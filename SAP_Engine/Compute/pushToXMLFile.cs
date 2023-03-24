@@ -28,12 +28,20 @@ using BH.oM.Environment.SAP.XML;
 using BH.Engine.Environment.SAP;
 using BH.oM.Base;
 using BH.oM.Adapter;
+using System.ComponentModel;
+using BH.oM.Base.Attributes;
 
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Compute
     {
-        public static bool pushToXMLFile(FileSettings fileSettingsInput, FileSettings fileSettingsOutput, BH.oM.Environment.SAP.XML.SAP10Data sAP10Data , bool run = false)
+        [Description("A test??.")]
+        [Input("fileSettingsInput", "Location of the XML files to pull from.")]
+        [Input("fileSettingsOutput", "Location of the XML files to push to.")]
+        [Input("sAP10Data", "data to push to files.")]
+        [Input("run", "Run the method?.")]
+        [Output("success", "Has the method run?.")]
+        public static bool PushToXMLFile(FileSettings fileSettingsInput, FileSettings fileSettingsOutput, BH.oM.Environment.SAP.XML.SAP10Data sAP10Data , bool run = false)
         {
             if (!run)
                 return false;

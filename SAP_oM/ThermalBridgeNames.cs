@@ -30,7 +30,7 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("A ThermalBridges object for SAP analysis.")]
-    public class ThermalBridgeNames : BHoMObject
+    public class ThermalBridgeLengths : BHoMObject
     {
 
         [Description("Dwelling name.")]

@@ -21,19 +21,19 @@
  */
 
 
-namespace BH.oM.Environment.SAP
-{
-    internal class Output<T1, T2, T3>
-    {
-        public Output()
-        {
-        }
+//namespace BH.oM.Environment.SAP
+//{
+//    internal class Output<T1, T2, T3>
+//    {
+//        public Output()
+//        {
+//        }
 
-        public object Item1 { get; set; }
-        public object Item2 { get; set; }
-        public object Item3 { get; set; }
-    }
-}
+//        public object Item1 { get; set; }
+//        public object Item2 { get; set; }
+//        public object Item3 { get; set; }
+//    }
+//}
 
 
 
