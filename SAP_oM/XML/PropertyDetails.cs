@@ -167,7 +167,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement(ElementName = "SAP-Special-Features")]
-        public SpecialFeatures SpecialFeatures { get; set; } = null;
+        public virtual SpecialFeatures SpecialFeatures { get; set; } = null;
 
         [Description("Design limit for total water use.")]
         [XmlElement("Design-Water-Use")]

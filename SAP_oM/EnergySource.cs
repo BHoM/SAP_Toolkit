@@ -36,7 +36,7 @@ namespace BH.oM.Environment.SAP
         public virtual ElectricityTariffCode ElectricityTariff { get; set; } = ElectricityTariffCode.StandardTariff;
 
         [Description("Photovoltaic Arrays.")]
-        public virtual List<PhotovolaticArray> PhotovoltaicArrays { get; set; } = new List<PhotovolaticArray>();
+        public virtual List<PhotovoltaicArray> PhotovoltaicArrays { get; set; } = new List<PhotovoltaicArray>();
 
         [Description("PV connection details.")]
         public virtual PvConnection PvConnection { get; set; } = new PvConnection();

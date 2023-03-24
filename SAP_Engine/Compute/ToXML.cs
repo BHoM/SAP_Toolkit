@@ -19,29 +19,31 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml.Serialization;
-using System.IO;
+//using System;
+//using System.Collections.Generic;
+//using System.Text;
+//using System.Xml.Serialization;
+//using System.IO;
+//using System.ComponentModel;
 
-namespace BH.Engine.Environment.SAP
-{
-    public static partial class Compute
-    {
-        public static bool ToXMLFile(string filePath, string fileName, BH.oM.Environment.SAP.XML.SAP10Data data, bool run = false)
-        {
-            if (!run)
-                return false;
+//namespace BH.Engine.Environment.SAP
+//{
+//    public static partial class Compute
+//    {
+//        [Description("")]// from sap obj to files
+//        public static bool ToXMLFile(string filePath, string fileName, BH.oM.Environment.SAP.XML.SAP10Data data, bool run = false)
+//        {
+//            if (!run)
+//                return false;
 
-            XmlSerializerNamespaces xns = new XmlSerializerNamespaces();
-            XmlSerializer szer = new XmlSerializer(typeof(BH.oM.Environment.SAP.XML.SAP10Data));
-            TextWriter ms = new StreamWriter(Path.Combine(filePath, fileName));
-            szer.Serialize(ms, data, xns);
-            ms.Close();
+//            XmlSerializerNamespaces xns = new XmlSerializerNamespaces();
+//            XmlSerializer szer = new XmlSerializer(typeof(BH.oM.Environment.SAP.XML.SAP10Data));
+//            TextWriter ms = new StreamWriter(Path.Combine(filePath, fileName));
+//            szer.Serialize(ms, data, xns);
+//            ms.Close();
 
-            return true;
-        }
-    }
-}
+//            return true;
+//        }
+//    }
+//}
 

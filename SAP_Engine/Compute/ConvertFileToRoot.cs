@@ -25,11 +25,14 @@ using System.IO;
 using System.Text;
 using BH.oM.Environment.SAP.Stroma10;
 using BH.oM.Base;
+using System.ComponentModel;
 
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Compute
     {
+        [Description("A method for converting a stroma json file to a BHoM object - probably defunct.")]
+
         public static Root ConvertFileToRoot(string filePath)
         {
             StreamReader sr = new StreamReader(filePath);

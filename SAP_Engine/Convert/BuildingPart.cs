@@ -34,7 +34,7 @@ namespace BH.Engine.Environment.SAP
     public static partial class Convert
     {
         [Description("Convert lists of SAP BuildingParts to a XML BuildingParts.")]
-        [Input("sapBuldingPart", "SAP Building parts to convert.")]
+        [Input("sapBuildingPart", "SAP Building parts to convert.")]
         [MultiOutput(0, "xmlBuildingParts", "XML BuildingParts.")]
         [MultiOutput(1, "xmlOpeningTypes", "XML OpeningTypes.")]
         public static Output<BH.oM.Environment.SAP.XML.BuildingParts, BH.oM.Environment.SAP.XML.OpeningTypes> ToXML(this List<oM.Environment.SAP.BuildingPart> sapBuildingPart)

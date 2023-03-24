@@ -28,12 +28,18 @@ using BH.oM.Environment.SAP.XML;
 using BH.Engine.Environment.SAP;
 using BH.oM.Base;
 using BH.oM.Adapter;
+using System.ComponentModel;
+using BH.oM.Base.Attributes;
 
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Compute
     {
-        public static SAPReport pullFromXML (FileSettings fileSettingsInput, bool run = false)
+        [Description("Pulls data from an XML file, into BHoM objects.")]
+        [Input("fileSettingsInput","The location of the XML file.")]
+        [Input("run", "Run the method.")]
+        [Output("reportObj", "The SAP object.")]
+        public static SAPReport PullFromXML(FileSettings fileSettingsInput, bool run = false)
         {
             if (!run)
                 return null;

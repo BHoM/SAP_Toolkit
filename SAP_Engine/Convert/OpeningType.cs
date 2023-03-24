@@ -36,23 +36,23 @@ namespace BH.Engine.Environment.SAP
         [Description("Convert SAP opening type to XML opening types.")]
         [Input("sapOpeningType", "SAP opening type to convert.")]
         [Output("xmlOpeningTypes", "XML opening types.")]
-        public static BH.oM.Environment.SAP.XML.OpeningTypes ToXML(this BH.oM.Environment.SAP.OpeningType sapOpeningtype)
+        public static BH.oM.Environment.SAP.XML.OpeningTypes ToXML(this BH.oM.Environment.SAP.OpeningType sapOpeningType)
         {
             List<oM.Environment.SAP.XML.OpeningType> xmlOpeningTypes = new List<oM.Environment.SAP.XML.OpeningType>();
             BH.oM.Environment.SAP.XML.OpeningType xmlOpeningType = new BH.oM.Environment.SAP.XML.OpeningType();
 
-            xmlOpeningType.Name = sapOpeningtype.Name;
-            xmlOpeningType.Description = "Type-" + sapOpeningtype.Type.ToString() + "_Uvalue-" + sapOpeningtype.uValue.ToString(); ;
-            xmlOpeningType.DataSource = sapOpeningtype.DataSource.FromSAPToXML();
-            xmlOpeningType.Type = sapOpeningtype.Type.FromSAPToXML();
-            xmlOpeningType.GlazingType = sapOpeningtype.GlazingType.FromSAPToXML();
-            xmlOpeningType.GlazingGap = sapOpeningtype.GlazingGap.FromSAPToXML();
-            xmlOpeningType.IsArgonFilled = sapOpeningtype.IsArgonFilled;
-            xmlOpeningType.IsKryptonFilled= sapOpeningtype.IsKryptonFilled;
-            xmlOpeningType.FrameType = sapOpeningtype.FrameType.FromSAPToXML();
-            xmlOpeningType.gValue = sapOpeningtype.gValue;
-            xmlOpeningType.FrameFactor = sapOpeningtype.FrameFactor;
-            xmlOpeningType.uValue = sapOpeningtype.uValue;
+            xmlOpeningType.Name = sapOpeningType.Name;
+            xmlOpeningType.Description = "Type-" + sapOpeningType.Type.ToString() + "_Uvalue-" + sapOpeningType.uValue.ToString(); ;
+            xmlOpeningType.DataSource = sapOpeningType.DataSource.FromSAPToXML();
+            xmlOpeningType.Type = sapOpeningType.Type.FromSAPToXML();
+            xmlOpeningType.GlazingType = sapOpeningType.GlazingType.FromSAPToXML();
+            xmlOpeningType.GlazingGap = sapOpeningType.GlazingGap.FromSAPToXML();
+            xmlOpeningType.IsArgonFilled = sapOpeningType.IsArgonFilled;
+            xmlOpeningType.IsKryptonFilled= sapOpeningType.IsKryptonFilled;
+            xmlOpeningType.FrameType = sapOpeningType.FrameType.FromSAPToXML();
+            xmlOpeningType.gValue = sapOpeningType.gValue;
+            xmlOpeningType.FrameFactor = sapOpeningType.FrameFactor;
+            xmlOpeningType.uValue = sapOpeningType.uValue;
 
             oM.Environment.SAP.XML.OpeningTypes finalXML = new oM.Environment.SAP.XML.OpeningTypes();
             finalXML.OpeningType = xmlOpeningTypes;

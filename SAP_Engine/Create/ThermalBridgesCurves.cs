@@ -36,11 +36,25 @@ using BH.oM.Base;
 using BH.oM.Analytical.Elements;
 
 using BH.Engine.Base;
+using System.ComponentModel;
+using BH.oM.Base.Attributes;
 
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Create
     {
+        [Description("Takes in base curves and panels and returns a thermalBridge curves object for each dwelling.")]
+        [Input("dwellings","a list of the zones of each dwelling.")]
+        [Input("spaces", "a list of all of the spaces.")]
+        [Input("allPanels", "A list of all the panels in the dwellings.")]
+        [Input("balconyShades", "A list of the balcony shades in the dwellings.")]
+        [Input("levels", "A list of all levels in the dwellings.")]
+        [Input("baseCurves", "A list of all the base curves in the dwellings.")]
+        [Input("distanceTolerance", "Distance tolerance.")]
+        [Input("angleTolerance", "Angle tolerance.")]
+        [Input("numericalTolerance", "Numerical Tolerance.")]
+        [Output("Curves","A list thermal bridge lengths objects.")]
+
         public static List<ThermalBridgesCurves> ThermalBridgesCurves(List<Zone> dwellings, List<Space> spaces, List<Panel> allPanels, List<Panel> balconyShades, List<Level> levels, List<Polyline> baseCurves, double distanceTolerance = BH.oM.Geometry.Tolerance.Distance, double angleTolerance = BH.oM.Geometry.Tolerance.Angle, double numericalTolerance = BH.oM.Geometry.Tolerance.Distance)
         {
             List<ThermalBridgesCurves> thermalBridgesCurves = new List<ThermalBridgesCurves>();

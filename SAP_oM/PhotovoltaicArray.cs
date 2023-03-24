@@ -30,7 +30,7 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Details about PhotovoltaicArray connected to the dwelling.")]
-    public class PhotovolaticArray : BHoMObject
+    public class PhotovoltaicArray : BHoMObject 
     {
         [Description("Peak kW of photovoltaics (PVs) (kWp); 0.0 if none.")]
         public virtual double PeakPower { get; set; } = 0;

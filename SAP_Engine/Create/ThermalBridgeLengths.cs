@@ -29,19 +29,24 @@ using System.Threading.Tasks;
 
 using BH.oM.Environment.SAP;
 using BH.Engine.Geometry;
+using System.ComponentModel;
+using BH.oM.Base.Attributes;
 
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Create
     {
-        public static List<ThermalBridgeNames> ThermalBridgeNames(List<ThermalBridgesCurves> thermalBridgesCurves)
+        [Description("Converts lists of thermal bridge curves to lists of lengths of thermal bridges.")]
+        [Input("thermalBridgesCurves","ThermalBridgeLength objects.")]
+        [Output("thermalBridgeLengths", "ThermalBridgeLengthObjects.")]
+        public static List<ThermalBridgeLengths> ThermalBridgeLengths(List<ThermalBridgesCurves> thermalBridgesCurves)
         {
-            List<ThermalBridgeNames> thermalBridges = new List<ThermalBridgeNames>();
+            List<ThermalBridgeLengths> thermalBridges = new List<ThermalBridgeLengths>();
 
             for (int x = 0; x < thermalBridgesCurves.Count; x++)
             {
                 ThermalBridgesCurves thermalBridgeCurves = thermalBridgesCurves[x];
-                ThermalBridgeNames thermalBridge = new ThermalBridgeNames();
+                ThermalBridgeLengths thermalBridge = new ThermalBridgeLengths();
                 thermalBridge.DwellingName = thermalBridgeCurves.Name;
                 thermalBridge.Reference = thermalBridgeCurves.Reference;
                 thermalBridge.ID = thermalBridgeCurves.ID;
