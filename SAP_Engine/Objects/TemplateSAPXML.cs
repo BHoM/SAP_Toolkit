@@ -1074,7 +1074,7 @@
 //        public int PILimit { get; set; }
 //    }
 //    [Serializable]
-//    [XmlRoot(ElementName = "SAP-Report", IsNullable = false, Namespace = "http://www.epcregister.com/xsd/sap.")]
+//    [XmlRoot(ElementName = "SAP-Report", IsNullable = false, Namespace = "http://www.epcregister.com/xsd/sap")]
 //    public class SAPReport : XMLPrintObject, IResultObject
 //    {
 
