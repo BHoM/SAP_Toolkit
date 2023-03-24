@@ -87,7 +87,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement(ElementName = "CO2-Emissions-Potential.")]
-        public string CO2EmissionsPotential { get; set; } = null;
+        public virtual string CO2EmissionsPotential { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "CO2-Emissions-Current.")]
