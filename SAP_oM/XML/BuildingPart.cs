@@ -35,39 +35,39 @@ namespace BH.oM.Environment.SAP.XML
     public class BuildingPart : IObject
     {
         [Description("An integer value which uniquely identifies the building part in the property.  The value \"1\" must be assigned to the main dwelling.")]
-        [XmlElement("Building-Part-Number.")]
+        [XmlElement("Building-Part-Number")]
         public virtual int BuildingPartNumber { get; set; } = 1;
 
         [Description("Identifier for the Building part - generally only required if there are more that one Building Parts of the same type.")]
-        [XmlElement("Identifier.")]
+        [XmlElement("Identifier")]
         public virtual string Identifier { get; set; } = "0";
 
         [Description("The year when this building part was constructed.  Not used if 'Construction-Age-Band' is used.")]
-        [XmlElement("Construction-Year.")]
+        [XmlElement("Construction-Year")]
         public virtual string ConstructionYear { get; set; } = "2012"; 
 
         [Description("The age band when this building part was constructed.  Not used if 'Construction-Year' is used.")]
-        [XmlElement("Construction-Age-Band.")]
+        [XmlElement("Construction-Age-Band")]
         public virtual string ConstructionAgeBand { get; set; } = "L"; 
 
         [Description("Exposed openings that make up a particular Building-Part.")]
-        [XmlElement("SAP-Openings.")]
+        [XmlElement("SAP-Openings")]
         public virtual Openings Openings { get; set; } = null;
 
         [Description("Exposed roofs that make up a particular Building - Part.")]
-        [XmlElement("SAP-Roofs.")]
+        [XmlElement("SAP-Roofs")]
         public virtual Roofs Roofs { get; set; } = null;
 
         [Description("Storeys that make up a particular Building-Part.")]
-        [XmlElement(ElementName = "SAP-Floor-Dimensions.")]
+        [XmlElement(ElementName = "SAP-Floor-Dimensions")]
         public virtual FloorDimensions FloorDimensions { get; set; } = null;
 
         [Description("Thermal bridges that make up a particular Building-Part.")]
-        [XmlElement("SAP-Thermal-Bridges.")]
+        [XmlElement("SAP-Thermal-Bridges")]
         public virtual ThermalBridges ThermalBridges { get; set; } = null;
 
         [Description("Exposed walls that make up a particular Storey.")]
-        [XmlElement("SAP-Walls.")]
+        [XmlElement("SAP-Walls")]
         public virtual Walls Walls { get; set; } = null;
     }
 }

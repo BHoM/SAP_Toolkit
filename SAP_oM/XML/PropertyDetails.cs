@@ -97,7 +97,7 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "Windows-Overshading")]
         public virtual string WindowsOvershading { get; set; } = "2";
 
-        [Description("Average thermal mass parameter for the dwelling in kJ/m²K. If omitted it is calculated using the kappa values of each element.")]
+        [Description("Average thermal mass parameter for the dwelling in kJ/mï¿½K. If omitted it is calculated using the kappa values of each element.")]
         [XmlElement(ElementName = "Thermal-Mass-Parameter")]
         public virtual double ThermalMassParameter { get; set; } = 0;
 

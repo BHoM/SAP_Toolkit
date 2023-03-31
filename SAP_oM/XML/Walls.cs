@@ -34,7 +34,7 @@ namespace BH.oM.Environment.SAP.XML
     public class Walls : IObject
     {
         [Description("Various measurements for each wall of a particular storey.")]
-        [XmlElement("SAP-Wall.")]
+        [XmlElement("SAP-Wall")]
         public virtual List<Wall> Wall { get; set; } = null;
 
     }

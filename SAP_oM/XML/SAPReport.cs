@@ -36,69 +36,69 @@ namespace BH.oM.Environment.SAP.XML
     {
 
         [Description("The schema version that the data conformed to when it was lodged.")]
-        [XmlElement(ElementName = "Schema-Version-Original.")]
+        [XmlElement(ElementName = "Schema-Version-Original")]
         public virtual string SchemaVersionOriginal { get; set; } = "SAP-Schema-19.0.0";
 
         [Description("The schema version that the data conformed to when it was lodged.")]
-        [XmlElement(ElementName = "Schema-Version-Current.")]
+        [XmlElement(ElementName = "Schema-Version-Current")]
         public virtual string SchemaVersionCurrent { get; set; } = null;
 
         [Description("SAP version that was used for the calculation.")]
-        [XmlElement(ElementName = "SAP-Version.")]
+        [XmlElement(ElementName = "SAP-Version")]
         public virtual string SAPVersion { get; set; } = "10.2";
 
         [Description("Version of SAP that was used to define the input data for the calculation.")]
-        [XmlElement(ElementName = "SAP-Data-Version.")]
+        [XmlElement(ElementName = "SAP-Data-Version")]
         public virtual string SAPDataVersion { get; set; } = "10.2";
 
         [Description("Revision Number of the PCDF file used for the calculations.")]
-        [XmlElement(ElementName = "PCDF-Revision-Number.")]
+        [XmlElement(ElementName = "PCDF-Revision-Number")]
         public virtual int PCDFRevisionNumber { get; set; } = 0;
 
         [Description("Name of the software used to perform the SAP calculation.")]
-        [XmlElement(ElementName = "Calculation-Software-Name.")]
+        [XmlElement(ElementName = "Calculation-Software-Name")]
         public virtual string CalculationSoftwareName { get; set; } = "BRE SAP 10.2";
 
         [Description("Version of the software used to perform the SAP calculation.")]
-        [XmlElement(ElementName = "Calculation-Software-Version.")]
+        [XmlElement(ElementName = "Calculation-Software-Version")]
         public virtual string CalculationSoftwareVersion { get; set; } = "1.0.1-alpha";
 
         [Description(".")]
-        [XmlElement(ElementName = "User-Interface-Name.")] 
+        [XmlElement(ElementName = "User-Interface-Name")]
         public virtual string UserInterfaceName { get; set; } = "BRE SAP interface 10.2";
 
         [Description(".")]
-        [XmlElement(ElementName = "User-Interface-Version.")]
+        [XmlElement(ElementName = "User-Interface-Version")]
         public virtual string UserInterfaceVersion { get; set; } = "1.0.1-alpha";
 
         [Description(".")]
-        [XmlElement(ElementName = "Report-Header.")]
+        [XmlElement(ElementName = "Report-Header")]
         public virtual ReportHeader ReportHeader { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Energy-Assessment.")]
+        [XmlElement(ElementName = "Energy-Assessment")]
         public virtual EnergyAssessment EnergyAssessment { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "SAP10-Data.")] 
+        [XmlElement(ElementName = "SAP10-Data")]
         public virtual SAP10Data SAP10Data { get; set; } = new SAP10Data();
 
         [Description("Details of the Professional Indemnity Insurance policy used to provide cover against a compensation claim against any particular Home Condition Report.")]
-        [XmlElement(ElementName = "Insurance-Details.")] 
+        [XmlElement(ElementName = "Insurance-Details")]
         public virtual InsuranceDetails InsuranceDetails { get; set; } =null;
 
         [Description("A number indicating the version of related ExternalDefinitions.")]
-        [XmlElement(ElementName = "ExternalDefinitions-Revision-Number.")] 
+        [XmlElement(ElementName = "ExternalDefinitions-Revision-Number")]
         public virtual string ExternalDefinitionsRevisionNumber { get; set; } = null;
 
-        [XmlAttribute(AttributeName = "xmlns")]
-        public virtual string Xmlns { get; set; }
+        //[XmlAttribute(AttributeName = "xmlns")]
+        //public virtual string Xmlns { get; set; }
 
-        [XmlAttribute(AttributeName = "xsi")]
-        public virtual string Xsi { get; set; }
+        //[XmlAttribute(AttributeName = "xsi")]
+        //public virtual string Xsi { get; set; }
 
-        [XmlAttribute(AttributeName = "schemaLocation")]
-        public virtual string SchemaLocation { get; set; }
+        //[XmlAttribute(AttributeName = "schemaLocation")]
+        //public virtual string SchemaLocation { get; set; }
 
     }
 }

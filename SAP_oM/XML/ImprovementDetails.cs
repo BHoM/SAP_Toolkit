@@ -34,11 +34,11 @@ namespace BH.oM.Environment.SAP.XML
     public class ImprovementDetails : IObject
     {
         [Description("For backward compatability only.")]
-        [XmlElement(ElementName = "Improvement-Texts.")]
+        [XmlElement(ElementName = "Improvement-Texts")]
         public virtual string ImprovementTexts { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Improvement-Number.")] 
+        [XmlElement(ElementName = "Improvement-Number")]
         public virtual string ImprovementNumber { get; set; } = "8";
 
     }

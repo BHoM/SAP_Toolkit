@@ -34,15 +34,15 @@ namespace BH.oM.Environment.SAP.XML
     public class HeatingDeclaredValues : IObject
     {
         [Description(".")]
-        [XmlElement("Efficiency.")]
+        [XmlElement("Efficiency")]
         public virtual string Efficiency { get; set; } = null;
 
         [Description(".")]
-        [XmlElement("Make-Model.")]
+        [XmlElement("Make-Model")]
         public virtual string MakeModel { get; set; } = null;
 
         [Description(".")]
-        [XmlElement("Test-Method.")]
+        [XmlElement("Test-Method")]
         public virtual string TestMethod { get; set; } = null;
     }
 }

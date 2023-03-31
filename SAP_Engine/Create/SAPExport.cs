@@ -98,6 +98,7 @@ namespace BH.Engine.Environment.SAP
 
             List<Panel> exteriorWalls = wallPanels.Where(y => y.Bottom().IControlPoints().Where(z => (z.IIsOnCurve(baseCurve))).Count() == y.Bottom().IControlPoints().Count()).ToList();
 
+
             List<int> orientations = wallPanels.Select(x =>
             {
                 int orientationX = System.Convert.ToInt32(x.Orientation(0, true).Value.ToDegree());

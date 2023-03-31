@@ -34,7 +34,7 @@ namespace BH.oM.Environment.SAP.XML
     public class CommunityHeatSources : IObject
     {
         [Description(".")]
-        [XmlElement("Community-Heat-Source.")]
+        [XmlElement("Community-Heat-Source")]
         public virtual List<CommunityHeatSource> CommunityHeatSource { get; set; } = null;
     }
 }

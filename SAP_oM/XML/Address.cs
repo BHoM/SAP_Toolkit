@@ -34,23 +34,23 @@ namespace BH.oM.Environment.SAP.XML
     public class Address : IObject
     {
         [Description(".")]
-        [XmlElement(ElementName = "Address-Line-1.")]
+        [XmlElement(ElementName = "Address-Line-1")]
         public virtual string AddressLine1 { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Address-Line-2.")] 
+        [XmlElement(ElementName = "Address-Line-2")]
         public virtual string AddressLine2 { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Address-Line-3.")] 
+        [XmlElement(ElementName = "Address-Line-3")]
         public virtual string AddressLine3 { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Post-Town.")] 
+        [XmlElement(ElementName = "Post-Town")]
         public virtual string PostTown { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Postcode.")]
+        [XmlElement(ElementName = "Postcode")]
         public virtual string Postcode { get; set; } = null;
     }
 }

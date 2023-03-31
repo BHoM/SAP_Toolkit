@@ -34,19 +34,19 @@ namespace BH.oM.Environment.SAP.XML
     public class GreenPackageDeal : IObject
     {
         [Description(".")]
-        [XmlElement(ElementName = "Green-Deal-Improvement.")]
+        [XmlElement(ElementName = "Green-Deal-Improvement")]
         public virtual GreenDealImprovement Improvement { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Electricity-Saving.")]
+        [XmlElement(ElementName = "Electricity-Saving")]
         public virtual Money ElectricitySaving { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Gas-Saving.")]
+        [XmlElement(ElementName = "Gas-Saving")]
         public virtual Money GasSaving { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Other-Fuel-Saving.")]
+        [XmlElement(ElementName = "Other-Fuel-Saving")]
         public virtual Money OtherFuelSaving { get; set; } = null;
 
 
