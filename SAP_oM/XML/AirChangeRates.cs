@@ -34,7 +34,7 @@ namespace BH.oM.Environment.SAP.XML
     public class AirChangeRates : IObject
     {
         [Description(".")]
-        [XmlElement("Air-Change-Rate.")]
+        [XmlElement("Air-Change-Rate")]
         public virtual List<AirChangeRate> AirChangeRate { get; set; } = null;
     }
 }

@@ -34,15 +34,15 @@ namespace BH.oM.Environment.SAP.XML
     public class StorageHeater : IObject
     {
         [Description("The number of storage heaters with this index number.")]
-        [XmlElement("Number-Of-Heaters.")]
+        [XmlElement("Number-Of-Heaters")]
         public virtual int NumberOfHeaters { get; set; } = 0;
 
         [Description("The index number of the heater from the product database.")]
-        [XmlElement("Index-Number.")]
+        [XmlElement("Index-Number")]
         public virtual string IndexNumber { get; set; } = null;
 
         [Description("Whether heater is high heat retention type.")]
-        [XmlElement("High-Heat-Retention.")]
+        [XmlElement("High-Heat-Retention")]
         public virtual bool? HighHeatRetention { get; set; } = null;
     }
 }

@@ -34,35 +34,35 @@ namespace BH.oM.Environment.SAP.XML
     public class CommunityHeatSource : IObject
     {
         [Description(".")]
-        [XmlElement("Heat-Source-Type.")]
+        [XmlElement("Heat-Source-Type")]
         public virtual string HeatSourceType { get; set; } = "3";
 
         [Description("Fraction of heat for the system provided by this heat source.")]
-        [XmlElement("Heat-Fraction.")]
+        [XmlElement("Heat-Fraction")]
         public virtual string HeatFraction { get; set; } = "1";
 
         [Description(".")]
-        [XmlElement("Fuel-Type.")]
+        [XmlElement("Fuel-Type")]
         public virtual string FuelType { get; set; } = "41";
 
         [Description(".")]
-        [XmlElement(ElementName = "PCDF-Fuel-Index.")]
+        [XmlElement(ElementName = "PCDF-Fuel-Index")]
         public virtual string PCDFFuelIndex { get; set; } = null;
 
         [Description("Heat efficiency in %.")]
-        [XmlElement("Heat-Efficiency.")]
+        [XmlElement("Heat-Efficiency")]
         public virtual string HeatEfficiency { get; set; } = "400";
 
         [Description("Power efficiency in %. Include when heat source is CHP.")]
-        [XmlElement("Power-Efficiency.")]
+        [XmlElement("Power-Efficiency")]
         public virtual string PowerEfficiency { get; set; } = null;
 
         [Description(".")]
-        [XmlElement("Description.")]
+        [XmlElement("Description")]
         public virtual string Description { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "CHP-Electricity-Generation.")]
+        [XmlElement(ElementName = "CHP-Electricity-Generation")]
         public virtual string CHPElectricityGeneration { get; set; } = null;
     }
 }

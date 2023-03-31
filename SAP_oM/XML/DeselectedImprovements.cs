@@ -34,7 +34,7 @@ namespace BH.oM.Environment.SAP.XML
     public class DeselectedImprovements : IObject
     {
         [Description("There are 22 possible improvement measures, designated from A to V. This must record measures deselected by DEA (A to V is the full set, only E, N, U and V are considered at the moment for new build).")]
-        [XmlElement("Deselected-Improvement-Measure.")]
+        [XmlElement("Deselected-Improvement-Measure")]
         public virtual List<string> DeselectedImprovementMeasure { get; set; } = null;
     }
 }

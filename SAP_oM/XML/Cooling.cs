@@ -34,19 +34,19 @@ namespace BH.oM.Environment.SAP.XML
     public class Cooling : IObject
     {
         [Description("Cooled-Area.")]
-        [XmlElement("Cooled-Area.")]
+        [XmlElement("Cooled-Area")]
         public virtual string CooledArea { get; set; } = "0";
 
         [Description("Cooling-System-Data-Source.")]
-        [XmlElement("Cooling-System-Data-Source.")]
+        [XmlElement("Cooling-System-Data-Source")]
         public virtual string CoolingSystemDataSource { get; set; } = "3";
 
         [Description("Data set includes either class or SEER, not both.")]
-        [XmlElement("Cooling-System-Class.")]
+        [XmlElement("Cooling-System-Class")]
         public virtual string CoolingSystemClass { get; set; } = null;
 
         [Description("System-Energy Efficiency Ratio.  Data set includes either class or EER, not both.")]
-        [XmlElement("System-Energy-Efficiency-Ratio.")]
+        [XmlElement("System-Energy-Efficiency-Ratio")]
         public virtual string CoolingSystemSEER { get; set; } ="0";
 
     }

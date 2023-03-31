@@ -35,11 +35,11 @@ namespace BH.oM.Environment.SAP.XML
     {
 
         [Description(".")]
-        [XmlElement(ElementName = "Related-Party-Disclosure-Number.")] 
+        [XmlElement(ElementName = "Related-Party-Disclosure-Number")]
         public virtual string RelatedPartyDisclosureNumber { get; set; } = "1";
 
         [Description(".")]
-        [XmlElement(ElementName = "Related-Party-Disclosure-Text.")]
+        [XmlElement(ElementName = "Related-Party-Disclosure-Text")]
         public virtual string RelatedPartyDisclosureText { get; set; } = null;
     }
 }

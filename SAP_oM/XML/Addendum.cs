@@ -34,27 +34,27 @@ namespace BH.oM.Environment.SAP.XML
     public class Addendum : IObject
     {
         [Description("Cavity fill is recommended.")]
-        [XmlElement(ElementName = "Cavity-Fill-Recommended.")]
+        [XmlElement(ElementName = "Cavity-Fill-Recommended")]
         public virtual bool CavityFillRecommended { get; set; } = false;
 
         [Description("Stone walls present, not insulated.")]
-        [XmlElement(ElementName = "Stone-Walls.")]
+        [XmlElement(ElementName = "Stone-Walls")]
         public virtual bool StoneWalls { get; set; } = false;
 
         [Description("System build present.")]
-        [XmlElement(ElementName = "System-Build.")]
+        [XmlElement(ElementName = "System-Build")]
         public virtual bool SystemBuild { get; set; } = false;
 
         [Description("Dwelling has access issues for cavity wall insulation. Include only when at least one of Cavity-Fill-Recommended, Stone-Walls, System-Build is also present.")]
-        [XmlElement(ElementName = "Access-Issues.")]
+        [XmlElement(ElementName = "Access-Issues")]
         public virtual bool AccessIssues { get; set; } = false;
 
         [Description("Dwelling may be exposed to wind-driven rain. Include only when at least one of Cavity-Fill-Recommended, Stone-Walls, System-Build is also present.")]
-        [XmlElement(ElementName = "High-Exposure.")]
+        [XmlElement(ElementName = "High-Exposure")]
         public virtual bool HighExposure { get; set; } = false;
 
         [Description("Dwelling may have narrow cavities. Include only when Cavity-Fill-Recommended is also present.")]
-        [XmlElement(ElementName = "Narrow-Cavities.")]
+        [XmlElement(ElementName = "Narrow-Cavities")]
         public virtual bool NarrowCavities { get; set; } = false;
 
     }

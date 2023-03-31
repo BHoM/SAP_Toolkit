@@ -34,23 +34,23 @@ namespace BH.oM.Environment.SAP.XML
     public class InsuranceDetails : IObject
     {
         [Description("The name of the insurance company that underwrites / issued the insurance policy.")]
-        [XmlElement(ElementName = "Insurer.")]
+        [XmlElement(ElementName = "Insurer")]
         public virtual string Insurer { get; set; } = null;
 
         [Description("The policy number of the insurance policy.")]
-        [XmlElement(ElementName = "Policy-No.")]
+        [XmlElement(ElementName = "Policy-No")]
         public virtual string PolicyNo { get; set; } = null;
 
         [Description("The date that the insurance policy becomes effective.")]
-        [XmlElement(ElementName = "Effective-Date.")]
+        [XmlElement(ElementName = "Effective-Date")]
         public virtual DateTime EffectiveDate { get; set; } = DateTime.Now;
 
         [Description("The date that the insurance policy is supposed to expire.")]
-        [XmlElement(ElementName = "Expiry-Date.")]
+        [XmlElement(ElementName = "Expiry-Date")]
         public virtual DateTime ExpiryDate { get; set; } = DateTime.Now;
 
         [Description("The upper limit of the Professional Indemnity cover provided by the insurance policy.")]
-        [XmlElement(ElementName = "PI-Limit.")]
+        [XmlElement(ElementName = "PI-Limit")]
         public virtual Money PILimit { get; set; } = null;
 
     }

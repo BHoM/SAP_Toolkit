@@ -35,75 +35,75 @@ namespace BH.oM.Environment.SAP.XML
     public class PropertySummary : IObject
     {
         [Description(".")]
-        [XmlElement(ElementName = "Walls.")]
+        [XmlElement(ElementName = "Walls")]
         public virtual PropertySummaryType Walls { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Roof.")]
+        [XmlElement(ElementName = "Roof")]
         public virtual PropertySummaryType Roof { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Floor.")]
+        [XmlElement(ElementName = "Floor")]
         public virtual PropertySummaryType Floor { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Windows.")]
+        [XmlElement(ElementName = "Windows")]
         public virtual PropertySummaryType Windows { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Main-Heating.")]
+        [XmlElement(ElementName = "Main-Heating")]
         public virtual PropertySummaryType MainHeating { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Main-Heating-Controls.")]
+        [XmlElement(ElementName = "Main-Heating-Controls")]
         public virtual PropertySummaryType MainHeatingControls { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Secondary-Heating.")]
+        [XmlElement(ElementName = "Secondary-Heating")]
         public virtual PropertySummaryType SecondaryHeating { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Hot-Water.")]
+        [XmlElement(ElementName = "Hot-Water")]
         public virtual PropertySummaryType HotWater { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Lighting.")]
+        [XmlElement(ElementName = "Lighting")]
         public virtual PropertySummaryType Lighting { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Air-Tightness.")]
+        [XmlElement(ElementName = "Air-Tightness")]
         public virtual PropertySummaryType AirTightness { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Has-Fixed-Air-Conditioning.")]
+        [XmlElement(ElementName = "Has-Fixed-Air-Conditioning")]
         public virtual bool HasFixedAirConditioning { get; set; } = false;
 
         [Description(".")]
-        [XmlElement(ElementName = "Has-Hot-Water-Cylinder.")]
+        [XmlElement(ElementName = "Has-Hot-Water-Cylinder")]
         public virtual bool HasHotWaterCylinder { get; set; } = false;
 
         [Description(".")]
-        [XmlElement(ElementName = "Has-Heated-Separate-Conservatory.")]
+        [XmlElement(ElementName = "Has-Heated-Separate-Conservatory")]
         public virtual bool HasHeatedSeparateConservatory { get; set; } = false;
 
         [Description(".")]
-        [XmlElement(ElementName = "Dwelling-Type.")]
+        [XmlElement(ElementName = "Dwelling-Type")]
         public virtual string DwellingType { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Total-Floor-Area.")]
+        [XmlElement(ElementName = "Total-Floor-Area")]
         public virtual double TotalFloorArea { get; set; } = 0;
 
         [Description("Fraction of windows that are multiply glazed to nearest 1%.")]
-        [XmlElement(ElementName = "Multiple-Glazed-Percentage.")]
+        [XmlElement(ElementName = "Multiple-Glazed-Percentage")]
         public virtual double MultipleGlazedPercentage { get; set; } = 0;
 
         [Description("For backward compatibility only, do not use.")]
-        [XmlElement(ElementName = "Multiple-Glazed-Percentage-NR.")]
+        [XmlElement(ElementName = "Multiple-Glazed-Percentage-NR")]
         public virtual double MultipleGlazedPercentageNR { get; set; } = 0;
 
         [Description("Is dwelling a Zero Carbon Home?.")]
-        [XmlElement(ElementName = "Is-Zero-Carbon-Home.")]
+        [XmlElement(ElementName = "Is-Zero-Carbon-Home")]
         public virtual bool IsZeroCarbonHome { get; set; } = false;
      
     }

@@ -34,39 +34,39 @@ namespace BH.oM.Environment.SAP.XML
     public class Improvement : IObject
     {
         [Description(".")]
-        [XmlElement("Sequence.")]
+        [XmlElement("Sequence")]
         public virtual int Sequence { get; set; } = 0;
 
         [Description(".")]
-        [XmlElement(ElementName = "Improvement-Category.")]
+        [XmlElement(ElementName = "Improvement-Category")]
         public virtual string ImprovementCategory { get; set; } = "5";
 
         [Description(".")]
-        [XmlElement(ElementName = "Improvement-Type.")]
+        [XmlElement(ElementName = "Improvement-Type")]
         public virtual string ImprovementType { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Typical-Saving.")]
+        [XmlElement(ElementName = "Typical-Saving")]
         public virtual Money TypicalSaving { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Energy-Performance-Rating.")]
+        [XmlElement(ElementName = "Energy-Performance-Rating")]
         public virtual int EnergyPerformanceRating { get; set; } = 0;
 
         [Description(".")]
-        [XmlElement(ElementName = "Environmental-Impact-Rating.")]
+        [XmlElement(ElementName = "Environmental-Impact-Rating")]
         public virtual int EnvironmentalImpactRating { get; set; } = 0;
 
         [Description(".")]
-        [XmlElement(ElementName = "Improvement-Details.")]
+        [XmlElement(ElementName = "Improvement-Details")]
         public virtual ImprovementDetails ImprovementDetails { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Indicative-Cost.")]
+        [XmlElement(ElementName = "Indicative-Cost")]
         public virtual string IndicativeCost { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Green-Deal-Category.")]
+        [XmlElement(ElementName = "Green-Deal-Category")]
         public virtual string GreenDealCategory { get; set; } = "NI";
     }
 }

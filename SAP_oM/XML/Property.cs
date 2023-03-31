@@ -34,19 +34,19 @@ namespace BH.oM.Environment.SAP.XML
     public class Property : IObject
     {
         [Description("Address for the property.")]
-        [XmlElement(ElementName = "Address.")]
+        [XmlElement(ElementName = "Address")]
         public virtual Address Address { get; set; } = null;
 
         [Description("Unique Property Reference Number.")] 
-        [XmlElement(ElementName = "UPRN.")]
+        [XmlElement(ElementName = "UPRN")]
         public virtual string UniquePropertyReferenceNumber { get; set; } = null;
 
         [Description("A site reference.")]
-        [XmlElement(ElementName = "Site-Reference.")]
+        [XmlElement(ElementName = "Site-Reference")]
         public virtual string SiteReference { get; set; } = null;
 
         [Description("A plot reference.")]
-        [XmlElement(ElementName = "Plot-Reference.")]
+        [XmlElement(ElementName = "Plot-Reference")]
         public virtual string PlotReference { get; set; } = null;
 
     }

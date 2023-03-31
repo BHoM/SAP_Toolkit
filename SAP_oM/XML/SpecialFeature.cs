@@ -34,14 +34,14 @@ namespace BH.oM.Environment.SAP.XML
     public class SpecialFeature : IObject
     {
         [Description(".")]
-        [XmlElement("Storage-Heater.")]
+        [XmlElement("Storage-Heater")]
         public virtual string Description { get; set; } = null;
 
         [Description(".")]
-        [XmlElement("Energy-Feature.")]
+        [XmlElement("Energy-Feature")]
         public virtual EnergyFeature EnergyFeature { get; set; } = null;
         [Description(".")]
-        [XmlElement("Emissions-Feature.")]
+        [XmlElement("Emissions-Feature")]
         public virtual EmissionFeature EmissionsFeature { get; set; } = null;
     }
 }

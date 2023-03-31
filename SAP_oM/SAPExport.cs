@@ -30,7 +30,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("SAPExport file - not sure about this ~ Ellie")]
+    [Description("SAPExport file.")]
     public class SAPExport : BHoMObject
     {
         [Description("Full dwelling name, including window settings and glazing value.")]
