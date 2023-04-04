@@ -5,7 +5,7 @@
     <RootNamespace>BH.Adapter.SAP</RootNamespace>
 	  <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <AssemblyVersion>6.0.0.0</AssemblyVersion>
-    <FileVersion>6.1.0.0</FileVersion>
+    <FileVersion>6.2.0.0</FileVersion>
     <Description>https://github.com/BHoM/SAP_Toolkit</Description>
     <Copyright>Copyright © https://github.com/BHoM</Copyright>
   </PropertyGroup>
@@ -26,27 +26,27 @@
 
   <ItemGroup>
     <Reference Include="Adapter_Engine">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\Adapter_Engine.dll</HintPath>
+      <HintPath>$(ProgramData)\BHoM\Assemblies\Adapter_Engine.dll</HintPath>
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="Adapter_oM">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\Adapter_oM.dll</HintPath>
+      <HintPath>$(ProgramData)\BHoM\Assemblies\Adapter_oM.dll</HintPath>
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="BHoM">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\BHoM.dll</HintPath>
+      <HintPath>$(ProgramData)\BHoM\Assemblies\BHoM.dll</HintPath>
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="BHoM_Adapter">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\BHoM_Adapter.dll</HintPath>
+      <HintPath>$(ProgramData)\BHoM\Assemblies\BHoM_Adapter.dll</HintPath>
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="BHoM_Engine">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\BHoM_Engine.dll</HintPath>
+      <HintPath>$(ProgramData)\BHoM\Assemblies\BHoM_Engine.dll</HintPath>
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
