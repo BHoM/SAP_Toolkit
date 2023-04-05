@@ -42,8 +42,20 @@ namespace BH.oM.Environment.SAP.XML
         public virtual string ImprovementCategory { get; set; } = "5";
 
         [Description(".")]
+        [XmlElement(ElementName = "Green-Deal-Category")]
+        public virtual string GreenDealCategory { get; set; } = "NI";
+
+        [Description(".")]
         [XmlElement(ElementName = "Improvement-Type")]
         public virtual string ImprovementType { get; set; } = null;
+
+        [Description(".")]
+        [XmlElement(ElementName = "Improvement-Details")]
+        public virtual ImprovementDetails ImprovementDetails { get; set; } = null;
+
+        [Description(".")]
+        [XmlElement(ElementName = "Indicative-Cost")]
+        public virtual string IndicativeCost { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "Typical-Saving")]
@@ -57,17 +69,6 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "Environmental-Impact-Rating")]
         public virtual int EnvironmentalImpactRating { get; set; } = 0;
 
-        [Description(".")]
-        [XmlElement(ElementName = "Improvement-Details")]
-        public virtual ImprovementDetails ImprovementDetails { get; set; } = null;
-
-        [Description(".")]
-        [XmlElement(ElementName = "Indicative-Cost")]
-        public virtual string IndicativeCost { get; set; } = null;
-
-        [Description(".")]
-        [XmlElement(ElementName = "Green-Deal-Category")]
-        public virtual string GreenDealCategory { get; set; } = "NI";
     }
 }
 

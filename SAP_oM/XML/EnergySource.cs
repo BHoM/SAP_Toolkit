@@ -48,7 +48,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement(ElementName = "Hydro-Electric-Generation")]
-        public virtual double HydroElectricGeneration { get; set; } = 0;
+        public virtual string HydroElectricGeneration { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "Hydro-Electric-Certificate")]
@@ -60,7 +60,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement(ElementName = "Is-Hydro-Output-Connected-To-Dwelling-Meter")]
-        public virtual bool IsHydroOutputConnectedToDwellingMeter { get; set; } = false;
+        public virtual bool? IsHydroOutputConnectedToDwellingMeter { get; set; } = null;
 
     }
 }

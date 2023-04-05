@@ -20,23 +20,56 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+using BH.Engine.Base;
 using BH.oM.Base;
-using System.Xml.Serialization;
+using BH.oM.Environment.Elements;
+using BH.oM.Geometry;
+using BH.Engine.Geometry;
+using BH.Engine.Units;
+using BH.oM.Analytical.Elements;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using BH.oM.Base.Attributes;
+using System;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BH.oM.Environment.SAP.XML
+using System.Collections.Generic;
+using System.Linq;
+
+using BH.oM.Environment.SAP;
+using BH.oM.Base;
+using BH.oM.Adapter;
+using System.IO;
+
+namespace BH.Engine.Environment.SAP
 {
-    [Serializable]
-    [XmlRoot(ElementName = "Money", IsNullable = false)]
-    public class Money : IObject
+    public static partial class Modify
     {
-        [XmlAttribute(AttributeName = "currency")]
-        public virtual string Currency { get; set; } = "GBP";
+        public static bool RemoveNil(FileSettings file, bool run)
+        {
+            if (run == false)
+            {
+                return false;
+            }
+            var path = file.Directory + "\\" +file.FileName;
+            var xmlFile = File.ReadAllLines(path);
 
-        [XmlText]
-        public virtual int Text { get; set; } = 0;
+            for (int x = 0; x < xmlFile.Length; x++)
+            {
+                if (xmlFile[x].Trim().Contains("xsi:nil"))
+                {
+                    xmlFile[x] = null;
+                }
+   
+            }
+
+            File.Delete(path);
+            File.WriteAllLines(path, xmlFile);
+            return true;
+        }
+        
     }
 }
+
+

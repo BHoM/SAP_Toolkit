@@ -33,8 +33,9 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "Energy-Assessment", IsNullable = false)]
     public class EnergyAssessment : IObject
     {
+        [Description("In the form yyyy-mm-dd")]
         [XmlElement(ElementName = "Assessment-Date")]
-        public virtual DateTime AssessmentDate { get; set; } = default(DateTime);
+        public virtual string AssessmentDate { get; set; } = null;
 
         [XmlElement(ElementName = "Property-Summary")]
         public virtual PropertySummary PropertySummary { get; set; } = null;
@@ -42,11 +43,11 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "Energy-Use")]
         public virtual EnergyUse EnergyUse { get; set; } = null;
 
-        [XmlElement(ElementName = "Suggested-Improvements")]
-        public virtual SuggestedImprovements SuggestedImprovements { get; set; } = null;
-
         [XmlElement(ElementName = "LZC-Energy-Sources")]
         public virtual LowZeroCarbonEnergySources LowZeroCarbonEnergySources { get; set; } = null;
+
+        [XmlElement(ElementName = "Suggested-Improvements")]
+        public virtual SuggestedImprovements SuggestedImprovements { get; set; } = null;
 
         [XmlElement(ElementName = "Renewable-Heat-Incentive")]
         public virtual RenewableHeatIncentive RenewableHeatIncentive { get; set; } = null;

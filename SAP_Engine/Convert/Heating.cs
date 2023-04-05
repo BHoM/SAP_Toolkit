@@ -354,8 +354,8 @@ namespace BH.Engine.Environment.SAP
                     xmlHeating.ShowerOutlets.ShowerOutlet = xmlShowerOutlets;
                 }
 
-                xmlHeating.NumberBaths = heating.BathAndShowerDetails.NumberBaths;
-                xmlHeating.NumberBathsWWHRS = heating.BathAndShowerDetails.NumberBathsWWHRS;
+                xmlHeating.NumberBaths = heating.BathAndShowerDetails.NumberBaths.ToString();
+                xmlHeating.NumberBathsWWHRS = heating.BathAndShowerDetails.NumberBathsWWHRS.ToString();
             }
            
 

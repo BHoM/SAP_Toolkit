@@ -39,7 +39,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Global y-value for all thermal bridges in watts per square metre per kelvin; only if thermal bridge code is: user defined (global y-value).")]
         [XmlElement(ElementName = "User-Defined-Y-Value")]
-        public virtual double UserDefinedYValue { get; set; } = 0;
+        public virtual string UserDefinedYValue { get; set; } = null;
 
         [Description("Reference to the details of the calculation of the global y-value; only if thermal bridging is user defined global y-value.")]
         [XmlElement(ElementName = "Calculation-Reference")]

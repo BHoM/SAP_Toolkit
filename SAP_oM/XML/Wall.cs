@@ -35,15 +35,11 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("Unique name which identifies this wall within its storey.  Can be just a number, e.g. \"1\".  However, a wall cannot have the same name as an opening or a roof.")]
         [XmlElement("Name")]
-        public virtual string Name { get; set; } = "Wall";
+        public virtual string Name { get; set; } = "Walls (1)";
 
         [Description("Descriptive notes about the wall.")]
         [XmlElement("Description")]
-        public virtual string Description { get; set; } = "A heat loss wall";
-
-        [Description("Type of wall (exposure).")]
-        [XmlElement("Wall-Type")]
-        public virtual string Type { get; set; } = "2";
+        public virtual string Description { get; set; } = null;
 
         [Description("Total wall area in square metres, inclusive of any openings.")]
         [XmlElement("Total-Wall-Area")]
@@ -53,13 +49,17 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("U-Value")]
         public virtual double UValue { get; set; } = 0.18;
 
+        [Description("Type of wall (exposure).")]
+        [XmlElement("Wall-Type")]
+        public virtual string Type { get; set; } = "2";
+
         [Description("Whether the wall is curtain walling.")]
         [XmlElement("Is-Curtain-Walling")]
         public virtual bool CurtainWall { get; set; } = false;
 
         [Description("Heat capacity per unit area in kJ/m�K.")]
         [XmlElement("Kappa-Value")]
-        public virtual double KappaValue { get; set; } = 14;
+        public virtual string KappaValue { get; set; } = null; //14
     }
 }
 

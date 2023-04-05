@@ -33,29 +33,9 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "Energy-Use", IsNullable = false)]
     public class EnergyUse : IObject
     {
-        [Description("The DER of the property.")]
-        [XmlElement(ElementName = "DER")]
-        public virtual double DER { get; set; } = 0;
-
         [Description(".")]
-        [XmlElement(ElementName = "TER")]
-        public virtual double TER { get; set; } = 0;
-
-        [Description(".")]
-        [XmlElement(ElementName = "DPER")]
-        public virtual double DPER { get; set; } = 0;
-
-        [Description(".")]
-        [XmlElement(ElementName = "TPER")]
-        public virtual double TPER { get; set; } = 0;
-
-        [Description(".")]
-        [XmlElement(ElementName = "DFEE")]
-        public virtual double DFEE { get; set; } = 0;
-
-        [Description(".")]
-        [XmlElement(ElementName = "TFEE")]
-        public virtual double TFEE { get; set; } = 0;
+        [XmlElement(ElementName = "Energy-Rating-Average")]
+        public virtual int EnergyRatingAverage { get; set; } = 0;
 
         [Description(".")]
         [XmlElement(ElementName = "Energy-Rating-Current")]
@@ -64,10 +44,6 @@ namespace BH.oM.Environment.SAP.XML
         [Description(".")]
         [XmlElement(ElementName = "Energy-Rating-Potential")]
         public virtual int EnergyRatingPotential { get; set; } = 0;
-
-        [Description(".")]
-        [XmlElement(ElementName = "Energy-Rating-Average")]
-        public virtual int EnergyRatingAverage { get; set; } = 0;
 
         [Description(".")]
         [XmlElement(ElementName = "Environmental-Impact-Current")]
@@ -79,23 +55,23 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement(ElementName = "Energy-Consumption-Current")]
-        public virtual int EnergyConsumptionCurrent { get; set; } = 0;
+        public virtual string EnergyConsumptionCurrent { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "Energy-Consumption-Potential")]
-        public virtual int EnergyConsumptionPotential { get; set; } = 0;
+        public virtual string EnergyConsumptionPotential { get; set; } = null;
+
+        [Description(".")]
+        [XmlElement(ElementName = "CO2-Emissions-Current")]
+        public virtual string CO2EmissionsCurrent { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "CO2-Emissions-Potential")]
         public virtual string CO2EmissionsPotential { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "CO2-Emissions-Current")]
-        public virtual double CO2EmissionsCurrent { get; set; } = 0;
-
-        [Description(".")]
         [XmlElement(ElementName = "CO2-Emissions-Current-Per-Floor-Area")]
-        public virtual double CO2EmissionsCurrentPerFloorArea { get; set; } = 0;
+        public virtual string CO2EmissionsCurrentPerFloorArea { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "Lighting-Cost-Current")]
@@ -120,6 +96,30 @@ namespace BH.oM.Environment.SAP.XML
         [Description(".")]
         [XmlElement(ElementName = "Hot-Water-Cost-Potential")]
         public virtual Money HotWaterCostPotential { get; set; } = null;
+
+        [Description("The DER of the property.")]
+        [XmlElement(ElementName = "DER")]
+        public virtual double DER { get; set; } = 0;
+
+        [Description(".")]
+        [XmlElement(ElementName = "TER")]
+        public virtual double TER { get; set; } = 0;
+
+        [Description(".")]
+        [XmlElement(ElementName = "DPER")]
+        public virtual double DPER { get; set; } = 0;
+
+        [Description(".")]
+        [XmlElement(ElementName = "TPER")]
+        public virtual double TPER { get; set; } = 0;
+
+        [Description(".")]
+        [XmlElement(ElementName = "DFEE")]
+        public virtual double DFEE { get; set; } = 0;
+
+        [Description(".")]
+        [XmlElement(ElementName = "TFEE")]
+        public virtual double TFEE { get; set; } = 0;
     }
 }
 

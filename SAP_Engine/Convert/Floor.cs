@@ -48,12 +48,12 @@ namespace BH.Engine.Environment.SAP
                 xmlFloor.Description = "Type-" + sapFloorDimensions[i].Floor.Type.ToString() + "_Area-" + sapFloorDimensions[i].Floor.HeatLossArea.ToString() + "_Uvalue-" + sapFloorDimensions[i].Floor.uValue.ToString() + "_Kappavalue-" + sapFloorDimensions[i].Floor.KappaValue.ToString();
                 xmlFloor.Type = sapFloorDimensions[i].Floor.Type.FromSAPToXML();
                 xmlFloor.HeatLossArea = sapFloorDimensions[i].Floor.HeatLossArea;
-                xmlFloor.uValue = sapFloorDimensions[i].Floor.uValue;
-                xmlFloor.KappaValue = sapFloorDimensions[i].Floor.KappaValue;
-                xmlFloor.KappaValueFromBelow = sapFloorDimensions[i].Floor.KappaValueFromBelow;
+                xmlFloor.UValue = sapFloorDimensions[i].Floor.uValue;
+                xmlFloor.KappaValue = sapFloorDimensions[i].Floor.KappaValue.ToString();
+                xmlFloor.KappaValueFromBelow = sapFloorDimensions[i].Floor.KappaValueFromBelow.ToString();
 
                 xmlFloor.Storey = sapFloorDimensions[i].Storey.StoreyNumber.ToString();
-                xmlFloor.StoreyHeight = sapFloorDimensions[i].Storey.StoreyNumber;
+                xmlFloor.StoreyHeight = sapFloorDimensions[i].Storey.StoreyNumber.ToString();
                 xmlFloor.Area = sapFloorDimensions[i].Storey.Area;
 
                 xmlFloors.Add(xmlFloor);

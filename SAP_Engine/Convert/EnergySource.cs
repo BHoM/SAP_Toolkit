@@ -91,14 +91,14 @@ namespace BH.Engine.Environment.SAP
 
             if (sapEnergySource.HydroElectricGeneration == null)
             {
-                xmlEnergySource.HydroElectricGeneration = 0 ;
+                xmlEnergySource.HydroElectricGeneration = null ;
                 xmlEnergySource.HydroElectricCertificate = null;
                 xmlEnergySource.IsHydroOutputConnectedToDwellingMeter = false ; 
                 xmlEnergySource.HydroElectricGenerationMonths = null;
             }
             else if (sapEnergySource.HydroElectricGeneration != null)
             {
-                xmlEnergySource.HydroElectricGeneration = sapEnergySource.HydroElectricGeneration.Generation;
+                xmlEnergySource.HydroElectricGeneration = sapEnergySource.HydroElectricGeneration.Generation.ToString();
                 xmlEnergySource.HydroElectricCertificate = sapEnergySource.HydroElectricGeneration.HydroElectricCertificate;
                 xmlEnergySource.IsHydroOutputConnectedToDwellingMeter = sapEnergySource.HydroElectricGeneration.IsHydroOutputConnectedToDwellingMeter;
 
