@@ -96,15 +96,15 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Fraction of windows that are multiply glazed to nearest 1%.")]
         [XmlElement(ElementName = "Multiple-Glazed-Percentage")]
-        public virtual double MultipleGlazedPercentage { get; set; } = 0;
+        public virtual string MultipleGlazedPercentage { get; set; } = null;
 
         [Description("For backward compatibility only, do not use.")]
         [XmlElement(ElementName = "Multiple-Glazed-Percentage-NR")]
-        public virtual double MultipleGlazedPercentageNR { get; set; } = 0;
+        public virtual string MultipleGlazedPercentageNR { get; set; } = null;
 
         [Description("Is dwelling a Zero Carbon Home?.")]
         [XmlElement(ElementName = "Is-Zero-Carbon-Home")]
-        public virtual bool IsZeroCarbonHome { get; set; } = false;
+        public virtual bool? IsZeroCarbonHome { get; set; } = null;
      
     }
 }

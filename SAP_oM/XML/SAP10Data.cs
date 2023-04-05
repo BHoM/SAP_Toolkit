@@ -33,12 +33,12 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "SAP10-Data", IsNullable = false)]
     public class SAP10Data : IObject
     {
-        [Description("Type of SAP data that has been collected. 1 = new dwelling as designed.")]
-        [XmlElement("Data-Type")]
-        public virtual string DataType { get; set; } = "1"; 
-
         [Description("Various measurements a particular Property.")]
         [XmlElement("SAP-Property-Details")]
         public virtual PropertyDetails PropertyDetails { get; set; } = null;
+
+        [Description("Type of SAP data that has been collected. 1 = new dwelling as designed.")]
+        [XmlElement("Data-Type")]
+        public virtual string DataType { get; set; } = "1"; 
     }
 }

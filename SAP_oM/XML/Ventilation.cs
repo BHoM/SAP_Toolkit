@@ -38,10 +38,6 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "Closed-Flues-Count")]
         public virtual string ClosedFluesCount { get; set; } = null;
 
-        [Description("The number of Open Flues in the Property.")]
-        [XmlElement(ElementName = "Open-Flues-Count")]
-        public virtual string OpenFluesCount { get; set; } = null;
-
         [Description("The number of Boiler Flues or chimneys in the Property.")]
         [XmlElement(ElementName = "Boilers-Flues-Count")]
         public virtual string BoilerFluesCount { get; set; } = null;
@@ -57,7 +53,19 @@ namespace BH.oM.Environment.SAP.XML
         [Description("The number of Blocked Chimneys in the Property.")]
         [XmlElement(ElementName = "Blocked-Chimneys-Count")]
         public virtual string BlockedChimneysCount { get; set; } = null;
-            
+
+        [Description("The number of Open Flues in the Property.")]
+        [XmlElement(ElementName = "Open-Flues-Count")]
+        public virtual string OpenFluesCount { get; set; } = null;
+
+        [Description(".")]
+        [XmlElement(ElementName = "Extract-Fans-Count")]
+        public virtual string ExtractFansCount { get; set; } = null;
+
+        [Description("The number of passive stack vents.")]
+        [XmlElement(ElementName = "PSV-Count")]
+        public virtual string PSVCount { get; set; } = null;
+
         [Description("Do not use, for backwards compatibility only.")]
         [XmlElement("Fans-Vents-Count")]
         public virtual string FansVentCount { get; set; } = null;
@@ -65,6 +73,10 @@ namespace BH.oM.Environment.SAP.XML
         [Description("The number of flueless gas fires in the Property.")]
         [XmlElement(ElementName = "Flueless-Gas-Fires-Count")]
         public virtual string FluelessGasFiresCount { get; set; } = null;
+
+        [Description("The number of sheltered sides in the Property.")]
+        [XmlElement(ElementName = "Sheltered-Sides-Count")]
+        public virtual string ShelteredSidesCount { get; set; } = null;
 
         [Description("Whether there has been a pressure test, or whether an assumed value is used for the air permeability.")]
         [XmlElement(ElementName = "Pressure-Test")]
@@ -78,14 +90,6 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "Air-Permeability")]
         public virtual string AirPermeability { get; set; } = null;
 
-        [Description("The type of ground floor; only if no pressure test.")]
-        [XmlElement("Ground-Floor-Type")]
-        public virtual string GroundFloorType { get; set; } = "1";
-
-        [Description("The construction of the walls; only if no pressure test.")]
-        [XmlElement("Wall-Type")]
-        public virtual string WallType { get; set; } = "1";
-
         [Description("Is there a draft lobby?  Only if no pressure test.")]
         [XmlElement(ElementName = "Has-Draught-Lobby")]
         public virtual bool? HasDraughtLobby { get; set; } = false;
@@ -94,17 +98,9 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("DraughtStripping")]
         public virtual string DraughtStripping { get; set; } = null;
 
-        [Description("The number of sheltered sides in the Property.")]
-        [XmlElement(ElementName = "Sheltered-Sides-Count")]
-        public virtual string ShelteredSidesCount { get; set; } = null;
-
-        [Description("The type of ventilation.")]
-        [XmlElement(ElementName = "Ventilation-Type")]
-        public virtual string VentilationType { get; set; } = "1";
-
         [Description("Source of mechanical ventilation data; only if mechanical ventilation.")]
         [XmlElement(ElementName = "Mechanical-Ventilation-Data-Source")]
-        public virtual string MechanicalVentilationDataSource { get; set; } = "2";
+        public virtual string MechanicalVentilationDataSource { get; set; } = null; //2
 
         [Description("Mechanical vent system index number; if mechanical vent data from database (MEV c, MEV dc, MV, MVHR).")]
         [XmlElement(ElementName = "Mechanical-Vent-System-Index-Number")]
@@ -136,23 +132,23 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Mechanical vent duct type; if MEV c, MV or MVHR.")]
         [XmlElement(ElementName = "Mechanical-Vent-Duct-Type")]
-        public virtual string MechanicalVentDuctType { get; set; } = "1";
+        public virtual string MechanicalVentDuctType { get; set; } = null;
 
         [Description("Mechanical vent duct insulation; if MVHR.")]
         [XmlElement(ElementName = "Mechanical-Vent-Duct-Insulation")]
-        public virtual string MechanicalVentDuctInsulation { get; set; } = "1";
+        public virtual string MechanicalVentDuctInsulation { get; set; } = null;
 
         [Description("Mechanical vent duct insulation; if MVHR.")]
         [XmlElement(ElementName = "Mechanical-Vent-Duct-Insulation-Level")]
-        public virtual string MechanicalVentDuctInsulationLevel { get; set; } = "1";
+        public virtual string MechanicalVentDuctInsulationLevel { get; set; } = null;
 
         [Description("Mechanical ventilation duct insulation; if MVHR.")]
         [XmlElement(ElementName = "Mechanical-Vent-Duct-Placement")]
-        public virtual string MechanicalVentDuctPlacement { get; set; } = "1";
+        public virtual string MechanicalVentDuctPlacement { get; set; } = null;
 
         [Description("Mechanical ventilation SPF measured in situ; if MVHR or balanced.")]
         [XmlElement(ElementName = "Mechanical-Vent-Measured-Installation")]
-        public virtual bool? MechanicalVentMeasuredInstallation { get; set; } = false;
+        public virtual bool? MechanicalVentMeasuredInstallation { get; set; } = null;
 
         [Description("MEV dc, number of fans in room, kitchen; if mechanical vent data from database or manufacturer declaration (MEV dc).")]
         [XmlElement(ElementName = "Kitchen-Room-Fans-Count")]
@@ -203,20 +199,24 @@ namespace BH.oM.Environment.SAP.XML
         public virtual string NonKitchenWallFansSpecificPower { get; set; } = null;
 
         [Description(".")]
-        [XmlElement(ElementName = "Extract-Fans-Count")]
-        public virtual string ExtractFansCount { get; set; } = null;
-
-        [Description("The number of passive stack vents.")]
-        [XmlElement(ElementName = "PSV-Count")]
-        public virtual string PSVCount { get; set; } = null;
-
-        [Description(".")]
         [XmlElement("Is-Mechanical-Vent-Approved-Installer-Scheme")]
         public virtual bool? IsMechanicalVentApprovedInstallerScheme { get; set; } = true;
 
         [Description("Mechanical vent ducts index number; if applicable.")]
         [XmlElement("Mechanical-Vent-Ducts-Index-Number")]
         public virtual string MechanicalVentDuctsIndexNumber { get; set; } = null;
+
+        [Description("The type of ventilation.")]
+        [XmlElement(ElementName = "Ventilation-Type")]
+        public virtual string VentilationType { get; set; } = "1";
+
+        [Description("The type of ground floor; only if no pressure test.")]
+        [XmlElement("Ground-Floor-Type")]
+        public virtual string GroundFloorType { get; set; } = null; //1
+
+        [Description("The construction of the walls; only if no pressure test.")]
+        [XmlElement("Wall-Type")]
+        public virtual string WallType { get; set; } = null;
 
         /*
 

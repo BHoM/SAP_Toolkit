@@ -174,7 +174,7 @@ namespace BH.Engine.Environment.SAP
         
             xmlPropertyDetails.PVConnection = sapPropertyDetails.EnergySource.PvConnection.PVConnection.FromSAPToXML();
             xmlPropertyDetails.PVDiverter = sapPropertyDetails.EnergySource.PvConnection.PVDiverter;
-            xmlPropertyDetails.BatteryCapacity = sapPropertyDetails.EnergySource.PvConnection.BatteryCapacity;
+            xmlPropertyDetails.BatteryCapacity = sapPropertyDetails.EnergySource.PvConnection.BatteryCapacity.ToString();
             xmlPropertyDetails.IsWindTurbineConnectedToDwellingMeter= sapPropertyDetails.EnergySource.IsWindTurbineConnectedToDwellingMeter;
 
 

@@ -33,6 +33,27 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "SAP-Property-Details", IsNullable = false)]
     public class PropertyDetails : IObject
     {
+
+        [Description(".")]
+        [XmlElement(ElementName = "SAP-Energy-Source")]
+        public virtual EnergySource EnergySource { get; set; } = null;
+
+        [Description(".")]
+        [XmlElement(ElementName = "SAP-Heating")]
+        public virtual Heating Heating { get; set; } = null;
+
+        [Description("Details of the significant building parts that comprise the main habitable building in the property.")]
+        [XmlElement(ElementName = "SAP-Building-Parts")]
+        public virtual BuildingParts BuildingParts { get; set; } = null;
+
+        [Description("Details of the means by which the building is ventilated")]
+        [XmlElement(ElementName = "SAP-Ventilation")]
+        public virtual Ventilation Ventilation { get; set; } = null;
+
+        [Description("Types of exposed openings that make up a particular property.")]
+        [XmlElement(ElementName = "SAP-Opening-Types")]
+        public virtual OpeningTypes OpeningTypes { get; set; } = null;
+
         [Description("The type of Property, such as House, Flat, Mansion, Maisonette etc.")]
         [XmlElement("Property-Type")]
         public virtual string PropertyType { get; set; } = "0";
@@ -51,7 +72,27 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("The orientation of the front of the property.")]
         [XmlElement("Orientation")]
-        public virtual string Orientation { get; set; } = "1";
+        public virtual string Orientation { get; set; } = "0";
+
+        [Description("What is the cold water source?  Either mains or header tank.")]
+        [XmlElement(ElementName = "Cold-Water-Source")]
+        public virtual string ColdWaterSource { get; set; } = "1";
+
+        [Description("Average amount of overshading of windows.")]
+        [XmlElement(ElementName = "Windows-Overshading")]
+        public virtual string WindowsOvershading { get; set; } = "2";
+
+        [Description("Average thermal mass parameter for the dwelling in kJ/m�K. If omitted it is calculated using the kappa values of each element.")]
+        [XmlElement(ElementName = "Thermal-Mass-Parameter")]
+        public virtual double ThermalMassParameter { get; set; } = 0;
+
+        [Description("Is property in a smoke control area?  Only if a solid fuel appliance is used.")]
+        [XmlElement("Is-In-Smoke-Control-Area")]
+        public virtual string IsInSmokeControlArea { get; set; } = "true";
+
+        [Description("Details of the main lighting for the property")]
+        [XmlElement(ElementName = "SAP-Lighting")]
+        public virtual Lighting Lighting { get; set; } = null;
 
         [Description("Type of conservatory.")]
         [XmlElement("Conservatory-Type")]
@@ -71,7 +112,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("For backwards compatibility only, do not use.")]
         [XmlElement(ElementName = "Energy-Saved-Or-Generated")]
-        public virtual double EnergySavedOrGenerated { get; set; } = 0;
+        public virtual string EnergySavedOrGenerated { get; set; } = null;
 
         [Description("For backwards compatibility only, do not use.")]
         [XmlElement(ElementName = "Saved-Or-Generated-Fuel")]
@@ -79,31 +120,19 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("For backwards compatibility only, do not use.")]
         [XmlElement(ElementName = "Energy-Used")]
-        public virtual int EnergyUsed { get; set; } = 0;
+        public virtual string EnergyUsed { get; set; } = null;
 
         [Description("For backwards compatibility only, do not use.")]
         [XmlElement(ElementName = "Energy-Used-Fuel")]
         public virtual string EnergyUsedFuel { get; set; } = null;
        
-        [Description("Is property in a smoke control area?  Only if a solid fuel appliance is used.")]
-        [XmlElement("Is-In-Smoke-Control-Area")]
-        public virtual string IsInSmokeControlArea { get; set; } = "true";
-
-        [Description("What is the cold water source?  Either mains or header tank.")]
-        [XmlElement(ElementName = "Cold-Water-Source")]
-        public virtual string ColdWaterSource { get; set; } = "1";
-
-        [Description("Average amount of overshading of windows.")]
-        [XmlElement(ElementName = "Windows-Overshading")]
-        public virtual string WindowsOvershading { get; set; } = "2";
-
-        [Description("Average thermal mass parameter for the dwelling in kJ/m�K. If omitted it is calculated using the kappa values of each element.")]
-        [XmlElement(ElementName = "Thermal-Mass-Parameter")]
-        public virtual double ThermalMassParameter { get; set; } = 0;
-
         [Description("Additional allowable electricity generation applicable to this dwelling in kWh per square metre; only if Zero Carbon Home assessment.")]
         [XmlElement("Additional-Allowable-Electricity-Generation")]
-        public virtual string AdditionalAllowableElectricityGeneration { get; set; } = "0";
+        public virtual string AdditionalAllowableElectricityGeneration { get; set; } = null;
+
+        [Description(".")]
+        [XmlElement(ElementName = "Is-Dwelling-Export-Capable")]
+        public virtual bool IsDwellingExportCapable { get; set; } = false;
 
         [Description(".")]
         [XmlElement(ElementName = "Gas-Smart-Meter-Present")]
@@ -114,48 +143,20 @@ namespace BH.oM.Environment.SAP.XML
         public virtual bool ElectricitySmartMeterPresent { get; set; } = false;
 
         [Description(".")]
-        [XmlElement(ElementName = "Is-Dwelling-Export-Capable")]
-        public virtual bool IsDwellingExportCapable { get; set; } = false;
-
-        [Description(".")]
         [XmlElement(ElementName = "PV-Connection")]
-        public virtual string PVConnection { get; set; } = "0";
+        public virtual string PVConnection { get; set; } = null;
 
         [Description("Diverter present.")]
         [XmlElement(ElementName = "PV-Diverter")]
-        public virtual bool? PVDiverter { get; set; } = false;
+        public virtual bool? PVDiverter { get; set; } = null;
 
         [Description("Battery capacity capacity if diverter present")]
         [XmlElement(ElementName = "Battery-Capacity")]
-        public virtual double BatteryCapacity { get; set; } = 0;
+        public virtual string BatteryCapacity { get; set; } = null;
 
         [Description("Whether the wind turbine is connected to the Dwelling's meter.")]
         [XmlElement(ElementName = "Is-Wind-Turbine-Connected-To-Dwelling-Meter")]
-        public virtual bool? IsWindTurbineConnectedToDwellingMeter { get; set; } = false;
-
-        [Description(".")]
-        [XmlElement(ElementName = "SAP-Heating")]
-        public virtual Heating Heating { get; set; } = null;
-
-        [Description(".")]
-        [XmlElement(ElementName = "SAP-Energy-Source")]
-        public virtual EnergySource EnergySource { get; set; } = null;
-
-        [Description("Details of the significant building parts that comprise the main habitable building in the property.")]
-        [XmlElement(ElementName = "SAP-Building-Parts")]
-        public virtual BuildingParts BuildingParts { get; set; } = null;
-
-        [Description("Types of exposed openings that make up a particular property.")]
-        [XmlElement(ElementName = "SAP-Opening-Types")]
-        public virtual OpeningTypes OpeningTypes { get; set; } = null;
-
-        [Description("Details of the means by which the building is ventilated")]
-        [XmlElement(ElementName = "SAP-Ventilation")]
-        public virtual Ventilation Ventilation { get; set; } = null;
-
-        [Description("Details of the main lighting for the property")]
-        [XmlElement(ElementName = "SAP-Lighting")]
-        public virtual Lighting Lighting { get; set; } = null;
+        public virtual bool? IsWindTurbineConnectedToDwellingMeter { get; set; } = null;
 
         [Description(".")]
         [XmlElement("SAP-Deselected-Improvements")]
@@ -171,7 +172,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Design limit for total water use.")]
         [XmlElement("Design-Water-Use")]
-        public virtual string DesignWaterUse { get; set; } = "1";
+        public virtual string DesignWaterUse { get; set; } = null;
 
         [Description(".")]
         [XmlElement("SAP-Cooling")]

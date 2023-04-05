@@ -39,11 +39,15 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement("Description")]
-        public virtual string Description { get; set; } = "Double-glazed windows with aluminimum frame";
+        public virtual string Description { get; set; } = null; //"Double-glazed windows with aluminimum frame"
 
         [Description("The source of the data for this type of opening.")]
         [XmlElement("Data-Source")]
         public virtual string DataSource { get; set; } = "2";
+
+        [Description("The U-value.")]
+        [XmlElement("U-Value")]
+        public virtual string UValue { get; set; } = "1.4";
 
         [Description("The (physical) type of opening that this opening type represents.")]
         [XmlElement("Type")]
@@ -51,35 +55,33 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("The type of glazing.")]
         [XmlElement("Glazing-Type")]
-        public virtual string GlazingType { get; set; } = "3";
+        public virtual string GlazingType { get; set; } = null;//3
 
         [Description("Gap between glass panes.")]
         [XmlElement(ElementName = "Glazing-Gap")]
-        public virtual string GlazingGap { get; set; } = "1";
+        public virtual string GlazingGap { get; set; } = null; //1
 
         [Description("Is the opening argon-filled?.")]
         [XmlElement(ElementName = "IsArgonFilled")]
-        public virtual bool IsArgonFilled { get; set; } = false;
+        public virtual bool? IsArgonFilled { get; set; } = false;
 
         [Description("Is the opening krypton-filled?.")]
         [XmlElement(ElementName = "IsKryptonFilled")]
-        public virtual bool IsKryptonFilled { get; set; } = false;
+        public virtual bool? IsKryptonFilled { get; set; } = null; //false
 
         [Description("The type of frame.")]
         [XmlElement(ElementName = "Frame-Type")]
-        public virtual string FrameType { get; set; } = "1";
+        public virtual string FrameType { get; set; } = null; //1
 
         [Description("The solar transmittance; not if a door.")]
         [XmlElement("Solar-Transmittance")]
-        public virtual double gValue { get; set; } = 0.4;
+        public virtual string gValue { get; set; } = null; //0.4
 
         [Description("The frame factor; not if a door.")]
         [XmlElement("Frame-Factor")]
-        public virtual double FrameFactor { get; set; } = 0.8;
+        public virtual string FrameFactor { get; set; } = null; //0.8
 
-        [Description("The U-value.")]
-        [XmlElement("U-Value")]
-        public virtual double uValue { get; set; } = 1.4;
+        
         
     }
 }

@@ -39,23 +39,23 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Descriptive notes about the roof.")]
         [XmlElement("Description")]
-        public virtual string Description { get; set; } = "A heat loss roof";
-
-        [Description(".")]
-        [XmlElement("Roof-Type")]
-        public virtual string Type { get; set; } = "2";
-
-        [Description("Total roof area in square metres, inclusive of any openings.")]
-        [XmlElement("Total-Roof-Area")]
-        public virtual double Area { get; set; } = 0;
+        public virtual string Description { get; set; } = null;
 
         [Description("Exposed roof U-value.")]
         [XmlElement("U-Value")]
         public virtual double UValue { get; set; } = 0.13;
 
+        [Description("Total roof area in square metres, inclusive of any openings.")]
+        [XmlElement("Total-Roof-Area")]
+        public virtual double Area { get; set; } = 0;
+
+        [Description(".")]
+        [XmlElement("Roof-Type")]
+        public virtual string Type { get; set; } = "2";
+
         [Description("Heat capacity per unit area in kJ/m�K.")]
         [XmlElement("Kappa-Value")]
-        public virtual double KappaValue { get; set; } = 9;
+        public virtual string KappaValue { get; set; } = null;
 
     }
 }

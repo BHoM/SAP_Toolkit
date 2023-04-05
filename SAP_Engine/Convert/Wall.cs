@@ -45,7 +45,7 @@ namespace BH.Engine.Environment.SAP
             xmlWall.Type = sapWall.Type.FromSAPToXML();
             xmlWall.Area = sapWall.Area;
             xmlWall.UValue = sapWall.uValue;
-            xmlWall.KappaValue = sapWall.KappaValue;
+            xmlWall.KappaValue = sapWall.KappaValue.ToString();
             xmlWall.CurtainWall = sapWall.CurtainWall;
 
             List<BH.oM.Environment.SAP.XML.Opening> xmlOpenings = new List<BH.oM.Environment.SAP.XML.Opening>();

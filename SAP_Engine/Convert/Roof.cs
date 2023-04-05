@@ -46,7 +46,7 @@ namespace BH.Engine.Environment.SAP
             xmlRoof.Type = sapRoof.Type.FromSAPToXML();
             xmlRoof.Area = sapRoof.Area;
             xmlRoof.UValue = sapRoof.uValue;
-            xmlRoof.KappaValue = sapRoof.KappaValue
+            xmlRoof.KappaValue = sapRoof.KappaValue.ToString();
                 ;
             List<BH.oM.Environment.SAP.XML.Opening> xmlOpenings = new List<BH.oM.Environment.SAP.XML.Opening>();
             for (int i = 0; i < sapRoof.Openings.Count; i++)

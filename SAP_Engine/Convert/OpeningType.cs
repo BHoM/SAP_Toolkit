@@ -50,9 +50,9 @@ namespace BH.Engine.Environment.SAP
             xmlOpeningType.IsArgonFilled = sapOpeningType.IsArgonFilled;
             xmlOpeningType.IsKryptonFilled= sapOpeningType.IsKryptonFilled;
             xmlOpeningType.FrameType = sapOpeningType.FrameType.FromSAPToXML();
-            xmlOpeningType.gValue = sapOpeningType.gValue;
-            xmlOpeningType.FrameFactor = sapOpeningType.FrameFactor;
-            xmlOpeningType.uValue = sapOpeningType.uValue;
+            xmlOpeningType.gValue = sapOpeningType.gValue.ToString();
+            xmlOpeningType.FrameFactor = sapOpeningType.FrameFactor.ToString();
+            xmlOpeningType.UValue = sapOpeningType.uValue.ToString();
 
             oM.Environment.SAP.XML.OpeningTypes finalXML = new oM.Environment.SAP.XML.OpeningTypes();
             finalXML.OpeningType = xmlOpeningTypes;

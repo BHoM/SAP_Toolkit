@@ -41,13 +41,13 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "Policy-No")]
         public virtual string PolicyNo { get; set; } = null;
 
-        [Description("The date that the insurance policy becomes effective.")]
+        [Description("The date that the insurance policy becomes effective. In the form yyyy-mm-dd")]
         [XmlElement(ElementName = "Effective-Date")]
-        public virtual DateTime EffectiveDate { get; set; } = DateTime.Now;
+        public virtual string EffectiveDate { get; set; } = null;
 
-        [Description("The date that the insurance policy is supposed to expire.")]
+        [Description("The date that the insurance policy is supposed to expire. In the form yyyy-mm-dd")]
         [XmlElement(ElementName = "Expiry-Date")]
-        public virtual DateTime ExpiryDate { get; set; } = DateTime.Now;
+        public virtual string ExpiryDate { get; set; } = null;
 
         [Description("The upper limit of the Professional Indemnity cover provided by the insurance policy.")]
         [XmlElement(ElementName = "PI-Limit")]
