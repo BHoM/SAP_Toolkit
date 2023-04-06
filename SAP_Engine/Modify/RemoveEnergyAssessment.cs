@@ -19,31 +19,44 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-//using System;
-//using System.Collections.Generic;
-//using System.Text;
-//using System.Xml.Serialization;
-//using System.IO;
-//using System.ComponentModel;
 
-//namespace BH.Engine.Environment.SAP
-//{
-//    public static partial class Compute
-//    {
-//        [Description("")]// from sap obj to files
-//        public static bool ToXMLFile(string filePath, string fileName, BH.oM.Environment.SAP.XML.SAP10Data data, bool run = false)
-//        {
-//            if (!run)
-//                return false;
+using BH.Engine.Base;
+using BH.oM.Base;
+using BH.oM.Environment.Elements;
+using BH.oM.Geometry;
+using BH.Engine.Geometry;
+using BH.Engine.Units;
+using BH.oM.Analytical.Elements;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using BH.oM.Base.Attributes;
+using System;
+using System.Text;
+using System.Threading.Tasks;
 
-//            XmlSerializerNamespaces xns = new XmlSerializerNamespaces();
-//            XmlSerializer szer = new XmlSerializer(typeof(BH.oM.Environment.SAP.XML.SAP10Data));
-//            TextWriter ms = new StreamWriter(Path.Combine(filePath, fileName));
-//            szer.Serialize(ms, data, xns);
-//            ms.Close();
+using System.Collections.Generic;
+using System.Linq;
 
-//            return true;
-//        }
-//    }
-//}
+using BH.oM.Environment.SAP;
+using BH.oM.Base;
+using BH.oM.Adapter;
+using System.IO;
+using BH.oM.Environment.SAP.XML;
+
+namespace BH.Engine.Environment.SAP
+{
+    public static partial class Modify
+    {
+        public static SAPReport RemoveEnergyAssessment(this SAPReport reportObj)
+        {
+            if (reportObj == null) return null;
+
+            reportObj.EnergyAssessment = new BH.oM.Environment.SAP.XML.EnergyAssessment();
+
+            return reportObj;
+        }
+        
+    }
+}
+
 

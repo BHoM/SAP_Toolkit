@@ -46,6 +46,9 @@
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="Diffing_Engine">
+      <HintPath>..\..\..\ProgramData\BHoM\Assemblies\Diffing_Engine.dll</HintPath>
+    </Reference>
     <Reference Include="Dimensional_oM">
       <HintPath>C:\ProgramData\BHoM\Assemblies\Dimensional_oM.dll</HintPath>
       <Private>False</Private>
