@@ -31,7 +31,7 @@ using BH.oM.Analytical.Results;
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "SAP-Report", IsNullable = false, Namespace = "https://epbr.digital.communities.gov.uk/xsd/sap")]
+    [XmlRoot(ElementName = "SAP-Report", IsNullable = false, Namespace = "http://www.epcregister.com/xsd/sap")]//Namespace = "https://epbr.digital.communities.gov.uk/xsd/sap")]
     public class SAPReport : IObject, IResultObject
     {
 

@@ -19,57 +19,34 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
-using BH.Engine.Base;
-using BH.oM.Base;
-using BH.oM.Environment.Elements;
-using BH.oM.Geometry;
-using BH.Engine.Geometry;
-using BH.Engine.Units;
-using BH.oM.Analytical.Elements;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using BH.oM.Base.Attributes;
 using System;
-using System.Text;
-using System.Threading.Tasks;
-
 using System.Collections.Generic;
-using System.Linq;
-
-using BH.oM.Environment.SAP;
-using BH.oM.Base;
-using BH.oM.Adapter;
+using System.Text;
+using System.Xml.Serialization;
 using System.IO;
+using System.ComponentModel;
+using BH.oM.Adapter;
+using BH.Engine.Diffing;
+using BH.oM.Environment.SAP.XML;
 
 namespace BH.Engine.Environment.SAP
 {
-    public static partial class Modify
+    public static partial class Compute
     {
-        public static bool RemoveNil(this FileSettings file, bool run)
+        [Description("")]// from sap obj to files
+        public static bool Testing(FileSettings fileInput, FileSettings fileOutput, bool run = false)
         {
-            if (run == false)
-            {
+            if (!run)
                 return false;
-            }
-            var path = file.Directory + "\\" +file.FileName;
-            var xmlFile = File.ReadAllLines(path);
 
-            for (int x = 0; x < xmlFile.Length; x++)
-            {
-                if (xmlFile[x].Trim().Contains("xsi:nil"))
-                {
-                    xmlFile[x] = null;
-                }
-   
-            }
+            //pull
+            SAPReport bhomReport = PullFromXML(fileInput, true).RemoveEnergyAssessment();
+            //push
+            TestToXMLFile(bhomReport, fileOutput, true);
+            fileOutput.RemoveNil(true); 
 
-            File.Delete(path);
-            File.WriteAllLines(path, xmlFile);
             return true;
         }
-        
     }
 }
-
 
