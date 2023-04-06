@@ -34,15 +34,16 @@ namespace BH.Engine.Environment.SAP
     public static partial class Compute
     {
         [Description("")]// from sap obj to files
-        public static bool Testing(FileSettings fileInput, FileSettings fileOutput, bool run = false)
+        public static bool PullPushTest(FileSettings fileInput, FileSettings fileOutput, bool run = false)
         {
             if (!run)
                 return false;
 
             //pull
             SAPReport bhomReport = PullFromXML(fileInput, true).RemoveEnergyAssessment();
+
             //push
-            TestToXMLFile(bhomReport, fileOutput, true);
+            PushToXML(bhomReport, fileOutput, true);
             fileOutput.RemoveNil(true); 
 
             return true;
