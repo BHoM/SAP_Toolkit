@@ -46,11 +46,11 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "LZC-Energy-Sources")]
         public virtual LowZeroCarbonEnergySources LowZeroCarbonEnergySources { get; set; } = null;
 
-        [XmlElement(ElementName = "Suggested-Improvements")]
-        public virtual SuggestedImprovements SuggestedImprovements { get; set; } = null;
-
         [XmlElement(ElementName = "Renewable-Heat-Incentive")]
         public virtual RenewableHeatIncentive RenewableHeatIncentive { get; set; } = null;
+
+        [XmlElement(ElementName = "Suggested-Improvements")]
+        public virtual SuggestedImprovements SuggestedImprovements { get; set; } = null;
 
         [XmlElement(ElementName = "Green-Deal-Package")]
         public virtual GreenPackageDeal GreenPackageDeal { get; set; } = null;

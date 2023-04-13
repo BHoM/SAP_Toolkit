@@ -114,6 +114,7 @@ namespace BH.Adapter.SAP
                     string filePath = command.fileSettingsOutput.Directory + "\\" + command.fileSettingsOutput.FileName;
                     StreamWriter sw = new StreamWriter(filePath);
                     sw.Write(text);
+                    sw.Close();
                     ResultText txt = new ResultText();
                     BH.Engine.Base.Compute.RecordNote("You have used the endpoint returning a .txt file. Check your output folder.");
                     txt.txt = filePath;
