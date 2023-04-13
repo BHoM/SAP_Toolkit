@@ -40,10 +40,11 @@ namespace BH.Engine.Environment.SAP
                 return false;
 
             //pull
-            SAPReport bhomReport = PullFromXML(fileInput, true).RemoveEnergyAssessment();
+            SAPReport bhomReport = PullFromXML(fileInput, true);//.RemoveEnergyAssessment();
 
             //push
             PushToXML(bhomReport, fileOutput, true);
+            
             fileOutput.RemoveNil(true); 
 
             return true;

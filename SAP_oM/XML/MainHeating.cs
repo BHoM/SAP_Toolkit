@@ -77,6 +77,14 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Main-Heating-Control")]
         public virtual string MainHeatingControl { get; set; } = "2305";
 
+        [Description("Is the boiler a condensing boiler?  If boiler efficiency is manufacturer declaration.")]
+        [XmlElement("Is-Condensing-Boiler")]
+        public virtual bool? IsCondensingBoiler { get; set; } = null;
+
+        [Description("The temperature distribution of the condensing boiler.")]
+        [XmlElement("Condensing-Boiler-Heat-Distribution")]
+        public virtual string CondensingBoilerHeatDistribution { get; set; } = null; //55
+
         [Description("Identifies the means by which the central heating system (if present) emits heat; only when wet system (radiators or underfloor).")]
         [XmlElement("Heat-Emitter-Type")]
         public virtual string HeatEmitterType { get; set; } = null;
@@ -108,14 +116,6 @@ namespace BH.oM.Environment.SAP.XML
         [Description("Main heating appliance is HETAS approved?  Only if solid fuel.")]
         [XmlElement("Is-Main-Heating-HETAS-Approved")]
         public virtual bool IsMainHeatingHETASApproved { get; set; } = false;
-
-        [Description("Is the boiler a condensing boiler?  If boiler efficiency is manufacturer declaration.")]
-        [XmlElement("Is-Condensing-Boiler")]
-        public virtual bool? IsCondensingBoiler { get; set; } = null;
-
-        [Description("The temperature distribution of the condensing boiler.")]
-        [XmlElement("Condensing-Boiler-Heat-Distribution")]
-        public virtual string CondensingBoilerHeatDistribution { get; set; } = null; //55
 
         [Description("The temperature distribution of the heat pump, for wet systems only.")]
         [XmlElement("Heat-Pump-Heat-Distribution")]
