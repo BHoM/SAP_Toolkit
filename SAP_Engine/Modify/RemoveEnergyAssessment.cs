@@ -38,7 +38,6 @@ using System.Collections.Generic;
 using System.Linq;
 
 using BH.oM.Environment.SAP;
-using BH.oM.Base;
 using BH.oM.Adapter;
 using System.IO;
 using BH.oM.Environment.SAP.XML;

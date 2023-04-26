@@ -32,5 +32,3 @@ namespace BH.Adapter.SAP
         }
     }
 }
-
-
