@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
  *
@@ -20,41 +20,45 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Adapter;
+using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
+using BH.oM.Environment.SAP.XML;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Linq;
-using BH.oM.Environment.SAP.Stroma10;
-using BH.oM.Base;
-using System.Security.Cryptography.X509Certificates;
-using System.Runtime.InteropServices.ComTypes;
+using System.Text;
 using System.Xml.Serialization;
-using System.ComponentModel;
-using BH.oM.Base.Attributes;
-using BH.oM.Adapter;
 
-namespace BH.Engine.Environment.SAP
+namespace BH.Adapter.SAP
 {
-    public static partial class Compute
+    public partial class SAPAdapter : BHoMAdapter
     {
-        [Description("Converting a SAP object to an XML files.")] 
-        [Input("data", "A SAPReport object to convert to an xml file.")]
-        [Input("fileSettings", "Location of the XML files to push from.")]
-        [Input("run", "Run the method.")]
-        [Output("success","Has the method run.")]
-        public static bool PushToXML(BH.oM.Environment.SAP.XML.SAPReport data, FileSettings fileSettings, bool run = false)
+        public static bool CreateArgyle(BH.oM.Environment.SAP.XML.SAPReport data, FileSettings fileSettings)
         {
-
-            if (!run)
-                return false;
-
             XmlSerializerNamespaces xns = new XmlSerializerNamespaces();
             XmlSerializer szer = new XmlSerializer(typeof(BH.oM.Environment.SAP.XML.SAPReport));
 
             TextWriter ms = new StreamWriter(Path.Combine(fileSettings.Directory, fileSettings.FileName));
             szer.Serialize(ms, data, xns);
             ms.Close();
+
+            RemoveNil(fileSettings);
+
+            return true;
+        }
+
+        private static bool RemoveNil(FileSettings file)
+        {
+            var path = Path.Combine(file.Directory, file.FileName);
+            var xmlFile = File.ReadAllLines(path);
+
+            xmlFile = xmlFile.Where(x => !x.Trim().Contains("xsi:nil")).ToArray();
+            xmlFile = xmlFile.Where(x => x != null).ToArray();
+
+            File.Delete(path);
+            File.WriteAllLines(path, xmlFile);
 
             return true;
         }

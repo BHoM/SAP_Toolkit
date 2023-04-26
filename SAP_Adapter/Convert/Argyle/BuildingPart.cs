@@ -60,7 +60,6 @@ namespace BH.Engine.Environment.SAP
                 {
                     xmlBuildingPart.Openings = null;
                 }
-
                 else
                 {
                     openings.AddRange(sapBuildingPart[i].Walls.SelectMany(x => x.Openings).ToList());
@@ -76,15 +75,14 @@ namespace BH.Engine.Environment.SAP
                     {
                         xmlBuildingPart.Openings.Opening.AddRange(outputRoof[v].Item2);
                     }
+
                     for (int v = 0; v < sapBuildingPart[i].Walls.Count; v++)
                     {
                         xmlBuildingPart.Openings.Opening.AddRange(outputWall[v].Item2);
                     }
                 }
 
-
                 xmlBuildingPart.FloorDimensions = ToXML(sapBuildingPart[i].Floors);
-
 
                 BH.oM.Environment.SAP.XML.Roofs xmlRoofList = new BH.oM.Environment.SAP.XML.Roofs();
                 for (int u = 0; u < outputRoof.Count; u++)
