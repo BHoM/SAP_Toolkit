@@ -43,8 +43,8 @@ namespace BH.Engine.Environment.SAP
             xmlWall.Name = sapWall.Name;
             xmlWall.Description = "Type-" + sapWall.Type.ToString() + "_Area-" + sapWall.Area.ToString() + "_Uvalue-" + "0.18";
             xmlWall.Type = sapWall.Type.FromSAPToXML();
-            xmlWall.Area = sapWall.Area;
-            xmlWall.UValue = sapWall.uValue;
+            xmlWall.Area = sapWall.Area.ToString();
+            xmlWall.UValue = sapWall.uValue.ToString();
             xmlWall.KappaValue = sapWall.KappaValue.ToString();
             xmlWall.CurtainWall = sapWall.CurtainWall;
 
@@ -56,8 +56,8 @@ namespace BH.Engine.Environment.SAP
                 xmlOpening.Type = sapWall.Openings[i].OpeningType.Type.ToString();
                 xmlOpening.Location = sapWall.Name;
                 xmlOpening.Orientation = sapWall.Openings[i].Orientation.FromSAPToXML();
-                xmlOpening.Width = sapWall.Openings[i].Width;
-                xmlOpening.Height = sapWall.Openings[i].Height;
+                xmlOpening.Width = sapWall.Openings[i].Width.ToString();
+                xmlOpening.Height = sapWall.Openings[i].Height.ToString();
                 xmlOpenings.Add(xmlOpening);
             }
             return new Output<BH.oM.Environment.SAP.XML.Wall, List<BH.oM.Environment.SAP.XML.Opening>>() { Item1 = xmlWall, Item2 = xmlOpenings };

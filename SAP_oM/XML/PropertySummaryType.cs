@@ -33,8 +33,9 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "PropertySummaryType", IsNullable = false)]
     public class PropertySummaryType : IObject
     {
+
         [XmlElement(ElementName = "Description")]
-        public virtual string Description { get; set; } = null;
+        public virtual Description Description { get; set; } = null;
 
         [XmlElement(ElementName = "Energy-Efficiency-Rating")]
         public virtual string EnergyEfficiencyRating { get; set; } = null;

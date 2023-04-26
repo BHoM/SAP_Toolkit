@@ -35,16 +35,16 @@ namespace BH.oM.Environment.SAP.XML
     public class EnergySource : IObject
     {
         [Description(".")]
+        [XmlElement(ElementName = "Electricity-Tariff")]
+        public virtual string ElectricityTariff { get; set; } = null;
+
+        [Description(".")]
         [XmlElement("PV-Arrays")]
         public virtual PhotovoltaicArrays PhotovoltaicArrays { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "Wind-Turbines")]
         public virtual WindTurbines WindTurbines { get; set; } = null;
-
-        [Description(".")]
-        [XmlElement(ElementName = "Electricity-Tariff")]
-        public virtual string ElectricityTariff { get; set; } = "1";
 
         [Description(".")]
         [XmlElement(ElementName = "Hydro-Electric-Generation")]

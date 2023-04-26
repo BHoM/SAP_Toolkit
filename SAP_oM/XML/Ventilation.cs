@@ -80,7 +80,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Whether there has been a pressure test, or whether an assumed value is used for the air permeability.")]
         [XmlElement(ElementName = "Pressure-Test")]
-        public virtual string PressureTest { get; set; } = "3";
+        public virtual string PressureTest { get; set; } = null;//3
 
         [Description("Whether there has been a pressure test, or whether an assumed value is used for the air permeability.")]
         [XmlElement(ElementName = "Pressure-Test-Certificate-Number")]
@@ -200,7 +200,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement("Is-Mechanical-Vent-Approved-Installer-Scheme")]
-        public virtual bool? IsMechanicalVentApprovedInstallerScheme { get; set; } = true;
+        public virtual bool? IsMechanicalVentApprovedInstallerScheme { get; set; } = null;
 
         [Description("Mechanical vent ducts index number; if applicable.")]
         [XmlElement("Mechanical-Vent-Ducts-Index-Number")]
@@ -208,7 +208,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("The type of ventilation.")]
         [XmlElement(ElementName = "Ventilation-Type")]
-        public virtual string VentilationType { get; set; } = "1";
+        public virtual string VentilationType { get; set; } = null; //1
 
         [Description("The type of ground floor; only if no pressure test.")]
         [XmlElement("Ground-Floor-Type")]

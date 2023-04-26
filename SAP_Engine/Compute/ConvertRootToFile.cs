@@ -26,7 +26,7 @@ using System.Text;
 using System.Linq;
 using BH.oM.Environment.SAP.Stroma10;
 using BH.oM.Base;
-using System.Security.Cryptography.X509Certificates;
+
 
 namespace BH.Engine.Environment.SAP
 {

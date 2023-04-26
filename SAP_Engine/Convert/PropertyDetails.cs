@@ -119,8 +119,8 @@ namespace BH.Engine.Environment.SAP
                 foreach (var LightFixture in sapPropertyDetails.LightingDetails)
                 {
                     BH.oM.Environment.SAP.XML.FixedLight light = new oM.Environment.SAP.XML.FixedLight();
-                    light.LightingEfficacy= LightFixture.LightingEfficacy;
-                    light.LightingPower= LightFixture.LightingPower;
+                    light.LightingEfficacy= LightFixture.LightingEfficacy.ToString();
+                    light.LightingPower= LightFixture.LightingPower.ToString();
                     light.LightingOutlets= LightFixture.LightingOutlets;
 
                     sapLighting.Add(light);
@@ -164,7 +164,7 @@ namespace BH.Engine.Environment.SAP
             xmlPropertyDetails.IsInSmokeControlArea = "true";
             xmlPropertyDetails.ColdWaterSource = "1";
             xmlPropertyDetails.WindowsOvershading = sapPropertyDetails.Overshading.FromSAPToXML();
-            xmlPropertyDetails.ThermalMassParameter = 0;
+            xmlPropertyDetails.ThermalMassParameter = null;
             xmlPropertyDetails.AdditionalAllowableElectricityGeneration = "0";
             xmlPropertyDetails.GasSmartMeterPresent = false;
             xmlPropertyDetails.ElectricitySmartMeterPresent= false;

@@ -45,13 +45,17 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Solar-Panel-Aperture-Area")]
         public virtual string ApertureArea { get; set; } = null;
 
+        [Description(".")]
+        [XmlElement("Solar-Panel-Collector-Pitch")]
+        public virtual string Pitch { get; set; } = null;
+
+        [Description("Dedicated solar store volume in litres.")]
+        [XmlElement("Solar-Store-Volume")]
+        public virtual string SolarStoreVolume { get; set; } = null;
+
         [Description("Type of solar panel collector.")]
         [XmlElement("Solar-Panel-Collector-Type")]
         public virtual string CollectorType { get; set; } = null;
-
-        [Description("Source of solar panel collector data.")]
-        [XmlElement("Solar-Panel-Collector-Data-Source")]
-        public virtual string DataSource { get; set; } = null;
 
         [Description("Collector zero-loss efficiency; only if declared values.")]
         [XmlElement("Solar-Panel-Collector-Zero-Loss-Efficiency")]
@@ -74,10 +78,6 @@ namespace BH.oM.Environment.SAP.XML
         public virtual string Orientation { get; set; } = null;
 
         [Description(".")]
-        [XmlElement("Solar-Panel-Collector-Pitch")]
-        public virtual string Pitch { get; set; } = null;
-
-        [Description(".")]
         [XmlElement("Solar-Panel-Collector-Overshading")]
         public virtual string Overshading { get; set; } = null;
 
@@ -88,10 +88,6 @@ namespace BH.oM.Environment.SAP.XML
         [Description(".")]
         [XmlElement("Is-Solar-Store-Combined-Cylinder")]
         public virtual bool? IsSolarStoreCombinedCylinder { get; set; } = null;
-
-        [Description("Dedicated solar store volume in litres.")]
-        [XmlElement("Solar-Store-Volume")]
-        public virtual string SolarStoreVolume { get; set; } = null;
 
         [Description("Collector loop efficiency; only if declared values.")]
         [XmlElement("Collector-Loop-Efficiency")]
@@ -108,6 +104,10 @@ namespace BH.oM.Environment.SAP.XML
         [Description(".")]
         [XmlElement(ElementName = "Service-Provision")]
         public virtual string ServiceProvision { get; set; } = null;
+
+        [Description("Source of solar panel collector data.")]
+        [XmlElement("Solar-Panel-Collector-Data-Source")]
+        public virtual string DataSource { get; set; } = null;
 
         [Description("Overall heat loss coefficient of system; only if declared values.")]
         [XmlElement("Overall-Heat-Loss")]

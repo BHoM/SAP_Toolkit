@@ -35,11 +35,11 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description(".")]
         [XmlElement("WWHRS-Index-Number1")]
-        public virtual string WWHRSIndexNumber1 { get; set; } = "1";
+        public virtual string WWHRSIndexNumber1 { get; set; } = null;
 
         [Description("Omit if no second system.")]
         [XmlElement("WWHRS-Index-Number2")]
-        public virtual string WWHRSIndexNumber2 { get; set; } = "2";
+        public virtual string WWHRSIndexNumber2 { get; set; } = null;
 
         [Description(".")]
         [XmlElement("WWHRS-Efficiency1")]

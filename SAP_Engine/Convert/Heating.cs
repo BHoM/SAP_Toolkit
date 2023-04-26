@@ -345,8 +345,8 @@ namespace BH.Engine.Environment.SAP
                     {
                         oM.Environment.SAP.XML.ShowerOutlet xmlShowerOutlet = new oM.Environment.SAP.XML.ShowerOutlet();
                         xmlShowerOutlet.ShowerOutletType = heating.BathAndShowerDetails.ShowerOutlets[i].Type;
-                        xmlShowerOutlet.ShowerFlowRate = heating.BathAndShowerDetails.ShowerOutlets[i].FlowRate;
-                        xmlShowerOutlet.ShowerPower = heating.BathAndShowerDetails.ShowerOutlets[i].Power;
+                        xmlShowerOutlet.ShowerFlowRate = heating.BathAndShowerDetails.ShowerOutlets[i].FlowRate.ToString();
+                        xmlShowerOutlet.ShowerPower = heating.BathAndShowerDetails.ShowerOutlets[i].Power.ToString();
                         xmlShowerOutlet.ShowerWWHRS = heating.BathAndShowerDetails.ShowerOutlets[i].ShowerWWHRS;//connect with the WWHRS names
                         xmlShowerOutlets.Add(xmlShowerOutlet);
                     }

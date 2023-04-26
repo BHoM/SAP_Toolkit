@@ -56,39 +56,39 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("The type of Property, such as House, Flat, Mansion, Maisonette etc.")]
         [XmlElement("Property-Type")]
-        public virtual string PropertyType { get; set; } = "0";
+        public virtual string PropertyType { get; set; } = null;
 
         [Description("The building type of the Property e.g. Detached, Semi-Detached, Terrace etc. Together with the Property Type, the Built Form provides a structured description of the property.")]
         [XmlElement("Built-Form")]
-        public virtual string BuiltForm { get; set; } = "4";
+        public virtual string BuiltForm { get; set; } = null; //4
 
         [Description("The size of the living area in square metres.  The living area is the room marked on a plan as the lounge or living room, or the largest public room (irrespective of usage by particular occupants), together with any rooms not separated from the lounge or living room by doors, and including any cupboards directly accessed from the lounge or living room. Living area does not, however, extend over more than one storey, even when stairs enter the living area directly.")]
         [XmlElement("Living-Area")]
-        public virtual string LivingArea { get; set; } = "0";
+        public virtual string LivingArea { get; set; } = null;
 
         [Description("The Area of the lowest storey in square meters including unheated or communal areas such as garages or corridors.")]
         [XmlElement("Lowest-Storey-Area")]
-        public virtual string LowestStoreyArea { get; set; } = "0";
+        public virtual string LowestStoreyArea { get; set; } = null;
 
         [Description("The orientation of the front of the property.")]
         [XmlElement("Orientation")]
-        public virtual string Orientation { get; set; } = "0";
+        public virtual string Orientation { get; set; } = null;
 
         [Description("What is the cold water source?  Either mains or header tank.")]
         [XmlElement(ElementName = "Cold-Water-Source")]
-        public virtual string ColdWaterSource { get; set; } = "1";
+        public virtual string ColdWaterSource { get; set; } = null;
 
         [Description("Average amount of overshading of windows.")]
         [XmlElement(ElementName = "Windows-Overshading")]
-        public virtual string WindowsOvershading { get; set; } = "2";
+        public virtual string WindowsOvershading { get; set; } = null;
 
         [Description("Average thermal mass parameter for the dwelling in kJ/m�K. If omitted it is calculated using the kappa values of each element.")]
         [XmlElement(ElementName = "Thermal-Mass-Parameter")]
-        public virtual double ThermalMassParameter { get; set; } = 0;
+        public virtual string ThermalMassParameter { get; set; } = null;
 
         [Description("Is property in a smoke control area?  Only if a solid fuel appliance is used.")]
         [XmlElement("Is-In-Smoke-Control-Area")]
-        public virtual string IsInSmokeControlArea { get; set; } = "true";
+        public virtual string IsInSmokeControlArea { get; set; } = null;
 
         [Description("Details of the main lighting for the property")]
         [XmlElement(ElementName = "SAP-Lighting")]
@@ -96,15 +96,15 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Type of conservatory.")]
         [XmlElement("Conservatory-Type")]
-        public virtual string ConservatoryType { get; set; } = "1";
+        public virtual string ConservatoryType { get; set; } = null;
 
         [Description("Terrain type. Needed for wind-turbines and for applying measures.")]
         [XmlElement(ElementName = "Terrain-Type")]
-        public virtual string TerrainType { get; set; } = "1";
+        public virtual string TerrainType { get; set; } = null;
 
         [Description("For backwards compatibility only, do not use.")]
         [XmlElement(ElementName = "Has-Special-Feature")]
-        public virtual bool HasSpecialFeature { get; set; } = false;
+        public virtual bool? HasSpecialFeature { get; set; } = null;
 
         [Description("For backwards compatibility only, do not use.")]
         [XmlElement(ElementName = "Special-Feature-Description")]
@@ -132,15 +132,15 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement(ElementName = "Is-Dwelling-Export-Capable")]
-        public virtual bool IsDwellingExportCapable { get; set; } = false;
+        public virtual bool? IsDwellingExportCapable { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "Gas-Smart-Meter-Present")]
-        public virtual bool GasSmartMeterPresent { get; set; } = false;
+        public virtual bool? GasSmartMeterPresent { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "Electricity-Smart-Meter-Present")]
-        public virtual bool ElectricitySmartMeterPresent { get; set; } = false;
+        public virtual bool? ElectricitySmartMeterPresent { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "PV-Connection")]

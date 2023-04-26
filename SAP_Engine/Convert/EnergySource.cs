@@ -54,14 +54,14 @@ namespace BH.Engine.Environment.SAP
                 foreach (var sapArray in sapEnergySource.PhotovoltaicArrays)
                 {
                     BH.oM.Environment.SAP.XML.PhotovoltaicArray xmlArray = new oM.Environment.SAP.XML.PhotovoltaicArray();
-                    xmlArray.PeakPower = sapArray.PeakPower;
+                    xmlArray.PeakPower = sapArray.PeakPower.ToString();
                     xmlArray.Orientation = sapArray.Orientation.FromSAPToXML();
                     xmlArray.Pitch = sapArray.Pitch.FromSAPToXML();
                     xmlArray.Overshading = sapArray.Overshading.FromSAPToXML();
                     xmlArray.MCSCertificate = sapArray.ArrayDetails.MCSCertificate;
                     xmlArray.MCSCertificateReference = sapArray.ArrayDetails.MCSCertificateReference;
                     xmlArray.ManufacturerName = sapArray.ArrayDetails.ManufacturerName;
-                    xmlArray.OvershadingMCS = sapArray.ArrayDetails.OvershadingMCS;
+                    xmlArray.OvershadingMCS = sapArray.ArrayDetails.OvershadingMCS.ToString();
                     xmlArrays.Add(xmlArray);
                 }
                 xmlEnergySource.PhotovoltaicArrays.PhotovoltaicArray = xmlArrays;
@@ -82,8 +82,8 @@ namespace BH.Engine.Environment.SAP
                     BH.oM.Environment.SAP.XML.WindTurbine xmlTurbine = new oM.Environment.SAP.XML.WindTurbine();
                     xmlTurbine.ManufacturerName = sapTurbine.ManufacturerName;
                     xmlTurbine.Certificate = sapTurbine.Certificate;
-                    xmlTurbine.RotorDiameter = sapTurbine.RotorDiameter;
-                    xmlTurbine.HubHeight = sapTurbine.HubHeight;
+                    xmlTurbine.RotorDiameter = sapTurbine.RotorDiameter.ToString();
+                    xmlTurbine.HubHeight = sapTurbine.HubHeight.ToString();
                     xmlTurbines.Add(xmlTurbine);
                 }
                 xmlEnergySource.WindTurbines.WindTurbine = xmlTurbines;

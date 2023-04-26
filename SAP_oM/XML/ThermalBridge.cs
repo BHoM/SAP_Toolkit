@@ -33,10 +33,6 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "SAP-Thermal-Bridge", IsNullable = false)]
     public class ThermalBridge : IObject
     {
-        [Description("Code to indicate a particular type of thermal bridge; only if thermal bridge code is: user defined (individual values).")]
-        [XmlElement("Thermal-Bridge-Type")]
-        public virtual string Type { get; set; } = "ND"; 
-
         [Description("Length of the thermal bridge in metres; only if thermal bridge code is: user defined (individual values).")]
         [XmlElement("Length")]
         public virtual double Length { get; set; } = 0;
@@ -47,7 +43,11 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement("Psi-Value-Source")]
-        public virtual string PsiSource { get; set; } = "4";
+        public virtual string PsiSource { get; set; } = null;  //4
+        
+        [Description("Code to indicate a particular type of thermal bridge; only if thermal bridge code is: user defined (individual values).")]
+        [XmlElement("Thermal-Bridge-Type")]
+        public virtual string Type { get; set; } = "ND";
 
         [Description("Reference to the details of the calculation of the psi-value.")]
         [XmlElement("Psi-Value-Calculation-Reference")]

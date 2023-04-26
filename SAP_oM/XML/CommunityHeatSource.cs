@@ -35,15 +35,15 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description(".")]
         [XmlElement("Heat-Source-Type")]
-        public virtual string HeatSourceType { get; set; } = "3";
+        public virtual string HeatSourceType { get; set; } = null;
 
         [Description("Fraction of heat for the system provided by this heat source.")]
         [XmlElement("Heat-Fraction")]
-        public virtual string HeatFraction { get; set; } = "1";
+        public virtual string HeatFraction { get; set; } = null;
 
         [Description(".")]
         [XmlElement("Fuel-Type")]
-        public virtual string FuelType { get; set; } = "41";
+        public virtual string FuelType { get; set; } = null;//41
 
         [Description(".")]
         [XmlElement(ElementName = "PCDF-Fuel-Index")]
@@ -51,7 +51,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Heat efficiency in %.")]
         [XmlElement("Heat-Efficiency")]
-        public virtual string HeatEfficiency { get; set; } = "400";
+        public virtual string HeatEfficiency { get; set; } = null; //400
 
         [Description("Power efficiency in %. Include when heat source is CHP.")]
         [XmlElement("Power-Efficiency")]

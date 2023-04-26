@@ -95,6 +95,9 @@ namespace BH.Adapter.SAP
                     var data = (SAPReport)szer.Deserialize(tr);
                     tr.Close();
 
+                    var destFilePath = Path.Combine(command.fileSettingsOutput.Directory, command.fileSettingsOutput.FileName);
+                    File.Copy(tmpFilePath, destFilePath, true);
+
                     try
                     {
                         File.Delete(tmpFilePath);

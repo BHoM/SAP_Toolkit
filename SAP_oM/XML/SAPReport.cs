@@ -31,7 +31,7 @@ using BH.oM.Analytical.Results;
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "SAP-Report", IsNullable = false, Namespace = "http://www.epcregister.com/xsd/sap")]//Namespace = "https://epbr.digital.communities.gov.uk/xsd/sap")]
+    [XmlRoot(ElementName = "SAP-Report", IsNullable = false, Namespace = "https://epbr.digital.communities.gov.uk/xsd/sap")]//Namespace = "https://epbr.digital.communities.gov.uk/xsd/sap")]
     public class SAPReport : IObject, IResultObject
     {
 
@@ -73,11 +73,11 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement(ElementName = "Report-Header")]
-        public virtual ReportHeader ReportHeader { get; set; } = null;
+        public virtual ReportHeader ReportHeader { get; set; } = new ReportHeader();
 
         [Description(".")]
         [XmlElement(ElementName = "Energy-Assessment")]
-        public virtual EnergyAssessment EnergyAssessment { get; set; } = null;
+        public virtual EnergyAssessment EnergyAssessment { get; set; } = new EnergyAssessment();
 
         [Description(".")]
         [XmlElement(ElementName = "SAP10-Data")]

@@ -43,15 +43,15 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Exposed roof U-value.")]
         [XmlElement("U-Value")]
-        public virtual double UValue { get; set; } = 0.13;
+        public virtual string UValue { get; set; } = "0.13"; //0.13
 
         [Description("Total roof area in square metres, inclusive of any openings.")]
         [XmlElement("Total-Roof-Area")]
-        public virtual double Area { get; set; } = 0;
+        public virtual string Area { get; set; } = "0";
 
         [Description(".")]
         [XmlElement("Roof-Type")]
-        public virtual string Type { get; set; } = "2";
+        public virtual string Type { get; set; } = "2" ; //2
 
         [Description("Heat capacity per unit area in kJ/m�K.")]
         [XmlElement("Kappa-Value")]

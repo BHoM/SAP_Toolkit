@@ -35,7 +35,7 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("A name describing the floor dimensioned.")]
         [XmlElement("Name")]
-        public virtual string Name { get; set; } = null;
+        public virtual string Name { get; set; } = "Floor(1)";
 
         [Description("Descriptive notes about the floor.")]
         [XmlElement("Description")]
@@ -43,27 +43,27 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Type of floor (exposure).")]
         [XmlElement("Floor-Type")]
-        public virtual string Type { get; set; } = "2";
+        public virtual string Type { get; set; } = "4";
 
         [Description("Building storey on which the floor is located.")]
         [XmlElement("Storey")]
-        public virtual string Storey { get; set; } = "0";
+        public virtual string Storey { get; set; } =  "1";
 
         [Description("Average height of the storey in metres.")]
         [XmlElement("Storey-Height")]
-        public virtual string StoreyHeight { get; set; } = null;
+        public virtual string StoreyHeight { get; set; } = "3";
 
         [Description("The total floor area of the storey in square metres.")]
         [XmlElement("Total-Floor-Area")]
-        public virtual double Area { get; set; } = 0;
+        public virtual string Area { get; set; } = "0";
 
         [Description("Heat loss floor U-value.")]
         [XmlElement("U-Value")]
-        public virtual double UValue { get; set; } = 0;
+        public virtual string UValue { get; set; } = "0.14";
 
         [Description("The estimated total heat loss area for the floor in square metres.")]
         [XmlElement("Heat-Loss-Area")]
-        public virtual double HeatLossArea { get; set; } = 0;
+        public virtual string HeatLossArea { get; set; } = "0";
 
         [Description("Heat capacity of floor per unit area in kJ/m�K.")]
         [XmlElement("Kappa-Value")]
