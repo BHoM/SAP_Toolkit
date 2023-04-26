@@ -43,7 +43,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("The type of Home Inspection that was carried out.")]
         [XmlElement(ElementName = "Report-Type")]
-        public virtual string ReportType { get; set; } = "3";
+        public virtual string ReportType { get; set; } = null;
 
         [Description("The date that the Home Inspector completed the report. In the form yyyy-mm-dd")]
         [XmlElement(ElementName = "Completion-Date")]
@@ -63,11 +63,11 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement(ElementName = "Tenure")]
-        public virtual string Tenure { get; set; } = "3";
+        public virtual string Tenure { get; set; } = null;//3
 
         [Description(".")]
         [XmlElement(ElementName = "Transaction-Type")]
-        public virtual string TransactionType { get; set; } = "6";
+        public virtual string TransactionType { get; set; } = null;//6
 
         [Description(".")]
         [XmlElement(ElementName = "Seller-Commission-Report")]
@@ -75,7 +75,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Describes the type of Property that is being inspected. This should be the same as the Property-Type recorded in the Property-Details section.")]
         [XmlElement(ElementName = "Property-Type")]
-        public virtual string PropertyType { get; set; } = "2";
+        public virtual string PropertyType { get; set; } = null;//2
 
         [Description(".")]
         [XmlElement(ElementName = "Home-Inspector")]
@@ -87,11 +87,11 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Regional code - null set as the Midlands.")]
         [XmlElement(ElementName = "Region-Code")]
-        public virtual string RegionCode { get; set; } = "6"; 
+        public virtual string RegionCode { get; set; } = null; //6
 
         [Description(".")]
         [XmlElement(ElementName = "Country-Code")]
-        public virtual string CountryCode { get; set; } = "ENG";
+        public virtual string CountryCode { get; set; } = null;//ENG
 
         [Description(".")]
         [XmlElement(ElementName = "Related-Party-Disclosure")]

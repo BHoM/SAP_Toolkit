@@ -35,23 +35,23 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description(".")]
         [XmlElement(ElementName = "Energy-Rating-Average")]
-        public virtual int EnergyRatingAverage { get; set; } = 0;
+        public virtual string EnergyRatingAverage { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "Energy-Rating-Current")]
-        public virtual int EnergyRatingCurrent { get; set; } = 0;
+        public virtual string EnergyRatingCurrent { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "Energy-Rating-Potential")]
-        public virtual int EnergyRatingPotential { get; set; } = 0;
+        public virtual string EnergyRatingPotential { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "Environmental-Impact-Current")]
-        public virtual int EnvironmentalImpactCurrent { get; set; } = 0;
+        public virtual string EnvironmentalImpactCurrent { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "Environmental-Impact-Potential")]
-        public virtual int EnvironmentalImpactPotential { get; set; } = 0;
+        public virtual string EnvironmentalImpactPotential { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "Energy-Consumption-Current")]
@@ -99,27 +99,27 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("The DER of the property.")]
         [XmlElement(ElementName = "DER")]
-        public virtual double DER { get; set; } = 0;
+        public virtual string DER { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "TER")]
-        public virtual double TER { get; set; } = 0;
+        public virtual string TER { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "DPER")]
-        public virtual double DPER { get; set; } = 0;
+        public virtual string DPER { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "TPER")]
-        public virtual double TPER { get; set; } = 0;
+        public virtual string TPER { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "DFEE")]
-        public virtual double DFEE { get; set; } = 0;
+        public virtual string DFEE { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "TFEE")]
-        public virtual double TFEE { get; set; } = 0;
+        public virtual string TFEE { get; set; } = null;
     }
 }
 

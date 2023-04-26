@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [XmlRoot(ElementName = "Hydro-Electric-Generation-Months", IsNullable = false)]
     public class HydroElectricGenerationMonths : IObject
     {
-        [XmlElement(ElementName = "HydroElectricGenerationMonth")]
+        [XmlElement(ElementName = "Hydro-Electric-Generation-Month")]
         public virtual List<HydroElectricGenerationMonth> HydroElectricGenerationMonth { get; set; } = null;
     }
 }

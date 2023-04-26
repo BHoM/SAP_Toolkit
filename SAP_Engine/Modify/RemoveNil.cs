@@ -52,20 +52,16 @@ namespace BH.Engine.Environment.SAP
             {
                 return false;
             }
-            var path = file.Directory + "\\" +file.FileName;
+            var path = Path.Combine(file.Directory, file.FileName);
             var xmlFile = File.ReadAllLines(path);
 
-            for (int x = 0; x < xmlFile.Length; x++)
-            {
-                if (xmlFile[x].Trim().Contains("xsi:nil"))
-                {
-                    xmlFile[x] = null;
-                }
-   
-            }
+            xmlFile = xmlFile.Where(x => !x.Trim().Contains("xsi:nil")).ToArray();
+
+            xmlFile = xmlFile.Where(x => x != null).ToArray();
 
             File.Delete(path);
             File.WriteAllLines(path, xmlFile);
+
             return true;
         }
         

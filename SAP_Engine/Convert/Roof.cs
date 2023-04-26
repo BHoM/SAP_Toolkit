@@ -44,8 +44,8 @@ namespace BH.Engine.Environment.SAP
             xmlRoof.Name = sapRoof.Name;
             xmlRoof.Description = "Type-" + sapRoof.Type.ToString() + "_Area-" + sapRoof.Area.ToString() + "_Uvalue-" + sapRoof.uValue.ToString();
             xmlRoof.Type = sapRoof.Type.FromSAPToXML();
-            xmlRoof.Area = sapRoof.Area;
-            xmlRoof.UValue = sapRoof.uValue;
+            xmlRoof.Area = sapRoof.Area.ToString();
+            xmlRoof.UValue = sapRoof.uValue.ToString();
             xmlRoof.KappaValue = sapRoof.KappaValue.ToString();
                 ;
             List<BH.oM.Environment.SAP.XML.Opening> xmlOpenings = new List<BH.oM.Environment.SAP.XML.Opening>();
@@ -56,8 +56,8 @@ namespace BH.Engine.Environment.SAP
                 xmlOpening.Type = sapRoof.Openings[i].OpeningType.Type.ToString();
                 xmlOpening.Location = sapRoof.Name;
                 xmlOpening.Orientation = sapRoof.Openings[i].Orientation.FromSAPToXML();
-                xmlOpening.Width = sapRoof.Openings[i].Width; 
-                xmlOpening.Height = sapRoof.Openings[i].Height;
+                xmlOpening.Width = sapRoof.Openings[i].Width.ToString(); 
+                xmlOpening.Height = sapRoof.Openings[i].Height.ToString();
                 xmlOpening.Pitch = sapRoof.Pitch.FromSAPToXML();
                 xmlOpenings.Add(xmlOpening);
             }

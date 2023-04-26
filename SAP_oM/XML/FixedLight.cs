@@ -39,11 +39,11 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("The efficacy of the lighting type in lumens/Watt.")]
         [XmlElement(ElementName = "Lighting-Efficacy")]
-        public virtual double LightingEfficacy { get; set; } = 0;
+        public virtual string LightingEfficacy { get; set; } = null;
 
         [Description("The power of the selected lighting type in Watts.")]
         [XmlElement(ElementName = "Lighting-Power")]
-        public virtual double LightingPower { get; set; } = 0;
+        public virtual string LightingPower { get; set; } = null;
 
     }
 }

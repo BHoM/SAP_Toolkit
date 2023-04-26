@@ -39,13 +39,9 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Identifier")]
         public virtual string Identifier { get; set; } = null;
 
-        [Description("Thermal bridges that make up a particular Building-Part.")]
-        [XmlElement("SAP-Thermal-Bridges")]
-        public virtual ThermalBridges ThermalBridges { get; set; } = null;
-
         [Description("An integer value which uniquely identifies the building part in the property.  The value \"1\" must be assigned to the main dwelling.")]
         [XmlElement("Building-Part-Number")]
-        public virtual int BuildingPartNumber { get; set; } = 1;
+        public virtual string BuildingPartNumber { get; set; } = null;
 
         [Description("The year when this building part was constructed.  Not used if 'Construction-Age-Band' is used.")]
         [XmlElement("Construction-Year")]
@@ -70,6 +66,10 @@ namespace BH.oM.Environment.SAP.XML
         [Description("Exposed walls that make up a particular Storey.")]
         [XmlElement("SAP-Walls")]
         public virtual Walls Walls { get; set; } = null;
+
+        [Description("Thermal bridges that make up a particular Building-Part.")]
+        [XmlElement("SAP-Thermal-Bridges")]
+        public virtual ThermalBridges ThermalBridges { get; set; } = null;
     }
 }
 

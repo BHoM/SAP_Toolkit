@@ -30,13 +30,13 @@ using System.Xml.Serialization;
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
-    [XmlRoot(ElementName = "Money", IsNullable = false)]
-    public class Money : IObject
+    [XmlRoot(ElementName = "Description", IsNullable = false)]
+    public class Description : IObject
     {
-        [XmlAttribute(AttributeName = "currency")]
-        public virtual string Currency { get; set; } = null;
+        [XmlAttribute(AttributeName = "language")]
+        public virtual string Language { get; set; } = null;
 
         [XmlText]
-        public virtual int Text { get; set; } = 0;
+        public virtual string Text { get; set; } = null;
     }
 }

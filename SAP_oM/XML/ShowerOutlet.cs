@@ -39,11 +39,11 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("The flow rate. Only when a shower is not instantaneous electric. Leave blank if NO flow limiter fitted.")]
         [XmlElement(ElementName = "Shower-Flow-Rate")]
-        public virtual double ShowerFlowRate { get; set; } = 0;
+        public virtual string ShowerFlowRate { get; set; } = null;
 
         [Description("The shower power, only if shower outlet type is instantaneous electric.")]
         [XmlElement(ElementName = "Shower-Power")]
-        public virtual double ShowerPower { get; set; } = 0;
+        public virtual string ShowerPower { get; set; } = null;
 
         [Description("The WWHRS with which the shower is connected. If shower outlet type is instantaneous electric shower then only a storage WWHRS can be selected or none.")]
         [XmlElement(ElementName = "Shower-WWHRS")]

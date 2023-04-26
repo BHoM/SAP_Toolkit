@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Specifies what kind of heating the community system is used for.")]
         [XmlElement("Community-Heating-Use")]
-        public virtual string CommunityHeatingUse { get; set; } = "3";
+        public virtual string CommunityHeatingUse { get; set; } = null; //3
 
         [Description("Community heating, hot water cylinder in dwelling?.")]
         [XmlElement("Is-Community-Heating-Cylinder-In-Dwelling")]
@@ -63,7 +63,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Community heating distribution.")]
         [XmlElement("Community-Heating-Distribution-Type")]
-        public virtual string CommunityHeatingDistributionType { get; set; } = "8";
+        public virtual string CommunityHeatingDistributionType { get; set; } = null; //8
 
         [Description(".")]
         [XmlElement("Community-Heat-Sources")]
@@ -87,6 +87,10 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Whether the heat network is existing or new.")]
         [XmlElement(ElementName = "Heat-Network-Existing")]
-        public virtual bool HeatNetworkExisting { get; set; } = false;
+        public virtual bool? HeatNetworkExisting { get; set; } = null;
+
+        [Description("Whether the heat network is existing or new.")]
+        [XmlElement(ElementName = "Heat-Network-Assessed-As-New")]
+        public virtual bool? HeatNetworkAssessedNew { get; set; } = null;
     }
 }

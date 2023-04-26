@@ -19,24 +19,36 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using BH.oM.Base;
+using System.Text;
 using System.Xml.Serialization;
+using System.IO;
+using System.ComponentModel;
+using BH.oM.Adapter;
+using BH.Engine.Diffing;
+using BH.oM.Environment.SAP.XML;
 
-namespace BH.oM.Environment.SAP.XML
+namespace BH.Engine.Environment.SAP
 {
-    [Serializable]
-    [XmlRoot(ElementName = "Money", IsNullable = false)]
-    public class Money : IObject
+    public static partial class Compute
     {
-        [XmlAttribute(AttributeName = "currency")]
-        public virtual string Currency { get; set; } = null;
+        [Description("")]// from sap obj to files
+        public static bool CheckEnergyCorrect(SAPReport orgFile,SAPReport newFile)
+        {
+            SAPReport inputFile = new SAPReport();
+            SAPReport outputFile= new SAPReport();
 
-        [XmlText]
-        public virtual int Text { get; set; } = 0;
+            inputFile.EnergyAssessment= orgFile.EnergyAssessment;
+            inputFile.EnergyAssessment.AssessmentDate = null;
+
+            outputFile.EnergyAssessment = newFile.EnergyAssessment;
+            outputFile.EnergyAssessment.AssessmentDate = null;
+
+            var dict = Diffing.Query.DifferentProperties(inputFile, outputFile);
+
+            return (dict == null);
+        }
     }
 }
+

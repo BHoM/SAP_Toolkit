@@ -35,10 +35,10 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("Space heating requirement.")]
         [XmlElement(ElementName = "Space-Heating")]
-        public virtual double SpaceHeating { get; set; } = 0;
+        public virtual string SpaceHeating { get; set; } = null;
 
         [Description("Water heating requirement.")]
         [XmlElement(ElementName = "Water-Heating")]
-        public virtual double WaterHeating { get; set; } = 0;
+        public virtual string WaterHeating { get; set; } = null;
     }
 }

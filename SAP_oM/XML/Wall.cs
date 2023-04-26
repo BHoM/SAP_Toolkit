@@ -43,23 +43,24 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Total wall area in square metres, inclusive of any openings.")]
         [XmlElement("Total-Wall-Area")]
-        public virtual double Area { get; set; } = 0;
+        public virtual string Area { get; set; } = "0";
 
         [Description("Exposed wall U-value.")]
         [XmlElement("U-Value")]
-        public virtual double UValue { get; set; } = 0.18;
+        public virtual string UValue { get; set; } = "0.18"; //0.18
 
         [Description("Type of wall (exposure).")]
         [XmlElement("Wall-Type")]
-        public virtual string Type { get; set; } = "2";
-
-        [Description("Whether the wall is curtain walling.")]
-        [XmlElement("Is-Curtain-Walling")]
-        public virtual bool CurtainWall { get; set; } = false;
+        public virtual string Type { get; set; } = "2"; //2
 
         [Description("Heat capacity per unit area in kJ/m�K.")]
         [XmlElement("Kappa-Value")]
         public virtual string KappaValue { get; set; } = null; //14
+
+
+        [Description("Whether the wall is curtain walling.")]
+        [XmlElement("Is-Curtain-Walling")]
+        public virtual bool CurtainWall { get; set; } = false;
     }
 }
 

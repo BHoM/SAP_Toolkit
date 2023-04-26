@@ -34,16 +34,12 @@ namespace BH.oM.Environment.SAP.XML
     public class Improvement : IObject
     {
         [Description(".")]
-        [XmlElement("Sequence")]
-        public virtual int Sequence { get; set; } = 0;
-
-        [Description(".")]
         [XmlElement(ElementName = "Improvement-Category")]
-        public virtual string ImprovementCategory { get; set; } = "5";
+        public virtual string ImprovementCategory { get; set; } = null;//5
 
         [Description(".")]
         [XmlElement(ElementName = "Green-Deal-Category")]
-        public virtual string GreenDealCategory { get; set; } = "NI";
+        public virtual string GreenDealCategory { get; set; } = null; //5
 
         [Description(".")]
         [XmlElement(ElementName = "Improvement-Type")]
@@ -63,11 +59,15 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement(ElementName = "Energy-Performance-Rating")]
-        public virtual int EnergyPerformanceRating { get; set; } = 0;
+        public virtual string EnergyPerformanceRating { get; set; } = null; 
 
         [Description(".")]
         [XmlElement(ElementName = "Environmental-Impact-Rating")]
-        public virtual int EnvironmentalImpactRating { get; set; } = 0;
+        public virtual string EnvironmentalImpactRating { get; set; } = null;
+
+        [Description(".")]
+        [XmlElement("Sequence")]
+        public virtual int Sequence { get; set; } = 0;
 
     }
 }

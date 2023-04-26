@@ -47,7 +47,7 @@ namespace BH.Engine.Environment.SAP
             {
                 BH.oM.Environment.SAP.XML.BuildingPart xmlBuildingPart = new BH.oM.Environment.SAP.XML.BuildingPart();
 
-                xmlBuildingPart.BuildingPartNumber = (i + 1);
+                xmlBuildingPart.BuildingPartNumber = (i + 1).ToString();
                 xmlBuildingPart.Identifier = sapBuildingPart[i].Identifier;
                 xmlBuildingPart.ConstructionYear = sapBuildingPart[i].ConstructionYear;
 

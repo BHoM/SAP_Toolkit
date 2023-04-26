@@ -54,7 +54,7 @@ namespace BH.Engine.Environment.SAP
             xmlHeatingSystem.MainHeatingInstallationEngineer = null;
             xmlHeatingSystem.PCDFFuelIndex = null;
             xmlHeatingSystem.IsMainHeatingHETASApproved = heating.HETASApproved;
-            xmlHeatingSystem.MainHeatingFraction = heating.FractionOfHeat;
+            xmlHeatingSystem.MainHeatingFraction = heating.FractionOfHeat.ToString();
             xmlHeatingSystem.ElectricCPSUOperatingTemperature = null;
             xmlHeatingSystem.MCSInstalledHeatPump = heating.MCSCertificate;
 

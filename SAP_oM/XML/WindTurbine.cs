@@ -44,11 +44,11 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Wind turbine rotor diameter in metres.")]
         [XmlElement(ElementName = "Wind-Turbine-Rotor-Diameter")]
-        public virtual double RotorDiameter { get; set; } = 0;
+        public virtual string RotorDiameter { get; set; } = null;
 
         [Description("Wind turbine hub height above building in metres.")]
         [XmlElement(ElementName = "Wind-Turbine-Hub-Height")]
-        public virtual double HubHeight { get; set; } = 0;
+        public virtual string HubHeight { get; set; } = null;
 
     }
 }

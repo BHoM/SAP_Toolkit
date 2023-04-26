@@ -35,27 +35,27 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("Cavity fill is recommended.")]
         [XmlElement(ElementName = "Cavity-Fill-Recommended")]
-        public virtual bool CavityFillRecommended { get; set; } = false;
+        public virtual bool? CavityFillRecommended { get; set; } = null;
 
         [Description("Stone walls present, not insulated.")]
         [XmlElement(ElementName = "Stone-Walls")]
-        public virtual bool StoneWalls { get; set; } = false;
+        public virtual bool? StoneWalls { get; set; } = null;
 
         [Description("System build present.")]
         [XmlElement(ElementName = "System-Build")]
-        public virtual bool SystemBuild { get; set; } = false;
+        public virtual bool? SystemBuild { get; set; } = null;
 
         [Description("Dwelling has access issues for cavity wall insulation. Include only when at least one of Cavity-Fill-Recommended, Stone-Walls, System-Build is also present.")]
         [XmlElement(ElementName = "Access-Issues")]
-        public virtual bool AccessIssues { get; set; } = false;
+        public virtual bool? AccessIssues { get; set; } = null;
 
         [Description("Dwelling may be exposed to wind-driven rain. Include only when at least one of Cavity-Fill-Recommended, Stone-Walls, System-Build is also present.")]
         [XmlElement(ElementName = "High-Exposure")]
-        public virtual bool HighExposure { get; set; } = false;
+        public virtual bool? HighExposure { get; set; } = null;
 
         [Description("Dwelling may have narrow cavities. Include only when Cavity-Fill-Recommended is also present.")]
         [XmlElement(ElementName = "Narrow-Cavities")]
-        public virtual bool NarrowCavities { get; set; } = false;
+        public virtual bool? NarrowCavities { get; set; } = null;
 
     }
 }

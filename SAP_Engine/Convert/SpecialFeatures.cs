@@ -47,9 +47,9 @@ namespace BH.Engine.Environment.SAP
                 BH.oM.Environment.SAP.XML.SpecialFeature xmlSpecialFeature= new BH.oM.Environment.SAP.XML.SpecialFeature();
 
                 xmlSpecialFeature.Description = specialFeature.Description;
-                xmlSpecialFeature.EnergyFeature.EnergySavedOrGenerated = specialFeature.EnergySavedOrGenerated;
+                xmlSpecialFeature.EnergyFeature.EnergySavedOrGenerated = specialFeature.EnergySavedOrGenerated.ToString();
                 xmlSpecialFeature.EnergyFeature.SavedOrGeneratedFuel = specialFeature.SavedOrGeneratedFuel;
-                xmlSpecialFeature.EnergyFeature.EnergyUsed = specialFeature.EnergyUsed;
+                xmlSpecialFeature.EnergyFeature.EnergyUsed = specialFeature.EnergyUsed.ToString();
                 xmlSpecialFeature.EnergyFeature.EnergyUsedFuel = specialFeature.EnergyUsedFuel.FromSAPToXML();
 
 
@@ -68,9 +68,9 @@ namespace BH.Engine.Environment.SAP
 
                 xmlSpecialFeature.EnergyFeature.AirChangeRates.AirChangeRate = airChangeRates;
 
-                xmlSpecialFeature.EmissionsFeature.EmissionsSaved = specialFeature.EmissionsSaved;
+                xmlSpecialFeature.EmissionsFeature.EmissionsSaved = specialFeature.EmissionsSaved.ToString();
 
-                xmlSpecialFeature.EmissionsFeature.EmissionsCreated= specialFeature.EmissionsCreated;
+                xmlSpecialFeature.EmissionsFeature.EmissionsCreated= specialFeature.EmissionsCreated.ToString();
 
                 specialFeatures.Add(xmlSpecialFeature);
             }

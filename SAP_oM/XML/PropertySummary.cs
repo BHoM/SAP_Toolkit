@@ -76,15 +76,15 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement(ElementName = "Has-Fixed-Air-Conditioning")]
-        public virtual bool HasFixedAirConditioning { get; set; } = false;
+        public virtual bool? HasFixedAirConditioning { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "Has-Hot-Water-Cylinder")]
-        public virtual bool HasHotWaterCylinder { get; set; } = false;
+        public virtual bool? HasHotWaterCylinder { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "Has-Heated-Separate-Conservatory")]
-        public virtual bool HasHeatedSeparateConservatory { get; set; } = false;
+        public virtual bool? HasHeatedSeparateConservatory { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "Dwelling-Type")]
@@ -92,7 +92,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement(ElementName = "Total-Floor-Area")]
-        public virtual double TotalFloorArea { get; set; } = 0;
+        public virtual string TotalFloorArea { get; set; } = null;
 
         [Description("Fraction of windows that are multiply glazed to nearest 1%.")]
         [XmlElement(ElementName = "Multiple-Glazed-Percentage")]

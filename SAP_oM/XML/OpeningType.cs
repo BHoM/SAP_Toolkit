@@ -43,15 +43,15 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("The source of the data for this type of opening.")]
         [XmlElement("Data-Source")]
-        public virtual string DataSource { get; set; } = "2";
+        public virtual string DataSource { get; set; } = null; //2
 
         [Description("The U-value.")]
         [XmlElement("U-Value")]
-        public virtual string UValue { get; set; } = "1.4";
+        public virtual string UValue { get; set; } = null; //1.4
 
         [Description("The (physical) type of opening that this opening type represents.")]
         [XmlElement("Type")]
-        public virtual string Type { get; set; } = "4";
+        public virtual string Type { get; set; } = null; //4
 
         [Description("The type of glazing.")]
         [XmlElement("Glazing-Type")]
@@ -63,7 +63,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Is the opening argon-filled?.")]
         [XmlElement(ElementName = "IsArgonFilled")]
-        public virtual bool? IsArgonFilled { get; set; } = false;
+        public virtual bool? IsArgonFilled { get; set; } = null;
 
         [Description("Is the opening krypton-filled?.")]
         [XmlElement(ElementName = "IsKryptonFilled")]

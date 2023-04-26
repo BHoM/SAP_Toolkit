@@ -55,7 +55,7 @@ namespace BH.oM.Environment.SAP
         public virtual List<MonthlyValues> AirChangeRates { get; set; } = null;
 
         [Description(".")]
-        public virtual string Description { get; set; } = null;
+        public virtual string Description { get; set; } = "none";
 
 
     }
