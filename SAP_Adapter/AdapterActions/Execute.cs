@@ -51,12 +51,12 @@ namespace BH.Adapter.SAP
             return output;
         }
 
-        public async Task<IResultObject> RunCommand(RunAnalysisCommand command)
+        public async Task<BH.oM.Adapter.FileSettings> RunCommand(RunAnalysisCommand command)
         {
             string postURL = command.PostURL;
-            string xmlData = System.IO.File.ReadAllText(command.fileSettingsInput.Directory + "\\" + command.fileSettingsInput.FileName);
+            string xmlData = System.IO.File.ReadAllText(Path.Combine(command.fileSettingsInput.Directory, command.fileSettingsInput.FileName));
             
-            HttpResponseMessage b = null;
+            HttpResponseMessage httpResponse = null;
 
             using (var httpClient = new HttpClient())
             {
@@ -66,64 +66,29 @@ namespace BH.Adapter.SAP
                 var r = new HttpRequestMessage(HttpMethod.Post, postURL);
                 r.Content = new StringContent(xmlData, Encoding.UTF8, "application/xml");
 
-                b = await httpClient.SendAsync(r);
+                httpResponse = await httpClient.SendAsync(r);
             }
-                string text = await b.Content.ReadAsStringAsync();
+
+            if(httpResponse == null)
+            {
+                BH.Engine.Base.Compute.RecordError("Null response from engine.");
+                return null;
+            }
+
+            string responseText = await httpResponse.Content.ReadAsStringAsync();
+
+            string path = Path.Combine(command.fileSettingsOutput.Directory, command.fileSettingsOutput.FileName);
 
             try
             {
-                ResultJson resultjson = JsonSerializer.Deserialize<ResultJson>(text);
-
-                return resultjson;
+                File.WriteAllText(path, responseText);
+            }
+            catch(Exception ex)
+            {
+                BH.Engine.Base.Compute.RecordError($"An error occurred in saving the response text. Error received: {ex.ToString()}");
             }
 
-            catch
-            {
-                try
-                {
-                    var tmpFilePath = @"C:\Temp\SAPXML.xml";
-                    if (File.Exists(tmpFilePath))
-                        File.Delete(tmpFilePath);
-
-                    StreamWriter sw = new StreamWriter(tmpFilePath);
-                    sw.WriteLine(text);
-                    sw.Close();
-
-                    XmlSerializerNamespaces xns = new XmlSerializerNamespaces();
-                    XmlSerializer szer = new XmlSerializer(typeof(SAPReport));
-                    TextReader tr = new StreamReader(tmpFilePath);
-                    var data = (SAPReport)szer.Deserialize(tr);
-                    tr.Close();
-
-                    var destFilePath = Path.Combine(command.fileSettingsOutput.Directory, command.fileSettingsOutput.FileName);
-                    File.Copy(tmpFilePath, destFilePath, true);
-
-                    try
-                    {
-                        File.Delete(tmpFilePath);
-                    }
-                    catch { }
-
-                    return data;
-                }
-
-                catch
-                {
-                    if(command.fileSettingsOutput == null || string.IsNullOrEmpty(command.fileSettingsOutput.Directory) || string.IsNullOrEmpty(command.fileSettingsOutput.FileName))
-                    {
-                        BH.Engine.Base.Compute.RecordError("To use this endpoint, add a directory to a .txt file in the RunAnalysisCommand.");
-                        return null;
-                    }
-                    string filePath = command.fileSettingsOutput.Directory + "\\" + command.fileSettingsOutput.FileName;
-                    StreamWriter sw = new StreamWriter(filePath);
-                    sw.Write(text);
-                    sw.Close();
-                    ResultText txt = new ResultText();
-                    BH.Engine.Base.Compute.RecordNote("You have used the endpoint returning a .txt file. Check your output folder.");
-                    txt.txt = filePath;
-                    return txt;
-                }
-            } 
+            return command.fileSettingsOutput;
         }
     }
 }
