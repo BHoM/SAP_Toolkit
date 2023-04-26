@@ -51,7 +51,9 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="Serialiser_Engine">
-      <HintPath>..\..\..\ProgramData\BHoM\Assemblies\Serialiser_Engine.dll</HintPath>
+      <HintPath>$(ProgramData)\BHoM\Assemblies\Serialiser_Engine.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
   </ItemGroup>
 
