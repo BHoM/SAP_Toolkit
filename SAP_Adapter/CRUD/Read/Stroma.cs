@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
  *
@@ -20,18 +20,24 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 using System;
-using BH.oM.Environment.SAP;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
 
 namespace BH.Adapter.SAP
-{ 
+{
     public partial class SAPAdapter : BHoMAdapter
     {
-        public SAPAdapter(SAPSettings settings)
+        public static Root ReadStroma(string filePath)
         {
-            m_Settings = settings;
+            StreamReader sr = new StreamReader(filePath);
+            string line = sr.ReadToEnd();
+            sr.Close();
+            CustomObject obj = BH.Engine.Serialiser.Convert.FromJson(line) as CustomObject;
+            return BH.Engine.Environment.SAP.Stroma10.Convert.ToRoot(obj);
         }
-
-        private SAPSettings m_Settings = null;
     }
 }

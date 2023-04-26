@@ -19,19 +19,39 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
-
 using System;
-using BH.oM.Environment.SAP;
+using System.Collections.Generic;
+using System.Text;
+using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
 
-namespace BH.Adapter.SAP
-{ 
-    public partial class SAPAdapter : BHoMAdapter
+namespace BH.Engine.Environment.SAP.Stroma10
+{
+    public static partial class Convert
     {
-        public SAPAdapter(SAPSettings settings)
+        public static BH.oM.Environment.SAP.Stroma10.Range ToRange(CustomObject rangeObject)
         {
-            m_Settings = settings;
+            if (rangeObject == null)
+                return null;
+
+            BH.oM.Environment.SAP.Stroma10.Range sapRange = new BH.oM.Environment.SAP.Stroma10.Range();
+            sapRange.ID = System.Convert.ToInt32(rangeObject.CustomData["Id"]);
+            sapRange.CaseKw = System.Convert.ToDouble(rangeObject.CustomData["CaseKw"]);
+            sapRange.WaterKw = System.Convert.ToDouble(rangeObject.CustomData["WaterKw"]);
+            return sapRange;
         }
 
-        private SAPSettings m_Settings = null;
+        public static Dictionary<string, object> FromRange(Range obj)
+        {
+            if (obj == null)
+                return null;
+            
+            Dictionary<string, object> rtn = new Dictionary<string, object>();
+            rtn.Add("Id", obj.ID);
+            rtn.Add("CaseKw", obj.CaseKw);
+            rtn.Add("WaterKw", obj.WaterKw);
+
+            return rtn;
+        }
     }
 }

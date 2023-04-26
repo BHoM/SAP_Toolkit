@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
  *
@@ -20,18 +20,26 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Adapter;
+using BH.oM.Base;
 using System;
-using BH.oM.Environment.SAP;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+using BH.Engine.Adapter;
 
 namespace BH.Adapter.SAP
-{ 
+{
     public partial class SAPAdapter : BHoMAdapter
     {
-        public SAPAdapter(SAPSettings settings)
+        protected override IEnumerable<IBHoMObject> IRead(Type type, IList ids, ActionConfig actionConfig = null)
         {
-            m_Settings = settings;
-        }
+            if (m_Settings.SAPType == oM.Environment.SAP.SAPType.Stroma)
+            {
+                return new List<IBHoMObject>() { ReadStroma(m_Settings.FileSettings.GetFullFileName()) };
+            }
 
-        private SAPSettings m_Settings = null;
+            return null;
+        }
     }
 }
