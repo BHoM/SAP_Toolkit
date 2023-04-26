@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
  *
@@ -21,17 +21,19 @@
  */
 
 using System;
-using BH.oM.Environment.SAP;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Xml.Serialization;
+using BH.oM.Base;
+using BH.oM.Adapter;
 
-namespace BH.Adapter.SAP
-{ 
-    public partial class SAPAdapter : BHoMAdapter
+namespace BH.oM.Environment.SAP
+{
+    public class SAPSettings
     {
-        public SAPAdapter(SAPSettings settings)
-        {
-            m_Settings = settings;
-        }
+        public virtual SAPType SAPType { get; set; } = SAPType.Undefined;
 
-        private SAPSettings m_Settings = null;
+        public virtual FileSettings FileSettings { get; set; } = null;
     }
 }

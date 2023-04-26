@@ -21,17 +21,20 @@
  */
 
 using System;
-using BH.oM.Environment.SAP;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Xml.Serialization;
+using BH.oM.Base;
 
-namespace BH.Adapter.SAP
-{ 
-    public partial class SAPAdapter : BHoMAdapter
+namespace BH.oM.Environment.SAP
+{
+
+    public enum SAPType
     {
-        public SAPAdapter(SAPSettings settings)
-        {
-            m_Settings = settings;
-        }
-
-        private SAPSettings m_Settings = null;
+        Undefined,
+        Argyle,
+        Stroma
     }
 }
+
