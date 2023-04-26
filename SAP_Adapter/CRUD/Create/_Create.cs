@@ -40,6 +40,12 @@ namespace BH.Adapter.SAP
                 var objList = objects.Where(x => x is BH.oM.Environment.SAP.Stroma10.Root).Select(x => x as BH.oM.Environment.SAP.Stroma10.Root).ToList();
                 objList.ForEach(x => CreateStroma(x, m_Settings.FileSettings.GetFullFileName()));
             }
+            if (m_Settings.SAPType == oM.Environment.SAP.SAPType.Argyle)
+            {
+                var objList = objects.Where(x => x is BH.oM.Environment.SAP.XML.SAPReport).Select(x => x as BH.oM.Environment.SAP.XML.SAPReport).ToList();
+                objList.ForEach(x => CreateArgyle(x, m_Settings.FileSettings));
+
+            }
             return true;
         }
     }

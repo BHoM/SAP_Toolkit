@@ -38,6 +38,10 @@ namespace BH.Adapter.SAP
             {
                 return new List<IBHoMObject>() { ReadStroma(m_Settings.FileSettings.GetFullFileName()) };
             }
+            if (m_Settings.SAPType == oM.Environment.SAP.SAPType.Argyle)
+            {
+                return new List<IBHoMObject>() { ReadArgyle(m_Settings.FileSettings) };
+            }
 
             return null;
         }

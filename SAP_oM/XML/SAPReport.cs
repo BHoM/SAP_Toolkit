@@ -32,7 +32,7 @@ namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "SAP-Report", IsNullable = false, Namespace = "https://epbr.digital.communities.gov.uk/xsd/sap")]//Namespace = "https://epbr.digital.communities.gov.uk/xsd/sap")]
-    public class SAPReport : IObject, IResultObject
+    public class SAPReport : BHoMObject, IResultObject
     {
 
         [Description("The schema version that the data conformed to when it was lodged.")]

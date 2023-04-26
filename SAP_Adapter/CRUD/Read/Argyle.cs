@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
  *
@@ -20,51 +20,30 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.Engine.Base;
-using BH.oM.Base;
-using BH.oM.Environment.Elements;
-using BH.oM.Geometry;
-using BH.Engine.Geometry;
-using BH.Engine.Units;
-using BH.oM.Analytical.Elements;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using BH.oM.Base.Attributes;
-using System;
-using System.Text;
-using System.Threading.Tasks;
-
-using System.Collections.Generic;
-using System.Linq;
-
-using BH.oM.Environment.SAP;
 using BH.oM.Adapter;
+using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
+using BH.oM.Environment.SAP.XML;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Text;
+using System.Xml.Serialization;
 
-namespace BH.Engine.Environment.SAP
+namespace BH.Adapter.SAP
 {
-    public static partial class Modify
+    public partial class SAPAdapter : BHoMAdapter
     {
-        public static bool RemoveNil(this FileSettings file, bool run)
+        public static SAPReport ReadArgyle(FileSettings fileSettingsInput)
         {
-            if (run == false)
-            {
-                return false;
-            }
-            var path = Path.Combine(file.Directory, file.FileName);
-            var xmlFile = File.ReadAllLines(path);
+            XmlSerializerNamespaces xns = new XmlSerializerNamespaces();
+            XmlSerializer szer = new XmlSerializer(typeof(SAPReport));
 
-            xmlFile = xmlFile.Where(x => !x.Trim().Contains("xsi:nil")).ToArray();
+            TextReader tr = new StreamReader(Path.Combine(fileSettingsInput.Directory, fileSettingsInput.FileName));
+            var data = (SAPReport)szer.Deserialize(tr);
+            tr.Close();
 
-            xmlFile = xmlFile.Where(x => x != null).ToArray();
-
-            File.Delete(path);
-            File.WriteAllLines(path, xmlFile);
-
-            return true;
+            return data;
         }
-        
     }
 }
-
-
