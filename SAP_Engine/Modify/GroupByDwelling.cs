@@ -45,7 +45,7 @@ using BH.oM.Base;
 //using BH.Engine.Data.Query;
 using Opening = BH.oM.Environment.SAP.Opening;
 
-namespace BH.oM.Environment.SAP
+namespace BH.Engine.Environment.SAP
 {
     public static partial class Modify
     {

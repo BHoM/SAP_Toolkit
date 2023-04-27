@@ -31,7 +31,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    public interface IResultObject
+    public interface IResultObject : IObject
     {
         /***************************************************/
         /**** Properties                                ****/
