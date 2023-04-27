@@ -44,11 +44,22 @@ using BH.oM.Environment.SAP;
 using BH.oM.Base;
 //using BH.Engine.Data.Query;
 using Opening = BH.oM.Environment.SAP.Opening;
+using BH.oM.Base.Attributes;
+using System.ComponentModel;
 
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Modify
     {
+        [Description("Groups objects by dwelling.")]
+        [Input("openings", "List of openings.")]
+        [Input("walls", "List of walls.")]
+        [Input("floors", "List of floors.")]
+        [Input("livingAreas", "List of living areas.")]
+        [MultiOutput(0, "wallsList", "Lists of walls grouped by dwelling.")]
+        [MultiOutput(1, "openingsList", "Lists of openings grouped by dwelling.")]
+        [MultiOutput(2, "floorsList", "Lists of floors grouped by dwelling.")]
+        [MultiOutput(3, "livingAreaList", "Lists of living areas grouped by dwelling.")]
         public static Output<List<List<Wall>>, List<List<Opening>>, List<List<Floor>>, List<List<LivingArea>>> GroupByDwelling (this List<Opening> openings, List<Wall> walls, List<Floor> floors, List<LivingArea> livingAreas)
         {
             //List<Opening> sortedOpenings = openings.OrderBy(x => x.DwellingName).ToList();
