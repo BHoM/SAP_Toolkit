@@ -32,9 +32,8 @@ namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "SAP-Report", IsNullable = false, Namespace = "https://epbr.digital.communities.gov.uk/xsd/sap")]//Namespace = "https://epbr.digital.communities.gov.uk/xsd/sap")]
-    public class SAPReport : BHoMObject, IResultObject
+    public class SAPReport : IBHoMObject, IResultObject
     {
-
         [Description("The schema version that the data conformed to when it was lodged.")]
         [XmlElement(ElementName = "Schema-Version-Original")]
         public virtual string SchemaVersionOriginal { get; set; } = "SAP-Schema-19.0.0";
@@ -91,14 +90,15 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement(ElementName = "ExternalDefinitions-Revision-Number")]
         public virtual string ExternalDefinitionsRevisionNumber { get; set; } = null;
 
-        //[XmlAttribute(AttributeName = "xmlns")]
-        //public virtual string Xmlns { get; set; }
-
-        //[XmlAttribute(AttributeName = "xsi")]
-        //public virtual string Xsi { get; set; }
-
-        //[XmlAttribute(AttributeName = "schemaLocation")]
-        //public virtual string SchemaLocation { get; set; }
-
+        [XmlIgnore]
+        public virtual Guid BHoM_Guid { get; set; }
+        [XmlIgnore]
+        public virtual Dictionary<string, object> CustomData { get; set; }
+        [XmlIgnore]
+        public virtual string Name { get; set; }
+        [XmlIgnore]
+        public virtual FragmentSet Fragments { get; set; }
+        [XmlIgnore]
+        public virtual HashSet<string> Tags { get; set; }
     }
 }
