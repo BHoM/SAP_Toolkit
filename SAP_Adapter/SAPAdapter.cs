@@ -29,6 +29,7 @@ namespace BH.Adapter.SAP
     {
         public SAPAdapter(SAPSettings settings)
         {
+            m_AdapterSettings.UseAdapterId = false;
             m_Settings = settings;
         }
 

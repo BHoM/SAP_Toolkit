@@ -38,7 +38,7 @@ using System.IO;
 
 namespace BH.Adapter.SAP
 {
-    public partial class SAPAdapter
+    public partial class SAPAdapter : BHoMAdapter
     {
         public override Output<List<object>, bool> Execute(IExecuteCommand command, ActionConfig actionConfig = null)
         {

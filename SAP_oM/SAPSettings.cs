@@ -30,7 +30,7 @@ using BH.oM.Adapter;
 
 namespace BH.oM.Environment.SAP
 {
-    public class SAPSettings
+    public class SAPSettings : BHoMObject
     {
         public virtual SAPType SAPType { get; set; } = SAPType.Undefined;
 
