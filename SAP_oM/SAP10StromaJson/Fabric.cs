@@ -30,212 +30,31 @@ namespace BH.oM.Environment.SAP.Stroma10
     [Description(".")]
     public class Fabric : BHoMObject
     {
-        [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual string Guid
-        {
-            get;
-            set;
-        }
-
-        [Description(".")]
-        public virtual int ItemID
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int ElementType
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual string ElementTypeName
-        {
-            get;
-            set;
-        }
-
-        = "";
-        [Description(".")]
-        public virtual Ventilation Ventilation
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual Renewable Renewable
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual Overheating Overheating
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual List<Door> Doors
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual List<Window> Windows
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual List<RoofLight> RoofLights
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual List<Floor> Floors
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual List<Wall> Walls
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual List<Roof> Roofs
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual List<PartyFloor> PartyFloors
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual List<PartyWall> PartyWalls
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual List<PartyCeiling> PartyCeilings
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual List<InteriorFloor> InteriorFloors
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual List<InteriorWall> InteriorWalls
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual List<InteriorCeiling> InteriorCeilings
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual Thermal Thermal
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual CoolingSystem CoolingSystem
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual PrimaryHeating PrimaryHeating
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual PrimaryHeating2 PrimaryHeating2
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual SecondaryHeating SecondaryHeating
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual WaterHeating WaterHeating
-        {
-            get;
-            set;
-        }
-
-        = null;
+        public virtual int ID { get; set; } = 0;
+        public virtual string Guid { get; set; }
+        public virtual int ItemID { get; set; } = 0;
+        public virtual int ElementType { get; set; } = 0;
+        public virtual string ElementTypeName { get; set; } = "";
+        public virtual Ventilation Ventilation { get; set; } = null;
+        public virtual Renewable Renewable { get; set; } = null;
+        public virtual Overheating Overheating { get; set; } = null;
+        public virtual List<Door> Doors { get; set; } = null;
+        public virtual List<Window> Windows { get; set; } = null;
+        public virtual List<RoofLight> RoofLights { get; set; } = null;
+        public virtual List<Floor> Floors { get; set; } = null;
+        public virtual List<Wall> Walls { get; set; } = null;
+        public virtual List<Roof> Roofs { get; set; } = null;
+        public virtual List<PartyFloor> PartyFloors { get; set; } = null;
+        public virtual List<PartyWall> PartyWalls { get; set; } = null;
+        public virtual List<PartyCeiling> PartyCeilings { get; set; } = null;
+        public virtual List<InteriorFloor> InteriorFloors { get; set; } = null;
+        public virtual List<InteriorWall> InteriorWalls { get; set; } = null;
+        public virtual List<InteriorCeiling> InteriorCeilings { get; set; } = null;
+        public virtual Thermal Thermal { get; set; } = null;
+        public virtual CoolingSystem CoolingSystem { get; set; } = null;
+        public virtual PrimaryHeating PrimaryHeating { get; set; } = null;
+        public virtual PrimaryHeating2 PrimaryHeating2 { get; set; } = null;
+        public virtual SecondaryHeating SecondaryHeating { get; set; } = null;
+        public virtual WaterHeating WaterHeating { get; set; } = null;
     }
 }

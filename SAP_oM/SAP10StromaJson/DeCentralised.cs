@@ -31,108 +31,41 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class DeCentralised : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double KitchenFanPower1
-        {
-            get;
-            set;
-        }
+        public virtual double KitchenFanPower1 { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double KitchenFanPower2
-        {
-            get;
-            set;
-        }
+        public virtual double KitchenFanPower2 { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double KitchenFanPower3
-        {
-            get;
-            set;
-        }
+        public virtual double KitchenFanPower3 { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double OtherRoomFanPower1
-        {
-            get;
-            set;
-        }
+        public virtual double OtherRoomFanPower1 { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double OtherRoomFanPower2
-        {
-            get;
-            set;
-        }
+        public virtual double OtherRoomFanPower2 { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double OtherRoomFanPower3
-        {
-            get;
-            set;
-        }
+        public virtual double OtherRoomFanPower3 { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double KitchenNumberOfFans1
-        {
-            get;
-            set;
-        }
+        public virtual double KitchenNumberOfFans1 { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double KitchenNumberOfFans2
-        {
-            get;
-            set;
-        }
+        public virtual double KitchenNumberOfFans2 { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double KitchenNumberOfFans3
-        {
-            get;
-            set;
-        }
+        public virtual double KitchenNumberOfFans3 { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double OtherRoomNumberOfFans1
-        {
-            get;
-            set;
-        }
+        public virtual double OtherRoomNumberOfFans1 { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double OtherRoomNumberOfFans2
-        {
-            get;
-            set;
-        }
-
-        = 0;
+        public virtual double OtherRoomNumberOfFans2 { get; set; } = 0;
         [Description(".")]
-        public virtual double OtherRoomNumberOfFans3
-        {
-            get;
-            set;
-        }
-
-        = 0;
+        public virtual double OtherRoomNumberOfFans3 { get; set; } = 0;
     }
 }

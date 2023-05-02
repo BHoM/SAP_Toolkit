@@ -31,141 +31,22 @@ namespace BH.oM.Environment.SAP.Stroma10
     [Description(".")]
     public class WaterHeating : BHoMObject
     {
-        [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual SolarWater SolarWater
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual int System
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int Fuel
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual Cylinder Cylinder
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual double CombinedPrimaryStorageUnitTemperature
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual CommunityWater CommunityWater
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual Thermal2 Thermal2
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual int CombiType
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual WasteWaterHeatRecovery WasteWaterHeatRecovery
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual FlueGasHeatRecovery FlueGasHeatRecovery
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual bool DomesticHotWaterVessel
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual List<ShowerUnit> ShowerUnits
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual int WaterSource
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int NumberOfBaths
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual string ControllerManufacturer
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual string Model
-        {
-            get;
-            set;
-        }
-
-        = null;
+        public virtual int ID { get; set; } = 0;
+        public virtual SolarWater SolarWater { get; set; } = null;
+        public virtual int System { get; set; } = 0;
+        public virtual int Fuel { get; set; } = 0;
+        public virtual Cylinder Cylinder { get; set; } = null;
+        public virtual double CombinedPrimaryStorageUnitTemperature { get; set; } = 0;
+        public virtual CommunityWater CommunityWater { get; set; } = null;
+        public virtual Thermal2 Thermal2 { get; set; } = null;
+        public virtual int CombiType { get; set; } = 0;
+        public virtual WasteWaterHeatRecovery WasteWaterHeatRecovery { get; set; } = null;
+        public virtual FlueGasHeatRecovery FlueGasHeatRecovery { get; set; } = null;
+        public virtual bool DomesticHotWaterVessel { get; set; } = false;
+        public virtual List<ShowerUnit> ShowerUnits { get; set; } = null;
+        public virtual int WaterSource { get; set; } = 0;
+        public virtual int NumberOfBaths { get; set; } = 0;
+        public virtual string ControllerManufacturer { get; set; } = null;
+        public virtual string Model { get; set; } = null;
     }
 }

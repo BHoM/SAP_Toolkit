@@ -31,60 +31,24 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Elements : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual List<Fabric> Fabrics
-        {
-            get;
-            set;
-        }
+        public virtual List<Fabric> Fabrics { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual List<Heating> Heatings
-        {
-            get;
-            set;
-        }
+        public virtual List<Heating> Heatings { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual List<Water> Waters
-        {
-            get;
-            set;
-        }
+        public virtual List<Water> Waters { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual List<Ventilation> Ventilations
-        {
-            get;
-            set;
-        }
+        public virtual List<Ventilation> Ventilations { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual List<Renewable> Renewables
-        {
-            get;
-            set;
-        }
+        public virtual List<Renewable> Renewables { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual List<Overheating> Overheatings
-        {
-            get;
-            set;
-        }
-
-        = null;
+        public virtual List<Overheating> Overheatings { get; set; } = null;
     }
 }

@@ -31,125 +31,20 @@ namespace BH.oM.Environment.SAP.Stroma10
     [Description(".")]
     public class RoofJunction : BHoMObject
     {
-        [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual string GUID
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual string Reference
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual string JunctionDetail
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual double ThermalTransmittance
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double Length
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual bool IsAccredited
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual bool IsDefault
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual double Accredited
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double Default
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual string Notes
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual bool RowIDCreated
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual bool ImportLength
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual int Count
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double Result
-        {
-            get;
-            set;
-        }
-
-        = 0;
+        public virtual int ID { get; set; } = 0;
+        public virtual string GUID { get; set; } = null;
+        public virtual string Reference { get; set; } = null;
+        public virtual string JunctionDetail { get; set; } = null;
+        public virtual double ThermalTransmittance { get; set; } = 0;
+        public virtual double Length { get; set; } = 0;
+        public virtual bool IsAccredited { get; set; } = false;
+        public virtual bool IsDefault { get; set; } = false;
+        public virtual double Accredited { get; set; } = 0;
+        public virtual double Default { get; set; } = 0;
+        public virtual string Notes { get; set; } = null;
+        public virtual bool RowIDCreated { get; set; } = false;
+        public virtual bool ImportLength { get; set; } = false;
+        public virtual int Count { get; set; } = 0;
+        public virtual double Result { get; set; } = 0;
     }
 }

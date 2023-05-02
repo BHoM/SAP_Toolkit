@@ -32,44 +32,18 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Photovoltaic : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description("Photovoltaics present.")]
-        public virtual bool Include
-        {
-            get;
-            set;
-        }
+        public virtual bool Include { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual bool Diverter
-        {
-            get;
-            set;
-        }
+        public virtual bool Diverter { get; set; } = false;
 
-        = false;
         [Description("Battery Capacity kWh.")]
-        public virtual double BatteryCapacity
-        {
-            get;
-            set;
-        }
+        public virtual double BatteryCapacity { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual List<Photovoltaic2> Photovoltaic2s
-        {
-            get;
-            set;
-        }
-
-        = null;
+        public virtual List<Photovoltaic2> Photovoltaic2s { get; set; } = null;
     }
 }

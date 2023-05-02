@@ -31,36 +31,16 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class FlueGasHeatRecovery : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual bool Include
-        {
-            get;
-            set;
-        }
+        public virtual bool Include { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual string IndexNumber
-        {
-            get;
-            set;
-        }
+        public virtual string IndexNumber { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual Photovoltaic2 Photovoltaic2
-        {
-            get;
-            set;
-        }
+        public virtual Photovoltaic2 Photovoltaic2 { get; set; } = null;
 
-        = null;
     }
 }

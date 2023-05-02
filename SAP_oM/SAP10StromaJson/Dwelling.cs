@@ -31,52 +31,22 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Dwelling : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual string GUID
-        {
-            get;
-            set;
-        }
+        public virtual string GUID { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual bool Selected
-        {
-            get;
-            set;
-        }
+        public virtual bool Selected { get; set; } = true;
 
-        = true;
         [Description(".")]
-        public virtual string Orientation
-        {
-            get;
-            set;
-        }
+        public virtual string Orientation { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual bool IsLodged
-        {
-            get;
-            set;
-        }
+        public virtual bool IsLodged { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual List<DwellingVersion> DwellingVersions
-        {
-            get;
-            set;
-        }
+        public virtual List<DwellingVersion> DwellingVersions { get; set; } = null;
 
-        = null;
     }
 }

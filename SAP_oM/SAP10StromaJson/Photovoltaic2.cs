@@ -31,93 +31,18 @@ namespace BH.oM.Environment.SAP.Stroma10
     [Description(".")]
     public class Photovoltaic2 : BHoMObject
     {
-        [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description("Peak Power kWp.")]
-        public virtual double PeakPower
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int PhotovoltaicTilt
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int PhotovoltaicOrientation
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int PhotovoltaicOvershading
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual bool DirectlyConnected
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual int FlatConnection
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual bool MicroCertificationSchemeCertificate
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual double OverShadingFactor
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual string Manufacturer
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual string MicroCertificationSchemeCertificateReference
-        {
-            get;
-            set;
-        }
-
-        = null;
+        public virtual double PeakPower { get; set; } = 0;
+        public virtual int PhotovoltaicTilt { get; set; } = 0;
+        public virtual int PhotovoltaicOrientation { get; set; } = 0;
+        public virtual int PhotovoltaicOvershading { get; set; } = 0;
+        public virtual bool DirectlyConnected { get; set; } = false;
+        public virtual int FlatConnection { get; set; } = 0;
+        public virtual bool MicroCertificationSchemeCertificate { get; set; } = false;
+        public virtual double OverShadingFactor { get; set; } = 0;
+        public virtual string Manufacturer { get; set; } = null;
+        public virtual string MicroCertificationSchemeCertificateReference { get; set; } = null;
     }
 }

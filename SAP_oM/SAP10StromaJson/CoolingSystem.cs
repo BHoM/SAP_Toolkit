@@ -31,84 +31,33 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class CoolingSystem : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual bool Include
-        {
-            get;
-            set;
-        }
+        public virtual bool Include { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual int SystemType
-        {
-            get;
-            set;
-        }
+        public virtual int SystemType { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual int EnergyLabel
-        {
-            get;
-            set;
-        }
+        public virtual int EnergyLabel { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual bool Overide
-        {
-            get;
-            set;
-        }
+        public virtual bool Overide { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual int CompressorControl
-        {
-            get;
-            set;
-        }
+        public virtual int CompressorControl { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double CooledArea
-        {
-            get;
-            set;
-        }
+        public virtual double CooledArea { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual bool EERMeasuredInclude
-        {
-            get;
-            set;
-        }
+        public virtual bool EERMeasuredInclude { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual double EER
-        {
-            get;
-            set;
-        }
+        public virtual double EER { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual string Description
-        {
-            get;
-            set;
-        }
-
-        = null;
+        public virtual string Description { get; set; } = null;
     }
 }

@@ -32,28 +32,12 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Special : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description("Include a special feature - renewables.")]
-        public virtual bool Include
-        {
-            get;
-            set;
-        }
+        public virtual bool Include { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual List<SpecialFeature> SpecialFeatures
-        {
-            get;
-            set;
-        }
-
-        = null;
+        public virtual List<SpecialFeature> SpecialFeatures { get; set; } = null;
     }
 }

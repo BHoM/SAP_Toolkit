@@ -32,60 +32,24 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class ShowerUnit : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual string GUID
-        {
-            get;
-            set;
-        }
+        public virtual string GUID { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual int Type
-        {
-            get;
-            set;
-        }
+        public virtual int Type { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual int ShowerWasteWaterHeatRecoverySystem
-        {
-            get;
-            set;
-        }
+        public virtual int ShowerWasteWaterHeatRecoverySystem { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual bool OverRide
-        {
-            get;
-            set;
-        }
+        public virtual bool OverRide { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual double Flow
-        {
-            get;
-            set;
-        }
+        public virtual double Flow { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double Power
-        {
-            get;
-            set;
-        }
-
-        = 0;
+        public virtual double Power { get; set; } = 0;
     }
 }

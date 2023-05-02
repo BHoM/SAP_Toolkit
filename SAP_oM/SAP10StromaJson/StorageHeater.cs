@@ -32,68 +32,27 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class StorageHeater : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual int NumberOfHeaters
-        {
-            get;
-            set;
-        }
+        public virtual int NumberOfHeaters { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual string IndexNumber
-        {
-            get;
-            set;
-        }
+        public virtual string IndexNumber { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual bool HighRetention
-        {
-            get;
-            set;
-        }
+        public virtual bool HighRetention { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual string ManufacturerName
-        {
-            get;
-            set;
-        }
+        public virtual string ManufacturerName { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual string BrandName
-        {
-            get;
-            set;
-        }
+        public virtual string BrandName { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual string ModelName
-        {
-            get;
-            set;
-        }
+        public virtual string ModelName { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual string ModelQualifier
-        {
-            get;
-            set;
-        }
-
-        = null;
+        public virtual string ModelQualifier { get; set; } = null;
     }
 }

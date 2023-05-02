@@ -31,68 +31,27 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class HydroGeneration : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual bool Yearly
-        {
-            get;
-            set;
-        }
+        public virtual bool Yearly { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual bool Include
-        {
-            get;
-            set;
-        }
+        public virtual bool Include { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual double HydroGenerated
-        {
-            get;
-            set;
-        }
+        public virtual double HydroGenerated { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual bool ConnectedToMeter
-        {
-            get;
-            set;
-        }
+        public virtual bool ConnectedToMeter { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual double TotalArea
-        {
-            get;
-            set;
-        }
+        public virtual double TotalArea { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual MonthlyValues MonthlyValues
-        {
-            get;
-            set;
-        }
+        public virtual MonthlyValues MonthlyValues { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual string Certificate
-        {
-            get;
-            set;
-        }
-
-        = null;
+        public virtual string Certificate { get; set; } = null;
     }
 }

@@ -32,52 +32,21 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Renewable : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual WindTurbine WindTurbine
-        {
-            get;
-            set;
-        }
+        public virtual WindTurbine WindTurbine { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual Photovoltaic Photovoltaic
-        {
-            get;
-            set;
-        }
+        public virtual Photovoltaic Photovoltaic { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual Special Special
-        {
-            get;
-            set;
-        }
+        public virtual Special Special { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual AdditionalGeneration AdditionalGeneration
-        {
-            get;
-            set;
-        }
+        public virtual AdditionalGeneration AdditionalGeneration { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual HydroGeneration HydroGeneration
-        {
-            get;
-            set;
-        }
-
-        = null;
+        public virtual HydroGeneration HydroGeneration { get; set; } = null;
     }
 }

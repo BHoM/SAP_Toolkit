@@ -31,156 +31,59 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Boiler : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual bool InHeatedSpace
-        {
-            get;
-            set;
-        }
+        public virtual bool InHeatedSpace { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual bool FlowTemperatureKnown
-        {
-            get;
-            set;
-        }
+        public virtual bool FlowTemperatureKnown { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual double FlowTemperature
-        {
-            get;
-            set;
-        }
+        public virtual double FlowTemperature { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual int EmitterTemperature
-        {
-            get;
-            set;
-        }
+        public virtual int EmitterTemperature { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual int PumpAge
-        {
-            get;
-            set;
-        }
+        public virtual int PumpAge { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual string Description
-        {
-            get;
-            set;
-        }
+        public virtual string Description { get; set; } = null;
 
-        = null;
+        [Description(".")] public virtual int GasBurningType { get; set; } = 0;
+
         [Description(".")]
-        public virtual int GasBurningType
-        {
-            get;
-            set;
-        }
+        public virtual int FlueType { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual int FlueType
-        {
-            get;
-            set;
-        }
+        public virtual bool FanFlued { get; set; } = false;
 
-        = 0;
         [Description(".")]
-        public virtual bool FanFlued
-        {
-            get;
-            set;
-        }
+        public virtual bool PumpHeatPump { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual bool PumpHeatPump
-        {
-            get;
-            set;
-        }
+        public virtual bool BoilerInterlock { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual bool BoilerInterlock
-        {
-            get;
-            set;
-        }
+        public virtual bool LoadWeather { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual bool LoadWeather
-        {
-            get;
-            set;
-        }
+        public virtual string LoadWeatherIndexNumber { get; set; } = null;
 
-        = false;
         [Description(".")]
-        public virtual string LoadWeatherIndexNumber
-        {
-            get;
-            set;
-        }
+        public virtual bool IncludeKeepHot { get; set; } = false;
 
-        = null;
         [Description(".")]
-        public virtual bool IncludeKeepHot
-        {
-            get;
-            set;
-        }
+        public virtual bool KeepHotTimed { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual bool KeepHotTimed
-        {
-            get;
-            set;
-        }
+        public virtual int KeepHotFuel { get; set; } = 0;
 
-        = false;
         [Description(".")]
-        public virtual int KeepHotFuel
-        {
-            get;
-            set;
-        }
+        public virtual int CondensingBoilerDistributionTemperature { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual int CondensingBoilerDistributionTemperature
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int HeatPumpDistributionTemperature
-        {
-            get;
-            set;
-        }
-
-        = 0;
+        public virtual int HeatPumpDistributionTemperature { get; set; } = 0;
     }
 }

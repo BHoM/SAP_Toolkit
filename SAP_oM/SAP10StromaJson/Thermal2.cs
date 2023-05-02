@@ -32,44 +32,18 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Thermal2 : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual bool Include
-        {
-            get;
-            set;
-        }
+        public virtual bool Include { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual int Type
-        {
-            get;
-            set;
-        }
+        public virtual int Type { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual int Location
-        {
-            get;
-            set;
-        }
+        public virtual int Location { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual int Connection
-        {
-            get;
-            set;
-        }
-
-        = 0;
+        public virtual int Connection { get; set; } = 0;
     }
 }

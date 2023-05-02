@@ -31,101 +31,17 @@ namespace BH.oM.Environment.SAP.Stroma10
     [Description(".")]
     public class Thermal : BHoMObject
     {
-        [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual string GUID
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual bool ManualThermalBridgingCalcuation
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual double ThermalBridgingValue
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual string ConstrunctionDetails
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual bool ManualThermalBridgingYValue
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual double YValue
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual bool CustomApproved
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual List<ExternalJunction> ExternalJunctions
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual List<PartyJunction> PartyJunctions
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual List<RoofJunction> RoofJunctions
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual bool Reference
-        {
-            get;
-            set;
-        }
-
-        = false;
+        public virtual int ID { get; set; } = 0;
+        public virtual string GUID { get; set; } = null;
+        public virtual bool ManualThermalBridgingCalcuation { get; set; } = false;
+        public virtual double ThermalBridgingValue { get; set; } = 0;
+        public virtual string ConstrunctionDetails { get; set; } = null;
+        public virtual bool ManualThermalBridgingYValue { get; set; } = false;
+        public virtual double YValue { get; set; } = 0;
+        public virtual bool CustomApproved { get; set; } = false;
+        public virtual List<ExternalJunction> ExternalJunctions { get; set; } = null;
+        public virtual List<PartyJunction> PartyJunctions { get; set; } = null;
+        public virtual List<RoofJunction> RoofJunctions { get; set; } = null;
+        public virtual bool Reference { get; set; } = false;
     }
 }

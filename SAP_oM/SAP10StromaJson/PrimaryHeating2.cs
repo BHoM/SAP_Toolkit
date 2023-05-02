@@ -31,261 +31,39 @@ namespace BH.oM.Environment.SAP.Stroma10
     [Description(".")]
     public class PrimaryHeating2 : BHoMObject
     {
-        [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual bool Include
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual string Group
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual int HeatingCategory
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual string SubHeatingGroup
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual int SubHeatingCategory
-        {
-            get;
-            set;
-        }
-
-        = 0;
+        public virtual int ID { get; set; } = 0;
+        public virtual bool Include { get; set; } = false;
+        public virtual string Group { get; set; } = null;
+        public virtual int HeatingCategory { get; set; } = 0;
+        public virtual string SubHeatingGroup { get; set; } = null;
+        public virtual int SubHeatingCategory { get; set; } = 0;
+        
         [Description("Information Source.")]
-        public virtual int Source
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int SAPTableCode
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual string SeasonalEfficiencyOfDomesticBoilersUK
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual double Efficiency
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual bool TER
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual double WinterEfficiency
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double SummerEfficiency
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int Emitter
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int ControlCode
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual string ControlCodeProductCharacteristicsDatabase
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual int Fuel
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual bool HeatingEquipmentTestingAndApprovalsScheme
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual Boiler Boiler
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual int ElectricityTariff
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual Range Range
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual bool OilPump
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual bool DelayedStart
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual int FuelBurningType
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual bool SeasonalEfficiencyOfDomesticBoilersUK2005
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual bool SeasonalEfficiencyOfDomesticBoilersUK2009
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual bool WinterSummer
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual bool MicroCertificationSchemeHeatPump
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual CommunityHeating CommunityHeating
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual ComplianceHeatingDetails ComplianceHeatingDetails
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual HeatPumpOnly HeatPumpOnly
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual List<StorageHeater> StorageHeaters
-        {
-            get;
-            set;
-        }
-
-        = null;
+        public virtual int Source { get; set; } = 0;
+        public virtual int SAPTableCode { get; set; } = 0;
+        public virtual string SeasonalEfficiencyOfDomesticBoilersUK { get; set; } = null;
+        public virtual double Efficiency { get; set; } = 0;
+        public virtual bool TER { get; set; } = false;
+        public virtual double WinterEfficiency { get; set; } = 0;
+        public virtual double SummerEfficiency { get; set; } = 0;
+        public virtual int Emitter { get; set; } = 0;
+        public virtual int ControlCode { get; set; } = 0;
+        public virtual string ControlCodeProductCharacteristicsDatabase { get; set; } = null;
+        public virtual int Fuel { get; set; } = 0;
+        public virtual bool HeatingEquipmentTestingAndApprovalsScheme { get; set; } = false;
+        public virtual Boiler Boiler { get; set; } = null;
+        public virtual int ElectricityTariff { get; set; } = 0;
+        public virtual Range Range { get; set; } = null;
+        public virtual bool OilPump { get; set; } = false;
+        public virtual bool DelayedStart { get; set; } = false;
+        public virtual int FuelBurningType { get; set; } = 0;
+        public virtual bool SeasonalEfficiencyOfDomesticBoilersUK2005 { get; set; } = false;
+        public virtual bool SeasonalEfficiencyOfDomesticBoilersUK2009 { get; set; } = false;
+        public virtual bool WinterSummer { get; set; } = false;
+        public virtual bool MicroCertificationSchemeHeatPump { get; set; } = false;
+        public virtual CommunityHeating CommunityHeating { get; set; } = null;
+        public virtual ComplianceHeatingDetails ComplianceHeatingDetails { get; set; } = null;
+        public virtual HeatPumpOnly HeatPumpOnly { get; set; } = null;
+        public virtual List<StorageHeater> StorageHeaters { get; set; } = null;
     }
 }

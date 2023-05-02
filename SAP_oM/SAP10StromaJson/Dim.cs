@@ -31,44 +31,18 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Dim : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual string GUID
-        {
-            get;
-            set;
-        }
+        public virtual string GUID { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual double Width
-        {
-            get;
-            set;
-        }
+        public virtual double Width { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double Length
-        {
-            get;
-            set;
-        }
+        public virtual double Length { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double Area
-        {
-            get;
-            set;
-        }
-
-        = 0;
+        public virtual double Area { get; set; } = 0;
     }
 }

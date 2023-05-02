@@ -31,52 +31,21 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Light : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual string GUID
-        {
-            get;
-            set;
-        }
+        public virtual string GUID { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual double Power
-        {
-            get;
-            set;
-        }
+        public virtual double Power { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double Efficacy
-        {
-            get;
-            set;
-        }
+        public virtual double Efficacy { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double Capacity
-        {
-            get;
-            set;
-        }
+        public virtual double Capacity { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual int Count
-        {
-            get;
-            set;
-        }
-
-        = 0;
+        public virtual int Count { get; set; } = 0;
     }
 }

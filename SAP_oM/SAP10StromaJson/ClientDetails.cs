@@ -32,52 +32,21 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class ClientDetails : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual Address Address
-        {
-            get;
-            set;
-        }
+        public virtual Address Address { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual string PhoneNumber
-        {
-            get;
-            set;
-        }
+        public virtual string PhoneNumber { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual string FaxNumber
-        {
-            get;
-            set;
-        }
+        public virtual string FaxNumber { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual string Email
-        {
-            get;
-            set;
-        }
+        public virtual string Email { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual string CompanyName
-        {
-            get;
-            set;
-        }
-
-        = null;
+        public virtual string CompanyName { get; set; } = null;
     }
 }

@@ -30,229 +30,33 @@ namespace BH.oM.Environment.SAP.Stroma10
     [Description(".")]
     public class DwellingDetails : BHoMObject
     {
-        [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int PropertyType
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int AssessmentType
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int TransactionType
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int TenureType
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int RelatedParty
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int ThermalMass
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int IndicativeValue
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double UserThermalMass
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int BuiltForm
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int FlatType
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int Location
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int Terrain
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int Orientation
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int SmokeControl
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int OverShading
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int Country
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int Language
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual bool SummerOverheating
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual bool WaterUseLessThan125
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual DateTime DateOfAssessment
-        {
-            get;
-            set;
-        }
-
-        = DateTime.Now;
-        [Description(".")]
-        public virtual DateTime DateOfCertificate
-        {
-            get;
-            set;
-        }
-
-        = DateTime.Now;
-        [Description(".")]
-        public virtual int YearBuilt
-        {
-            get;
-            set;
-        }
-
-        = (DateTime.Now.Year);
-        [Description(".")]
-        public virtual bool RoomInRoof
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual int StoreysInBlock
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual bool IsGasMeter
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual bool IsElectricMeter
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual bool IsCableExport
-        {
-            get;
-            set;
-        }
-
-        = false;
+        public virtual int ID { get; set; } = 0;
+        public virtual int PropertyType { get; set; } = 0;
+        public virtual int AssessmentType { get; set; } = 0;
+        public virtual int TransactionType { get; set; } = 0;
+        public virtual int TenureType { get; set; } = 0;
+        public virtual int RelatedParty { get; set; } = 0;
+        public virtual int ThermalMass { get; set; } = 0;
+        public virtual int IndicativeValue { get; set; } = 0;
+        public virtual double UserThermalMass { get; set; } = 0;
+        public virtual int BuiltForm { get; set; } = 0;
+        public virtual int FlatType { get; set; } = 0;
+        public virtual int Location { get; set; } = 0;
+        public virtual int Terrain { get; set; } = 0;
+        public virtual int Orientation { get; set; } = 0;
+        public virtual int SmokeControl { get; set; } = 0;
+        public virtual int OverShading { get; set; } = 0;
+        public virtual int Country { get; set; } = 0;
+        public virtual int Language { get; set; } = 0;
+        public virtual bool SummerOverheating { get; set; } = false;
+        public virtual bool WaterUseLessThan125 { get; set; } = false;
+        public virtual DateTime DateOfAssessment { get; set; } = DateTime.Now;
+        public virtual DateTime DateOfCertificate { get; set; } = DateTime.Now;
+        public virtual int YearBuilt { get; set; } = (DateTime.Now.Year);
+        public virtual bool RoomInRoof { get; set; } = false;
+        public virtual int StoreysInBlock { get; set; } = 0;
+        public virtual bool IsGasMeter { get; set; } = false;
+        public virtual bool IsElectricMeter { get; set; } = false;
+        public virtual bool IsCableExport { get; set; } = false;
     }
 }

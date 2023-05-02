@@ -30,133 +30,21 @@ namespace BH.oM.Environment.SAP.Stroma10
     [Description(".")]
     public class InteriorCeiling : BHoMObject
     {
-        [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual string GUID
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual int Type
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int Construction
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double Area
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double UValueStart
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double UValue
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double ResultantUValue
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual bool Curtain
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual bool ManualInputKappa
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual double Kappa
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual List<Dim> Dims
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual int UValueSelectionID
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual bool UValueSelected
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual string EnergyPerformanceCertificateDescription
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual string LoftInsulation
-        {
-            get;
-            set;
-        }
-
-        = null;
+        public virtual int ID { get; set; } = 0;
+        public virtual string GUID { get; set; } = null;
+        public virtual int Type { get; set; } = 0;
+        public virtual int Construction { get; set; } = 0;
+        public virtual double Area { get; set; } = 0;
+        public virtual double UValueStart { get; set; } = 0;
+        public virtual double UValue { get; set; } = 0;
+        public virtual double ResultantUValue { get; set; } = 0;
+        public virtual bool Curtain { get; set; } = false;
+        public virtual bool ManualInputKappa { get; set; } = false;
+        public virtual double Kappa { get; set; } = 0;
+        public virtual List<Dim> Dims { get; set; } = null;
+        public virtual int UValueSelectionID { get; set; } = 0;
+        public virtual bool UValueSelected { get; set; } = false;
+        public virtual string EnergyPerformanceCertificateDescription { get; set; } = null;
+        public virtual string LoftInsulation { get; set; } = null;
     }
 }

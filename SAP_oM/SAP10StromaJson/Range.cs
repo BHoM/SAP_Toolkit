@@ -32,28 +32,12 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Range : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double CaseKw
-        {
-            get;
-            set;
-        }
+        public virtual double CaseKw { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double WaterKw
-        {
-            get;
-            set;
-        }
-
-        = 0;
+        public virtual double WaterKw { get; set; } = 0;
     }
 }
