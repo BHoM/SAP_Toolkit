@@ -29,7 +29,13 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of heating distribution system.")]
-    public enum HeatingDistributionCode { Calculated = 5, Unknown = 6, NetworkNotCompliantWithCodeOfPractice = 7, NetworkCompliantWithCodeOfPractice = 8 }
+    public enum HeatingDistributionCode
+    {
+        Calculated = 5,
+        Unknown = 6,
+        NetworkNotCompliantWithCodeOfPractice = 7,
+        NetworkCompliantWithCodeOfPractice = 8
+    }
 }
 
 /*

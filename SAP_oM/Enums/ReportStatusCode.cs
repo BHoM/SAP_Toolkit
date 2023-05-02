@@ -29,9 +29,17 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-	[Description(".")]
-    public enum ReportStatusCode { Cancelled, EnteredOnTheRegister, UnderAppeal, 
-		Removed, Rejected , UnderInvestigation, NotForIssue }
+    [Description(".")]
+    public enum ReportStatusCode
+    {
+        Cancelled,
+        EnteredOnTheRegister,
+        UnderAppeal,
+        Removed,
+        Rejected,
+        UnderInvestigation,
+        NotForIssue
+    }
 }
 /*
 private static string FromSAPToXML(this BH.oM.Environment.SAP.ReportStatusCode reportStatusCode)

@@ -29,6 +29,12 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of conservatory.")]
-    public enum TypeOfConservatory {  NoConservatory = 1, SeparatedUnheatedConservatory = 2, SeparatedHeatedConservatory = 3, NotSeparated = 4 }
+    public enum TypeOfConservatory
+    {
+        NoConservatory = 1,
+        SeparatedUnheatedConservatory = 2,
+        SeparatedHeatedConservatory = 3,
+        NotSeparated = 4
+    }
 }
 

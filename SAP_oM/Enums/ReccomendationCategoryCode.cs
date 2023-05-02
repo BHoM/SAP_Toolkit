@@ -29,9 +29,15 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description(".")]
-    public enum RecommendationCategoryCode { LowerCostThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed = 1, HigherCostThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed = 2, 
-		FurtherMeasureThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed = 3, Deselected_ThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed= 4, 
-		NormalMeasure = 5, AlternativeMeasure = 6 }
+    public enum RecommendationCategoryCode
+    {
+        LowerCostThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed = 1,
+        HigherCostThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed = 2,
+        FurtherMeasureThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed = 3,
+        Deselected_ThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed = 4,
+        NormalMeasure = 5,
+        AlternativeMeasure = 6
+    }
 }
 
 /*

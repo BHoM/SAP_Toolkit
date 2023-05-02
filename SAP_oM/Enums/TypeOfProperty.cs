@@ -29,6 +29,13 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of property.")]
-    public enum TypeOfProperty { House = 0, Bungalow = 1, Flat = 2, Maisonette = 3, ParkHome = 4 }
+    public enum TypeOfProperty
+    {
+        House = 0,
+        Bungalow = 1,
+        Flat = 2,
+        Maisonette = 3,
+        ParkHome = 4
+    }
 }
 

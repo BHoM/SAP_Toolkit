@@ -29,6 +29,10 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Codes used to indicate a category of secondary heating system.")]
-    public enum SecondaryHeatingCategory { None = 1, RoomHeaters = 10}
+    public enum SecondaryHeatingCategory
+    {
+        None = 1,
+        RoomHeaters = 10
+    }
 }
 

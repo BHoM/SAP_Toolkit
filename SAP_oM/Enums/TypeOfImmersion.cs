@@ -29,6 +29,10 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of immersion heater.")]
-    public enum TypeOfImmersion { Dual = 1, Single = 2 }
+    public enum TypeOfImmersion
+    {
+        Dual = 1,
+        Single = 2
+    }
 }
 

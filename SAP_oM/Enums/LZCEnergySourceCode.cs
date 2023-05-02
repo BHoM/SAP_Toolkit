@@ -30,11 +30,26 @@ using BH.oM.Environment.SAP;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates a particular low or zero carbon energy source.")]
-    public enum LZCEnergySourceCode {  BiofuelMainHeating = 1, BiofuelCommunityHeating = 2,
-        BiofuelCommunityHeatingForSomeOfHeatGeneration = 3, BiofuelSecondaryHeating = 4, GeothermalHeatSource = 5,
-        CommunityCombinedHeatAndPower = 6, GroundSourceHeatPump = 7, WaterSourceHeatPump = 8, AirSourceHeatPump = 9, 
-        SolarWaterHeating = 10, SolarPhotovoltaics = 11, WindTurbine = 12, CommunityHeatPump = 13, HydroElectricGeneration = 14,
-        MicroCHP = 15, ExhaustAirHeatPump = 16, SolarAssistedHeatPump = 17 }
+    public enum LZCEnergySourceCode
+    {
+        BiofuelMainHeating = 1,
+        BiofuelCommunityHeating = 2,
+        BiofuelCommunityHeatingForSomeOfHeatGeneration = 3,
+        BiofuelSecondaryHeating = 4,
+        GeothermalHeatSource = 5,
+        CommunityCombinedHeatAndPower = 6,
+        GroundSourceHeatPump = 7,
+        WaterSourceHeatPump = 8,
+        AirSourceHeatPump = 9,
+        SolarWaterHeating = 10,
+        SolarPhotovoltaics = 11,
+        WindTurbine = 12,
+        CommunityHeatPump = 13,
+        HydroElectricGeneration = 14,
+        MicroCHP = 15,
+        ExhaustAirHeatPump = 16,
+        SolarAssistedHeatPump = 17
+    }
 }
 
 /*

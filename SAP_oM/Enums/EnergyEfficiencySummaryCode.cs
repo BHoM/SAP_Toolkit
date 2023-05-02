@@ -31,7 +31,15 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description(".")]
-    public enum EnergyEfficiencySummaryCode { NA = 0, VeryPoor = 1, Poor = 2, Average = 3, Good = 4, VeryGood = 5 }
+    public enum EnergyEfficiencySummaryCode
+    {
+        NA = 0,
+        VeryPoor = 1,
+        Poor = 2,
+        Average = 3,
+        Good = 4,
+        VeryGood = 5
+    }
 }
 
 /*

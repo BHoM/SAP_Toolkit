@@ -29,7 +29,14 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description(".")]
-    public enum TypeOfShowerOutlet { VentedHotWater = 1, VentedHotWaterAndPump = 2, UnventedHotWaterSystem = 3, InstantaneousElectricShower = 4, PartG2015Compliant = 5 }
+    public enum TypeOfShowerOutlet
+    {
+        VentedHotWater = 1,
+        VentedHotWaterAndPump = 2,
+        UnventedHotWaterSystem = 3,
+        InstantaneousElectricShower = 4,
+        PartG2015Compliant = 5
+    }
 }
 
 /*

@@ -29,7 +29,11 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of wall construction.")]
-    public enum WallConstructionCode {  SteelOrTimberFrame = 1, Other = 2 }
+    public enum WallConstructionCode
+    {
+        SteelOrTimberFrame = 1,
+        Other = 2
+    }
 }
 
 /*private static string FromSAPToXML(this BH.oM.Environment.SAP.WallConstructionCode wallConstructionCode)

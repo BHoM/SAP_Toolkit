@@ -29,6 +29,10 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of duct insulation.")]
-    public enum TypeofDuctInsulation { NotInsulated = 1, Insulated }
+    public enum TypeofDuctInsulation
+    {
+        NotInsulated = 1,
+        Insulated
+    }
 }
 

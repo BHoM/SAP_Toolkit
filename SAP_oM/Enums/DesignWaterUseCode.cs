@@ -29,7 +29,11 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description(".")]
-    public enum DesignWaterUseCode {  LessThan125LitresPerPersonPerDay = 1 , MoreThan125LitresPerPersonPerDay}
+    public enum DesignWaterUseCode
+    {
+        LessThan125LitresPerPersonPerDay = 1,
+        MoreThan125LitresPerPersonPerDay
+    }
 }
 
 /*private static string FromSAPToXML(this BH.oM.Environment.SAP.DesignWaterUseCode designWaterUseCode)

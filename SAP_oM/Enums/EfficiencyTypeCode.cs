@@ -29,7 +29,13 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description(".")]
-    public enum TypeOfEfficiency { NotGasOrOilBoiler = 1, SEDBUK2005 = 2, SEDBUK2009 = 3, WinterAndSummer = 4 }
+    public enum TypeOfEfficiency
+    {
+        NotGasOrOilBoiler = 1,
+        SEDBUK2005 = 2,
+        SEDBUK2009 = 3,
+        WinterAndSummer = 4
+    }
 }
 
 /*private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfEfficiency typeOfEfficiency)

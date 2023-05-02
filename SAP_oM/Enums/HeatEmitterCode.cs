@@ -29,5 +29,11 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of heating emitter.")]
-    public enum HeatEmitterCode { Radiators = 1, Underfloor, RadiatorsAndUnderfloor, FanCoilUnits }
+    public enum HeatEmitterCode
+    {
+        Radiators = 1,
+        Underfloor,
+        RadiatorsAndUnderfloor,
+        FanCoilUnits
+    }
 }

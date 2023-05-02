@@ -31,7 +31,11 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of hot water storage insulation.")]
-    public enum TypeOfHotWaterStoreInsulation { FactoryApplied = 1, LooseJacket = 2 }
+    public enum TypeOfHotWaterStoreInsulation
+    {
+        FactoryApplied = 1,
+        LooseJacket = 2
+    }
 }
 
 /*

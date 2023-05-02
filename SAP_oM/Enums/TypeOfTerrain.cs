@@ -28,6 +28,11 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-	[Description("Code which indicates the type of terrain.")]
-	public enum TypeOfTerrain {  Urban = 1, Suburban = 2, Rural = 3 }
+    [Description("Code which indicates the type of terrain.")]
+    public enum TypeOfTerrain
+    {
+        Urban = 1,
+        Suburban = 2,
+        Rural = 3
+    }
 }

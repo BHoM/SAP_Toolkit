@@ -28,7 +28,15 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-	[Description("Code which indicates the type of opening.")]
-	public enum TypeOfOpening {  SolidDoor = 1, SemiGlazedDoor = 2, DoorToCorridor = 3, Window = 4, RoofWindow = 5, Rooflight = 6 }
+    [Description("Code which indicates the type of opening.")]
+    public enum TypeOfOpening
+    {
+        SolidDoor = 1,
+        SemiGlazedDoor = 2,
+        DoorToCorridor = 3,
+        Window = 4,
+        RoofWindow = 5,
+        Rooflight = 6
+    }
 }
 

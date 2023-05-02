@@ -29,6 +29,11 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the pump age.")]
-    public enum PumpAge { Unknown = 0, Earlier2012, Later2013 }
+    public enum PumpAge
+    {
+        Unknown = 0,
+        Earlier2012,
+        Later2013
+    }
 }
 

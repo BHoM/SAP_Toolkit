@@ -30,15 +30,51 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of heating fuel, as defined in SAP table 12.")]
-    public enum TypeOfHeatingFuel { MainsGas = 1, BulkLPG, BottledLPG, HeatingOil, Biogas = 7, 
-        LNG, LPGSpecialCondition , SolidFuelMineralAndWood , HouseCoal , ManufacturedSmokelessFuel , 
-        Anthracite = 15 , WoodLogs = 20 , WoodChips , WoodPelletsSecondaryHeating , WoodPelletsMainHeating ,
-        ElectricitySoldToGrid = 36 , ElectricityDisplacedFromGrid , ElectricityUnspecTariff = 39 , CommunityHeatPump = 41 , 
-        CommunityBoilersWaste , CommunityBoilersBiomass , CommunityBoilersBiogas , CommunityWastePowerStations ,
-        CommunityGeothermal , CommunityCHP = 48 , CommunityElectricityCHP , CommunityElectricityNetwork , CommunityMainsGas , 
-        CommunityLPG , CommunityOil , CommunityCoal , CommunityB30D , CommunityBoilersMineralOilBiodiesel ,
-        CommunityBoilersBiodiesel , CommunityBiodieselVegetableOil , Biodiesel = 71 , BiodieselUsedCookingOil ,
-        BiodieselVegetableOil , MineralOilLiquidBiofuel , B30K , Bioethanol , FuelDataFromPcdb = 99}
+    public enum TypeOfHeatingFuel
+    {
+        MainsGas = 1,
+        BulkLPG,
+        BottledLPG,
+        HeatingOil,
+        Biogas = 7,
+        LNG,
+        LPGSpecialCondition,
+        SolidFuelMineralAndWood,
+        HouseCoal,
+        ManufacturedSmokelessFuel,
+        Anthracite = 15,
+        WoodLogs = 20,
+        WoodChips,
+        WoodPelletsSecondaryHeating,
+        WoodPelletsMainHeating,
+        ElectricitySoldToGrid = 36,
+        ElectricityDisplacedFromGrid,
+        ElectricityUnspecTariff = 39,
+        CommunityHeatPump = 41,
+        CommunityBoilersWaste,
+        CommunityBoilersBiomass,
+        CommunityBoilersBiogas,
+        CommunityWastePowerStations,
+        CommunityGeothermal,
+        CommunityCHP = 48,
+        CommunityElectricityCHP,
+        CommunityElectricityNetwork,
+        CommunityMainsGas,
+        CommunityLPG,
+        CommunityOil,
+        CommunityCoal,
+        CommunityB30D,
+        CommunityBoilersMineralOilBiodiesel,
+        CommunityBoilersBiodiesel,
+        CommunityBiodieselVegetableOil,
+        Biodiesel = 71,
+        BiodieselUsedCookingOil,
+        BiodieselVegetableOil,
+        MineralOilLiquidBiofuel,
+        B30K,
+        Bioethanol,
+        FuelDataFromPcdb = 99
+    }
 }
 
 /*private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfHeatingFuel typeOfHeatingFuel)

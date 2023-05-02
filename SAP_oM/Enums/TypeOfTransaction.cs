@@ -28,10 +28,20 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description(".")]
-    public enum TypeOfTransaction { MarketedSale = 1, NonMarketedSale = 2, Rental_SocialThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed = 3, 
-		Rental_PrivateThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed = 4, NoneOfTheAbove = 5, NewDwelling = 6, 
-		NotRecordedThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed = 7, Rental = 8, AssessmentForGreenDeal = 9, FollowingGreenDeal = 10,
-		FitApplication = 11 }
+    public enum TypeOfTransaction
+    {
+        MarketedSale = 1,
+        NonMarketedSale = 2,
+        Rental_SocialThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed = 3,
+        Rental_PrivateThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed = 4,
+        NoneOfTheAbove = 5,
+        NewDwelling = 6,
+        NotRecordedThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed = 7,
+        Rental = 8,
+        AssessmentForGreenDeal = 9,
+        FollowingGreenDeal = 10,
+        FitApplication = 11
+    }
 }
 
 /*

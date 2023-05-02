@@ -29,11 +29,33 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the region within the UK.")]
-    public enum UKRegionCode { Borders = 1, EastAnglia = 2, EastPennines = 3, EastScotland = 4, Highland = 5, Midlands = 6,
-        NorthEastEngland = 7, NorthEastScotland = 8, NorthWestEnglandAndSouthWestScotland = 9, NorthernIreland = 10, 
-        Orkney = 11, SevernValley = 12, Shetland = 13, SouthEastEngland = 14, SouthWestEngland = 15, SouthernEngland = 16,
-        ThamesValley = 17, Wales = 18, WestPennines = 19, WestScotland = 20, WesternIsles = 21, Jersey = 22, Guernsey = 23,
-        IsleOfMan = 24 }
+    public enum UKRegionCode
+    {
+        Borders = 1,
+        EastAnglia = 2,
+        EastPennines = 3,
+        EastScotland = 4,
+        Highland = 5,
+        Midlands = 6,
+        NorthEastEngland = 7,
+        NorthEastScotland = 8,
+        NorthWestEnglandAndSouthWestScotland = 9,
+        NorthernIreland = 10,
+        Orkney = 11,
+        SevernValley = 12,
+        Shetland = 13,
+        SouthEastEngland = 14,
+        SouthWestEngland = 15,
+        SouthernEngland = 16,
+        ThamesValley = 17,
+        Wales = 18,
+        WestPennines = 19,
+        WestScotland = 20,
+        WesternIsles = 21,
+        Jersey = 22,
+        Guernsey = 23,
+        IsleOfMan = 24
+    }
 }
 
 /*

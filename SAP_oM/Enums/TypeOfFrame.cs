@@ -29,6 +29,16 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("The opening type defines the thermal properties of a series of openings.")]
-    public enum TypeOfFrame {Wood = 1, PVC, MetalNoBreak, Metal4mmBreak, Metal8mmBreak, Metal12mmBreak, Metal20mmBreak, Metal32mmBreak,Unknown}
+    public enum TypeOfFrame
+    {
+        Wood = 1,
+        PVC,
+        MetalNoBreak,
+        Metal4mmBreak,
+        Metal8mmBreak,
+        Metal12mmBreak,
+        Metal20mmBreak,
+        Metal32mmBreak, Unknown
+    }
 }
 

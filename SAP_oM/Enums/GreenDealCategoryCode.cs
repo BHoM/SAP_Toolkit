@@ -29,8 +29,13 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description(".")]
-    public enum GreenDealCategoryCode {  NotEligibleForGreenDeal = 1, EligibleWithAdditionalFinance = 2, EligibleWithoutAdditionalFinance = 3, 
-		NotAssessed_UseForAlternativeMeasuresAndForNewDwellingEpcs = 4 }
+    public enum GreenDealCategoryCode
+    {
+        NotEligibleForGreenDeal = 1,
+        EligibleWithAdditionalFinance = 2,
+        EligibleWithoutAdditionalFinance = 3,
+        NotAssessed_UseForAlternativeMeasuresAndForNewDwellingEpcs = 4
+    }
 }
 
 

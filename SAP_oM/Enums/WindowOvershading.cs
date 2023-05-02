@@ -29,6 +29,12 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the amount of window overshading.")]
-    public enum WindowOvershading { VeryLittle = 1, AverageOrUnknown, MoreThanAverage, Heavy }
+    public enum WindowOvershading
+    {
+        VeryLittle = 1,
+        AverageOrUnknown,
+        MoreThanAverage,
+        Heavy
+    }
 }
 

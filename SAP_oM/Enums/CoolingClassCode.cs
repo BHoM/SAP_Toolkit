@@ -29,6 +29,20 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description(".")]
-    public enum CoolingClassCode {A3 = 1,A2,A1,A,B,C,D,E,F,G,ND,Unknown}
+    public enum CoolingClassCode
+    {
+        A3 = 1,
+        A2,
+        A1,
+        A,
+        B,
+        C,
+        D,
+        E,
+        F,
+        G,
+        ND,
+        Unknown
+    }
 }
 

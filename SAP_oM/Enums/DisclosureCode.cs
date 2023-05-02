@@ -31,9 +31,13 @@ namespace BH.oM.Environment.SAP
     [Description("Code indicating any potential conflicts of interest or commercial relationships with other parties.")]
     public enum DisclosureCode
     {
-        NoRelatedParty = 1, RelativeOfHomeownerOrOfOccupierOfTheProperty = 2, ResidingAtTheProperty = 3,
-        FinancialInterestInTheProperty = 4, OwnerOrDirectorOfTheOrganisationDealingWithThePropertyTransaction = 5,
-        EmployedByTheProfessionalDealingWithThePropertyTransaction = 6, RelativeOfTheProfessionalDealingWithThePropertyTransaction = 7
+        NoRelatedParty = 1,
+        RelativeOfHomeownerOrOfOccupierOfTheProperty = 2,
+        ResidingAtTheProperty = 3,
+        FinancialInterestInTheProperty = 4,
+        OwnerOrDirectorOfTheOrganisationDealingWithThePropertyTransaction = 5,
+        EmployedByTheProfessionalDealingWithThePropertyTransaction = 6,
+        RelativeOfTheProfessionalDealingWithThePropertyTransaction = 7
     }
 }
 

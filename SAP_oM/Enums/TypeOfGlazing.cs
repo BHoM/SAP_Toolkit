@@ -29,6 +29,21 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of glazing; if U-value is from BFRC or manufacturer declaration, give as one of: single, double, triple.")]
-    public enum TypeOfGlazing { NotAppicable = 1, Single, Double, DoubleLowEHard02, DoubleLowEHard015, DoubleLowESoft01, DoubleLowESoft005, Triple, TripleLowEHard02, TripleLowEHard015, TripleLowESoft01, TripleLowESoft005, SecondaryGlazing }
+    public enum TypeOfGlazing
+    {
+        NotAppicable = 1,
+        Single,
+        Double,
+        DoubleLowEHard02,
+        DoubleLowEHard015,
+        DoubleLowESoft01,
+        DoubleLowESoft005,
+        Triple,
+        TripleLowEHard02,
+        TripleLowEHard015,
+        TripleLowESoft01,
+        TripleLowESoft005,
+        SecondaryGlazing
+    }
 }
 
