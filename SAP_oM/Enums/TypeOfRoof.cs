@@ -29,6 +29,10 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of roof.")]
-    public enum TypeOfRoof { ExposedRoof = 2, PartyCeiling = 4 }
+    public enum TypeOfRoof
+    {
+        ExposedRoof = 2,
+        PartyCeiling = 4
+    }
 }
 

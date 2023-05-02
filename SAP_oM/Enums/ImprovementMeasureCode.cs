@@ -30,17 +30,47 @@ using BH.oM.Environment.SAP;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates an improvement measure for a property.")]
-    public enum ImprovementMeasureCode { LoftInsulation = 1, FlatRoofInsulation, RoomInRoofInsulation, 
-        CavityWallInsulation , HotWaterCylinderInsulation , Draughtproofing , LowEnergyLights , CylinderThermostat ,
-        HeatingControlsForWetCentralHeatingSystem , HeatingControlsForWarmAirSystem , UpgradeBoiler, SameFuel , Biomasboiler ,
-        BiomasboilerAsAlternativeImprovement, BiomassRoomHeaterWithBoiler , NewOrReplacementFanAssistedStorageHeaters,
-        NewOrReplacementHighHeatRetentionStorageHeaters , ReplacementWarmAirUnit , SolarWaterHeating , 
-        ReplacementDoubleGlazedWindows, ReplacementDoubleGlazingUnits , SecondaryGlazing , SolidWallInsulation ,
-        ExternalInsulationWithCavityWallInsulation, CondensingOilBoiler  , ChangeHeatingToBandAGasCondensingBoilerNoFuelSwitch , 
-        ChangeHeatingToBandAGasCondensingBoilerFuelSwitch, FlueGasHeatRecovery , Photovoltaics , WindTurbineRoofMounted ,
-        WindTurbineOnMast , FloorInsulation, InsulatedDoors, InstantaneousWasteWaterHeatRecovery,
-        StorageWasteWaterHeatRecovery, AirOrGroundSourceHeatPump, AirOrGroundSourceHeatPumpWithUnderfloorHeating,
-        MicroCHP }
+    public enum ImprovementMeasureCode
+    {
+        LoftInsulation = 1,
+        FlatRoofInsulation,
+        RoomInRoofInsulation,
+        CavityWallInsulation,
+        HotWaterCylinderInsulation,
+        Draughtproofing,
+        LowEnergyLights,
+        CylinderThermostat,
+        HeatingControlsForWetCentralHeatingSystem,
+        HeatingControlsForWarmAirSystem,
+        UpgradeBoiler,
+        SameFuel,
+        Biomasboiler,
+        BiomasboilerAsAlternativeImprovement,
+        BiomassRoomHeaterWithBoiler,
+        NewOrReplacementFanAssistedStorageHeaters,
+        NewOrReplacementHighHeatRetentionStorageHeaters,
+        ReplacementWarmAirUnit,
+        SolarWaterHeating,
+        ReplacementDoubleGlazedWindows,
+        ReplacementDoubleGlazingUnits,
+        SecondaryGlazing,
+        SolidWallInsulation,
+        ExternalInsulationWithCavityWallInsulation,
+        CondensingOilBoiler,
+        ChangeHeatingToBandAGasCondensingBoilerNoFuelSwitch,
+        ChangeHeatingToBandAGasCondensingBoilerFuelSwitch,
+        FlueGasHeatRecovery,
+        Photovoltaics,
+        WindTurbineRoofMounted,
+        WindTurbineOnMast,
+        FloorInsulation,
+        InsulatedDoors,
+        InstantaneousWasteWaterHeatRecovery,
+        StorageWasteWaterHeatRecovery,
+        AirOrGroundSourceHeatPump,
+        AirOrGroundSourceHeatPumpWithUnderfloorHeating,
+        MicroCHP
+    }
 }
 
 /*

@@ -29,7 +29,14 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the vertical pitch (angle).")]
-    public enum VerticalPitchCode { Horizontal = 1, _30Degrees = 2, _45Degrees = 3, _60Degrees = 4, Vertical = 5 }
+    public enum VerticalPitchCode
+    {
+        Horizontal = 1,
+        _30Degrees = 2,
+        _45Degrees = 3,
+        _60Degrees = 4,
+        Vertical = 5
+    }
 }
 
 /*

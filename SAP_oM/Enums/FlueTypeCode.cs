@@ -29,6 +29,13 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of flue.")]
-    public enum FlueTypeCode { OpenFlue = 1, BalancedFlue, Chimney, Omitted, Unknown }
+    public enum FlueTypeCode
+    {
+        OpenFlue = 1,
+        BalancedFlue,
+        Chimney,
+        Omitted,
+        Unknown
+    }
 }
 

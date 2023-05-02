@@ -29,7 +29,19 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the compass direction.  Like OrientationCode, but without the \"unknown\" and \"horizontal\" options.")]
-    public enum CompassDirectionCode { North = 1, NorthEast = 2, East = 3, SouthEast = 4, South = 5, SouthWest = 6, West = 7, NorthWest = 8, ToBeUsedWhenThePitchIsHorizontal, NotRecordedForBackwardsCompatibilityOnlyDoNotUse }
+    public enum CompassDirectionCode
+    {
+        North = 1,
+        NorthEast = 2,
+        East = 3,
+        SouthEast = 4,
+        South = 5,
+        SouthWest = 6,
+        West = 7,
+        NorthWest = 8,
+        ToBeUsedWhenThePitchIsHorizontal,
+        NotRecordedForBackwardsCompatibilityOnlyDoNotUse
+    }
 
 }
 

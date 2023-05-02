@@ -29,7 +29,12 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of underfloor heat emitter.")]
-    public enum UnderfloorHeatEmitterCode { InConcreteSlab = 1, InScreedAboveInsulation = 2, InTimberFloor = 3 }
+    public enum UnderfloorHeatEmitterCode
+    {
+        InConcreteSlab = 1,
+        InScreedAboveInsulation = 2,
+        InTimberFloor = 3
+    }
 }
 
 /*

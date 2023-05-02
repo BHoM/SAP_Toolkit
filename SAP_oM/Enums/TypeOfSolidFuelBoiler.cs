@@ -29,7 +29,13 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of boiler for the case where the fuel is solid.")]
-    public enum TypeOfSolidFuelBoiler { Independent = 1, OpenFire = 2, ClosedRoomHeater = 3, RangeCooker = 4 }
+    public enum TypeOfSolidFuelBoiler
+    {
+        Independent = 1,
+        OpenFire = 2,
+        ClosedRoomHeater = 3,
+        RangeCooker = 4
+    }
 }
 
 /*private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfSolidFuelBoiler typeOfSolidFuelBoiler)

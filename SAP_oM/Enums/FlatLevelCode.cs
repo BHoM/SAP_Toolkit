@@ -30,7 +30,13 @@ using BH.oM.Environment.SAP;
 namespace BH.oM.Environment.SAP
 {
     [Description("Codes which indicates where a flat is located within a building.")]
-    public enum FlatLevelCode {  Basement = 0, GroundFloor = 1, MidFloor = 2, TopFloor = 3 }
+    public enum FlatLevelCode
+    {
+        Basement = 0,
+        GroundFloor = 1,
+        MidFloor = 2,
+        TopFloor = 3
+    }
 }
 
 

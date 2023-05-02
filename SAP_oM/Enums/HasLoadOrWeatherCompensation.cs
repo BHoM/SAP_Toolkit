@@ -29,6 +29,10 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of flue.")]
-    public enum HasLoadOrWeatherCompensation { None = 0, LoadOrWeatherCompensation = 4}
+    public enum HasLoadOrWeatherCompensation
+    {
+        None = 0,
+        LoadOrWeatherCompensation = 4
+    }
 }
 

@@ -29,7 +29,11 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the source of the cold water.")]
-    public enum ColdWaterSourceCode { Mains = 1, HeaderTank = 2 }
+    public enum ColdWaterSourceCode
+    {
+        Mains = 1,
+        HeaderTank = 2
+    }
 }
 
 

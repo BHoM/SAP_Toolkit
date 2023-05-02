@@ -30,6 +30,11 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of glazing; if U-value is from BFRC or manufacturer declaration, give as one of: single, double, triple.")]
-    public enum GlazingGap { Sixmm = 1, Twelvemm, SixteenOrMore }
+    public enum GlazingGap
+    {
+        Sixmm = 1,
+        Twelvemm,
+        SixteenOrMore
+    }
 }
 

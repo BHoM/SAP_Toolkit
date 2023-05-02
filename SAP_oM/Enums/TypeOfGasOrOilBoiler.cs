@@ -29,7 +29,13 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of boiler for the case where the fuel is gas or oil.")]
-    public enum TypeOfGasOrOilBoiler {  Regular = 1, Combi = 2, CPSU = 3, RangeCooker = 4 }
+    public enum TypeOfGasOrOilBoiler
+    {
+        Regular = 1,
+        Combi = 2,
+        CPSU = 3,
+        RangeCooker = 4
+    }
 }
 
 /*

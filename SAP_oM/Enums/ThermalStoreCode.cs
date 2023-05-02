@@ -29,6 +29,11 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the source of opening data.")]
-    public enum ThermalStoreCode { None = 1, HotWaterOnly, Integrated }
+    public enum ThermalStoreCode
+    {
+        None = 1,
+        HotWaterOnly,
+        Integrated
+    }
 }
 

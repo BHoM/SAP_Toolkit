@@ -29,6 +29,14 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which specifies the emitter temperature.")]
-    public enum EmitterTemperatureCode { Unknown = 0, Over45, Over35, Over35LessThanOrEqual45, LessThanOrEqual35, NotApplicable}
+    public enum EmitterTemperatureCode
+    {
+        Unknown = 0,
+        Over45,
+        Over35,
+        Over35LessThanOrEqual45,
+        LessThanOrEqual35,
+        NotApplicable
+    }
 }
 

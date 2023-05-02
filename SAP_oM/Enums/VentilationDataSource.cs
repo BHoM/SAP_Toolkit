@@ -29,6 +29,11 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the source of SAP data.  Applies to both ventilation and heating.")]
-    public enum VentilationDataSource { FromDatabase = 1, ManufacturerDeclaration, SAPTable }
+    public enum VentilationDataSource
+    {
+        FromDatabase = 1,
+        ManufacturerDeclaration,
+        SAPTable
+    }
 }
 

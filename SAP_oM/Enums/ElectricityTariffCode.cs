@@ -29,7 +29,15 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of electricity tariff.")]
-    public enum ElectricityTariffCode { StandardTariff = 1, OffPeak7Hour = 2, OffPeak10Hour = 3, _24Hour = 4, OffPeak18Hour = 5, NotApplicable }
+    public enum ElectricityTariffCode
+    {
+        StandardTariff = 1,
+        OffPeak7Hour = 2,
+        OffPeak10Hour = 3,
+        _24Hour = 4,
+        OffPeak18Hour = 5,
+        NotApplicable
+    }
 }
 
 /*

@@ -29,6 +29,18 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the compass direction.")]
-    public enum OrientationCode { Unknown = 0, North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest, Horizontal }
+    public enum OrientationCode
+    {
+        Unknown = 0,
+        North,
+        NorthEast,
+        East,
+        SouthEast,
+        South,
+        SouthWest,
+        West,
+        NorthWest,
+        Horizontal
+    }
 }
 

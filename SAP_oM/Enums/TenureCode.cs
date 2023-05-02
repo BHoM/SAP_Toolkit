@@ -29,7 +29,13 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description(".")]
-    public enum TenureCode { OwnerOccupied = 1, Rented_Social = 2, Rented_Private = 3, Unknown }
+    public enum TenureCode
+    {
+        OwnerOccupied = 1,
+        Rented_Social = 2,
+        Rented_Private = 3,
+        Unknown
+    }
 }
 /*
 

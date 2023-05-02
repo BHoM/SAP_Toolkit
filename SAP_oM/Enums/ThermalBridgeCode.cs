@@ -29,5 +29,12 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates how the thermal bridge data has been recorded.")]
-    public enum ThermalBridgeCode {  Default = 1, DoNotUse2002Regs = 2, DoNotUseAccredited = 3, UserDefinedGlobalYValue = 4, UserDefinedIndividualValues = 5 } 
+    public enum ThermalBridgeCode
+    {
+        Default = 1,
+        DoNotUse2002Regs = 2,
+        DoNotUseAccredited = 3,
+        UserDefinedGlobalYValue = 4,
+        UserDefinedIndividualValues = 5
+    }
 }

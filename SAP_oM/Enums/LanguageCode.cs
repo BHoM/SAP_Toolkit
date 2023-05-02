@@ -29,7 +29,11 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description(".")]
-    public enum LanguageCode { English = 1, Welsh = 2 }
+    public enum LanguageCode
+    {
+        English = 1,
+        Welsh = 2
+    }
 }
 
 /*

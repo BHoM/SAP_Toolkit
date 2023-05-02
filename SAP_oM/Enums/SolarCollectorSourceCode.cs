@@ -30,7 +30,11 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the source of solar collector data.")]
-    public enum SolarCollectorSourceCode { Default = 1, DeclaredValues = 2} 
+    public enum SolarCollectorSourceCode
+    {
+        Default = 1,
+        DeclaredValues = 2
+    }
 }
 
 /*private static string FromSAPToXML(this BH.oM.Environment.SAP.SolarCollectorSourceCode solarCollectorSourceCode)

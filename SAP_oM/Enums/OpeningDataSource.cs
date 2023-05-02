@@ -29,6 +29,11 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the source of opening data.")]
-    public enum OpeningDataSource { ManufacturerDeclaration = 2, SAPtable, BFRCdata }
+    public enum OpeningDataSource
+    {
+        ManufacturerDeclaration = 2,
+        SAPtable,
+        BFRCdata
+    }
 }
 

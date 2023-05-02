@@ -29,7 +29,18 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which identifies a particular storey in a building part.")]
-    public enum StoreyCode {  LowerGround = -1, Ground = 0, First = 1, Second = 2, Third = 3, Fourth = 4, Fifth = 5, Sixth, RoofRooms = 99 }
+    public enum StoreyCode
+    {
+        LowerGround = -1,
+        Ground = 0,
+        First = 1,
+        Second = 2,
+        Third = 3,
+        Fourth = 4,
+        Fifth = 5,
+        Sixth,
+        RoofRooms = 99
+    }
 }
 
 /*

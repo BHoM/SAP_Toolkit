@@ -29,7 +29,14 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the country within the UK, taken from BS 6879.")]
-    public enum UKCountryCode { EnglandAndWales, England, Wales, Scotland, NorthernIreland }
+    public enum UKCountryCode
+    {
+        EnglandAndWales,
+        England,
+        Wales,
+        Scotland,
+        NorthernIreland
+    }
 }
 
 /*

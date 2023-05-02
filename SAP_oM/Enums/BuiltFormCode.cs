@@ -29,6 +29,14 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the form in which a property is built.")]
-    public enum BuiltFormCode {  Detached = 1, SemiDetached = 2, EndTerrace = 3, MidTerrace = 4, EnclosedEndTerrace = 5, EnclosedMidTerrace = 6 }
+    public enum BuiltFormCode
+    {
+        Detached = 1, 
+        SemiDetached = 2, 
+        EndTerrace = 3,
+        MidTerrace = 4, 
+        EnclosedEndTerrace = 5,
+        EnclosedMidTerrace = 6
+    }
 }
 

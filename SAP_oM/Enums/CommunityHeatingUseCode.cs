@@ -30,7 +30,12 @@ using BH.oM.Environment.SAP;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates what kind of heating a community heating system is used for.")]
-    public enum CommunityHeatingUseCode {  SpaceHeatingOnly = 1, WaterHeatingOnly = 2, SpaceAndWaterHeating = 3 }
+    public enum CommunityHeatingUseCode
+    {
+        SpaceHeatingOnly = 1,
+        WaterHeatingOnly = 2,
+        SpaceAndWaterHeating = 3
+    }
 }
 
 /*

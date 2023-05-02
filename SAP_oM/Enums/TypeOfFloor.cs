@@ -29,6 +29,12 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of floor (exposure).")]
-    public enum TypeOfFloor { BasementFloor = 1, GroundFloor, UpperFloor, PartyFloor }
+    public enum TypeOfFloor
+    {
+        BasementFloor = 1,
+        GroundFloor,
+        UpperFloor,
+        PartyFloor
+    }
 }
 

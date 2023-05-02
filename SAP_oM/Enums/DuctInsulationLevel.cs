@@ -29,7 +29,11 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the level of duct insulation.")]
-    public enum DuctInsulationLevel {  Level1 = 1, Level2 = 2 }
+    public enum DuctInsulationLevel
+    {
+        Level1 = 1,
+        Level2 = 2
+    }
 }
 
 

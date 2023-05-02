@@ -29,7 +29,13 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of boiler fuel feed.")]
-    public enum BoilerFuelFeedCode { Gravity = 1, Manual = 2, Screw = 3, Other = 4 }
+    public enum BoilerFuelFeedCode
+    {
+        Gravity = 1,
+        Manual = 2,
+        Screw = 3,
+        Other = 4
+    }
 }
 
 /*

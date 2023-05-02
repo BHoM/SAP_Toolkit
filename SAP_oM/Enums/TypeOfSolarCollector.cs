@@ -28,8 +28,13 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-	[Description("Code which indicates the type of solar collector.")]
-	public enum TypeOfSolarCollector { Unglazed = 1, FlatPanel = 2, EvacuatedTube = 3 }
+    [Description("Code which indicates the type of solar collector.")]
+    public enum TypeOfSolarCollector
+    {
+        Unglazed = 1,
+        FlatPanel = 2,
+        EvacuatedTube = 3
+    }
 }
 
 /*private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfSolarCollector typeOfSolarCollector)

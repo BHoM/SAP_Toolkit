@@ -29,7 +29,15 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the amount of solar collector overshading.")]
-    public enum SolarCollectorOvershadingCode { NoneOrVeryLittle = 1, Modest = 2, Significant = 3, Heavy = 4, Severe = 5, ForBackwardsCompatabilityOnlyDoNotUse }
+    public enum SolarCollectorOvershadingCode
+    {
+        NoneOrVeryLittle = 1,
+        Modest = 2,
+        Significant = 3,
+        Heavy = 4,
+        Severe = 5,
+        ForBackwardsCompatabilityOnlyDoNotUse
+    }
 }
 
 /*private static string FromSAPToXML(this BH.oM.Environment.SAP.SolarCollectorOvershadingCode solarCollectorOvershadingCode)

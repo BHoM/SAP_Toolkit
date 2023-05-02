@@ -32,7 +32,21 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of boiler fuel feed.")]
-    public enum Months { January, February, March, April, May, June, July, August, September, October, November, December }
+    public enum Months
+    {
+        January,
+        February,
+        March,
+        April,
+        May,
+        June,
+        July,
+        August,
+        September,
+        October,
+        November,
+        December
+    }
 }
 
 /*

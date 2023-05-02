@@ -29,8 +29,14 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description(".")]
-    public enum BurnerControlCode { Unknown = 1, OnOffGasAndOilBurners = 2, ModulatingGasAndOilBoilers = 3, 
-        ManualSolidFuelBoilers = 4, ElectricalSolidFuelBoilers = 5 }
+    public enum BurnerControlCode
+    {
+        Unknown = 1,
+        OnOffGasAndOilBurners = 2,
+        ModulatingGasAndOilBoilers = 3,
+        ManualSolidFuelBoilers = 4,
+        ElectricalSolidFuelBoilers = 5
+    }
 }
 
 /*private static string FromSAPToXML(this BH.oM.Environment.SAP.BurnerControlCode burnerControlCode)

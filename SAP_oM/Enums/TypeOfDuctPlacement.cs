@@ -29,7 +29,11 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the duct placement.")]
-    public enum TypeOfDuctPlacement {  InsideHeatedEnvelope = 1, OutsideHeatedEnvelope = 2 }
+    public enum TypeOfDuctPlacement
+    {
+        InsideHeatedEnvelope = 1,
+        OutsideHeatedEnvelope = 2
+    }
 }
 
 /*private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfDuctPlacement typeOfDuctPlacement)

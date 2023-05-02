@@ -29,7 +29,12 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of floor construction.")]
-    public enum FloorConstructionCode {  NotSuspendedTimber = 1, SuspendedTimberSealed = 2, SuspendedTimberUnsealed = 3 }
+    public enum FloorConstructionCode
+    {
+        NotSuspendedTimber = 1,
+        SuspendedTimberSealed = 2,
+        SuspendedTimberUnsealed = 3
+    }
 }
 
 /*

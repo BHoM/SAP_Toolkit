@@ -29,6 +29,11 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of duct.")]
-    public enum TypeofDuct { Flexible = 1, Rigid, SemiRigid }
+    public enum TypeofDuct
+    {
+        Flexible = 1,
+        Rigid,
+        SemiRigid
+    }
 }
 

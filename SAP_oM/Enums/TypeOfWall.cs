@@ -29,6 +29,13 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the type of wall (exposure).")]
-    public enum TypeOfWall { BasementWall = 1, ExposedWall, ShelteredWall, PartyWall, InternalWall }
+    public enum TypeOfWall
+    {
+        BasementWall = 1,
+        ExposedWall,
+        ShelteredWall,
+        PartyWall,
+        InternalWall
+    }
 }
 

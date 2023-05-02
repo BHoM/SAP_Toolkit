@@ -29,7 +29,17 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Code which indicates the SAP version.")]
-    public enum SAPVersionCode {  October2005 = 1, January2008 , June2008 , June2009  , March2010 , Jan2012 , Oct2013 , Oct2020 }
+    public enum SAPVersionCode
+    {
+        October2005 = 1,
+        January2008,
+        June2008,
+        June2009,
+        March2010,
+        Jan2012,
+        Oct2013,
+        Oct2020
+    }
 }
 
 /*

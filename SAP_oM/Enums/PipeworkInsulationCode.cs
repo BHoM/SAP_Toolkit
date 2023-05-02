@@ -29,6 +29,12 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description(".")]
-    public enum PipeworkInsulationCode { NotInsulated = 1, First1MetreFromCylinderInsulated = 2, AllAccessiblePipeworkInsulated = 3, FullyInsulated = 4 }
+    public enum PipeworkInsulationCode
+    {
+        NotInsulated = 1,
+        First1MetreFromCylinderInsulated = 2,
+        AllAccessiblePipeworkInsulated = 3,
+        FullyInsulated = 4
+    }
 }
 
