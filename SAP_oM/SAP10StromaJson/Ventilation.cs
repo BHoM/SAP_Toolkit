@@ -31,429 +31,60 @@ namespace BH.oM.Environment.SAP.Stroma10
     [Description(".")]
     public class Ventilation : BHoMObject
     {
-        [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int ChimneysMain
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int ChimneysSecondary
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int ChimneysOther
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int Chimneys
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int ChimneysClosedFire
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int ChimneysClosedFireMain
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int ChimneysClosedFireSecondary
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int ChimneysClosedFireOther
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int FluesSolidBoiler
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int FluesSolidBoilerMain
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int FluesSolidBoilerSecondary
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int FluesSolidBoilerOther
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int FluesOtherHeater
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int FluesOtherHeaterMain
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int FluesOtherHeaterSecondary
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int FluesOtherHeaterOther
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int ChimneyBlocked
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int FluesMain
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int FluesSecondary
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int FluesOther
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int Flues
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int Fans
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int Vents
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int Fires
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double Shelter
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int MechanicalVentilation
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int Parameters
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int WetRooms
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int DuctType
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int DuctSpecification
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int SystemPosition
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int ProductID
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual bool ApprovedScheme
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual bool MeasuredInstallation
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual double MeasuredSpecificFanPower
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual DeCentralised DeCentralised
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual MechanicalVentilationDetails MechanicalVentilationDetails
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual int Pressure
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double DesignAir
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double AssumedAir
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double MeasuredAir
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double MeasuredPulse
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual DateTime DateAir
-        {
-            get;
-            set;
-        }
-
-        = DateTime.Now;
-        [Description(".")]
-        public virtual bool AverageAirPermeability
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual int ConstructType
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int LobbyDetail
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int FloorDetail
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description("Percentage of Windows and Doors Draught Stripped.")]
-        public virtual double Draught
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual bool MultiSystem
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual int DuctPlacement
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual ComplianceVent ComplianceVent
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual double PressureTestResult
-        {
-            get;
-            set;
-        }
-
-        = 0;
+        public virtual int ID { get; set; } = 0;
+        public virtual int ChimneysMain { get; set; } = 0;
+        public virtual int ChimneysSecondary { get; set; } = 0;
+        public virtual int ChimneysOther { get; set; } = 0;
+        public virtual int Chimneys { get; set; } = 0;
+        public virtual int ChimneysClosedFire { get; set; } = 0;
+        public virtual int ChimneysClosedFireMain { get; set; } = 0;
+        public virtual int ChimneysClosedFireSecondary { get; set; } = 0;
+        public virtual int ChimneysClosedFireOther { get; set; } = 0;
+        public virtual int FluesSolidBoiler { get; set; } = 0;
+        public virtual int FluesSolidBoilerMain { get; set; } = 0;
+        public virtual int FluesSolidBoilerSecondary { get; set; } = 0;
+        public virtual int FluesSolidBoilerOther { get; set; } = 0;
+        public virtual int FluesOtherHeater { get; set; } = 0;
+        public virtual int FluesOtherHeaterMain { get; set; } = 0;
+        public virtual int FluesOtherHeaterSecondary { get; set; } = 0;
+        public virtual int FluesOtherHeaterOther { get; set; } = 0;
+        public virtual int ChimneyBlocked { get; set; } = 0;
+        public virtual int FluesMain { get; set; } = 0;
+        public virtual int FluesSecondary { get; set; } = 0;
+        public virtual int FluesOther { get; set; } = 0;
+        public virtual int Flues { get; set; } = 0;
+        public virtual int Fans { get; set; } = 0;
+        public virtual int Vents { get; set; } = 0;
+        public virtual int Fires { get; set; } = 0;
+        public virtual double Shelter { get; set; } = 0;
+        public virtual int MechanicalVentilation { get; set; } = 0;
+        public virtual int Parameters { get; set; } = 0;
+        public virtual int WetRooms { get; set; } = 0;
+        public virtual int DuctType { get; set; } = 0;
+        public virtual int DuctSpecification { get; set; } = 0;
+        public virtual int SystemPosition { get; set; } = 0;
+        public virtual int ProductID { get; set; } = 0;
+        public virtual bool ApprovedScheme { get; set; } = false;
+        public virtual bool MeasuredInstallation { get; set; } = false;
+        public virtual double MeasuredSpecificFanPower { get; set; } = 0;
+        public virtual DeCentralised DeCentralised { get; set; } = null;
+        public virtual MechanicalVentilationDetails MechanicalVentilationDetails { get; set; } = null;
+        public virtual int Pressure { get; set; } = 0;
+        public virtual double DesignAir { get; set; } = 0;
+        public virtual double AssumedAir { get; set; } = 0;
+        public virtual double MeasuredAir { get; set; } = 0;
+        public virtual double MeasuredPulse { get; set; } = 0;
+        public virtual DateTime DateAir { get; set; } = DateTime.Now;
+        public virtual bool AverageAirPermeability { get; set; } = false;
+        public virtual int ConstructType { get; set; } = 0;
+        public virtual int LobbyDetail { get; set; } = 0;
+        public virtual int FloorDetail { get; set; } = 0; 
+        
+        [Description("Percentage of Windows and Doors Draught Stripped.")] 
+        public virtual double Draught { get; set; } = 0;
+        public virtual bool MultiSystem { get; set; } = false;
+        public virtual int DuctPlacement { get; set; } = 0;
+        public virtual ComplianceVent ComplianceVent { get; set; } = null;
+        public virtual double PressureTestResult { get; set; } = 0;
     }
 }

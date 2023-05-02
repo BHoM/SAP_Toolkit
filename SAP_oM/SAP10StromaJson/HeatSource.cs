@@ -32,52 +32,21 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class HeatSource : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual int Type
-        {
-            get;
-            set;
-        }
+        public virtual int Type { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual int Fuel
-        {
-            get;
-            set;
-        }
+        public virtual int Fuel { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double HeatFraction
-        {
-            get;
-            set;
-        }
+        public virtual double HeatFraction { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double Efficiency
-        {
-            get;
-            set;
-        }
+        public virtual double Efficiency { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual int HeatSourceType
-        {
-            get;
-            set;
-        }
-
-        = 0;
+        public virtual int HeatSourceType { get; set; } = 0;
     }
 }

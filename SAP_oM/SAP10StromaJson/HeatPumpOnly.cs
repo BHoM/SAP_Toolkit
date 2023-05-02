@@ -30,69 +30,13 @@ namespace BH.oM.Environment.SAP.Stroma10
     [Description(".")]
     public class HeatPumpOnly : BHoMObject
     {
-        [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual bool HotWaterOnlyHeatPump
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual bool HotWaterHeatPumpIntegral
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual int Volume
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double DeclaredValue
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual bool ManufacturerSpecified
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual double SummerEfficiency
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double WinterEfficiency
-        {
-            get;
-            set;
-        }
-
-        = 0;
+        public virtual int ID { get; set; } = 0;
+        public virtual bool HotWaterOnlyHeatPump { get; set; } = false;
+        public virtual bool HotWaterHeatPumpIntegral { get; set; } = false;
+        public virtual int Volume { get; set; } = 0;
+        public virtual double DeclaredValue { get; set; } = 0;
+        public virtual bool ManufacturerSpecified { get; set; } = false;
+        public virtual double SummerEfficiency { get; set; } = 0;
+        public virtual double WinterEfficiency { get; set; } = 0;
     }
 }

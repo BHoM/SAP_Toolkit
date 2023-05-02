@@ -32,76 +32,30 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class WasteWaterHeatRecovery : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual bool Include
-        {
-            get;
-            set;
-        }
+        public virtual bool Include { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual bool IsTER
-        {
-            get;
-            set;
-        }
+        public virtual bool IsTER { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual int TotalRooms
-        {
-            get;
-            set;
-        }
+        public virtual int TotalRooms { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual string Manufacturer
-        {
-            get;
-            set;
-        }
+        public virtual string Manufacturer { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual string Model
-        {
-            get;
-            set;
-        }
+        public virtual string Model { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual double Efficiency
-        {
-            get;
-            set;
-        }
+        public virtual double Efficiency { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual bool IsStorage
-        {
-            get;
-            set;
-        }
+        public virtual bool IsStorage { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual List<WasteWaterHeatRecoverySystem> WasteWaterHeatRecoverySystems
-        {
-            get;
-            set;
-        }
-
-        = null;
+        public virtual List<WasteWaterHeatRecoverySystem> WasteWaterHeatRecoverySystems { get; set; } = null;
     }
 }

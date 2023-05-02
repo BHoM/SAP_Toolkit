@@ -32,52 +32,21 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class MechanicalVentilationDetails : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual string ProductName
-        {
-            get;
-            set;
-        }
+        public virtual string ProductName { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual int DuctingType
-        {
-            get;
-            set;
-        }
+        public virtual int DuctingType { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double SpecificFanPower
-        {
-            get;
-            set;
-        }
+        public virtual double SpecificFanPower { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double HeatExchangerEfficiency
-        {
-            get;
-            set;
-        }
+        public virtual double HeatExchangerEfficiency { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual string DuctProductID
-        {
-            get;
-            set;
-        }
-
-        = null;
+        public virtual string DuctProductID { get; set; } = null;
     }
 }

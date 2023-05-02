@@ -31,148 +31,57 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Cylinder : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double Volume
-        {
-            get;
-            set;
-        }
+        public virtual double Volume { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual bool ManufacturerSpecified
-        {
-            get;
-            set;
-        }
+        public virtual bool ManufacturerSpecified { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual double DeclaredLoss
-        {
-            get;
-            set;
-        }
+        public virtual double DeclaredLoss { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual int Insulation
-        {
-            get;
-            set;
-        }
+        public virtual int Insulation { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double InsulationThickness
-        {
-            get;
-            set;
-        }
+        public virtual double InsulationThickness { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual bool InHeatedSpace
-        {
-            get;
-            set;
-        }
+        public virtual bool InHeatedSpace { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual bool Thermostat
-        {
-            get;
-            set;
-        }
+        public virtual bool Thermostat { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual bool PipeWorkInsulated
-        {
-            get;
-            set;
-        }
+        public virtual bool PipeWorkInsulated { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual int PipeWorkInsulation
-        {
-            get;
-            set;
-        }
+        public virtual int PipeWorkInsulation { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual bool Timed
-        {
-            get;
-            set;
-        }
+        public virtual bool Timed { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual bool SummerImmersion
-        {
-            get;
-            set;
-        }
+        public virtual bool SummerImmersion { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual int Immersion
-        {
-            get;
-            set;
-        }
+        public virtual int Immersion { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual bool ImmersionHeater
-        {
-            get;
-            set;
-        }
+        public virtual bool ImmersionHeater { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual double HeatPumpExchanger
-        {
-            get;
-            set;
-        }
+        public virtual double HeatPumpExchanger { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual string Manufacturer
-        {
-            get;
-            set;
-        }
+        public virtual string Manufacturer { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual string Model
-        {
-            get;
-            set;
-        }
+        public virtual string Model { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual string CommissioningCertificate
-        {
-            get;
-            set;
-        }
-
-        = null;
+        public virtual string CommissioningCertificate { get; set; } = null;
     }
 }

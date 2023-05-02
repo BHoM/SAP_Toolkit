@@ -31,197 +31,33 @@ namespace BH.oM.Environment.SAP.Stroma10
     [Description("Solar Panel Details.")]
     public class SolarWater : BHoMObject
     {
-        [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description("Include Solar Panels - Solar Panel Present.")]
-        public virtual bool Include
-        {
-            get;
-            set;
-        }
+        public virtual bool Include { get; set; } = false;
+        public virtual int SolarWaterCollectorType { get; set; } = 0;
 
-        = false;
-        [Description(".")]
-        public virtual int SolarWaterCollectorType
-        {
-            get;
-            set;
-        }
-
-        = 0;
         [Description("Overide default values.")]
-        public virtual bool OverRide
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual double SolarZero
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double SolarHeatLoss
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double SolarHeatLoss2
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double SolarArea
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual bool Gross
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual int SolarTilt
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double SolarPitch
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int SolarOrientation
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int SolarOverShading
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double SolarVolume
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual bool SolarSeparate
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual bool Pumped
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual int ShowerType
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double LoopEfficiencyDeclared
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double Nloop
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double IncidenceAngleModifier
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual double SystemHeatLoss
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int ServiceProvision
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual string Manufacturer
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual string Certificate
-        {
-            get;
-            set;
-        }
-
-        = null;
+        public virtual bool OverRide { get; set; } = false;
+        public virtual double SolarZero { get; set; } = 0;
+        public virtual double SolarHeatLoss { get; set; } = 0;
+        public virtual double SolarHeatLoss2 { get; set; } = 0;
+        public virtual double SolarArea { get; set; } = 0;
+        public virtual bool Gross { get; set; } = false;
+        public virtual int SolarTilt { get; set; } = 0;
+        public virtual double SolarPitch { get; set; } = 0;
+        public virtual int SolarOrientation { get; set; } = 0;
+        public virtual int SolarOverShading { get; set; } = 0;
+        public virtual double SolarVolume { get; set; } = 0;
+        public virtual bool SolarSeparate { get; set; } = false;
+        public virtual bool Pumped { get; set; } = false;
+        public virtual int ShowerType { get; set; } = 0;
+        public virtual double LoopEfficiencyDeclared { get; set; } = 0;
+        public virtual double Nloop { get; set; } = 0;
+        public virtual double IncidenceAngleModifier { get; set; } = 0;
+        public virtual double SystemHeatLoss { get; set; } = 0;
+        public virtual int ServiceProvision { get; set; } = 0;
+        public virtual string Manufacturer { get; set; } = null;
+        public virtual string Certificate { get; set; } = null;
     }
 }

@@ -32,92 +32,36 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Assessor : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual string FirstName
-        {
-            get;
-            set;
-        }
+        public virtual string FirstName { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual string LastName
-        {
-            get;
-            set;
-        }
+        public virtual string LastName { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual Address Address
-        {
-            get;
-            set;
-        }
+        public virtual Address Address { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual string WebSite
-        {
-            get;
-            set;
-        }
+        public virtual string WebSite { get; set; } = "";
 
-        = "";
         [Description(".")]
-        public virtual string Email
-        {
-            get;
-            set;
-        }
+        public virtual string Email { get; set; } = "";
 
-        = "";
         [Description(".")]
-        public virtual string Telephone
-        {
-            get;
-            set;
-        }
+        public virtual string Telephone { get; set; } = "";
 
-        = "";
         [Description(".")]
-        public virtual string Fax
-        {
-            get;
-            set;
-        }
+        public virtual string Fax { get; set; } = "";
 
-        = "";
         [Description(".")]
-        public virtual string CompanyName
-        {
-            get;
-            set;
-        }
+        public virtual string CompanyName { get; set; } = "";
 
-        = "";
         [Description(".")]
-        public virtual string StromaNumber
-        {
-            get;
-            set;
-        }
+        public virtual string StromaNumber { get; set; } = "";
 
-        = "";
         [Description(".")]
-        public virtual Insurance Insurance
-        {
-            get;
-            set;
-        }
-
-        = null;
+        public virtual Insurance Insurance { get; set; } = null;
     }
 }

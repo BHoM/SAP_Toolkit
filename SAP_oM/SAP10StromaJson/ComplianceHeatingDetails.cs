@@ -32,84 +32,33 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class ComplianceHeatingDetails : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual string Manufacturer
-        {
-            get;
-            set;
-        }
+        public virtual string Manufacturer { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual string Model
-        {
-            get;
-            set;
-        }
+        public virtual string Model { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual string SystemType
-        {
-            get;
-            set;
-        }
+        public virtual string SystemType { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual string CommissioningCertificate
-        {
-            get;
-            set;
-        }
+        public virtual string CommissioningCertificate { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual string InstallationEngineer
-        {
-            get;
-            set;
-        }
+        public virtual string InstallationEngineer { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual string ControllerFunction
-        {
-            get;
-            set;
-        }
+        public virtual string ControllerFunction { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual string ControllerEcodesignClass
-        {
-            get;
-            set;
-        }
+        public virtual string ControllerEcodesignClass { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual string ControllerManufacturer
-        {
-            get;
-            set;
-        }
+        public virtual string ControllerManufacturer { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual string ControllerModel
-        {
-            get;
-            set;
-        }
-
-        = null;
+        public virtual string ControllerModel { get; set; } = null;
     }
 }

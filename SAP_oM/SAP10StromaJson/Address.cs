@@ -31,76 +31,30 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class Address : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual string AddressLine1
-        {
-            get;
-            set;
-        }
+        public virtual string AddressLine1 { get; set; } = "";
 
-        = "";
         [Description(".")]
-        public virtual string AddressLine2
-        {
-            get;
-            set;
-        }
+        public virtual string AddressLine2 { get; set; } = "";
 
-        = "";
         [Description(".")]
-        public virtual string AddressLine3
-        {
-            get;
-            set;
-        }
+        public virtual string AddressLine3 { get; set; } = "";
 
-        = "";
         [Description(".")]
-        public virtual string City
-        {
-            get;
-            set;
-        }
+        public virtual string City { get; set; } = "";
 
-        = "";
         [Description(".")]
-        public virtual string Postcode
-        {
-            get;
-            set;
-        }
+        public virtual string Postcode { get; set; } = "";
 
-        = "";
         [Description(".")]
-        public virtual string UniquePropertyReferenceNumber
-        {
-            get;
-            set;
-        }
+        public virtual string UniquePropertyReferenceNumber { get; set; } = "";
 
-        = "";
         [Description(".")]
-        public virtual string Country
-        {
-            get;
-            set;
-        }
+        public virtual string Country { get; set; } = "";
 
-        = "";
         [Description(".")]
-        public virtual string DisplayAddress
-        {
-            get;
-            set;
-        }
-
-        = "";
+        public virtual string DisplayAddress { get; set; } = "";
     }
 }

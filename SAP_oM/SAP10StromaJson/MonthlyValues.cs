@@ -31,108 +31,42 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class MonthlyValues : BHoMObject
     {
         [Description(".")]
-        public virtual double Month01
-        {
-            get;
-            set;
-        }
+        public virtual double Month01 { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double Month02
-        {
-            get;
-            set;
-        }
+        public virtual double Month02 { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double Month03
-        {
-            get;
-            set;
-        }
+        public virtual double Month03 { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double Month04
-        {
-            get;
-            set;
-        }
+        public virtual double Month04 { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double Month05
-        {
-            get;
-            set;
-        }
+        public virtual double Month05 { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double Month06
-        {
-            get;
-            set;
-        }
+        public virtual double Month06 { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double Month07
-        {
-            get;
-            set;
-        }
+        public virtual double Month07 { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double Month08
-        {
-            get;
-            set;
-        }
+        public virtual double Month08 { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double Month09
-        {
-            get;
-            set;
-        }
+        public virtual double Month09 { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double Month10
-        {
-            get;
-            set;
-        }
+        public virtual double Month10 { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double Month11
-        {
-            get;
-            set;
-        }
+        public virtual double Month11 { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double Month12
-        {
-            get;
-            set;
-        }
+        public virtual double Month12 { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
-
-        = 0;
+        public virtual int ID { get; set; } = 0;
     }
 }

@@ -32,42 +32,21 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class WindTurbine : BHoMObject
     {
         [Description(".")]
-        public virtual int ID { get;set;}= 0;
+        public virtual int ID { get; set; } = 0;
 
         [Description(".")]
         public virtual bool Include { get; set; } = false;
 
         [Description(".")]
-        public virtual int WindTurbineNumber
-        {
-            get;
-            set;
-        }
+        public virtual int WindTurbineNumber { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double WindTurbineRotarDiameter
-        {
-            get;
-            set;
-        }
+        public virtual double WindTurbineRotarDiameter { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double WindTurbineHeight
-        {
-            get;
-            set;
-        }
+        public virtual double WindTurbineHeight { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual string Certificate
-        {
-            get;
-            set;
-        }
-
-        = null;
+        public virtual string Certificate { get; set; } = null;
     }
 }

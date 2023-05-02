@@ -32,44 +32,18 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class WasteWaterHeatRecoverySystem : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual string SystemReference
-        {
-            get;
-            set;
-        }
+        public virtual string SystemReference { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual double DedicatedStorage
-        {
-            get;
-            set;
-        }
+        public virtual double DedicatedStorage { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual int WithBath
-        {
-            get;
-            set;
-        }
+        public virtual int WithBath { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual int WithNoBath
-        {
-            get;
-            set;
-        }
-
-        = 0;
+        public virtual int WithNoBath { get; set; } = 0;
     }
 }

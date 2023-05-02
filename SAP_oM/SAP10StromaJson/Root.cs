@@ -31,100 +31,17 @@ namespace BH.oM.Environment.SAP.Stroma10
     [Description(".")]
     public class Root : BHoMObject
     {
-        [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual string GUID
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual DateTime DateTimeCreated
-        {
-            get;
-            set;
-        }
-
-        = System.DateTime.MinValue;
-        [Description(".")]
-        public virtual DateTime DateTimeSaved
-        {
-            get;
-            set;
-        }
-
-        = System.DateTime.MinValue;
-        [Description(".")]
-        public virtual int UserID
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual string Reference
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual List<Dwelling> Dwellings
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual Address Address
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual ClientDetails ClientDetails
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual Elements Elements
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual Assessor Assessor
-        {
-            get;
-            set;
-        }
-
-        [Description(".")]
-        public virtual int DwellingCount
-        {
-            get;
-            set;
-        }
-
-        = 0;
+        public virtual int ID { get; set; } = 0;
+        public virtual string GUID { get; set; } = null;
+        public virtual DateTime DateTimeCreated { get; set; } = System.DateTime.MinValue;
+        public virtual DateTime DateTimeSaved { get; set; } = System.DateTime.MinValue;
+        public virtual int UserID { get; set; } = 0;
+        public virtual string Reference { get; set; } = null;
+        public virtual List<Dwelling> Dwellings { get; set; } = null;
+        public virtual Address Address { get; set; } = null;
+        public virtual ClientDetails ClientDetails { get; set; } = null;
+        public virtual Elements Elements { get; set; } = null;
+        public virtual Assessor Assessor { get; set; }
+        public virtual int DwellingCount { get; set; } = 0;
     }
 }

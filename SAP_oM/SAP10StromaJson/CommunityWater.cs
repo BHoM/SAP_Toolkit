@@ -31,164 +31,63 @@ namespace BH.oM.Environment.SAP.Stroma10
     public class CommunityWater : BHoMObject
     {
         [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual bool CylinderInDwelling
-        {
-            get;
-            set;
-        }
+        public virtual bool CylinderInDwelling { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual double CHPRatio
-        {
-            get;
-            set;
-        }
+        public virtual double CHPRatio { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual bool KnownLossFactor
-        {
-            get;
-            set;
-        }
+        public virtual bool KnownLossFactor { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual double LossFactor
-        {
-            get;
-            set;
-        }
+        public virtual double LossFactor { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double CHPPowerEfficiency
-        {
-            get;
-            set;
-        }
+        public virtual double CHPPowerEfficiency { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual int HeatDistributionSystem
-        {
-            get;
-            set;
-        }
+        public virtual int HeatDistributionSystem { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual int HeatSourceType
-        {
-            get;
-            set;
-        }
+        public virtual int HeatSourceType { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double Efficiency
-        {
-            get;
-            set;
-        }
+        public virtual double Efficiency { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual double Boiler1Fraction
-        {
-            get;
-            set;
-        }
+        public virtual double Boiler1Fraction { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual int ChargingSystem
-        {
-            get;
-            set;
-        }
+        public virtual int ChargingSystem { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual bool ChargingLinkedToHeatUse
-        {
-            get;
-            set;
-        }
+        public virtual bool ChargingLinkedToHeatUse { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual int NumberOfAdditionalHeatSources
-        {
-            get;
-            set;
-        }
+        public virtual int NumberOfAdditionalHeatSources { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual bool FromDatabase
-        {
-            get;
-            set;
-        }
+        public virtual bool FromDatabase { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual string SystemReference
-        {
-            get;
-            set;
-        }
+        public virtual string SystemReference { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual string SubNetworkName
-        {
-            get;
-            set;
-        }
+        public virtual string SubNetworkName { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual bool HeatNetworkExisting
-        {
-            get;
-            set;
-        }
+        public virtual bool HeatNetworkExisting { get; set; } = false;
 
-        = false;
         [Description(".")]
-        public virtual int CHPElectricityGeneration
-        {
-            get;
-            set;
-        }
+        public virtual int CHPElectricityGeneration { get; set; } = 0;
 
-        = 0;
         [Description(".")]
-        public virtual List<HeatSource> HeatSources
-        {
-            get;
-            set;
-        }
+        public virtual List<HeatSource> HeatSources { get; set; } = null;
 
-        = null;
         [Description(".")]
-        public virtual string CommunityHeatingName
-        {
-            get;
-            set;
-        }
-
-        = null;
+        public virtual string CommunityHeatingName { get; set; } = null;
     }
 }

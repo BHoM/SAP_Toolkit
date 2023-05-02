@@ -31,109 +31,24 @@ namespace BH.oM.Environment.SAP.Stroma10
     [Description(".")]
     public class SecondaryHeating : BHoMObject
     {
-        [Description(".")]
-        public virtual int ID
-        {
-            get;
-            set;
-        }
+        public virtual int ID { get; set; } = 0;
 
-        = 0;
         [Description("Is Secondary Heating Present.")]
-        public virtual bool Include
-        {
-            get;
-            set;
-        }
+        public virtual bool Include { get; set; } = false;
 
-        = false;
         [Description("Is the manufacturer specified.")]
-        public virtual bool IsManufacturer
-        {
-            get;
-            set;
-        }
+        public virtual bool IsManufacturer { get; set; } = false;
+        public virtual string SubHeatingGroup { get; set; } = null;
 
-        = false;
-        [Description(".")]
-        public virtual string SubHeatingGroup
-        {
-            get;
-            set;
-        }
-
-        = null;
         [Description("Heating Type.")]
-        public virtual int SubHeatingCategory
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual ComplianceHeatingDetails ComplianceHeatingDetails
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual int Fuel
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual bool HeatingEquipmentTestingAndApprovalsScheme
-        {
-            get;
-            set;
-        }
-
-        = false;
-        [Description(".")]
-        public virtual double Efficiency
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual int SAPTableCode
-        {
-            get;
-            set;
-        }
-
-        = 0;
-        [Description(".")]
-        public virtual string ManufacturerDescription
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual string TestMethod
-        {
-            get;
-            set;
-        }
-
-        = null;
-        [Description(".")]
-        public virtual int FlueType
-        {
-            get;
-            set;
-        }
-
-        = 0;
+        public virtual int SubHeatingCategory { get; set; } = 0;
+        public virtual ComplianceHeatingDetails ComplianceHeatingDetails { get; set; } = null;
+        public virtual int Fuel { get; set; } = 0;
+        public virtual bool HeatingEquipmentTestingAndApprovalsScheme { get; set; } = false;
+        public virtual double Efficiency { get; set; } = 0;
+        public virtual int SAPTableCode { get; set; } = 0;
+        public virtual string ManufacturerDescription { get; set; } = null;
+        public virtual string TestMethod { get; set; } = null;
+        public virtual int FlueType { get; set; } = 0;
     }
 }
