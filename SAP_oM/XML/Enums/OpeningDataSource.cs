@@ -30,6 +30,11 @@ namespace BH.oM.Environment.SAP.XML.Enums
 {
 
     [Description("Code which indicates the source of opening data.")]
-    public enum OpeningDataSource { ManufacturerDeclaration, SAPTable, BFRCData }
+    public enum OpeningDataSource
+    {
+        ManufacturerDeclaration,
+        SAPTable,
+        BFRCData
+    }
 }
 
