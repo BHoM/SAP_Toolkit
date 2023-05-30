@@ -37,15 +37,10 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Modify
     {
-        [Description("Groups objects by dwelling.")]
-        [Input("openings", "List of openings.")]
-        [Input("walls", "List of walls.")]
-        [Input("floors", "List of floors.")]
-        [Input("livingAreas", "List of living areas.")]
-        [MultiOutput(0, "wallsList", "Lists of walls grouped by dwelling.")]
-        [MultiOutput(1, "openingsList", "Lists of openings grouped by dwelling.")]
-        [MultiOutput(2, "floorsList", "Lists of floors grouped by dwelling.")]
-        [MultiOutput(3, "livingAreaList", "Lists of living areas grouped by dwelling.")]
+        [Description("Replace heating details in a SAPReport with heating details from a second.")]
+        [Input("templateSAP", "SAPReport with the new heating details.")]
+        [Input("reportObj", "Original SAPReport object.")]
+        [Output("sapReport", "A sap report with the heating details added.")]
         public static SAPReport SAPHeatingTemplate(this SAPReport templateSAP, SAPReport reportObj)
         {
             if (templateSAP == null)
