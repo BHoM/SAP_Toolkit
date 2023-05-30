@@ -79,6 +79,7 @@ namespace BH.Adapter.SAP
 
             string path = Path.Combine(command.fileSettingsOutput.Directory, command.fileSettingsOutput.FileName);
 
+            //All outputs from the engine are text based, this outputs straight to the file defined file path set by the user. 
             try
             {
                 File.WriteAllText(path, responseText);
