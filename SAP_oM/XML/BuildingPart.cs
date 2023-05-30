@@ -37,11 +37,11 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Identifier for the Building part - generally only required if there are more that one Building Parts of the same type.")]
         [XmlElement("Identifier")]
-        public virtual string Identifier { get; set; } = null;
+        public virtual string Identifier { get; set; } = "Main Dwelling";
 
         [Description("An integer value which uniquely identifies the building part in the property.  The value \"1\" must be assigned to the main dwelling.")]
         [XmlElement("Building-Part-Number")]
-        public virtual string BuildingPartNumber { get; set; } = null;
+        public virtual string BuildingPartNumber { get; set; } = "1";
 
         [Description("The year when this building part was constructed.  Not used if 'Construction-Age-Band' is used.")]
         [XmlElement("Construction-Year")]

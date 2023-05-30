@@ -56,7 +56,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("The type of Property, such as House, Flat, Mansion, Maisonette etc.")]
         [XmlElement("Property-Type")]
-        public virtual string PropertyType { get; set; } = null;
+        public virtual string PropertyType { get; set; } = "1";
 
         [Description("The building type of the Property e.g. Detached, Semi-Detached, Terrace etc. Together with the Property Type, the Built Form provides a structured description of the property.")]
         [XmlElement("Built-Form")]

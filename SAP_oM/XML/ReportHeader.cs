@@ -67,7 +67,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement(ElementName = "Transaction-Type")]
-        public virtual string TransactionType { get; set; } = null;//6
+        public virtual string TransactionType { get; set; } = "6";
 
         [Description(".")]
         [XmlElement(ElementName = "Seller-Commission-Report")]
@@ -83,15 +83,15 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement(ElementName = "Property")]
-        public virtual Property Property { get; set; } = null;
+        public virtual Property Property { get; set; } = new Property();
 
-        [Description("Regional code - null set as the Midlands.")]
+        [Description("Regional code.")]
         [XmlElement(ElementName = "Region-Code")]
-        public virtual string RegionCode { get; set; } = null; //6
+        public virtual string RegionCode { get; set; } = "15"; 
 
         [Description(".")]
         [XmlElement(ElementName = "Country-Code")]
-        public virtual string CountryCode { get; set; } = null;//ENG
+        public virtual string CountryCode { get; set; } = "ENG";
 
         [Description(".")]
         [XmlElement(ElementName = "Related-Party-Disclosure")]

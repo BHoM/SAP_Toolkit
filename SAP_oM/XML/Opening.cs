@@ -55,7 +55,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Compass direction in which the opening faces.")]
         [XmlElement("Orientation")]
-        public virtual string Orientation { get; set; } = "ND";//3
+        public virtual string Orientation { get; set; } = "0";//3
 
         [Description("Pitch of roof containing roof window.")]
         [XmlElement("Pitch")]
