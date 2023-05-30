@@ -47,10 +47,10 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement(ElementName = "Post-Town")]
-        public virtual string PostTown { get; set; } = String.Empty; //Changes
+        public virtual string PostTown { get; set; } = null;
 
         [Description(".")]
         [XmlElement(ElementName = "Postcode")]
-        public virtual string Postcode { get; set; } = null;
+        public virtual string Postcode { get; set; } = "BA2 3DQ";
     }
 }
