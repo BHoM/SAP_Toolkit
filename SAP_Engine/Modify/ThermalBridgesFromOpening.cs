@@ -45,7 +45,7 @@ namespace BH.Engine.Environment.SAP
         [Input("openings", "A list of Opening objects.")]
         [Input("values", "PsiValues object.")]
         [Output("tb", "A list of ThermalBridge objects.")]
-        public static List<BH.oM.Environment.SAP.XML.ThermalBridge> ThermalBridgesFromOpening(List<BH.oM.Environment.SAP.XML.OpeningType> types, List<BH.oM.Environment.SAP.XML.Opening> openings, PsiValues values)
+        public static List<BH.oM.Environment.SAP.XML.ThermalBridge> ThermalBridgesFromOpening(this List<BH.oM.Environment.SAP.XML.OpeningType> types, List<BH.oM.Environment.SAP.XML.Opening> openings, PsiValues values)
         {
             List<BH.oM.Environment.SAP.XML.ThermalBridge> thermalBridges = new List<BH.oM.Environment.SAP.XML.ThermalBridge>();
 
