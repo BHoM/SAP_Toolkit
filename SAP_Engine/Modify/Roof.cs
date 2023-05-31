@@ -77,8 +77,8 @@ namespace BH.Engine.Environment.SAP
 
         [Description("Modify the uvalue of a type of roof object from a SAP report object.")]
         [Input("roof", "The roof dimension object to modify.")]
-        [Input("description", "The roof name for the modified roof.")]
         [Input("uvalue", "The new uvalue for the roofs.")]
+        [Input("description", "The roof name for the modified roof.")]
         [Output("roof", "The modified SAP Report object.")]
         public static BH.oM.Environment.SAP.XML.Roof ModifyRoof(this BH.oM.Environment.SAP.XML.Roof roof, string uvalue, string description)
         {

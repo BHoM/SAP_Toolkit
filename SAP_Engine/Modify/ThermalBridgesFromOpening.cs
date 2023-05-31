@@ -38,7 +38,7 @@ using BH.oM.Quantities.Attributes;
 
 namespace BH.Engine.Environment.SAP
 {
-    public static partial class Create
+    public static partial class Modify
     {
         [Description("Creates thermalBridge objects from the opening widths/heights.")]
         [Input("types","A list of OpeningType objects.")]
