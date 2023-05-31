@@ -45,8 +45,8 @@ namespace BH.Engine.Environment.SAP
     public static partial class Modify
     {
         [Description("Iterate through sap openings.")]
-        [Input("sapReport", "Input the SAPReport object to modify.")]
-        [Input("iterations", "Input the iteration settings.")]
+        [Input("sapObj", "Input the SAPReport object to modify.")]
+        [Input("iteration", "Input the iteration settings.")]
         [Input("saveFile", "Input the file settings, the file name will be changed based on the iteration.")]
         [MultiOutput(0, "sapObjects", "Mulitple iterations of the sapObject.")]
         [MultiOutput(1, "fileSettings", "Multiple sets of filesettings.")]

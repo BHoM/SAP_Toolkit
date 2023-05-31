@@ -79,9 +79,9 @@ namespace BH.Engine.Environment.SAP
 
         [Description("Modify the uvaluev and if it is a curtain wall of a wall object.")]
         [Input("wall", "The wall object to modify.")]
-        [Input("description", "The new name for the modified wall.")]
         [Input("uvalue", "The new uvalue for the walls.")]
         [Input("curtainWall", "Is this wall a curtain wall.")]
+        [Input("description", "The new name for the modified wall.")]
         [Output("wall", "The modified wall object.")]
         public static BH.oM.Environment.SAP.XML.Wall ModifyWall(this BH.oM.Environment.SAP.XML.Wall wall, string uvalue, bool? curtainWall, string description)
         {

@@ -80,8 +80,8 @@ namespace BH.Engine.Environment.SAP
 
         [Description("Modify the uvalue of a type of floor object from a SAP report object.")]
         [Input("floor", "The floor dimension object to modify.")]
-        [Input("description", "The floor name for the modified floor.")]
         [Input("uvalue", "The new uvalue for the floors.")]
+        [Input("description", "The floor name for the modified floor.")]
         [Output("floorDim", "The modified SAP Report object.")]
         public static BH.oM.Environment.SAP.XML.FloorDimension ModifyFloor(this BH.oM.Environment.SAP.XML.FloorDimension floor, string uvalue, string description)
         {

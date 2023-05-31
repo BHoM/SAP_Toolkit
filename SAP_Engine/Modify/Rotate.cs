@@ -45,7 +45,7 @@ namespace BH.Engine.Environment.SAP
     public static partial class Modify
     {
         [Description("Mirror a sap dwelling.")]
-        [Input("sapReport", "Input the SAPReport object to modify.")]
+        [Input("sapObj", "Input the SAPReport object to modify.")]
         [Input("rotation", "How much the dwelling is rotated by.")]
         [Output("sapReport", "The mirrored report.")]
         public static SAPReport RotateDwelling(this SAPReport sapObj, string rotation)
@@ -138,7 +138,6 @@ namespace BH.Engine.Environment.SAP
             sapObj.SAP10Data.PropertyDetails = propertyDetailsObj;
 
             return sapObj;
-
         }
 
         [Description("Rotate orientation to new orientation.")]

@@ -41,10 +41,10 @@ namespace BH.Engine.Environment.SAP
     {
         [Description("Modify opening type from a SAP report object.")]
         [Input("sapObj", "The sap report object to modify.")]
+        [Input("type", "New type name for the windows. For each type")]
         [Input("include", "A list of openings by name to modify.")]
         [Input("uvalue", "Uvalue for the new type.")]
         [Input("gvalue", "Gvalue for the new type.")]
-        [Input("type", "New type name for the windows. For each type")]
         [Output("sapReport", "The modified SAP Report object.")]
         public static SAPReport ModifyOpeningTypes(this SAPReport sapObj, string type, List<string> include, double uvalue = double.NaN,  double gvalue = double.NaN)
         {

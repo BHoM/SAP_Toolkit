@@ -40,8 +40,8 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Modify
     {
-        
         [Description("Sets up a parametric study based on u and g values.")]
+        [Input("sapObj","SAPReport object to modify")]
         [Input("file","File settings object to specify the folder to save the files.")]
         [Input("include", "A list of opening types to change in this study.")]
         [Input("upperUValue", "Upper bound for uvalue.")]
