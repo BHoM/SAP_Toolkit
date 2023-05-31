@@ -76,7 +76,12 @@ namespace BH.Engine.Environment.SAP
             return sapObj;
         }
 
-        [Description("Change the width and height of opening.")]
+        [Description("Change the width and height and pitch of opening.")]
+        [Input("opening", "The sap opening object to modify.")]
+        [Input("height", "New height for the windows.")]
+        [Input("width", "New width for windows.")]
+        [Input("pitch", "New pitch for windows.")]
+        [Output("opening", "The modified SAP opening object.")]
         public static BH.oM.Environment.SAP.XML.Opening ModifyOpening(this BH.oM.Environment.SAP.XML.Opening opening, string height, string width, string pitch)
         {
             if (height != null)

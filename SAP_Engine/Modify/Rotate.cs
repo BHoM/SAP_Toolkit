@@ -46,7 +46,7 @@ namespace BH.Engine.Environment.SAP
     {
         [Description("Mirror a sap dwelling.")]
         [Input("sapReport", "Input the SAPReport object to modify.")]
-        [Input("mirror", "Line to mirror over.")]
+        [Input("rotation", "How much the dwelling is rotated by.")]
         [Output("sapReport", "The mirrored report.")]
         public static SAPReport RotateDwelling(this SAPReport sapObj, string rotation)
         {
@@ -141,9 +141,9 @@ namespace BH.Engine.Environment.SAP
 
         }
 
-        [Description("Rotate orientation to new orientation")]
+        [Description("Rotate orientation to new orientation.")]
         [Input("orientation", "Orientation to switch.")]
-        [Input("mirrorLine", "Line to mirror across.")]
+        [Input("rotation", "How much the dwelling is rotated by.")]
         [Output("Orientation", "New orientation.")]
         public static string RotateOrientation(this string orientation, string rotation)
         {
