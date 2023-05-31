@@ -42,8 +42,8 @@ namespace BH.Engine.Environment.SAP
         [Description("Modify opening type from a SAP report object.")]
         [Input("sapObj", "The sap report object to modify.")]
         [Input("include", "A list of openings by name to modify.")]
-        [Input("uvalue", "New height for the windows.")]
-        [Input("gvalue", "New width for windows.")]
+        [Input("uvalue", "Uvalue for the new type.")]
+        [Input("gvalue", "Gvalue for the new type.")]
         [Input("type", "New type name for the windows. For each type")]
         [Output("sapReport", "The modified SAP Report object.")]
         public static SAPReport ModifyOpeningTypes(this SAPReport sapObj, string type, List<string> include, double uvalue = double.NaN,  double gvalue = double.NaN)
@@ -106,14 +106,19 @@ namespace BH.Engine.Environment.SAP
 
             List<BH.oM.Environment.SAP.XML.OpeningType> openingsList = sapObj.SAP10Data.PropertyDetails.OpeningTypes.OpeningType;
 
-            openingsList = openingsList.InsertOpeningType(dict, uvalue, gvalue);
+            openingsList = openingsList.InsertOpeningTypes(dict, uvalue, gvalue);
             sapObj.SAP10Data.PropertyDetails.OpeningTypes.OpeningType = openingsList;
 
             return sapObj;
         }
 
-        [Description("Insert an opening type into the SAPReport.")]
-        public static List<BH.oM.Environment.SAP.XML.OpeningType> InsertOpeningType(this List<BH.oM.Environment.SAP.XML.OpeningType> typeObj, Dictionary<string,string> dict, double uvalue, double gvalue)
+        [Description("Insert opening types into the list of existing opening types.")]
+        [Input("typeObj", "Existing opening types.")]
+        [Input("dict", "Dictionary of opening types to add into existing list.")]
+        [Input("uvalue", "uvalue for new type.")]
+        [Input("gvalue", "gvalue for new type.")]
+        [Output("openingTypes", "The modified SAP openingtypes list.")]
+        public static List<BH.oM.Environment.SAP.XML.OpeningType> InsertOpeningTypes(this List<BH.oM.Environment.SAP.XML.OpeningType> typeObj, Dictionary<string,string> dict, double uvalue, double gvalue)
         {
             List<string> typeNames = typeObj.Select(x => x.Name).ToList();
 
@@ -151,6 +156,9 @@ namespace BH.Engine.Environment.SAP
         }
 
         [Description("Change the opening types of an opening.")]
+        [Input("opening", "Opening to modify the type of.")]
+        [Input("type", "Type to change to.")]
+        [Output("opening", "Modified opening.")]
         public static BH.oM.Environment.SAP.XML.Opening ModifyOpeningType(this BH.oM.Environment.SAP.XML.Opening opening, string type)
         {
             opening.Type = type;

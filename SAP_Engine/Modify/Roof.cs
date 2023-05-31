@@ -33,13 +33,18 @@ using BH.oM.Environment.SAP;
 using BH.Engine.Base;
 using System.Runtime.InteropServices.ComTypes;
 using BH.oM.Environment.Elements;
+using BH.oM.Base.Attributes;
 
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Modify
     {
-        
-        [Description("Modify the Psi value of a type of thermal bridges from a report object.")]
+        [Description("Modify the uvalue of roof objects from a SAP report object.")]
+        [Input("sapObj", "The sap report object to modify.")]
+        [Input("include", "A list of roofs by name to modify.")]
+        [Input("newRoofName", "The roof name for the modified roof.")]
+        [Input("uvalue", "The new uvalue for the roofs.")]
+        [Output("sapReport", "The modified SAP Report object.")]
         public static SAPReport ModifyRoofs(this SAPReport sapObj, List<string> include, string newRoofName, string uvalue)
         {
             List<BH.oM.Environment.SAP.XML.BuildingPart> buildingPartList = new List<oM.Environment.SAP.XML.BuildingPart>();
@@ -70,7 +75,11 @@ namespace BH.Engine.Environment.SAP
             return sapObj;
         }
 
-        [Description("Modify the Psi value of a type of thermal bridges from a report object.")]
+        [Description("Modify the uvalue of a type of roof object from a SAP report object.")]
+        [Input("roof", "The roof dimension object to modify.")]
+        [Input("description", "The roof name for the modified roof.")]
+        [Input("uvalue", "The new uvalue for the roofs.")]
+        [Output("roof", "The modified SAP Report object.")]
         public static BH.oM.Environment.SAP.XML.Roof ModifyRoof(this BH.oM.Environment.SAP.XML.Roof roof, string uvalue, string description)
         {
             string tempDesc = roof.Description;

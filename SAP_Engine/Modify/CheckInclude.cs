@@ -43,10 +43,9 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Modify
     {
-        [Description("Mirror a sap dwelling.")]
-        [Input("sapReport", "Input the SAPReport object to modify.")]
-        [Input("mirror", "Line to mirror over.")]
-        [Output("sapReport", "The mirrored report.")]
+        [Description("Check validity of changes made.")]
+        [Input("toInclude", "A list of the lists of object to be modified within an iteration.")]
+        [Output("valid", "Are the changes made valid.")]
         public static bool CheckInclude(this List<List<string>> toInclude)
         {
             List<string> test = toInclude.Select(x => x.Distinct().ToList()).ToList().SelectMany(x=> x).ToList();

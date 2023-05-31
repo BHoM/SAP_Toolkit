@@ -40,7 +40,7 @@ namespace BH.Engine.Environment.SAP
     public static partial class Modify
     {
         
-        [Description("Modify the Psi value of a type of thermal bridges from a SAP report object.")]
+        [Description("Modify the uvalue of a type of floor dimension objects from a SAP report object.")]
         [Input("sapObj", "The sap report object to modify.")]
         [Input("include", "A list of floors by name to modify.")]
         [Input("floorName", "The floor name for the modified floor.")]
@@ -78,7 +78,11 @@ namespace BH.Engine.Environment.SAP
             return sapObj;
         }
 
-        [Description("Modify the Psi value of a type of thermal bridges from a report object.")]
+        [Description("Modify the uvalue of a type of floor object from a SAP report object.")]
+        [Input("floor", "The floor dimension object to modify.")]
+        [Input("description", "The floor name for the modified floor.")]
+        [Input("uvalue", "The new uvalue for the floors.")]
+        [Output("floorDim", "The modified SAP Report object.")]
         public static BH.oM.Environment.SAP.XML.FloorDimension ModifyFloor(this BH.oM.Environment.SAP.XML.FloorDimension floor, string uvalue, string description)
         {
             string tempDesc = floor.Description;

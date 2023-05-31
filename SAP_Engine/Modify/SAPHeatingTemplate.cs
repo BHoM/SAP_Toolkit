@@ -99,43 +99,6 @@ namespace BH.Engine.Environment.SAP
             propertyObj.DesignWaterUse= templateProperty.DesignWaterUse;
             propertyObj.Cooling = templateProperty.Cooling;
 
-            ////var listHeat = templateSAP.GetType().GetProperty(heatingObj[0]).GetValue(templateSAP, null);
-            //foreach (var property in heatingObj)
-            //{
-            //    var templateObj = templateSAP.GetType().GetProperty(property).GetValue(templateSAP);
-
-            //    if (templateObj == null)
-            //    {
-            //        continue;
-            //    }
-
-            //    BH.Engine.Base.Modify.SetPropertyValue(reportObj, property, templateObj);
-
-
-            //}
-
-
-
-            //var templateValueObj = heatingObj.Select(x => templateSAP.GetType().GetProperty(x).GetValue(templateSAP) || null);
-            //var properties = heatingObj.Zip(templateValueObj, (v1, v2) => new { PropertyName = v1, NewData = v2 });
-
-            //foreach (var p in properties)
-            //{
-            //    if (p.NewData != null)
-            //    {
-            //        BH.Engine.Base.Modify.SetPropertyValue(reportObj,p.PropertyName,p.NewData);
-            //    }
-            //}
-
-
-            //foreach (var p in heatingObj)
-            //{
-            //    if (templateSAP.GetType().GetProperty(p) != null)
-            //    {
-            //        reportObj.GetType().GetProperty(p).SetValue(reportObj, templateSAP.GetType().GetProperty(p).GetValue(templateSAP, null), null);
-            //    }
-
-            //}
             reportObj.SAP10Data.PropertyDetails = propertyObj;
             return reportObj;
 

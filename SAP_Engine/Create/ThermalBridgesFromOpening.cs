@@ -40,9 +40,11 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Create
     {
-        [Description("Converts lists of thermal bridge curves to lists of lengths of thermal bridges.")]
-        [Input("thermalBridgesCurves","ThermalBridgeLength objects.")]
-        [Output("thermalBridgeLengths", "ThermalBridgeLengthObjects.")]
+        [Description("Creates thermalBridge objects from the opening widths/heights.")]
+        [Input("types","A list of OpeningType objects.")]
+        [Input("openings", "A list of Opening objects.")]
+        [Input("values", "PsiValues object.")]
+        [Output("tb", "A list of ThermalBridge objects.")]
         public static List<BH.oM.Environment.SAP.XML.ThermalBridge> ThermalBridgesFromOpening(List<BH.oM.Environment.SAP.XML.OpeningType> types, List<BH.oM.Environment.SAP.XML.Opening> openings, PsiValues values)
         {
             List<BH.oM.Environment.SAP.XML.ThermalBridge> thermalBridges = new List<BH.oM.Environment.SAP.XML.ThermalBridge>();
@@ -109,7 +111,6 @@ namespace BH.Engine.Environment.SAP
                     }
                 }
             }
-            
             return thermalBridges; 
         }
     }

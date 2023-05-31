@@ -33,13 +33,19 @@ using BH.oM.Environment.SAP;
 using BH.Engine.Base;
 using System.Runtime.InteropServices.ComTypes;
 using BH.oM.Environment.Elements;
+using BH.oM.Base.Attributes;
 
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Modify
     {
-        
-        [Description("Modify the Psi value of a type of thermal bridges from a report object.")]
+        [Description("Modify the uvalue and if it is a curtain wall of wall objects from a SAP report object.")]
+        [Input("sapObj", "The sap report object to modify.")]
+        [Input("include", "A list of walls by name to modify.")]
+        [Input("newWallName", "The new name for the modified wall.")]
+        [Input("uvalue", "The new uvalue for the walls.")]
+        [Input("curtainWall", "Is this wall a curtain wall.")]
+        [Output("sapReport", "The modified SAP Report object.")]
         public static SAPReport ModifyWalls(this SAPReport sapObj, List<string> include, string newWallName, string uvalue, bool? curtainWall)
         {
             List<BH.oM.Environment.SAP.XML.BuildingPart> buildingPartList = new List<oM.Environment.SAP.XML.BuildingPart>();
@@ -70,7 +76,13 @@ namespace BH.Engine.Environment.SAP
             return sapObj;
         }
 
-        [Description("Modify the Psi value of a type of thermal bridges from a report object.")]
+
+        [Description("Modify the uvaluev and if it is a curtain wall of a wall object.")]
+        [Input("wall", "The wall object to modify.")]
+        [Input("description", "The new name for the modified wall.")]
+        [Input("uvalue", "The new uvalue for the walls.")]
+        [Input("curtainWall", "Is this wall a curtain wall.")]
+        [Output("wall", "The modified wall object.")]
         public static BH.oM.Environment.SAP.XML.Wall ModifyWall(this BH.oM.Environment.SAP.XML.Wall wall, string uvalue, bool? curtainWall, string description)
         {
 

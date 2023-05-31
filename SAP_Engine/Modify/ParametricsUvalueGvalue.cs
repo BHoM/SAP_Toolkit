@@ -43,6 +43,15 @@ namespace BH.Engine.Environment.SAP
         
         [Description("Sets up a parametric study based on u and g values.")]
         [Input("file","File settings object to specify the folder to save the files.")]
+        [Input("include", "A list of opening types to change in this study.")]
+        [Input("upperUValue", "Upper bound for uvalue.")]
+        [Input("lowerUValue", "Lower bound for uvalue.")]
+        [Input("uSteps", "Number of steps for uvalue.")]
+        [Input("upperGValue", "Upper bound for gvalue.")]
+        [Input("lowerGValue", "Lower bound for gvalue.")]
+        [Input("gSteps", "Number of steps for gvalue.")]
+        [MultiOutput(0,"SAPReports", "A list of the SAPReports.")]
+        [MultiOutput(1,"saveFiles", "A list of file settings objects corresponding to each iteration")]
         public static Output<List<SAPReport>, List<FileSettings>> ParametricsUvalueGvalue(this SAPReport sapObj, FileSettings file, List<string> include,double upperUValue = double.NaN, double lowerUValue = double.NaN, int uSteps = 0, double upperGValue = double.NaN, double lowerGValue = double.NaN, int gSteps = 0)
         {
             if (uSteps > 0 && (double.IsNaN(upperUValue) || double.IsNaN(lowerUValue)))
@@ -50,7 +59,6 @@ namespace BH.Engine.Environment.SAP
                 BH.Engine.Base.Compute.RecordError("UValue bounds have not been set properly.");
                 return null;
             }
-
             if (gSteps > 0 && (double.IsNaN(upperGValue) || double.IsNaN(lowerGValue)))
             {
                 BH.Engine.Base.Compute.RecordError("GValue bounds have not been set properly.");
