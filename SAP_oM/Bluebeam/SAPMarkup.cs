@@ -90,6 +90,10 @@ namespace BH.oM.Environment.SAP.Bluebeam
         public virtual double TFAHeight { get; set; }
 
         [Description("This is a custom property which can be added to Bluebeam for SAP workflow interoperability.")]
+        [XmlElement("Roof-Type")]
+        public virtual string RoofType { get; set; }
+
+        [Description("This is a custom property which can be added to Bluebeam for SAP workflow interoperability.")]
         [XmlElement("ThermalBridge-Type")]
         public virtual string ThermalBridgeType { get; set; }
 
