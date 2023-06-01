@@ -84,7 +84,7 @@ namespace BH.Engine.Environment.SAP
 
                 FileSettings iterationFile = new FileSettings
                 {
-                    FileName = i.IterationName,
+                    FileName = i.IterationName, 
                     Directory = saveFile.Directory
                 };
 
@@ -93,7 +93,7 @@ namespace BH.Engine.Environment.SAP
 
             return new Output<List<SAPReport>, List<FileSettings>>()
             {
-                Item1 = reports,
+                Item1 = reports, 
                 Item2 = files
             };
         }
@@ -194,7 +194,7 @@ namespace BH.Engine.Environment.SAP
 
             foreach (var w in wallsIObj)
             {
-                sapObj = sapObj.ModifyWalls(w.Include,w.Description, w.UValue, w.CurtainWall);
+                sapObj = sapObj.ModifyWalls(w.Include, w.Description, w.UValue, w.CurtainWall);
             }
 
             return sapObj;
@@ -258,7 +258,6 @@ namespace BH.Engine.Environment.SAP
         [Description("")]
         public static SAPReport ParametricsThermalBridge(this SAPReport sapObj, List<ThermalBridgeIterator> tbIObj, string iterationName)
         {
-
             if (tbIObj == null)
             {
                 return sapObj;
@@ -269,14 +268,14 @@ namespace BH.Engine.Environment.SAP
             
             var psiValues = tbIObj.Select(x => x.PsiValue).ToList();
 
-            if (thermalBridges.Count() != thermalBridges.Distinct().Count())
+            if (thermalBridges.Count != thermalBridges.Distinct().Count())
             {
                 string e = $"TestIteration {iterationName} has thermal bridges that are modified multiple times within the iteration. Please correct this before moving on.";
                 BH.Engine.Base.Compute.RecordError(e);
                 return null;
             }
             
-            if (thermalBridges.Count != psiValues.Count())
+            if (thermalBridges.Count != psiValues.Count)
             {
                 string e = $"TestIteration {iterationName}: not all thermal bridges are assigned a psi value. Please correct this before moving on.";
                 BH.Engine.Base.Compute.RecordError(e);
@@ -285,7 +284,6 @@ namespace BH.Engine.Environment.SAP
             sapObj = sapObj.ModifyThermalBridge(thermalBridges, psiValues);
 
             return sapObj;
-
         }
     }
 }

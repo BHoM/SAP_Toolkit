@@ -34,6 +34,7 @@ using BH.Engine.Base;
 using System.Runtime.InteropServices.ComTypes;
 using BH.oM.Environment.Elements;
 using BH.oM.Base.Attributes;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -60,13 +61,13 @@ namespace BH.Engine.Environment.SAP
 
                     if (include.Contains(w.Description))
                     {
-                        roofObj = roofObj.ModifyRoof(uvalue,newRoofName);
+                        roofObj = roofObj.ModifyRoof(uvalue, newRoofName);
                     }
 
                     roofList.Add(roofObj);
                 }
 
-                partObj.Roofs.Roof= roofList;
+                partObj.Roofs.Roof = roofList;
                 buildingPartList.Add (partObj);  
             }
 
@@ -86,19 +87,12 @@ namespace BH.Engine.Environment.SAP
 
             if (uvalue != null)
             {
-                roof.UValue= uvalue;
+                roof.UValue = uvalue;
                 tempDesc = $"uvalue_{uvalue}_{tempDesc}";
             }
 
-            if (description != null)
-            {
-                roof.Description= description;
-            }
-            else
-            {
-                roof.Description = tempDesc;
-            }
-
+            roof.Description = (description != null ? description : tempDesc);
+           
             return roof;
         }
     }

@@ -41,7 +41,7 @@ namespace BH.Engine.Environment.SAP
     public static partial class Modify
     {
         [Description("Creates thermalBridge objects from the opening widths/heights.")]
-        [Input("types","A list of OpeningType objects.")]
+        [Input("types", "A list of OpeningType objects.")]
         [Input("openings", "A list of Opening objects.")]
         [Input("values", "PsiValues object.")]
         [Output("tb", "A list of ThermalBridge objects.")]

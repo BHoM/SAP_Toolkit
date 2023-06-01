@@ -64,7 +64,7 @@ namespace BH.Engine.Environment.SAP
                 List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> PVArrays = propertyDetailsObj.EnergySource.PhotovoltaicArrays.PhotovoltaicArray;
                 foreach (var array in PVArrays)
                 {
-                    if (!(array == null))
+                    if (array != null)
                     {
                         if (array.Orientation == "0" || array.Orientation == "9")
                         {
@@ -82,17 +82,18 @@ namespace BH.Engine.Environment.SAP
             }
             catch (Exception e)
             {
-                BH.Engine.Base.Compute.RecordWarning("If you have no PV ignore this warning, otherwise:" + e.Message);
+                BH.Engine.Base.Compute.RecordWarning($"If you have no PV ignore this warning, otherwise: {e.Message}");
             }
+
             try
             {
                 List<MainHeating> heatingObjs = propertyDetailsObj.Heating.MainHeatingDetails.MainHeating;
                 foreach (var heating in heatingObjs)
                 {
-                    List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> FGHRSPVArrays = heating.FGHRSEnergySource.PhotovoltaicArrays.PhotovoltaicArray;
-                    foreach (var array in FGHRSPVArrays)
+                    List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> fghrsPVArrays = heating.FGHRSEnergySource.PhotovoltaicArrays.PhotovoltaicArray;
+                    foreach (var array in fghrsPVArrays)
                     {
-                        if (!(array == null))
+                        if (array != null)
                         {
                             if (array.Orientation == "0" || array.Orientation == "9")
                             {
@@ -106,16 +107,15 @@ namespace BH.Engine.Environment.SAP
                             continue;
                         }
                     }
-                    heating.FGHRSEnergySource.PhotovoltaicArrays.PhotovoltaicArray = FGHRSPVArrays;
+                    heating.FGHRSEnergySource.PhotovoltaicArrays.PhotovoltaicArray = fghrsPVArrays;
                 }
                 propertyDetailsObj.Heating.MainHeatingDetails.MainHeating = heatingObjs;
 
             }
             catch (Exception e)
             {
-                BH.Engine.Base.Compute.RecordWarning("If you have no PV ignore this warning, otherwise:" + e.Message);
+                BH.Engine.Base.Compute.RecordWarning($"If you have no PV ignore this warning, otherwise: {e.Message}");
             }
-
 
             List<BH.oM.Environment.SAP.XML.BuildingPart> buildingPartObj = propertyDetailsObj.BuildingParts.BuildingPart;
             foreach (var b in buildingPartObj)
@@ -137,7 +137,6 @@ namespace BH.Engine.Environment.SAP
             sapObj.SAP10Data.PropertyDetails = propertyDetailsObj;
 
             return sapObj;
-
         }
 
         [Description("Change compass direction by mirroring across common lines.")]
@@ -155,19 +154,19 @@ namespace BH.Engine.Environment.SAP
             List<int> compassPoints = new List<int>();
             if (mirrorLine == Mirror.EastToWest)
             {
-                compassPoints = new List<int>{3,7};
+                compassPoints = new List<int>{3, 7};
             }
             else if (mirrorLine == Mirror.NorthWestToSouthEast)
             {
-                compassPoints = new List<int>{4,8};
+                compassPoints = new List<int>{4, 8};
             }
             else if (mirrorLine == Mirror.NorthToSouth)
             {
-                compassPoints = new List<int> {1,5};
+                compassPoints = new List<int> {1, 5};
             }
             else
             {
-               compassPoints = new List<int> {2,6};
+               compassPoints = new List<int> {2, 6};
             };
 
             int orientationValue = Int32.Parse(orientation);
@@ -179,11 +178,8 @@ namespace BH.Engine.Environment.SAP
                 compassdirection = compassdirection + 8;
             }
             
-
             return compassdirection.ToString();
-
         }
-        
     }
 }
 

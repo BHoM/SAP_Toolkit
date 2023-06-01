@@ -65,7 +65,7 @@ namespace BH.Engine.Environment.SAP
                 List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> PVArrays = propertyDetailsObj.EnergySource.PhotovoltaicArrays.PhotovoltaicArray;
                 foreach (var array in PVArrays)
                 {
-                    if (!(array == null))
+                    if (array != null)
                     {
                         if (array.Orientation == "0" || array.Orientation == "9")
                         {
@@ -93,7 +93,7 @@ namespace BH.Engine.Environment.SAP
                     List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> FGHRSPVArrays = heating.FGHRSEnergySource.PhotovoltaicArrays.PhotovoltaicArray;
                     foreach (var array in FGHRSPVArrays)
                     {
-                        if (!(array == null))
+                        if (array != null)
                         {
                             if (array.Orientation == "0" || array.Orientation == "9")
                             {
@@ -157,7 +157,6 @@ namespace BH.Engine.Environment.SAP
             }
             return compassdirection.ToString();
         }
-        
     }
 }
 

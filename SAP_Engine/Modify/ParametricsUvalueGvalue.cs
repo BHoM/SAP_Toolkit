@@ -41,8 +41,8 @@ namespace BH.Engine.Environment.SAP
     public static partial class Modify
     {
         [Description("Sets up a parametric study based on u and g values.")]
-        [Input("sapObj","SAPReport object to modify")]
-        [Input("file","File settings object to specify the folder to save the files.")]
+        [Input("sapObj", "SAPReport object to modify")]
+        [Input("file", "File settings object to specify the folder to save the files.")]
         [Input("include", "A list of opening types to change in this study.")]
         [Input("upperUValue", "Upper bound for uvalue.")]
         [Input("lowerUValue", "Lower bound for uvalue.")]
@@ -50,9 +50,9 @@ namespace BH.Engine.Environment.SAP
         [Input("upperGValue", "Upper bound for gvalue.")]
         [Input("lowerGValue", "Lower bound for gvalue.")]
         [Input("gSteps", "Number of steps for gvalue.")]
-        [MultiOutput(0,"SAPReports", "A list of the SAPReports.")]
-        [MultiOutput(1,"saveFiles", "A list of file settings objects corresponding to each iteration")]
-        public static Output<List<SAPReport>, List<FileSettings>> ParametricsUvalueGvalue(this SAPReport sapObj, FileSettings file, List<string> include,double upperUValue = double.NaN, double lowerUValue = double.NaN, int uSteps = 0, double upperGValue = double.NaN, double lowerGValue = double.NaN, int gSteps = 0)
+        [MultiOutput(0, "SAPReports", "A list of the SAPReports.")]
+        [MultiOutput(1, "saveFiles", "A list of file settings objects corresponding to each iteration")]
+        public static Output<List<SAPReport>, List<FileSettings>> ParametricsUvalueGvalue(this SAPReport sapObj, FileSettings file, List<string> include, double upperUValue = double.NaN, double lowerUValue = double.NaN, int uSteps = 0, double upperGValue = double.NaN, double lowerGValue = double.NaN, int gSteps = 0)
         {
             if (uSteps > 0 && (double.IsNaN(upperUValue) || double.IsNaN(lowerUValue)))
             {
@@ -100,7 +100,7 @@ namespace BH.Engine.Environment.SAP
                 gValues.Add(double.NaN);
             }
 
-            List<(double,double)> test = uValues.SelectMany(u => gValues, (u, g) => (u, g)).ToList();
+            List<(double, double)> test = uValues.SelectMany(u => gValues, (u, g) => (u, g)).ToList();
             List<Parameters> typeIteratorLists = new List<Parameters>();
 
             foreach ((var u, var g) in test)
@@ -114,9 +114,9 @@ namespace BH.Engine.Environment.SAP
 
                 OpeningTypeIterator t = new OpeningTypeIterator
                 {
-                    UValue = u,
-                    GValue = g,
-                    TypeName = name,
+                    UValue = u, 
+                    GValue = g, 
+                    TypeName = name, 
                     Include = include
                 };
 

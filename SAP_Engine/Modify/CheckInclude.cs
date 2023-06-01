@@ -48,16 +48,15 @@ namespace BH.Engine.Environment.SAP
         [Output("valid", "Are the changes made valid.")]
         public static bool CheckInclude(this List<List<string>> toInclude)
         {
-            List<string> test = toInclude.Select(x => x.Distinct().ToList()).ToList().SelectMany(x=> x).ToList();
+            List<string> test = toInclude.Select(x => x.Distinct()).SelectMany(x => x).ToList();
 
-            if (test.Count() != test.Distinct().Count())
+            if (test.Count != test.Distinct().Count())
             {
                 BH.Engine.Base.Compute.RecordError("Some items have been changed within this iteration multiple times. Please make sure this is not the case.");
                 return false;
             }
 
             return true;
-
         }
     }
 }

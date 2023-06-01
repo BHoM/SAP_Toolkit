@@ -53,7 +53,6 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("A list of walls by name to make changed to.")]
         public virtual List<string> Include { get; set; } = null;
-
     }
 }
 

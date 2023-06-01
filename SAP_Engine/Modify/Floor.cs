@@ -39,7 +39,6 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Modify
     {
-        
         [Description("Modify the uvalue of a type of floor dimension objects from a SAP report object.")]
         [Input("sapObj", "The sap report object to modify.")]
         [Input("include", "A list of floors by name to modify.")]
@@ -63,7 +62,7 @@ namespace BH.Engine.Environment.SAP
 
                     if (include.Contains(w.Description))
                     {
-                        floorObj = floorObj.ModifyFloor(uvalue,floorName);
+                        floorObj = floorObj.ModifyFloor(uvalue, floorName);
                     }
 
                     floorList.Add(floorObj);
@@ -89,19 +88,12 @@ namespace BH.Engine.Environment.SAP
 
             if (uvalue != null)
             {
-                floor.UValue= uvalue;
+                floor.UValue = uvalue;
                 tempDesc = $"uvalue_{uvalue}_{tempDesc}";
             }
 
-            if (description != null)
-            {
-                floor.Description= description;
-            }
-            else
-            {
-                floor.Description = tempDesc;
-            }
-
+            floor.Description = (description != null ? description : tempDesc);
+            
             return floor;
         }
     }
