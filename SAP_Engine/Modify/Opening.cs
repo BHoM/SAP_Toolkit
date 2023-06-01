@@ -61,7 +61,7 @@ namespace BH.Engine.Environment.SAP
 
                     if (include.Contains(o.Name)) //change based on example
                     {
-                        openingObj = openingObj.ModifyOpening(height,width,pitch);
+                        openingObj = openingObj.ModifyOpening(height, width, pitch);
                     }
 
                     openingList.Add(openingObj);

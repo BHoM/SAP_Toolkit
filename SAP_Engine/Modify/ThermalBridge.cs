@@ -38,7 +38,6 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Modify
     {
-        
         [Description("Modify the Psi value of a type of thermal bridges from a report object.")]
         public static SAPReport ModifyThermalBridge(this SAPReport sapObj, List<string> tbType, List<double> psiValue)
         {
@@ -58,11 +57,9 @@ namespace BH.Engine.Environment.SAP
             return sapObj;
         }
 
-
         [Description("Modify the Psi value of a type of thermal bridges from a list of thermal bridges.")]
         public static List<BH.oM.Environment.SAP.XML.ThermalBridge> ModifyThermalBridge(this List<BH.oM.Environment.SAP.XML.ThermalBridge> thermalBridgesObj, List<string> tbType, List<double> psiValue)
         {
-
             var dict = tbType.Zip(psiValue, (k, v) => new { k, v }).ToDictionary(x => x.k, x => x.v);
 
             List<BH.oM.Environment.SAP.XML.ThermalBridge> thermalBridgeList = new List<BH.oM.Environment.SAP.XML.ThermalBridge>();

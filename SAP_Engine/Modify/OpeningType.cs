@@ -34,6 +34,7 @@ using BH.Engine.Base;
 using System.Runtime.InteropServices.ComTypes;
 using BH.oM.Environment.Elements;
 using BH.oM.Base.Attributes;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -57,12 +58,12 @@ namespace BH.Engine.Environment.SAP
             {
                 string name = string.Empty;
 
-                if (uvalue != 0.00)
+                if (uvalue != double.NaN)
                 {
                     name = $"uvalue_{uvalue}_{name}";
                 }
 
-                if (gvalue != 0.00)
+                if (gvalue != double.NaN)
                 {
                     name = name = $"gvalue_{gvalue}_{name}";
                 }
@@ -70,10 +71,10 @@ namespace BH.Engine.Environment.SAP
                 type = name;
             }
 
-            var dict = include.Select(x => (type + "_" + x)).Zip(include, (v,k) => new { Key = k, Value = v }).ToDictionary(x => x.Key, x => x.Value);
-            var valid = dict.Select(x => (include.Contains(x.Value))).ToList().Any(x => x == true);
+            var dict = include.Select(x => (type + "_" + x)).Zip(include, (v, k) => new { Key = k, Value = v }).ToDictionary(x => x.Key, x => x.Value);
+            var valid = dict.Select(x => (include.Contains(x.Value))).Any(x => x == true);
 
-            if (valid != false)
+            if (valid)
             {
                 BH.Engine.Base.Compute.RecordError("Already a window type with these names."); //come back to this
                 return null;
@@ -118,7 +119,7 @@ namespace BH.Engine.Environment.SAP
         [Input("uvalue", "uvalue for new type.")]
         [Input("gvalue", "gvalue for new type.")]
         [Output("openingTypes", "The modified SAP openingtypes list.")]
-        public static List<BH.oM.Environment.SAP.XML.OpeningType> InsertOpeningTypes(this List<BH.oM.Environment.SAP.XML.OpeningType> typeObj, Dictionary<string,string> dict, double uvalue, double gvalue)
+        public static List<BH.oM.Environment.SAP.XML.OpeningType> InsertOpeningTypes(this List<BH.oM.Environment.SAP.XML.OpeningType> typeObj, Dictionary<string, string> dict, double uvalue, double gvalue)
         {
             List<string> typeNames = typeObj.Select(x => x.Name).ToList();
 
@@ -138,14 +139,14 @@ namespace BH.Engine.Environment.SAP
 
                     newOpening.Name = t.Value;
 
-                    if (uvalue != 0.00)
+                    if (uvalue != double.NaN)
                     {
                         newOpening.UValue = uvalue.ToString();
                     }
                     
-                    if (gvalue != 0.00)
+                    if (gvalue != double.NaN)
                     {
-                        newOpening.gValue= gvalue.ToString();
+                        newOpening.gValue = gvalue.ToString();
                     }
                     newTypes.Add(newOpening);
                 }
@@ -162,10 +163,8 @@ namespace BH.Engine.Environment.SAP
         public static BH.oM.Environment.SAP.XML.Opening ModifyOpeningType(this BH.oM.Environment.SAP.XML.Opening opening, string type)
         {
             opening.Type = type;
-
             return opening;
         }
-
     }
 }
 

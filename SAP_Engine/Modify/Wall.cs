@@ -34,6 +34,7 @@ using BH.Engine.Base;
 using System.Runtime.InteropServices.ComTypes;
 using BH.oM.Environment.Elements;
 using BH.oM.Base.Attributes;
+using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -61,13 +62,13 @@ namespace BH.Engine.Environment.SAP
 
                     if (include.Contains(w.Description))
                     {
-                        wallObj = wallObj.ModifyWall(uvalue,curtainWall,newWallName);
+                        wallObj = wallObj.ModifyWall(uvalue, curtainWall, newWallName);
                     }
 
                     wallList.Add(wallObj);
                 }
 
-                partObj.Walls.Wall= wallList;
+                partObj.Walls.Wall = wallList;
                 buildingPartList.Add (partObj);  
             }
 
@@ -75,7 +76,6 @@ namespace BH.Engine.Environment.SAP
 
             return sapObj;
         }
-
 
         [Description("Modify the uvaluev and if it is a curtain wall of a wall object.")]
         [Input("wall", "The wall object to modify.")]
@@ -85,12 +85,11 @@ namespace BH.Engine.Environment.SAP
         [Output("wall", "The modified wall object.")]
         public static BH.oM.Environment.SAP.XML.Wall ModifyWall(this BH.oM.Environment.SAP.XML.Wall wall, string uvalue, bool? curtainWall, string description)
         {
-
             string tempDesc = wall.Description;
 
             if (uvalue != null)
             {
-                wall.UValue= uvalue;
+                wall.UValue = uvalue;
                 tempDesc = $"uvalue_{uvalue}_{tempDesc}";
             }
 
@@ -100,14 +99,7 @@ namespace BH.Engine.Environment.SAP
                 tempDesc = $"curtainWall_{curtainWall.ToString()}_{tempDesc}";
             }
 
-            if (description != null)
-            {
-                wall.Description= description;
-            }
-            else
-            {
-                wall.Description = tempDesc;
-            }
+            wall.Description = (description != null ? description : tempDesc);
 
             return wall;
         }

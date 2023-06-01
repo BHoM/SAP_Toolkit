@@ -50,7 +50,6 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("A list of walls to swap out.")]
         public virtual List<string> Include { get; set; } = null;
-
     }
 }
 

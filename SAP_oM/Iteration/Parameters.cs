@@ -62,7 +62,6 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("TB to change psi values - iterator")]
         public virtual List<ThermalBridgeIterator> ThermalBridges { get; set; } = null;
-
     }
 }
 

@@ -44,7 +44,6 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Mirror the dwelling.")]
         public virtual Mirror Mirror { get; set; } = Mirror.None;
-
     }
 }
 

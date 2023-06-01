@@ -56,7 +56,6 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("A list of floors by name to make changes to.")]
         public virtual List<string> Include { get; set; } = null;
-
     }
 }
 
