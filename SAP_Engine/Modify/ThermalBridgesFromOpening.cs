@@ -58,7 +58,7 @@ namespace BH.Engine.Environment.SAP
 
                     List<double> roofValues = tbs.Select(x => (double)values.GetType().GetProperty(x).GetValue(values, null)).ToList();
 
-                    if ((roofValues.Any(x => x == double.NaN)) != true)
+                    if ((roofValues.Any(x => x < 0)) != true)
                     {
                         BH.Engine.Base.Compute.RecordError("Thermal bridges for rooflights/skylights are not defined properly.");
                         return null;
@@ -90,7 +90,7 @@ namespace BH.Engine.Environment.SAP
 
                     //test.Add(roofValues);
 
-                    if ((roofValues.Any(x => x == double.NaN)) == true)
+                    if ((roofValues.Any(x => x < 0)) == true)
                     {
                         BH.Engine.Base.Compute.RecordError("Thermal bridges for external junctions are not defined properly.");
                         return null;

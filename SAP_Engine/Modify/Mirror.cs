@@ -107,8 +107,10 @@ namespace BH.Engine.Environment.SAP
                             continue;
                         }
                     }
+
                     heating.FGHRSEnergySource.PhotovoltaicArrays.PhotovoltaicArray = fghrsPVArrays;
                 }
+
                 propertyDetailsObj.Heating.MainHeatingDetails.MainHeating = heatingObjs;
 
             }
@@ -171,14 +173,14 @@ namespace BH.Engine.Environment.SAP
 
             int orientationValue = Int32.Parse(orientation);
             int distance = compassPoints.Select(x => (x - orientationValue)).ToList().Min();
-            int compassdirection = (orientationValue + 2 * (distance)) % 8;
+            int compassDirection = (orientationValue + 2 * (distance)) % 8;
 
-            if (compassdirection <= 0)
+            if (compassDirection <= 0)
             {
-                compassdirection = compassdirection + 8;
+                compassDirection = compassDirection + 8;
             }
             
-            return compassdirection.ToString();
+            return compassDirection.ToString();
         }
     }
 }

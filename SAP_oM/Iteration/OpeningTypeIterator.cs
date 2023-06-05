@@ -34,16 +34,15 @@ using BH.oM.Base;
 using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.XML
-    
 {
     [Description("Input changes to make to opening types.")]
     public class OpeningTypeIterator : IObject
     {
         [Description("New UValue.")]
-        public virtual double UValue { get; set; } = 0.00;
+        public virtual double UValue { get; set; } = -1;
 
         [Description("New GValue.")]
-        public virtual double GValue { get; set; } = 0.00;
+        public virtual double GValue { get; set; } = -1;
 
         [Description("New name of type.")]
         public virtual string TypeName { get; set; } = null;

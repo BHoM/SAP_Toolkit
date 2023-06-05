@@ -44,11 +44,11 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Modify
     {
-        [Description("Iterate through sap openings.")]
+        [Description("Run iterations set up through the Parameters object.")]
         [Input("sapObj", "Input the SAPReport object to modify.")]
         [Input("iteration", "Input the iteration settings.")]
         [Input("saveFile", "Input the file settings, the file name will be changed based on the iteration.")]
-        [MultiOutput(0, "sapObjects", "Mulitple iterations of the sapObject.")]
+        [MultiOutput(0, "sapObjects", "Multiple iterations of the sapObject.")]
         [MultiOutput(1, "fileSettings", "Multiple sets of filesettings.")]
         public static Output<List<SAPReport>, List<FileSettings>> ParametricStudy(this SAPReport sapObj, List<Parameters> iteration, FileSettings saveFile)
         {
@@ -68,7 +68,7 @@ namespace BH.Engine.Environment.SAP
 
                 if (i.IterationName == null)
                 {
-                    BH.Engine.Base.Compute.RecordError("Please give all your iterations a name.");
+                    BH.Engine.Base.Compute.RecordError("Please name all of your iterations.");
                     return null;
                 }
 
@@ -98,16 +98,20 @@ namespace BH.Engine.Environment.SAP
             };
         }
 
-        [Description("")]
-        public static SAPReport ParametricsOpeningType (this SAPReport sapObj, List<OpeningTypeIterator> openingTypeIObj, string iterationName)
+        [Description("Modify a SAPReport based on opening type iterators.")]
+        [Input("sapObj", "Input the SAPReport object to modify.")]
+        [Input("openingTypeObj", "Input the opening type iterators.")]
+        [Input("iterationName", "Input the name of the iteration.")]
+        [Output("sapReport", "SAPReport object with changes made based on the opening type.")]
+        public static SAPReport ParametricsOpeningType (this SAPReport sapObj, List<OpeningTypeIterator> openingTypeObj, string iterationName)
         {
-            if (openingTypeIObj == null)
+            if (openingTypeObj == null)
             {
                 return sapObj;
             }
 
             //Checks if opening types selected to include are not overlapping.
-            bool valid = openingTypeIObj.Select(x => x.Include).ToList().CheckInclude();
+            bool valid = openingTypeObj.Select(x => x.Include).ToList().CheckInclude();
 
             if (!valid)
             {
@@ -116,25 +120,28 @@ namespace BH.Engine.Environment.SAP
                 return null;
             }
 
-            foreach (var i in openingTypeIObj)
+            foreach (var i in openingTypeObj)
             {
                 sapObj = sapObj.ModifyOpeningTypes(i.TypeName, i.Include, i.UValue, i.GValue);
             }
 
             return sapObj;
-
         }
 
-        [Description("")]
-        public static SAPReport ParametricsOpening(this SAPReport sapObj, List<OpeningIterator> openingsIObj, string iterationName)
+        [Description("Modify a SAPReport based on opening iterators.")]
+        [Input("sapObj", "Input the SAPReport object to modify.")]
+        [Input("openingsObj", "Input the opening iterators.")]
+        [Input("iterationName", "Input the name of the iteration.")]
+        [Output("sapReport", "SAPReport object with changes made based on the opening.")]
+        public static SAPReport ParametricsOpening(this SAPReport sapObj, List<OpeningIterator> openingsObj, string iterationName)
         {
-            if (openingsIObj == null)
+            if (openingsObj == null)
             {
                 return sapObj;
             }
 
             //Checks if opening types selected to include are not overlapping.
-            bool valid = openingsIObj.Select(x => x.Include).ToList().CheckInclude();
+            bool valid = openingsObj.Select(x => x.Include).ToList().CheckInclude();
 
             if (!valid)
             {
@@ -143,47 +150,55 @@ namespace BH.Engine.Environment.SAP
                 return null;
             }
 
-            foreach (var i in openingsIObj)
+            foreach (var i in openingsObj)
             {
                 sapObj = sapObj.ModifyOpenings(i.Include, i.Height, i.Width, i.Pitch);
             }
 
             return sapObj;
-
         }
 
-        [Description("WARNING : check order of rotation and mirror, the rotation is performed first.")]
-        public static SAPReport ParametricsOrientation(this SAPReport sapObj, OrientationIterator orientationsIObj, string iterationName)
+        [Description("WARNING : check order of rotation and mirror, the rotation is performed first. Modify a SAPReport based on orientation iterators.")]
+        [Input("sapObj", "Input the SAPReport object to modify.")]
+        [Input("orientationsObj", "Input the orientation iterators.")]
+        [Input("iterationName", "Input the name of the iteration.")]
+        [Output("sapReport", "SAPReport object with changes made based on a transformation.")]
+        public static SAPReport ParametricsOrientation(this SAPReport sapObj, OrientationIterator orientationsObj, string iterationName)
         {
-            if (orientationsIObj == null)
+            if (orientationsObj == null)
             {
                 return sapObj;
             }
 
-            if (orientationsIObj.Rotation != null)
+            BH.Engine.Base.Compute.RecordNote("Check order of rotation and mirror, the rotation is performed first.");
+
+            if (orientationsObj.Rotation != null)
             {
-                sapObj = sapObj.RotateDwelling(orientationsIObj.Rotation);
+                sapObj = sapObj.RotateDwelling(orientationsObj.Rotation);
             }
             
-            if (orientationsIObj.Mirror != Mirror.None)
+            if (orientationsObj.Mirror != Mirror.None)
             {
-                sapObj = sapObj.MirrorDwelling(orientationsIObj.Mirror);
+                sapObj = sapObj.MirrorDwelling(orientationsObj.Mirror);
             }
             
             return sapObj;
-
         }
 
-        [Description("")]
-        public static SAPReport ParametricsWall(this SAPReport sapObj, List<WallIterator> wallsIObj, string iterationName)
+        [Description("Modify a SAPReport based on wall iterators.")]
+        [Input("sapObj", "Input the SAPReport object to modify.")]
+        [Input("wallsObj", "Input the wall iterators.")]
+        [Input("iterationName", "Input the name of the iteration.")]
+        [Output("sapReport", "SAPReport object with changes made based on the walls.")]
+        public static SAPReport ParametricsWall(this SAPReport sapObj, List<WallIterator> wallsObj, string iterationName)
         {
-            if (wallsIObj == null)
+            if (wallsObj == null)
             {
                 return sapObj;
             }
 
             //Checks if opening types selected to include are not overlapping.
-            bool valid = wallsIObj.Select(x => x.Include).ToList().CheckInclude();
+            bool valid = wallsObj.Select(x => x.Include).ToList().CheckInclude();
 
             if (!valid)
             {
@@ -192,25 +207,28 @@ namespace BH.Engine.Environment.SAP
                 return null;
             }
 
-            foreach (var w in wallsIObj)
+            foreach (var w in wallsObj)
             {
                 sapObj = sapObj.ModifyWalls(w.Include, w.Description, w.UValue, w.CurtainWall);
             }
 
             return sapObj;
-
         }
 
-        [Description("")]
-        public static SAPReport ParametricsRoof(this SAPReport sapObj, List<RoofIterator> roofsIObj, string iterationName)
+        [Description("Modify a SAPReport based on roof iterators.")]
+        [Input("sapObj", "Input the SAPReport object to modify.")]
+        [Input("roofsObj", "Input the roof iterators.")]
+        [Input("iterationName", "Input the name of the iteration.")]
+        [Output("sapReport", "SAPReport object with changes made based on the roofs.")]
+        public static SAPReport ParametricsRoof(this SAPReport sapObj, List<RoofIterator> roofsObj, string iterationName)
         {
-            if (roofsIObj == null)
+            if (roofsObj == null)
             {
                 return sapObj;
             }
 
             //Checks if opening types selected to include are not overlapping.
-            bool valid = roofsIObj.Select(x => x.Include).ToList().CheckInclude();
+            bool valid = roofsObj.Select(x => x.Include).ToList().CheckInclude();
 
             if (!valid)
             {
@@ -219,25 +237,28 @@ namespace BH.Engine.Environment.SAP
                 return null;
             }
 
-            foreach (var w in roofsIObj)
+            foreach (var w in roofsObj)
             {
                 sapObj = sapObj.ModifyRoofs(w.Include, w.Description, w.UValue.ToString());
             }
 
             return sapObj;
-
         }
 
-        [Description("")]
-        public static SAPReport ParametricsFloor(this SAPReport sapObj, List<FloorIterator> floorsIObj, string iterationName)
+        [Description("Modify a SAPReport based on floor iterators.")]
+        [Input("sapObj", "Input the SAPReport object to modify.")]
+        [Input("floorsObj", "Input the floor iterators.")]
+        [Input("iterationName", "Input the name of the iteration.")]
+        [Output("sapReport", "SAPReport object with changes made based on the floors.")]
+        public static SAPReport ParametricsFloor(this SAPReport sapObj, List<FloorIterator> floorsObj, string iterationName)
         {
-            if (floorsIObj == null)
+            if (floorsObj == null)
             {
                 return sapObj;
             }
 
             //Checks if opening types selected to include are not overlapping.
-            bool valid = floorsIObj.Select(x => x.Include).ToList().CheckInclude();
+            bool valid = floorsObj.Select(x => x.Include).ToList().CheckInclude();
 
             if (!valid)
             {
@@ -246,27 +267,30 @@ namespace BH.Engine.Environment.SAP
                 return null;
             }
 
-            foreach (var f in floorsIObj)
+            foreach (var f in floorsObj)
             {
                 sapObj = sapObj.ModifyFloors(f.Include, f.Description, f.UValue);
             }
 
             return sapObj;
-
         }
 
-        [Description("")]
-        public static SAPReport ParametricsThermalBridge(this SAPReport sapObj, List<ThermalBridgeIterator> tbIObj, string iterationName)
+        [Description("Modify a SAPReport based on thermal bridge iterators.")]
+        [Input("sapObj", "Input the SAPReport object to modify.")]
+        [Input("thermalBridgeObj", "Input the thermal bridge iterators.")]
+        [Input("iterationName", "Input the name of the iteration.")]
+        [Output("sapReport", "SAPReport object with changes made based on the thermal bridges.")]
+        public static SAPReport ParametricsThermalBridge(this SAPReport sapObj, List<ThermalBridgeIterator> thermalBridgeObj, string iterationName)
         {
-            if (tbIObj == null)
+            if (thermalBridgeObj == null)
             {
                 return sapObj;
             }
 
-            var thermalBridges = tbIObj.Select(x => x.ThermalBridge).ToList();
+            var thermalBridges = thermalBridgeObj.Select(x => x.ThermalBridge).ToList();
             //Checks if TB are not assigned multiple times selected to include are not overlapping.
             
-            var psiValues = tbIObj.Select(x => x.PsiValue).ToList();
+            var psiValues = thermalBridgeObj.Select(x => x.PsiValue).ToList();
 
             if (thermalBridges.Count != thermalBridges.Distinct().Count())
             {
