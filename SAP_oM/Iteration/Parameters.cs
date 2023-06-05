@@ -34,9 +34,8 @@ using BH.oM.Base;
 using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.XML
-
 {
-    [Description(".")]
+    [Description("One parameters object defines an iteration, input as many iterators to make changes within one iteration.")]
     public class Parameters : IObject
     {
         [Description("CurrentIterator name.")]
@@ -60,7 +59,7 @@ namespace BH.oM.Environment.SAP.XML
         [Description("List of floor iterators.")]
         public virtual List<FloorIterator> Floors { get; set; } = null;
 
-        [Description("TB to change psi values - iterator")]
+        [Description("List of Thermal Bridge iterators.")]
         public virtual List<ThermalBridgeIterator> ThermalBridges { get; set; } = null;
     }
 }

@@ -117,7 +117,6 @@ namespace BH.Engine.Environment.SAP
                 BH.Engine.Base.Compute.RecordWarning("If you have no PV ignore this warning, otherwise:" + e.Message);
             }
 
-
             List<BH.oM.Environment.SAP.XML.BuildingPart> buildingPartObj = propertyDetailsObj.BuildingParts.BuildingPart;
             foreach (var b in buildingPartObj)
             {
@@ -146,16 +145,23 @@ namespace BH.Engine.Environment.SAP
         [Output("Orientation", "New orientation.")]
         public static string RotateOrientation(this string orientation, string rotation)
         {
-            if (orientation == null || orientation == "0" || orientation == "9") return null;
-            if (rotation == null || rotation == "0" || rotation == "9") return null;
-            
-            int compassdirection = (Int32.Parse(orientation) + Int32.Parse(rotation)) % 8;
-
-            if (compassdirection <= 0)
+            if (orientation == null || orientation == "0" || orientation == "9")
             {
-                compassdirection += 8;
+                return null;
             }
-            return compassdirection.ToString();
+
+            if (rotation == null || rotation == "0" || rotation == "9")
+            {
+                return null;
+            }
+            
+            int compassDirection = (Int32.Parse(orientation) + Int32.Parse(rotation)) % 8;
+
+            if (compassDirection <= 0)
+            {
+                compassDirection += 8;
+            }
+            return compassDirection.ToString();
         }
     }
 }

@@ -31,35 +31,10 @@ namespace BH.oM.Environment.SAP
     [Description("Code which indicates the type of boiler fuel feed.")]
     public enum Mirror
     {
-		None = 0,
+        None = 0,
         EastToWest = 1,
         NorthWestToSouthEast = 2,
         NorthToSouth = 3,
 		NorthEastToSouthWest = 4
     }
 }
-
-/*
- * private static string FromSAPToXML(this BH.oM.Environment.SAP.BoilerFuelFeedCode boilerFuelFeedCode)
-{
-	switch (boilerFuelFeedCode)
-	{
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Gravity:
-			return "1";
-
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Manual:
-			return "2";
-
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Screw:
-			return "3";
-
-		case BH.oM.Environment.SAP.BoilerFuelFeedCode.Other:
-			return "4";
-
-		default:
-			return"";
-	}
-}
-
- */
-

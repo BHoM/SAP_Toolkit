@@ -26,7 +26,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 using BH.oM.Environment.SAP.XML;
 using BH.oM.Environment.SAP;
 using System.ComponentModel;
@@ -34,7 +33,6 @@ using BH.oM.Base;
 using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.XML
-
 {
     [Description("Input changes to make to wall objects.")]
     public class WallIterator : IObject

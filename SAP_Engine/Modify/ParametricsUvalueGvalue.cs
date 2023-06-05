@@ -19,6 +19,7 @@
  * You should have received a copy of the GNU Lesser General Public License     
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
+
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -52,14 +53,16 @@ namespace BH.Engine.Environment.SAP
         [Input("gSteps", "Number of steps for gvalue.")]
         [MultiOutput(0, "SAPReports", "A list of the SAPReports.")]
         [MultiOutput(1, "saveFiles", "A list of file settings objects corresponding to each iteration")]
-        public static Output<List<SAPReport>, List<FileSettings>> ParametricsUvalueGvalue(this SAPReport sapObj, FileSettings file, List<string> include, double upperUValue = double.NaN, double lowerUValue = double.NaN, int uSteps = 0, double upperGValue = double.NaN, double lowerGValue = double.NaN, int gSteps = 0)
+        public static Output<List<SAPReport>, List<FileSettings>> ParametricsUvalueGvalue(this SAPReport sapObj, FileSettings file, List<string> include, double upperUValue = -1, double lowerUValue = -1, int uSteps = 0, double upperGValue = -1, double lowerGValue = -1, int gSteps = 0)
         {
-            if (uSteps > 0 && (double.IsNaN(upperUValue) || double.IsNaN(lowerUValue)))
+            //TODO
+            if (uSteps > 0 && (upperUValue > 0 || lowerUValue > 0))
             {
                 BH.Engine.Base.Compute.RecordError("UValue bounds have not been set properly.");
                 return null;
             }
-            if (gSteps > 0 && (double.IsNaN(upperGValue) || double.IsNaN(lowerGValue)))
+
+            if (gSteps > 0 && (upperGValue > 0 || lowerGValue > 0))
             {
                 BH.Engine.Base.Compute.RecordError("GValue bounds have not been set properly.");
                 return null;
@@ -76,12 +79,11 @@ namespace BH.Engine.Environment.SAP
                 for (int i = 0; i <= uSteps; i++)
                 {
                     uValues.Add(start + (step * i));
-
                 }
             }
             else
             {
-                uValues.Add(double.NaN);
+                uValues.Add(-1);
             }
 
             if (gSteps > 0)
@@ -92,12 +94,11 @@ namespace BH.Engine.Environment.SAP
                 for (int i = 0; i <= gSteps; i++)
                 {
                     gValues.Add(start + (step * i));
-
                 }
             }
             else
             {
-                gValues.Add(double.NaN);
+                gValues.Add(-1);
             }
 
             List<(double, double)> test = uValues.SelectMany(u => gValues, (u, g) => (u, g)).ToList();

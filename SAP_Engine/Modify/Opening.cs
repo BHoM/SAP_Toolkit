@@ -94,14 +94,12 @@ namespace BH.Engine.Environment.SAP
                 opening.Width = width;
             }
 
-            if (width != null)
+            if (pitch != null)
             {
                 opening.Pitch = pitch;
             }
 
             return opening;
         }
-
     }
 }
-

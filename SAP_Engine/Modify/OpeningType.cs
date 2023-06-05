@@ -42,41 +42,49 @@ namespace BH.Engine.Environment.SAP
     {
         [Description("Modify opening type from a SAP report object.")]
         [Input("sapObj", "The sap report object to modify.")]
-        [Input("type", "New type name for the windows. For each type")]
+        [Input("type", "New type name for the windows.")]
         [Input("include", "A list of openings by name to modify.")]
         [Input("uvalue", "Uvalue for the new type.")]
         [Input("gvalue", "Gvalue for the new type.")]
         [Output("sapReport", "The modified SAP Report object.")]
-        public static SAPReport ModifyOpeningTypes(this SAPReport sapObj, string type, List<string> include, double uvalue = double.NaN,  double gvalue = double.NaN)
+        public static SAPReport ModifyOpeningTypes(this SAPReport sapObj, string type, List<string> include, double uvalue = -1,  double gvalue = -1)
         {
-            if (double.IsNaN(uvalue) && double.IsNaN(gvalue))
+            //TODO: tolerance
+            if ((uvalue < 0) && (gvalue < 0))
             {
                 return null;
             }
 
             if (type == null)
             {
-                string name = string.Empty;
+                //TODO
+                string name = "";
 
-                if (uvalue != double.NaN)
+                //TODO: tolerance
+                if (uvalue > 0)
                 {
                     name = $"uvalue_{uvalue}_{name}";
                 }
 
-                if (gvalue != double.NaN)
+                //TODO: tolerance
+                if (gvalue > 0)
                 {
-                    name = name = $"gvalue_{gvalue}_{name}";
+                    name = $"gvalue_{gvalue}_{name}";
                 }
 
                 type = name;
             }
 
+            //Creating a dictionary with the new name of each type as the key, and the original name of the type as the value.
             var dict = include.Select(x => (type + "_" + x)).Zip(include, (v, k) => new { Key = k, Value = v }).ToDictionary(x => x.Key, x => x.Value);
+
+            //Has an iteration with this name been run
             var valid = dict.Select(x => (include.Contains(x.Value))).Any(x => x == true);
 
             if (valid)
             {
-                BH.Engine.Base.Compute.RecordError("Already a window type with these names."); //come back to this
+                //TODO: come back to this
+                BH.Engine.Base.Compute.RecordError("Already a window type with these names. Please rename your iteration."); 
                 return null;
             }
 
@@ -87,6 +95,7 @@ namespace BH.Engine.Environment.SAP
                 BH.oM.Environment.SAP.XML.BuildingPart partObj = b;
                 List<BH.oM.Environment.SAP.XML.Opening> openingList = new List<oM.Environment.SAP.XML.Opening> ();
 
+                //For each opening, check if it's mentioned in the list and then change it's opening type.
                 foreach (var o in b.Openings.Opening)
                 {
                     BH.oM.Environment.SAP.XML.Opening openingObj = o;
@@ -96,17 +105,18 @@ namespace BH.Engine.Environment.SAP
                         openingObj = openingObj.ModifyOpeningType(dict[o.Type]);
                     }
 
-                    openingList.Add (openingObj);
+                    openingList.Add(openingObj);
                 }
 
                 partObj.Openings.Opening = openingList;
-                buildingPartList.Add (partObj);  
+                buildingPartList.Add(partObj);  
             }
 
             sapObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart = buildingPartList;
 
             List<BH.oM.Environment.SAP.XML.OpeningType> openingsList = sapObj.SAP10Data.PropertyDetails.OpeningTypes.OpeningType;
 
+            //Add the new openings to the list of existing openings
             openingsList = openingsList.InsertOpeningTypes(dict, uvalue, gvalue);
             sapObj.SAP10Data.PropertyDetails.OpeningTypes.OpeningType = openingsList;
 
@@ -119,32 +129,36 @@ namespace BH.Engine.Environment.SAP
         [Input("uvalue", "uvalue for new type.")]
         [Input("gvalue", "gvalue for new type.")]
         [Output("openingTypes", "The modified SAP openingtypes list.")]
-        public static List<BH.oM.Environment.SAP.XML.OpeningType> InsertOpeningTypes(this List<BH.oM.Environment.SAP.XML.OpeningType> typeObj, Dictionary<string, string> dict, double uvalue, double gvalue)
-        {
+        public static List<BH.oM.Environment.SAP.XML.OpeningType> InsertOpeningTypes(this List<BH.oM.Environment.SAP.XML.OpeningType> typeObj, Dictionary<string, string> dict, double uvalue = -1, double gvalue = -1)
+        {   
+            //Gets a list of all the opening type names
             List<string> typeNames = typeObj.Select(x => x.Name).ToList();
 
             List<BH.oM.Environment.SAP.XML.OpeningType> newTypes = new List<oM.Environment.SAP.XML.OpeningType>();
 
+            //For each type that has been renamed
             foreach (var t in dict)
             {
                 if (typeNames.Contains(t.Key))
                 {
                     var test = typeObj.Where(x => x.Description == t.Key).ToList();
+
                     if (test.IsNullOrEmpty())
                     {
+                        BH.Engine.Base.Compute.RecordError("AHHHHHHHH");
                         continue;
                     }
 
                     BH.oM.Environment.SAP.XML.OpeningType newOpening = test.FirstOrDefault().ShallowClone();
 
                     newOpening.Name = t.Value;
-
-                    if (uvalue != double.NaN)
+                    //TODO: tolerance
+                    if (uvalue > 0)
                     {
                         newOpening.UValue = uvalue.ToString();
                     }
-                    
-                    if (gvalue != double.NaN)
+                    //TODO: tolerance
+                    if (gvalue > 0)
                     {
                         newOpening.gValue = gvalue.ToString();
                     }
@@ -167,4 +181,3 @@ namespace BH.Engine.Environment.SAP
         }
     }
 }
-

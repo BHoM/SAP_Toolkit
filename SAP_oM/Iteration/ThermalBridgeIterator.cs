@@ -26,7 +26,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 using BH.oM.Environment.SAP.XML;
 using BH.oM.Environment.SAP;
 using System.ComponentModel;
@@ -34,7 +33,6 @@ using BH.oM.Base;
 using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.XML
-
 {
     [Description("Input changes to make to thermal bridge objects.")]
     public class ThermalBridgeIterator : IObject
@@ -46,5 +44,3 @@ namespace BH.oM.Environment.SAP.XML
         public virtual double PsiValue { get; set; } = 0.0;
     }
 }
-
-
