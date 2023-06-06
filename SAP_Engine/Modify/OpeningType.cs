@@ -198,7 +198,6 @@ namespace BH.Engine.Environment.SAP
                     newOpening.Name = $"{name} ({counts[name]})";
                     newOpening.Description = t.Value;
 
-                    BH.Engine.Base.Compute.RecordWarning("In main: " + newOpening.Name + "/" + newOpening.Description);
                     nameAndType.Add(newOpening.Description,newOpening.Name);
 
                     //TODO: tolerance
@@ -231,7 +230,6 @@ namespace BH.Engine.Environment.SAP
         [Output("opening", "Modified opening.")]
         public static BH.oM.Environment.SAP.XML.Opening ModifyOpeningType(this BH.oM.Environment.SAP.XML.Opening opening, string type)
         {
-            BH.Engine.Base.Compute.RecordWarning("Change window type from (" + opening.Type + ") to (" + type + ")");
             opening.Type = type;
             return opening;
         }
