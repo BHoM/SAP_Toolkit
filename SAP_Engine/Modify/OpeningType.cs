@@ -133,9 +133,6 @@ namespace BH.Engine.Environment.SAP
 
             sapObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart = buildingPartList;
 
-           
-
-           
             return sapObj;
         }
 
@@ -178,7 +175,6 @@ namespace BH.Engine.Environment.SAP
                     //Finds matching type
                     var test = typeObj.Where(x => x.Description == t.Key).ToList();
 
-
                     if (test.IsNullOrEmpty())
                     {
                         //TODO: please fix this :(
@@ -199,7 +195,6 @@ namespace BH.Engine.Environment.SAP
                         counts[name] = 1;
                     }
                     
-
                     newOpening.Name = $"{name} ({counts[name]})";
                     newOpening.Description = t.Value;
 
@@ -241,10 +236,9 @@ namespace BH.Engine.Environment.SAP
             return opening;
         }
 
-        [Description("Change the opening types of an opening.")]
-        [Input("opening", "Opening to modify the type of.")]
-        [Input("type", "Type to change to.")]
-        [Output("opening", "Modified opening.")]
+        [Description("Counts how many type of each name is listed.")]
+        [Input("openingNames", "List of all opening names.")]
+        [Output("openingCount", "A dictionary that counts how many of each type are named.")]
         public static Dictionary<string,int> CountOpeningType(this List<string> openingNames)
         {
             List<(string,int)> val = new List<(string,int)> ();
