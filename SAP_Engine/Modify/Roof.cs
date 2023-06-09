@@ -50,15 +50,18 @@ namespace BH.Engine.Environment.SAP
         {
             List<BH.oM.Environment.SAP.XML.BuildingPart> buildingPartList = new List<oM.Environment.SAP.XML.BuildingPart>();
 
+            //Foreach building part
             foreach (var b in sapObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
             {
                 BH.oM.Environment.SAP.XML.BuildingPart partObj = b;
                 List<BH.oM.Environment.SAP.XML.Roof> roofList = new List<BH.oM.Environment.SAP.XML.Roof>();
 
+                //foreach roof object
                 foreach (var w in b.Roofs.Roof)
                 {
                     BH.oM.Environment.SAP.XML.Roof roofObj = w;
 
+                    //If the name of the roof object is in include(list of roof objects to modify) then modify it.
                     if (include.Contains(w.Description))
                     {
                         roofObj = roofObj.ModifyRoof(uvalue, newRoofName);
@@ -91,6 +94,7 @@ namespace BH.Engine.Environment.SAP
                 tempDesc = $"uvalue_{uvalue}_{tempDesc}";
             }
 
+            //If floor description(its name) is null, replace with the string which combines the new uvalue and the name of the new floor.
             roof.Description = (description != null ? description : tempDesc);
            
             return roof;

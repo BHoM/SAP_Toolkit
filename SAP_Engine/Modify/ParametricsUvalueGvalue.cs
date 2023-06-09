@@ -45,6 +45,7 @@ namespace BH.Engine.Environment.SAP
         [Input("sapObj", "SAPReport object to modify")]
         [Input("file", "File settings object to specify the folder to save the files.")]
         [Input("include", "A list of opening types to change in this study.")]
+        [Input("psiValues", "Psi Values of all the thermal bridge objects.")]
         [Input("upperUValue", "Upper bound for uvalue.")]
         [Input("lowerUValue", "Lower bound for uvalue.")]
         [Input("uSteps", "Number of steps for uvalue.")]
@@ -53,16 +54,16 @@ namespace BH.Engine.Environment.SAP
         [Input("gSteps", "Number of steps for gvalue.")]
         [MultiOutput(0, "SAPReports", "A list of the SAPReports.")]
         [MultiOutput(1, "saveFiles", "A list of file settings objects corresponding to each iteration")]
-        public static Output<List<SAPReport>, List<FileSettings>> ParametricsUvalueGvalue(this SAPReport sapObj, FileSettings file, List<string> include, double upperUValue = -1, double lowerUValue = -1, int uSteps = 0, double upperGValue = -1, double lowerGValue = -1, int gSteps = 0)
+        public static Output<List<SAPReport>, List<FileSettings>> ParametricsUvalueGvalue(this SAPReport sapObj, FileSettings file, List<string> include, PsiValues psiValues, double upperUValue = -1, double lowerUValue = -1, int uSteps = 0, double upperGValue = -1, double lowerGValue = -1, int gSteps = 0)
         {
             //TODO
-            if (uSteps > 0 && (upperUValue > 0 || lowerUValue > 0))
+            if (uSteps > 0 && (upperUValue < 0 || lowerUValue < 0))
             {
                 BH.Engine.Base.Compute.RecordError("UValue bounds have not been set properly.");
                 return null;
             }
 
-            if (gSteps > 0 && (upperGValue > 0 || lowerGValue > 0))
+            if (gSteps > 0 && (upperGValue < 0 || lowerGValue < 0))
             {
                 BH.Engine.Base.Compute.RecordError("GValue bounds have not been set properly.");
                 return null;
@@ -101,10 +102,10 @@ namespace BH.Engine.Environment.SAP
                 gValues.Add(-1);
             }
 
-            List<(double, double)> test = uValues.SelectMany(u => gValues, (u, g) => (u, g)).ToList();
+            List<(double, double)> temp = uValues.SelectMany(u => gValues, (u, g) => (u, g)).ToList();
             List<Parameters> typeIteratorLists = new List<Parameters>();
 
-            foreach ((var u, var g) in test)
+            foreach ((var u, var g) in temp)
             {
                 //Change this - it doesn't work if no u or g values are inputted
                 string name = $"uvalue_{u}_gvalue_{g}";
@@ -125,7 +126,7 @@ namespace BH.Engine.Environment.SAP
                 typeIteratorLists.Add(iteration);
             }
 
-            return (sapObj.ParametricStudy(typeIteratorLists, file));
+            return (sapObj.ParametricStudy(typeIteratorLists, file, psiValues));
         }  
     }
 }

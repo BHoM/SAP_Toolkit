@@ -48,20 +48,33 @@ namespace BH.Engine.Environment.SAP
         [Input("sapObj", "Input the SAPReport object to modify.")]
         [Input("iteration", "Input the iteration settings.")]
         [Input("saveFile", "Input the file settings, the file name will be changed based on the iteration.")]
+        [Input("psiValues", "Psi Values of all the thermal bridge objects.")]
         [MultiOutput(0, "sapObjects", "Multiple iterations of the sapObject.")]
         [MultiOutput(1, "fileSettings", "Multiple sets of filesettings.")]
-        public static Output<List<SAPReport>, List<FileSettings>> ParametricStudy(this SAPReport sapObj, List<Parameters> iteration, FileSettings saveFile)
+        public static Output<List<SAPReport>, List<FileSettings>> ParametricStudy(this SAPReport sapObj, List<Parameters> iteration, FileSettings saveFile, BH.oM.Environment.SAP.PsiValues psiValues)
         {
+            //Output the original file
             List<SAPReport> reports = new List<SAPReport>
             {
                 sapObj 
             };
 
+            //Output the original file settings
             List<FileSettings> files = new List<FileSettings>
             {
                 saveFile
             };
 
+            //Checking to make sure iterations have unique names
+            List<string> iterations = iteration.Select(x => x.IterationName).ToList();
+
+            if (iterations.Count > iterations.Distinct().Count())
+            {
+                BH.Engine.Base.Compute.RecordError("Please make sure your iterations have unique names.");
+                return null;
+            }
+            
+            //For each parametric study set up
             foreach (var i in iteration)
             {
                 SAPReport reportObj = sapObj.DeepClone();
@@ -72,12 +85,14 @@ namespace BH.Engine.Environment.SAP
                     return null;
                 }
 
+                //Modify the SAPReport in the ways specified in the iteration set up
                 reportObj = reportObj.ParametricsOpeningType(i.OpeningTypes, i.IterationName);
                 reportObj = reportObj.ParametricsOpening(i.Openings, i.IterationName);
                 reportObj = reportObj.ParametricsOrientation(i.Orientation, i.IterationName);
                 reportObj = reportObj.ParametricsWall(i.Walls, i.IterationName);
                 reportObj = reportObj.ParametricsRoof(i.Roofs, i.IterationName);
                 reportObj = reportObj.ParametricsFloor(i.Floors, i.IterationName);
+                reportObj = reportObj.ThermalBridgesFromOpening(psiValues);
                 reportObj = reportObj.ParametricsThermalBridge(i.ThermalBridges, i.IterationName);
 
                 reports.Add(reportObj);
@@ -115,7 +130,7 @@ namespace BH.Engine.Environment.SAP
 
             if (!valid)
             {
-                string e = $"TestIteration {iterationName} has opening types that are modified multiple times within the iteration. Please correct this before moving on.";
+                string e = $"Iteration \"{iterationName}\" has opening types that are modified multiple times within the iteration. Please correct this before moving on.";
                 BH.Engine.Base.Compute.RecordError(e);
                 return null;
             }
@@ -145,7 +160,7 @@ namespace BH.Engine.Environment.SAP
 
             if (!valid)
             {
-                string e = $"TestIteration {iterationName} has openings that are modified multiple times within the iteration. Please correct this before moving on.";
+                string e = $"Iteration \"{iterationName}\" has openings that are modified multiple times within the iteration. Please correct this before moving on.";
                 BH.Engine.Base.Compute.RecordError(e);
                 return null;
             }
@@ -202,7 +217,7 @@ namespace BH.Engine.Environment.SAP
 
             if (!valid)
             {
-                string e = $"TestIteration {iterationName} has walls that are modified multiple times within the iteration. Please correct this before moving on.";
+                string e = $"Iteration \"{iterationName}\" has walls that are modified multiple times within the iteration. Please correct this before moving on.";
                 BH.Engine.Base.Compute.RecordError(e);
                 return null;
             }
@@ -232,7 +247,7 @@ namespace BH.Engine.Environment.SAP
 
             if (!valid)
             {
-                string e = $"TestIteration {iterationName} has walls that are modified multiple times within the iteration. Please correct this before moving on.";
+                string e = $"Iteration \"{iterationName}\" has roofs that are modified multiple times within the iteration. Please correct this before moving on.";
                 BH.Engine.Base.Compute.RecordError(e);
                 return null;
             }
@@ -262,7 +277,7 @@ namespace BH.Engine.Environment.SAP
 
             if (!valid)
             {
-                string e = $"TestIteration {iterationName} has floors that are modified multiple times within the iteration. Please correct this before moving on.";
+                string e = $"Iteration \"{iterationName}\" has floors that are modified multiple times within the iteration. Please correct this before moving on.";
                 BH.Engine.Base.Compute.RecordError(e);
                 return null;
             }
@@ -294,14 +309,14 @@ namespace BH.Engine.Environment.SAP
 
             if (thermalBridges.Count != thermalBridges.Distinct().Count())
             {
-                string e = $"TestIteration {iterationName} has thermal bridges that are modified multiple times within the iteration. Please correct this before moving on.";
+                string e = $"Iteration \"{iterationName}\" has thermal bridges that are modified multiple times within the iteration. Please correct this before moving on.";
                 BH.Engine.Base.Compute.RecordError(e);
                 return null;
             }
             
             if (thermalBridges.Count != psiValues.Count)
             {
-                string e = $"TestIteration {iterationName}: not all thermal bridges are assigned a psi value. Please correct this before moving on.";
+                string e = $"Iteration \"{iterationName}\" not all thermal bridges are assigned a psi value. Please correct this before moving on.";
                 BH.Engine.Base.Compute.RecordError(e);
                 return null;
             }

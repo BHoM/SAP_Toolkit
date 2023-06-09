@@ -49,6 +49,7 @@ namespace BH.Engine.Environment.SAP
         [Output("sapReport", "The modified SAP Report object.")]
         public static SAPReport MirrorDwelling(this SAPReport sapObj, Mirror mirrorLine)
         {
+            //Nothing inputted
             if (sapObj == null)
             {
                 BH.Engine.Base.Compute.RecordError("No sap object inputted to mirror.");
@@ -57,8 +58,10 @@ namespace BH.Engine.Environment.SAP
 
             BH.oM.Environment.SAP.XML.PropertyDetails propertyDetailsObj = sapObj.SAP10Data.PropertyDetails;
 
+            //Mirror the orientation of the dwelling
             propertyDetailsObj.Orientation = propertyDetailsObj.Orientation.MirrorOrientation(mirrorLine);
 
+            //Try to mirror the PV in EnergySource
             try
             {
                 List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> PVArrays = propertyDetailsObj.EnergySource.PhotovoltaicArrays.PhotovoltaicArray;
@@ -85,6 +88,7 @@ namespace BH.Engine.Environment.SAP
                 BH.Engine.Base.Compute.RecordWarning($"If you have no PV ignore this warning, otherwise: {e.Message}");
             }
 
+            //Try to mirror the PV in MainHeating
             try
             {
                 List<MainHeating> heatingObjs = propertyDetailsObj.Heating.MainHeatingDetails.MainHeating;
@@ -119,6 +123,7 @@ namespace BH.Engine.Environment.SAP
                 BH.Engine.Base.Compute.RecordWarning($"If you have no PV ignore this warning, otherwise: {e.Message}");
             }
 
+            //Mirror each opening in the dwelling
             List<BH.oM.Environment.SAP.XML.BuildingPart> buildingPartObj = propertyDetailsObj.BuildingParts.BuildingPart;
             foreach (var b in buildingPartObj)
             {
@@ -127,7 +132,7 @@ namespace BH.Engine.Environment.SAP
                 {
                     if (o.Orientation == "0" || o.Orientation == "9")
                     {
-                        BH.Engine.Base.Compute.RecordWarning("Window is horizontal and therefore can't be rotated");
+                        BH.Engine.Base.Compute.RecordWarning("Window is horizontal and therefore can't be mirrored");
                         continue;
                     }
                     o.Orientation = o.Orientation.MirrorOrientation(mirrorLine);

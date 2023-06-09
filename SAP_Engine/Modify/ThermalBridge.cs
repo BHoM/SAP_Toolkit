@@ -43,12 +43,11 @@ namespace BH.Engine.Environment.SAP
         {
             List<BH.oM.Environment.SAP.XML.BuildingPart> buildingPartList = new List<oM.Environment.SAP.XML.BuildingPart>();
 
+            //Foreach building part
             foreach (var b in sapObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
             {
                 BH.oM.Environment.SAP.XML.BuildingPart partObj = b;
-
                 partObj.ThermalBridges.ThermalBridge = partObj.ThermalBridges.ThermalBridge.ModifyThermalBridge(tbType, psiValue);
-
                 buildingPartList.Add (partObj);  
             }
 
