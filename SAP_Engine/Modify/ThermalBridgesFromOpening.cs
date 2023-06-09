@@ -40,10 +40,8 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Modify
     {
-        [Description("Removes existing opening thermal bridges and recalculates them from openings")]
-        [Input("thermalBridgeObjs", "Original list of thermal bridge objects.")]
-        [Input("types", "A list of OpeningType objects.")]
-        [Input("openings", "A list of Opening objects.")]
+        [Description("Removes existing opening thermal bridges and recalculates them from openings.")]
+        [Input("sapReportObj", "SAPReport to modify.")]
         [Input("values", "PsiValues object.")]
         [Output("sapReport", "Modifed SAP Report.")]
         public static SAPReport ThermalBridgesFromOpening(this SAPReport sapReportObj, PsiValues values)// List<BH.oM.Environment.SAP.XML.ThermalBridge> thermalBridgeObjs, List<BH.oM.Environment.SAP.XML.OpeningType> types, List<BH.oM.Environment.SAP.XML.Opening> openings, PsiValues values)
