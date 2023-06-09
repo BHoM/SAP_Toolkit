@@ -50,16 +50,19 @@ namespace BH.Engine.Environment.SAP
         {
             List<BH.oM.Environment.SAP.XML.BuildingPart> buildingPartList = new List<oM.Environment.SAP.XML.BuildingPart>();
 
+            //Foreach building part in the dwelling
             foreach (var b in sapObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
             {
                 BH.oM.Environment.SAP.XML.BuildingPart partObj = b;
                 List<BH.oM.Environment.SAP.XML.Opening> openingList = new List<oM.Environment.SAP.XML.Opening>();
 
+                //Foreach opening
                 foreach (var o in b.Openings.Opening)
                 {
                     BH.oM.Environment.SAP.XML.Opening openingObj = o;
 
-                    if (include.Contains(o.Name)) //change based on example
+                    //If the opening object type is in include(list of opening Types to modify) then modify it.
+                    if (include.Contains(o.Type)) //change based on example
                     {
                         openingObj = openingObj.ModifyOpening(height, width, pitch);
                     }
@@ -70,7 +73,6 @@ namespace BH.Engine.Environment.SAP
                 partObj.Openings.Opening = openingList;
                 buildingPartList.Add(partObj);
             }
-
             sapObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart = buildingPartList;
 
             return sapObj;

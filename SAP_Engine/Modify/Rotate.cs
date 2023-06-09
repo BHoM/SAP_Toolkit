@@ -50,6 +50,7 @@ namespace BH.Engine.Environment.SAP
         [Output("sapReport", "The mirrored report.")]
         public static SAPReport RotateDwelling(this SAPReport sapObj, string rotation)
         {
+            //Nothing inputted
             if (sapObj == null)
             {
                 BH.Engine.Base.Compute.RecordError("No sap object inputted to mirror.");
@@ -57,9 +58,10 @@ namespace BH.Engine.Environment.SAP
             }
 
             BH.oM.Environment.SAP.XML.PropertyDetails propertyDetailsObj = sapObj.SAP10Data.PropertyDetails;
-
+            //Rotate the orientation of the dwelling
             propertyDetailsObj.Orientation = propertyDetailsObj.Orientation.RotateOrientation(rotation);
 
+            //Try to rotate the PV in EnergySource
             try
             {
                 List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> PVArrays = propertyDetailsObj.EnergySource.PhotovoltaicArrays.PhotovoltaicArray;
@@ -85,6 +87,8 @@ namespace BH.Engine.Environment.SAP
             {
                 BH.Engine.Base.Compute.RecordWarning("If you have no PV ignore this warning, otherwise:" + e.Message);
             }
+
+            //Try to rotate the PV in MainHeating
             try
             {
                 List<MainHeating> heatingObjs = propertyDetailsObj.Heating.MainHeatingDetails.MainHeating;
@@ -117,6 +121,7 @@ namespace BH.Engine.Environment.SAP
                 BH.Engine.Base.Compute.RecordWarning("If you have no PV ignore this warning, otherwise:" + e.Message);
             }
 
+            //Rotate each opening in the dwelling
             List<BH.oM.Environment.SAP.XML.BuildingPart> buildingPartObj = propertyDetailsObj.BuildingParts.BuildingPart;
             foreach (var b in buildingPartObj)
             {

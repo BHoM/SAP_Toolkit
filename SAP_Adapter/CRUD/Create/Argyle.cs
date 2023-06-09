@@ -51,6 +51,7 @@ namespace BH.Adapter.SAP
 
         private static bool RemoveNil(FileSettings file)
         {
+            //Properties with type bool?, if left as null, will serialize to have value xsi:nil, this method removes these
             var path = Path.Combine(file.Directory, file.FileName);
             var xmlFile = File.ReadAllLines(path);
 

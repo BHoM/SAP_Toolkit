@@ -55,11 +55,12 @@ namespace BH.Engine.Environment.SAP
                 BH.oM.Environment.SAP.XML.BuildingPart partObj = b;
                 List<BH.oM.Environment.SAP.XML.FloorDimension> floorList = new List<BH.oM.Environment.SAP.XML.FloorDimension>();
 
-                //foreach floordimension object
+                //foreach floor-dimension object
                 foreach (var w in b.FloorDimensions.FloorDimension)
                 {
                     BH.oM.Environment.SAP.XML.FloorDimension floorObj = w;
 
+                    //If the name of the floor object is in include(list of floor objects to modify) then modify it.
                     if (include.Contains(w.Description))
                     {
                         floorObj = floorObj.ModifyFloor(uvalue, floorName);
@@ -92,6 +93,7 @@ namespace BH.Engine.Environment.SAP
                 tempDesc = $"uvalue_{uvalue}_{tempDesc}";
             }
 
+            //If floor description(its name) is null, replace with the string which combines the new uvalue and the name of the new floor.
             floor.Description = (description != null ? description : tempDesc);
             
             return floor;

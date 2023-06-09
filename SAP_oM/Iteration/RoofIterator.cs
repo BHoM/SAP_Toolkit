@@ -37,8 +37,8 @@ namespace BH.oM.Environment.SAP.XML
     [Description("Input changes to make to roof objects.")]
     public class RoofIterator : IObject
     {
-        [Description("Wall height to change to.")]
-        public virtual double Area { get; set; } = 0.0;
+        //[Description("Wall height to change to.")]
+        //public virtual double Area { get; set; } = 0.0;
 
         [Description("Wall area to switch to.")]
         public virtual double UValue { get; set; } = 0.0;

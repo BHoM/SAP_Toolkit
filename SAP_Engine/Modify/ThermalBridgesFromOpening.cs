@@ -40,72 +40,138 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Modify
     {
+        [Description("Removes existing opening thermal bridges and recalculates them from openings")]
+        [Input("thermalBridgeObjs", "Original list of thermal bridge objects.")]
+        [Input("types", "A list of OpeningType objects.")]
+        [Input("openings", "A list of Opening objects.")]
+        [Input("values", "PsiValues object.")]
+        [Output("sapReport", "Modifed SAP Report.")]
+        public static SAPReport ThermalBridgesFromOpening(this SAPReport sapReportObj, PsiValues values)// List<BH.oM.Environment.SAP.XML.ThermalBridge> thermalBridgeObjs, List<BH.oM.Environment.SAP.XML.OpeningType> types, List<BH.oM.Environment.SAP.XML.Opening> openings, PsiValues values)
+        {
+            List<string> windowTB = new List<string> { "R1", "R2", "R3", "E2", "E3", "E4",};
+
+            //List of opening types
+            List<BH.oM.Environment.SAP.XML.OpeningType> types = sapReportObj.SAP10Data.PropertyDetails.OpeningTypes.OpeningType;
+
+            List<BH.oM.Environment.SAP.XML.BuildingPart> buildingParts = new List<oM.Environment.SAP.XML.BuildingPart>();
+
+            foreach (var partObj in sapReportObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
+            {
+                //Remove any window thermal bridges
+                List<BH.oM.Environment.SAP.XML.ThermalBridge> thermalBridges = partObj.ThermalBridges.ThermalBridge.Where(x => !windowTB.Contains(x.Type)).ToList();
+
+                //List of openings
+                List<BH.oM.Environment.SAP.XML.Opening> openings = partObj.Openings.Opening;
+
+                //For each wall, is it a curtain wall
+                Dictionary<string,bool> abc = partObj.Walls.Wall.Select(x => new { x.Name, x.CurtainWall }).ToDictionary(x => x.Name, x => x.CurtainWall);
+
+                //Recalculate window thermal bridges and add back in
+                thermalBridges.AddRange(types.ThermalBridgesFromOpening(partObj.Openings.Opening, values, abc));
+
+                partObj.ThermalBridges.ThermalBridge = thermalBridges;
+                buildingParts.Add(partObj);
+
+            }
+            sapReportObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart = buildingParts;
+
+            return sapReportObj;
+        }
+
         [Description("Creates thermalBridge objects from the opening widths/heights.")]
         [Input("types", "A list of OpeningType objects.")]
         [Input("openings", "A list of Opening objects.")]
         [Input("values", "PsiValues object.")]
-        [Output("tb", "A list of ThermalBridge objects.")]
-        public static List<BH.oM.Environment.SAP.XML.ThermalBridge> ThermalBridgesFromOpening(this List<BH.oM.Environment.SAP.XML.OpeningType> types, List<BH.oM.Environment.SAP.XML.Opening> openings, PsiValues values)
+        [Output("thermalBridge", "A list of ThermalBridge objects.")]
+        public static List<BH.oM.Environment.SAP.XML.ThermalBridge> ThermalBridgesFromOpening(this List<BH.oM.Environment.SAP.XML.OpeningType> types, List<BH.oM.Environment.SAP.XML.Opening> openings, PsiValues values, Dictionary<string,bool> walls)
         {
             List<BH.oM.Environment.SAP.XML.ThermalBridge> thermalBridges = new List<BH.oM.Environment.SAP.XML.ThermalBridge>();
 
             Dictionary<string, string> properties = types.Select(x => new { x.Name, x.Type }).ToDictionary(x => x.Name, x => x.Type);
             foreach (var opening in openings)
             {
+                //If opening location is a curtain wall then ignore it
+                if (walls.ContainsKey(opening.Location))
+                {
+                    if (walls[opening.Location] == true)
+                    {
+                        continue;
+                    }
+                }
+
+                //If opening is a rooflight/roof window
                 if (properties[opening.Type] == "5" || properties[opening.Type] == "6")
                 {
+                    //Roof opening thermal bridges
                     List<string> tbs = new List<string> { "R1", "R2", "R3", "R3" };
 
-                    List<double> roofValues = tbs.Select(x => (double)values.GetType().GetProperty(x).GetValue(values, null)).ToList();
+                    //Get the psi values for the thermal bridges specified
+                    List<double> roofPsiValues = tbs.Select(x => (double)values.GetType().GetProperty(x).GetValue(values, null)).ToList();
 
-                    if ((roofValues.Any(x => x < 0)) != true)
+                    if ((roofPsiValues.Any(x => x < 0)) != true)
                     {
                         BH.Engine.Base.Compute.RecordError("Thermal bridges for rooflights/skylights are not defined properly.");
                         return null;
                     }
-                    List<(string, double)> roofTB = tbs.Zip(roofValues, (t, r) => (t, r)).ToList();
 
-                    foreach (var i in roofTB)
+                    List<(string, double)> roofThermalBridge = tbs.Zip(roofPsiValues, (t, r) => (t, r)).ToList();
+
+                    //For each thermal Bridge
+                    foreach (var i in roofThermalBridge)
                     {
-                        BH.oM.Environment.SAP.XML.ThermalBridge tb = new oM.Environment.SAP.XML.ThermalBridge();
+                        BH.oM.Environment.SAP.XML.ThermalBridge thermalBridge = new oM.Environment.SAP.XML.ThermalBridge();
+                        //Assign properties
+                        thermalBridge.Type = i.Item1;
+                        thermalBridge.PsiValue = i.Item2;
+                        thermalBridge.CalculationReference = $"{opening.Name}_{opening.Type}_{opening.Location}";
+                        if (i.Item1.EndsWith("3")) 
+                        { 
+                            thermalBridge.Length = double.Parse(opening.Height); 
+                        }
+                        else 
+                        { 
+                            thermalBridge.Length = double.Parse(opening.Width); 
+                        }
 
-                        tb.Type = i.Item1;
-                        tb.PsiValue = i.Item2;
-                        tb.CalculationReference = $"{opening.Name}_{opening.Type}_{opening.Location}";
-                        if (i.Item1.EndsWith("3")) { tb.Length = double.Parse(opening.Height); }
-                        else { tb.Length = double.Parse(opening.Width); }
-
-                        thermalBridges.Add(tb);
+                        thermalBridges.Add(thermalBridge);
                     }
                 }
                 else
                 {
+                    //Other opening thermal bridges
                     List<string> tbs = new List<string> { "E2", "E4", "E4" };
                     if (properties[opening.Type] == "4")
                     {
                         tbs.Add("E3");
                     }
 
+                    //Get the psi values for the thermal bridges specified
                     List<double> roofValues = tbs.Select(x => (double)values.GetType().GetProperty(x).GetValue(values, null)).ToList();
-
-                    //test.Add(roofValues);
 
                     if ((roofValues.Any(x => x < 0)) == true)
                     {
                         BH.Engine.Base.Compute.RecordError("Thermal bridges for external junctions are not defined properly.");
                         return null;
                     }
+
                     List<(string, double)> externalTB = tbs.Zip(roofValues, (t, r) => (t, r)).ToList();
 
+                    //For each thermal Bridge
                     foreach (var i in externalTB)
                     {
                         BH.oM.Environment.SAP.XML.ThermalBridge tb = new oM.Environment.SAP.XML.ThermalBridge();
-
+                        //Assign properties
                         tb.Type = i.Item1;
                         tb.PsiValue = i.Item2;
                         tb.CalculationReference = $"{opening.Name}_{opening.Type}_{opening.Location}";
-                        if (i.Item1.EndsWith("4")) { tb.Length = double.Parse(opening.Height); }
-                        else { tb.Length = double.Parse(opening.Width); }
+                        if (i.Item1.EndsWith("4"))
+                        { 
+                            tb.Length = double.Parse(opening.Height); 
+                        }
+                        else 
+                        { 
+                            tb.Length = double.Parse(opening.Width); 
+                        }
 
                         thermalBridges.Add(tb);
                     }

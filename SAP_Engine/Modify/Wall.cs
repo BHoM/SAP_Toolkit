@@ -51,15 +51,18 @@ namespace BH.Engine.Environment.SAP
         {
             List<BH.oM.Environment.SAP.XML.BuildingPart> buildingPartList = new List<oM.Environment.SAP.XML.BuildingPart>();
 
+            //Foreach building part
             foreach (var b in sapObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
             {
                 BH.oM.Environment.SAP.XML.BuildingPart partObj = b;
                 List<BH.oM.Environment.SAP.XML.Wall> wallList = new List<BH.oM.Environment.SAP.XML.Wall>();
 
+                //foreach wall object
                 foreach (var w in b.Walls.Wall)
                 {
                     BH.oM.Environment.SAP.XML.Wall wallObj = w;
 
+                    //If the name of the wall object is in include(list of wall objects to modify) then modify it.
                     if (include.Contains(w.Description))
                     {
                         wallObj = wallObj.ModifyWall(uvalue, curtainWall, newWallName);
@@ -99,6 +102,7 @@ namespace BH.Engine.Environment.SAP
                 tempDesc = $"curtainWall_{curtainWall.ToString()}_{tempDesc}";
             }
 
+            //If wall description(its name) is null, replace with the string which combines the changes and the name of the new wall.
             wall.Description = (description != null ? description : tempDesc);
 
             return wall;
