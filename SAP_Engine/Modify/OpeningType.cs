@@ -135,8 +135,12 @@ namespace BH.Engine.Environment.SAP
         [Output("openingTypes", "The modified SAP openingtypes list.")]
         public static List<BH.oM.Environment.SAP.XML.OpeningType> InsertOpeningType(this List<BH.oM.Environment.SAP.XML.OpeningType> typeObj, Dictionary<string, Dictionary<string, string>> convert, double uvalue = -1, double gvalue = -1)
         {
+            List <BH.oM.Environment.SAP.XML.OpeningType> modifiedOpenings = new List<oM.Environment.SAP.XML.OpeningType>();
+
             foreach (var item in typeObj)
             {
+                modifiedOpenings.Add(item);
+
                 if (convert.ContainsKey(item.Description))
                 {
                     BH.oM.Environment.SAP.XML.OpeningType newOpening = item.ShallowClone();
@@ -156,10 +160,10 @@ namespace BH.Engine.Environment.SAP
                         newOpening.gValue = gvalue.ToString();
                     }
 
-                    typeObj.Add(newOpening);
+                    modifiedOpenings.Add(newOpening);
                 }
             }
-            return typeObj;
+            return modifiedOpenings;
         }
 
         [Description("Insert opening types into the list of existing opening types.")]
