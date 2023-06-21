@@ -16,7 +16,11 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                 
  * GNU Lesser General Public License for more details.                          
  *                                                                            
+<<<<<<< HEAD
  * You should have received a copy of the GNU Lesser General Public License     
+=======
+ * You should have received openingTypes copy of the GNU Lesser General Public License     
+>>>>>>> 0354449 (My laptop is dying - I'm saving things here.)
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
@@ -73,4 +77,8 @@ namespace BH.Engine.Environment.SAP
             return windowArea;
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0354449 (My laptop is dying - I'm saving things here.)

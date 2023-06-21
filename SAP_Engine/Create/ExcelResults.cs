@@ -22,56 +22,66 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Net;
-using System.IO;
-
-using BH.oM.Environment.MaterialFragments;
+using System.ComponentModel;
 
 using BH.oM.Base.Attributes;
-using System.ComponentModel;
-using BH.oM.Environment.SAP.XML;
+using BH.oM.Environment.SAP;
+using BH.oM.Environment.Elements;
+using BH.oM.Geometry;
+using BH.Engine.Geometry;
+using BH.Engine.Units;
+using BH.oM.Spatial.SettingOut;
+using BH.oM.Analytical.Elements;
+using BH.oM.Base;
 using BH.Engine.Base;
+using BH.oM.Environment.SAP.XML;
 
 namespace BH.Engine.Environment.SAP
 {
-    public static partial class Query
-<<<<<<< HEAD
+    public static partial class Create
     {
-=======
-    {   
->>>>>>> 0354449 (My laptop is dying - I'm saving things here.)
-        [Description("From a SAPReport, returns the Total Floor Area of the dwelling.")]
-        [Input("report", "The report to get the TFA from.")]
-        [Output("TFA", "The total floor area of the dwelling.")]
-        public static double TotalFloorArea(this SAPReport report)
+        /***************************************************/
+        /**** Public Methods                            ****/
+        /***************************************************/
+
+        [Description(".")]
+        public static SAPExcelResults ExcelResults(string dwelling, string filename, SAPReport report)
         {
-            double floorArea = 0;
+            EnergyUse energyUseResults = report.EnergyAssessment.EnergyUse;
 
-            foreach (var buildingPart in report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
+            SAPExcelResults results = new SAPExcelResults
             {
-                var floors = buildingPart.FloorDimensions.FloorDimension;
+                Dwelling = dwelling,
 
-                if (floors.IsNullOrEmpty())
-                {
-                    BH.Engine.Base.Compute.RecordError("This is not a valid dwelling as it does not have floor areas. Please add these to your dwelling.");
-                    return 0;
-                }
+                //Todo:remove xml extension
+                Iteration = filename,
 
-                floorArea += floors.Select(x => x.Area).Sum();
-            }
+                WallArea = report.WallArea(),
 
-            return floorArea;
-<<<<<<< HEAD
+                WindowArea = report.WindowArea(),
 
+                TFA = report.TotalFloorArea(),
+
+                DER = energyUseResults.DER,
+
+                TER = energyUseResults.TER,
+
+                DPER = energyUseResults.DPER,
+
+                TPER = energyUseResults.TPER,
+
+                DFEE = energyUseResults.DFEE,
+
+                TFEE = energyUseResults.TFEE
+            };
+
+            return results;            
         }
     }
 }
-=======
-            
-        }
-    }
-}
->>>>>>> 0354449 (My laptop is dying - I'm saving things here.)
+
+

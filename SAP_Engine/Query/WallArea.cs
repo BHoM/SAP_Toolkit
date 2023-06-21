@@ -61,4 +61,8 @@ namespace BH.Engine.Environment.SAP
             return wallArea;
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0354449 (My laptop is dying - I'm saving things here.)
