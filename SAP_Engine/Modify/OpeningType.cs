@@ -55,6 +55,10 @@ namespace BH.Engine.Environment.SAP
         [Output("sapReport", "The modified SAP Report object.")]
         public static SAPReport ModifyOpeningTypes(this SAPReport sapObj, string type, List<string> include, double uvalue = -1, double gvalue = -1)
         {
+            if (include == null)
+            {
+                return sapObj;
+            }
 
             //If no valid values have been set
             if ((uvalue < 0) && (gvalue < 0))
@@ -99,10 +103,12 @@ namespace BH.Engine.Environment.SAP
                 {
                     BH.oM.Environment.SAP.XML.Opening openingObj = o;
 
-                    if (dict.ContainsKey(o.Type))
+                    //Finds in the dictionary the entry with the same type
+                    var item = dict.Where(x => x.Value["Name"] == o.Type).FirstOrDefault().Value;
+
+                    if (!item.IsNullOrEmpty())
                     {
-                        var typeMap = dict[o.Type];
-                        openingObj = openingObj.ModifyOpeningType(typeMap["NewName"]);
+                        openingObj = openingObj.ModifyOpeningType(item["NewName"]);
                     }
 
                     openingList.Add(openingObj);

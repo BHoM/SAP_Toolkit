@@ -79,7 +79,7 @@ namespace BH.Engine.Environment.SAP
 
                 for (int i = 0; i <= uSteps; i++)
                 {
-                    uValues.Add(start + (step * i));
+                    uValues.Add(Math.Round(start + (step * i), 2));
                 }
             }
             else
@@ -94,7 +94,7 @@ namespace BH.Engine.Environment.SAP
 
                 for (int i = 0; i <= gSteps; i++)
                 {
-                    gValues.Add(start + (step * i));
+                    uValues.Add(Math.Round(start + (step * i), 2));
                 }
             }
             else
