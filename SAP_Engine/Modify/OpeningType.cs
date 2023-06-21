@@ -110,7 +110,6 @@ namespace BH.Engine.Environment.SAP
                     {
                         openingObj = openingObj.ModifyOpeningType(item["NewName"]);
                     }
-
                     openingList.Add(openingObj);
                 }
 

@@ -66,7 +66,7 @@ namespace BH.Adapter.SAP
                 var r = new HttpRequestMessage(HttpMethod.Post, postURL);
                 r.Content = new StringContent(xmlData, Encoding.UTF8, "application/xml");
 
-                httpResponse = await httpClient.SendAsync(r);
+                httpResponse = httpClient.SendAsync(r).Result;
             }
 
             if(httpResponse == null)

@@ -22,56 +22,56 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net;
-using System.IO;
-
-using BH.oM.Environment.MaterialFragments;
-
-using BH.oM.Base.Attributes;
 using System.ComponentModel;
-using BH.oM.Environment.SAP.XML;
-using BH.Engine.Base;
+using System.Linq;
+using System.Xml.Serialization;
+using BH.oM.Base;
 
-namespace BH.Engine.Environment.SAP
+namespace BH.oM.Environment.SAP
 {
-    public static partial class Query
-<<<<<<< HEAD
+    [Description("Details of a shower outlet.")]
+    public class SAPExcelResults : IObject
     {
-=======
-    {   
->>>>>>> 0354449 (My laptop is dying - I'm saving things here.)
-        [Description("From a SAPReport, returns the Total Floor Area of the dwelling.")]
-        [Input("report", "The report to get the TFA from.")]
-        [Output("TFA", "The total floor area of the dwelling.")]
-        public static double TotalFloorArea(this SAPReport report)
-        {
-            double floorArea = 0;
+        [Description(".")]
+        public virtual string Dwelling { get; set; } = null;
 
-            foreach (var buildingPart in report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
-            {
-                var floors = buildingPart.FloorDimensions.FloorDimension;
+        [Description(".")]
+        public virtual string Iteration { get; set; } = null;
 
-                if (floors.IsNullOrEmpty())
-                {
-                    BH.Engine.Base.Compute.RecordError("This is not a valid dwelling as it does not have floor areas. Please add these to your dwelling.");
-                    return 0;
-                }
+        [Description(".")]
+        public virtual double WallArea { get; set; } = 0;
 
-                floorArea += floors.Select(x => x.Area).Sum();
-            }
+        [Description(".")]
+        public virtual double WindowArea { get; set; } = 0;
 
-            return floorArea;
-<<<<<<< HEAD
+        [Description(".")]
+        public virtual double TFA { get; set; } = 0;
 
-        }
+        [Description("The DER of the property.")]
+        [XmlElement(ElementName = "DER")]
+        public virtual string DER { get; set; } = null;
+
+        [Description(".")]
+        [XmlElement(ElementName = "TER")]
+        public virtual string TER { get; set; } = null;
+
+        [Description(".")]
+        [XmlElement(ElementName = "DPER")]
+        public virtual string DPER { get; set; } = null;
+
+        [Description(".")]
+        [XmlElement(ElementName = "TPER")]
+        public virtual string TPER { get; set; } = null;
+
+        [Description(".")]
+        [XmlElement(ElementName = "DFEE")]
+        public virtual string DFEE { get; set; } = null;
+
+        [Description(".")]
+        [XmlElement(ElementName = "TFEE")]
+        public virtual string TFEE { get; set; } = null;
+
     }
+
 }
-=======
-            
-        }
-    }
-}
->>>>>>> 0354449 (My laptop is dying - I'm saving things here.)
+

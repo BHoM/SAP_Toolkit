@@ -99,7 +99,7 @@ namespace BH.Engine.Environment.SAP
 
                 FileSettings iterationFile = new FileSettings
                 {
-                    FileName = $"{i.IterationName}_{saveFile.FileName}",
+                    FileName = $"{i.IterationName}_{saveFile.FileName}", 
                     Directory = saveFile.Directory
                 };
 
