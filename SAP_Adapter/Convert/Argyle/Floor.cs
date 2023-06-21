@@ -54,7 +54,7 @@ namespace BH.Engine.Environment.SAP
 
                 xmlFloor.Storey = sapFloorDimensions[i].Storey.StoreyNumber.ToString();
                 xmlFloor.StoreyHeight = sapFloorDimensions[i].Storey.StoreyNumber.ToString();
-                xmlFloor.Area = sapFloorDimensions[i].Storey.Area.ToString();
+                xmlFloor.Area = sapFloorDimensions[i].Storey.Area;
 
                 xmlFloors.Add(xmlFloor);
             }
