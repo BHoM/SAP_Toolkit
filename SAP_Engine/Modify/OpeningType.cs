@@ -55,6 +55,7 @@ namespace BH.Engine.Environment.SAP
         [Output("sapReport", "The modified SAP Report object.")]
         public static SAPReport ModifyOpeningTypes(this SAPReport sapObj, string type, List<string> include, double uvalue = -1, double gvalue = -1)
         {
+
             //If no valid values have been set
             if ((uvalue < 0) && (gvalue < 0))
             {

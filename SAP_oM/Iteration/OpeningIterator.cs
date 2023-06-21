@@ -38,10 +38,10 @@ namespace BH.oM.Environment.SAP.XML
     public class OpeningIterator : IObject
     {
         [Description("New width of opening.")]
-        public virtual string Width { get; set; } = null;
+        public virtual double Width { get; set; } = -1;
 
         [Description("New height of the opening.")]
-        public virtual string Height { get; set; } = null;
+        public virtual double Height { get; set; } = -1;
 
         [Description("New pitch of opening.")]
         public virtual string Pitch { get; set; } = null;

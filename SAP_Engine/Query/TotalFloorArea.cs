@@ -22,45 +22,45 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using BH.oM.Base;
-using System.Xml.Serialization;
+using System.Text;
+using System.Threading.Tasks;
+using System.Net;
+using System.IO;
 
-namespace BH.oM.Environment.SAP.XML
+using BH.oM.Environment.MaterialFragments;
+
+using BH.oM.Base.Attributes;
+using System.ComponentModel;
+using BH.oM.Environment.SAP.XML;
+using BH.Engine.Base;
+
+namespace BH.Engine.Environment.SAP
 {
-    [Serializable]
-    [XmlRoot(ElementName = "SAP-Wall", IsNullable = false)]
-    public class Wall : IObject
+    public static partial class Query
     {
-        [Description("Unique name which identifies this wall within its storey.  Can be just a number, e.g. \"1\".  However, a wall cannot have the same name as an opening or a roof.")]
-        [XmlElement("Name")]
-        public virtual string Name { get; set; } = "Walls (1)";
+        [Description("From a SAPReport, returns the Total Floor Area of the dwelling.")]
+        [Input("report", "The report to get the TFA from.")]
+        [Output("TFA", "The total floor area of the dwelling.")]
+        public static double TotalFloorArea(this SAPReport report)
+        {
+            double floorArea = 0;
 
-        [Description("Descriptive notes about the wall.")]
-        [XmlElement("Description")]
-        public virtual string Description { get; set; } = null;
+            foreach (var buildingPart in report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
+            {
+                var floors = buildingPart.FloorDimensions.FloorDimension;
 
-        [Description("Total wall area in square metres, inclusive of any openings.")]
-        [XmlElement("Total-Wall-Area")]
-        public virtual double Area { get; set; } = -1;
+                if (floors.IsNullOrEmpty())
+                {
+                    BH.Engine.Base.Compute.RecordError("This is not a valid dwelling as it does not have floor areas. Please add these to your dwelling.");
+                    return 0;
+                }
 
-        [Description("Exposed wall U-value.")]
-        [XmlElement("U-Value")]
-        public virtual string UValue { get; set; } = "0.18"; //0.18
+                floorArea += floors.Select(x => x.Area).Sum();
+            }
 
-        [Description("Type of wall (exposure).")]
-        [XmlElement("Wall-Type")]
-        public virtual string Type { get; set; } = "2"; //2
+            return floorArea;
 
-        [Description("Heat capacity per unit area in kJ/m�K.")]
-        [XmlElement("Kappa-Value")]
-        public virtual string KappaValue { get; set; } = null; //14
-
-
-        [Description("Whether the wall is curtain walling.")]
-        [XmlElement("Is-Curtain-Walling")]
-        public virtual bool CurtainWall { get; set; } = false;
+        }
     }
 }
-

@@ -120,14 +120,15 @@ namespace BH.Engine.Environment.SAP
                         //Assign properties
                         thermalBridge.Type = i.Item1;
                         thermalBridge.PsiValue = i.Item2;
+                        thermalBridge.PsiSource = "3";
                         thermalBridge.CalculationReference = $"{opening.Name}_{opening.Type}_{opening.Location}";
                         if (i.Item1.EndsWith("3")) 
                         { 
-                            thermalBridge.Length = double.Parse(opening.Height); 
+                            thermalBridge.Length = opening.Height; 
                         }
                         else 
                         { 
-                            thermalBridge.Length = double.Parse(opening.Width); 
+                            thermalBridge.Length = opening.Width; 
                         }
 
                         thermalBridges.Add(thermalBridge);
@@ -160,14 +161,15 @@ namespace BH.Engine.Environment.SAP
                         //Assign properties
                         tb.Type = i.Item1;
                         tb.PsiValue = i.Item2;
+                        tb.PsiSource = "3";
                         tb.CalculationReference = $"{opening.Name}_{opening.Type}_{opening.Location}";
                         if (i.Item1.EndsWith("4"))
                         { 
-                            tb.Length = double.Parse(opening.Height); 
+                            tb.Length = opening.Height; 
                         }
                         else 
                         { 
-                            tb.Length = double.Parse(opening.Width); 
+                            tb.Length = opening.Width; 
                         }
 
                         thermalBridges.Add(tb);
