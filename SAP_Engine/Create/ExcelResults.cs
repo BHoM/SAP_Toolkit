@@ -48,34 +48,26 @@ namespace BH.Engine.Environment.SAP
         /**** Public Methods                            ****/
         /***************************************************/
 
-        [Description(".")]
-        public static SAPExcelResults ExcelResults(string dwelling, string filename, SAPReport report)
+        [Description("Takes data such as areas of building parts, and results and then pushes to a single object.")]
+        [Input("filename", "Name of the file information is taken from.")]
+        [Input("report", "The SAPReport to get the data from.")]
+        [Output("results", "Results pulled from the report.")]
+        public static SAPExcelResults ExcelResults(string filename, SAPReport report)
         {
             EnergyUse energyUseResults = report.EnergyAssessment.EnergyUse;
 
             SAPExcelResults results = new SAPExcelResults
             {
-                Dwelling = dwelling,
-
-                //Todo:remove xml extension
+                Dwelling = report.ReportHeader.Property.PlotReference,
                 Iteration = filename,
-
                 WallArea = report.WallArea(),
-
                 WindowArea = report.WindowArea(),
-
                 TFA = report.TotalFloorArea(),
-
                 DER = energyUseResults.DER,
-
                 TER = energyUseResults.TER,
-
                 DPER = energyUseResults.DPER,
-
                 TPER = energyUseResults.TPER,
-
                 DFEE = energyUseResults.DFEE,
-
                 TFEE = energyUseResults.TFEE
             };
 
