@@ -38,11 +38,8 @@ using BH.Engine.Base;
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Query
-<<<<<<< HEAD
     {
-=======
-    {   
->>>>>>> 0354449 (My laptop is dying - I'm saving things here.)
+
         [Description("From a SAPReport, returns the Total Floor Area of the dwelling.")]
         [Input("report", "The report to get the TFA from.")]
         [Output("TFA", "The total floor area of the dwelling.")]
@@ -64,14 +61,7 @@ namespace BH.Engine.Environment.SAP
             }
 
             return floorArea;
-<<<<<<< HEAD
 
         }
     }
 }
-=======
-            
-        }
-    }
-}
->>>>>>> 0354449 (My laptop is dying - I'm saving things here.)

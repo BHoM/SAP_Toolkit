@@ -77,8 +77,5 @@ namespace BH.Engine.Environment.SAP
             return windowArea;
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 0354449 (My laptop is dying - I'm saving things here.)
+
