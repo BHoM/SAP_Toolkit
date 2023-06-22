@@ -120,6 +120,7 @@ namespace BH.Engine.Environment.SAP
                         //Assign properties
                         thermalBridge.Type = i.Item1;
                         thermalBridge.PsiValue = i.Item2;
+                        thermalBridge.PsiSource = "3";
                         thermalBridge.CalculationReference = $"{opening.Name}_{opening.Type}_{opening.Location}";
                         if (i.Item1.EndsWith("3")) 
                         { 
@@ -160,6 +161,7 @@ namespace BH.Engine.Environment.SAP
                         //Assign properties
                         tb.Type = i.Item1;
                         tb.PsiValue = i.Item2;
+                        tb.PsiSource = "3";
                         tb.CalculationReference = $"{opening.Name}_{opening.Type}_{opening.Location}";
                         if (i.Item1.EndsWith("4"))
                         { 
