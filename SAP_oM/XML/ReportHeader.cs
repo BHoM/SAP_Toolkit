@@ -79,7 +79,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement(ElementName = "Home-Inspector")]
-        public virtual HomeInspector HomeInspector { get; set; } = null;
+        public virtual HomeInspector HomeInspector { get; set; } = new HomeInspector();
 
         [Description(".")]
         [XmlElement(ElementName = "Property")]

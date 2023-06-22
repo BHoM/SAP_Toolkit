@@ -55,7 +55,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("The total floor area of the storey in square metres.")]
         [XmlElement("Total-Floor-Area")]
-        public virtual string Area { get; set; } = "0";
+        public virtual double Area { get; set; } = -1;
 
         [Description("Heat loss floor U-value.")]
         [XmlElement("U-Value")]
