@@ -43,7 +43,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Total wall area in square metres, inclusive of any openings.")]
         [XmlElement("Total-Wall-Area")]
-        public virtual string Area { get; set; } = null;
+        public virtual string Area { get; set; } = "0";
 
         [Description("Exposed wall U-value.")]
         [XmlElement("U-Value")]
