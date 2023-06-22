@@ -106,7 +106,7 @@ namespace BH.Engine.Environment.SAP
                     //Finds in the dictionary the entry with the same type
                     var item = dict.Where(x => x.Value["Name"] == o.Type).FirstOrDefault().Value;
 
-                    if (!item.IsNullOrEmpty())
+                    if ((item != null) && item.Any())
                     {
                         openingObj = openingObj.ModifyOpeningType(item["NewName"]);
                     }
