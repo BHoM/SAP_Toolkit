@@ -29,22 +29,22 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Details of a shower outlet.")]
+    [Description("An object that holds the main results from a SAPReport.")]
     public class SAPExcelResults : IObject
     {
-        [Description(".")]
+        [Description("The type of dwelling (the plot reference).")]
         public virtual string Dwelling { get; set; } = null;
 
-        [Description(".")]
+        [Description("The name of the iteration file.")]
         public virtual string Iteration { get; set; } = null;
 
-        [Description(".")]
+        [Description("The total wall area of the dwelling.")]
         public virtual double WallArea { get; set; } = 0;
 
-        [Description(".")]
+        [Description("The total window area of the dwelling.")]
         public virtual double WindowArea { get; set; } = 0;
 
-        [Description(".")]
+        [Description("The total floor area of the dwelling..")]
         public virtual double TFA { get; set; } = 0;
 
         [Description("The DER of the property.")]
@@ -70,8 +70,5 @@ namespace BH.oM.Environment.SAP
         [Description(".")]
         [XmlElement(ElementName = "TFEE")]
         public virtual string TFEE { get; set; } = null;
-
     }
-
 }
-
