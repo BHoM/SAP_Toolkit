@@ -47,7 +47,7 @@ namespace BH.Engine.Environment.SAP
         [Input("width", "New width for windows.")]
         [Input("pitch", "New pitch for windows.")]
         [Output("sapReport", "The modified SAP Report object.")]
-        public static SAPReport ModifyOpenings(this SAPReport sapObj, List<string> include, double height, double width, string pitch)
+        public static SAPReport ModifyOpenings(this SAPReport sapObj, List<string> include, string height, string width, string pitch)
         {
             List<BH.oM.Environment.SAP.XML.BuildingPart> buildingPartList = new List<oM.Environment.SAP.XML.BuildingPart>();
 
@@ -85,14 +85,14 @@ namespace BH.Engine.Environment.SAP
         [Input("width", "New width for windows.")]
         [Input("pitch", "New pitch for windows.")]
         [Output("opening", "The modified SAP opening object.")]
-        public static BH.oM.Environment.SAP.XML.Opening ModifyOpening(this BH.oM.Environment.SAP.XML.Opening opening, double height, double width, string pitch)
+        public static BH.oM.Environment.SAP.XML.Opening ModifyOpening(this BH.oM.Environment.SAP.XML.Opening opening, string height, string width, string pitch)
         {
-            if (height < 0)
+            if (height != null)
             {
                 opening.Height = height;
             }
 
-            if (width < 0)
+            if (width != null)
             {
                 opening.Width = width;
             }

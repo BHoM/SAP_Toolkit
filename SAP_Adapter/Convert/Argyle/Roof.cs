@@ -56,8 +56,8 @@ namespace BH.Engine.Environment.SAP
                 xmlOpening.Type = sapRoof.Openings[i].OpeningType.Type.ToString();
                 xmlOpening.Location = sapRoof.Name;
                 xmlOpening.Orientation = sapRoof.Openings[i].Orientation.FromSAPToXML();
-                xmlOpening.Width = sapRoof.Openings[i].Width; 
-                xmlOpening.Height = sapRoof.Openings[i].Height;
+                xmlOpening.Width = sapRoof.Openings[i].Width.ToString();
+                xmlOpening.Height = sapRoof.Openings[i].Height.ToString();
                 xmlOpening.Pitch = sapRoof.Pitch.FromSAPToXML();
                 xmlOpenings.Add(xmlOpening);
             }

@@ -79,7 +79,11 @@ namespace BH.Engine.Environment.SAP
 
                 for (int i = 0; i <= uSteps; i++)
                 {
+<<<<<<< HEAD
                     uValues.Add(Math.Round(start + (step * i), 2));
+=======
+                    uValues.Add(start + (step * i));
+>>>>>>> 9bc323c (Files relevant to issue.)
                 }
             }
             else
@@ -94,7 +98,7 @@ namespace BH.Engine.Environment.SAP
 
                 for (int i = 0; i <= gSteps; i++)
                 {
-                    gValues.Add(Math.Round(start + (step * i),2));
+                    gValues.Add(start + (step * i));
                 }
             }
             else

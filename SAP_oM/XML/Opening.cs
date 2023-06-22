@@ -47,11 +47,11 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("The height of the opening in metres.  If the Height field is used to record the opening area, set the Width to 1.")]
         [XmlElement("Height")]
-        public virtual double Height { get; set; } = -1;
+        public virtual string Height { get; set; } = null;
 
         [Description("The width of the opening in metres.  If the Width field is used to record the opening area, set the Height to 1.")]
         [XmlElement("Width")]
-        public virtual double Width { get; set; } = -1;
+        public virtual string Width { get; set; } = null;
 
         [Description("Compass direction in which the opening faces.")]
         [XmlElement("Orientation")]
