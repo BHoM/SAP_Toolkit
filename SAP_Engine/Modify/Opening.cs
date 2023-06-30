@@ -51,6 +51,9 @@ namespace BH.Engine.Environment.SAP
         {
             List<BH.oM.Environment.SAP.XML.BuildingPart> buildingPartList = new List<oM.Environment.SAP.XML.BuildingPart>();
 
+            List<BH.oM.Environment.SAP.XML.OpeningType> types = sapObj.SAP10Data.PropertyDetails.OpeningTypes.OpeningType;
+            Dictionary<string, string> typeMap = types.Select(x => new { Key = x.Name, Value = x.Description }).ToDictionary(x => x.Key, x => x.Value);
+
             //Foreach building part in the dwelling
             foreach (var b in sapObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
             {
@@ -63,7 +66,7 @@ namespace BH.Engine.Environment.SAP
                     BH.oM.Environment.SAP.XML.Opening openingObj = o;
 
                     //If the opening object type is in include(list of opening Types to modify) then modify it.
-                    if (include.Contains(o.Type)) //change based on example
+                    if (include.Contains(typeMap[o.Type])) //change based on example
                     {
                         openingObj = openingObj.ModifyOpening(height, width, pitch);
                     }
