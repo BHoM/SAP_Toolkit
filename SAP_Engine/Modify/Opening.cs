@@ -90,12 +90,12 @@ namespace BH.Engine.Environment.SAP
         [Output("opening", "The modified SAP opening object.")]
         public static BH.oM.Environment.SAP.XML.Opening ModifyOpening(this BH.oM.Environment.SAP.XML.Opening opening, double height, double width, string pitch)
         {
-            if (height < 0)
+            if (height > 0)
             {
                 opening.Height = height;
             }
 
-            if (width < 0)
+            if (width > 0)
             {
                 opening.Width = width;
             }
