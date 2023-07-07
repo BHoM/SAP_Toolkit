@@ -58,7 +58,7 @@ namespace BH.Engine.Environment.SAP
 
             SAPExcelResults results = new SAPExcelResults
             {
-                Dwelling = report.ReportHeader.Property.PlotReference,
+                Dwelling = report.ReportHeader.Property.UniquePropertyReferenceNumber,
                 Iteration = filename,
                 WallArea = report.WallArea(),
                 WindowArea = report.WindowArea(),
