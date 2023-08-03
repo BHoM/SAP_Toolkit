@@ -35,23 +35,23 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("Report Reference Number is the unique report Identifier that the report will be publicly known by.")]
         [XmlElement(ElementName = "RRN")]
-        public virtual string ReportReferenceNumber { get; set; } = null;
+        public virtual string ReportReferenceNumber { get; set; } = string.Empty;
 
         [Description("The date that the inspection was actually carried out by the Home Inspector. In the form yyyy-mm-dd")]
         [XmlElement(ElementName = "Inspection-Date")]
-        public virtual string InspectionDate { get; set; } = null;
+        public virtual string InspectionDate { get; set; } = "2023-05-23";
 
         [Description("The type of Home Inspection that was carried out.")]
         [XmlElement(ElementName = "Report-Type")]
-        public virtual string ReportType { get; set; } = null;
+        public virtual string ReportType { get; set; } = "3";
 
         [Description("The date that the Home Inspector completed the report. In the form yyyy-mm-dd")]
         [XmlElement(ElementName = "Completion-Date")]
-        public virtual string CompletionDate { get; set; } = null;
+        public virtual string CompletionDate { get; set; } = "2023-05-23";
 
         [Description("The date that the report was submitted to the HCR Registration Organisation for lodging in the HCR Register. In the form yyyy-mm-dd")]
         [XmlElement(ElementName = "Registration-Date")]
-        public virtual string RegistrationDate { get; set; } = null;
+        public virtual string RegistrationDate { get; set; } = "2023-05-23";
 
         [Description("The Status of the Report.")]
         [XmlElement(ElementName = "Status")]
@@ -63,7 +63,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement(ElementName = "Tenure")]
-        public virtual string Tenure { get; set; } = null;//3
+        public virtual string Tenure { get; set; } = "1";//3
 
         [Description(".")]
         [XmlElement(ElementName = "Transaction-Type")]
@@ -71,11 +71,11 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement(ElementName = "Seller-Commission-Report")]
-        public virtual string SellerCommissionReport { get; set; } = null;
+        public virtual string SellerCommissionReport { get; set; } = "Y";
 
         [Description("Describes the type of Property that is being inspected. This should be the same as the Property-Type recorded in the Property-Details section.")]
         [XmlElement(ElementName = "Property-Type")]
-        public virtual string PropertyType { get; set; } = null;//2
+        public virtual string PropertyType { get; set; } = "0";//2
 
         [Description(".")]
         [XmlElement(ElementName = "Home-Inspector")]
@@ -95,6 +95,6 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement(ElementName = "Related-Party-Disclosure")]
-        public virtual RelatedPartyDisclosure RelatedPartyDisclosure { get; set; } = null;
+        public virtual RelatedPartyDisclosure RelatedPartyDisclosure { get; set; } = new RelatedPartyDisclosure();
     }
 }

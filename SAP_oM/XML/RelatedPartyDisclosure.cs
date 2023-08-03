@@ -36,7 +36,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement(ElementName = "Related-Party-Disclosure-Number")]
-        public virtual string RelatedPartyDisclosureNumber { get; set; } = null; //1
+        public virtual string RelatedPartyDisclosureNumber { get; set; } = "1";
 
         [Description(".")]
         [XmlElement(ElementName = "Related-Party-Disclosure-Text")]

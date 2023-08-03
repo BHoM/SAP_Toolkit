@@ -37,6 +37,6 @@ namespace BH.oM.Environment.SAP.XML
         public virtual string Currency { get; set; } = null;
 
         [XmlText]
-        public virtual int Text { get; set; } = 0;
+        public virtual string Text { get; set; } = "0.0";
     }
 }

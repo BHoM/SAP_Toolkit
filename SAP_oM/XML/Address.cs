@@ -35,7 +35,7 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description(".")]
         [XmlElement(ElementName = "Address-Line-1")]
-        public virtual string AddressLine1 { get; set; } = null;
+        public virtual string AddressLine1 { get; set; } = "Street";
 
         [Description(".")]
         [XmlElement(ElementName = "Address-Line-2")]
@@ -47,7 +47,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement(ElementName = "Post-Town")]
-        public virtual string PostTown { get; set; } = null;
+        public virtual string PostTown { get; set; } = string.Empty;
 
         [Description(".")]
         [XmlElement(ElementName = "Postcode")]
