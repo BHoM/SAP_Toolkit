@@ -34,7 +34,8 @@ namespace BH.oM.Environment.SAP
     {
         Undefined,
         Argyle,
-        Stroma
+        Stroma,
+        JPA
     }
 }
 

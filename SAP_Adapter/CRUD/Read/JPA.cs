@@ -22,31 +22,52 @@
 
 using BH.oM.Adapter;
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Stroma10;
+using BH.oM.Environment.SAP.XML;
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using BH.Engine.Adapter;
+using System.Xml.Serialization;
 
 namespace BH.Adapter.SAP
 {
     public partial class SAPAdapter : BHoMAdapter
     {
-        protected override IEnumerable<IBHoMObject> IRead(Type type, IList ids, ActionConfig actionConfig = null)
+        public static SAPReport ReadJPA(FileSettings fileSettingsInput)
         {
-            if (m_Settings.SAPType == oM.Environment.SAP.SAPType.Stroma)
+            CleanJPA(fileSettingsInput);
+
+            XmlSerializerNamespaces xns = new XmlSerializerNamespaces();
+            XmlSerializer szer = new XmlSerializer(typeof(SAPReport));
+
+            TextReader tr = new StreamReader(Path.Combine(fileSettingsInput.Directory, fileSettingsInput.FileName));
+            var data = (SAPReport)szer.Deserialize(tr);
+            tr.Close();
+
+            return data;
+        }
+
+        public static bool CleanJPA(FileSettings fileSettingsInput)
+        {
+            var path = Path.Combine(fileSettingsInput.Directory, fileSettingsInput.FileName);
+            var xmlFile = File.ReadAllLines(path);
+
+            int startIndex = Array.IndexOf(xmlFile, xmlFile.Where(x => x.Contains("<JPA-SAP-Project>")).ToList().FirstOrDefault());
+            int endIndex = Array.IndexOf(xmlFile, xmlFile.Where(x => x.Contains("</JPA-SAP-Project>")).ToList().FirstOrDefault());
+
+            if (startIndex != -1 && endIndex != -1)
             {
-                return new List<IBHoMObject>() { ReadStroma(m_Settings.FileSettings.GetFullFileName()) };
+                var myList = xmlFile.ToList();
+                myList.RemoveRange(startIndex, endIndex - startIndex + 1);
+                xmlFile = myList.ToArray();
+
+                File.Delete(path); File.WriteAllLines(path, xmlFile);
             }
-            if (m_Settings.SAPType == oM.Environment.SAP.SAPType.Argyle)
-            {
-                return new List<IBHoMObject>() { ReadArgyle(m_Settings.FileSettings) };
-            }
-            if (m_Settings.SAPType == oM.Environment.SAP.SAPType.JPA)
-            {
-                return new List<IBHoMObject>() { ReadJPA(m_Settings.FileSettings) };
-            }
-            return null;
+            
+            return true;
         }
     }
 }
