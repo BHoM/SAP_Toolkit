@@ -153,7 +153,7 @@ namespace BH.Engine.Environment.SAP
         }
 
         [Description("Modify the orientation of the PV.")]
-        [Input("PVArrays", "List of photovoltaic arrays to modify the orientation of.")]
+        [Input("pvArrays", "List of photovoltaic arrays to modify the orientation of.")]
         [Input("mirrorLine", "Line to mirror across.")]
         [Output("PVarrayObject", "List of modified PV objects.")]
         public static List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> MirrorPV(this List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> pvArrays, Mirror mirrorLine)
