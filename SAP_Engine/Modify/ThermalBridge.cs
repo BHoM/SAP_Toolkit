@@ -34,13 +34,19 @@ using BH.oM.Environment.SAP;
 using BH.Engine.Base;
 using System.Runtime.InteropServices.ComTypes;
 using BH.oM.Environment.Elements;
+using BH.oM.Base;
+using BH.oM.Base.Attributes;
 
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Modify
     {
         [Description("Modify the Psi value of a type of thermal bridges from a report object.")]
-        public static SAPReport ModifyThermalBridge(this SAPReport sapObj, List<string> tbType, List<double> psiValue)
+        [Input("sapObj", "The sap report object to modify.")]
+        [Input("include", "A list of floors by name to modify.")]
+        [Input("psiValue", "New PsiValue for thermal bridge.")]
+        [Output("sapReport", "The modified SAP Report object.")]
+        public static SAPReport ModifyThermalBridge(this SAPReport sapObj, List<string> include, double psiValue = -1)
         {
             List<BH.oM.Environment.SAP.XML.BuildingPart> buildingPartList = new List<oM.Environment.SAP.XML.BuildingPart>();
 
@@ -48,8 +54,22 @@ namespace BH.Engine.Environment.SAP
             foreach (var b in sapObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
             {
                 BH.oM.Environment.SAP.XML.BuildingPart partObj = b;
-                partObj.ThermalBridges.ThermalBridge = partObj.ThermalBridges.ThermalBridge.ModifyThermalBridge(tbType, psiValue);
-                buildingPartList.Add (partObj);  
+                List<BH.oM.Environment.SAP.XML.ThermalBridge> thermalBridgeList = new List<oM.Environment.SAP.XML.ThermalBridge>();
+
+                //foreach thermal bridge object
+                foreach (var tb in b.ThermalBridges.ThermalBridge)
+                {
+                    BH.oM.Environment.SAP.XML.ThermalBridge tbObj = tb;
+
+                    if (include.Contains(tb.Type)) //or change this to be include.Contains(tb.CalculationReference  based on SAPchat
+                    {
+                        tbObj = tbObj.ModifyThermalBridge(psiValue);
+                    }
+
+                    thermalBridgeList.Add(tbObj);
+                }
+                partObj.ThermalBridges.ThermalBridge = thermalBridgeList;
+                buildingPartList.Add(partObj);
             }
 
             sapObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart = buildingPartList;
@@ -58,24 +78,17 @@ namespace BH.Engine.Environment.SAP
         }
 
         [Description("Modify the Psi value of a type of thermal bridges from a list of thermal bridges.")]
-        public static List<BH.oM.Environment.SAP.XML.ThermalBridge> ModifyThermalBridge(this List<BH.oM.Environment.SAP.XML.ThermalBridge> thermalBridgesObj, List<string> tbType, List<double> psiValue)
+        [Input("tb", "Thermal bridge to modify.")]
+        [Input("psiValue", "New PsiValue for thermal bridge.")]
+        [Output("sapReport", "The modified SAP Report object.")]
+        public static BH.oM.Environment.SAP.XML.ThermalBridge ModifyThermalBridge(this BH.oM.Environment.SAP.XML.ThermalBridge tb, double psiValue)
         {
-            var dict = tbType.Zip(psiValue, (k, v) => new { k, v }).ToDictionary(x => x.k, x => x.v);
-
-            List<BH.oM.Environment.SAP.XML.ThermalBridge> thermalBridgeList = new List<BH.oM.Environment.SAP.XML.ThermalBridge>();
-
-            foreach (var t in thermalBridgesObj)
+            if (psiValue > 0)
             {
-                BH.oM.Environment.SAP.XML.ThermalBridge tbObj = t;
-                if (dict.ContainsKey(t.Type))
-                {
-                    tbObj.PsiValue = dict[tbObj.Type];
-                }
-
-                thermalBridgeList.Add(tbObj);
+                tb.PsiValue = psiValue;
             }
 
-            return thermalBridgeList;
+            return tb;
         }
     }
 }
