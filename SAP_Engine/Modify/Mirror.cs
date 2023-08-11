@@ -156,10 +156,10 @@ namespace BH.Engine.Environment.SAP
         [Input("PVArrays", "List of photovoltaic arrays to modify the orientation of.")]
         [Input("mirrorLine", "Line to mirror across.")]
         [Output("PVarrayObject", "List of modified PV objects.")]
-        public static List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> MirrorPV(this List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> PVArrays, Mirror mirrorLine)
+        public static List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> MirrorPV(this List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> pvArrays, Mirror mirrorLine)
         {
             //For each pv array
-            foreach (var array in PVArrays)
+            foreach (var array in pvArrays)
             {
                 if (array != null)
                 {
@@ -181,7 +181,7 @@ namespace BH.Engine.Environment.SAP
                     continue;
                 }
             }
-            return PVArrays;
+            return pvArrays;
         }
 
         [Description("Change compass direction by mirroring across common lines.")]
