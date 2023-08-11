@@ -48,144 +48,75 @@ namespace BH.Engine.Environment.SAP
     {
         [Description("Modify opening type from a SAP report object.")]
         [Input("sapObj", "The sap report object to modify.")]
-        [Input("type", "New type name for the windows.")]
         [Input("include", "A list of openings by name to modify.")]
         [Input("uvalue", "Uvalue for the new type.")]
         [Input("gvalue", "Gvalue for the new type.")]
         [Output("sapReport", "The modified SAP Report object.")]
-        public static SAPReport ModifyOpeningTypes(this SAPReport sapObj, string type, List<string> include, double uvalue = -1, double gvalue = -1)
+        public static SAPReport ModifyOpeningTypes(this SAPReport sapObj, List<string> include, double uvalue = -1, double gvalue = -1)
         {
-            if (include == null)
+            //Check for null input of sap report
+            if (include == null || ((uvalue < 0) && (gvalue < 0)) || sapObj == null)
             {
-                return sapObj;
+                return null;
             }
 
-            //If no valid values have been set
-            if ((uvalue < 0) && (gvalue < 0))
+            //List of existing opening types
+            List<BH.oM.Environment.SAP.XML.OpeningType> openingTypesList = new List<oM.Environment.SAP.XML.OpeningType>();
+
+            List<BH.oM.Environment.SAP.XML.OpeningType> toRename = new List<oM.Environment.SAP.XML.OpeningType>();
+
+            foreach (var o in sapObj.SAP10Data.PropertyDetails.OpeningTypes.OpeningType)
             {
-                return sapObj;
-            }
+                BH.oM.Environment.SAP.XML.OpeningType typeObj = o;
 
-            //Handling null type input
-            if (type == null || type == "")
-            {
-                string name = "";
-
-                name = (uvalue > 0 ? $"uvalue_{uvalue}_{name}" : name);
-                name = (gvalue > 0 ? $"gvalue_{gvalue}_{name}" : name);
-
-                if (name == "")
+                if (include.Contains(typeObj.Description))
                 {
-                    BH.Engine.Base.Compute.RecordError("Please name the opening types in the opening type iterator.");
-                    return null;
+                    BH.oM.Environment.SAP.XML.OpeningType newType = typeObj.ShallowClone().ModifyOpeningType(uvalue, gvalue);
+                    openingTypesList.Add(newType);
+                    toRename.Add(typeObj);
                 }
-
-                type = name;
-            }
-
-            List<BH.oM.Environment.SAP.XML.OpeningType> openingTypesList = sapObj.SAP10Data.PropertyDetails.OpeningTypes.OpeningType;
-
-            var dict = openingTypesList.RenameOpeningType(type, include, uvalue, gvalue);
-
-            //Add the new openings to the list of existing openings
-            sapObj.SAP10Data.PropertyDetails.OpeningTypes.OpeningType = openingTypesList.InsertOpeningType(dict, uvalue, gvalue);
-
-            List<BH.oM.Environment.SAP.XML.BuildingPart> buildingPartList = new List<oM.Environment.SAP.XML.BuildingPart>();
-
-            //For each building part
-            foreach (var b in sapObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
-            {
-                BH.oM.Environment.SAP.XML.BuildingPart partObj = b;
-                List<BH.oM.Environment.SAP.XML.Opening> openingList = new List<oM.Environment.SAP.XML.Opening>();
-
-                //For each opening, check if it's mentioned in the list and then change it's opening type.
-                foreach (var o in b.Openings.Opening)
+                else
                 {
-                    BH.oM.Environment.SAP.XML.Opening openingObj = o;
-
-                    //Finds in the dictionary the entry with the same type
-                    var item = dict.Where(x => x.Value["Name"] == o.Type).FirstOrDefault().Value;
-
-                    if ((item != null) && item.Any())
-                    {
-                        openingObj = openingObj.ModifyOpeningType(item["NewName"]);
-                    }
-
-                    openingList.Add(openingObj);
+                    openingTypesList.Add(o);
                 }
-
-                partObj.Openings.Opening = openingList;
-                buildingPartList.Add(partObj);
             }
-
-            sapObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart = buildingPartList;
+            openingTypesList.RenameOpeningType(toRename);
+            sapObj.SAP10Data.PropertyDetails.OpeningTypes.OpeningType = openingTypesList.RenameOpeningType(toRename); 
 
             return sapObj;
         }
 
         [Description("Change the opening types of an opening.")]
-        [Input("opening", "Opening to modify the type of.")]
-        [Input("type", "Type to change to.")]
-        [Output("opening", "Modified opening.")]
-        public static BH.oM.Environment.SAP.XML.Opening ModifyOpeningType(this BH.oM.Environment.SAP.XML.Opening opening, string type)
+        [Input("type", "Opening type to modify.")]
+        [Input("uvalue", "Uvalue for the new type.")]
+        [Input("gvalue", "Gvalue for the new type.")]
+        [Output("openingType", "Modified opening.")]
+        public static BH.oM.Environment.SAP.XML.OpeningType ModifyOpeningType(this BH.oM.Environment.SAP.XML.OpeningType type, double uvalue = -1, double gvalue = -1)
         {
-            opening.Type = type;
-            return opening;
-        }
-
-        [Description("Insert opening types into the list of existing opening types.")]
-        [Input("typeObj", "Existing opening types.")]
-        [Input("convert", "Dictionary of the original opening type data, and the newly modified data.")]
-        [Input("uvalue", "uvalue for new type.")]
-        [Input("gvalue", "gvalue for new type.")]
-        [Output("openingTypes", "The modified SAP openingtypes list.")]
-        public static List<BH.oM.Environment.SAP.XML.OpeningType> InsertOpeningType(this List<BH.oM.Environment.SAP.XML.OpeningType> typeObj, Dictionary<string, Dictionary<string, string>> convert, double uvalue = -1, double gvalue = -1)
-        {
-            List <BH.oM.Environment.SAP.XML.OpeningType> modifiedOpenings = new List<oM.Environment.SAP.XML.OpeningType>();
-
-            foreach (var item in typeObj)
+            //If uvalue is valid
+            if (uvalue > 0)
             {
-                modifiedOpenings.Add(item);
-
-                if (convert.ContainsKey(item.Description))
-                {
-                    BH.oM.Environment.SAP.XML.OpeningType newOpening = item.ShallowClone();
-
-                    var map = convert[item.Description];
-
-                    newOpening.Name = map["NewName"];
-                    newOpening.Description = map["NewDescription"];
-
-                    if (uvalue > 0)
-                    {
-                        newOpening.UValue = uvalue.ToString();
-                    }
-
-                    if (gvalue > 0)
-                    {
-                        newOpening.gValue = gvalue.ToString();
-                    }
-
-                    modifiedOpenings.Add(newOpening);
-                }
+                type.UValue = uvalue.ToString();
             }
-            return modifiedOpenings;
+
+            //IF gvalue is valid
+            if (gvalue > 0)
+            {
+                type.gValue = gvalue.ToString();
+            }
+
+            return type;
         }
 
-        [Description("Insert opening types into the list of existing opening types.")]
-        [Input("openingTypeObjs", "Existing opening types.")]
-        [Input("newType", "Name of the new type")]
-        [Input("include", "A list of openings by name to modify.")]
-        [Input("uvalue", "uvalue for new type.")]
-        [Input("gvalue", "gvalue for new type.")]
-        [Output("convert", "Dictionary of the original opening type data, and the newly modified data.")]
-        public static Dictionary<string, Dictionary<string, string>> RenameOpeningType(this List<BH.oM.Environment.SAP.XML.OpeningType> openingTypeObjs, string newType, List<string> include, double uvalue = -1, double gvalue = -1)
-        {
-            //Gets a list of all the existing opening type names
-            List<string> typeNames = openingTypeObjs.Select(x => x.Description).ToList();
 
+        [Description("Add opening types into the list of all opening types.")]
+        [Input("added", "Modified and unmodified opening types.")]
+        [Input("toAdd", "Unmodified opening types that need to be added")]
+        [Output("types", "All of the opening types in one list.")]
+        public static List<BH.oM.Environment.SAP.XML.OpeningType> RenameOpeningType(this List<BH.oM.Environment.SAP.XML.OpeningType> added, List<BH.oM.Environment.SAP.XML.OpeningType> toAdd)
+        {
             //List of all the types of openings and the highest number assigned to them
-            Dictionary<string, int> counts = openingTypeObjs.Select(x => x.Name).ToList().CountOpeningType();
+            Dictionary<string, int> counts = added.Select(x => x.Name).ToList().CountOpeningType();
 
             //A conversion between type of opening and name assigned to them
             Dictionary<string, string> conventions = new Dictionary<string, string>
@@ -198,39 +129,33 @@ namespace BH.Engine.Environment.SAP
                 { "6", "Roof Windows"}
             };
 
-            Dictionary<string, Dictionary<string, string>> test = new Dictionary<string, Dictionary<string, string>>();
-
-            foreach (var type in openingTypeObjs)
+            //For each opening type that needs to be added
+            foreach (var type in toAdd)
             {
-                if (include.Contains(type.Description))
-                {
-                    var name = type.Name;
+                BH.oM.Environment.SAP.XML.OpeningType opening = type;
 
-                    var newDesc = newType + '_' + type.Description;
+                //New description is the old description and old schema approved name
+                string newDesc = $"{type.Description}: {type.Name}";
 
-                    var newName = conventions[type.Type];
-                    if (counts.ContainsKey(newName))
-                    {
-                        counts[newName]++;
-                    }
-                    else
-                    {
-                        counts[newName] = 1;
-                    }
-                    newName = $"{newName} ({counts[newName]})";
+                //Finds the equivalent value based on the type from the conventions dictionary
+                var newName = conventions[type.Type];
 
-                    Dictionary<string, string> typeInfo = new Dictionary<string, string>
-                    {
-                        {"Name", name },
-                        {"NewDescription",newDesc },
-                        {"NewName", newName }
-                    };
+                //If no related item in the counts dictionary adds it and if so, takes the value
+                if (counts.ContainsKey(newName)) counts[newName]++;
+                else counts[newName] = 1;
 
-                    test.Add(type.Description, typeInfo);
-                }
+                //New name of object that is along with the schema
+                newName = $"{newName} ({counts[newName]})";
+
+                //Assigning the name and description
+                opening.Name = newName;
+                opening.Description = newDesc;
+
+                //Add to list
+                added.Add(opening);
             }
-
-            return test;
+           
+            return added;
 
         }
 
