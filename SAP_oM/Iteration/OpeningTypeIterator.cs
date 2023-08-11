@@ -43,9 +43,6 @@ namespace BH.oM.Environment.SAP.XML
         [Description("New GValue.")]
         public virtual double GValue { get; set; } = -1;
 
-        [Description("New name of type.")]
-        public virtual string TypeName { get; set; } = null;
-
         [Description("A list of opening types to make changes to.")]
         public virtual List<string> Include { get; set; } = null;
     }

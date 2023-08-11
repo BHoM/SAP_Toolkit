@@ -37,8 +37,8 @@ namespace BH.oM.Environment.SAP.XML
     [Description("Input changes to make to thermal bridge objects.")]
     public class ThermalBridgeIterator : IObject
     {
-        [Description("ThermalBridge to change")]
-        public virtual string ThermalBridge { get; set; } = null;
+        [Description("ThermalBridges to change")]
+        public virtual List<string> Include { get; set; } = null;
 
         [Description("PsiValue to change to.")]
         public virtual double PsiValue { get; set; } = 0.0;

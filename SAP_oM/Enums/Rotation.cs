@@ -22,30 +22,23 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using BH.oM.Environment.SAP.XML;
-using BH.oM.Environment.SAP;
 using System.ComponentModel;
+using System.Linq;
 using BH.oM.Base;
-using BH.oM.Environment.SAP.Stroma10;
 
-namespace BH.oM.Environment.SAP.XML
+namespace BH.oM.Environment.SAP
 {
-    [Description("Input changes to make to wall objects.")]
-    public class WallIterator : IObject
+    [Description("Code indication a line to mirror across.")]
+    public enum Rotation
     {
-        [Description("New UValue of wall.")]
-        public virtual double UValue { get; set; } = -1;
-
-        [Description("Is this a curtain wall.")]
-        public virtual bool? CurtainWall { get; set; } = null;
-
-        [Description("A list of walls by name to make changed to.")]
-        public virtual List<string> Include { get; set; } = null;
+        Zero = 0,
+        FortyFive = 1,
+        Ninety = 2,
+        OneHundredThirtyFive = 3,
+        OneHundredEighty = 4,
+        TwoHundredTwentyFive = 5,
+        TwoHundredSeventy = 6,
+        ThreeHundredFifteen = 7,
+        ThreeHundredSixty = 8
     }
 }
-
-

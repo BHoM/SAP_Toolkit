@@ -39,77 +39,94 @@ using BH.oM.Environment.SAP.XML;
 using System.Runtime.InteropServices.ComTypes;
 using BH.oM.Adapter.Commands;
 using BH.oM.Analytical.Elements;
+using static System.Net.WebRequestMethods;
 
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Modify
     {
-        [Description("Run iterations set up through the Parameters object.")]
+        [Description("Modify a SAPReport based on opening type iterators.")]
         [Input("sapObj", "Input the SAPReport object to modify.")]
-        [Input("iteration", "Input the iteration settings.")]
-        [Input("saveFile", "Input the file settings, the file name will be changed based on the iteration.")]
-        [Input("psiValues", "Psi Values of all the thermal bridge objects.")]
-        [MultiOutput(0, "sapObjects", "Multiple iterations of the sapObject.")]
-        [MultiOutput(1, "fileSettings", "Multiple sets of filesettings.")]
-        public static Output<List<SAPReport>, List<FileSettings>> ParametricStudy(this SAPReport sapObj, List<Parameters> iteration, FileSettings saveFile, BH.oM.Environment.SAP.PsiValues psiValues)
+        [Input("iterations", "Input the iterators.")]
+        [Input("directory", "Input the directory for the study.")]
+        [Input("psiValues", "Input psiValues.")]
+        [MultiOutput(0, "SAPReports", "A list of the SAPReports.")]
+        [MultiOutput(1, "saveFiles", "A list of file settings objects corresponding to each iteration")]
+        public static Output<List<SAPReport>, List<FileSettings>> ParametricStudy(this List<SAPReport> sapObjList, List<Parameters> iterations, string directory, BH.oM.Environment.SAP.PsiValues psiValues)
         {
-            //Output the original file
-            List<SAPReport> reports = new List<SAPReport>
-            {
-                sapObj 
-            };
+            //All un-modified reports are included in the output
+            List<SAPReport> reports = sapObjList;
 
-            //Output the original file settings
-            List<FileSettings> files = new List<FileSettings>
-            {
-                saveFile
-            };
+            //For each unmodified dwelling a matching filesettings object is included in the output
+            List<FileSettings> files = sapObjList.Select(x => new FileSettings { Directory = directory, FileName = $"0000_{x.SAP10Data.PropertyDetails.BuildingParts.BuildingPart[0].Identifier}" }).ToList();
 
             //Checking to make sure iterations have unique names
-            List<string> iterations = iteration.Select(x => x.IterationName).ToList();
-
-            if (iterations.Count > iterations.Distinct().Count())
+            List<string> iterationName = iterations.Select(x => x.IterationName).ToList();
+            if (iterationName.Count > iterationName.Distinct().Count())
             {
                 BH.Engine.Base.Compute.RecordError("Please make sure your iterations have unique names.");
                 return null;
             }
-            
-            //For each parametric study set up
-            foreach (var i in iteration)
+
+            //Checking to make sure dwellings have unique names
+            List<string> dwellings = files.Select(x => x.FileName).ToList();
+            if (dwellings.Count > dwellings.Distinct().Count())
             {
-                SAPReport reportObj = sapObj.DeepClone();
+                BH.Engine.Base.Compute.RecordError("Please make sure your dwellings have unique names.");
+                return null;
+            }
 
-                if (i.IterationName == null)
-                {
-                    BH.Engine.Base.Compute.RecordError("Please name all of your iterations.");
-                    return null;
-                }
+            int count = 1;
+            foreach (var i in iterations)
+            {
+                var studyResult = sapObjList.Select(x => x.RunParametricStudy(i, directory, psiValues, count));
 
-                //Modify the SAPReport in the ways specified in the iteration set up
-                reportObj = reportObj.ParametricsOpeningType(i.OpeningTypes, i.IterationName);
-                reportObj = reportObj.ParametricsOpening(i.Openings, i.IterationName);
-                reportObj = reportObj.ParametricsOrientation(i.Orientation, i.IterationName);
-                reportObj = reportObj.ParametricsWall(i.Walls, i.IterationName);
-                reportObj = reportObj.ParametricsRoof(i.Roofs, i.IterationName);
-                reportObj = reportObj.ParametricsFloor(i.Floors, i.IterationName);
-                reportObj = reportObj.ThermalBridgesFromOpening(psiValues);
-                reportObj = reportObj.ParametricsThermalBridge(i.ThermalBridges, i.IterationName);
+                reports.AddRange(studyResult.Select(x => x.Item1).ToList());
+                files.AddRange(studyResult.Select(x => x.Item2).ToList());
 
-                reports.Add(reportObj);
-
-                FileSettings iterationFile = new FileSettings
-                {
-                    FileName = $"{i.IterationName}_{saveFile.FileName}",
-                    Directory = saveFile.Directory
-                };
-
-                files.Add(iterationFile);
+                count++;
             }
 
             return new Output<List<SAPReport>, List<FileSettings>>()
             {
-                Item1 = reports, 
+                Item1 = reports,
                 Item2 = files
+            };
+        }
+
+        [Description("Modify a SAPReport based on opening type iterators.")]
+        [Input("sapObj", "Input the SAPReport object to modify.")]
+        [Input("openingTypeObj", "Input the opening type iterators.")]
+        [Input("iterationName", "Input the name of the iteration.")]
+        [MultiOutput(0, "SAPReports", "A list of the SAPReports.")]
+        [MultiOutput(1, "saveFiles", "A list of file settings objects corresponding to each iteration")]
+        public static Output<SAPReport, FileSettings> RunParametricStudy(this SAPReport sapObj, Parameters iteration, string directory, BH.oM.Environment.SAP.PsiValues psiValues, int count)
+        {
+            SAPReport reportObj = sapObj.DeepClone();
+
+            string countFormat = $"{string.Format("{0:0000}", count)}";
+            //Modify the SAPReport in the ways specified in the iteration set up
+            reportObj = reportObj.ParametricsOpeningType(iteration.OpeningTypes, countFormat);
+            reportObj = reportObj.ParametricsOpening(iteration.Openings, countFormat);
+            reportObj = reportObj.ParametricsOrientation(iteration.Orientation, countFormat);
+            reportObj = reportObj.ParametricsWall(iteration.Walls, countFormat);
+            reportObj = reportObj.ParametricsRoof(iteration.Roofs, countFormat);
+            reportObj = reportObj.ParametricsFloor(iteration.Floors, countFormat);
+            reportObj = reportObj.ThermalBridgesFromOpening(psiValues);
+            reportObj = reportObj.ParametricsThermalBridge(iteration.ThermalBridges, countFormat);
+
+            //reports.Add(reportObj);
+
+            FileSettings iterationFile = new FileSettings
+            {
+                FileName = $"{string.Format("{0:0000}",count)}_{sapObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart[0].Identifier}",
+                Directory = directory
+            };
+
+            return new Output<SAPReport, FileSettings>()
+            {
+                Item1 = reportObj,
+                Item2 = iterationFile
             };
         }
 
@@ -137,7 +154,7 @@ namespace BH.Engine.Environment.SAP
 
             foreach (var i in openingTypeObj)
             {
-                sapObj = sapObj.ModifyOpeningTypes(i.TypeName, i.Include, i.UValue, i.GValue);
+                sapObj = sapObj.ModifyOpeningTypes(i.Include, i.UValue, i.GValue);
             }
 
             return sapObj;
@@ -224,7 +241,7 @@ namespace BH.Engine.Environment.SAP
 
             foreach (var w in wallsObj)
             {
-                sapObj = sapObj.ModifyWalls(w.Include, w.Description, w.UValue, w.CurtainWall);
+                sapObj = sapObj.ModifyWalls(w.Include, w.UValue, w.CurtainWall);
             }
 
             return sapObj;
@@ -254,7 +271,7 @@ namespace BH.Engine.Environment.SAP
 
             foreach (var w in roofsObj)
             {
-                sapObj = sapObj.ModifyRoofs(w.Include, w.Description, w.UValue.ToString());
+                sapObj = sapObj.ModifyRoofs(w.Include, w.UValue);
             }
 
             return sapObj;
@@ -284,7 +301,7 @@ namespace BH.Engine.Environment.SAP
 
             foreach (var f in floorsObj)
             {
-                sapObj = sapObj.ModifyFloors(f.Include, f.Description, f.UValue);
+                sapObj = sapObj.ModifyFloors(f.Include, f.UValue);
             }
 
             return sapObj;
@@ -302,7 +319,7 @@ namespace BH.Engine.Environment.SAP
                 return sapObj;
             }
 
-            var thermalBridges = thermalBridgeObj.Select(x => x.ThermalBridge).ToList();
+            var thermalBridges = thermalBridgeObj.Select(x => x.Include).ToList();
             //Checks if TB are not assigned multiple times selected to include are not overlapping.
             
             var psiValues = thermalBridgeObj.Select(x => x.PsiValue).ToList();
@@ -314,13 +331,17 @@ namespace BH.Engine.Environment.SAP
                 return null;
             }
             
-            if (thermalBridges.Count != psiValues.Count)
+            if (thermalBridges.Count() != psiValues.Count)
             {
                 string e = $"Iteration \"{iterationName}\" not all thermal bridges are assigned a psi value. Please correct this before moving on.";
                 BH.Engine.Base.Compute.RecordError(e);
                 return null;
             }
-            sapObj = sapObj.ModifyThermalBridge(thermalBridges, psiValues);
+
+            foreach (var tb in thermalBridgeObj)
+            {
+                sapObj = sapObj.ModifyThermalBridge(tb.Include, tb.PsiValue);
+            }
 
             return sapObj;
         }
