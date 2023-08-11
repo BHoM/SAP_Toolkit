@@ -41,10 +41,7 @@ namespace BH.oM.Environment.SAP.XML
         //public virtual double Area { get; set; } = 0.0;
 
         [Description("Wall area to switch to.")]
-        public virtual double UValue { get; set; } = 0.0;
-
-        [Description("New wall identifier/description")]
-        public virtual string Description { get; set; } = null;
+        public virtual double UValue { get; set; } = -1;
 
         [Description("A list of walls to swap out.")]
         public virtual List<string> Include { get; set; } = null;

@@ -54,7 +54,7 @@ namespace BH.Engine.Environment.SAP
         [Input("gSteps", "Number of steps for gvalue.")]
         [MultiOutput(0, "SAPReports", "A list of the SAPReports.")]
         [MultiOutput(1, "saveFiles", "A list of file settings objects corresponding to each iteration")]
-        public static Output<List<SAPReport>, List<FileSettings>> ParametricsUvalueGvalue(this SAPReport sapObj, FileSettings file, List<string> include, PsiValues psiValues, double upperUValue = -1, double lowerUValue = -1, int uSteps = 0, double upperGValue = -1, double lowerGValue = -1, int gSteps = 0)
+        public static Output<List<SAPReport>, List<FileSettings>> ParametricsUvalueGvalue(this List<SAPReport> sapObj, FileSettings file, List<string> include, PsiValues psiValues, double upperUValue = -1, double lowerUValue = -1, int uSteps = 0, double upperGValue = -1, double lowerGValue = -1, int gSteps = 0)
         {
             //TODO
             if (uSteps > 0 && (upperUValue < 0 || lowerUValue < 0))
@@ -118,7 +118,6 @@ namespace BH.Engine.Environment.SAP
                 {
                     UValue = u, 
                     GValue = g, 
-                    TypeName = name, 
                     Include = include
                 };
 
@@ -126,7 +125,7 @@ namespace BH.Engine.Environment.SAP
                 typeIteratorLists.Add(iteration);
             }
 
-            return (sapObj.ParametricStudy(typeIteratorLists, file, psiValues));
+            return (sapObj.ParametricStudy(typeIteratorLists, file.Directory, psiValues));
         }  
     }
 }

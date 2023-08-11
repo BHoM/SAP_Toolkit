@@ -37,20 +37,8 @@ namespace BH.oM.Environment.SAP.XML
     [Description("Input changes to make to floor objects.")]
     public class FloorIterator : IObject
     {
-        //[Description("Wall height to change to.")]
-        //public virtual string Area { get; set; } = null;
-
         [Description("New UValue.")]
-        public virtual string UValue { get; set; } = null;
-
-        [Description("New wall identifier.")]
-        public virtual string Description { get; set; } = null;
-
-        //[Description("Storey Height")]
-        //public virtual string StoreyHeight { get; set; } = null;
-
-        //[Description("Heat loss area")]
-        //public virtual string HeatLossArea {  get; set; } = null;
+        public virtual double UValue { get; set; } = -1;
 
         [Description("A list of floors by name to make changes to.")]
         public virtual List<string> Include { get; set; } = null;

@@ -28,7 +28,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Code which indicates the type of boiler fuel feed.")]
+    [Description("Code indication a line to mirror across.")]
     public enum Mirror
     {
         None = 0,
