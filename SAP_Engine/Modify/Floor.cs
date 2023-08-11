@@ -35,45 +35,53 @@ using BH.Engine.Base;
 using System.Runtime.InteropServices.ComTypes;
 using BH.oM.Environment.Elements;
 using BH.oM.Base.Attributes;
+using BH.oM.Base;
 
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Modify
     {
-        [Description("Modify the uvalue of a type of floor dimension objects from a SAP report object.")]
+        [Description("Modify the uvalue of a floor dimension objects from a SAP report object.")]
         [Input("sapObj", "The sap report object to modify.")]
         [Input("include", "A list of floors by name to modify.")]
-        [Input("floorName", "The floor name for the modified floor.")]
         [Input("uvalue", "The new uvalue for the floors.")]
         [Output("sapReport", "The modified SAP Report object.")]
-        public static SAPReport ModifyFloors(this SAPReport sapObj, List<string> include, string floorName, string uvalue)
+        public static SAPReport ModifyFloors(this SAPReport sapObj, List<string> include, double uvalue = -1)
         {
+            //New empty list of building parts
             List<BH.oM.Environment.SAP.XML.BuildingPart> buildingPartList = new List<oM.Environment.SAP.XML.BuildingPart>();
 
-            //Foreach building part
+            //Foreach existing building part
             foreach (var b in sapObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
             {
                 BH.oM.Environment.SAP.XML.BuildingPart partObj = b;
+
+                //New empty list og Floor Dimension objects.
                 List<BH.oM.Environment.SAP.XML.FloorDimension> floorList = new List<BH.oM.Environment.SAP.XML.FloorDimension>();
 
-                //foreach floor-dimension object
-                foreach (var w in b.FloorDimensions.FloorDimension)
+                //foreach floor-dimension object.
+                foreach (var f in b.FloorDimensions.FloorDimension)
                 {
-                    BH.oM.Environment.SAP.XML.FloorDimension floorObj = w;
+                    BH.oM.Environment.SAP.XML.FloorDimension floorObj = f;
 
-                    //If the name of the floor object is in include(list of floor objects to modify) then modify it.
-                    if (include.Contains(w.Description))
+                    //If the name of the floor is in include then modify floor as specified in input.
+                    if (include.Contains(f.Description))
                     {
-                        floorObj = floorObj.ModifyFloor(uvalue, floorName);
+                        floorObj = floorObj.ModifyFloor(uvalue);
                     }
 
+                    //Add the modified floor to the list of floors.
                     floorList.Add(floorObj);
                 }
 
+                //Add the list of floors into the building part.
                 partObj.FloorDimensions.FloorDimension = floorList;
+
+                //Add the building part to the list of building part list.
                 buildingPartList.Add (partObj);  
             }
 
+            //Add the list of building parts to the SAP report.
             sapObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart = buildingPartList;
 
             return sapObj;
@@ -84,19 +92,14 @@ namespace BH.Engine.Environment.SAP
         [Input("uvalue", "The new uvalue for the floors.")]
         [Input("description", "The floor name for the modified floor.")]
         [Output("floorDim", "The modified SAP Report object.")]
-        public static BH.oM.Environment.SAP.XML.FloorDimension ModifyFloor(this BH.oM.Environment.SAP.XML.FloorDimension floor, string uvalue, string description)
+        public static BH.oM.Environment.SAP.XML.FloorDimension ModifyFloor(this BH.oM.Environment.SAP.XML.FloorDimension floor, double uvalue)
         {
-            string tempDesc = floor.Description;
-
-            if (uvalue != null)
+            //If uvalue is valid
+            if (uvalue > 0)
             {
-                floor.UValue = uvalue;
-                tempDesc = $"uvalue_{uvalue}_{tempDesc}";
+                floor.UValue = uvalue.ToString();
             }
 
-            //If floor description(its name) is null, replace with the string which combines the new uvalue and the name of the new floor.
-            floor.Description = (description != null ? description : tempDesc);
-            
             return floor;
         }
     }
