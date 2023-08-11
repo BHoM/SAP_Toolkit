@@ -70,7 +70,7 @@ namespace BH.Engine.Environment.SAP
                         floorObj = floorObj.ModifyFloor(uvalue);
                     }
 
-                    //Add the modified floor to the list of floors.
+                    //Add floor (modified or not) to the list of floor
                     floorList.Add(floorObj);
                 }
 
