@@ -56,7 +56,7 @@ namespace BH.Engine.Environment.SAP
             {
                 BH.oM.Environment.SAP.XML.BuildingPart partObj = b;
 
-                //New empty list og Floor Dimension objects.
+                //New empty list of Floor Dimension objects.
                 List<BH.oM.Environment.SAP.XML.FloorDimension> floorList = new List<BH.oM.Environment.SAP.XML.FloorDimension>();
 
                 //foreach floor-dimension object.
