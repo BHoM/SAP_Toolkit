@@ -44,7 +44,6 @@ namespace BH.Engine.Environment.SAP
         [Description("Modify the uvalue of roof objects from a SAP report object.")]
         [Input("sapObj", "The sap report object to modify.")]
         [Input("include", "A list of roofs by name to modify.")]
-        [Input("newRoofName", "The roof name for the modified roof.")]
         [Input("uvalue", "The new uvalue for the roofs.")]
         [Output("sapReport", "The modified SAP Report object.")]
         public static SAPReport ModifyRoofs(this SAPReport sapObj, List<string> include, double uvalue = -1)

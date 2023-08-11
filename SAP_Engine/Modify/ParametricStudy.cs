@@ -46,7 +46,7 @@ namespace BH.Engine.Environment.SAP
     public static partial class Modify
     {
         [Description("Modify a SAPReport based on opening type iterators.")]
-        [Input("sapObj", "Input the SAPReport object to modify.")]
+        [Input("sapObjList", "Input the list of SAPReport object to modify.")]
         [Input("iterations", "Input the iterators.")]
         [Input("directory", "Input the directory for the study.")]
         [Input("psiValues", "Input psiValues.")]
@@ -96,10 +96,9 @@ namespace BH.Engine.Environment.SAP
 
         [Description("Modify a SAPReport based on opening type iterators.")]
         [Input("sapObj", "Input the SAPReport object to modify.")]
-        [Input("openingTypeObj", "Input the opening type iterators.")]
-        [Input("iterationName", "Input the name of the iteration.")]
+        [Input("iteration", "Input titeration object.")]
         [MultiOutput(0, "SAPReports", "A list of the SAPReports.")]
-        [MultiOutput(1, "saveFiles", "A list of file settings objects corresponding to each iteration")]
+        [MultiOutput(1, "saveFiles", "A list of file settings objects corresponding to each iteration.")]
         public static Output<SAPReport, FileSettings> RunParametricStudy(this SAPReport sapObj, Parameters iteration, string directory, BH.oM.Environment.SAP.PsiValues psiValues, int count)
         {
             SAPReport reportObj = sapObj.DeepClone();
