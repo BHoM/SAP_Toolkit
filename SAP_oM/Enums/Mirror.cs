@@ -32,9 +32,9 @@ namespace BH.oM.Environment.SAP
     public enum Mirror
     {
         None = 0,
-        EastToWest = 1,
-        NorthWestToSouthEast = 2,
-        NorthToSouth = 3,
-		NorthEastToSouthWest = 4
+        NorthToSouth = 1,
+        NorthEastToSouthWest = 2,
+        EastToWest = 3,
+        NorthWestToSouthEast = 4
     }
 }
