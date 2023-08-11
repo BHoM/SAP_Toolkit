@@ -47,17 +47,23 @@ namespace BH.Engine.Environment.SAP
         [Input("width", "New width for windows.")]
         [Input("pitch", "New pitch for windows.")]
         [Output("sapReport", "The modified SAP Report object.")]
-        public static SAPReport ModifyOpenings(this SAPReport sapObj, List<string> include, double height, double width, string pitch)
+        public static SAPReport ModifyOpenings(this SAPReport sapObj, List<string> include, double height = -1, double width = -1, string pitch = "0")
         {
+            //List of existing building parts in report
             List<BH.oM.Environment.SAP.XML.BuildingPart> buildingPartList = new List<oM.Environment.SAP.XML.BuildingPart>();
 
+            //List of existing opening types in report
             List<BH.oM.Environment.SAP.XML.OpeningType> types = sapObj.SAP10Data.PropertyDetails.OpeningTypes.OpeningType;
+
+            //Dictionary for the conversion between the name of the type given by the user and the name of the opening that matches the schema.
             Dictionary<string, string> typeMap = types.Select(x => new { Key = x.Name, Value = x.Description }).ToDictionary(x => x.Key, x => x.Value);
 
             //Foreach building part in the dwelling
             foreach (var b in sapObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
             {
                 BH.oM.Environment.SAP.XML.BuildingPart partObj = b;
+
+                //New empty list of Openings
                 List<BH.oM.Environment.SAP.XML.Opening> openingList = new List<oM.Environment.SAP.XML.Opening>();
 
                 //Foreach opening
@@ -71,12 +77,17 @@ namespace BH.Engine.Environment.SAP
                         openingObj = openingObj.ModifyOpening(height, width, pitch);
                     }
 
+                    //Add opening (modified or not) to the list of openigns
                     openingList.Add(openingObj);
                 }
-
+                //Add the list of openings into the building part.
                 partObj.Openings.Opening = openingList;
+
+                //Add the building part to the list of building part list.
                 buildingPartList.Add(partObj);
             }
+
+            //Add the list of building parts to the SAP report.
             sapObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart = buildingPartList;
 
             return sapObj;
@@ -100,7 +111,7 @@ namespace BH.Engine.Environment.SAP
                 opening.Width = width;
             }
 
-            if (pitch != null)
+            if (pitch != null || pitch != "0")
             {
                 opening.Pitch = pitch;
             }
