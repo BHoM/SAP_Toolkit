@@ -44,11 +44,10 @@ namespace BH.Engine.Environment.SAP
         [Description("Modify the uvalue and if it is a curtain wall of wall objects from a SAP report object.")]
         [Input("sapObj", "The sap report object to modify.")]
         [Input("include", "A list of walls by name to modify.")]
-        [Input("newWallName", "The new name for the modified wall.")]
         [Input("uvalue", "The new uvalue for the walls.")]
         [Input("curtainWall", "Is this wall a curtain wall.")]
         [Output("sapReport", "The modified SAP Report object.")]
-        public static SAPReport ModifyWalls(this SAPReport sapObj, List<string> include, string newWallName, string uvalue, bool? curtainWall)
+        public static SAPReport ModifyWalls(this SAPReport sapObj, List<string> include, double uvalue = -1, bool? curtainWall = null)
         {
             List<BH.oM.Environment.SAP.XML.BuildingPart> buildingPartList = new List<oM.Environment.SAP.XML.BuildingPart>();
 
@@ -66,7 +65,7 @@ namespace BH.Engine.Environment.SAP
                     //If the name of the wall object is in include(list of wall objects to modify) then modify it.
                     if (include.Contains(w.Description))
                     {
-                        wallObj = wallObj.ModifyWall(uvalue, curtainWall, newWallName);
+                        wallObj = wallObj.ModifyWall(uvalue, curtainWall);
                     }
 
                     wallList.Add(wallObj);
@@ -85,26 +84,18 @@ namespace BH.Engine.Environment.SAP
         [Input("wall", "The wall object to modify.")]
         [Input("uvalue", "The new uvalue for the walls.")]
         [Input("curtainWall", "Is this wall a curtain wall.")]
-        [Input("description", "The new name for the modified wall.")]
         [Output("wall", "The modified wall object.")]
-        public static BH.oM.Environment.SAP.XML.Wall ModifyWall(this BH.oM.Environment.SAP.XML.Wall wall, string uvalue, bool? curtainWall, string description)
+        public static BH.oM.Environment.SAP.XML.Wall ModifyWall(this BH.oM.Environment.SAP.XML.Wall wall, double uvalue, bool? curtainWall)
         {
-            string tempDesc = wall.Description;
-
-            if (uvalue != null)
+            if (uvalue > 0)
             {
-                wall.UValue = uvalue;
-                tempDesc = $"uvalue_{uvalue}_{tempDesc}";
+                wall.UValue = uvalue.ToString();
             }
 
             if (curtainWall != null)
             {
                 wall.CurtainWall = (bool)curtainWall;
-                tempDesc = $"curtainWall_{curtainWall.ToString()}_{tempDesc}";
             }
-
-            //If wall description(its name) is null, replace with the string which combines the changes and the name of the new wall.
-            wall.Description = (description != null ? description : tempDesc);
 
             return wall;
         }
