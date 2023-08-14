@@ -41,6 +41,7 @@ using BH.oM.Adapter.Commands;
 using System.Linq.Expressions;
 using BH.oM.Environment.SAP.Stroma10;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Environment.SAP.JSON;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -50,7 +51,7 @@ namespace BH.Engine.Environment.SAP
         [Input("sapObj", "The sap report object to modify.")]
         [Input("mirrorLine", "The line to mirror across.")]
         [Output("sapReport", "The modified SAP Report object.")]
-        public static SAPReport MirrorDwelling(this SAPReport sapObj, Mirror mirrorLine)
+        public static Output<SAPReport, Orientation, List<BH.oM.Environment.SAP.JSON.Opening>> MirrorDwelling(this SAPReport sapObj, Mirror mirrorLine)
         {
             //Null sapObj input
             if (sapObj == null)
@@ -60,14 +61,29 @@ namespace BH.Engine.Environment.SAP
             }
 
             //If mirrorLine is null/None
-            if (mirrorLine == null || (mirrorLine == Mirror.None)) return sapObj;
-            
+            if (mirrorLine == null || (mirrorLine == Mirror.None)) 
+            {
+                return new Output<SAPReport, Orientation, List<oM.Environment.SAP.JSON.Opening>>()
+                {
+                    Item1 = sapObj,
+                    Item2 = new Orientation(),
+                    Item3 = new List<BH.oM.Environment.SAP.JSON.Opening>()
+                };
+            };
+
+            //QA File - tracks changes of orientation of dwelling and photovoltaic arrays
+            Orientation changes = new Orientation();
+
             BH.oM.Environment.SAP.XML.PropertyDetails propertyDetailsObj = sapObj.SAP10Data.PropertyDetails;
 
             //Mirror the orientation of the dwelling if the orientation of the dwelling is not null
             if (propertyDetailsObj.Orientation != null)
             {
+                //Find the modified orientation of the dwelling.
                 string orientation = propertyDetailsObj.Orientation.MirrorOrientation(mirrorLine);
+
+                //QA file
+                changes.DwellingOrientation = new Changes { Initial = propertyDetailsObj.Orientation, Final = orientation };
 
                 propertyDetailsObj.Orientation = orientation;
             }
@@ -76,6 +92,7 @@ namespace BH.Engine.Environment.SAP
                 BH.Engine.Base.Compute.RecordError("Please input an orientation for the dwelling.");
             }
 
+
             //Mirror the PV in EnergySource
             if (propertyDetailsObj.EnergySource != null && propertyDetailsObj.EnergySource.PhotovoltaicArrays != null && propertyDetailsObj.EnergySource.PhotovoltaicArrays.PhotovoltaicArray != null)
             {
@@ -83,9 +100,14 @@ namespace BH.Engine.Environment.SAP
                 List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> PVArrays = propertyDetailsObj.EnergySource.PhotovoltaicArrays.PhotovoltaicArray;
 
                 //Assign the list of modified arrays to the property details obj
-                propertyDetailsObj.EnergySource.PhotovoltaicArrays.PhotovoltaicArray = PVArrays.MirrorPV(mirrorLine);
+                var pvModifications = PVArrays.MirrorPV(mirrorLine);
+
+                propertyDetailsObj.EnergySource.PhotovoltaicArrays.PhotovoltaicArray = pvModifications.Item1;
+                changes.PVEnergySource = pvModifications.Item2;
             }
 
+            //QA File - tracks changes of orientation of photovoltaic arrays
+            List<Changes> pvFGHRS = new List<Changes>();
 
             //Mirror the PV in MainHeating
             //Checking if Mainheating object is defined and if it isn't: side eye
@@ -103,23 +125,34 @@ namespace BH.Engine.Environment.SAP
                         //A list of existing PV arrays in the Main Heating section
                         List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> fghrsPVArrays = heating.FGHRSEnergySource.PhotovoltaicArrays.PhotovoltaicArray;
 
-                        heating.FGHRSEnergySource.PhotovoltaicArrays.PhotovoltaicArray = fghrsPVArrays.MirrorPV(mirrorLine);
+                        var pvModifications = fghrsPVArrays.MirrorPV(mirrorLine);
+
+                        heating.FGHRSEnergySource.PhotovoltaicArrays.PhotovoltaicArray = pvModifications.Item1;
+
+                        pvFGHRS = pvFGHRS.Concat(pvModifications.Item2).ToList();
                     }
                 }
                 propertyDetailsObj.Heating.MainHeatingDetails.MainHeating = heatingObjs;
+                changes.PVHeating = pvFGHRS;
             }
 
-            sapObj.SAP10Data.PropertyDetails = propertyDetailsObj.MirrorOpening(mirrorLine);
+            var openingModification = propertyDetailsObj.MirrorOpening(mirrorLine);
 
-            return sapObj;
+            sapObj.SAP10Data.PropertyDetails = openingModification.Item1;
+            List<BH.oM.Environment.SAP.JSON.Opening> openingChanges = openingModification.Item2;
+
+            return new Output<SAPReport, Orientation, List<BH.oM.Environment.SAP.JSON.Opening>>() { Item1 = sapObj, Item2 = changes, Item3 = openingChanges };
         }
 
         [Description("Modify the orientation of the openings.")]
         [Input("propertyDetailsObj", "PropertyDetails object to modify the openings within.")]
         [Input("mirrorLine", "Line to mirror across.")]
         [Output("propertyDetails", "Modified openings contained in the property details object.")]
-        public static BH.oM.Environment.SAP.XML.PropertyDetails MirrorOpening(this BH.oM.Environment.SAP.XML.PropertyDetails propertyDetailsObj, Mirror mirrorLine)
+        public static Output<BH.oM.Environment.SAP.XML.PropertyDetails, List<BH.oM.Environment.SAP.JSON.Opening>> MirrorOpening(this BH.oM.Environment.SAP.XML.PropertyDetails propertyDetailsObj, Mirror mirrorLine)
         {
+            //QA file - tracking changes to the orientation of openings
+            List<BH.oM.Environment.SAP.JSON.Opening> openingChanges = new List<oM.Environment.SAP.JSON.Opening>();
+
             //Mirror each opening in the dwelling
             List<BH.oM.Environment.SAP.XML.BuildingPart> buildingPartObj = propertyDetailsObj.BuildingParts.BuildingPart;
             List<BH.oM.Environment.SAP.XML.OpeningType> types = propertyDetailsObj.OpeningTypes.OpeningType;
@@ -131,6 +164,7 @@ namespace BH.Engine.Environment.SAP
             {
                 //List of existing openings
                 List<BH.oM.Environment.SAP.XML.Opening> openingObjs = b.Openings.Opening;
+
                 foreach (var o in openingObjs)
                 {
                     if (o.Orientation == "0" || o.Orientation == "9")
@@ -141,6 +175,16 @@ namespace BH.Engine.Environment.SAP
                     //Find the new orientation of the opening
                     string orientation = o.Orientation.MirrorOrientation(mirrorLine);
 
+                    //QA file
+                    BH.oM.Environment.SAP.JSON.Opening change = new oM.Environment.SAP.JSON.Opening
+                    {
+                        Name = o.Name,
+                        Type = typeMap[o.Type],
+                        Location = o.Location
+                    };
+                    change.Orientation = new Changes { Initial = $"{(CompassDirectionCode)(Int32.Parse(o.Orientation))}", Final = $"{(CompassDirectionCode)(Int32.Parse(orientation))}" };
+                    openingChanges.Add(change);
+
                     //Changing orientation
                     o.Orientation = orientation;
                 }
@@ -149,15 +193,18 @@ namespace BH.Engine.Environment.SAP
 
             propertyDetailsObj.BuildingParts.BuildingPart = buildingPartObj;
 
-            return propertyDetailsObj;
+            return new Output<BH.oM.Environment.SAP.XML.PropertyDetails, List<BH.oM.Environment.SAP.JSON.Opening>>() { Item1 = propertyDetailsObj, Item2 = openingChanges };
         }
 
         [Description("Modify the orientation of the PV.")]
         [Input("pvArrays", "List of photovoltaic arrays to modify the orientation of.")]
         [Input("mirrorLine", "Line to mirror across.")]
         [Output("PVarrayObject", "List of modified PV objects.")]
-        public static List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> MirrorPV(this List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> pvArrays, Mirror mirrorLine)
+        public static Output<List<BH.oM.Environment.SAP.XML.PhotovoltaicArray>, List<Changes>> MirrorPV(this List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> pvArrays, Mirror mirrorLine)
         {
+            //QA file - tracking changes to the orientation of photovoltaic arrays
+            List<Changes> pvChanges = new List<Changes>();
+
             //For each pv array
             foreach (var array in pvArrays)
             {
@@ -173,6 +220,10 @@ namespace BH.Engine.Environment.SAP
                     //Find the mirrored orientation
                     string orientation = array.Orientation.MirrorOrientation(mirrorLine);
 
+                    //QA file - tracking change to array
+                    Changes change = new Changes { Initial = $"{(CompassDirectionCode)(Int32.Parse(array.Orientation))}", Final = $"{(CompassDirectionCode)(Int32.Parse(orientation))}" };
+                    pvChanges.Add(change);
+
                     //Assign new orientation to array
                     array.Orientation = orientation;
                 }
@@ -181,7 +232,7 @@ namespace BH.Engine.Environment.SAP
                     continue;
                 }
             }
-            return pvArrays;
+            return new Output<List<BH.oM.Environment.SAP.XML.PhotovoltaicArray>, List<Changes>>() { Item1 = pvArrays, Item2 = pvChanges }; 
         }
 
         [Description("Change compass direction by mirroring across common lines.")]
@@ -212,6 +263,5 @@ namespace BH.Engine.Environment.SAP
             return compassDirection.ToString();
         }
     }
-
 }
 
