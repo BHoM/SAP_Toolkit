@@ -57,8 +57,10 @@ namespace BH.Engine.Environment.SAP
                 {
                     var test = openings1.Where(x=> x.Name == o.Name).ToList().First();
                     
-                    if (test.Orientation == null) { test.Orientation = o.Orientation;}
-                    else { test.Orientation.Final = o.Orientation.Final; }
+                    if (test.Orientation == null)
+                        test.Orientation = o.Orientation;
+                    else
+                        test.Orientation.Final = o.Orientation.Final;
                     openings.Add(test);
                 }
                 else
