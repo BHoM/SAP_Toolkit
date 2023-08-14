@@ -47,7 +47,7 @@ namespace BH.Engine.Environment.SAP
         [Input("include", "A list of floors by name to modify.")]
         [Input("uvalue", "The new uvalue for the floors.")]
         [MultiOutput(0, "sapReport", "The modified SAP Report object.")]
-        [MultiOutput(1, "changesToWalls", "The modified SAP Report object.")]
+        [MultiOutput(1, "changesToFloors", "Tracking the changes made to the uvalue of the floors.")]
         public static Output<SAPReport, List<UValue>> ModifyFloors(this SAPReport sapObj, List<string> include, double uvalue = -1)
         {
             //New empty list of building parts
