@@ -51,7 +51,7 @@ namespace BH.Engine.Environment.SAP
         [Input("mirrorLine", "The line to mirror across.")]
         [MultiOutput(0, "sapReport", "The modified SAP Report object.")]
         [MultiOutput(1, "changesToOrientation", "Tracking the changes made to the orientation of the dwelling and the Photovoltaic arrays.")]
-        [MultiOutput(2, "changesToOpenigns", "Tracking the changes made to the orientation of the openings.")]
+        [MultiOutput(2, "changesToOpenings", "Tracking the changes made to the orientation of the openings.")]
         public static Output<SAPReport, Orientation, List<BH.oM.Environment.SAP.JSON.Opening>> ModifyOrientations(this SAPReport sapObj, Rotation rotation, Mirror mirrorLine)
         {
             //Null sapObj input
