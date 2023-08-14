@@ -150,7 +150,7 @@ namespace BH.Engine.Environment.SAP
         [Input("propertyDetailsObj", "PropertyDetails object to modify the openings within.")]
         [Input("mirrorLine", "Line to mirror across.")]
         [MultiOutput(0, "propertyDetails", "Modified property details object.")]
-        [MultiOutput(1, "changesToWalls", "Tracking the changes made to the orientation of the openings.")]
+        [MultiOutput(1, "changesToOpenings", "Tracking the changes made to the orientation of the openings.")]
         public static Output<BH.oM.Environment.SAP.XML.PropertyDetails, List<BH.oM.Environment.SAP.JSON.Opening>> MirrorOpening(this BH.oM.Environment.SAP.XML.PropertyDetails propertyDetailsObj, Mirror mirrorLine)
         {
             //QA file - tracking changes to the orientation of openings
