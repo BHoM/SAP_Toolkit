@@ -41,6 +41,7 @@ using BH.oM.Base;
 using BH.oM.Quantities.Attributes;
 using static System.Net.Mime.MediaTypeNames;
 using System.Xml.Linq;
+using BH.oM.Environment.SAP.JSON;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -51,14 +52,18 @@ namespace BH.Engine.Environment.SAP
         [Input("include", "A list of openings by name to modify.")]
         [Input("uvalue", "Uvalue for the new type.")]
         [Input("gvalue", "Gvalue for the new type.")]
-        [Output("sapReport", "The modified SAP Report object.")]
-        public static SAPReport ModifyOpeningTypes(this SAPReport sapObj, List<string> include, double uvalue = -1, double gvalue = -1)
+        [MultiOutput(0, "sapReport", "The modified SAP Report object.")]
+        [MultiOutput(1, "changesToOpeningTypes", "Tracking the changes made to the uvalues and gvalue to the opening types.")]
+        public static Output<SAPReport, List<BH.oM.Environment.SAP.JSON.OpeningType>> ModifyOpeningTypes(this SAPReport sapObj, List<string> include, double uvalue = -1, double gvalue = -1)
         {
             //Check for null input of sap report
             if (include == null || ((uvalue < 0) && (gvalue < 0)) || sapObj == null)
             {
                 return null;
             }
+
+            //QA file - track changes to uvalue and gvalue of opening type
+            List<BH.oM.Environment.SAP.JSON.OpeningType> changes = new List<oM.Environment.SAP.JSON.OpeningType>();
 
             //List of existing opening types
             List<BH.oM.Environment.SAP.XML.OpeningType> openingTypesList = new List<oM.Environment.SAP.XML.OpeningType>();
@@ -71,6 +76,18 @@ namespace BH.Engine.Environment.SAP
 
                 if (include.Contains(typeObj.Description))
                 {
+                    //QA file
+                    BH.oM.Environment.SAP.JSON.OpeningType typeChanges = new oM.Environment.SAP.JSON.OpeningType
+                    {
+                        Type = typeObj.Description,
+                        Name = typeObj.Name
+                    };
+
+                    typeChanges.UValue = (uvalue > 0 ? new Changes { Initial = o.UValue, Final = uvalue.ToString() } : null);
+                    typeChanges.GValue = (gvalue > 0 ? new Changes { Initial = o.gValue, Final = gvalue.ToString() } : null);
+                    changes.Add(typeChanges);
+
+                    //Modify opening type uvalue and/or gvalue
                     BH.oM.Environment.SAP.XML.OpeningType newType = typeObj.ShallowClone().ModifyOpeningType(uvalue, gvalue);
                     openingTypesList.Add(newType);
                     toRename.Add(typeObj);
@@ -81,9 +98,9 @@ namespace BH.Engine.Environment.SAP
                 }
             }
             openingTypesList.RenameOpeningType(toRename);
-            sapObj.SAP10Data.PropertyDetails.OpeningTypes.OpeningType = openingTypesList.RenameOpeningType(toRename); 
+            sapObj.SAP10Data.PropertyDetails.OpeningTypes.OpeningType = openingTypesList.RenameOpeningType(toRename);
 
-            return sapObj;
+            return new Output<SAPReport, List<BH.oM.Environment.SAP.JSON.OpeningType>>() { Item1 = sapObj, Item2 = changes };
         }
 
         [Description("Change the opening types of an opening.")]
@@ -152,7 +169,8 @@ namespace BH.Engine.Environment.SAP
                 opening.Description = newDesc;
 
                 //Add to list
-                added.Add(opening);
+                added = added.Append(opening).ToList();
+                //added.Add(opening);
             }
            
             return added;
