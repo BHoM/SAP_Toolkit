@@ -36,6 +36,7 @@ using System.Runtime.InteropServices.ComTypes;
 using BH.oM.Environment.Elements;
 using BH.oM.Base.Attributes;
 using BH.oM.Base;
+using BH.oM.Environment.SAP.JSON;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -45,11 +46,15 @@ namespace BH.Engine.Environment.SAP
         [Input("sapObj", "The sap report object to modify.")]
         [Input("include", "A list of floors by name to modify.")]
         [Input("uvalue", "The new uvalue for the floors.")]
-        [Output("sapReport", "The modified SAP Report object.")]
-        public static SAPReport ModifyFloors(this SAPReport sapObj, List<string> include, double uvalue = -1)
+        [MultiOutput(0, "sapReport", "The modified SAP Report object.")]
+        [MultiOutput(1, "changesToWalls", "The modified SAP Report object.")]
+        public static Output<SAPReport, List<UValue>> ModifyFloors(this SAPReport sapObj, List<string> include, double uvalue = -1)
         {
             //New empty list of building parts
             List<BH.oM.Environment.SAP.XML.BuildingPart> buildingPartList = new List<oM.Environment.SAP.XML.BuildingPart>();
+
+            //QA File - tracks changes to UValue of floor
+            List<BH.oM.Environment.SAP.JSON.UValue> changes = new List<UValue>();
 
             //Foreach existing building part
             foreach (var b in sapObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
@@ -67,6 +72,20 @@ namespace BH.Engine.Environment.SAP
                     //If the name of the floor is in include then modify floor as specified in input.
                     if (include.Contains(f.Description))
                     {
+                        if (uvalue > 0)
+                        {
+                            //QA File
+                            Changes change = new Changes { Initial = f.UValue, Final = uvalue.ToString() };
+                            UValue floorChanges = new UValue
+                            {
+                                Type = f.Type,
+                                Name = f.Description,
+                                Uvalue = change
+                            };
+                            changes.Add(floorChanges);
+                        }
+
+                        //Modify the uvalue of the floor dimension object.
                         floorObj = floorObj.ModifyFloor(uvalue);
                     }
 
@@ -84,7 +103,7 @@ namespace BH.Engine.Environment.SAP
             //Add the list of building parts to the SAP report.
             sapObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart = buildingPartList;
 
-            return sapObj;
+            return new Output<SAPReport, List<UValue>>() { Item1 = sapObj, Item2 = changes };
         }
 
         [Description("Modify the uvalue of a type of floor object from a SAP report object.")]
