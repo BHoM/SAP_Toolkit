@@ -36,6 +36,9 @@ using System.Runtime.InteropServices.ComTypes;
 using BH.oM.Environment.Elements;
 using BH.oM.Base.Attributes;
 using BH.oM.Environment.SAP.Stroma10;
+using BH.oM.Environment.SAP.JSON;
+using BH.oM.Base;
+using BH.oM.Quantities.Attributes;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -45,11 +48,19 @@ namespace BH.Engine.Environment.SAP
         [Input("sapObj", "The sap report object to modify.")]
         [Input("include", "A list of roofs by name to modify.")]
         [Input("uvalue", "The new uvalue for the roofs.")]
-        [Output("sapReport", "The modified SAP Report object.")]
-        public static SAPReport ModifyRoofs(this SAPReport sapObj, List<string> include, double uvalue = -1)
+        [MultiOutput(0, "sapReport", "The modified SAP Report object.")]
+        [MultiOutput(1, "changesToFloors", "Tracking the changes made to the uvalue of the roofs.")]
+        public static Output<SAPReport, List<UValue>> ModifyRoofs(this SAPReport sapObj, List<string> include, double uvalue = -1)
         {
+            if (uvalue < 0)
+            {
+                return new Output<SAPReport, List<UValue>>() { Item1 = sapObj, Item2 = null };
+            }
             //New empty list of building parts
             List<BH.oM.Environment.SAP.XML.BuildingPart> buildingPartList = new List<oM.Environment.SAP.XML.BuildingPart>();
+
+            //QA file - tracking changes to uvalue of roof
+            List<UValue> changes = new List<UValue>();
 
             //Foreach existing building part
             foreach (var b in sapObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
@@ -67,6 +78,15 @@ namespace BH.Engine.Environment.SAP
                     //If the name of the roof object is in include(list of roof objects to modify) then modify it.
                     if (include.Contains(r.Description))
                     {
+                        //QA file
+                        UValue roofChanges = new UValue
+                        {
+                            Type = r.Type, Name = r.Description
+                        };
+                        roofChanges.Uvalue = new Changes { Initial = r.UValue, Final = uvalue.ToString() };
+                        changes.Add(roofChanges);
+
+                        //Modification to roof uvalue
                         roofObj = roofObj.ModifyRoof(uvalue);
                     }
 
@@ -83,7 +103,7 @@ namespace BH.Engine.Environment.SAP
             //Add the list of building parts to the SAP report.
             sapObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart = buildingPartList;
 
-            return sapObj;
+            return new Output<SAPReport, List<UValue>>() { Item1 = sapObj, Item2 = changes };
         }
 
         [Description("Modify the uvalue of a type of roof object from a SAP report object.")]
