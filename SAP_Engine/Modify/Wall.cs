@@ -36,6 +36,8 @@ using System.Runtime.InteropServices.ComTypes;
 using BH.oM.Environment.Elements;
 using BH.oM.Base.Attributes;
 using BH.oM.Environment.SAP.Stroma10;
+using BH.oM.Base;
+using BH.oM.Environment.SAP.JSON;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -46,10 +48,20 @@ namespace BH.Engine.Environment.SAP
         [Input("include", "A list of walls by name to modify.")]
         [Input("uvalue", "The new uvalue for the walls.")]
         [Input("curtainWall", "Is this wall a curtain wall.")]
-        [Output("sapReport", "The modified SAP Report object.")]
-        public static SAPReport ModifyWalls(this SAPReport sapObj, List<string> include, double uvalue = -1, bool? curtainWall = null)
+        [MultiOutput(0, "sapReport", "The modified SAP Report object.")]
+        [MultiOutput(1, "changesToWalls", "Tracking the changes made to the uvalue, and the curtain wall status of the floors.")]
+        public static Output<SAPReport, List<oM.Environment.SAP.JSON.Wall>> ModifyWalls(this SAPReport sapObj, List<string> include, double uvalue = -1, bool? curtainWall = null)
         {
+            //Null handling
+            if (sapObj == null || include == null || (uvalue < 0 && curtainWall == null))
+            {
+                return new Output<SAPReport, List<oM.Environment.SAP.JSON.Wall>>() { Item1 = sapObj, Item2 = null };
+            }
+
             List<BH.oM.Environment.SAP.XML.BuildingPart> buildingPartList = new List<oM.Environment.SAP.XML.BuildingPart>();
+
+            //QA file - tracking changes to the uvalue and curtain wall values for the walls
+            List<oM.Environment.SAP.JSON.Wall> changes = new List<oM.Environment.SAP.JSON.Wall>();
 
             //Foreach building part
             foreach (var b in sapObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
@@ -65,6 +77,18 @@ namespace BH.Engine.Environment.SAP
                     //If the name of the wall object is in include(list of wall objects to modify) then modify it.
                     if (include.Contains(w.Description))
                     {
+                        //QA file
+                        oM.Environment.SAP.JSON.Wall wallChanges = new oM.Environment.SAP.JSON.Wall
+                        {
+                            Type = w.Type, Name = w.Description 
+                        };
+
+                        wallChanges.Uvalue = (uvalue > 0 ? new Changes { Initial = w.UValue, Final = uvalue.ToString() } : null);
+                        wallChanges.CurtainWall = (curtainWall != null ? new Changes { Initial = w.CurtainWall.ToString(), Final = curtainWall.ToString() } : null);
+
+                        changes.Add(wallChanges);
+
+                        //Modification of properties of wall
                         wallObj = wallObj.ModifyWall(uvalue, curtainWall);
                     }
 
@@ -77,7 +101,7 @@ namespace BH.Engine.Environment.SAP
 
             sapObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart = buildingPartList;
 
-            return sapObj;
+            return new Output<SAPReport, List<oM.Environment.SAP.JSON.Wall>>() { Item1 = sapObj, Item2 = changes };
         }
 
         [Description("Modify the uvaluev and if it is a curtain wall of a wall object.")]
