@@ -50,7 +50,9 @@ namespace BH.Engine.Environment.SAP
         [Description("Mirror all orientations listed in a dwelling.")]
         [Input("sapObj", "The sap report object to modify.")]
         [Input("mirrorLine", "The line to mirror across.")]
-        [Output("sapReport", "The modified SAP Report object.")]
+        [MultiOutput(0, "sapReport", "The modified SAP Report object.")]
+        [MultiOutput(1, "changesToOrientation", "Tracking the changes made to the orientation of the dwelling and the Photovoltaic arrays.")]
+        [MultiOutput(2, "changesToOpenigns", "Tracking the changes made to the orientation of the openings.")]
         public static Output<SAPReport, Orientation, List<BH.oM.Environment.SAP.JSON.Opening>> MirrorDwelling(this SAPReport sapObj, Mirror mirrorLine)
         {
             //Null sapObj input
@@ -147,7 +149,8 @@ namespace BH.Engine.Environment.SAP
         [Description("Modify the orientation of the openings.")]
         [Input("propertyDetailsObj", "PropertyDetails object to modify the openings within.")]
         [Input("mirrorLine", "Line to mirror across.")]
-        [Output("propertyDetails", "Modified openings contained in the property details object.")]
+        [MultiOutput(0, "propertyDetails", "Modified property details object.")]
+        [MultiOutput(1, "changesToWalls", "Tracking the changes made to the orientation of the openings.")]
         public static Output<BH.oM.Environment.SAP.XML.PropertyDetails, List<BH.oM.Environment.SAP.JSON.Opening>> MirrorOpening(this BH.oM.Environment.SAP.XML.PropertyDetails propertyDetailsObj, Mirror mirrorLine)
         {
             //QA file - tracking changes to the orientation of openings
@@ -199,7 +202,8 @@ namespace BH.Engine.Environment.SAP
         [Description("Modify the orientation of the PV.")]
         [Input("pvArrays", "List of photovoltaic arrays to modify the orientation of.")]
         [Input("mirrorLine", "Line to mirror across.")]
-        [Output("PVarrayObject", "List of modified PV objects.")]
+        [MultiOutput(0, "PVarrayObject", "Modified property details object.")]
+        [MultiOutput(1, "changesToPV", "Tracking the changes made to the orientation of the Photovoltaic arrays.")]
         public static Output<List<BH.oM.Environment.SAP.XML.PhotovoltaicArray>, List<Changes>> MirrorPV(this List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> pvArrays, Mirror mirrorLine)
         {
             //QA file - tracking changes to the orientation of photovoltaic arrays
