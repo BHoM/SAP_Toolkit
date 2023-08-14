@@ -38,7 +38,7 @@ namespace BH.oM.Environment.SAP.XML
     public class OrientationIterator : IObject
     {
         [Description("Rotate dwelling clockwise: 1 - 8 scale.")]
-        public virtual string Rotation { get; set; } = null;
+        public virtual Rotation Rotation { get; set; } = Rotation.Zero;
 
         [Description("Mirror the dwelling.")]
         public virtual Mirror Mirror { get; set; } = Mirror.None;
