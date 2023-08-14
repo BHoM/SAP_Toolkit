@@ -39,6 +39,7 @@ using BH.oM.Environment.SAP.XML;
 using System.Runtime.InteropServices.ComTypes;
 using BH.oM.Adapter.Commands;
 using BH.oM.Environment.SAP.Stroma10;
+using BH.oM.Environment.SAP.JSON;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -47,8 +48,10 @@ namespace BH.Engine.Environment.SAP
         [Description("Mirror a sap dwelling.")]
         [Input("sapObj", "Input the SAPReport object to modify.")]
         [Input("rotation", "How much the dwelling is rotated by.")]
-        [Output("sapReport", "The mirrored report.")]
-        public static SAPReport RotateDwelling(this SAPReport sapObj, string rotation)
+        [MultiOutput(0, "sapReport", "The modified SAP Report object.")]
+        [MultiOutput(1, "changesToOrientation", "Tracking the changes made to the orientation of the dwelling and the Photovoltaic arrays.")]
+        [MultiOutput(2, "changesToOpenigns", "Tracking the changes made to the orientation of the openings.")]
+        public static Output<SAPReport, Orientation, List<BH.oM.Environment.SAP.JSON.Opening>> RotateDwelling(this SAPReport sapObj, string rotation)
         {
             //Null sapObj input
             if (sapObj == null)
@@ -57,10 +60,19 @@ namespace BH.Engine.Environment.SAP
                 return null;
             }
 
+            //If rotation is null/None
             if (rotation == null)
             {
-                return sapObj;
-            }
+                return new Output<SAPReport, Orientation, List<oM.Environment.SAP.JSON.Opening>>()
+                {
+                    Item1 = sapObj,
+                    Item2 = new Orientation(),
+                    Item3 = new List<BH.oM.Environment.SAP.JSON.Opening>()
+                };
+            };
+
+            //QA File - tracks changes of orientation of dwelling and photovoltaic arrays
+            Orientation changes = new Orientation();
 
             BH.oM.Environment.SAP.XML.PropertyDetails propertyDetailsObj = sapObj.SAP10Data.PropertyDetails;
 
@@ -68,6 +80,9 @@ namespace BH.Engine.Environment.SAP
             if (propertyDetailsObj.Orientation != null)
             {
                 string orientation = propertyDetailsObj.Orientation.RotateOrientation(rotation);
+
+                //QA file
+                changes.DwellingOrientation = new Changes { Initial = propertyDetailsObj.Orientation, Final = orientation };
 
                 propertyDetailsObj.Orientation = orientation;
             }
@@ -83,8 +98,14 @@ namespace BH.Engine.Environment.SAP
                 List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> PVArrays = propertyDetailsObj.EnergySource.PhotovoltaicArrays.PhotovoltaicArray;
 
                 //Assign the list of modified arrays to the property details obj
-                propertyDetailsObj.EnergySource.PhotovoltaicArrays.PhotovoltaicArray = PVArrays.RotatePV(rotation);
+                var pvModifications = PVArrays.RotatePV(rotation);
+
+                propertyDetailsObj.EnergySource.PhotovoltaicArrays.PhotovoltaicArray = pvModifications.Item1;
+                changes.PVEnergySource = pvModifications.Item2;
             }
+
+            //QA File - tracks changes of orientation of photovoltaic arrays
+            List<Changes> pvFGHRS = new List<Changes>();
 
             //Rotate the PV in MainHeating
             //Checking if Mainheating object is defined and if it isn't: side eye
@@ -102,23 +123,35 @@ namespace BH.Engine.Environment.SAP
                         //A list of existing PV arrays in the Main Heating section
                         List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> fghrsPVArrays = heating.FGHRSEnergySource.PhotovoltaicArrays.PhotovoltaicArray;
 
-                        heating.FGHRSEnergySource.PhotovoltaicArrays.PhotovoltaicArray = fghrsPVArrays.RotatePV(rotation);
+                        var pvModifications = fghrsPVArrays.RotatePV(rotation);
+
+                        heating.FGHRSEnergySource.PhotovoltaicArrays.PhotovoltaicArray = pvModifications.Item1;
+
+                        pvFGHRS = pvFGHRS.Concat(pvModifications.Item2).ToList();
                     }
                 }
                 propertyDetailsObj.Heating.MainHeatingDetails.MainHeating = heatingObjs;
+                changes.PVHeating = pvFGHRS;
             }
 
-            sapObj.SAP10Data.PropertyDetails = propertyDetailsObj.RotateOpening(rotation);
+            var openingModification = propertyDetailsObj.RotateOpening(rotation);
 
-            return sapObj;
+            sapObj.SAP10Data.PropertyDetails = openingModification.Item1;
+            List<BH.oM.Environment.SAP.JSON.Opening> openingChanges = openingModification.Item2;
+
+            return new Output<SAPReport, Orientation, List<BH.oM.Environment.SAP.JSON.Opening>>() { Item1 = sapObj, Item2 = changes, Item3 = openingChanges };
         }
 
         [Description("Modify the orientation of the openings.")]
         [Input("propertyDetailsObj", "PropertyDetails object to modify the openings within.")]
         [Input("rotation", "Line to rotate across.")]
-        [Output("propertyDetails", "Modified openings contained in the property details object.")]
-        public static BH.oM.Environment.SAP.XML.PropertyDetails RotateOpening(this BH.oM.Environment.SAP.XML.PropertyDetails propertyDetailsObj, string rotation)
+        [MultiOutput(0, "propertyDetails", "Modified property details object.")]
+        [MultiOutput(1, "changesToOpenings", "Tracking the changes made to the orientation of the openings.")]
+        public static Output<BH.oM.Environment.SAP.XML.PropertyDetails, List<BH.oM.Environment.SAP.JSON.Opening>> RotateOpening(this BH.oM.Environment.SAP.XML.PropertyDetails propertyDetailsObj, string rotation)
         {
+            //QA file - tracking changes to the orientation of openings
+            List<BH.oM.Environment.SAP.JSON.Opening> openingChanges = new List<oM.Environment.SAP.JSON.Opening>();
+
             //Rotate each opening in the dwelling
             List<BH.oM.Environment.SAP.XML.BuildingPart> buildingPartObj = propertyDetailsObj.BuildingParts.BuildingPart;
             List<BH.oM.Environment.SAP.XML.OpeningType> types = propertyDetailsObj.OpeningTypes.OpeningType;
@@ -140,24 +173,36 @@ namespace BH.Engine.Environment.SAP
                     //Find the new orientation of the opening
                     string orientation = o.Orientation.RotateOrientation(rotation);
 
+                    //QA file
+                    BH.oM.Environment.SAP.JSON.Opening change = new oM.Environment.SAP.JSON.Opening
+                    {
+                        Name = o.Name,
+                        Type = typeMap[o.Type],
+                        Location = o.Location
+                    };
+                    change.Orientation = new Changes { Initial = $"{(CompassDirectionCode)(Int32.Parse(o.Orientation))}", Final = $"{(CompassDirectionCode)(Int32.Parse(orientation))}" };
+                    openingChanges.Add(change);
+
                     //Changing orientation
                     o.Orientation = orientation;
                 }
                 b.Openings.Opening = openingObjs;
             }
-
             propertyDetailsObj.BuildingParts.BuildingPart = buildingPartObj;
 
-            return propertyDetailsObj;
+            return new Output<BH.oM.Environment.SAP.XML.PropertyDetails, List<BH.oM.Environment.SAP.JSON.Opening>>() { Item1 = propertyDetailsObj, Item2 = openingChanges };
         }
-
 
         [Description("Modify the orientation of the PV.")]
         [Input("pvArrays", "List of photovoltaic arrays to modify the orientation of.")]
         [Input("rotation", "Line to rotate across.")]
-        [Output("PVarrayObject", "List of modified PV objects.")]
-        public static List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> RotatePV(this List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> pvArrays, string rotation)
+        [MultiOutput(0, "PVarrayObject", "Modified property details object.")]
+        [MultiOutput(1, "changesToPV", "Tracking the changes made to the orientation of the Photovoltaic arrays.")]
+        public static Output<List<BH.oM.Environment.SAP.XML.PhotovoltaicArray>, List<Changes>> RotatePV(this List<BH.oM.Environment.SAP.XML.PhotovoltaicArray> pvArrays, string rotation)
         {
+            //QA file - tracking changes to the orientation of photovoltaic arrays
+            List<Changes> pvChanges = new List<Changes>();
+
             //For each pv array
             foreach (var array in pvArrays)
             {
@@ -173,6 +218,10 @@ namespace BH.Engine.Environment.SAP
                     //Find the rotateed orientation
                     string orientation = array.Orientation.RotateOrientation(rotation);
 
+                    //QA file - tracking change to array
+                    Changes change = new Changes { Initial = $"{(CompassDirectionCode)(Int32.Parse(array.Orientation))}", Final = $"{(CompassDirectionCode)(Int32.Parse(orientation))}" };
+                    pvChanges.Add(change);
+
                     //Assign new orientation to array
                     array.Orientation = orientation;
                 }
@@ -181,7 +230,7 @@ namespace BH.Engine.Environment.SAP
                     continue;
                 }
             }
-            return pvArrays;
+            return new Output<List<BH.oM.Environment.SAP.XML.PhotovoltaicArray>, List<Changes>>() { Item1 = pvArrays, Item2 = pvChanges };
         }
 
         [Description("Rotate orientation to new orientation.")]
