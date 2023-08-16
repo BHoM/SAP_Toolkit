@@ -39,6 +39,7 @@ using BH.oM.Analytical.Elements;
 using BH.oM.Base;
 using BH.Engine.Base;
 using BH.oM.Environment.SAP.XML;
+using System.Reflection;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -52,27 +53,105 @@ namespace BH.Engine.Environment.SAP
         [Input("filename", "Name of the file information is taken from.")]
         [Input("report", "The SAPReport to get the data from.")]
         [Output("results", "Results pulled from the report.")]
-        public static SAPExcelResults ExcelResults(string filename, SAPReport report)
+        public static List<SAPExcelResults> ExcelResults(List<string> filenames, List<SAPReport> reportObjs, BH.oM.Environment.SAP.JSON.JSONReport jsonFile)
         {
-            EnergyUse energyUseResults = report.EnergyAssessment.EnergyUse;
+            //TODO include error messages
+            if (filenames == null || filenames.Count == 0) { return null; }
+            
+            if (reportObjs == null || reportObjs.Count == 0) { return null; }
 
-            SAPExcelResults results = new SAPExcelResults
+            if (reportObjs.Count !=  filenames.Count) { return null; }
+
+            List<SAPExcelResults> results = new List<SAPExcelResults>();
+
+            List <(string code, string identifier, string path)> dwellingInformation = jsonFile.Iterations.SelectMany(x => x.Dwellings.Select(y => (x.IterationCode, y.BuildingIdentifier, y.FilePath))).ToList();
+
+            for (int i = 0;  i < reportObjs.Count; i++)
             {
-                Dwelling = report.ReportHeader.Property.UniquePropertyReferenceNumber,
-                Iteration = filename,
-                WallArea = report.WallArea(),
-                WindowArea = report.WindowArea(),
-                TFA = report.TotalFloorArea(),
-                DER = energyUseResults.DER,
-                TER = energyUseResults.TER,
-                DPER = energyUseResults.DPER,
-                TPER = energyUseResults.TPER,
-                DFEE = energyUseResults.DFEE,
-                TFEE = energyUseResults.TFEE
-            };
+                EnergyUse energyUseResults = reportObjs[i].EnergyAssessment.EnergyUse;
+
+                var typeInfo = dwellingInformation.Where(x => x.path == filenames[i]).First();
+
+                SAPExcelResults r = new SAPExcelResults
+                {
+                    Dwelling = typeInfo.identifier,
+                    //DwellingCount = 1
+                    Iteration = typeInfo.code,
+                    WallArea = reportObjs[i].WallArea(),
+                    WindowArea = reportObjs[i].WindowArea(),
+                    TFA = reportObjs[i].TotalFloorArea(),
+                    DER = double.Parse(energyUseResults.DER),
+                    TER = double.Parse(energyUseResults.TER),
+                    DPER = double.Parse(energyUseResults.DPER),
+                    TPER = double.Parse(energyUseResults.TPER),
+                    DFEE = double.Parse(energyUseResults.DFEE),
+                    TFEE = double.Parse(energyUseResults.TFEE)
+                };
+
+                //Block compliance calcs
+                r.FloorAreaPerType = r.DwellingCount * r.TFA;
+                r.WallToFloor = r.WallArea / r.TFA;
+                r.WindowToFloor = r.WindowArea / r.TFA;
+                r.WindowToWall = r.WindowArea / r.WallArea;
+
+                double totalOpeningArea = reportObjs[i].SAP10Data.PropertyDetails.BuildingParts.BuildingPart.SelectMany(x => x.Openings.Opening.Select(o => (o.Width * o.Height))).Sum();
+
+                r.NotionalWindow = r.WindowArea.NotionalWindowsArea(totalOpeningArea, r.TFA);
+                r.WindowToWall2 = r.WallToFloor / r.WindowArea;
+
+                r.DERTERImprovement = (r.TER - r.DER) / r.TER;
+                r.DPERTPERImprovement = (r.TPER - r.DPER) / r.TPER;
+                r.DFEETFEEImprovement = (r.TFEE - r.DFEE) / r.TFEE;
+
+                r.DERXTFA = r.DER * r.FloorAreaPerType;
+                r.TERXTFA = r.TER * r.FloorAreaPerType;
+                r.DPERXTFA = r.DPER * r.FloorAreaPerType;
+                r.TPERXTFA = r.TPER * r.FloorAreaPerType;
+                r.DFEEXTFA = r.DFEE * r.FloorAreaPerType;
+                r.TFEEXTFA = r.TFEE * r.FloorAreaPerType;
+
+                results.Add(r);
+            }
+
+            var a = results.GroupBy(x => x.Iteration).ToList();
+
+            List<SAPExcelResults> blockResults = new List<SAPExcelResults>();
+
+            foreach (var i in a)
+            {
+                var iteration = i.First().Iteration;
+
+                List<SAPExcelResults> dwellings = i.ToList();
+
+                SAPExcelResults r = new SAPExcelResults
+                {
+                    Type = "Block",
+                    Dwelling = dwellings.Count().ToString(),
+                    DwellingCount = dwellings.Select(x => x.DwellingCount).Sum(),
+                    Iteration = iteration,
+                    FloorAreaPerType = dwellings.Select(x => x.FloorAreaPerType).Sum(),
+                    WallArea = dwellings.Select(x => (x.DwellingCount * x.WallArea)).Sum(),
+                    WindowArea = dwellings.Select(x => (x.DwellingCount * x.WindowArea)).Sum(),
+                    WallToFloor = dwellings.Select(x=>x.WallToFloor).Average(),
+                    WindowToFloor = dwellings.Select(x => x.WindowToFloor).Average(),
+                    WindowToWall = dwellings.Select(x => x.WindowToWall).Average(),
+                    NotionalWindow = dwellings.Select(x => (x.DwellingCount * x.NotionalWindow)).Sum(),
+                    WindowToWall2 = dwellings.Select(x=>x.WindowToWall2).Average(),
+                };
+
+                r.DERXTFA = dwellings.Select(x => x.DERXTFA).Sum() / r.FloorAreaPerType;
+                r.TERXTFA = dwellings.Select(x => x.TERXTFA).Sum() / r.FloorAreaPerType;
+                r.DFEEXTFA = dwellings.Select(x => x.DFEEXTFA).Sum() / r.FloorAreaPerType;
+                r.TFEEXTFA = dwellings.Select(x => x.TFEEXTFA).Sum() / r.FloorAreaPerType;
+                r.DPERXTFA = dwellings.Select(x => x.DPERXTFA).Sum() / r.FloorAreaPerType;
+                r.TPERXTFA = dwellings.Select(x => x.TPERXTFA).Sum() / r.FloorAreaPerType;
+
+                results.Add(r);
+            }
 
             return results;            
         }
+
     }
 }
 

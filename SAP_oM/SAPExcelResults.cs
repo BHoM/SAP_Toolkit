@@ -32,11 +32,23 @@ namespace BH.oM.Environment.SAP
     [Description("An object that holds the main results from a SAPReport.")]
     public class SAPExcelResults : IObject
     {
+        [Description("Result Type")]
+        public virtual string Type { get; set; } = "Dwelling";
+
         [Description("The type of dwelling (the plot reference).")]
         public virtual string Dwelling { get; set; } = null;
 
+        [Description("The type of dwelling (the plot reference).")]
+        public virtual int DwellingCount { get; set; } = 1;
+
         [Description("The name of the iteration file.")]
         public virtual string Iteration { get; set; } = null;
+
+        [Description("The total floor area of the dwelling..")]
+        public virtual double TFA { get; set; } = 0;
+
+        [Description("The total floor area of the dwelling..")]
+        public virtual double FloorAreaPerType { get; set; } = 0;
 
         [Description("The total wall area of the dwelling.")]
         public virtual double WallArea { get; set; } = 0;
@@ -44,31 +56,64 @@ namespace BH.oM.Environment.SAP
         [Description("The total window area of the dwelling.")]
         public virtual double WindowArea { get; set; } = 0;
 
-        [Description("The total floor area of the dwelling..")]
-        public virtual double TFA { get; set; } = 0;
+        [Description("The total window area of the dwelling.")]
+        public virtual double WallToFloor { get; set; } = 0;
+
+        [Description("The total window area of the dwelling.")]
+        public virtual double WindowToFloor { get; set; } = 0;
+
+        [Description("The total window area of the dwelling.")]
+        public virtual double WindowToWall { get; set; } = 0;
+
+        [Description("The total window area of the dwelling.")]
+        public virtual double NotionalWindow { get; set; } = 0;
+
+        [Description("The total window area of the dwelling.")]
+        public virtual double WindowToWall2 { get; set; } = 0;
 
         [Description("The DER of the property.")]
-        [XmlElement(ElementName = "DER")]
-        public virtual string DER { get; set; } = null;
+        public virtual double DER { get; set; } = 0;
 
         [Description(".")]
-        [XmlElement(ElementName = "TER")]
-        public virtual string TER { get; set; } = null;
+        public virtual double TER { get; set; } = 0;
 
         [Description(".")]
-        [XmlElement(ElementName = "DPER")]
-        public virtual string DPER { get; set; } = null;
+        public virtual double DERTERImprovement { get; set; } = 0;
 
         [Description(".")]
-        [XmlElement(ElementName = "TPER")]
-        public virtual string TPER { get; set; } = null;
+        public virtual double DPER { get; set; } = 0;
 
         [Description(".")]
-        [XmlElement(ElementName = "DFEE")]
-        public virtual string DFEE { get; set; } = null;
+        public virtual double TPER { get; set; } = 0;
 
         [Description(".")]
-        [XmlElement(ElementName = "TFEE")]
-        public virtual string TFEE { get; set; } = null;
+        public virtual double DPERTPERImprovement { get; set; } = 0;
+
+        [Description(".")]
+        public virtual double DFEE { get; set; } = 0;
+
+        [Description(".")]
+        public virtual double TFEE { get; set; } = 0;
+
+        [Description(".")]
+        public virtual double DFEETFEEImprovement { get; set; } = 0;
+
+        [Description(".")]
+        public virtual double DERXTFA { get; set; } = 0;
+
+        [Description(".")]
+        public virtual double TERXTFA { get; set; } = 0;
+
+        [Description(".")]
+        public virtual double DPERXTFA { get; set; } = 0;
+
+        [Description(".")]
+        public virtual double TPERXTFA { get; set; } = 0;
+
+        [Description(".")]
+        public virtual double DFEEXTFA { get; set; } = 0;
+
+        [Description(".")]
+        public virtual double TFEEXTFA { get; set; } = 0;
     }
 }
