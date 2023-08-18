@@ -56,6 +56,7 @@ namespace BH.Engine.Environment.SAP
         [Input("count", "Count of iteration.")]
         [MultiOutput(0, "SAPReports", "A list of the SAPReports.")]
         [MultiOutput(1, "saveFiles", "A list of file settings objects corresponding to each iteration.")]
+        [MultiOutput(2, "qaFile", "A list of objects corresponding to changes made in each iteration.")]
         public static Output<SAPReport, FileSettings, BH.oM.Environment.SAP.JSON.Dwelling> RunParametricStudy(this SAPReport sapObj, Parameters iteration, string directory, BH.oM.Environment.SAP.PsiValues psiValues, int count)
         {
             SAPReport reportObj = sapObj.DeepClone();
