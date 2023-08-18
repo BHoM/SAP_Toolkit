@@ -42,7 +42,7 @@ namespace BH.Engine.Environment.SAP
     public static partial class Compute
     {
         [Description("Sets up a parametric study based on u and g values.")]
-        [Input("sapObj", "SAPReport object to modify.")]
+        [Input("sapObjs", "SAPReport object to modify.")]
         [Input("directory", "Directory to save files in.")]
         [Input("include", "A list of opening types to change in this study.")]
         [Input("psiValues", "Psi Values of all the thermal bridge objects.")]
