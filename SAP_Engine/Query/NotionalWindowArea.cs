@@ -42,8 +42,8 @@ namespace BH.Engine.Environment.SAP
     {
         [Description("From openingTypes SAPReport, returns the total window area of the dwelling.")]
         [Input("windowArea", "Total window area of the dwelling.")]
-        [Input("windowArea", "Total opening area of the dwelling.")]
-        [Input("windowArea", "Total floor area of the dwelling.")]
+        [Input("openingArea", "Total opening area of the dwelling.")]
+        [Input("totalFloorArea", "Total floor area of the dwelling.")]
         [Output("Area", "The total notional window area of the dwelling.")]
         public static double NotionalWindowsArea(this double windowArea, double openingArea, double totalFloorArea)
         {
