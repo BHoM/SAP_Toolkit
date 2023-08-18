@@ -50,8 +50,9 @@ namespace BH.Engine.Environment.SAP
         /***************************************************/
 
         [Description("Takes data such as areas of building parts, and results and then pushes to a single object.")]
-        [Input("filename", "Name of the file information is taken from.")]
-        [Input("report", "The SAPReport to get the data from.")]
+        [Input("filenames", "List of all the files names in a study.")]
+        [Input("reportObjs", "The SAPReport to get the data from.")]
+        [Input("jsonFile", "The JSON file prroduced by running a parametric study.")]
         [Output("results", "Results pulled from the report.")]
         public static List<SAPExcelResults> ExcelResults(List<string> filenames, List<SAPReport> reportObjs, BH.oM.Environment.SAP.JSON.JSONReport jsonFile)
         {
