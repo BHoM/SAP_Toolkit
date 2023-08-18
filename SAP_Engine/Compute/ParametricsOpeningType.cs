@@ -46,7 +46,7 @@ using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.Engine.Environment.SAP
 {
-    public static partial class Modify
+    public static partial class Compute
     {
         [Description("Modify a SAPReport based on opening type iterators.")]
         [Input("sapObj", "Input the SAPReport object to modify.")]

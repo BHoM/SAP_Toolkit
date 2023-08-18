@@ -42,10 +42,10 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Modify
     {
-        [Description("Mirror all orientations listed in a dwelling.")]
-        [Input("sapObj", "The sap report object to modify.")]
-        [Input("mirrorLine", "The line to mirror across.")]
-        [Output("sapReport", "The modified SAP Report object.")]
+        [Description("Merge the json QA data for the openings.")]
+        [Input("openings1", "The first set of opening data.")]
+        [Input("openings2", "The second set of opening data.")]
+        [Output("Openings", "The merged json QA data for the openings.")]
         public static List<BH.oM.Environment.SAP.JSON.Opening> MergeJsonOpening(this List<BH.oM.Environment.SAP.JSON.Opening> openings1, List<BH.oM.Environment.SAP.JSON.Opening> openings2)
         {
             if(openings1 == null)

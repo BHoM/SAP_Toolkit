@@ -41,15 +41,17 @@ namespace BH.Engine.Environment.SAP
     public static partial class Query
     {
         [Description("From openingTypes SAPReport, returns the total window area of the dwelling.")]
-        [Input("report", "The report to get the opening data from.")]
-        [Output("Area", "The total window area of the dwelling.")]
-        public static double NotionalWindowsArea(this double windowArea, double openingArea, double TFA)
+        [Input("windowArea", "Total window area of the dwelling.")]
+        [Input("windowArea", "Total opening area of the dwelling.")]
+        [Input("windowArea", "Total floor area of the dwelling.")]
+        [Output("Area", "The total notional window area of the dwelling.")]
+        public static double NotionalWindowsArea(this double windowArea, double openingArea, double totalFloorArea)
         {
-            if (openingArea > (TFA / 4))
+            if (openingArea > (totalFloorArea / 4))
             {
                 double doorArea = openingArea - windowArea;
 
-                double factor = ((TFA / 4) - doorArea) / windowArea;
+                double factor = ((totalFloorArea / 4) - doorArea) / windowArea;
 
                 windowArea = windowArea * factor;
             }
