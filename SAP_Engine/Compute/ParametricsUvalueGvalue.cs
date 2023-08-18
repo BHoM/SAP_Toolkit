@@ -39,7 +39,7 @@ using BH.oM.Base.Attributes;
 
 namespace BH.Engine.Environment.SAP
 {
-    public static partial class Modify
+    public static partial class Compute
     {
         [Description("Sets up a parametric study based on u and g values.")]
         [Input("sapObj", "SAPReport object to modify")]
@@ -56,7 +56,6 @@ namespace BH.Engine.Environment.SAP
         [MultiOutput(1, "saveFiles", "A list of file settings objects corresponding to each iteration")]
         public static Output<List<SAPReport>, List<FileSettings>> ParametricsUvalueGvalue(this List<SAPReport> sapObjs, string directory, List<string> include, PsiValues psiValues, double upperUValue = -1, double lowerUValue = -1, int uSteps = 0, double upperGValue = -1, double lowerGValue = -1, int gSteps = 0)
         {
-            //TODO
             if (uSteps > 0 && (upperUValue < 0 || lowerUValue < 0))
             {
                 BH.Engine.Base.Compute.RecordError("UValue bounds have not been set properly.");

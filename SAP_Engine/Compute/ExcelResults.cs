@@ -43,7 +43,7 @@ using System.Reflection;
 
 namespace BH.Engine.Environment.SAP
 {
-    public static partial class Create
+    public static partial class Compute
     {
         /***************************************************/
         /**** Public Methods                            ****/
@@ -151,8 +151,5 @@ namespace BH.Engine.Environment.SAP
 
             return results;            
         }
-
     }
 }
-
-
