@@ -56,12 +56,9 @@ namespace BH.Engine.Environment.SAP
         [Output("results", "Results pulled from the report.")]
         public static List<SAPExcelResults> ExcelResults(List<string> filenames, List<SAPReport> reportObjs, BH.oM.Environment.SAP.JSON.JSONReport jsonFile)
         {
-            //TODO include error messages
-            if (filenames == null || filenames.Count == 0) { return null; }
-            
-            if (reportObjs == null || reportObjs.Count == 0) { return null; }
 
-            if (reportObjs.Count !=  filenames.Count) { return null; }
+            if (filenames == null || filenames.Count == 0 || reportObjs == null || reportObjs.Count == 0 || reportObjs.Count != filenames.Count)
+                return null;
 
             List<SAPExcelResults> results = new List<SAPExcelResults>();
 
