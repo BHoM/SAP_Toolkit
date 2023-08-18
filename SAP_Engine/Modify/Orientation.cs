@@ -234,7 +234,6 @@ namespace BH.Engine.Environment.SAP
             return new Output<List<BH.oM.Environment.SAP.XML.PhotovoltaicArray>, List<Changes>>() { Item1 = pvArrays, Item2 = pvChanges };
         }
 
-        //TODO
         [Description("Change compass direction by mirroring across common lines.")]
         [Input("orientation", "Orientation to switch.")]
         [Input("mirrorLine", "Line to mirror across.")]

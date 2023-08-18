@@ -48,6 +48,16 @@ namespace BH.Engine.Environment.SAP
         [Output("sapReport", "The modified SAP Report object.")]
         public static List<BH.oM.Environment.SAP.JSON.Opening> MergeJsonOpening(this List<BH.oM.Environment.SAP.JSON.Opening> openings1, List<BH.oM.Environment.SAP.JSON.Opening> openings2)
         {
+            if(openings1 == null)
+            {
+                return openings2;
+            }
+
+            if (openings2 == null)
+            {
+                return openings1;
+            }
+            
             List<string> names = openings1.Select(x => x.Name).ToList();
             List<BH.oM.Environment.SAP.JSON.Opening> openings = new List<BH.oM.Environment.SAP.JSON.Opening>();
             
@@ -55,7 +65,7 @@ namespace BH.Engine.Environment.SAP
             {
                 if (names.Contains(o.Name))
                 {
-                    var test = openings1.Where(x=> x.Name == o.Name).ToList().First();
+                    var test = openings1.Where(x=> x.Name == o.Name).First();
                     
                     if (test.Orientation == null)
                         test.Orientation = o.Orientation;
