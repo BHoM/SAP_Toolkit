@@ -57,7 +57,7 @@ namespace BH.Engine.Environment.SAP
         [MultiOutput(0, "SAPReports", "A list of the SAPReports.")]
         [MultiOutput(1, "saveFiles", "A list of file settings objects corresponding to each iteration.")]
         [MultiOutput(2, "qaFile", "A list of objects corresponding to changes made in each iteration.")]
-        public static Output<SAPReport, FileSettings, BH.oM.Environment.SAP.JSON.Dwelling> RunParametricStudy(this SAPReport sapObj, Parameters iteration, string directory, BH.oM.Environment.SAP.PsiValues psiValues, int count)
+        public static Output<SAPReport, FileSettings, BH.oM.Environment.SAP.JSON.Dwelling> RunParametricStudy(this SAPReport sapObj, Parameters iteration, string directory, List<BH.oM.Environment.SAP.ThermalBridgePsiValue> psiValues, List<OpeningCreationDetails> openingDetails, int count)
         {
             SAPReport reportObj = sapObj.DeepClone();
 
@@ -109,7 +109,7 @@ namespace BH.Engine.Environment.SAP
             dwellingJSON.Floors = floor.Item2;
 
             //Create thermal bridges from opening
-            reportObj = reportObj.ThermalBridgesFromOpening(psiValues);
+            reportObj = reportObj.ThermalBridgesFromOpening(psiValues, openingDetails);
 
             //Thermal bridge modifications
             var thermalBridge = reportObj.ParametricsThermalBridge(iteration.ThermalBridges, countFormat);

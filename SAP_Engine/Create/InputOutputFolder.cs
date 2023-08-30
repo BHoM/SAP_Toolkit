@@ -23,57 +23,55 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using BH.oM.Environment.SAP;
+using BH.Engine.Geometry;
+using System.ComponentModel;
+using BH.oM.Base.Attributes;
+using System.IO;
+using BH.oM.Adapter;
 using BH.oM.Base;
+using BH.oM.Environment.SAP.XML;
+using static System.Net.WebRequestMethods;
 
-namespace BH.oM.Environment.SAP
+namespace BH.Engine.Environment.SAP
 {
-    [Description("A ThermalBridges object for SAP analysis.")]
-    public class ThermalBridgeLengths : BHoMObject
+    public static partial class Create
     {
-        [Description("Dwelling name.")]
-        public virtual string DwellingName { get; set; } = "";
+        [Description("Converts lists of thermal bridge curves to lists of lengths of thermal bridges.")]
+        [Input("thermalBridgesCurves", "ThermalBridgeLength objects.")]
+        [Output("thermalBridgeLengths", "ThermalBridgeLengthObjects.")]
+        public static Output<string, string> InputOutputFolder(this string directory)
+        {
+            if (!System.IO.Directory.Exists(directory))
+            {
+                BH.Engine.Base.Compute.RecordError($"The directory {directory} does not exist.");
+                return null;
+            }
 
-        [Description("Full dwelling name, including window settings and glazing value.")]
-        public virtual string Reference { get; set; } = "";
+            string inputPath = Path.Combine(directory, "Input");
 
-        [Description("Dwelling number, resets with each floor.")]
-        public virtual int ID { get; set; } = 0;
+            string outputPath = Path.Combine(directory, "Results");
 
-        [Description("Window lintels.")]
-        public virtual double E2 { get; set; }
+            if (!System.IO.Directory.Exists(inputPath))
+            {
+                Directory.CreateDirectory(inputPath);
+            }
 
-        [Description("Window sills.")]
-        public virtual double E3 { get; set; }
-
-        [Description("Window jambs.")]
-        public virtual double E4 { get; set; }
-
-        [Description("Party floor.")]
-        public virtual double E7 { get; set; }
-
-        [Description("Balconies.")]
-        public virtual double E23 { get; set; }
-
-        [Description("Eaves.")]
-        public virtual double E10 { get; set; }
-
-        [Description("Roof.")]
-        public virtual double E15 { get; set; }
-
-        [Description("Corner normal.")]
-        public virtual double E16 { get; set; }
-
-        [Description("Corner inverted.")]
-        public virtual double E17 { get; set; }
-
-        [Description("Party wall.")]
-        public virtual double E18 { get; set; }
-
-        [Description("Staggered something.")]
-        public virtual double E25 { get; set; }
-
+            if (!System.IO.Directory.Exists(outputPath))
+            {
+                Directory.CreateDirectory(outputPath);
+            }
+            return new Output<string, string>()
+            {
+                Item1 = inputPath,
+                Item2 = outputPath
+            };
+        }
     }
 }
+
 

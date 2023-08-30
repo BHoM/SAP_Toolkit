@@ -59,7 +59,7 @@ namespace BH.Engine.Environment.SAP
             //Check for null input of sap report
             if (include == null || ((uvalue < 0) && (gvalue < 0)) || sapObj == null)
             {
-                return null;
+                return new Output<SAPReport, List<BH.oM.Environment.SAP.JSON.OpeningType>>() { Item1 = sapObj, Item2 = null };
             }
 
             //QA file - track changes to uvalue and gvalue of opening type
