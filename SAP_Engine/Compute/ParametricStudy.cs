@@ -55,10 +55,21 @@ namespace BH.Engine.Environment.SAP
         [Input("psiValues", "Input psiValues.")]
         [MultiOutput(0, "SAPReports", "A list of the SAPReports.")]
         [MultiOutput(1, "saveFiles", "A list of file settings objects corresponding to each iteration")]
-        public static Output<List<SAPReport>, List<FileSettings>> ParametricStudy(this List<SAPReport> sapObjList, List<Parameters> iterations, string directory, string study, BH.oM.Environment.SAP.PsiValues psiValues)
+        public static Output<List<SAPReport>, List<FileSettings>, bool, string,string> ParametricStudy(this List<SAPReport> sapObjList, List<Parameters> iterations, string directory, string study, List<BH.oM.Environment.SAP.ThermalBridgePsiValue> psiValues, List<OpeningCreationDetails> openingDetails, bool run)
         {
+            if (run != true)
+            {
+                return null;
+            }
             //All un-modified reports are included in the output
-            
+
+            var filePaths = directory.InputOutputFolder();
+            string input = filePaths.Item1;
+            string output = filePaths.Item2;
+            //(string input, string output) = (filePaths.Item1, filePaths.Item2);
+
+            List<SAPReport> reports = sapObjList;
+
             List<oM.Environment.SAP.JSON.Dwelling> baseDwellings = sapObjList.Select(x => new oM.Environment.SAP.JSON.Dwelling
                                                                             {
                                                                                 BuildingIdentifier = x.SAP10Data.PropertyDetails.BuildingParts.BuildingPart[0].Identifier,
@@ -66,7 +77,7 @@ namespace BH.Engine.Environment.SAP
                                                                             }).ToList();
             Iteration baseIteration = new Iteration {  IterationName = "Base Study", IterationCode = "0000", Dwellings = baseDwellings };
 
-            List<FileSettings> files = sapObjList.Select(x => new FileSettings { Directory = directory, FileName = $"0000_{x.SAP10Data.PropertyDetails.BuildingParts.BuildingPart[0].Identifier}.xml" }).ToList();
+            List<FileSettings> files = sapObjList.Select(x => new FileSettings { Directory = input, FileName = $"0000_{x.SAP10Data.PropertyDetails.BuildingParts.BuildingPart[0].Identifier}.xml" }).ToList();
 
             //Checking to make sure iterations have unique names
             List<string> iterationName = iterations.Select(x => x.IterationName).ToList();
@@ -99,9 +110,9 @@ namespace BH.Engine.Environment.SAP
                     IterationName = (i.IterationName == null ? countFormat : i.IterationName)
                 };
 
-                var studyResult = sapObjList.Select(x => x.RunParametricStudy(i, directory, psiValues, count));
+                var studyResult = sapObjList.Select(x => x.RunParametricStudy(i, input, psiValues,openingDetails, count));
 
-                sapObjList = sapObjList.Concat(studyResult.Select(x => x.Item1)).ToList();
+                reports = reports.Concat(studyResult.Select(x => x.Item1)).ToList();
                 files = files.Concat(studyResult.Select(x => x.Item2)).ToList();
 
                 iterationJson.Dwellings = studyResult.Select(x => x.Item3).ToList();
@@ -113,15 +124,18 @@ namespace BH.Engine.Environment.SAP
 
             report.Iterations = iterationList;
 
-            string jsonPath = $"{directory}\\QA.json";
+            string jsonPath = $"{input}\\QA.json";
 
             string JSONFile = BH.Engine.Serialiser.Convert.ToJson(report);
             System.IO.File.WriteAllText(jsonPath, JSONFile);
 
-            return new Output<List<SAPReport>, List<FileSettings>>()
+            return new Output<List<SAPReport>, List<FileSettings>,bool, string,string>()
             {
-                Item1 = sapObjList,
-                Item2 = files
+                Item1 = reports,
+                Item2 = files,
+                Item3 = true,
+                Item4 = input,
+                Item5 = output
             };
         }
     }

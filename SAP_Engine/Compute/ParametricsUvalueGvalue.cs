@@ -54,8 +54,16 @@ namespace BH.Engine.Environment.SAP
         [Input("gSteps", "Number of steps for gvalue.")]
         [MultiOutput(0, "SAPReports", "A list of the SAPReports.")]
         [MultiOutput(1, "saveFiles", "A list of file settings objects corresponding to each iteration.")]
-        public static Output<List<SAPReport>, List<FileSettings>> ParametricsUvalueGvalue(this List<SAPReport> sapObjs, string directory, List<string> include, PsiValues psiValues, double upperUValue = -1, double lowerUValue = -1, int uSteps = 0, double upperGValue = -1, double lowerGValue = -1, int gSteps = 0)
+        [MultiOutput(2, "success", "Was it a success?")]
+        [MultiOutput(3, "inputPath", "Input files directory.")]
+        [MultiOutput(4, "outputPath", "Output file directory.")]
+        public static Output<List<SAPReport>, List<FileSettings>,bool,string,string> ParametricsUvalueGvalue(this List<SAPReport> sapObjs, string directory, List<string> include, List<ThermalBridgePsiValue> psiValues, List<OpeningCreationDetails> openingDetails,double upperUValue = -1, double lowerUValue = -1, int uSteps = 0, double upperGValue = -1, double lowerGValue = -1, int gSteps = 0, bool run = false)
         {
+            if (run != true)
+            {
+                return null;
+            }
+
             if (uSteps > 0 && (upperUValue < 0 || lowerUValue < 0))
             {
                 BH.Engine.Base.Compute.RecordError("UValue bounds have not been set properly.");
@@ -124,7 +132,7 @@ namespace BH.Engine.Environment.SAP
                 typeIteratorLists.Add(iteration);
             }
 
-            return (sapObjs.ParametricStudy(typeIteratorLists, directory, "UandGStudy", psiValues));
+            return (sapObjs.ParametricStudy(typeIteratorLists, directory, "UandGStudy", psiValues, openingDetails, run));
         }
     }
 }

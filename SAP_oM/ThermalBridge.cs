@@ -46,7 +46,6 @@ namespace BH.oM.Environment.SAP
 
         [Description("Reference to the details of the calculation of the psi-value.")]
         public virtual string CalculationReference { get; set; } = null;
-
     }
 }
 

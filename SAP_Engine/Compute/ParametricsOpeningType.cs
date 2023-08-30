@@ -78,7 +78,7 @@ namespace BH.Engine.Environment.SAP
                 var openingTypeMods = sapObj.ModifyOpeningTypes(i.Include, i.UValue, i.GValue);
 
                 sapObj = openingTypeMods.Item1;
-                typeChanges = typeChanges.Concat(openingTypeMods.Item2).ToList();
+                typeChanges = ( openingTypeMods.Item2 != null ? typeChanges.Concat(openingTypeMods.Item2).ToList() : typeChanges);
             }
 
             return new Output<SAPReport, List<BH.oM.Environment.SAP.JSON.OpeningType>>() { Item1 = sapObj, Item2 = typeChanges };

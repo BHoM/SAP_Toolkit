@@ -53,10 +53,11 @@ namespace BH.Engine.Environment.SAP
         [Input("filenames", "List of all the files names in a study.")]
         [Input("reportObjs", "The SAPReport to get the data from.")]
         [Input("jsonFile", "The JSON file prroduced by running a parametric study.")]
-        [Output("results", "Results pulled from the report.")]
-        public static List<SAPExcelResults> ExcelResults(List<string> filenames, List<SAPReport> reportObjs, BH.oM.Environment.SAP.JSON.JSONReport jsonFile)
+        [Input("dwellingCounts", "The number of each dwelling.")]
+        [MultiOutput(0, "results", "Results pulled from the report.")]
+        [MultiOutput(1, "success", "Has it run.")]
+        public static Output<List<SAPExcelResults>,bool> ExcelResults(List<string> filenames, List<SAPReport> reportObjs, BH.oM.Environment.SAP.JSON.JSONReport jsonFile, List<DwellingCount> dwellingCounts)
         {
-
             if (filenames == null || filenames.Count == 0 || reportObjs == null || reportObjs.Count == 0 || reportObjs.Count != filenames.Count)
                 return null;
 
@@ -73,7 +74,6 @@ namespace BH.Engine.Environment.SAP
                 SAPExcelResults r = new SAPExcelResults
                 {
                     Dwelling = typeInfo.identifier,
-                    //DwellingCount = 1
                     Iteration = typeInfo.code,
                     WallArea = reportObjs[i].WallArea(),
                     WindowArea = reportObjs[i].WindowArea(),
@@ -85,6 +85,9 @@ namespace BH.Engine.Environment.SAP
                     DFEE = double.Parse(energyUseResults.DFEE),
                     TFEE = double.Parse(energyUseResults.TFEE)
                 };
+
+                var count = dwellingCounts.Where(x => x.Dwelling == r.Dwelling).First().count;
+                r.DwellingCount = (count > 0 ? count : 1);
 
                 //Block compliance calcs
                 r.FloorAreaPerType = r.DwellingCount * r.TFA;
@@ -147,7 +150,11 @@ namespace BH.Engine.Environment.SAP
                 results.Add(r);
             }
 
-            return results;            
+            return new Output<List<SAPExcelResults>, bool>
+            {
+                Item1 = results,
+                Item2 = true
+            };    
         }
     }
 }
