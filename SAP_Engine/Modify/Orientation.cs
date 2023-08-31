@@ -38,7 +38,7 @@ using BH.oM.Base;
 using BH.oM.Environment.SAP.XML;
 using System.Runtime.InteropServices.ComTypes;
 using BH.oM.Adapter.Commands;
-using BH.oM.Environment.SAP.Stroma10;
+
 using BH.oM.Environment.SAP.JSON;
 
 namespace BH.Engine.Environment.SAP

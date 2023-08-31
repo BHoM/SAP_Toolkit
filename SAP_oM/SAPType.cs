@@ -33,8 +33,7 @@ namespace BH.oM.Environment.SAP
     public enum SAPType
     {
         Undefined,
-        Argyle,
-        Stroma
+        Argyle
     }
 }
 

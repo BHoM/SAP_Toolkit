@@ -30,7 +30,6 @@ using BH.oM.Environment.SAP.XML;
 using BH.oM.Environment.SAP;
 using System.ComponentModel;
 using BH.oM.Base;
-using BH.oM.Environment.SAP.Stroma10;
 
 namespace BH.oM.Environment.SAP.XML
 {

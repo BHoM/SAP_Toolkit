@@ -42,7 +42,7 @@ using BH.oM.Analytical.Elements;
 using static System.Net.WebRequestMethods;
 using BH.oM.Environment.SAP.JSON;
 using System.Text.Json;
-using BH.oM.Environment.SAP.Stroma10;
+
 
 namespace BH.Engine.Environment.SAP
 { 

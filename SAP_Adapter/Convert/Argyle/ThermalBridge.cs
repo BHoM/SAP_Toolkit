@@ -27,7 +27,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using BH.oM.Base.Attributes;
-using BH.oM.Environment.SAP.Stroma10;
+
 
 namespace BH.Engine.Environment.SAP
 {

@@ -27,7 +27,7 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Adapter.Commands;
 using BH.oM.Base;
-using BH.oM.Environment.SAP.Stroma10;
+
 using BH.oM.Geometry;
 
 namespace BH.oM.Environment.SAP

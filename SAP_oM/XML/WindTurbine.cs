@@ -26,7 +26,7 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
-using BH.oM.Environment.SAP.Stroma10;
+
 
 namespace BH.oM.Environment.SAP.XML
 {
