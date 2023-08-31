@@ -52,7 +52,10 @@ namespace BH.Engine.Environment.SAP
         [Input("sapObjList", "Input the list of SAPReport object to modify.")]
         [Input("iterations", "Input the iterators.")]
         [Input("directory", "Input the directory for the study.")]
-        [Input("psiValues", "Input psiValues.")]
+        [Input("study", "The name of the study.")]
+        [Input("psiValues", "A list of psi value objects - inputted by the user.")]
+        [Input("openingDetails", "A list of opening Details.")]
+        [Input("run", "Run the parametric study.")]
         [MultiOutput(0, "SAPReports", "A list of the SAPReports.")]
         [MultiOutput(1, "saveFiles", "A list of file settings objects corresponding to each iteration")]
         public static Output<List<SAPReport>, List<FileSettings>, bool, string,string> ParametricStudy(this List<SAPReport> sapObjList, List<Parameters> iterations, string directory, string study, List<BH.oM.Environment.SAP.ThermalBridgePsiValue> psiValues, List<OpeningCreationDetails> openingDetails, bool run)
