@@ -22,7 +22,7 @@
 
 using BH.oM.Adapter;
 using BH.oM.Base;
-using BH.oM.Environment.SAP.Stroma10;
+
 using BH.oM.Environment.SAP.XML;
 using System;
 using System.Collections.Generic;

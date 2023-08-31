@@ -35,7 +35,6 @@ using BH.Engine.Base;
 using System.Runtime.InteropServices.ComTypes;
 using BH.oM.Environment.Elements;
 using BH.oM.Base.Attributes;
-using BH.oM.Environment.SAP.Stroma10;
 using BH.oM.Environment.SAP.Bluebeam;
 using BH.oM.Base;
 using BH.oM.Quantities.Attributes;

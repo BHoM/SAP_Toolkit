@@ -34,10 +34,6 @@ namespace BH.Adapter.SAP
     {
         protected override IEnumerable<IBHoMObject> IRead(Type type, IList ids, ActionConfig actionConfig = null)
         {
-            if (m_Settings.SAPType == oM.Environment.SAP.SAPType.Stroma)
-            {
-                return new List<IBHoMObject>() { ReadStroma(m_Settings.FileSettings.GetFullFileName()) };
-            }
             if (m_Settings.SAPType == oM.Environment.SAP.SAPType.Argyle)
             {
                 return new List<IBHoMObject>() { ReadArgyle(m_Settings.FileSettings) };
