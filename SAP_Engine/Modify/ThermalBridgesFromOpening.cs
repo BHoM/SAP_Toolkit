@@ -43,8 +43,9 @@ namespace BH.Engine.Environment.SAP
         [Description("Removes existing opening thermal bridges and recalculates them from openings.")]
         [Input("sapReportObj", "SAPReport to modify.")]
         [Input("values", "PsiValues object.")]
+        [Input("openingDetails", "The psi value data for the opening.")]
         [Output("sapReport", "Modifed SAP Report.")]
-        public static SAPReport ThermalBridgesFromOpening(this SAPReport sapReportObj, List<PsiValues> values, List<OpeningPsiValues> openingDetails)// List<BH.oM.Environment.SAP.XML.ThermalBridge> thermalBridgeObjs, List<BH.oM.Environment.SAP.XML.OpeningType> types, List<BH.oM.Environment.SAP.XML.Opening> openings, PsiValues values)
+        public static SAPReport ThermalBridgesFromOpening(this SAPReport sapReportObj, List<PsiValues> values, List<OpeningPsiValues> openingDetails)
         {
             //List of opening types
             List<BH.oM.Environment.SAP.XML.OpeningType> types = sapReportObj.SAP10Data.PropertyDetails.OpeningTypes.OpeningType;
@@ -77,6 +78,7 @@ namespace BH.Engine.Environment.SAP
         [Input("types", "A list of OpeningType objects.")]
         [Input("openings", "A list of Opening objects.")]
         [Input("values", "PsiValues object.")]
+        [Input("openingDetails", "The psi value data for the opening.")]
         [Output("thermalBridge", "A list of ThermalBridge objects.")]
         public static List<BH.oM.Environment.SAP.XML.ThermalBridge> TBFromOpening(this BH.oM.Environment.SAP.XML.BuildingPart buildingObj, List<BH.oM.Environment.SAP.XML.OpeningType> types, List<PsiValues> values, List<OpeningPsiValues> openingDetails)
         {
@@ -206,6 +208,12 @@ namespace BH.Engine.Environment.SAP
             return thermalBridges;
         }
 
+        [Description("Creates a thermal bridge object based on inputs.")]
+        [Input("type", "The type of thermal bridge.")]
+        [Input("psiValue", "The psi value of the thermal bridge.")]
+        [Input("length", "The length of the thermal bridge.")]
+        [Input("openingType", "The type of the opening the thermal bridge has been created from.")]
+        [Output("The thermal bridge created from the inputs.")]
         public static BH.oM.Environment.SAP.XML.ThermalBridge CreateThermalBridge(this string type, double psiValue, double length, string openingType)
         {
             if (type == null)

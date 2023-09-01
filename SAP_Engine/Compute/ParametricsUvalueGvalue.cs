@@ -47,6 +47,7 @@ namespace BH.Engine.Environment.SAP
         [Input("directory", "Directory to save files in.")]
         [Input("include", "A list of opening types to change in this study.")]
         [Input("psiValues", "Psi Values of all the thermal bridge objects.")]
+        [Input("openingDetails", "Opening psi value details.")]
         [Input("upperUValue", "Upper bound for uvalue.")]
         [Input("lowerUValue", "Lower bound for uvalue.")]
         [Input("uSteps", "Number of steps for uvalue.")]
