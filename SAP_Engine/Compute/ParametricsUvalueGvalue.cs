@@ -54,6 +54,7 @@ namespace BH.Engine.Environment.SAP
         [Input("upperGValue", "Upper bound for gvalue.")]
         [Input("lowerGValue", "Lower bound for gvalue.")]
         [Input("gSteps", "Number of steps for gvalue.")]
+        [Input("run", "Set to true to run the study.")]
         [MultiOutput(0, "SAPReports", "A list of the SAPReports.")]
         [MultiOutput(1, "saveFiles", "A list of file settings objects corresponding to each iteration.")]
         [MultiOutput(2, "success", "Was it a success?")]

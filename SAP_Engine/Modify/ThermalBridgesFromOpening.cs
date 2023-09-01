@@ -75,8 +75,8 @@ namespace BH.Engine.Environment.SAP
         }
 
         [Description("Creates thermalBridge objects from the opening widths/heights.")]
+        [Input("buildingObj", "A building part object.")]
         [Input("types", "A list of OpeningType objects.")]
-        [Input("openings", "A list of Opening objects.")]
         [Input("values", "PsiValues object.")]
         [Input("openingDetails", "The psi value data for the opening.")]
         [Output("thermalBridge", "A list of ThermalBridge objects.")]
