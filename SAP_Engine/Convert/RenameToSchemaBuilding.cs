@@ -43,7 +43,7 @@ using System.Reflection;
 
 namespace BH.Engine.Environment.SAP
 {
-    public static partial class Compute
+    public static partial class Convert
     {
         /***************************************************/
         /**** Public Methods                            ****/
@@ -58,7 +58,7 @@ namespace BH.Engine.Environment.SAP
         [MultiOutput(0, "wallNames", "Wall names changed to match the schema.")]
         [MultiOutput(1, "roofNames", "Roof names changed to match the schema.")]
         [MultiOutput(2, "OpeningLocations", "Opening locations changed to match the schema.")]
-        public static Output<List<string>, List<string>, List<string>> RenameToSchemaBuilding(List<string> roofTypes, List<string> roofNames, List<string> wallTypes, List<string> wallNames, List<string> openingLocations)
+        public static Output<List<string>, List<string>, List<string>> RenameToSchemaBuilding(this List<string> roofTypes, List<string> roofNames, List<string> wallTypes, List<string> wallNames, List<string> openingLocations)
         {
             //Check for mismatched inputs
             if (roofTypes.Count != roofNames.Count)
