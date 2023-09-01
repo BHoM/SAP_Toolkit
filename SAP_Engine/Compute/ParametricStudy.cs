@@ -76,14 +76,16 @@ namespace BH.Engine.Environment.SAP
 
             List<SAPReport> reports = sapObjList;
 
+            string code = (study == "UandGStudy" ? "0000" : "Base");
+
             List<oM.Environment.SAP.JSON.Dwelling> baseDwellings = sapObjList.Select(x => new oM.Environment.SAP.JSON.Dwelling
                                                                             {
                                                                                 BuildingIdentifier = x.SAP10Data.PropertyDetails.BuildingParts.BuildingPart[0].Identifier,
-                                                                                FilePath = $"0000_{x.SAP10Data.PropertyDetails.BuildingParts.BuildingPart[0].Identifier}.xml"
+                                                                                FilePath = $"{code}_{x.SAP10Data.PropertyDetails.BuildingParts.BuildingPart[0].Identifier}.xml"
                                                                             }).ToList();
-            Iteration baseIteration = new Iteration {  IterationName = "Base Study", IterationCode = "0000", Dwellings = baseDwellings };
+            Iteration baseIteration = new Iteration {  IterationName = "Base Study", IterationCode = $"{code}", Dwellings = baseDwellings };
 
-            List<FileSettings> files = sapObjList.Select(x => new FileSettings { Directory = input, FileName = $"0000_{x.SAP10Data.PropertyDetails.BuildingParts.BuildingPart[0].Identifier}.xml" }).ToList();
+            List<FileSettings> files = sapObjList.Select(x => new FileSettings { Directory = input, FileName = $"{code}_{x.SAP10Data.PropertyDetails.BuildingParts.BuildingPart[0].Identifier}.xml" }).ToList();
 
             //Checking to make sure iterations have unique names
             List<string> iterationName = iterations.Select(x => x.IterationName).ToList();
@@ -112,7 +114,7 @@ namespace BH.Engine.Environment.SAP
                 //QA file - setting up the Iteration 
                 BH.oM.Environment.SAP.JSON.Iteration iterationJson = new Iteration
                 {
-                    IterationCode = countFormat,
+                    IterationCode = (study == "UandGStudy" ? countFormat : i.IterationName),
                     IterationName = (i.IterationName == null ? countFormat : i.IterationName)
                 };
 
