@@ -43,7 +43,7 @@ using System.Reflection;
 
 namespace BH.Engine.Environment.SAP
 {
-    public static partial class Compute
+    public static partial class Convert
     {
         /***************************************************/
         /**** Public Methods                            ****/
@@ -55,7 +55,7 @@ namespace BH.Engine.Environment.SAP
         [Input("openings", "List of the openings in the dwelling.")]
         [MultiOutput(0, "openingTypeNames", "Opening type names changed to match the schema.")]
         [MultiOutput(1, "openingTypes", "Opening Types updated to match the change to the names of opening types.")]
-        public static Output<List<string>, List<string>> RenameToSchemaOpenings(List<string> openingTypes, List<string> openingNames, List<string> openings)
+        public static Output<List<string>, List<string>> RenameToSchemaOpenings(this List<string> openingTypes, List<string> openingNames, List<string> openings)
         {
             //Check for mismatched inputs
             if (openingTypes.Count != openingNames.Count)
