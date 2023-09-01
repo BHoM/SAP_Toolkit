@@ -67,7 +67,7 @@ namespace BH.Engine.Environment.SAP
             {
                 return null;
             }
-            //All un-modified reports are included in the output
+            //All un-modified reports are included in the output SAP
 
             var filePaths = directory.InputOutputFolder();
             string input = filePaths.Item1;

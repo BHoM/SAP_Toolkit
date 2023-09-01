@@ -49,14 +49,16 @@ namespace BH.Engine.Environment.SAP
         /**** Public Methods                            ****/
         /***************************************************/
 
-        [Description("Takes data such as areas of building parts, and results and then pushes to a single object.")]
-        [Input("filenames", "List of all the files names in a study.")]
-        [Input("reportObjs", "The SAPReport to get the data from.")]
-        [Input("jsonFile", "The JSON file prroduced by running a parametric study.")]
-        [Input("dwellingCounts", "The number of each dwelling.")]
-        [MultiOutput(0, "results", "Results pulled from the report.")]
-        [MultiOutput(1, "success", "Has it run.")]
-        public static Output<List<string>, List<string>, List<string>> RenameBuildingParts(List<string> roofTypes, List<string> roofNames, List<string> wallTypes, List<string> wallNames, List<string> openingLocations)
+        [Description("Renames the roofs and walls to match the schema")]
+        [Input("roofTypes", "List of types of roofs.")]
+        [Input("roofNames", "List of names of roofs.")]
+        [Input("wallTypes", "List of types of walls.")]
+        [Input("wallNames", "List of names of walls.")]
+        [Input("openingLocations", "The list of opening locations.")]
+        [MultiOutput(0, "wallNames", "Wall names changed to match the schema.")]
+        [MultiOutput(1, "roofNames", "Roof names changed to match the schema.")]
+        [MultiOutput(2, "OpeningLocations", "Opening locations changed to match the schema.")]
+        public static Output<List<string>, List<string>, List<string>> RenameToSchemaBuilding(List<string> roofTypes, List<string> roofNames, List<string> wallTypes, List<string> wallNames, List<string> openingLocations)
         {
             //Check for mismatched inputs
             if (roofTypes.Count != roofNames.Count)
@@ -108,7 +110,7 @@ namespace BH.Engine.Environment.SAP
             Dictionary<string, string> namingConventions = new Dictionary<string, string>
             {
                 {"ExposedRoof", "Roof" },
-                {"PartyCeiling", "Party Ceiling" },
+                {"PartyCeiling", "Party ceiling" },
                 {"Undefined", "Undefined"},
                 {"BasementWall", "Basement wall" },
                 {"ExposedWall", "Walls"},
