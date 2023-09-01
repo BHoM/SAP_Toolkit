@@ -27,19 +27,25 @@ using System.Linq;
 using System.Xml.Serialization;
 using BH.oM.Base;
 
-namespace BH.oM.Environment.SAP
+namespace BH.oM.Environment.SAP.Excel
 {
-    [Description("A thermal bridge between two thermal elements of the dwelling.")]
-    public class ThermalBridgePsiValue : BHoMObject
+    [Description("The details of walls from the users excel input.")]
+    public class Walls : BHoMObject
     {
-        [Description("The thermal bridge type reference according to Table K1 in SAP 2012.")]
-        public virtual string Type { get; set; } = string.Empty;
+        [Description("The name of the dwelling the wall is located in.")]
+        public virtual string Dwelling { get; set; } = string.Empty;
 
-        [Description("The length of the thermal bridge.")]
-        public virtual string ThermalBridgeName { get; set; } = string.Empty;
+        [Description("The type of wall")]
+        public virtual TypeOfWall Type { get; set; } = TypeOfWall.ExposedWall;
 
-        [Description("The psi-value (heat loss per linear metre) to be applied to the thermal bridge.")]
-        public virtual double PsiValue { get; set; } = 0;
+        [Description("The name of the wall.")]
+        public virtual string WallName { get; set; } = string.Empty;
+
+        [Description("If the wall is a curtain wall.")]
+        public virtual bool CurtainWall { get; set; } = false;
+
+        [Description("The uvalue of the wall")]
+        public virtual double UValue { get; set; } = 0;
     }
 }
 

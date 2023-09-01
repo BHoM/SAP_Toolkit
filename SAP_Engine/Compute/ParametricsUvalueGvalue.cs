@@ -36,6 +36,7 @@ using System.Runtime.InteropServices.ComTypes;
 using BH.oM.Environment.Elements;
 using BH.oM.Base;
 using BH.oM.Base.Attributes;
+using BH.oM.Environment.SAP.Excel;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -57,7 +58,7 @@ namespace BH.Engine.Environment.SAP
         [MultiOutput(2, "success", "Was it a success?")]
         [MultiOutput(3, "inputPath", "Input files directory.")]
         [MultiOutput(4, "outputPath", "Output file directory.")]
-        public static Output<List<SAPReport>, List<FileSettings>,bool,string,string> ParametricsUvalueGvalue(this List<SAPReport> sapObjs, string directory, List<string> include, List<ThermalBridgePsiValue> psiValues, List<OpeningCreationDetails> openingDetails,double upperUValue = -1, double lowerUValue = -1, int uSteps = 0, double upperGValue = -1, double lowerGValue = -1, int gSteps = 0, bool run = false)
+        public static Output<List<SAPReport>, List<FileSettings>,bool,string,string> ParametricsUvalueGvalue(this List<SAPReport> sapObjs, string directory, List<string> include, List<PsiValues> psiValues, List<OpeningPsiValues> openingDetails,double upperUValue = -1, double lowerUValue = -1, int uSteps = 0, double upperGValue = -1, double lowerGValue = -1, int gSteps = 0, bool run = false)
         {
             if (run != true)
             {

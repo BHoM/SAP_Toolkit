@@ -27,25 +27,42 @@ using System.Linq;
 using System.Xml.Serialization;
 using BH.oM.Base;
 
-namespace BH.oM.Environment.SAP
+namespace BH.oM.Environment.SAP.Excel
 {
-    [Description("The details of walls from the users excel input.")]
-    public class WallExcel : BHoMObject
+    [Description("The details of roofs from the users excel input.")]
+    public class Openings : BHoMObject
     {
-        [Description("The name of the dwelling the wall is located in.")]
-        public virtual string Dwelling { get; set; } = string.Empty;
+        [Description("The type of the opening.")]
+        public virtual string OpeningType { get; set; } = string.Empty;
 
-        [Description("The type of wall")]
-        public virtual TypeOfWall Type { get; set; } = TypeOfWall.ExposedWall;
-
-        [Description("The name of the wall.")]
-        public virtual string WallName { get; set; } = string.Empty;
-
-        [Description("If the wall is a curtain wall.")]
-        public virtual bool CurtainWall { get; set; } = false;
-
-        [Description("The uvalue of the wall")]
+        [Description("The uvalue of the opening.")]
         public virtual double UValue { get; set; } = 0;
+
+        [Description("The gvalue of the opening.")]
+        public virtual double GValue { get; set; } = 0;
+
+        [Description("The type of glazing.")]
+        public virtual TypeOfGlazing TypeOfGlazing { get; set; } = TypeOfGlazing.DoubleLowEHard02;
+
+        [Description("The glazing gap.")]
+        public virtual GlazingGap GlazingGap { get; set; } = GlazingGap.SixteenOrMore;
+
+        [Description("The frame factor of the opening.")]
+        public virtual double FrameFactor { get; set; } = 0;
+
+        [Description("The type of frame.")]
+        public virtual TypeOfFrame FrameType { get; set; } = TypeOfFrame.Wood;
+
+        [Description("If the opening is argon filled.")]
+        public virtual bool ArgonFilled { get; set; } = false;
+
+        [Description("If the opening is krypton filled.")]
+        public virtual bool KryptonFilled { get; set; } = false;
+
+        [Description("The data source for the opening.")]
+        public virtual OpeningDataSource DataSource { get; set; } = OpeningDataSource.ManufacturerDeclaration;
+
+        [Description("Does the opening intersect with the floor?")]
+        public virtual bool FloorIntersection { get; set; } = false;
     }
 }
-
