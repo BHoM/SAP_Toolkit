@@ -27,7 +27,7 @@ using System.Linq;
 using System.Xml.Serialization;
 using BH.oM.Base;
 
-namespace BH.oM.Environment.SAP
+namespace BH.oM.Environment.SAP.Excel
 {
     [Description("The details of roofs from the users excel input.")]
     public class DwellingSchedule : BHoMObject

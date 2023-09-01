@@ -34,6 +34,7 @@ using BH.oM.Environment.SAP.XML;
 using BH.Engine.Base;
 using System.Security.Cryptography.X509Certificates;
 using BH.oM.Quantities.Attributes;
+using BH.oM.Environment.SAP.Excel;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -43,7 +44,7 @@ namespace BH.Engine.Environment.SAP
         [Input("sapReportObj", "SAPReport to modify.")]
         [Input("values", "PsiValues object.")]
         [Output("sapReport", "Modifed SAP Report.")]
-        public static SAPReport ThermalBridgesFromOpening(this SAPReport sapReportObj, List<ThermalBridgePsiValue> values, List<OpeningCreationDetails> openingDetails)// List<BH.oM.Environment.SAP.XML.ThermalBridge> thermalBridgeObjs, List<BH.oM.Environment.SAP.XML.OpeningType> types, List<BH.oM.Environment.SAP.XML.Opening> openings, PsiValues values)
+        public static SAPReport ThermalBridgesFromOpening(this SAPReport sapReportObj, List<PsiValues> values, List<OpeningPsiValues> openingDetails)// List<BH.oM.Environment.SAP.XML.ThermalBridge> thermalBridgeObjs, List<BH.oM.Environment.SAP.XML.OpeningType> types, List<BH.oM.Environment.SAP.XML.Opening> openings, PsiValues values)
         {
             //List of opening types
             List<BH.oM.Environment.SAP.XML.OpeningType> types = sapReportObj.SAP10Data.PropertyDetails.OpeningTypes.OpeningType;
@@ -77,7 +78,7 @@ namespace BH.Engine.Environment.SAP
         [Input("openings", "A list of Opening objects.")]
         [Input("values", "PsiValues object.")]
         [Output("thermalBridge", "A list of ThermalBridge objects.")]
-        public static List<BH.oM.Environment.SAP.XML.ThermalBridge> TBFromOpening(this BH.oM.Environment.SAP.XML.BuildingPart buildingObj, List<BH.oM.Environment.SAP.XML.OpeningType> types, List<ThermalBridgePsiValue> values, List<OpeningCreationDetails> openingDetails)
+        public static List<BH.oM.Environment.SAP.XML.ThermalBridge> TBFromOpening(this BH.oM.Environment.SAP.XML.BuildingPart buildingObj, List<BH.oM.Environment.SAP.XML.OpeningType> types, List<PsiValues> values, List<OpeningPsiValues> openingDetails)
         {
             //Empty list of thermal bridges ( to be final list)
             List<BH.oM.Environment.SAP.XML.ThermalBridge> thermalBridges = new List<BH.oM.Environment.SAP.XML.ThermalBridge>();
@@ -119,7 +120,7 @@ namespace BH.Engine.Environment.SAP
             }
 
             //List of psi values in general psi value section
-            List<ThermalBridgePsiValue> windowTBValues = thermalBridgeTypes.Select(x => values.Where(y => ((y.Type == x) && (y.ThermalBridgeName == x || y.ThermalBridgeName == string.Empty))).FirstOrDefault()).ToList();
+            List<PsiValues> windowTBValues = thermalBridgeTypes.Select(x => values.Where(y => ((y.Type == x) && (y.ThermalBridgeName == x || y.ThermalBridgeName == string.Empty))).FirstOrDefault()).ToList();
 
             //For each window type
             foreach (var t in types)

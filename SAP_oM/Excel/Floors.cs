@@ -27,10 +27,10 @@ using System.Linq;
 using System.Xml.Serialization;
 using BH.oM.Base;
 
-namespace BH.oM.Environment.SAP
+namespace BH.oM.Environment.SAP.Excel
 {
     [Description("The details of floors from the users excel input.")]
-    public class FloorExcel : BHoMObject
+    public class Floors : BHoMObject
     {
         [Description("The name of the dwelling the floor is located in.")]
         public virtual string Dwelling { get; set; } = string.Empty;

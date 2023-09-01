@@ -42,7 +42,7 @@ using BH.oM.Analytical.Elements;
 using static System.Net.WebRequestMethods;
 using BH.oM.Environment.SAP.JSON;
 using System.Text.Json;
-
+using BH.oM.Environment.SAP.Excel;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -57,7 +57,7 @@ namespace BH.Engine.Environment.SAP
         [MultiOutput(0, "SAPReports", "A list of the SAPReports.")]
         [MultiOutput(1, "saveFiles", "A list of file settings objects corresponding to each iteration.")]
         [MultiOutput(2, "qaFile", "A list of objects corresponding to changes made in each iteration.")]
-        public static Output<SAPReport, FileSettings, BH.oM.Environment.SAP.JSON.Dwelling> RunParametricStudy(this SAPReport sapObj, Parameters iteration, string directory, List<BH.oM.Environment.SAP.ThermalBridgePsiValue> psiValues, List<OpeningCreationDetails> openingDetails, int count)
+        public static Output<SAPReport, FileSettings, BH.oM.Environment.SAP.JSON.Dwelling> RunParametricStudy(this SAPReport sapObj, Parameters iteration, string directory, List<PsiValues> psiValues, List<OpeningPsiValues> openingDetails, int count)
         {
             SAPReport reportObj = sapObj.DeepClone();
 

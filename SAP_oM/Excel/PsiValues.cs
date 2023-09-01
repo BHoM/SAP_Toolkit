@@ -26,20 +26,20 @@ using System.ComponentModel;
 using System.Linq;
 using System.Xml.Serialization;
 using BH.oM.Base;
-using BH.oM.Geometry;
 
-namespace BH.oM.Environment.SAP
+namespace BH.oM.Environment.SAP.Excel
 {
-    [Description("PsiValues for thermal bridge.")]
-    public class OpeningCreationDetails : BHoMObject
+    [Description("A thermal bridge between two thermal elements of the dwelling.")]
+    public class PsiValues : BHoMObject
     {
-        [Description("Opening Type.")]
-        public virtual string OpeningType { get; set; } = string.Empty;
+        [Description("The thermal bridge type reference according to Table K1 in SAP 2012.")]
+        public virtual string Type { get; set; } = string.Empty;
 
-        [Description("Psi value forWindow lintels - tops of the windows.")]
-        public virtual List<ThermalBridgePsiValue> PsiValues { get; set; } = new List<ThermalBridgePsiValue>();
+        [Description("The length of the thermal bridge.")]
+        public virtual string ThermalBridgeName { get; set; } = string.Empty;
 
-        [Description("Psi value forWindow jambs - sides of the windows (left and right).")]
-        public virtual bool FloorIntersection { get; set; } = false;
+        [Description("The psi-value (heat loss per linear metre) to be applied to the thermal bridge.")]
+        public virtual double PsiValue { get; set; } = 0;
     }
 }
+

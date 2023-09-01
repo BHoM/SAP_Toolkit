@@ -42,7 +42,7 @@ using BH.oM.Analytical.Elements;
 using static System.Net.WebRequestMethods;
 using BH.oM.Environment.SAP.JSON;
 using System.Text.Json;
-
+using BH.oM.Environment.SAP.Excel;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -61,7 +61,7 @@ namespace BH.Engine.Environment.SAP
         [MultiOutput(2, "success", "Was it a success?")]
         [MultiOutput(3, "inputPath", "Input files directory.")]
         [MultiOutput(4, "outputPath", "Output file directory.")]
-        public static Output<List<SAPReport>, List<FileSettings>, bool, string, string> ParametricStudy(this List<SAPReport> sapObjList, List<Parameters> iterations, string directory, string study, List<BH.oM.Environment.SAP.ThermalBridgePsiValue> psiValues, List<OpeningCreationDetails> openingDetails, bool run)
+        public static Output<List<SAPReport>, List<FileSettings>, bool, string, string> ParametricStudy(this List<SAPReport> sapObjList, List<Parameters> iterations, string directory, string study, List<PsiValues> psiValues, List<OpeningPsiValues> openingDetails, bool run)
         {
             if (run != true)
             {
