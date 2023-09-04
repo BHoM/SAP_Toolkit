@@ -27,21 +27,19 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using BH.Engine.Adapter;
-using System.Linq;
 
-namespace BH.Adapter.SAP
+namespace BH.Adapter.SAP.Argyle
 {
     public partial class ArgyleAdapter : BHoMAdapter
     {
-        protected override bool ICreate<T>(IEnumerable<T> objects, ActionConfig actionConfig = null)
+        protected override IEnumerable<IBHoMObject> IRead(Type type, IList ids, ActionConfig actionConfig = null)
         {
             if (m_Settings.SAPType == oM.Environment.SAP.SAPType.Argyle)
             {
-                var objList = objects.Where(x => x is BH.oM.Environment.SAP.XML.SAPReport).Select(x => x as BH.oM.Environment.SAP.XML.SAPReport).ToList();
-                objList.ForEach(x => CreateArgyle(x, m_Settings.FileSettings));
-
+                return new List<IBHoMObject>() { ReadArgyle(m_Settings.FileSettings) };
             }
-            return true;
+
+            return null;
         }
     }
 }
