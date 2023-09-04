@@ -42,9 +42,18 @@ namespace BH.Adapter.SAP
 
             foreach (var tableRow in excelRows)
             {
-                PsiValues psiValue = tableRow.ToPsiValue();
-                if (psiValue == null)
-                    continue;
+                if (tableRow.Content.Count < 3)
+                    return null;
+
+                PsiValues psiValue = new PsiValues();
+                psiValue.Type = tableRow.Content[0].ToString();
+                psiValue.ThermalBridgeName = tableRow.Content[1].ToString();
+
+                try
+                {
+                    psiValue.PsiValue = double.Parse(tableRow.Content[2].ToString());
+                }
+                catch { }
 
                 psiValues.Add(psiValue);
             }
