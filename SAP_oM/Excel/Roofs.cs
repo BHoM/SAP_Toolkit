@@ -33,13 +33,13 @@ namespace BH.oM.Environment.SAP.Excel
     public class Roofs : BHoMObject
     {
         [Description("The name of the dwelling the roof is located in.")]
-        public virtual string TypeOfOpening { get; set; } = string.Empty;
+        public virtual string Dwelling { get; set; } = string.Empty;
 
         [Description("The type of roof")]
         public virtual TypeOfRoof Type { get; set; } = TypeOfRoof.PartyCeiling;
 
         [Description("The storey the roof is located on.")]
-        public virtual string RoofName { get; set; } = string.Empty;
+        public virtual string Storey { get; set; } = string.Empty;
 
         [Description("The uvalue of the roof")]
         public virtual double UValue { get; set; } = 0;

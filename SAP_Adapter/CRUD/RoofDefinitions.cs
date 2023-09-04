@@ -46,8 +46,8 @@ namespace BH.Adapter.SAP
                     continue;
 
                 Roofs roofDefinition = new Roofs();
-                roofDefinition.TypeOfOpening = tableRow.Content[0].ToString();
-                roofDefinition.RoofName = tableRow.Content[2].ToString();
+                roofDefinition.Dwelling = tableRow.Content[0].ToString();
+                roofDefinition.Storey = tableRow.Content[2].ToString();
 
                 var type = Enum.Parse(typeof(TypeOfRoof), tableRow.Content[1].ToString());
                 if (type != null)
