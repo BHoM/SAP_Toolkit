@@ -39,7 +39,7 @@ namespace BH.oM.Environment.SAP.Excel
         public virtual TypeOfWall Type { get; set; } = TypeOfWall.ExposedWall;
 
         [Description("The name of the wall.")]
-        public virtual string WallName { get; set; } = string.Empty;
+        public virtual string Storey { get; set; } = string.Empty;
 
         [Description("If the wall is a curtain wall.")]
         public virtual bool CurtainWall { get; set; } = false;

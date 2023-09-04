@@ -47,7 +47,7 @@ namespace BH.Adapter.SAP
 
                 Walls wallDefinition = new Walls();
                 wallDefinition.Dwelling = tableRow.Content[0].ToString();
-                wallDefinition.WallName = tableRow.Content[2].ToString();
+                wallDefinition.Storey = tableRow.Content[2].ToString();
 
                 var type = Enum.Parse(typeof(TypeOfWall), tableRow.Content[1].ToString());
                 if (type != null)
