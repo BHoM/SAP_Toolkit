@@ -27,17 +27,36 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using BH.Engine.Adapter;
+using System.Runtime;
+using BH.oM.Environment.SAP;
+using BH.oM.Environment.SAP.Bluebeam;
+using BH.oM.Environment.SAP.Excel;
 
 namespace BH.Adapter.SAP
 {
-    public partial class ArgyleAdapter : BHoMAdapter
+    public partial class SAPAdapter : BHoMAdapter
     {
         protected override IEnumerable<IBHoMObject> IRead(Type type, IList ids, ActionConfig actionConfig = null)
         {
-            if (m_Settings.SAPType == oM.Environment.SAP.SAPType.Argyle)
+            SAPConfig config = (SAPConfig)actionConfig;
+            if(config == null)
             {
-                return new List<IBHoMObject>() { ReadArgyle(m_Settings.FileSettings) };
+                BH.Engine.Base.Compute.RecordError($"Config provided is not a valid SAP Config. Please provide a valid SAP Config to use SAP Adapter.");
+                return new List<IBHoMObject>();
             }
+
+            if (type == typeof(SAPMarkupSummary))
+                return ReadSAPMarkupSummary(config);
+            else if (type == typeof(Floors))
+                return ReadFloorDefinitions(config);
+            else if (type == typeof(Roofs))
+                return ReadRoofDefinitions(config);
+            else if (type == typeof(Walls))
+                return ReadWallDefinitions(config);
+            else if (type == typeof(PsiValues))
+                return ReadPsiValues(config);
+            else if (type == typeof(Openings))
+                return ReadOpeningDefinitions(config);
 
             return null;
         }

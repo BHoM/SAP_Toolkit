@@ -36,7 +36,7 @@ using System.Text.Json;
 using System.Xml.Serialization;
 using System.IO;
 
-namespace BH.Adapter.SAP
+namespace BH.Adapter.SAP.Argyle
 {
     public partial class ArgyleAdapter : BHoMAdapter
     {

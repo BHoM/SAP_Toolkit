@@ -30,7 +30,7 @@ using System.IO;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace BH.Adapter.SAP
+namespace BH.Adapter.SAP.Argyle
 {
     public partial class ArgyleAdapter : BHoMAdapter
     {

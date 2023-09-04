@@ -5,9 +5,11 @@ VisualStudioVersion = 17.7.34003.232
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SAP_oM", "SAP_oM\SAP_oM.csproj", "{0F4B959B-F452-4219-B55F-284C80264BF4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Argyle_Adapter", "SAP_Adapter\Argyle_Adapter.csproj", "{3998C4CD-E5EC-41DD-9502-E84551D8445B}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SAP_Engine", "SAP_Engine\SAP_Engine.csproj", "{B44C6113-2EAF-4358-85C0-EFD63A562061}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Argyle_Adapter", "Argyle_Adapter\Argyle_Adapter.csproj", "{63F79D7D-2C8B-437B-A3E1-0D539524D1AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAP_Adapter", "SAP_Adapter\SAP_Adapter.csproj", "{7DFB91CC-B553-47A3-8B21-31FB6292B35F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +21,18 @@ Global
 		{0F4B959B-F452-4219-B55F-284C80264BF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F4B959B-F452-4219-B55F-284C80264BF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F4B959B-F452-4219-B55F-284C80264BF4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3998C4CD-E5EC-41DD-9502-E84551D8445B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3998C4CD-E5EC-41DD-9502-E84551D8445B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3998C4CD-E5EC-41DD-9502-E84551D8445B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3998C4CD-E5EC-41DD-9502-E84551D8445B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B44C6113-2EAF-4358-85C0-EFD63A562061}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B44C6113-2EAF-4358-85C0-EFD63A562061}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B44C6113-2EAF-4358-85C0-EFD63A562061}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B44C6113-2EAF-4358-85C0-EFD63A562061}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63F79D7D-2C8B-437B-A3E1-0D539524D1AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63F79D7D-2C8B-437B-A3E1-0D539524D1AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63F79D7D-2C8B-437B-A3E1-0D539524D1AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63F79D7D-2C8B-437B-A3E1-0D539524D1AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DFB91CC-B553-47A3-8B21-31FB6292B35F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DFB91CC-B553-47A3-8B21-31FB6292B35F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DFB91CC-B553-47A3-8B21-31FB6292B35F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DFB91CC-B553-47A3-8B21-31FB6292B35F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
