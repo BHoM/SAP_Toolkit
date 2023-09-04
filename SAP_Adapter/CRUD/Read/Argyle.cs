@@ -32,7 +32,7 @@ using System.Xml.Serialization;
 
 namespace BH.Adapter.SAP
 {
-    public partial class SAPAdapter : BHoMAdapter
+    public partial class ArgyleAdapter : BHoMAdapter
     {
         public static SAPReport ReadArgyle(FileSettings fileSettingsInput)
         {

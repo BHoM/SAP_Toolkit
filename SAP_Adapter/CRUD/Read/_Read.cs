@@ -30,7 +30,7 @@ using BH.Engine.Adapter;
 
 namespace BH.Adapter.SAP
 {
-    public partial class SAPAdapter : BHoMAdapter
+    public partial class ArgyleAdapter : BHoMAdapter
     {
         protected override IEnumerable<IBHoMObject> IRead(Type type, IList ids, ActionConfig actionConfig = null)
         {
