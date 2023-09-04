@@ -15,5 +15,6 @@ namespace BH.oM.Environment.SAP
         public virtual SAPExcelPullConfig PsiValuesRequest { get; set; } = null;
         public virtual SAPExcelPullConfig OpeningDefinitionsRequest { get; set; } = null;
         public virtual SAPExcelPullConfig OpeningPsiValuesRequest { get; set; } = null;
+        public virtual SAPExcelPullConfig DwellingSchedulesRequest { get; set; } = null;
     }
 }

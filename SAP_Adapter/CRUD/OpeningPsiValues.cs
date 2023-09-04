@@ -45,27 +45,50 @@ namespace BH.Adapter.SAP
                 if (tableRow.Content.Count < 1)
                     continue;
 
-                OpeningPsiValues psiValue = new OpeningPsiValues();
-                psiValue.OpeningType = tableRow.Content[0].ToString();
+                OpeningPsiValues openingPsiValue = new OpeningPsiValues();
+                openingPsiValue.OpeningType = tableRow.Content[0].ToString();
 
                 try
                 {
-                    psiValue.FloorIntersection = bool.Parse(tableRow.Content[1].ToString());
+                    openingPsiValue.FloorIntersection = bool.Parse(tableRow.Content[1].ToString());
                 }
                 catch { }
 
-                for(int x = 2; x < tableRow.Content.Count; x++)
+                PsiValues psiValue = new PsiValues();
+                psiValue.Type = tableRow.Content[1].ToString();
+                psiValue.ThermalBridgeName = tableRow.Content[1].ToString();
+
+                try
                 {
-                    if (tableRow.Content[x] == null || string.IsNullOrEmpty(tableRow.Content[x].ToString()))
-                        break;
-
-                    //ToDo: sort out Opening Psi Values I guess!
+                    psiValue.PsiValue = double.Parse(tableRow.Content[2].ToString());
                 }
+                catch { }
 
-                openingPsiValues.Add(psiValue);
+                openingPsiValue.PsiValues.Add(psiValue);
+
+                openingPsiValues.Add(openingPsiValue);
             }
 
-            return openingPsiValues;
+            //Group the psiValues by the Opening Type
+            var uniqueOpenings = openingPsiValues.Select(x => x.OpeningType).Distinct().ToList();
+
+            List<OpeningPsiValues> groupedPsiValues = new List<OpeningPsiValues>();
+
+            foreach(var opening in uniqueOpenings)
+            {
+                OpeningPsiValues openingPsiValue = new OpeningPsiValues();
+                openingPsiValue.OpeningType = opening;
+
+                var psiValues = openingPsiValues.Where(x => x.OpeningType == opening).SelectMany(x => x.PsiValues).ToList();
+                openingPsiValue.PsiValues = psiValues;
+
+                var floorIntersection = openingPsiValues.Where(x => x.OpeningType == opening).Select(x => x.FloorIntersection).ToList();
+                openingPsiValue.FloorIntersection = floorIntersection.Any(x => x);
+
+                groupedPsiValues.Add(openingPsiValue);
+            }
+
+            return groupedPsiValues;
         }
     }
 }
