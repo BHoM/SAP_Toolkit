@@ -25,9 +25,9 @@ using BH.oM.Environment.SAP;
 
 namespace BH.Adapter.SAP
 { 
-    public partial class SAPAdapter : BHoMAdapter
+    public partial class ArgyleAdapter : BHoMAdapter
     {
-        public SAPAdapter(SAPSettings settings)
+        public ArgyleAdapter(SAPSettings settings)
         {
             m_AdapterSettings.UseAdapterId = false;
             m_Settings = settings;

@@ -31,7 +31,7 @@ using System.Linq;
 
 namespace BH.Adapter.SAP
 {
-    public partial class SAPAdapter : BHoMAdapter
+    public partial class ArgyleAdapter : BHoMAdapter
     {
         protected override bool ICreate<T>(IEnumerable<T> objects, ActionConfig actionConfig = null)
         {

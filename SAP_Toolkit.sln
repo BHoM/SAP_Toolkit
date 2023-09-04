@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30503.244
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34003.232
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAP_oM", "SAP_oM\SAP_oM.csproj", "{0F4B959B-F452-4219-B55F-284C80264BF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SAP_oM", "SAP_oM\SAP_oM.csproj", "{0F4B959B-F452-4219-B55F-284C80264BF4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SAP_Adapter", "SAP_Adapter\SAP_Adapter.csproj", "{3998C4CD-E5EC-41DD-9502-E84551D8445B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Argyle_Adapter", "SAP_Adapter\Argyle_Adapter.csproj", "{3998C4CD-E5EC-41DD-9502-E84551D8445B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAP_Engine", "SAP_Engine\SAP_Engine.csproj", "{B44C6113-2EAF-4358-85C0-EFD63A562061}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SAP_Engine", "SAP_Engine\SAP_Engine.csproj", "{B44C6113-2EAF-4358-85C0-EFD63A562061}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

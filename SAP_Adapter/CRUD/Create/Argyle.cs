@@ -32,7 +32,7 @@ using System.Xml.Serialization;
 
 namespace BH.Adapter.SAP
 {
-    public partial class SAPAdapter : BHoMAdapter
+    public partial class ArgyleAdapter : BHoMAdapter
     {
         public static bool CreateArgyle(BH.oM.Environment.SAP.XML.SAPReport data, FileSettings fileSettings)
         {
