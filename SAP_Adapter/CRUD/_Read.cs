@@ -57,6 +57,8 @@ namespace BH.Adapter.SAP
                 return ReadPsiValues(config);
             else if (type == typeof(Openings))
                 return ReadOpeningDefinitions(config);
+            else if (type == typeof(OpeningPsiValues))
+                return ReadOpeningPsiValues(config);
             else if (type == typeof(DwellingSchedule))
                 return ReadDwellingSchedules(config);
 

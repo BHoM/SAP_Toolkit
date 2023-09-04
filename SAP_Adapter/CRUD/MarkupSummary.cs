@@ -16,26 +16,26 @@ namespace BH.Adapter.SAP
 {
     public partial class SAPAdapter
     {
-        private List<IBHoMObject> ReadSAPMarkupSummary(SAPConfig config)
+        private List<SAPMarkupSummary> ReadSAPMarkupSummary(SAPConfig config)
         {
             if(config.SAPMarkupFile == null)
             {
                 BH.Engine.Base.Compute.RecordError("Please provide a valid SAP Markup File Location.");
-                return new List<IBHoMObject>();
+                return new List<SAPMarkupSummary>();
             }
 
             string fullFileName = config.SAPMarkupFile.GetFullFileName();
             if(string.IsNullOrEmpty(fullFileName) || !File.Exists(fullFileName))
             {
                 BH.Engine.Base.Compute.RecordError($"Could not load file from {fullFileName}. Check the file exists.");
-                return new List<IBHoMObject>();
+                return new List<SAPMarkupSummary>();
             }
 
             XMLConfig xmlConfig = new XMLConfig() { Schema = oM.Adapters.XML.Enums.Schema.Undefined };
             XMLAdapter xmlAdapter = new XMLAdapter(config.SAPMarkupFile);
             FilterRequest xmlRequest = BH.Engine.Data.Create.FilterRequest(typeof(SAPMarkupSummary), "");
 
-            return xmlAdapter.Pull(xmlRequest, actionConfig: xmlConfig).OfType<IBHoMObject>().ToList();
+            return xmlAdapter.Pull(xmlRequest, actionConfig: xmlConfig).OfType<SAPMarkupSummary>().ToList();
             ;
         }
     }
