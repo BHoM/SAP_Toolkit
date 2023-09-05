@@ -36,12 +36,12 @@ namespace BH.Adapter.SAP.Argyle
     {
         protected override IEnumerable<IBHoMObject> IRead(Type type, IList ids, ActionConfig actionConfig = null)
         {
-            ArgyleConfig config = (ArgyleConfig)actionConfig;
+            /*ArgyleConfig config = (ArgyleConfig)actionConfig;
             if(config == null)
             {
                 BH.Engine.Base.Compute.RecordError($"Please provide a valid Argyle Config to pull with the Argyle Adapter.");
                 return new List<IBHoMObject>();
-            }
+            }*/
 
             if(type == typeof(SAPReport))
                 return new List<IBHoMObject>() { ReadArgyle(m_Settings.FileSettings) };

@@ -109,7 +109,8 @@ namespace BH.Engine.Environment.SAP
             dwellingJSON.Floors = floor.Item2;
 
             //Create thermal bridges from opening
-            reportObj = reportObj.ThermalBridgesFromOpening(psiValues, openingDetails);
+            //reportObj = reportObj.ThermalBridgesFromOpening(psiValues, openingDetails);
+            //ToDo: FIX THIS!!!!!!
 
             //Thermal bridge modifications
             var thermalBridge = reportObj.ParametricsThermalBridge(iteration.ThermalBridges, countFormat);
