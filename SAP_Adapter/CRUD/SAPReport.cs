@@ -63,6 +63,22 @@ namespace BH.Adapter.SAP
             Dictionary<string, List<SAPMarkup>> thermalBridgesBySpace = MarkUpsBySpace(allSpaceNames, sapMarkupSummary.Markup.Where(x => x.Layer == "Thermal Bridging").ToList());
             Dictionary<string, List<SXML.ThermalBridge>> xmlThermalBridgesBySpace = XMLThermalBridgesBySpace(thermalBridgesBySpace, config);
 
+            //Living area
+            var zone1 = sapMarkupSummary.Markup.Where(x => x.Layer == "Zone 1");
+            Dictionary<string, double> livingAreaBySpace = new Dictionary<string, double>();
+
+            //Floor area
+            var floorAreaMarkups = sapMarkupSummary.Markup.Where(x => x.Layer == "Floor Areas");
+            Dictionary<string, double> floorAreaBySpace = new Dictionary<string, double>();
+
+            foreach (string name in allSpaceNames)
+            {
+                livingAreaBySpace.Add(name, zone1.Where(x => x.Space == name).Select(x => x.Area).FirstOrDefault());
+
+                floorAreaBySpace.Add(name, floorAreaMarkups.Where(x => x.Space == name).Select(x => x.Area).FirstOrDefault());
+            }
+
+
             return null;
         }
 
