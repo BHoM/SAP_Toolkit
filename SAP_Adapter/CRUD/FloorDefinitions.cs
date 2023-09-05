@@ -45,17 +45,19 @@ namespace BH.Adapter.SAP
                 if (tableRow.Content.Count < 4)
                     continue;
 
-                Floors floorDefinition = new Floors();
-                floorDefinition.Dwelling = tableRow.Content[0].ToString();
-                floorDefinition.Storey = tableRow.Content[2].ToString();
+                var content = tableRow.Content.OfType<CellContents>().ToList();
 
-                var type = Enum.Parse(typeof(TypeOfFloor), tableRow.Content[1].ToString());
+                Floors floorDefinition = new Floors();
+                floorDefinition.Dwelling = content[0].Value.ToString();
+                floorDefinition.Storey = content[2].Value.ToString();
+
+                var type = Enum.Parse(typeof(TypeOfFloor), content[1].Value.ToString());
                 if(type != null)
                     floorDefinition.Type = (TypeOfFloor)type;
 
                 try
                 {
-                    floorDefinition.UValue = double.Parse(tableRow.Content[3].ToString());
+                    floorDefinition.UValue = double.Parse(content[3].Value.ToString());
                 }
                 catch
                 {

@@ -45,22 +45,24 @@ namespace BH.Adapter.SAP
                 if (tableRow.Content.Count < 5)
                     continue;
 
+                var content = tableRow.Content.OfType<CellContents>().ToList();
+
                 DwellingSchedule dwellingSchedule = new DwellingSchedule();
-                dwellingSchedule.DwellingTypeName = tableRow.Content[0].ToString();
+                dwellingSchedule.DwellingTypeName = content[0].Value.ToString();
 
                 try
                 {
-                    dwellingSchedule.Count = int.Parse(tableRow.Content[1].ToString());
+                    dwellingSchedule.Count = int.Parse(content[1].Value.ToString());
                 }
                 catch { }
 
-                var orientationCode = Enum.Parse(typeof(OrientationCode), tableRow.Content[2].ToString());
+                var orientationCode = Enum.Parse(typeof(OrientationCode), content[2].Value.ToString());
                 if (orientationCode != null)
                     dwellingSchedule.DwellingOrientation = (OrientationCode)orientationCode;
 
-                dwellingSchedule.FileName = tableRow.Content[3].ToString();
+                dwellingSchedule.FileName = content[3].Value.ToString();
 
-                var typeOfProperty = Enum.Parse(typeof(TypeOfProperty), tableRow.Content[4].ToString());
+                var typeOfProperty = Enum.Parse(typeof(TypeOfProperty), content[4].Value.ToString());
                 if (typeOfProperty != null)
                     dwellingSchedule.TypeOfProperty = (TypeOfProperty)typeOfProperty;
 

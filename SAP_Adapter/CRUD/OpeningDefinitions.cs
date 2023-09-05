@@ -36,7 +36,7 @@ namespace BH.Adapter.SAP
             }
 
             ExcelAdapter excelAdapter = new ExcelAdapter(config.ExcelFile);
-            List<TableRow> excelRows = excelAdapter.Pull(config.PsiValuesRequest.CellContentsRequest).OfType<TableRow>().ToList();
+            List<TableRow> excelRows = excelAdapter.Pull(config.OpeningDefinitionsRequest.CellContentsRequest).OfType<TableRow>().ToList();
 
             List<Openings> openingDefinitions = new List<Openings>();
 
@@ -45,52 +45,54 @@ namespace BH.Adapter.SAP
                 if (tableRow.Content.Count < 10)
                     continue;
 
+                var content = tableRow.Content.OfType<CellContents>().ToList();
+
                 Openings openingDefinition = new Openings();
-                openingDefinition.OpeningType = tableRow.Content[0].ToString();
+                openingDefinition.OpeningType = content[0].Value.ToString();
 
                 try
                 {
-                    openingDefinition.UValue = double.Parse(tableRow.Content[1].ToString());
+                    openingDefinition.UValue = double.Parse(content[1].Value.ToString());
                 }
                 catch { }
 
                 try
                 {
-                    openingDefinition.GValue = double.Parse(tableRow.Content[2].ToString());
+                    openingDefinition.GValue = double.Parse(content[2].Value.ToString());
                 }
                 catch { }
 
-                var glazingType = Enum.Parse(typeof(TypeOfGlazing), tableRow.Content[3].ToString());
+                var glazingType = Enum.Parse(typeof(TypeOfGlazing), content[3].Value.ToString());
                 if (glazingType != null)
                     openingDefinition.TypeOfGlazing = (TypeOfGlazing)glazingType;
 
-                var glazingGap = Enum.Parse(typeof(GlazingGap), tableRow.Content[4].ToString());
+                var glazingGap = Enum.Parse(typeof(GlazingGap), content[4].Value.ToString());
                 if(glazingGap != null)
                     openingDefinition.GlazingGap = (GlazingGap)glazingGap;
 
                 try
                 {
-                    openingDefinition.FrameFactor = double.Parse(tableRow.Content[5].ToString());
+                    openingDefinition.FrameFactor = double.Parse(content[5].Value.ToString());
                 }
                 catch { }
 
-                var frameType = Enum.Parse(typeof(TypeOfFrame), tableRow.Content[6].ToString());
+                var frameType = Enum.Parse(typeof(TypeOfFrame), content[6].Value.ToString());
                 if (frameType != null)
                     openingDefinition.FrameType = (TypeOfFrame)frameType;
 
                 try
                 {
-                    openingDefinition.ArgonFilled = bool.Parse(tableRow.Content[7].ToString());
+                    openingDefinition.ArgonFilled = bool.Parse(content[7].Value.ToString());
                 }
                 catch { }
 
                 try
                 {
-                    openingDefinition.KryptonFilled = bool.Parse(tableRow.Content[8].ToString());
+                    openingDefinition.KryptonFilled = bool.Parse(content[8].Value.ToString());
                 }
                 catch { }
 
-                var dataSource = Enum.Parse(typeof(OpeningDataSource), tableRow.Content[9].ToString());
+                var dataSource = Enum.Parse(typeof(OpeningDataSource), content[9].Value.ToString());
                 if (dataSource != null)
                     openingDefinition.DataSource = (OpeningDataSource)dataSource;
 

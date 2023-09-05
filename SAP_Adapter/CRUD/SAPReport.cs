@@ -32,11 +32,13 @@ namespace BH.Adapter.SAP
             }
 
             //Group by space names
-            var allSpaceNames = sapMarkupSummary.Markup.Select(x => x.Space).ToList();
+            var allSpaceNames = sapMarkupSummary.Markup.Select(x => x.Space).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
             Dictionary<string, List<SAPMarkup>> openingDefinitionsBySpace = MarkUpsBySpace(allSpaceNames, sapMarkupSummary.Markup.Where(x => x.Layer == "Openings").ToList());
             Dictionary<string, List<SAPMarkup>> wallDefinitionsBySpace = MarkUpsBySpace(allSpaceNames, sapMarkupSummary.Markup.Where(x => x.Layer == "External Wall").ToList());
             Dictionary<string, List<SAPMarkup>> roofDefinitionsBySpace = MarkUpsBySpace(allSpaceNames, sapMarkupSummary.Markup.Where(x => x.Layer == "Roofs").ToList());
             Dictionary<string, List<SAPMarkup>> floorDefinitionsBySpace = MarkUpsBySpace(allSpaceNames, sapMarkupSummary.Markup.Where(x => x.Layer == "Floor Areas").ToList());
+
+            Dictionary<string, List<SXML.OpeningType>> xmlOpeningTypesBySpace = XMLOpeningTypesBySpace(openingDefinitionsBySpace, config);
 
             foreach (string s in allSpaceNames)
             {
@@ -53,7 +55,6 @@ namespace BH.Adapter.SAP
 
             //Openings
             Dictionary<string, List<SXML.Opening>> xmlOpeningsBySpace = XMLOpeningsBySpace(openingDefinitionsBySpace);
-            Dictionary<string, List<SXML.OpeningType>> xmlOpeningTypesBySpace = XMLOpeningTypesBySpace(openingDefinitionsBySpace, config);
 
             //Walls
             Dictionary<string, List<SXML.Wall>> xmlWallsBySpace = XMLWallsBySpace(wallDefinitionsBySpace, config);

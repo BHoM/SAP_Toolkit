@@ -45,13 +45,15 @@ namespace BH.Adapter.SAP
                 if (tableRow.Content.Count < 3)
                     return null;
 
+                var content = tableRow.Content.OfType<CellContents>().ToList();
+
                 PsiValues psiValue = new PsiValues();
-                psiValue.Type = tableRow.Content[0].ToString();
-                psiValue.ThermalBridgeName = tableRow.Content[1].ToString();
+                psiValue.Type = content[0].Value.ToString();
+                psiValue.ThermalBridgeName = content[1].Value.ToString();
 
                 try
                 {
-                    psiValue.PsiValue = double.Parse(tableRow.Content[2].ToString());
+                    psiValue.PsiValue = double.Parse(content[2].Value.ToString());
                 }
                 catch { }
 
