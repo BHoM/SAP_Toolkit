@@ -11,6 +11,7 @@
   </Target>
 
   <ItemGroup>
+    <ProjectReference Include="..\Argyle_Adapter\Argyle_Adapter.csproj" />
     <ProjectReference Include="..\SAP_oM\SAP_oM.csproj" />
   </ItemGroup>
 

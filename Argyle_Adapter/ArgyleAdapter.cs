@@ -27,10 +27,10 @@ namespace BH.Adapter.SAP.Argyle
 { 
     public partial class ArgyleAdapter : BHoMAdapter
     {
-        public ArgyleAdapter(SAPSettings settings)
+        public ArgyleAdapter()
         {
             m_AdapterSettings.UseAdapterId = false;
-            m_Settings = settings;
+            //m_Settings = settings;
         }
 
         private SAPSettings m_Settings = null;

@@ -12,6 +12,11 @@ using BH.oM.Environment.SAP.Excel;
 using SXML = BH.oM.Environment.SAP.XML;
 using BH.oM.Environment.SAP.Bluebeam;
 using BH.oM.XML.Bluebeam;
+using BH.oM.Adapter;
+using BH.Adapter.SAP.Argyle;
+using BH.oM.Data.Requests;
+using BH.oM.Environment.SAP.XML;
+using BH.Adapter.XML;
 
 namespace BH.Adapter.SAP
 {
@@ -164,16 +169,26 @@ namespace BH.Adapter.SAP
                 fixedReportBySpace.Add(kvp.Key, newReport);
             }
 
+            //Heating files
             Dictionary<string, SXML.SAPReport> fixedReportWithHeatingBySpace = new Dictionary<string, SXML.SAPReport>();
 
-
-            foreach(var kvp in fixedReportBySpace)
+            foreach(var dwellingSchedule in dwellingSchedules)
             {
+                FileSettings fs = new FileSettings()
+                {
+                    FileName = dwellingSchedule.FileName,
+                    Directory = config.HeatingFileDirectory,
+                };
 
+                XMLAdapter argyleAdapter = new XMLAdapter(fs);
+                FilterRequest argyleRequest = BH.Engine.Data.Create.FilterRequest(typeof(SAPReport), "");
+                var heatingReport = argyleAdapter.Pull(argyleRequest, actionConfig: new BH.oM.Adapters.XML.XMLConfig()).OfType<SAPReport>().FirstOrDefault();
+
+                if (heatingReport != null)
+                    fixedReportWithHeatingBySpace.Add(dwellingSchedule.DwellingTypeName, Modify.SAPHeatingTemplate(heatingReport, fixedReportBySpace[dwellingSchedule.DwellingTypeName]));
             }
 
-
-            return null;
+            return fixedReportWithHeatingBySpace.Select(x => x.Value).ToList();
         }
 
         private Dictionary<string, List<SAPMarkup>> MarkUpsBySpace(List<string> spaceNames, List<SAPMarkup> markups)
