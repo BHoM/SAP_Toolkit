@@ -59,6 +59,10 @@ namespace BH.Adapter.SAP
             //Floors
             Dictionary<string, List<SXML.FloorDimension>> xmlFloorsBySpace = XMLFloorDimensionsBySpace(floorDefinitionsBySpace, config);
 
+            //Thermal bridges
+            Dictionary<string, List<SAPMarkup>> thermalBridgesBySpace = MarkUpsBySpace(allSpaceNames, sapMarkupSummary.Markup.Where(x => x.Layer == "Thermal Bridging").ToList());
+            Dictionary<string, List<SXML.ThermalBridge>> xmlThermalBridgesBySpace = XMLThermalBridgesBySpace(thermalBridgesBySpace, config);
+
             return null;
         }
 
@@ -209,6 +213,30 @@ namespace BH.Adapter.SAP
             }
 
             return xmlOpeningsBySpace;
+        }
+
+        private Dictionary<string, List<SXML.ThermalBridge>> XMLThermalBridgesBySpace(Dictionary<string, List<SAPMarkup>> markupsBySpace, SAPConfig config)
+        {
+            Dictionary<string, List<SXML.ThermalBridge>> xmlBridgesBySpace = new Dictionary<string, List<SXML.ThermalBridge>>();
+
+            var psiValuesFromExcel = ReadPsiValues(config);
+
+            foreach(var kvp in markupsBySpace)
+            {
+                List<SXML.ThermalBridge> bridges = new List<SXML.ThermalBridge>();
+
+                foreach (var markup in kvp.Value)
+                {
+
+                    var thermalBridge = psiValuesFromExcel.Where(x => x.ThermalBridgeName == markup.ThermalBridgeType).FirstOrDefault();
+
+                    bridges.Add(Convert.ToThermalBridge(markup, thermalBridge));
+                }
+
+                xmlBridgesBySpace.Add(kvp.Key, bridges);
+            }
+
+            return xmlBridgesBySpace;
         }
     }
 }
