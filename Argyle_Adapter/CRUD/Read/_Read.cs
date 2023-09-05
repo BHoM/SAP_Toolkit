@@ -27,6 +27,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using BH.Engine.Adapter;
+using BH.oM.Environment.SAP.XML;
+using BH.oM.Environment.SAP;
 
 namespace BH.Adapter.SAP.Argyle
 {
@@ -34,12 +36,17 @@ namespace BH.Adapter.SAP.Argyle
     {
         protected override IEnumerable<IBHoMObject> IRead(Type type, IList ids, ActionConfig actionConfig = null)
         {
-            if (m_Settings.SAPType == oM.Environment.SAP.SAPType.Argyle)
+            ArgyleConfig config = (ArgyleConfig)actionConfig;
+            if(config == null)
             {
-                return new List<IBHoMObject>() { ReadArgyle(m_Settings.FileSettings) };
+                BH.Engine.Base.Compute.RecordError($"Please provide a valid Argyle Config to pull with the Argyle Adapter.");
+                return new List<IBHoMObject>();
             }
 
-            return null;
+            if(type == typeof(SAPReport))
+                return new List<IBHoMObject>() { ReadArgyle(m_Settings.FileSettings) };
+
+            return new List<IBHoMObject>();
         }
     }
 }
