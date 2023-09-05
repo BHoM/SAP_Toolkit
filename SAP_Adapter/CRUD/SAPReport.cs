@@ -155,6 +155,23 @@ namespace BH.Adapter.SAP
                 sapReportBySpace.Add(space, report);
             }
 
+            Dictionary<string, SXML.SAPReport> fixedReportBySpace = new Dictionary<string, SXML.SAPReport>();
+            var psiValues = ReadPsiValues(config);
+            var openingPsiValues = ReadOpeningPsiValues(config);
+            foreach(var kvp in sapReportBySpace)
+            {
+                var newReport = Modify.ThermalBridgesFromOpening(kvp.Value, psiValues, openingPsiValues);
+                fixedReportBySpace.Add(kvp.Key, newReport);
+            }
+
+            Dictionary<string, SXML.SAPReport> fixedReportWithHeatingBySpace = new Dictionary<string, SXML.SAPReport>();
+
+
+            foreach(var kvp in fixedReportBySpace)
+            {
+
+            }
+
 
             return null;
         }
