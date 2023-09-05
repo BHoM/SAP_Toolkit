@@ -31,6 +31,7 @@ namespace BH.oM.Environment.SAP
     [Description("Code which indicates the type of SAP data.")]
     public enum DataTypeCode
     {
+        Undefined = -1,
         NewDwellingAsDesigned = 1,
         NewDwellingAsBuilt = 2,
         NewExtensionToExistingDwelling = 3,

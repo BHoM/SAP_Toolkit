@@ -78,6 +78,83 @@ namespace BH.Adapter.SAP
                 floorAreaBySpace.Add(name, floorAreaMarkups.Where(x => x.Space == name).Select(x => x.Area).FirstOrDefault());
             }
 
+            //Lights
+            Dictionary<string, SXML.FixedLight> xmlLightsBySpace = new Dictionary<string, SXML.FixedLight>();
+            foreach(var kvp in floorAreaBySpace)
+            {
+                SXML.FixedLight light = new SXML.FixedLight();
+                light.LightingOutlets = 1;
+                light.LightingEfficacy = "80";
+
+                double calc = kvp.Value * 185;
+                calc = calc / 80;
+                calc = Math.Ceiling(calc);
+                calc = Math.Round(calc, 0);
+
+                light.LightingPower = $"{calc}";
+
+                xmlLightsBySpace.Add(kvp.Key, light);
+            }
+
+            //Building Parts
+            Dictionary<string, SXML.BuildingParts> xmlBuildingPartsBySpace = new Dictionary<string, SXML.BuildingParts>();
+            foreach(var space in allSpaceNames)
+            {
+                SXML.BuildingPart part = new SXML.BuildingPart();
+
+                part.Identifier = space;
+                part.BuildingPartNumber = "1";
+                part.ConstructionYear = config.ConstructionYear;
+                part.FloorDimensions = new SXML.FloorDimensions() { FloorDimension = xmlFloorsBySpace[space] };
+                part.Openings = new SXML.Openings() { Opening = xmlOpeningsBySpace[space] };
+                part.Roofs = new SXML.Roofs() { Roof = xmlRoofsBySpace[space] };
+                part.Walls = new SXML.Walls() { Wall = xmlWallsBySpace[space] };
+                part.ThermalBridges = new SXML.ThermalBridges() { ThermalBridge = xmlThermalBridgesBySpace[space], ThermalBridgeCode = "1" };
+
+                xmlBuildingPartsBySpace.Add(space, new SXML.BuildingParts() { BuildingPart = new List<SXML.BuildingPart>() { part } });
+            }
+
+            //Property Details
+            Dictionary<string, SXML.PropertyDetails> xmlPropertyDetailsBySpace = new Dictionary<string, SXML.PropertyDetails>();
+            var dwellingSchedules = ReadDwellingSchedules(config);
+            foreach(var space in allSpaceNames)
+            {
+                SXML.PropertyDetails propertyDetails = new SXML.PropertyDetails();
+
+                propertyDetails.BuildingParts = xmlBuildingPartsBySpace[space];
+                propertyDetails.OpeningTypes = new SXML.OpeningTypes() { OpeningType = xmlOpeningTypesBySpace[space] };
+                propertyDetails.LivingArea = livingAreaBySpace[space].ToString();
+                propertyDetails.LowestStoreyArea = floorAreaBySpace[space].ToString();
+                propertyDetails.Lighting = new SXML.Lighting() { FixedLights = new SXML.FixedLights() { FixedLight = new List<SXML.FixedLight>() { xmlLightsBySpace[space] } } };
+
+                if (config.FlatDetails != null)
+                    propertyDetails.FlatDetails = config.FlatDetails;
+
+                var schedule = dwellingSchedules.Where(x => x.DwellingTypeName == space).FirstOrDefault();
+
+                propertyDetails.Orientation = ((int)schedule.DwellingOrientation).ToString();
+                propertyDetails.PropertyType = ((int)config.PropertyType).ToString();
+
+                xmlPropertyDetailsBySpace.Add(space, propertyDetails);
+            }
+
+            //SAP10 data
+            Dictionary<string, SXML.SAPReport> sapReportBySpace = new Dictionary<string, SXML.SAPReport>();
+            foreach(var space in allSpaceNames)
+            {
+                SXML.SAP10Data data = new SXML.SAP10Data();
+
+                data.PropertyDetails = xmlPropertyDetailsBySpace[space];
+                data.DataType = ((int)config.ConstructionType).ToString();
+
+                SXML.SAPReport report = new SXML.SAPReport();
+
+                report.SAP10Data = data;
+                report.ReportHeader = new SXML.ReportHeader() { Property = new SXML.Property() };
+
+                sapReportBySpace.Add(space, report);
+            }
+
 
             return null;
         }
