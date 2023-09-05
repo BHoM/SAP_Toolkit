@@ -42,7 +42,7 @@ namespace BH.Adapter.SAP
 
             foreach (var tableRow in excelRows)
             {
-                if (tableRow.Content.Count < 10)
+                if (tableRow.Content.Count < 11)
                     continue;
 
                 var content = tableRow.Content.OfType<CellContents>().ToList();
@@ -95,6 +95,12 @@ namespace BH.Adapter.SAP
                 var dataSource = Enum.Parse(typeof(OpeningDataSource), content[9].Value.ToString());
                 if (dataSource != null)
                     openingDefinition.DataSource = (OpeningDataSource)dataSource;
+
+                try
+                {
+                    openingDefinition.FloorIntersection = bool.Parse(content[10].Value.ToString());
+                }
+                catch { }
 
                 openingDefinitions.Add(openingDefinition);
             }

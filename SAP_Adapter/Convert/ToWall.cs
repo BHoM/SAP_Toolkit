@@ -19,7 +19,7 @@ namespace BH.Adapter.SAP
 
             w.Name = markup.Subject;
             w.Description = markup.Subject;
-            w.Type = ((int)(BH.oM.Environment.SAP.TypeOfWall)Enum.Parse(typeof(BH.oM.Environment.SAP.TypeOfWall), markup.RoofType)).ToString();
+            w.Type = ((int)(BH.oM.Environment.SAP.TypeOfWall)Enum.Parse(typeof(BH.oM.Environment.SAP.TypeOfWall), markup.WallType)).ToString();
             w.KappaValue = "";
             w.UValue = (importedDimensionData != null ? importedDimensionData.UValue.ToString() : "0.0");
             w.Area = (markup.WallHeight * markup.Length);

@@ -36,7 +36,7 @@ namespace BH.Adapter.SAP
             }
 
             ExcelAdapter excelAdapter = new ExcelAdapter(config.ExcelFile);
-            List<TableRow> excelRows = excelAdapter.Pull(config.PsiValuesRequest.CellContentsRequest).OfType<TableRow>().ToList();
+            List<TableRow> excelRows = excelAdapter.Pull(config.OpeningPsiValuesRequest.CellContentsRequest).OfType<TableRow>().ToList();
 
             List<OpeningPsiValues> openingPsiValues = new List<OpeningPsiValues>();
 

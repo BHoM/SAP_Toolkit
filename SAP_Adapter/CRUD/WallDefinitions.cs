@@ -36,7 +36,7 @@ namespace BH.Adapter.SAP
             }
 
             ExcelAdapter excelAdapter = new ExcelAdapter(config.ExcelFile);
-            List<TableRow> excelRows = excelAdapter.Pull(config.RoofDefinitionsRequest.CellContentsRequest).OfType<TableRow>().ToList();
+            List<TableRow> excelRows = excelAdapter.Pull(config.WallDefinitionsRequest.CellContentsRequest).OfType<TableRow>().ToList();
 
             List<Walls> wallDefinitions = new List<Walls>();
 
