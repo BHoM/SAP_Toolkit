@@ -31,6 +31,7 @@ namespace BH.oM.Environment.SAP
     [Description("Code which indicates the type of property.")]
     public enum TypeOfProperty
     {
+        Undefined = -1,
         House = 0,
         Bungalow = 1,
         Flat = 2,
