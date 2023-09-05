@@ -12,10 +12,10 @@ namespace BH.Adapter.SAP
         {
             List<SAPMarkup> modifiedMarkUps = new List<SAPMarkup>(openingMarkUps);
 
-            var allOpeningNames = openingMarkUps.Select(x => x.Subject).ToList();
+            /*var allOpeningNames = openingMarkUps.Select(x => x.Subject).ToList();
             var allOpeningTypes = openingMarkUps.Where(x => allOpeningNames.Contains(x.Subject)).Select(x => x.OpeningType).Distinct().ToList();
             var allOpeningLocations = openingMarkUps.Select(x => x.OpeningLocation).ToList();
-            var openingNamesMatchingSchema = Convert.RenameToSchemaOpenings(allOpeningTypes, allOpeningNames.Distinct().ToList(), allOpeningNames);
+            var openingNamesMatchingSchema = Convert.RenameToSchemaOpenings(allOpeningTypes, allOpeningNames.Distinct().ToList(), allOpeningNames);*/
 
             Dictionary<string, string> namingConventions = new Dictionary<string, string>
             {

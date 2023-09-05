@@ -45,22 +45,24 @@ namespace BH.Adapter.SAP
                 if (tableRow.Content.Count < 1)
                     continue;
 
+                var content = tableRow.Content.OfType<CellContents>().ToList();
+
                 OpeningPsiValues openingPsiValue = new OpeningPsiValues();
-                openingPsiValue.OpeningType = tableRow.Content[0].ToString();
+                openingPsiValue.OpeningType = content[0].Value.ToString();
 
                 try
                 {
-                    openingPsiValue.FloorIntersection = bool.Parse(tableRow.Content[1].ToString());
+                    openingPsiValue.FloorIntersection = bool.Parse(content[1].Value.ToString());
                 }
                 catch { }
 
                 PsiValues psiValue = new PsiValues();
-                psiValue.Type = tableRow.Content[1].ToString();
-                psiValue.ThermalBridgeName = tableRow.Content[1].ToString();
+                psiValue.Type = content[1].Value.ToString();
+                psiValue.ThermalBridgeName = content[1].Value.ToString();
 
                 try
                 {
-                    psiValue.PsiValue = double.Parse(tableRow.Content[2].ToString());
+                    psiValue.PsiValue = double.Parse(content[2].Value.ToString());
                 }
                 catch { }
 

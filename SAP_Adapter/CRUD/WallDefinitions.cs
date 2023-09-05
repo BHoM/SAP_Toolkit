@@ -45,23 +45,25 @@ namespace BH.Adapter.SAP
                 if (tableRow.Content.Count < 5)
                     continue;
 
-                Walls wallDefinition = new Walls();
-                wallDefinition.Dwelling = tableRow.Content[0].ToString();
-                wallDefinition.Storey = tableRow.Content[2].ToString();
+                var content = tableRow.Content.OfType<CellContents>().ToList();
 
-                var type = Enum.Parse(typeof(TypeOfWall), tableRow.Content[1].ToString());
+                Walls wallDefinition = new Walls();
+                wallDefinition.Dwelling = content[0].Value.ToString();
+                wallDefinition.Storey = content[2].Value.ToString();
+
+                var type = Enum.Parse(typeof(TypeOfWall), content[1].Value.ToString());
                 if (type != null)
                     wallDefinition.Type = (TypeOfWall)type;
 
                 try
                 {
-                    wallDefinition.UValue = double.Parse(tableRow.Content[4].ToString());
+                    wallDefinition.UValue = double.Parse(content[4].Value.ToString());
                 }
                 catch { }
 
                 try
                 {
-                    wallDefinition.CurtainWall = bool.Parse(tableRow.Content[3].ToString());
+                    wallDefinition.CurtainWall = bool.Parse(content[3].Value.ToString());
                 }
                 catch { }
 

@@ -45,17 +45,19 @@ namespace BH.Adapter.SAP
                 if (tableRow.Content.Count < 4)
                     continue;
 
-                Roofs roofDefinition = new Roofs();
-                roofDefinition.Dwelling = tableRow.Content[0].ToString();
-                roofDefinition.Storey = tableRow.Content[2].ToString();
+                var content = tableRow.Content.OfType<CellContents>().ToList();
 
-                var type = Enum.Parse(typeof(TypeOfRoof), tableRow.Content[1].ToString());
+                Roofs roofDefinition = new Roofs();
+                roofDefinition.Dwelling = content[0].Value.ToString();
+                roofDefinition.Storey = content[2].Value.ToString();
+
+                var type = Enum.Parse(typeof(TypeOfRoof), content[1].Value.ToString());
                 if (type != null)
                     roofDefinition.Type = (TypeOfRoof)type;
 
                 try
                 {
-                    roofDefinition.UValue = double.Parse(tableRow.Content[3].ToString());
+                    roofDefinition.UValue = double.Parse(content[3].Value.ToString());
                 }
                 catch
                 {

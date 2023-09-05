@@ -31,6 +31,7 @@ using System.Runtime;
 using BH.oM.Environment.SAP;
 using BH.oM.Environment.SAP.Bluebeam;
 using BH.oM.Environment.SAP.Excel;
+using SXML = BH.oM.Environment.SAP.XML;
 
 namespace BH.Adapter.SAP
 {
@@ -61,6 +62,8 @@ namespace BH.Adapter.SAP
                 return ReadOpeningPsiValues(config);
             else if (type == typeof(DwellingSchedule))
                 return ReadDwellingSchedules(config);
+            else if(type == typeof(SXML.SAPReport))
+                return ReadSAPReport(config);
 
             return null;
         }
