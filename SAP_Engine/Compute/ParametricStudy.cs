@@ -48,7 +48,7 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Compute
     {
-        [Description("Modify a SAPReport based on opening type iterators.")]
+        /*[Description("Modify a SAPReport based on opening type iterators.")]
         [Input("sapObjList", "Input the list of SAPReport object to modify.")]
         [Input("iterations", "Input the iterators.")]
         [Input("directory", "Input the directory for the study.")]
@@ -145,6 +145,6 @@ namespace BH.Engine.Environment.SAP
                 Item4 = input,
                 Item5 = output
             };
-        }
+        }*/
     }
 }
