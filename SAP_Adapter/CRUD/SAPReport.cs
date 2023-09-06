@@ -23,13 +23,13 @@ namespace BH.Adapter.SAP
 {
     public partial class SAPAdapter
     {
-        private List<SXML.SAPReport> ReadSAPReport(SAPConfig config)
+        private List<SAPReport> ReadSAPReport(SAPConfig config)
         {
             var sapMarkupSummary = ReadSAPMarkupSummary(config)?[0];
             if(sapMarkupSummary == null)
             {
                 BH.Engine.Base.Compute.RecordError("Mark Up Summary did not return a viable object to produce a SAP Report with.");
-                return new List<SXML.SAPReport>();
+                return new List<SAPReport>();
             }
 
             //Group by space names
@@ -200,7 +200,8 @@ namespace BH.Adapter.SAP
             XMLAdapter xmlAdapter = new XMLAdapter(fs);
             xmlAdapter.Push(new List<IBHoMObject>() { data }, actionConfig: xmlConfig);*/
 
-            return fixedReportWithHeatingBySpace.Select(x => x.Value).ToList();
+            //return fixedReportWithHeatingBySpace.Select(x => x.Value).ToList();
+            return null;
         }
 
         private Dictionary<string, List<SAPMarkup>> MarkUpsBySpace(List<string> spaceNames, List<SAPMarkup> markups)
