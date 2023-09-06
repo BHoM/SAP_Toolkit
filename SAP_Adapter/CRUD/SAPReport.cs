@@ -25,6 +25,15 @@ namespace BH.Adapter.SAP
     {
         private List<SAPReport> ReadSAPReport(SAPConfig config)
         {
+            if (string.IsNullOrEmpty(config.OutputDirectory))
+            {
+                BH.Engine.Base.Compute.RecordError($"Please provide a valid directory to save SAP Reports to.");
+                return new List<SAPReport>();
+            }
+
+            if (!Directory.Exists(config.OutputDirectory))
+                Directory.CreateDirectory(config.OutputDirectory);
+
             var sapMarkupSummary = ReadSAPMarkupSummary(config)?[0];
             if(sapMarkupSummary == null)
             {
@@ -190,18 +199,27 @@ namespace BH.Adapter.SAP
                     fixedReportWithHeatingBySpace.Add(dwellingSchedule.DwellingTypeName, Modify.SAPHeatingTemplate(heatingReport, fixedReportBySpace[dwellingSchedule.DwellingTypeName]));
             }
 
-            /*FileSettings fs = new FileSettings()
+            List<SAPReport> reports = new List<SAPReport>();
+
+            foreach(var kvp in fixedReportWithHeatingBySpace)
             {
-                Directory = config.OutputDirectory,
-                FileName = $"{data?.SAP10Data?.PropertyDetails?.BuildingParts?.BuildingPart?.FirstOrDefault()?.Identifier}.xml",
-            };
+                FileSettings fs = new FileSettings()
+                {
+                    Directory = config.OutputDirectory,
+                    FileName = $"{kvp.Value?.SAP10Data?.PropertyDetails?.BuildingParts?.BuildingPart?.FirstOrDefault()?.Identifier}.xml",
+                };
 
-            XMLConfig xmlConfig = new XMLConfig() { RemoveNils = true };
-            XMLAdapter xmlAdapter = new XMLAdapter(fs);
-            xmlAdapter.Push(new List<IBHoMObject>() { data }, actionConfig: xmlConfig);*/
+                XMLConfig xmlConfig = new XMLConfig() { RemoveNils = true };
+                XMLAdapter xmlAdapter = new XMLAdapter(fs);
+                xmlAdapter.Push(new List<SXML.SAPReport>() { kvp.Value }, actionConfig: xmlConfig);
 
-            //return fixedReportWithHeatingBySpace.Select(x => x.Value).ToList();
-            return null;
+                reports.Add(new SAPReport()
+                {
+                    FileLocation = fs,
+                });
+            }
+
+            return reports;
         }
 
         private Dictionary<string, List<SAPMarkup>> MarkUpsBySpace(List<string> spaceNames, List<SAPMarkup> markups)
