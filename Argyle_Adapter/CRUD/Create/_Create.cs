@@ -28,6 +28,9 @@ using System.Collections.Generic;
 using System.Text;
 using BH.Engine.Adapter;
 using System.Linq;
+using BH.oM.Environment.SAP.XML;
+using BH.oM.Environment.SAP;
+using System.IO;
 
 namespace BH.Adapter.SAP.Argyle
 {
@@ -35,12 +38,25 @@ namespace BH.Adapter.SAP.Argyle
     {
         protected override bool ICreate<T>(IEnumerable<T> objects, ActionConfig actionConfig = null)
         {
-            if (m_Settings.SAPType == oM.Environment.SAP.SAPType.Argyle)
+            ArgyleConfig config = (ArgyleConfig)actionConfig;
+            if(config == null)
             {
-                var objList = objects.Where(x => x is BH.oM.Environment.SAP.XML.SAPReport).Select(x => x as BH.oM.Environment.SAP.XML.SAPReport).ToList();
-                objList.ForEach(x => CreateArgyle(x, m_Settings.FileSettings));
-
+                BH.Engine.Base.Compute.RecordError($"Please provide a valid Argyle Config object to push to the Argyle schema.");
+                return false;
             }
+
+            if(string.IsNullOrEmpty(config.OutputDirectory))
+            {
+                BH.Engine.Base.Compute.RecordError($"Please provide a valid directory to save SAP Reports to.");
+                return false;
+            }
+
+            if (!Directory.Exists(config.OutputDirectory))
+                Directory.CreateDirectory(config.OutputDirectory);
+
+            if (typeof(T) == typeof(SAPReport))
+                objects.OfType<SAPReport>().Select(x => CreateArgyle(x, config));
+
             return true;
         }
     }

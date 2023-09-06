@@ -20,7 +20,9 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.Adapter.XML;
 using BH.oM.Adapter;
+using BH.oM.Adapters.XML;
 using BH.oM.Base;
 using BH.oM.Environment.SAP.XML;
 using System;
@@ -29,37 +31,23 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
+using BH.oM.Environment.SAP;
 
 namespace BH.Adapter.SAP.Argyle
 {
     public partial class ArgyleAdapter : BHoMAdapter
     {
-        public static bool CreateArgyle(BH.oM.Environment.SAP.XML.SAPReport data, FileSettings fileSettings)
+        public static bool CreateArgyle(BH.oM.Environment.SAP.XML.SAPReport data, ArgyleConfig config)
         {
-            XmlSerializerNamespaces xns = new XmlSerializerNamespaces();
-            XmlSerializer szer = new XmlSerializer(typeof(BH.oM.Environment.SAP.XML.SAPReport));
+            FileSettings fs = new FileSettings()
+            {
+                Directory = config.OutputDirectory,
+                FileName = $"{data?.SAP10Data?.PropertyDetails?.BuildingParts?.BuildingPart?.FirstOrDefault()?.Identifier}.xml",
+            };
 
-            TextWriter ms = new StreamWriter(Path.Combine(fileSettings.Directory, fileSettings.FileName));
-            szer.Serialize(ms, data, xns);
-            ms.Close();
-
-            RemoveNil(fileSettings);
-
-            return true;
-        }
-
-        private static bool RemoveNil(FileSettings file)
-        {
-            //Properties with type bool?, if left as null, will serialize to have value xsi:nil, this method removes these
-            var path = Path.Combine(file.Directory, file.FileName);
-            var xmlFile = File.ReadAllLines(path);
-
-            xmlFile = xmlFile.Where(x => !x.Trim().Contains("xsi:nil")).ToArray();
-            xmlFile = xmlFile.Where(x => x != null).ToArray();
-
-            File.Delete(path);
-            File.WriteAllLines(path, xmlFile);
-
+            XMLConfig xmlConfig = new XMLConfig() { RemoveNils = true };
+            XMLAdapter xmlAdapter = new XMLAdapter(fs);
+            xmlAdapter.Push(new List<IBHoMObject>() { data }, actionConfig: xmlConfig);
             return true;
         }
     }
