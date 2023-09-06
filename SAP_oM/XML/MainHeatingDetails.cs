@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Main-Heating-Details", IsNullable = false)]
     [NoAutoConstructor]
-    public class MainHeatingDetails : SAPXMLObject
+    public class MainHeatingDetails : BHoMObject
     {
         [Description(".")]
         [XmlElement("Main-Heating")]

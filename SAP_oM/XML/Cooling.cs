@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "SAP-Cooling", IsNullable = false)]
     [NoAutoConstructor]
-    public class Cooling : SAPXMLObject
+    public class Cooling : BHoMObject
     {
         [Description("Cooled-Area.")]
         [XmlElement("Cooled-Area")]

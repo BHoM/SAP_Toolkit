@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Property-Summary", IsNullable = false)]
     [NoAutoConstructor]
-    public class PropertySummary : SAPXMLObject
+    public class PropertySummary : BHoMObject
     {
         [Description(".")]
         [XmlElement(ElementName = "Walls")]

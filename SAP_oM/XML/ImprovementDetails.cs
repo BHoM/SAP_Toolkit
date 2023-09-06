@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Improvement-Details", IsNullable = false)]
     [NoAutoConstructor]
-    public class ImprovementDetails : SAPXMLObject
+    public class ImprovementDetails : BHoMObject
     {
         [Description("For backward compatability only.")]
         [XmlElement(ElementName = "Improvement-Texts")]

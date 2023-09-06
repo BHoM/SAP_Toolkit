@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "SAP-Community-Heating-Systems", IsNullable = false)]
     [NoAutoConstructor]
-    public class CommunityHeatingSystems : SAPXMLObject
+    public class CommunityHeatingSystems : BHoMObject
     {
         [Description("Details of a community system which heats the Main Building.")]
         [XmlElement("SAP-Community-Heating-System")]

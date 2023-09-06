@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "SAP-Thermal-Bridges", IsNullable = false)]
     [NoAutoConstructor]
-    public class ThermalBridges : SAPXMLObject
+    public class ThermalBridges : BHoMObject
     {
         [Description("Code which indicates how the thermal bridge data has been recorded.")]
         [XmlElement("Thermal-Bridge-Code")]

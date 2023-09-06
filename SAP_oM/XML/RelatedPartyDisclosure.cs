@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Related-Party-Disclosure", IsNullable = false)]
     [NoAutoConstructor]
-    public class RelatedPartyDisclosure: SAPXMLObject
+    public class RelatedPartyDisclosure: BHoMObject
     {
 
         [Description(".")]

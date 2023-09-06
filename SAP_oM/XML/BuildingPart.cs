@@ -34,7 +34,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "SAP-Building-Part", IsNullable = false)]
     [NoAutoConstructor]
-    public class BuildingPart : SAPXMLObject
+    public class BuildingPart : BHoMObject
     {
 
         [Description("Identifier for the Building part - generally only required if there are more that one Building Parts of the same type.")]

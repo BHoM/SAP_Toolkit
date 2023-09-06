@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "SAP-Floor-Dimension", IsNullable = false)]
     [NoAutoConstructor]
-    public class FloorDimension : SAPXMLObject
+    public class FloorDimension : BHoMObject
     {
         [Description("A name describing the floor dimensioned.")]
         [XmlElement("Name")]

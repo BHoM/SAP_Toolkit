@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Addendum", IsNullable = false)]
     [NoAutoConstructor]
-    public class Addendum : SAPXMLObject
+    public class Addendum : BHoMObject
     {
         [Description("Cavity fill is recommended.")]
         [XmlElement(ElementName = "Cavity-Fill-Recommended")]

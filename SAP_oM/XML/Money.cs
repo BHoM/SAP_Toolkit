@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Money", IsNullable = false)]
     [NoAutoConstructor]
-    public class Money : SAPXMLObject
+    public class Money : BHoMObject
     {
         [XmlAttribute(AttributeName = "currency")]
         public virtual string Currency { get; set; } = null;

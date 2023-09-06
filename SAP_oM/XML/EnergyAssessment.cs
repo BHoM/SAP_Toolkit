@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Energy-Assessment", IsNullable = false)]
     [NoAutoConstructor]
-    public class EnergyAssessment : SAPXMLObject
+    public class EnergyAssessment : BHoMObject
     {
         [Description("In the form yyyy-mm-dd")]
         [XmlElement(ElementName = "Assessment-Date")]

@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Identification-Number", IsNullable = false)]
     [NoAutoConstructor]
-    public class IdentificationNumber : SAPXMLObject
+    public class IdentificationNumber : BHoMObject
     {
         [Description("The unique identifier assigned to the assessor by the scheme by which they can be identified throughout their membership of the scheme.")]
         [XmlElement(ElementName = "Certificate-Number")]

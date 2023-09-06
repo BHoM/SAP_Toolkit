@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "PV-Arrays", IsNullable = false)]
     [NoAutoConstructor]
-    public class PhotovoltaicArrays : SAPXMLObject
+    public class PhotovoltaicArrays : BHoMObject
     {
         [Description(".")]
         [XmlElement("PV-Array")]

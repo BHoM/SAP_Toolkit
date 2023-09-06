@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Insurance-Details", IsNullable = false)]
     [NoAutoConstructor]
-    public class InsuranceDetails : SAPXMLObject
+    public class InsuranceDetails : BHoMObject
     {
         [Description("The name of the insurance company that underwrites / issued the insurance policy.")]
         [XmlElement(ElementName = "Insurer")]

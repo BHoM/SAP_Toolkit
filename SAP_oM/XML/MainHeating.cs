@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "SAP-MainHeating", IsNullable = false)]
     [NoAutoConstructor]
-    public class MainHeating : SAPXMLObject
+    public class MainHeating : BHoMObject
     {
         [Description("Identifies the main heating as system 1 or system 2.  System 1 must always be present, system 2 is included only when there are two systems.")]
         [XmlElement("Main-Heating-Number")]

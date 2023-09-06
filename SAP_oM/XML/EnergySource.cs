@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "SAP-Energy-Source", IsNullable = false)]
     [NoAutoConstructor]
-    public class EnergySource : SAPXMLObject
+    public class EnergySource : BHoMObject
     {
         [Description(".")]
         [XmlElement(ElementName = "Electricity-Tariff")]

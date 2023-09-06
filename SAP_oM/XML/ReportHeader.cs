@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Report-Header", IsNullable = false)]
     [NoAutoConstructor]
-    public class ReportHeader : SAPXMLObject
+    public class ReportHeader : BHoMObject
     {
         [Description("Report Reference Number is the unique report Identifier that the report will be publicly known by.")]
         [XmlElement(ElementName = "RRN")]

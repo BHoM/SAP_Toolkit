@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "SAP-Roofs", IsNullable = false)]
     [NoAutoConstructor]
-    public class Roofs : SAPXMLObject
+    public class Roofs : BHoMObject
     {
         [Description("Various measurements for each exposed roof that makes up a particular Building-Part.")]
         [XmlElement("SAP-Roof")]

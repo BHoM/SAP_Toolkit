@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Emission-Feature", IsNullable = false)]
     [NoAutoConstructor]
-    public class EmissionFeature : SAPXMLObject
+    public class EmissionFeature : BHoMObject
     {
         [Description("Emissions saved in kg/year.")]
         [XmlElement("Emissions-Saved")]

@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Air-Change-Rates", IsNullable = false)]
     [NoAutoConstructor]
-    public class AirChangeRates : SAPXMLObject
+    public class AirChangeRates : BHoMObject
     {
         [Description(".")]
         [XmlElement("Air-Change-Rate")]

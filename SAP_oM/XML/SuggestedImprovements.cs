@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Suggested-Improvements", IsNullable = false)]
     [NoAutoConstructor]
-    public class SuggestedImprovements : SAPXMLObject
+    public class SuggestedImprovements : BHoMObject
     {
   
         [XmlElement("Improvement")]

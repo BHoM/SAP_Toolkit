@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Description", IsNullable = false)]
     [NoAutoConstructor]
-    public class Description : SAPXMLObject
+    public class Description : BHoMObject
     {
         [XmlAttribute(AttributeName = "language")]
         public virtual string Language { get; set; } = null;

@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "SAP-Flat-Details", IsNullable = false)]
     [NoAutoConstructor]
-    public class FlatDetails : SAPXMLObject
+    public class FlatDetails : BHoMObject
     {
         [Description("Indication of where a flat is located in a building.")]
         [XmlElement("Level")]

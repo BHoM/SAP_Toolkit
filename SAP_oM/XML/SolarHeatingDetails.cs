@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Solar-Heating-Details", IsNullable = false)]
     [NoAutoConstructor]
-    public class SolarHeatingDetails : SAPXMLObject
+    public class SolarHeatingDetails : BHoMObject
     {
         [Description("Panel manufacturer.")]
         [XmlElement(ElementName = "Solar-Heating-Collector-Manufacturer")]
