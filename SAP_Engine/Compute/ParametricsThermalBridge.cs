@@ -48,7 +48,7 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Compute
     {
-        /*[Description("Modify a SAPReport based on thermal bridge iterators.")]
+        [Description("Modify a SAPReport based on thermal bridge iterators.")]
         [Input("sapObj", "Input the SAPReport object to modify.")]
         [Input("thermalBridgeObj", "Input the thermal bridge iterators.")]
         [Input("iterationName", "Input the name of the iteration.")]
@@ -91,7 +91,7 @@ namespace BH.Engine.Environment.SAP
             }
 
             return new Output<SAPReport, List<oM.Environment.SAP.JSON.ThermalBridge>> { Item1 = sapObj, Item2 = tbChanges };
-        }*/
+        }
 
     }
 }

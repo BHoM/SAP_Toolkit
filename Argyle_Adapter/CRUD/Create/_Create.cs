@@ -45,10 +45,17 @@ namespace BH.Adapter.SAP.Argyle
                 return false;
             }
 
-            
+            if(string.IsNullOrEmpty(config.OutputDirectory))
+            {
+                BH.Engine.Base.Compute.RecordError($"Please provide a valid directory to save SAP Reports to.");
+                return false;
+            }
 
-            //if (typeof(T) == typeof(SAPReport))
-               // objects.OfType<SAPReport>().ToList().ForEach(x => CreateArgyle(x, config));
+            if (!Directory.Exists(config.OutputDirectory))
+                Directory.CreateDirectory(config.OutputDirectory);
+
+            if (typeof(T) == typeof(SAPReport))
+                objects.OfType<SAPReport>().Select(x => CreateArgyle(x, config));
 
             return true;
         }

@@ -49,7 +49,7 @@ namespace BH.Engine.Environment.SAP
         /**** Public Methods                            ****/
         /***************************************************/
 
-        /*[Description("Takes data such as areas of building parts, and results and then pushes to a single object.")]
+        [Description("Takes data such as areas of building parts, and results and then pushes to a single object.")]
         [Input("filenames", "List of all the files names in a study.")]
         [Input("reportObjs", "The SAPReport to get the data from.")]
         [Input("jsonFile", "The JSON file prroduced by running a parametric study.")]
@@ -155,6 +155,6 @@ namespace BH.Engine.Environment.SAP
                 Item1 = results,
                 Item2 = true
             };    
-        }*/
+        }
     }
 }

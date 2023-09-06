@@ -1,7 +1,7 @@
 ﻿using BH.oM.Base.Attributes;
 using BH.oM.Base;
 using BH.oM.Environment.SAP.Bluebeam;
-using SXML = BH.Adapter.SAP.XML;
+using SXML = BH.oM.Environment.SAP.XML;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

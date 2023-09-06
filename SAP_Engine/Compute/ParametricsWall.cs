@@ -48,7 +48,7 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Compute
     {
-        /*[Description("Modify a SAPReport based on wall iterators.")]
+        [Description("Modify a SAPReport based on wall iterators.")]
         [Input("sapObj", "Input the SAPReport object to modify.")]
         [Input("wallsObj", "Input the wall iterators.")]
         [Input("iterationName", "Input the name of the iteration.")]
@@ -82,6 +82,6 @@ namespace BH.Engine.Environment.SAP
             }
 
             return new Output<SAPReport, List<oM.Environment.SAP.JSON.Wall>>() { Item1 = sapObj, Item2 = wallChanges };
-        }*/
+        }
     }
 }

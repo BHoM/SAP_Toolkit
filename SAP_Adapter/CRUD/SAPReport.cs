@@ -9,7 +9,7 @@ using BH.oM.Adapters.Excel;
 using BH.Adapter.Excel;
 using System.Linq;
 using BH.oM.Environment.SAP.Excel;
-using SXML = BH.Adapter.SAP.XML;
+using SXML = BH.oM.Environment.SAP.XML;
 using BH.oM.Environment.SAP.Bluebeam;
 using BH.oM.XML.Bluebeam;
 using BH.oM.Adapter;
@@ -17,28 +17,18 @@ using BH.Adapter.SAP.Argyle;
 using BH.oM.Data.Requests;
 using BH.oM.Environment.SAP.XML;
 using BH.Adapter.XML;
-using BH.oM.Adapters.XML;
 
 namespace BH.Adapter.SAP
 {
     public partial class SAPAdapter
     {
-        private List<SAPReport> ReadSAPReport(SAPConfig config)
+        private List<SXML.SAPReport> ReadSAPReport(SAPConfig config)
         {
-            if (string.IsNullOrEmpty(config.OutputDirectory))
-            {
-                BH.Engine.Base.Compute.RecordError($"Please provide a valid directory to save SAP Reports to.");
-                return new List<SAPReport>();
-            }
-
-            if (!Directory.Exists(config.OutputDirectory))
-                Directory.CreateDirectory(config.OutputDirectory);
-
             var sapMarkupSummary = ReadSAPMarkupSummary(config)?[0];
             if(sapMarkupSummary == null)
             {
                 BH.Engine.Base.Compute.RecordError("Mark Up Summary did not return a viable object to produce a SAP Report with.");
-                return new List<SAPReport>();
+                return new List<SXML.SAPReport>();
             }
 
             //Group by space names
@@ -144,7 +134,7 @@ namespace BH.Adapter.SAP
                 propertyDetails.Lighting = new SXML.Lighting() { FixedLights = new SXML.FixedLights() { FixedLight = new List<SXML.FixedLight>() { xmlLightsBySpace[space] } } };
 
                 if (config.FlatDetails != null)
-                    propertyDetails.FlatDetails = config.FlatDetails.ToFlatDetails();
+                    propertyDetails.FlatDetails = config.FlatDetails;
 
                 var schedule = dwellingSchedules.Where(x => x.DwellingTypeName == space).FirstOrDefault();
 
@@ -192,34 +182,14 @@ namespace BH.Adapter.SAP
                 };
 
                 XMLAdapter argyleAdapter = new XMLAdapter(fs);
-                FilterRequest argyleRequest = BH.Engine.Data.Create.FilterRequest(typeof(SXML.SAPReport), "");
-                var heatingReport = argyleAdapter.Pull(argyleRequest, actionConfig: new BH.oM.Adapters.XML.XMLConfig()).OfType<SXML.SAPReport>().FirstOrDefault();
+                FilterRequest argyleRequest = BH.Engine.Data.Create.FilterRequest(typeof(SAPReport), "");
+                var heatingReport = argyleAdapter.Pull(argyleRequest, actionConfig: new BH.oM.Adapters.XML.XMLConfig()).OfType<SAPReport>().FirstOrDefault();
 
                 if (heatingReport != null)
                     fixedReportWithHeatingBySpace.Add(dwellingSchedule.DwellingTypeName, Modify.SAPHeatingTemplate(heatingReport, fixedReportBySpace[dwellingSchedule.DwellingTypeName]));
             }
 
-            List<SAPReport> reports = new List<SAPReport>();
-
-            foreach(var kvp in fixedReportWithHeatingBySpace)
-            {
-                FileSettings fs = new FileSettings()
-                {
-                    Directory = config.OutputDirectory,
-                    FileName = $"{kvp.Value?.SAP10Data?.PropertyDetails?.BuildingParts?.BuildingPart?.FirstOrDefault()?.Identifier}.xml",
-                };
-
-                XMLConfig xmlConfig = new XMLConfig() { RemoveNils = true };
-                XMLAdapter xmlAdapter = new XMLAdapter(fs);
-                xmlAdapter.Push(new List<SXML.SAPReport>() { kvp.Value }, actionConfig: xmlConfig);
-
-                reports.Add(new SAPReport()
-                {
-                    FileLocation = fs,
-                });
-            }
-
-            return reports;
+            return fixedReportWithHeatingBySpace.Select(x => x.Value).ToList();
         }
 
         private Dictionary<string, List<SAPMarkup>> MarkUpsBySpace(List<string> spaceNames, List<SAPMarkup> markups)

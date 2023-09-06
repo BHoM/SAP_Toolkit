@@ -1,5 +1,5 @@
 ﻿using BH.oM.Base.Attributes;
-using BH.Adapter.SAP.XML;
+using BH.oM.Environment.SAP.XML;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,8 +25,8 @@ namespace BH.Adapter.SAP
                 return null;
             }
 
-            PropertyDetails propertyObj = reportObj.SAP10Data.PropertyDetails;
-            PropertyDetails templateProperty = templateSAP.SAP10Data.PropertyDetails;
+            BH.oM.Environment.SAP.XML.PropertyDetails propertyObj = reportObj.SAP10Data.PropertyDetails;
+            BH.oM.Environment.SAP.XML.PropertyDetails templateProperty = templateSAP.SAP10Data.PropertyDetails;
             //List<string> heatingObj = new List<string>
             //{
             //    "EnergySource", 

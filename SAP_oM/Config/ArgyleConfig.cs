@@ -9,6 +9,6 @@ namespace BH.oM.Environment.SAP
 {
     public class ArgyleConfig : ActionConfig
     {
-        
+        public virtual string OutputDirectory { get; set; } = null;
     }
 }
