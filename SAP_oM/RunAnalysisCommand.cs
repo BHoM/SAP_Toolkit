@@ -36,10 +36,10 @@ namespace BH.oM.Environment.SAP
     public class RunAnalysisCommand : IExecuteCommand, IObject
     {
         [Description("Path to XML file that will be calculated.")]
-        public virtual FileSettings fileSettingsInput { get; set; }
+        public virtual FileSettings FileSettingsInput { get; set; }
 
         [Description("Path to new file, if using txt endpoint.")]
-        public virtual FileSettings fileSettingsOutput { get; set; }
+        public virtual FileSettings FileSettingsOutput { get; set; }
 
         [Description("API Key for access.")]
         public virtual string APIKey { get; set; }
