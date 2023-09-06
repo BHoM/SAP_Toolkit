@@ -44,8 +44,8 @@ namespace BH.Adapter.SAP.Argyle
         {
             var output = new Output<List<object>, bool>() { Item1 = null, Item2 = false };
 
-            List<object> blah = new List<object>() { RunCommand(command as dynamic) };
-            output.Item1 = blah;
+            List<object> temp = new List<object>() { RunCommand(command as dynamic) };
+            output.Item1 = temp;
             output.Item2 = true;
 
             return output;
