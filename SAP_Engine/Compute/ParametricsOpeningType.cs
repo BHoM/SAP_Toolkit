@@ -48,7 +48,7 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Compute
     {
-        [Description("Modify a SAPReport based on opening type iterators.")]
+        /*[Description("Modify a SAPReport based on opening type iterators.")]
         [Input("sapObj", "Input the SAPReport object to modify.")]
         [Input("openingTypeObj", "Input the opening type iterators.")]
         [Input("iterationName", "Input the name of the iteration.")]
@@ -82,6 +82,6 @@ namespace BH.Engine.Environment.SAP
             }
 
             return new Output<SAPReport, List<BH.oM.Environment.SAP.JSON.OpeningType>>() { Item1 = sapObj, Item2 = typeChanges };
-        }
+        }*/
     }
 }

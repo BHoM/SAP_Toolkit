@@ -9,7 +9,7 @@ using BH.oM.Adapters.Excel;
 using BH.Adapter.Excel;
 using System.Linq;
 using BH.oM.Environment.SAP.Excel;
-using SXML = BH.oM.Environment.SAP.XML;
+using SXML = BH.Adapter.SAP.XML;
 using BH.oM.Environment.SAP.Bluebeam;
 using BH.oM.XML.Bluebeam;
 using BH.oM.Adapter;
@@ -134,7 +134,7 @@ namespace BH.Adapter.SAP
                 propertyDetails.Lighting = new SXML.Lighting() { FixedLights = new SXML.FixedLights() { FixedLight = new List<SXML.FixedLight>() { xmlLightsBySpace[space] } } };
 
                 if (config.FlatDetails != null)
-                    propertyDetails.FlatDetails = config.FlatDetails;
+                    propertyDetails.FlatDetails = config.FlatDetails.ToFlatDetails();
 
                 var schedule = dwellingSchedules.Where(x => x.DwellingTypeName == space).FirstOrDefault();
 
@@ -182,8 +182,8 @@ namespace BH.Adapter.SAP
                 };
 
                 XMLAdapter argyleAdapter = new XMLAdapter(fs);
-                FilterRequest argyleRequest = BH.Engine.Data.Create.FilterRequest(typeof(SAPReport), "");
-                var heatingReport = argyleAdapter.Pull(argyleRequest, actionConfig: new BH.oM.Adapters.XML.XMLConfig()).OfType<SAPReport>().FirstOrDefault();
+                FilterRequest argyleRequest = BH.Engine.Data.Create.FilterRequest(typeof(SXML.SAPReport), "");
+                var heatingReport = argyleAdapter.Pull(argyleRequest, actionConfig: new BH.oM.Adapters.XML.XMLConfig()).OfType<SXML.SAPReport>().FirstOrDefault();
 
                 if (heatingReport != null)
                     fixedReportWithHeatingBySpace.Add(dwellingSchedule.DwellingTypeName, Modify.SAPHeatingTemplate(heatingReport, fixedReportBySpace[dwellingSchedule.DwellingTypeName]));

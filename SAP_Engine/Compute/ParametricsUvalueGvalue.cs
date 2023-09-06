@@ -42,7 +42,7 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Compute
     {
-        [Description("Sets up a parametric study based on u and g values.")]
+        /*[Description("Sets up a parametric study based on u and g values.")]
         [Input("sapObjs", "SAPReport object to modify.")]
         [Input("directory", "Directory to save files in.")]
         [Input("include", "A list of opening types to change in this study.")]
@@ -136,7 +136,7 @@ namespace BH.Engine.Environment.SAP
             }
 
             return (sapObjs.ParametricStudy(typeIteratorLists, directory, "UandGStudy", psiValues, openingDetails, run));
-        }
+        }*/
     }
 }
 

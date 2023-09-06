@@ -48,7 +48,7 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Compute
     {
-        [Description("Modify a SAPReport based on roof iterators.")]
+        /*[Description("Modify a SAPReport based on roof iterators.")]
         [Input("sapObj", "Input the SAPReport object to modify.")]
         [Input("roofsObj", "Input the roof iterators.")]
         [Input("iterationName", "Input the name of the iteration.")]
@@ -82,6 +82,6 @@ namespace BH.Engine.Environment.SAP
             }
 
             return new Output<SAPReport, List<UValue>>() { Item1 = sapObj, Item2 = roofChanges };
-        }
+        }*/
     }
 }

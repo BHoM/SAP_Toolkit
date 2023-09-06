@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
  *
@@ -29,16 +29,12 @@ using System.Xml.Serialization;
 
 namespace BH.oM.Environment.SAP.XML
 {
-    [Serializable]
-    [XmlRoot(ElementName = "SAP-Flat-Details", IsNullable = false)]
-    public class FlatDetails : IObject
+    public class FlatDetails : BHoMObject
     {
         [Description("Indication of where a flat is located in a building.")]
-        [XmlElement("Level")]
         public virtual string Level { get; set; } = null;
 
         [Description("Count of number of storeys present in the block of flats.")]
-        [XmlElement("Storeys")]
         public virtual string Storeys { get; set; } = null;
     }
 }
