@@ -29,14 +29,14 @@ namespace BH.Adapter.SAP
                 return new List<OpeningPsiValues>();
             }
 
-            if (config.OpeningPsiValuesRequest == null || config.OpeningPsiValuesRequest.CellContentsRequest == null)
+            if (config.OpeningPsiValuesRequest == null)
             {
                 BH.Engine.Base.Compute.RecordError($"Please provide a valid Opening Psi Values Request stating the worksheet and range to read from Excel for the Opening Psi Values objects.");
                 return new List<OpeningPsiValues>();
             }
 
             ExcelAdapter excelAdapter = new ExcelAdapter(config.ExcelFile);
-            List<TableRow> excelRows = excelAdapter.Pull(config.OpeningPsiValuesRequest.CellContentsRequest).OfType<TableRow>().ToList();
+            List<TableRow> excelRows = excelAdapter.Pull(config.OpeningPsiValuesRequest).OfType<TableRow>().ToList();
 
             List<OpeningPsiValues> openingPsiValues = new List<OpeningPsiValues>();
 

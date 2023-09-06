@@ -29,14 +29,14 @@ namespace BH.Adapter.SAP
                 return new List<Walls>();
             }
 
-            if (config.WallDefinitionsRequest == null || config.WallDefinitionsRequest.CellContentsRequest == null)
+            if (config.WallDefinitionsRequest == null)
             {
                 BH.Engine.Base.Compute.RecordError($"Please provide a valid Wall Definitions Request stating the worksheet and range to read from Excel for the Wall Definition objects.");
                 return new List<Walls>();
             }
 
             ExcelAdapter excelAdapter = new ExcelAdapter(config.ExcelFile);
-            List<TableRow> excelRows = excelAdapter.Pull(config.WallDefinitionsRequest.CellContentsRequest).OfType<TableRow>().ToList();
+            List<TableRow> excelRows = excelAdapter.Pull(config.WallDefinitionsRequest).OfType<TableRow>().ToList();
 
             List<Walls> wallDefinitions = new List<Walls>();
 

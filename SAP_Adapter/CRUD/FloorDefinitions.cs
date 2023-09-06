@@ -29,14 +29,14 @@ namespace BH.Adapter.SAP
                 return new List<Floors>();
             }
 
-            if(config.FloorDefinitionsRequest == null || config.FloorDefinitionsRequest.CellContentsRequest == null)
+            if(config.FloorDefinitionsRequest == null)
             {
                 BH.Engine.Base.Compute.RecordError($"Please provide a valid Floor Definitions Request stating the worksheet and range to read from Excel for the Floor Definition objects.");
                 return new List<Floors>();
             }
 
             ExcelAdapter excelAdapter = new ExcelAdapter(config.ExcelFile);
-            List<TableRow> excelRows = excelAdapter.Pull(config.FloorDefinitionsRequest.CellContentsRequest).OfType<TableRow>().ToList();
+            List<TableRow> excelRows = excelAdapter.Pull(config.FloorDefinitionsRequest).OfType<TableRow>().ToList();
 
             List<Floors> floorDefinitions = new List<Floors>();
 
