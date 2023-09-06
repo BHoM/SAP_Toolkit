@@ -7,7 +7,7 @@ using System.Text;
 
 namespace BH.oM.Environment.SAP
 {
-    public class SAPConfig : ActionConfig
+    public class SAPPullConfig : ActionConfig
     {
         public virtual FileSettings SAPMarkupFile { get; set; } = null;
         public virtual FileSettings ExcelFile { get; set; } = null;

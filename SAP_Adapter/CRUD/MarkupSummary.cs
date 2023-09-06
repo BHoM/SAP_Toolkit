@@ -16,7 +16,7 @@ namespace BH.Adapter.SAP
 {
     public partial class SAPAdapter
     {
-        private List<SAPMarkupSummary> ReadSAPMarkupSummary(SAPConfig config)
+        private List<SAPMarkupSummary> ReadSAPMarkupSummary(SAPPullConfig config)
         {
             if(config.SAPMarkupFile == null)
             {
