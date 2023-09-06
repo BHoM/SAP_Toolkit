@@ -54,8 +54,8 @@ namespace BH.Adapter.SAP.Argyle
             if (!Directory.Exists(config.OutputDirectory))
                 Directory.CreateDirectory(config.OutputDirectory);
 
-            if (typeof(T) == typeof(SAPReport))
-                objects.OfType<SAPReport>().ToList().ForEach(x => CreateArgyle(x, config));
+            //if (typeof(T) == typeof(SAPReport))
+               // objects.OfType<SAPReport>().ToList().ForEach(x => CreateArgyle(x, config));
 
             return true;
         }

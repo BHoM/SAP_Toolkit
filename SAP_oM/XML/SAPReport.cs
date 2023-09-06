@@ -6,7 +6,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP.XML
 {
-    public class SAPReport2 : BHoMObject
+    public class SAPReport : BHoMObject
     {
         public virtual FileSettings FileLocation { get; set; }
     }

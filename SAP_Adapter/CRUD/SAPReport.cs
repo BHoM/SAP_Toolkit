@@ -17,6 +17,7 @@ using BH.Adapter.SAP.Argyle;
 using BH.oM.Data.Requests;
 using BH.oM.Environment.SAP.XML;
 using BH.Adapter.XML;
+using BH.oM.Adapters.XML;
 
 namespace BH.Adapter.SAP
 {
@@ -188,6 +189,16 @@ namespace BH.Adapter.SAP
                 if (heatingReport != null)
                     fixedReportWithHeatingBySpace.Add(dwellingSchedule.DwellingTypeName, Modify.SAPHeatingTemplate(heatingReport, fixedReportBySpace[dwellingSchedule.DwellingTypeName]));
             }
+
+            /*FileSettings fs = new FileSettings()
+            {
+                Directory = config.OutputDirectory,
+                FileName = $"{data?.SAP10Data?.PropertyDetails?.BuildingParts?.BuildingPart?.FirstOrDefault()?.Identifier}.xml",
+            };
+
+            XMLConfig xmlConfig = new XMLConfig() { RemoveNils = true };
+            XMLAdapter xmlAdapter = new XMLAdapter(fs);
+            xmlAdapter.Push(new List<IBHoMObject>() { data }, actionConfig: xmlConfig);*/
 
             return fixedReportWithHeatingBySpace.Select(x => x.Value).ToList();
         }
