@@ -17,12 +17,13 @@ using BH.Adapter.SAP.Argyle;
 using BH.oM.Data.Requests;
 using BH.oM.Environment.SAP.XML;
 using BH.Adapter.XML;
+using BH.oM.Adapters.XML;
 
 namespace BH.Adapter.SAP
 {
     public partial class SAPAdapter
     {
-        private List<SXML.SAPReport> ReadSAPReport(SAPConfig config)
+        private List<SXML.SAPReport> ReadSAPReport(SAPPullConfig config)
         {
             var sapMarkupSummary = ReadSAPMarkupSummary(config)?[0];
             if(sapMarkupSummary == null)
@@ -192,6 +193,20 @@ namespace BH.Adapter.SAP
             return fixedReportWithHeatingBySpace.Select(x => x.Value).ToList();
         }
 
+        private bool CreateSAPReport(SAPReport report, SAPPushConfig config)
+        {
+            FileSettings fs = new FileSettings()
+            {
+                Directory = config.OutputDirectory,
+                FileName = $"{report?.SAP10Data?.PropertyDetails?.BuildingParts?.BuildingPart?.FirstOrDefault()?.Identifier}.xml",
+            };
+
+            XMLConfig xmlConfig = new XMLConfig() { RemoveNils = true };
+            XMLAdapter xmlAdapter = new XMLAdapter(fs);
+            xmlAdapter.Push(new List<IBHoMObject>() { report }, actionConfig: xmlConfig);
+            return true;
+        }
+
         private Dictionary<string, List<SAPMarkup>> MarkUpsBySpace(List<string> spaceNames, List<SAPMarkup> markups)
         {
             Dictionary<string, List<SAPMarkup>> definitionsBySpace = new Dictionary<string, List<SAPMarkup>>();
@@ -218,7 +233,7 @@ namespace BH.Adapter.SAP
             return xmlOpeningsBySpace;
         }
 
-        private Dictionary<string, List<SXML.FloorDimension>> XMLFloorDimensionsBySpace(Dictionary<string, List<SAPMarkup>> markupsBySpace, SAPConfig config)
+        private Dictionary<string, List<SXML.FloorDimension>> XMLFloorDimensionsBySpace(Dictionary<string, List<SAPMarkup>> markupsBySpace, SAPPullConfig config)
         {
             Dictionary<string, List<SXML.FloorDimension>> xmlFloorDimensionsBySpace = new Dictionary<string, List<SXML.FloorDimension>>();
 
@@ -251,7 +266,7 @@ namespace BH.Adapter.SAP
             return xmlFloorDimensionsBySpace;
         }
 
-        private Dictionary<string, List<SXML.Roof>> XMLRoofsBySpace(Dictionary<string, List<SAPMarkup>> markupsBySpace, SAPConfig config)
+        private Dictionary<string, List<SXML.Roof>> XMLRoofsBySpace(Dictionary<string, List<SAPMarkup>> markupsBySpace, SAPPullConfig config)
         {
             Dictionary<string, List<SXML.Roof>> xmlRoofsBySpace = new Dictionary<string, List<SXML.Roof>>();
 
@@ -284,7 +299,7 @@ namespace BH.Adapter.SAP
             return xmlRoofsBySpace;
         }
 
-        private Dictionary<string, List<SXML.Wall>> XMLWallsBySpace(Dictionary<string, List<SAPMarkup>> markupsBySpace, SAPConfig config)
+        private Dictionary<string, List<SXML.Wall>> XMLWallsBySpace(Dictionary<string, List<SAPMarkup>> markupsBySpace, SAPPullConfig config)
         {
             Dictionary<string, List<SXML.Wall>> xmlWallsBySpace = new Dictionary<string, List<SXML.Wall>>();
 
@@ -317,7 +332,7 @@ namespace BH.Adapter.SAP
             return xmlWallsBySpace;
         }
 
-        private Dictionary<string, List<SXML.OpeningType>> XMLOpeningTypesBySpace(Dictionary<string, List<SAPMarkup>> markupsBySpace, SAPConfig config)
+        private Dictionary<string, List<SXML.OpeningType>> XMLOpeningTypesBySpace(Dictionary<string, List<SAPMarkup>> markupsBySpace, SAPPullConfig config)
         {
             Dictionary<string, List<SXML.OpeningType>> xmlOpeningsBySpace = new Dictionary<string, List<SXML.OpeningType>>();
 
@@ -341,7 +356,7 @@ namespace BH.Adapter.SAP
             return xmlOpeningsBySpace;
         }
 
-        private Dictionary<string, List<SXML.ThermalBridge>> XMLThermalBridgesBySpace(Dictionary<string, List<SAPMarkup>> markupsBySpace, SAPConfig config)
+        private Dictionary<string, List<SXML.ThermalBridge>> XMLThermalBridgesBySpace(Dictionary<string, List<SAPMarkup>> markupsBySpace, SAPPullConfig config)
         {
             Dictionary<string, List<SXML.ThermalBridge>> xmlBridgesBySpace = new Dictionary<string, List<SXML.ThermalBridge>>();
 

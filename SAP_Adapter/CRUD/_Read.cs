@@ -39,7 +39,7 @@ namespace BH.Adapter.SAP
     {
         protected override IEnumerable<IBHoMObject> IRead(Type type, IList ids, ActionConfig actionConfig = null)
         {
-            SAPConfig config = (SAPConfig)actionConfig;
+            SAPPullConfig config = (SAPPullConfig)actionConfig;
             if(config == null)
             {
                 BH.Engine.Base.Compute.RecordError($"Config provided is not a valid SAP Config. Please provide a valid SAP Config to use SAP Adapter.");

@@ -14,7 +14,7 @@ namespace BH.Adapter.SAP
 {
     public partial class SAPAdapter
     {
-        private List<Floors> ReadFloorDefinitions(SAPConfig config)
+        private List<Floors> ReadFloorDefinitions(SAPPullConfig config)
         {
             if(config.ExcelFile == null)
             {

@@ -14,7 +14,7 @@ namespace BH.Adapter.SAP
 {
     public partial class SAPAdapter
     {
-        private List<Roofs> ReadRoofDefinitions(SAPConfig config)
+        private List<Roofs> ReadRoofDefinitions(SAPPullConfig config)
         {
             if (config.ExcelFile == null)
             {

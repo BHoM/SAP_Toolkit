@@ -14,7 +14,7 @@ namespace BH.Adapter.SAP
 {
     public partial class SAPAdapter
     {
-        private List<Openings> ReadOpeningDefinitions(SAPConfig config)
+        private List<Openings> ReadOpeningDefinitions(SAPPullConfig config)
         {
             if (config.ExcelFile == null)
             {

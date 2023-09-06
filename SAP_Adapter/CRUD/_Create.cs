@@ -32,20 +32,20 @@ using BH.oM.Environment.SAP.XML;
 using BH.oM.Environment.SAP;
 using System.IO;
 
-namespace BH.Adapter.SAP.Argyle
+namespace BH.Adapter.SAP
 {
-    public partial class ArgyleAdapter : BHoMAdapter
+    public partial class SAPAdapter : BHoMAdapter
     {
         protected override bool ICreate<T>(IEnumerable<T> objects, ActionConfig actionConfig = null)
         {
-            ArgyleConfig config = (ArgyleConfig)actionConfig;
-            if(config == null)
+            SAPPushConfig config = (SAPPushConfig)actionConfig;
+            if (config == null)
             {
-                BH.Engine.Base.Compute.RecordError($"Please provide a valid Argyle Config object to push to the Argyle schema.");
+                BH.Engine.Base.Compute.RecordError($"Please provide a valid SAP Push Config object to push to the SAP schema.");
                 return false;
             }
 
-            if(string.IsNullOrEmpty(config.OutputDirectory))
+            if (string.IsNullOrEmpty(config.OutputDirectory))
             {
                 BH.Engine.Base.Compute.RecordError($"Please provide a valid directory to save SAP Reports to.");
                 return false;
@@ -55,7 +55,7 @@ namespace BH.Adapter.SAP.Argyle
                 Directory.CreateDirectory(config.OutputDirectory);
 
             if (typeof(T) == typeof(SAPReport))
-                objects.OfType<SAPReport>().Select(x => CreateArgyle(x, config));
+                objects.OfType<SAPReport>().ToList().ForEach(x => CreateSAPReport(x, config));
 
             return true;
         }

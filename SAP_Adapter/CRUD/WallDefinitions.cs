@@ -14,7 +14,7 @@ namespace BH.Adapter.SAP
 {
     public partial class SAPAdapter
     {
-        private List<Walls> ReadWallDefinitions(SAPConfig config)
+        private List<Walls> ReadWallDefinitions(SAPPullConfig config)
         {
             if (config.ExcelFile == null)
             {
