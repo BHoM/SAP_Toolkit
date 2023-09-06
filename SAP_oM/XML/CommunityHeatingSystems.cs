@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "SAP-Community-Heating-Systems", IsNullable = false)]
-    public class CommunityHeatingSystems : IObject
+    [NoAutoConstructor]
+    public class CommunityHeatingSystems : SAPXMLObject
     {
         [Description("Details of a community system which heats the Main Building.")]
         [XmlElement("SAP-Community-Heating-System")]

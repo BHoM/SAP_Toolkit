@@ -26,13 +26,15 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Description("Details of the means by which the building is ventilated.")]
     [Serializable]
     [XmlRoot(ElementName = "SAP-Ventilation", IsNullable = false)]
-    public class Ventilation : IObject
+    [NoAutoConstructor]
+    public class Ventilation : SAPXMLObject
     {
         [Description("The number of Closed Flues or chimneys in the Property.")]
         [XmlElement(ElementName = "Closed-Flues-Count")]

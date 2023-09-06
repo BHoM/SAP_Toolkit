@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "Hydro-Electric-Generation-Months", IsNullable = false)]
-    public class HydroElectricGenerationMonths : IObject
+    [NoAutoConstructor]
+    public class HydroElectricGenerationMonths : SAPXMLObject
     {
         [XmlElement(ElementName = "Hydro-Electric-Generation-Month")]
         public virtual List<HydroElectricGenerationMonth> HydroElectricGenerationMonth { get; set; } = null;

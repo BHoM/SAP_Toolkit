@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "Energy-Assessment", IsNullable = false)]
-    public class EnergyAssessment : IObject
+    [NoAutoConstructor]
+    public class EnergyAssessment : SAPXMLObject
     {
         [Description("In the form yyyy-mm-dd")]
         [XmlElement(ElementName = "Assessment-Date")]

@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "Related-Party-Disclosure", IsNullable = false)]
-    public class RelatedPartyDisclosure: IObject
+    [NoAutoConstructor]
+    public class RelatedPartyDisclosure: SAPXMLObject
     {
 
         [Description(".")]

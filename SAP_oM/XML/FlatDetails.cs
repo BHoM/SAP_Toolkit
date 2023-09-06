@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "SAP-Flat-Details", IsNullable = false)]
-    public class FlatDetails : IObject
+    [NoAutoConstructor]
+    public class FlatDetails : SAPXMLObject
     {
         [Description("Indication of where a flat is located in a building.")]
         [XmlElement("Level")]

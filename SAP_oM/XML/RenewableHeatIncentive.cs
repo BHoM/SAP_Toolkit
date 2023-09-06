@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "Renewable-Heat-Incentive", IsNullable = false)]
-    public class RenewableHeatIncentive : IObject
+    [NoAutoConstructor]
+    public class RenewableHeatIncentive : SAPXMLObject
     {
         [XmlElement(ElementName = "RHI-New-Dwelling")]
         public virtual RHINewDwelling RHINewDwelling { get; set; } = null;

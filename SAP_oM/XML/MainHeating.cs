@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "SAP-MainHeating", IsNullable = false)]
-    public class MainHeating : IObject
+    [NoAutoConstructor]
+    public class MainHeating : SAPXMLObject
     {
         [Description("Identifies the main heating as system 1 or system 2.  System 1 must always be present, system 2 is included only when there are two systems.")]
         [XmlElement("Main-Heating-Number")]

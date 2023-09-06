@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "Heating-Declared-Values", IsNullable = false)]
-    public class HeatingDeclaredValues : IObject
+    [NoAutoConstructor]
+    public class HeatingDeclaredValues : SAPXMLObject
     {
         [Description(".")]
         [XmlElement("Efficiency")]

@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "SAP-Deselected-Improvements", IsNullable = false)]
-    public class DeselectedImprovements : IObject
+    [NoAutoConstructor]
+    public class DeselectedImprovements : SAPXMLObject
     {
         [Description("There are 22 possible improvement measures, designated from A to V. This must record measures deselected by DEA (A to V is the full set, only E, N, U and V are considered at the moment for new build).")]
         [XmlElement("Deselected-Improvement-Measure")]

@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "Shower-Outlets", IsNullable = false)]
-    public class ShowerOutlets : IObject
+    [NoAutoConstructor]
+    public class ShowerOutlets : SAPXMLObject
     {
         [Description(".")]
         [XmlElement("Shower-Outlet")]

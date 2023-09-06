@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "Fixed-Light", IsNullable = false)]
-    public class FixedLight : IObject
+    [NoAutoConstructor]
+    public class FixedLight : SAPXMLObject
     {
         [Description("The number of light fitting outlets of that type.")]
         [XmlElement(ElementName = "Lighting-Outlets")]

@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "Insurance-Details", IsNullable = false)]
-    public class InsuranceDetails : IObject
+    [NoAutoConstructor]
+    public class InsuranceDetails : SAPXMLObject
     {
         [Description("The name of the insurance company that underwrites / issued the insurance policy.")]
         [XmlElement(ElementName = "Insurer")]

@@ -26,13 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
-
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "Wind-Turbine", IsNullable = false)]
-    public class WindTurbine : IObject
+    [NoAutoConstructor]
+    public class WindTurbine : SAPXMLObject
     {
         [Description("Wind turbine manufacturer name.")]
         [XmlElement(ElementName = "Wind-Turbine-Manufacturer-Name")]

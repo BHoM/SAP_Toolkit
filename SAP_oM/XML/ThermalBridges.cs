@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "SAP-Thermal-Bridges", IsNullable = false)]
-    public class ThermalBridges : IObject
+    [NoAutoConstructor]
+    public class ThermalBridges : SAPXMLObject
     {
         [Description("Code which indicates how the thermal bridge data has been recorded.")]
         [XmlElement("Thermal-Bridge-Code")]

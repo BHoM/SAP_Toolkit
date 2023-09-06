@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "Property", IsNullable = false)]
-    public class Property : IObject
+    [NoAutoConstructor]
+    public class Property : SAPXMLObject
     {
         [Description("Address for the property.")]
         [XmlElement(ElementName = "Address")]

@@ -32,7 +32,7 @@ namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "SAP-Report", IsNullable = false, Namespace = "https://epbr.digital.communities.gov.uk/xsd/sap")]//Namespace = "https://epbr.digital.communities.gov.uk/xsd/sap")]
-    public class SAPReport : IBHoMObject, IResultObject
+    public class SAPReport : SAPXMLObject
     {
         [Description("The schema version that the data conformed to when it was lodged.")]
         [XmlElement(ElementName = "Schema-Version-Original")]
@@ -89,16 +89,5 @@ namespace BH.oM.Environment.SAP.XML
         [Description("A number indicating the version of related ExternalDefinitions.")]
         [XmlElement(ElementName = "ExternalDefinitions-Revision-Number")]
         public virtual string ExternalDefinitionsRevisionNumber { get; set; } = null;
-
-        [XmlIgnore]
-        public virtual Guid BHoM_Guid { get; set; }
-        [XmlIgnore]
-        public virtual Dictionary<string, object> CustomData { get; set; }
-        [XmlIgnore]
-        public virtual string Name { get; set; }
-        [XmlIgnore]
-        public virtual FragmentSet Fragments { get; set; }
-        [XmlIgnore]
-        public virtual HashSet<string> Tags { get; set; }
     }
 }

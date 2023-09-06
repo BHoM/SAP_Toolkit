@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "SAP-Floor-Dimensions", IsNullable = false)]
-    public class FloorDimensions : IObject
+    [NoAutoConstructor]
+    public class FloorDimensions : SAPXMLObject
     {
         [Description("Various measurements for the floor of a particular storey.")]
         [XmlElement("SAP-Floor-Dimension")]

@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "Improvement", IsNullable = false)]
-    public class Improvement : IObject
+    [NoAutoConstructor]
+    public class Improvement : SAPXMLObject
     {
         [Description(".")]
         [XmlElement(ElementName = "Improvement-Category")]

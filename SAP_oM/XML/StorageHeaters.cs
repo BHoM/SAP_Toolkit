@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "Storage-Heaters", IsNullable = false)]
-    public class StorageHeaters : IObject
+    [NoAutoConstructor]
+    public class StorageHeaters : SAPXMLObject
     {
         [Description(".")]
         [XmlElement("Storage-Heater")]

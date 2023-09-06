@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "Improvement-Details", IsNullable = false)]
-    public class ImprovementDetails : IObject
+    [NoAutoConstructor]
+    public class ImprovementDetails : SAPXMLObject
     {
         [Description("For backward compatability only.")]
         [XmlElement(ElementName = "Improvement-Texts")]

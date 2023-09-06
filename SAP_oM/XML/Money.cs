@@ -26,17 +26,19 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "Money", IsNullable = false)]
-    public class Money : IObject
+    [NoAutoConstructor]
+    public class Money : SAPXMLObject
     {
         [XmlAttribute(AttributeName = "currency")]
         public virtual string Currency { get; set; } = null;
 
         [XmlText]
-        public virtual int Text { get; set; } = 0;
+        public virtual string Text { get; set; } = "0";
     }
 }

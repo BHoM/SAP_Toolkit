@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "Hydro-Electric-Generation-Month", IsNullable = false)]
-    public class HydroElectricGenerationMonth : IObject
+    [NoAutoConstructor]
+    public class HydroElectricGenerationMonth : SAPXMLObject
     {
         [XmlElement(ElementName = "Hydro-Month")]
         public virtual string HydroMonth { get; set; } = "Jan";

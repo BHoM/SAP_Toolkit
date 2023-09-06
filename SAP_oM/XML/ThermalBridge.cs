@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "SAP-Thermal-Bridge", IsNullable = false)]
-    public class ThermalBridge : IObject
+    [NoAutoConstructor]
+    public class ThermalBridge : SAPXMLObject
     {
         [Description("Length of the thermal bridge in metres; only if thermal bridge code is: user defined (individual values).")]
         [XmlElement("Length")]
