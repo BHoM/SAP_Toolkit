@@ -29,14 +29,14 @@ namespace BH.Adapter.SAP
                 return new List<DwellingSchedule>();
             }
 
-            if (config.DwellingSchedulesRequest == null || config.DwellingSchedulesRequest.CellContentsRequest == null)
+            if (config.DwellingSchedulesRequest == null)
             {
                 BH.Engine.Base.Compute.RecordError($"Please provide a valid Dwelling Schedules Request stating the worksheet and range to read from Excel for the Dwelling Schedule objects.");
                 return new List<DwellingSchedule>();
             }
 
             ExcelAdapter excelAdapter = new ExcelAdapter(config.ExcelFile);
-            List<TableRow> excelRows = excelAdapter.Pull(config.DwellingSchedulesRequest.CellContentsRequest).OfType<TableRow>().ToList();
+            List<TableRow> excelRows = excelAdapter.Pull(config.DwellingSchedulesRequest).OfType<TableRow>().ToList();
 
             List<DwellingSchedule> dwellingSchedules = new List<DwellingSchedule>();
 

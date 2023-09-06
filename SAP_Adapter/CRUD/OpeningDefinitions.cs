@@ -29,14 +29,14 @@ namespace BH.Adapter.SAP
                 return new List<Openings>();
             }
 
-            if (config.OpeningDefinitionsRequest == null || config.OpeningDefinitionsRequest.CellContentsRequest == null)
+            if (config.OpeningDefinitionsRequest == null)
             {
                 BH.Engine.Base.Compute.RecordError($"Please provide a valid Opening Definitions Request stating the worksheet and range to read from Excel for the Opening Definition objects.");
                 return new List<Openings>();
             }
 
             ExcelAdapter excelAdapter = new ExcelAdapter(config.ExcelFile);
-            List<TableRow> excelRows = excelAdapter.Pull(config.OpeningDefinitionsRequest.CellContentsRequest).OfType<TableRow>().ToList();
+            List<TableRow> excelRows = excelAdapter.Pull(config.OpeningDefinitionsRequest).OfType<TableRow>().ToList();
 
             List<Openings> openingDefinitions = new List<Openings>();
 

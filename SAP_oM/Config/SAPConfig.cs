@@ -1,4 +1,5 @@
 ﻿using BH.oM.Adapter;
+using BH.oM.Adapters.Excel;
 using BH.oM.Environment.SAP.XML;
 using System;
 using System.Collections.Generic;
@@ -15,12 +16,12 @@ namespace BH.oM.Environment.SAP
         public virtual string ConstructionYear { get; set; } = "";
         public virtual TypeOfProperty PropertyType { get; set; } = TypeOfProperty.Undefined;
         public virtual DataTypeCode ConstructionType { get; set; } = DataTypeCode.Undefined;
-        public virtual SAPExcelPullConfig FloorDefinitionsRequest { get; set; } = null;
-        public virtual SAPExcelPullConfig RoofDefinitionsRequest { get; set; } = null;
-        public virtual SAPExcelPullConfig WallDefinitionsRequest { get; set; } = null;
-        public virtual SAPExcelPullConfig PsiValuesRequest { get; set; } = null;
-        public virtual SAPExcelPullConfig OpeningDefinitionsRequest { get; set; } = null;
-        public virtual SAPExcelPullConfig OpeningPsiValuesRequest { get; set; } = null;
-        public virtual SAPExcelPullConfig DwellingSchedulesRequest { get; set; } = null;
+        public virtual CellContentsRequest FloorDefinitionsRequest { get; set; } = null;
+        public virtual CellContentsRequest RoofDefinitionsRequest { get; set; } = null;
+        public virtual CellContentsRequest WallDefinitionsRequest { get; set; } = null;
+        public virtual CellContentsRequest PsiValuesRequest { get; set; } = null;
+        public virtual CellContentsRequest OpeningDefinitionsRequest { get; set; } = null;
+        public virtual CellContentsRequest OpeningPsiValuesRequest { get; set; } = null;
+        public virtual CellContentsRequest DwellingSchedulesRequest { get; set; } = null;
     }
 }

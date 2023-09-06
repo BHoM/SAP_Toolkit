@@ -29,14 +29,14 @@ namespace BH.Adapter.SAP
                 return new List<Roofs>();
             }
 
-            if (config.RoofDefinitionsRequest == null || config.RoofDefinitionsRequest.CellContentsRequest == null)
+            if (config.RoofDefinitionsRequest == null)
             {
                 BH.Engine.Base.Compute.RecordError($"Please provide a valid Roof Definitions Request stating the worksheet and range to read from Excel for the Roof Definition objects.");
                 return new List<Roofs>();
             }
 
             ExcelAdapter excelAdapter = new ExcelAdapter(config.ExcelFile);
-            List<TableRow> excelRows = excelAdapter.Pull(config.RoofDefinitionsRequest.CellContentsRequest).OfType<TableRow>().ToList();
+            List<TableRow> excelRows = excelAdapter.Pull(config.RoofDefinitionsRequest).OfType<TableRow>().ToList();
 
             List<Roofs> roofDefinitions = new List<Roofs>();
 
