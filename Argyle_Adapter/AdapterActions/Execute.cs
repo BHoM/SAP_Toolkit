@@ -54,7 +54,7 @@ namespace BH.Adapter.SAP.Argyle
         public async Task<BH.oM.Adapter.FileSettings> RunCommand(RunAnalysisCommand command)
         {
             string postURL = command.PostURL;
-            string xmlData = System.IO.File.ReadAllText(Path.Combine(command.fileSettingsInput.Directory, command.fileSettingsInput.FileName));
+            string xmlData = System.IO.File.ReadAllText(Path.Combine(command.FileSettingsInput.Directory, command.FileSettingsInput.FileName));
             
             HttpResponseMessage httpResponse = null;
 
@@ -77,7 +77,7 @@ namespace BH.Adapter.SAP.Argyle
 
             string responseText = await httpResponse.Content.ReadAsStringAsync();
 
-            string path = Path.Combine(command.fileSettingsOutput.Directory, command.fileSettingsOutput.FileName);
+            string path = Path.Combine(command.FileSettingsOutput.Directory, command.FileSettingsOutput.FileName);
 
             //All outputs from the engine are text based, this outputs straight to the file defined file path set by the user. 
             try
@@ -89,7 +89,7 @@ namespace BH.Adapter.SAP.Argyle
                 BH.Engine.Base.Compute.RecordError($"An error occurred in saving the response text. Error received: {ex.ToString()}");
             }
 
-            return command.fileSettingsOutput;
+            return command.FileSettingsOutput;
         }
     }
 }
