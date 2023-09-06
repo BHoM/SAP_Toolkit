@@ -37,18 +37,10 @@ namespace BH.Adapter.SAP.Argyle
 {
     public partial class ArgyleAdapter : BHoMAdapter
     {
-        public static bool CreateArgyle(BH.oM.Environment.SAP.XML.SAPReport data, ArgyleConfig config)
+        /*public static bool CreateArgyle(BH.oM.Environment.SAP.XML.SAPReport data, ArgyleConfig config)
         {
-            FileSettings fs = new FileSettings()
-            {
-                Directory = config.OutputDirectory,
-                FileName = $"{data?.SAP10Data?.PropertyDetails?.BuildingParts?.BuildingPart?.FirstOrDefault()?.Identifier}.xml",
-            };
-
-            XMLConfig xmlConfig = new XMLConfig() { RemoveNils = true };
-            XMLAdapter xmlAdapter = new XMLAdapter(fs);
-            xmlAdapter.Push(new List<IBHoMObject>() { data }, actionConfig: xmlConfig);
+            
             return true;
-        }
+        }*/
     }
 }
