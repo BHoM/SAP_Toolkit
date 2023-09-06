@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "RHI-New-Dwelling", IsNullable = false)]
     [NoAutoConstructor]
-    public class RHINewDwelling : SAPXMLObject
+    public class RHINewDwelling : BHoMObject
     {
         [Description("Space heating requirement.")]
         [XmlElement(ElementName = "Space-Heating")]

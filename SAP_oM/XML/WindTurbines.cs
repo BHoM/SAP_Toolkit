@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Wind-Turbines", IsNullable = false)]
     [NoAutoConstructor]
-    public class WindTurbines : SAPXMLObject
+    public class WindTurbines : BHoMObject
     {
         [Description(".")]
         [XmlElement("Wind-Turbine")]

@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "SAP-Opening", IsNullable = false)]
     [NoAutoConstructor]
-    public class Opening : SAPXMLObject
+    public class Opening : BHoMObject
     {
         [Description("Name of the wall or roof which contains the opening.")]
         [XmlElement("Location")]

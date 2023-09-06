@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Fixed-Lights", IsNullable = false)]
     [NoAutoConstructor]
-    public class FixedLights : SAPXMLObject
+    public class FixedLights : BHoMObject
     {
         [Description("Fixed lighting present in the property.")]
         [XmlElement("Fixed-Light")]

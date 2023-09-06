@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Home-Inspector", IsNullable = false)]
     [NoAutoConstructor]
-    public class HomeInspector : SAPXMLObject
+    public class HomeInspector : BHoMObject
     {
         [Description(".")]
         [XmlElement(ElementName = "Name")]

@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "SAP10-Data", IsNullable = false)]
     [NoAutoConstructor]
-    public class SAP10Data : SAPXMLObject
+    public class SAP10Data : BHoMObject
     {
         [Description("Various measurements a particular Property.")]
         [XmlElement("SAP-Property-Details")]

@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Property", IsNullable = false)]
     [NoAutoConstructor]
-    public class Property : SAPXMLObject
+    public class Property : BHoMObject
     {
         [Description("Address for the property.")]
         [XmlElement(ElementName = "Address")]

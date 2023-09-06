@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Storage-WWHRS", IsNullable = false)]
     [NoAutoConstructor]
-    public class StorageWWHRS : SAPXMLObject
+    public class StorageWWHRS : BHoMObject
     {
         [Description(".")]
         [XmlElement("WWHRS-Index-Number")]

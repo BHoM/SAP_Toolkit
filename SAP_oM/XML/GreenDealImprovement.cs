@@ -34,7 +34,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Green-Deal-Improvement", IsNullable = false)]
     [NoAutoConstructor]
-    public class GreenDealImprovement : SAPXMLObject
+    public class GreenDealImprovement : BHoMObject
     {
         [Description(".")]
         [XmlElement(ElementName = "Improvement-Type")]

@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Community-Heat-Source", IsNullable = false)]
     [NoAutoConstructor]
-    public class CommunityHeatSource : SAPXMLObject
+    public class CommunityHeatSource : BHoMObject
     {
         [Description(".")]
         [XmlElement("Heat-Source-Type")]

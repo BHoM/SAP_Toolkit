@@ -34,7 +34,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "SAP-Ventilation", IsNullable = false)]
     [NoAutoConstructor]
-    public class Ventilation : SAPXMLObject
+    public class Ventilation : BHoMObject
     {
         [Description("The number of Closed Flues or chimneys in the Property.")]
         [XmlElement(ElementName = "Closed-Flues-Count")]

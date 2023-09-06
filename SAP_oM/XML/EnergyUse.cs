@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Energy-Use", IsNullable = false)]
     [NoAutoConstructor]
-    public class EnergyUse : SAPXMLObject
+    public class EnergyUse : BHoMObject
     {
         [Description(".")]
         [XmlElement(ElementName = "Energy-Rating-Average")]

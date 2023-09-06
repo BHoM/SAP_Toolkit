@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "SAP-Opening-Types", IsNullable = false)]
     [NoAutoConstructor]
-    public class OpeningTypes : SAPXMLObject
+    public class OpeningTypes : BHoMObject
     {
         [Description("Various measurements for a particular type of exposed opening that makes up a particular property.")]
         [XmlElement("SAP-Opening-Type")]

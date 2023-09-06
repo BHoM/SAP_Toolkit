@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "PV-Array", IsNullable = false)]
     [NoAutoConstructor]
-    public class PhotovoltaicArray : SAPXMLObject
+    public class PhotovoltaicArray : BHoMObject
     {
         [Description("Peak kW of photovoltaics (PVs) (kWp); 0.0 if none.")]
         [XmlElement("Peak-Power")]

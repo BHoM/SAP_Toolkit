@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "SAP-Special-Feature", IsNullable = false)]
     [NoAutoConstructor]
-    public class SpecialFeature : SAPXMLObject
+    public class SpecialFeature : BHoMObject
     {
         [Description(".")]
         [XmlElement("Description")]

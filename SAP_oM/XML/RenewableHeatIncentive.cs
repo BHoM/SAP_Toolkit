@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Renewable-Heat-Incentive", IsNullable = false)]
     [NoAutoConstructor]
-    public class RenewableHeatIncentive : SAPXMLObject
+    public class RenewableHeatIncentive : BHoMObject
     {
         [XmlElement(ElementName = "RHI-New-Dwelling")]
         public virtual RHINewDwelling RHINewDwelling { get; set; } = null;

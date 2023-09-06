@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Instantaneous-WWHRS", IsNullable = false)]
     [NoAutoConstructor]
-    public class InstantaneousWWHRS : SAPXMLObject
+    public class InstantaneousWWHRS : BHoMObject
     {
         [Description(".")]
         [XmlElement("WWHRS-Index-Number1")]

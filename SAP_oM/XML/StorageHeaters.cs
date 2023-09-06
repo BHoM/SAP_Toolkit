@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Storage-Heaters", IsNullable = false)]
     [NoAutoConstructor]
-    public class StorageHeaters : SAPXMLObject
+    public class StorageHeaters : BHoMObject
     {
         [Description(".")]
         [XmlElement("Storage-Heater")]

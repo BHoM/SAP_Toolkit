@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "SAP-Roof", IsNullable = false)]
     [NoAutoConstructor]
-    public class Roof : SAPXMLObject
+    public class Roof : BHoMObject
     {
         [Description("Unique name which identifies this roof.  Can be just a number, e.g. \"1\".  However, a roof cannot have the same name as a wall.")]
         [XmlElement("Name")]

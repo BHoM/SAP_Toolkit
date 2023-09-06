@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "SAP-Deselected-Improvements", IsNullable = false)]
     [NoAutoConstructor]
-    public class DeselectedImprovements : SAPXMLObject
+    public class DeselectedImprovements : BHoMObject
     {
         [Description("There are 22 possible improvement measures, designated from A to V. This must record measures deselected by DEA (A to V is the full set, only E, N, U and V are considered at the moment for new build).")]
         [XmlElement("Deselected-Improvement-Measure")]

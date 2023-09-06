@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Shower-Outlets", IsNullable = false)]
     [NoAutoConstructor]
-    public class ShowerOutlets : SAPXMLObject
+    public class ShowerOutlets : BHoMObject
     {
         [Description(".")]
         [XmlElement("Shower-Outlet")]

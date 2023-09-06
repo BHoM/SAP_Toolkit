@@ -33,7 +33,7 @@ namespace BH.oM.Environment.SAP.XML
     [Serializable]
     [XmlRoot(ElementName = "Address", IsNullable = false)]
     [NoAutoConstructor]
-    public class Address : SAPXMLObject
+    public class Address : BHoMObject
     {
         [Description(".")]
         [XmlElement(ElementName = "Address-Line-1")]
