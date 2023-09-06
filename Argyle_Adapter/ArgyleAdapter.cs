@@ -30,9 +30,6 @@ namespace BH.Adapter.SAP.Argyle
         public ArgyleAdapter()
         {
             m_AdapterSettings.UseAdapterId = false;
-            //m_Settings = settings;
         }
-
-        private SAPSettings m_Settings = null;
     }
 }
