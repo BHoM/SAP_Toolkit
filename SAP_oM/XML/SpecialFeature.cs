@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "SAP-Special-Feature", IsNullable = false)]
-    public class SpecialFeature : IObject
+    [NoAutoConstructor]
+    public class SpecialFeature : SAPXMLObject
     {
         [Description(".")]
         [XmlElement("Description")]

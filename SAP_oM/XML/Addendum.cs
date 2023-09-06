@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "Addendum", IsNullable = false)]
-    public class Addendum : IObject
+    [NoAutoConstructor]
+    public class Addendum : SAPXMLObject
     {
         [Description("Cavity fill is recommended.")]
         [XmlElement(ElementName = "Cavity-Fill-Recommended")]

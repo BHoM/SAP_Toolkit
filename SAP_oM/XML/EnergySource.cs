@@ -26,13 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
-
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "SAP-Energy-Source", IsNullable = false)]
-    public class EnergySource : IObject
+    [NoAutoConstructor]
+    public class EnergySource : SAPXMLObject
     {
         [Description(".")]
         [XmlElement(ElementName = "Electricity-Tariff")]

@@ -27,12 +27,14 @@ using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
 using BH.oM.Environment.SAP.XML;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "Green-Deal-Improvement", IsNullable = false)]
-    public class GreenDealImprovement : IObject
+    [NoAutoConstructor]
+    public class GreenDealImprovement : SAPXMLObject
     {
         [Description(".")]
         [XmlElement(ElementName = "Improvement-Type")]

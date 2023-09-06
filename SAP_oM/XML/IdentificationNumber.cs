@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "Identification-Number", IsNullable = false)]
-    public class IdentificationNumber : IObject
+    [NoAutoConstructor]
+    public class IdentificationNumber : SAPXMLObject
     {
         [Description("The unique identifier assigned to the assessor by the scheme by which they can be identified throughout their membership of the scheme.")]
         [XmlElement(ElementName = "Certificate-Number")]

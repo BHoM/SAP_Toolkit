@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "SAP-Opening", IsNullable = false)]
-    public class Opening : IObject
+    [NoAutoConstructor]
+    public class Opening : SAPXMLObject
     {
         [Description("Name of the wall or roof which contains the opening.")]
         [XmlElement("Location")]

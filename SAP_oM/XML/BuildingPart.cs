@@ -27,12 +27,14 @@ using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
 using BH.oM.Environment.Elements;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "SAP-Building-Part", IsNullable = false)]
-    public class BuildingPart : IObject
+    [NoAutoConstructor]
+    public class BuildingPart : SAPXMLObject
     {
 
         [Description("Identifier for the Building part - generally only required if there are more that one Building Parts of the same type.")]

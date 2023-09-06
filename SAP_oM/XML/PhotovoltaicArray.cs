@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "PV-Array", IsNullable = false)]
-    public class PhotovoltaicArray : IObject
+    [NoAutoConstructor]
+    public class PhotovoltaicArray : SAPXMLObject
     {
         [Description("Peak kW of photovoltaics (PVs) (kWp); 0.0 if none.")]
         [XmlElement("Peak-Power")]

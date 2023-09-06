@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "RHI-New-Dwelling", IsNullable = false)]
-    public class RHINewDwelling : IObject
+    [NoAutoConstructor]
+    public class RHINewDwelling : SAPXMLObject
     {
         [Description("Space heating requirement.")]
         [XmlElement(ElementName = "Space-Heating")]

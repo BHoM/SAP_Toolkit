@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "SAP-Opening-Type", IsNullable = false)]
-    public class OpeningType : IObject
+    [NoAutoConstructor]
+    public class OpeningType : SAPXMLObject
     {
         [Description("Unique name which identifies this opening type.")]
         [XmlElement("Name")]

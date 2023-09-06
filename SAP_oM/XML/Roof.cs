@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "SAP-Roof", IsNullable = false)]
-    public class Roof : IObject
+    [NoAutoConstructor]
+    public class Roof : SAPXMLObject
     {
         [Description("Unique name which identifies this roof.  Can be just a number, e.g. \"1\".  However, a roof cannot have the same name as a wall.")]
         [XmlElement("Name")]

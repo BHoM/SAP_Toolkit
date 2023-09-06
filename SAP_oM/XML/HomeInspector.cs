@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "Home-Inspector", IsNullable = false)]
-    public class HomeInspector : IObject
+    [NoAutoConstructor]
+    public class HomeInspector : SAPXMLObject
     {
         [Description(".")]
         [XmlElement(ElementName = "Name")]

@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "Air-Change-Rates", IsNullable = false)]
-    public class AirChangeRates : IObject
+    [NoAutoConstructor]
+    public class AirChangeRates : SAPXMLObject
     {
         [Description(".")]
         [XmlElement("Air-Change-Rate")]

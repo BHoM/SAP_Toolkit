@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "Description", IsNullable = false)]
-    public class Description : IObject
+    [NoAutoConstructor]
+    public class Description : SAPXMLObject
     {
         [XmlAttribute(AttributeName = "language")]
         public virtual string Language { get; set; } = null;

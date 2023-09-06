@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "Emission-Feature", IsNullable = false)]
-    public class EmissionFeature : IObject
+    [NoAutoConstructor]
+    public class EmissionFeature : SAPXMLObject
     {
         [Description("Emissions saved in kg/year.")]
         [XmlElement("Emissions-Saved")]

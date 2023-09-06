@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "PV-Arrays", IsNullable = false)]
-    public class PhotovoltaicArrays : IObject
+    [NoAutoConstructor]
+    public class PhotovoltaicArrays : SAPXMLObject
     {
         [Description(".")]
         [XmlElement("PV-Array")]

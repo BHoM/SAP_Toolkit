@@ -26,12 +26,14 @@ using System.ComponentModel;
 using System.Linq;
 using BH.oM.Base;
 using System.Xml.Serialization;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP.XML
 {
     [Serializable]
     [XmlRoot(ElementName = "LZC-Energy-Sources", IsNullable = false)]
-    public class LowZeroCarbonEnergySources : IObject
+    [NoAutoConstructor]
+    public class LowZeroCarbonEnergySources : SAPXMLObject
     {
         [XmlElement("LZC-Energy-Source")]
         public virtual List<string> LowZeroCarbonEnergySource { get; set; } = null;
