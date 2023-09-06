@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
  *
@@ -20,44 +20,50 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Adapter;
-using BH.oM.Base;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Text;
-using BH.Engine.Adapter;
+using System.ComponentModel;
 using System.Linq;
-using BH.oM.Environment.SAP.XML;
-using BH.oM.Environment.SAP;
-using System.IO;
+using BH.oM.Base;
+using System.Xml.Serialization;
 
-namespace BH.Adapter.SAP.Argyle
+namespace BH.Adapter.SAP.XML
 {
-    public partial class ArgyleAdapter : BHoMAdapter
+    [Serializable]
+    [XmlRoot(ElementName = "Community-Heat-Source", IsNullable = false)]
+    public class CommunityHeatSource
     {
-        protected override bool ICreate<T>(IEnumerable<T> objects, ActionConfig actionConfig = null)
-        {
-            ArgyleConfig config = (ArgyleConfig)actionConfig;
-            if(config == null)
-            {
-                BH.Engine.Base.Compute.RecordError($"Please provide a valid Argyle Config object to push to the Argyle schema.");
-                return false;
-            }
+        [Description(".")]
+        [XmlElement("Heat-Source-Type")]
+        public virtual string HeatSourceType { get; set; } = null;
 
-            if(string.IsNullOrEmpty(config.OutputDirectory))
-            {
-                BH.Engine.Base.Compute.RecordError($"Please provide a valid directory to save SAP Reports to.");
-                return false;
-            }
+        [Description("Fraction of heat for the system provided by this heat source.")]
+        [XmlElement("Heat-Fraction")]
+        public virtual string HeatFraction { get; set; } = null;
 
-            if (!Directory.Exists(config.OutputDirectory))
-                Directory.CreateDirectory(config.OutputDirectory);
+        [Description(".")]
+        [XmlElement("Fuel-Type")]
+        public virtual string FuelType { get; set; } = null;//41
 
-            if (typeof(T) == typeof(SAPReport))
-                objects.OfType<SAPReport>().ToList().ForEach(x => CreateArgyle(x, config));
+        [Description(".")]
+        [XmlElement(ElementName = "PCDF-Fuel-Index")]
+        public virtual string PCDFFuelIndex { get; set; } = null;
 
-            return true;
-        }
+        [Description("Heat efficiency in %.")]
+        [XmlElement("Heat-Efficiency")]
+        public virtual string HeatEfficiency { get; set; } = null; //400
+
+        [Description("Power efficiency in %. Include when heat source is CHP.")]
+        [XmlElement("Power-Efficiency")]
+        public virtual string PowerEfficiency { get; set; } = null;
+
+        [Description(".")]
+        [XmlElement("Description")]
+        public virtual string Description { get; set; } = null;
+
+        [Description(".")]
+        [XmlElement(ElementName = "CHP-Electricity-Generation")]
+        public virtual string CHPElectricityGeneration { get; set; } = null;
     }
 }
+

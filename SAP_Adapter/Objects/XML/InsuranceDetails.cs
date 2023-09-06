@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
  *
@@ -20,44 +20,39 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Adapter;
-using BH.oM.Base;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Text;
-using BH.Engine.Adapter;
+using System.ComponentModel;
 using System.Linq;
-using BH.oM.Environment.SAP.XML;
-using BH.oM.Environment.SAP;
-using System.IO;
+using BH.oM.Base;
+using System.Xml.Serialization;
 
-namespace BH.Adapter.SAP.Argyle
+namespace BH.Adapter.SAP.XML
 {
-    public partial class ArgyleAdapter : BHoMAdapter
+    [Serializable]
+    [XmlRoot(ElementName = "Insurance-Details", IsNullable = false)]
+    public class InsuranceDetails
     {
-        protected override bool ICreate<T>(IEnumerable<T> objects, ActionConfig actionConfig = null)
-        {
-            ArgyleConfig config = (ArgyleConfig)actionConfig;
-            if(config == null)
-            {
-                BH.Engine.Base.Compute.RecordError($"Please provide a valid Argyle Config object to push to the Argyle schema.");
-                return false;
-            }
+        [Description("The name of the insurance company that underwrites / issued the insurance policy.")]
+        [XmlElement(ElementName = "Insurer")]
+        public virtual string Insurer { get; set; } = null;
 
-            if(string.IsNullOrEmpty(config.OutputDirectory))
-            {
-                BH.Engine.Base.Compute.RecordError($"Please provide a valid directory to save SAP Reports to.");
-                return false;
-            }
+        [Description("The policy number of the insurance policy.")]
+        [XmlElement(ElementName = "Policy-No")]
+        public virtual string PolicyNo { get; set; } = null;
 
-            if (!Directory.Exists(config.OutputDirectory))
-                Directory.CreateDirectory(config.OutputDirectory);
+        [Description("The date that the insurance policy becomes effective. In the form yyyy-mm-dd")]
+        [XmlElement(ElementName = "Effective-Date")]
+        public virtual string EffectiveDate { get; set; } = null;
 
-            if (typeof(T) == typeof(SAPReport))
-                objects.OfType<SAPReport>().ToList().ForEach(x => CreateArgyle(x, config));
+        [Description("The date that the insurance policy is supposed to expire. In the form yyyy-mm-dd")]
+        [XmlElement(ElementName = "Expiry-Date")]
+        public virtual string ExpiryDate { get; set; } = null;
 
-            return true;
-        }
+        [Description("The upper limit of the Professional Indemnity cover provided by the insurance policy.")]
+        [XmlElement(ElementName = "PI-Limit")]
+        public virtual Money PILimit { get; set; } = null;
+
     }
 }
+

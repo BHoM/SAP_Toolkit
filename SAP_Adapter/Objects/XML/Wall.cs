@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
  *
@@ -20,44 +20,47 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Adapter;
-using BH.oM.Base;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Text;
-using BH.Engine.Adapter;
+using System.ComponentModel;
 using System.Linq;
-using BH.oM.Environment.SAP.XML;
-using BH.oM.Environment.SAP;
-using System.IO;
+using BH.oM.Base;
+using System.Xml.Serialization;
 
-namespace BH.Adapter.SAP.Argyle
+namespace BH.Adapter.SAP.XML
 {
-    public partial class ArgyleAdapter : BHoMAdapter
+    [Serializable]
+    [XmlRoot(ElementName = "SAP-Wall", IsNullable = false)]
+    public class Wall
     {
-        protected override bool ICreate<T>(IEnumerable<T> objects, ActionConfig actionConfig = null)
-        {
-            ArgyleConfig config = (ArgyleConfig)actionConfig;
-            if(config == null)
-            {
-                BH.Engine.Base.Compute.RecordError($"Please provide a valid Argyle Config object to push to the Argyle schema.");
-                return false;
-            }
+        [Description("Unique name which identifies this wall within its storey.  Can be just a number, e.g. \"1\".  However, a wall cannot have the same name as an opening or a roof.")]
+        [XmlElement("Name")]
+        public virtual string Name { get; set; } = "Walls (1)";
 
-            if(string.IsNullOrEmpty(config.OutputDirectory))
-            {
-                BH.Engine.Base.Compute.RecordError($"Please provide a valid directory to save SAP Reports to.");
-                return false;
-            }
+        [Description("Descriptive notes about the wall.")]
+        [XmlElement("Description")]
+        public virtual string Description { get; set; } = null;
 
-            if (!Directory.Exists(config.OutputDirectory))
-                Directory.CreateDirectory(config.OutputDirectory);
+        [Description("Total wall area in square metres, inclusive of any openings.")]
+        [XmlElement("Total-Wall-Area")]
+        public virtual double Area { get; set; } = -1;
 
-            if (typeof(T) == typeof(SAPReport))
-                objects.OfType<SAPReport>().ToList().ForEach(x => CreateArgyle(x, config));
+        [Description("Exposed wall U-value.")]
+        [XmlElement("U-Value")]
+        public virtual string UValue { get; set; } = "0.18"; //0.18
 
-            return true;
-        }
+        [Description("Type of wall (exposure).")]
+        [XmlElement("Wall-Type")]
+        public virtual string Type { get; set; } = "2"; //2
+
+        [Description("Heat capacity per unit area in kJ/m�K.")]
+        [XmlElement("Kappa-Value")]
+        public virtual string KappaValue { get; set; } = null; //14
+
+
+        [Description("Whether the wall is curtain walling.")]
+        [XmlElement("Is-Curtain-Walling")]
+        public virtual bool CurtainWall { get; set; } = false;
     }
 }
+
