@@ -1,6 +1,6 @@
 ﻿using BH.oM.Base.Attributes;
 using BH.oM.Environment.SAP.Excel;
-using BH.Adapter.SAP.XML;
+using BH.oM.Environment.SAP.XML;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,19 +19,19 @@ namespace BH.Adapter.SAP
         public static SAPReport ThermalBridgesFromOpening(this SAPReport sapReportObj, List<PsiValues> values, List<OpeningPsiValues> openingDetails)
         {
             //List of opening types
-            List<OpeningType> types = sapReportObj.SAP10Data.PropertyDetails.OpeningTypes.OpeningType;
+            List<BH.oM.Environment.SAP.XML.OpeningType> types = sapReportObj.SAP10Data.PropertyDetails.OpeningTypes.OpeningType;
 
-            List<BuildingPart> buildingParts = new List<BuildingPart>();
+            List<BH.oM.Environment.SAP.XML.BuildingPart> buildingParts = new List<oM.Environment.SAP.XML.BuildingPart>();
 
             List<string> thermalBridgeTypes = new List<string> { "R1", "R2", "R3", "E2", "E3", "E4" };
 
             foreach (var partObj in sapReportObj.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
             {
                 //Remove any window thermal bridges
-                List<ThermalBridge> thermalBridges = partObj.ThermalBridges.ThermalBridge.Where(x => !thermalBridgeTypes.Contains(x.Type)).ToList();
+                List<BH.oM.Environment.SAP.XML.ThermalBridge> thermalBridges = partObj.ThermalBridges.ThermalBridge.Where(x => !thermalBridgeTypes.Contains(x.Type)).ToList();
 
                 //List of openings
-                List<Opening> openings = partObj.Openings.Opening;
+                List<BH.oM.Environment.SAP.XML.Opening> openings = partObj.Openings.Opening;
 
                 //Recalculate window thermal bridges and add back in
                 thermalBridges.Concat(partObj.TBFromOpening(types, values, openingDetails));
@@ -51,10 +51,10 @@ namespace BH.Adapter.SAP
         [Input("values", "PsiValues object.")]
         [Input("openingDetails", "The psi value data for the opening.")]
         [Output("thermalBridge", "A list of ThermalBridge objects.")]
-        public static List<ThermalBridge> TBFromOpening(this BuildingPart buildingObj, List<OpeningType> types, List<PsiValues> values, List<OpeningPsiValues> openingDetails)
+        public static List<BH.oM.Environment.SAP.XML.ThermalBridge> TBFromOpening(this BH.oM.Environment.SAP.XML.BuildingPart buildingObj, List<BH.oM.Environment.SAP.XML.OpeningType> types, List<PsiValues> values, List<OpeningPsiValues> openingDetails)
         {
             //Empty list of thermal bridges ( to be final list)
-            List<ThermalBridge> thermalBridges = new List<ThermalBridge>();
+            List<BH.oM.Environment.SAP.XML.ThermalBridge> thermalBridges = new List<BH.oM.Environment.SAP.XML.ThermalBridge>();
 
             //List of opening thermal bridges that might be used
             List<string> thermalBridgeTypes = new List<string> { "R1", "R2", "R3", "E2", "E3", "E4" };
@@ -153,7 +153,7 @@ namespace BH.Adapter.SAP
                     }
                 };
 
-                List<ThermalBridge> typeThermalBridges = new List<ThermalBridge>();
+                List<BH.oM.Environment.SAP.XML.ThermalBridge> typeThermalBridges = new List<oM.Environment.SAP.XML.ThermalBridge>();
 
                 foreach (var opening in o)
                 {
@@ -185,14 +185,14 @@ namespace BH.Adapter.SAP
         [Input("length", "The length of the thermal bridge.")]
         [Input("openingType", "The type of the opening the thermal bridge has been created from.")]
         [Output("The thermal bridge created from the inputs.")]
-        public static ThermalBridge CreateThermalBridge(this string type, double psiValue, double length, string openingType)
+        public static BH.oM.Environment.SAP.XML.ThermalBridge CreateThermalBridge(this string type, double psiValue, double length, string openingType)
         {
             if (type == null)
             {
                 BH.Engine.Base.Compute.RecordError("Invalid type");
             };
 
-            ThermalBridge tb = new ThermalBridge
+            BH.oM.Environment.SAP.XML.ThermalBridge tb = new oM.Environment.SAP.XML.ThermalBridge
             {
                 Type = type,
                 PsiSource = "4",

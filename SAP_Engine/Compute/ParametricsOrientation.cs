@@ -48,7 +48,7 @@ namespace BH.Engine.Environment.SAP
 {
     public static partial class Compute
     {
-        /*[Description("WARNING : check order of rotation and mirror, the rotation is performed first. Modify a SAPReport based on orientation iterators.")]
+        [Description("WARNING : check order of rotation and mirror, the rotation is performed first. Modify a SAPReport based on orientation iterators.")]
         [Input("sapObj", "Input the SAPReport object to modify.")]
         [Input("orientationsObj", "Input the orientation iterators.")]
         [Input("iterationName", "Input the name of the iteration.")]
@@ -69,6 +69,6 @@ namespace BH.Engine.Environment.SAP
             sapObj = orientationMods.Item1;
 
             return new Output<SAPReport, Orientation, List<BH.oM.Environment.SAP.JSON.Opening>>() { Item1 = sapObj, Item2 = orientationMods.Item2, Item3 = orientationMods.Item3 };
-        }*/
+        }
     }
 }

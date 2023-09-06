@@ -12,7 +12,6 @@ namespace BH.oM.Environment.SAP
         public virtual FileSettings SAPMarkupFile { get; set; } = null;
         public virtual FileSettings ExcelFile { get; set; } = null;
         public virtual string HeatingFileDirectory { get; set; } = null;
-        public virtual string OutputDirectory { get; set; } = null;
         public virtual FlatDetails FlatDetails { get; set; } = null;
         public virtual string ConstructionYear { get; set; } = "";
         public virtual TypeOfProperty PropertyType { get; set; } = TypeOfProperty.Undefined;
