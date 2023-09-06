@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
  *
@@ -20,44 +20,49 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Adapter;
-using BH.oM.Base;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Text;
-using BH.Engine.Adapter;
+using System.ComponentModel;
 using System.Linq;
-using BH.oM.Environment.SAP.XML;
-using BH.oM.Environment.SAP;
-using System.IO;
+using BH.oM.Base;
+using System.Xml.Serialization;
 
-namespace BH.Adapter.SAP.Argyle
+
+namespace BH.Adapter.SAP.XML
 {
-    public partial class ArgyleAdapter : BHoMAdapter
+    [Serializable]
+    [XmlRoot(ElementName = "SAP-Energy-Source", IsNullable = false)]
+    public class EnergySource
     {
-        protected override bool ICreate<T>(IEnumerable<T> objects, ActionConfig actionConfig = null)
-        {
-            ArgyleConfig config = (ArgyleConfig)actionConfig;
-            if(config == null)
-            {
-                BH.Engine.Base.Compute.RecordError($"Please provide a valid Argyle Config object to push to the Argyle schema.");
-                return false;
-            }
+        [Description(".")]
+        [XmlElement(ElementName = "Electricity-Tariff")]
+        public virtual string ElectricityTariff { get; set; } = null;
 
-            if(string.IsNullOrEmpty(config.OutputDirectory))
-            {
-                BH.Engine.Base.Compute.RecordError($"Please provide a valid directory to save SAP Reports to.");
-                return false;
-            }
+        [Description(".")]
+        [XmlElement("PV-Arrays")]
+        public virtual PhotovoltaicArrays PhotovoltaicArrays { get; set; } = null;
 
-            if (!Directory.Exists(config.OutputDirectory))
-                Directory.CreateDirectory(config.OutputDirectory);
+        [Description(".")]
+        [XmlElement(ElementName = "Wind-Turbines")]
+        public virtual WindTurbines WindTurbines { get; set; } = null;
 
-            if (typeof(T) == typeof(SAPReport))
-                objects.OfType<SAPReport>().ToList().ForEach(x => CreateArgyle(x, config));
+        [Description(".")]
+        [XmlElement(ElementName = "Hydro-Electric-Generation")]
+        public virtual string HydroElectricGeneration { get; set; } = null;
 
-            return true;
-        }
+        [Description(".")]
+        [XmlElement(ElementName = "Hydro-Electric-Certificate")]
+        public virtual string HydroElectricCertificate { get; set; } = null;
+
+        [Description(".")]
+        [XmlElement(ElementName = "Hydro-Electric-Generation-Months")]
+        public virtual HydroElectricGenerationMonths HydroElectricGenerationMonths { get; set; } = null;
+
+        [Description(".")]
+        [XmlElement(ElementName = "Is-Hydro-Output-Connected-To-Dwelling-Meter")]
+        public virtual bool? IsHydroOutputConnectedToDwellingMeter { get; set; } = null;
+
     }
 }
+
+

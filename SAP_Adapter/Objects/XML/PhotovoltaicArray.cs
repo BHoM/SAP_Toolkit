@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
  *
@@ -20,44 +20,49 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Adapter;
-using BH.oM.Base;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Text;
-using BH.Engine.Adapter;
+using System.ComponentModel;
 using System.Linq;
-using BH.oM.Environment.SAP.XML;
-using BH.oM.Environment.SAP;
-using System.IO;
+using BH.oM.Base;
+using System.Xml.Serialization;
 
-namespace BH.Adapter.SAP.Argyle
+namespace BH.Adapter.SAP.XML
 {
-    public partial class ArgyleAdapter : BHoMAdapter
+    [Serializable]
+    [XmlRoot(ElementName = "PV-Array", IsNullable = false)]
+    public class PhotovoltaicArray
     {
-        protected override bool ICreate<T>(IEnumerable<T> objects, ActionConfig actionConfig = null)
-        {
-            ArgyleConfig config = (ArgyleConfig)actionConfig;
-            if(config == null)
-            {
-                BH.Engine.Base.Compute.RecordError($"Please provide a valid Argyle Config object to push to the Argyle schema.");
-                return false;
-            }
+        [Description("Peak kW of photovoltaics (PVs) (kWp); 0.0 if none.")]
+        [XmlElement("Peak-Power")]
+        public virtual string PeakPower { get; set; } = null;
 
-            if(string.IsNullOrEmpty(config.OutputDirectory))
-            {
-                BH.Engine.Base.Compute.RecordError($"Please provide a valid directory to save SAP Reports to.");
-                return false;
-            }
+        [Description("PV orientation; only if peak kWp &gt; 0.")]
+        [XmlElement("Orientation")]
+        public virtual string Orientation { get; set; } = null;
 
-            if (!Directory.Exists(config.OutputDirectory))
-                Directory.CreateDirectory(config.OutputDirectory);
+        [Description("PV pitch; only if peak kWp &gt; 0.")]
+        [XmlElement("Pitch")]
+        public virtual string Pitch { get; set; } = null; //2
 
-            if (typeof(T) == typeof(SAPReport))
-                objects.OfType<SAPReport>().ToList().ForEach(x => CreateArgyle(x, config));
+        [Description("PV overshading; only if peak kWp &gt; 0.")]
+        [XmlElement("Overshading")]
+        public virtual string Overshading { get; set; } = null; //2
 
-            return true;
-        }
+        [Description(".")]
+        [XmlElement("MCS-Certificate")]
+        public virtual bool? MCSCertificate { get; set; } = null;
+
+        [Description(".")]
+        [XmlElement("MCS-Certificate-Reference")]
+        public virtual string MCSCertificateReference { get; set; } = null;
+
+        [Description(".")]
+        [XmlElement("PV-Panel-Manufacturer-Name")]
+        public virtual string ManufacturerName { get; set; } = null;
+
+        [Description(".")]
+        [XmlElement("Overshading-MCS")]
+        public virtual string OvershadingMCS { get; set; } = null;
     }
 }

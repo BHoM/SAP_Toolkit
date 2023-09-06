@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
  *
@@ -20,44 +20,38 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Adapter;
-using BH.oM.Base;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Text;
-using BH.Engine.Adapter;
+using System.ComponentModel;
 using System.Linq;
-using BH.oM.Environment.SAP.XML;
-using BH.oM.Environment.SAP;
-using System.IO;
+using BH.oM.Base;
+using System.Xml.Serialization;
 
-namespace BH.Adapter.SAP.Argyle
+namespace BH.Adapter.SAP.XML
 {
-    public partial class ArgyleAdapter : BHoMAdapter
+    [Serializable]
+    [XmlRoot(ElementName = "SAP-Thermal-Bridge", IsNullable = false)]
+    public class ThermalBridge
     {
-        protected override bool ICreate<T>(IEnumerable<T> objects, ActionConfig actionConfig = null)
-        {
-            ArgyleConfig config = (ArgyleConfig)actionConfig;
-            if(config == null)
-            {
-                BH.Engine.Base.Compute.RecordError($"Please provide a valid Argyle Config object to push to the Argyle schema.");
-                return false;
-            }
+        [Description("Length of the thermal bridge in metres; only if thermal bridge code is: user defined (individual values).")]
+        [XmlElement("Length")]
+        public virtual double Length { get; set; } = 0;
 
-            if(string.IsNullOrEmpty(config.OutputDirectory))
-            {
-                BH.Engine.Base.Compute.RecordError($"Please provide a valid directory to save SAP Reports to.");
-                return false;
-            }
+        [Description("Linear thermal transmittance (psi-value); only if thermal bridging is user defined individual values.")]
+        [XmlElement("Psi-Value")]
+        public virtual double PsiValue { get; set; } = 0;
 
-            if (!Directory.Exists(config.OutputDirectory))
-                Directory.CreateDirectory(config.OutputDirectory);
+        [Description(".")]
+        [XmlElement("Psi-Value-Source")]
+        public virtual string PsiSource { get; set; } = null;  //4
+        
+        [Description("Code to indicate a particular type of thermal bridge; only if thermal bridge code is: user defined (individual values).")]
+        [XmlElement("Thermal-Bridge-Type")]
+        public virtual string Type { get; set; } = "ND";
 
-            if (typeof(T) == typeof(SAPReport))
-                objects.OfType<SAPReport>().ToList().ForEach(x => CreateArgyle(x, config));
-
-            return true;
-        }
+        [Description("Reference to the details of the calculation of the psi-value.")]
+        [XmlElement("Psi-Value-Calculation-Reference")]
+        public virtual string CalculationReference { get; set; } = null;
     }
 }
+
