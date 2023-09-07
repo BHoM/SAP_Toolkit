@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using BH.Adapter.SAP.XML;
 using FD = BH.oM.Environment.SAP.XML;
-using SXML = BH.Adapter.SAP.XML;
+using SXML = BH.oM.Environment.SAP.XML;
 
 namespace BH.Adapter.SAP
 {
@@ -11,7 +10,7 @@ namespace BH.Adapter.SAP
     {
         public static SXML.FlatDetails ToFlatDetails(this FD.FlatDetails flatDetails)
         {
-            SXML.FlatDetails fd = new FlatDetails();
+            SXML.FlatDetails fd = new SXML.FlatDetails();
 
             fd.Storeys = flatDetails.Storeys;
             fd.Level = flatDetails.Level;
