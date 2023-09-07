@@ -86,7 +86,7 @@ namespace BH.Engine.Environment.SAP
                     TFEE = double.Parse(energyUseResults.TFEE)
                 };
 
-                var count = dwellingCounts.Where(x => x.Dwelling == r.Dwelling).First().count;
+                var count = dwellingCounts.Where(x => x.Dwelling == r.Dwelling).First().Count;
                 r.DwellingCount = (count > 0 ? count : 1);
 
                 //Block compliance calcs

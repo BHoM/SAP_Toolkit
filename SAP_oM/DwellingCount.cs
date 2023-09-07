@@ -36,7 +36,7 @@ namespace BH.oM.Environment.SAP
         public virtual string Dwelling { get; set; } = string.Empty;
 
         [Description(".")]
-        public virtual int count { get; set; } = 0;
+        public virtual int Count { get; set; } = 0;
     }
 }
 
