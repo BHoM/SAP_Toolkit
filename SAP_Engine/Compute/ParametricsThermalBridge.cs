@@ -54,7 +54,7 @@ namespace BH.Engine.Environment.SAP
         [Input("iterationName", "Input the name of the iteration.")]
         [MultiOutput(0, "sapReport", "The modified SAP Report object.")]
         [MultiOutput(1, "changesToThermalBridges", "Tracking the changes made to the psiValues of the thermal bridges.")]
-        public static Output<SAPReport, List<oM.Environment.SAP.JSON.ThermalBridge>> ParametricsThermalBridge(this SAPReport sapObj, List<ThermalBridgeIterator> thermalBridgeObj, string iterationName)
+        public static Output<SAPReport, List<oM.Environment.SAP.JSON.ThermalBridge>> ParametricsThermalBridge(this SAPReport sapObj, List<ThermalBridgeIteration> thermalBridgeObj, string iterationName)
         {
             if (thermalBridgeObj == null)
             {

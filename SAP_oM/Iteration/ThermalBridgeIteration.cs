@@ -31,15 +31,16 @@ using BH.oM.Environment.SAP;
 using System.ComponentModel;
 using BH.oM.Base;
 
-namespace BH.oM.Environment.SAP.XML
+namespace BH.oM.Environment.SAP
 {
-    [Description("Input changes to make to thermal bridge objects.")]
-    public class ThermalBridgeIterator : IObject
+    [Description("Describe a single PSI Value to use for thermal bridges within the SAP context.")]
+    public class ThermalBridgeIteration : BHoMObject, IIteration
     {
-        [Description("ThermalBridges to change")]
-        public virtual List<string> Include { get; set; } = null;
 
-        [Description("PsiValue to change to.")]
-        public virtual double PsiValue { get; set; } = 0.0;
+        [Description("New PSI Value to use for the thermal bridges. Must be a positive number.")]
+        public virtual double PsiValue { get; set; } = double.NaN;
+
+        [Description("A list of Thermal Bridge names to make changes to. If this is left blank, then all the Thermal Bridges within the SAP Report will be updated to have the provided PSI Value.")]
+        public virtual List<string> Include { get; set; } = null;
     }
 }
