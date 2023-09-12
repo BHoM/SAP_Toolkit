@@ -37,12 +37,12 @@ namespace BH.oM.Environment.SAP.XML
     public class OpeningTypeIterator : IObject
     {
         [Description("New UValue.")]
-        public virtual double UValue { get; set; } = -1;
+        public virtual double UValue { get; set; } = -1; //Watts Per M^2 Kelvin (W/m2K)
 
         [Description("New GValue.")]
-        public virtual double GValue { get; set; } = -1;
+        public virtual double GValue { get; set; } = -1; //0-1 as ratio 0.05 - 0.85 Ratio - how much of the total light is transmitted through the opening construction
 
         [Description("A list of opening types to make changes to.")]
-        public virtual List<string> Include { get; set; } = null;
+        public virtual List<string> Include { get; set; } = null; //If not provided - apply to all
     }
 }
