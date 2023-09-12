@@ -36,13 +36,13 @@ namespace BH.oM.Environment.SAP
     [Description("Describe a single iteration for wall changes within the SAP Context. If values for both UValue and Curtain Wall are provided, both will be applied to the walls specified, i.e. they will not be blended to produce one iteration for the UValue change, one for Curtain Wall change, and one for both.")]
     public class WallIteration : IObject
     {
-        [Description("New UValue of wall.")]
-        public virtual double UValue { get; set; } = -1;
+        [Description("New UValue to use for the Wall(s). Must be a positive number. Measured in Watts per Meter Squared Kelvin (W/m2K).")]
+        public virtual double UValue { get; set; } = double.NaN;
 
-        [Description("Is this a curtain wall.")]
-        public virtual bool? CurtainWall { get; set; } = null;
+        [Description("Flag whether this iteration is to consider the wall a Curtain Wall (fully glazed).")]
+        public virtual bool? IsCurtainWall { get; set; } = null;
 
-        [Description("A list of walls by name to make changed to.")]
+        [Description("A list of Wallnames to make changes to. If this is left blank, then all walls in the SAP Report will be updated to have this UValue.")]
         public virtual List<string> Include { get; set; } = null;
     }
 }

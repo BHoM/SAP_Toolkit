@@ -75,7 +75,7 @@ namespace BH.Engine.Environment.SAP
 
             foreach (var w in wallsObj)
             {
-                var wallMods = sapObj.ModifyWalls(w.Include, w.UValue, w.CurtainWall);
+                var wallMods = sapObj.ModifyWalls(w.Include, w.UValue, w.IsCurtainWall);
 
                 sapObj = wallMods.Item1;
                 wallChanges = wallChanges.Concat(wallMods.Item2).ToList();
