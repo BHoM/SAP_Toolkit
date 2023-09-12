@@ -36,13 +36,13 @@ namespace BH.oM.Environment.SAP
     [Description("Describe a single opening iteration for all the openings within the SAP context.")]
     public class OpeningIteration : BHoMObject, IIteration
     {
-        [Description("New width of all the openings. Must be a positive number. If left blank, no changes to width will be provided.")]
+        [Description("New width of all the openings. Must be a positive number. If left blank, no changes to width will be made.")]
         public virtual double Width { get; set; } = double.NaN;
 
-        [Description("New height of the all the openings. Must be a positive number. If left blank, no changes to height will be provided.")]
+        [Description("New height of the all the openings. Must be a positive number. If left blank, no changes to height will be made.")]
         public virtual double Height { get; set; } = -1;
 
-        [Description("New pitch of all the openings. Set as the pitch of roof containing roof window. If left blank, no changes to pitch will be provided.")]
+        [Description("New pitch of all the openings. Set as the pitch of roof containing roof window. If left blank, no changes to pitch will be made.")]
         public virtual string Pitch { get; set; } = null;
 
         [Description("A list of Opening names to make changes to. If this is left blank, then all openings in the SAP report will be updated based on the values of this iteration.")]

@@ -40,7 +40,7 @@ namespace BH.oM.Environment.SAP.XML
         public virtual string IterationName { get; set; } = null;
 
         [Description("List of opening type iterators.")]
-        public virtual List<OpeningTypeIterator> OpeningTypes { get; set; } = null;
+        public virtual List<OpeningTypeIteration> OpeningTypes { get; set; } = null;
 
         [Description("List of opening iterators.")]
         public virtual List<OpeningIteration> Openings { get; set; } = null;

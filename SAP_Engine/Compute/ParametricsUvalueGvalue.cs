@@ -124,14 +124,14 @@ namespace BH.Engine.Environment.SAP
                     IterationName = name
                 };
 
-                OpeningTypeIterator t = new OpeningTypeIterator
+                OpeningTypeIteration t = new OpeningTypeIteration
                 {
                     UValue = u,
                     GValue = g,
                     Include = include
                 };
 
-                iteration.OpeningTypes = new List<OpeningTypeIterator> { t };
+                iteration.OpeningTypes = new List<OpeningTypeIteration> { t };
                 typeIteratorLists.Add(iteration);
             }
 
