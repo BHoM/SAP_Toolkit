@@ -30,16 +30,17 @@ using BH.oM.Environment.SAP.XML;
 using BH.oM.Environment.SAP;
 using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Environment.SAP.Iteration;
 
 namespace BH.oM.Environment.SAP.XML
 {
-    [Description("Input changes to make to floor objects.")]
-    public class FloorIterator : IObject
+    [Description("Describe a single UValue change for floors within the SAP context.")]
+    public class FloorIteration : BHoMObject, IIteration
     {
-        [Description("New UValue.")]
-        public virtual double UValue { get; set; } = -1; //0.05 - 10 for real world Watts Per Meter Squared Kelvin
+        [Description("New UValue to use for the Floor(s). Should be a positive number. Measured in Watts per Meter Squared Kelvin (W/m2K).")]
+        public virtual double UValue { get; set; } = -1;
 
-        [Description("A list of floors by name to make changes to.")]
+        [Description("A list of Floor names to make changes to. If this is left blank, then all floors in the SAP Report will be updated to have this UValue.")]
         public virtual List<string> Include { get; set; } = null;
     }
 }

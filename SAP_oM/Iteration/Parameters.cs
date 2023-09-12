@@ -55,7 +55,7 @@ namespace BH.oM.Environment.SAP.XML
         public virtual List<RoofIterator> Roofs { get; set; } = null;
 
         [Description("List of floor iterators.")]
-        public virtual List<FloorIterator> Floors { get; set; } = null;
+        public virtual List<FloorIteration> Floors { get; set; } = null;
 
         [Description("List of Thermal Bridge iterators.")]
         public virtual List<ThermalBridgeIterator> ThermalBridges { get; set; } = null;
