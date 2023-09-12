@@ -54,7 +54,7 @@ namespace BH.Engine.Environment.SAP
         [Input("iterationName", "Input the name of the iteration.")]
         [MultiOutput(0, "sapReport", "The modified SAP Report object.")]
         [MultiOutput(1, "changesToOpenings", "Tracking the changes made to the height, width, and pitch to the openings.")]
-        public static Output<SAPReport, List<oM.Environment.SAP.JSON.Opening>> ParametricsOpening(this SAPReport sapObj, List<OpeningIterator> openingsObj, string iterationName)
+        public static Output<SAPReport, List<oM.Environment.SAP.JSON.Opening>> ParametricsOpening(this SAPReport sapObj, List<OpeningIteration> openingsObj, string iterationName)
         {
             if (openingsObj == null)
             {
