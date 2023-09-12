@@ -54,7 +54,7 @@ namespace BH.Engine.Environment.SAP
         [Input("iterationName", "Input the name of the iteration.")]
         [MultiOutput(0, "sapReport", "The modified SAP Report object.")]
         [MultiOutput(1, "changesToRoofs", "Tracking the changes made to the uvalue of the roofs.")]
-        public static Output<SAPReport, List<UValue>> ParametricsRoof(this SAPReport sapObj, List<RoofIterator> roofsObj, string iterationName)
+        public static Output<SAPReport, List<UValue>> ParametricsRoof(this SAPReport sapObj, List<RoofIteration> roofsObj, string iterationName)
         {
             if (roofsObj == null)
             {
