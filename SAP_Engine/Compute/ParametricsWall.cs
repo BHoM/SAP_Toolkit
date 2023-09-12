@@ -54,7 +54,7 @@ namespace BH.Engine.Environment.SAP
         [Input("iterationName", "Input the name of the iteration.")]
         [MultiOutput(0, "sapReport", "The modified SAP Report object.")]
         [MultiOutput(1, "changesToWalls", "Tracking the changes made to the uvalue, and the curtain wall status of the floors.")]
-        public static Output<SAPReport, List<oM.Environment.SAP.JSON.Wall>> ParametricsWall(this SAPReport sapObj, List<WallIterator> wallsObj, string iterationName)
+        public static Output<SAPReport, List<oM.Environment.SAP.JSON.Wall>> ParametricsWall(this SAPReport sapObj, List<WallIteration> wallsObj, string iterationName)
         {
             if (wallsObj == null)
             {
