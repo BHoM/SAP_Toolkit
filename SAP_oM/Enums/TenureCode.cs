@@ -37,26 +37,3 @@ namespace BH.oM.Environment.SAP
         Unknown
     }
 }
-/*
-
-private static string FromSAPToXML(this BH.oM.Environment.SAP.TenureCode tenureCode)
-{
-	switch (tenureCode)
-	{
-		case BH.oM.Environment.SAP.TenureCode.OwnerOccupied:
-			return "1";
-
-		case BH.oM.Environment.SAP.TenureCode.Rented_Social:
-			return "2";
-
-		case BH.oM.Environment.SAP.TenureCode.Rented_Private:
-			return "3";
-
-		case BH.oM.Environment.SAP.TenureCode.Unknown:
-			return "ND";
-
-		default:
-			return"";
-	}
-}*/
-

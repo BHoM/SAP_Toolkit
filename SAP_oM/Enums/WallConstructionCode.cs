@@ -35,20 +35,3 @@ namespace BH.oM.Environment.SAP
         Other = 2
     }
 }
-
-/*private static string FromSAPToXML(this BH.oM.Environment.SAP.WallConstructionCode wallConstructionCode)
-{
-	switch (wallConstructionCode)
-	{
-		case BH.oM.Environment.SAP.WallConstructionCode.SteelOrTimberFrame:
-			return "1";
-
-		case BH.oM.Environment.SAP.WallConstructionCode.Other:
-			return "2";
-
-		default:
-			return"";
-	}
-}
-
- */

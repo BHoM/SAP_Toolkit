@@ -38,32 +38,3 @@ namespace BH.oM.Environment.SAP
         PartG2015Compliant = 5
     }
 }
-
-/*
-private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfShowerOutlet typeOfShowerOutlet)
-{
-	switch (typeOfShowerOutlet)
-	{
-		case BH.oM.Environment.SAP.TypeOfShowerOutlet.VentedHotWater:
-			return "1";
-
-		case BH.oM.Environment.SAP.TypeOfShowerOutlet.VentedHotWaterAndPump:
-			return "2";
-
-		case BH.oM.Environment.SAP.TypeOfShowerOutlet.UnventedHotWaterSystem:
-			return "3";
-
-		case BH.oM.Environment.SAP.TypeOfShowerOutlet.InstantaneousElectricShower:
-			return "4";
-
-		case BH.oM.Environment.SAP.TypeOfShowerOutlet.PartG2015Compliant:
-			return "5";
-
-		default:
-			return"";
-	}
-}
-
-
- */
-

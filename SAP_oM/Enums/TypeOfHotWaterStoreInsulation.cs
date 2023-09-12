@@ -37,20 +37,3 @@ namespace BH.oM.Environment.SAP
         LooseJacket = 2
     }
 }
-
-/*
- * private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfHotWaterStoreInsulation typeOfHotWaterStoreInsulation)
-{
-	switch (typeOfHotWaterStoreInsulation)
-	{
-		case BH.oM.Environment.SAP.TypeOfHotWaterStoreInsulation.FactoryApplied:
-			return "1";
-
-		case BH.oM.Environment.SAP.TypeOfHotWaterStoreInsulation.LooseJacket:
-			return "2";
-
-		default:
-			return"";
-	}
-}
- */

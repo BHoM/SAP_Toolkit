@@ -39,6 +39,4 @@ namespace BH.oM.Environment.SAP
         ExistingDwelling = 5,
         Other = 6
     }
-
 }
-

@@ -36,4 +36,3 @@ namespace BH.oM.Environment.SAP
         Integrated
     }
 }
-

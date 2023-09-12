@@ -41,35 +41,3 @@ namespace BH.oM.Environment.SAP
         NotForIssue
     }
 }
-/*
-private static string FromSAPToXML(this BH.oM.Environment.SAP.ReportStatusCode reportStatusCode)
-{
-	switch (reportStatusCode)
-	{
-		case BH.oM.Environment.SAP.ReportStatusCode.Cancelled:
-			return "cancelled";
-
-		case BH.oM.Environment.SAP.ReportStatusCode.EnteredOnTheRegister:
-			return "entered";
-
-		case BH.oM.Environment.SAP.ReportStatusCode.UnderAppeal:
-			return "appeal";
-
-		case BH.oM.Environment.SAP.ReportStatusCode.Removed:
-			return "removed";
-
-		case BH.oM.Environment.SAP.ReportStatusCode.Rejected:
-			return "rejected";
-
-		case BH.oM.Environment.SAP.ReportStatusCode.UnderInvestigation:
-			return "under investigation";
-
-		case BH.oM.Environment.SAP.ReportStatusCode.NotForIssue:
-			return "not for issue";
-
-		default:
-			return"";
-	}
-}
-*/
-

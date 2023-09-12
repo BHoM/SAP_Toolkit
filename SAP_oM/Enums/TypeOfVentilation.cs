@@ -44,4 +44,3 @@ namespace BH.oM.Environment.SAP
         NaturalIntermittentExtractFansAndPassiveVents = 10
     }
 }
-

@@ -35,22 +35,3 @@ namespace BH.oM.Environment.SAP
         Welsh = 2
     }
 }
-
-/*
-private static string FromSAPToXML(this BH.oM.Environment.SAP.LanguageCode languageCode)
-{
-	switch (languageCode)
-	{
-		case BH.oM.Environment.SAP.LanguageCode.English:
-			return "1";
-
-		case BH.oM.Environment.SAP.LanguageCode.Welsh:
-			return "2";
-
-		default:
-			return"";
-	}
-}
-
- */
-

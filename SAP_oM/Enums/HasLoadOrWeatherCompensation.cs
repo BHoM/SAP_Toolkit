@@ -35,4 +35,3 @@ namespace BH.oM.Environment.SAP
         LoadOrWeatherCompensation = 4
     }
 }
-

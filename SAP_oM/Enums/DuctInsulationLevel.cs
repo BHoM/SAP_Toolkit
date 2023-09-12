@@ -35,21 +35,3 @@ namespace BH.oM.Environment.SAP
         Level2 = 2
     }
 }
-
-
-/*private static string FromSAPToXML(this BH.oM.Environment.SAP.DuctInsulationLevel ductInsulationLevel)
-{
-	switch (ductInsulationLevel)
-	{
-		case BH.oM.Environment.SAP.DuctInsulationLevel.Level1:
-			return "1";
-
-		case BH.oM.Environment.SAP.DuctInsulationLevel.Level2:
-			return "2";
-
-		default:
-			return"";
-	}
-}
-
- */

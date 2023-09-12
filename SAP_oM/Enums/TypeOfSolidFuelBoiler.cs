@@ -37,26 +37,3 @@ namespace BH.oM.Environment.SAP
         RangeCooker = 4
     }
 }
-
-/*private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfSolidFuelBoiler typeOfSolidFuelBoiler)
-{
-	switch (typeOfSolidFuelBoiler)
-	{
-		case BH.oM.Environment.SAP.TypeOfSolidFuelBoiler.Independent:
-			return "1";
-
-		case BH.oM.Environment.SAP.TypeOfSolidFuelBoiler.OpenFire:
-			return "2";
-
-		case BH.oM.Environment.SAP.TypeOfSolidFuelBoiler.ClosedRoomHeater:
-			return "3";
-
-		case BH.oM.Environment.SAP.TypeOfSolidFuelBoiler.RangeCooker:
-			return "4";
-
-		default:
-			return"";
-	}
-}
-
- */

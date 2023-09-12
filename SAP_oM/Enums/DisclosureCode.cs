@@ -40,37 +40,3 @@ namespace BH.oM.Environment.SAP
         RelativeOfTheProfessionalDealingWithThePropertyTransaction = 7
     }
 }
-
-
-/*
-private static string FromSAPToXML(this BH.oM.Environment.SAP.DisclosureCode disclosureCode)
-{
-	switch (disclosureCode)
-	{
-		case BH.oM.Environment.SAP.DisclosureCode.NoRelatedParty:
-			return "1";
-
-		case BH.oM.Environment.SAP.DisclosureCode.RelativeOfHomeownerOrOfOccupierOfTheProperty:
-			return "2";
-
-		case BH.oM.Environment.SAP.DisclosureCode.ResidingAtTheProperty:
-			return "3";
-
-		case BH.oM.Environment.SAP.DisclosureCode.FinancialInterestInTheProperty:
-			return "4";
-
-		case BH.oM.Environment.SAP.DisclosureCode.OwnerOrDirectorOfTheOrganisationDealingWithThePropertyTransaction:
-			return "5";
-
-		case BH.oM.Environment.SAP.DisclosureCode.EmployedByTheProfessionalDealingWithThePropertyTransaction:
-			return "6";
-
-		case BH.oM.Environment.SAP.DisclosureCode.RelativeOfTheProfessionalDealingWithThePropertyTransaction:
-			return "7";
-
-		default:
-			return"";
-	}
-}
- */
-

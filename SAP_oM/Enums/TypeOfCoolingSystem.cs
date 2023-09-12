@@ -35,18 +35,3 @@ namespace BH.oM.Environment.SAP
         Packaged = 2
     }
 }
-/*private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfCoolingSystem typeOfCoolingSystem)
-{
-	switch (typeOfCoolingSystem)
-	{
-		case BH.oM.Environment.SAP.TypeOfCoolingSystem.SplitOrMultiSplit:
-			return "1";
-
-		case BH.oM.Environment.SAP.TypeOfCoolingSystem.Packaged:
-			return "2";
-
-		default:
-			return"";
-	}
-}
- */

@@ -41,4 +41,3 @@ namespace BH.oM.Environment.SAP
         Metal32mmBreak, Unknown
     }
 }
-

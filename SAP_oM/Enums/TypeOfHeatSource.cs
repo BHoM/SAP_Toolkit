@@ -38,28 +38,3 @@ namespace BH.oM.Environment.SAP
         Geothermal = 5
     }
 }
-
-/* private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfHeatSource typeOfHeatSource)
-{
-	switch (typeOfHeatSource)
-	{
-		case BH.oM.Environment.SAP.TypeOfHeatSource.CHP:
-			return "1";
-
-		case BH.oM.Environment.SAP.TypeOfHeatSource.Boilers:
-			return "2";
-
-		case BH.oM.Environment.SAP.TypeOfHeatSource.HeatPump:
-			return "3";
-
-		case BH.oM.Environment.SAP.TypeOfHeatSource.WasteHeat:
-			return "4";
-
-		case BH.oM.Environment.SAP.TypeOfHeatSource.Geothermal:
-			return "5";
-
-		default:
-			return"";
-	}
-}
- */

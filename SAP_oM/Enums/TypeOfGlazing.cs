@@ -46,4 +46,3 @@ namespace BH.oM.Environment.SAP
         SecondaryGlazing
     }
 }
-

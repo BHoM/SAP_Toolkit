@@ -37,4 +37,3 @@ namespace BH.oM.Environment.SAP
         FullyInsulated = 4
     }
 }
-

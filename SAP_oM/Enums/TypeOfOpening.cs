@@ -39,4 +39,3 @@ namespace BH.oM.Environment.SAP
         Rooflight = 6
     }
 }
-

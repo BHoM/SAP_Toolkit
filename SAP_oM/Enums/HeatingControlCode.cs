@@ -93,5 +93,3 @@ namespace BH.oM.Environment.SAP
         Other_TimeAndTemperatureZoneControl
     }
 }
-
-

@@ -39,34 +39,3 @@ namespace BH.oM.Environment.SAP
         AlternativeMeasure = 6
     }
 }
-
-/*
-private static string FromSAPToXML(this BH.oM.Environment.SAP.RecommendationCategoryCode recommendationCategoryCode)
-{
-	switch (recommendationCategoryCode)
-	{
-		case BH.oM.Environment.SAP.RecommendationCategoryCode.LowerCostThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed:
-			return "1";
-
-		case BH.oM.Environment.SAP.RecommendationCategoryCode.HigherCostThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed:
-			return "2";
-
-		case BH.oM.Environment.SAP.RecommendationCategoryCode.FurtherMeasureThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed:
-			return "3";
-
-		case BH.oM.Environment.SAP.RecommendationCategoryCode.DeselectedThisIsForBackwardsCompatibilityOnlyAndShouldNotBeUsed:
-			return "4";
-
-		case BH.oM.Environment.SAP.RecommendationCategoryCode.NormalMeasure:
-			return "5";
-
-		case BH.oM.Environment.SAP.RecommendationCategoryCode.AlternativeMeasure:
-			return "6";
-
-		default:
-			return"";
-	}
-}
-
- */
-

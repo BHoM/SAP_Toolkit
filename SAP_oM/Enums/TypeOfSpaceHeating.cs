@@ -167,6 +167,4 @@ namespace BH.oM.Environment.SAP
         RangeCookerLiquidFuel_TwinBurnerPre1998,
         RangeCookerLiquidFuel_TwinBurnerPost1998 = 141
     }
-
 }
-

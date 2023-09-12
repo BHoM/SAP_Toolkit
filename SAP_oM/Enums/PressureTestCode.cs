@@ -40,4 +40,3 @@ namespace BH.oM.Environment.SAP
         YesMeasuredLowPressure
     }
 }
-

@@ -38,4 +38,3 @@ namespace BH.oM.Environment.SAP
         Unknown
     }
 }
-

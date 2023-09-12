@@ -38,28 +38,3 @@ namespace BH.oM.Environment.SAP
         InterimRdsapEnergyPerformanceCertificate_ToBeSupersededBySAPEPC = 4
     }
 }
-
-/*
-
-private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfReport typeOfReport)
-{
-	switch (typeOfReport)
-	{
-		case BH.oM.Environment.SAP.TypeOfReport.HomeConditionReport:
-			return "1";
-
-		case BH.oM.Environment.SAP.TypeOfReport.RdsapEnergyPerformanceCertificate:
-			return "2";
-
-		case BH.oM.Environment.SAP.TypeOfReport.SAPEnergyPerformanceCertificate:
-			return "3";
-
-		case BH.oM.Environment.SAP.TypeOfReport.InterimRdsapEnergyPerformanceCertificate_ToBeSupersededBySAPEPC:
-			return "4";
-
-		default:
-			return"";
-	}
-}
-*/
-

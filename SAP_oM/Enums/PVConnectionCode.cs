@@ -36,25 +36,3 @@ namespace BH.oM.Environment.SAP
         ConnectedToElectricityMeter = 2
     }
 }
-
-
-/*
- private static string FromSAPToXML(this BH.oM.Environment.SAP.PVConnectionCode pVConnectionCode)
-{
-	switch (pVConnectionCode)
-	{
-		case BH.oM.Environment.SAP.PVConnectionCode.NotApplicable_FGHRS:
-			return "0";
-
-		case BH.oM.Environment.SAP.PVConnectionCode.NotConnectedToElectricityMeter:
-			return "1";
-
-		case BH.oM.Environment.SAP.PVConnectionCode.ConnectedToElectricityMeter:
-			return "2";
-
-		default:
-			return"";
-	}
-}
- */
-

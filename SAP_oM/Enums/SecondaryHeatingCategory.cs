@@ -35,4 +35,3 @@ namespace BH.oM.Environment.SAP
         RoomHeaters = 10
     }
 }
-

@@ -37,26 +37,3 @@ namespace BH.oM.Environment.SAP
         WinterAndSummer = 4
     }
 }
-
-/*private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfEfficiency typeOfEfficiency)
-{
-	switch (typeOfEfficiency)
-	{
-		case BH.oM.Environment.SAP.TypeOfEfficiency.NotGasOrOilBoiler:
-			return "1";
-
-		case BH.oM.Environment.SAP.TypeOfEfficiency.SEDBUK2005:
-			return "2";
-
-		case BH.oM.Environment.SAP.TypeOfEfficiency.SEDBUK2009:
-			return "3";
-
-		case BH.oM.Environment.SAP.TypeOfEfficiency.WinterAndSummer:
-			return "4";
-
-		default:
-			return"";
-	}
-}
-
- */

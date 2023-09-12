@@ -35,22 +35,3 @@ namespace BH.oM.Environment.SAP
         HeaderTank = 2
     }
 }
-
-
-/*
- * private static string FromSAPToXML(this BH.oM.Environment.SAP.ColdWaterSourceCode coldWaterSourceCode)
-{
-	switch (coldWaterSourceCode)
-	{
-		case BH.oM.Environment.SAP.ColdWaterSourceCode.Mains:
-			return "1";
-
-		case BH.oM.Environment.SAP.ColdWaterSourceCode.HeaderTank:
-			return "2";
-
-		default:
-			return"";
-	}
-}
-
- */

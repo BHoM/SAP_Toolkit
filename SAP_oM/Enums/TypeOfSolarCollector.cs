@@ -36,22 +36,3 @@ namespace BH.oM.Environment.SAP
         EvacuatedTube = 3
     }
 }
-
-/*private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfSolarCollector typeOfSolarCollector)
-{
-	switch (typeOfSolarCollector)
-	{
-		case BH.oM.Environment.SAP.TypeOfSolarCollector.Unglazed:
-			return "1";
-
-		case BH.oM.Environment.SAP.TypeOfSolarCollector.FlatPanel:
-			return "2";
-
-		case BH.oM.Environment.SAP.TypeOfSolarCollector.EvacuatedTube:
-			return "3";
-
-		default:
-			return"";
-	}
-}
- */

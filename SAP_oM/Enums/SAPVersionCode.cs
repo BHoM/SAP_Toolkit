@@ -41,38 +41,3 @@ namespace BH.oM.Environment.SAP
         Oct2020
     }
 }
-
-/*
-private static string FromSAPToXML(this BH.oM.Environment.SAP.SAPVersionCode sAPVersionCode)
-{
-    switch (sAPVersionCode)
-    {
-        case BH.oM.Environment.SAP.SAPVersionCode.October2005:
-            return "9.80";
-
-        case BH.oM.Environment.SAP.SAPVersionCode.January2008:
-            return "9.81";
-
-        case BH.oM.Environment.SAP.SAPVersionCode.June2008:
-            return "9.82";
-
-        case BH.oM.Environment.SAP.SAPVersionCode.June2009:
-            return "9.83";
-
-        case BH.oM.Environment.SAP.SAPVersionCode.March2010:
-            return "9.90";
-
-        case BH.oM.Environment.SAP.SAPVersionCode.Jan2012:
-            return "9.91";
-
-        case BH.oM.Environment.SAP.SAPVersionCode.Oct2013:
-            return "9.92";
-
-        case BH.oM.Environment.SAP.SAPVersionCode.Oct2020:
-            return "10.2";
-
-        default:
-            return "";
-    }
-}
-*/
