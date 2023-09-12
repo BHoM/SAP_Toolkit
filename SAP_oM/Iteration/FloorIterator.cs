@@ -37,7 +37,7 @@ namespace BH.oM.Environment.SAP.XML
     public class FloorIterator : IObject
     {
         [Description("New UValue.")]
-        public virtual double UValue { get; set; } = -1;
+        public virtual double UValue { get; set; } = -1; //0.05 - 10 for real world Watts Per Meter Squared Kelvin
 
         [Description("A list of floors by name to make changes to.")]
         public virtual List<string> Include { get; set; } = null;
