@@ -31,7 +31,6 @@ using BH.oM.Environment.SAP;
 using System.ComponentModel;
 using BH.oM.Base;
 
-
 namespace BH.oM.Environment.SAP.XML
 {
     [Description("Input changes to make to floor objects.")]
@@ -44,5 +43,3 @@ namespace BH.oM.Environment.SAP.XML
         public virtual List<string> Include { get; set; } = null;
     }
 }
-
-

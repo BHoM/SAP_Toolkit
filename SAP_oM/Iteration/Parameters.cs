@@ -61,5 +61,3 @@ namespace BH.oM.Environment.SAP.XML
         public virtual List<ThermalBridgeIterator> ThermalBridges { get; set; } = null;
     }
 }
-
-
