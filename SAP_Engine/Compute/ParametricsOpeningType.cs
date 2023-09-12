@@ -54,7 +54,7 @@ namespace BH.Engine.Environment.SAP
         [Input("iterationName", "Input the name of the iteration.")]
         [MultiOutput(0, "sapReport", "The modified SAP Report object.")]
         [MultiOutput(1, "changesToOpeningTypes", "Tracking the changes made to the uvalues and gvalue to the opening types.")]
-        public static Output<SAPReport, List<BH.oM.Environment.SAP.JSON.OpeningType>> ParametricsOpeningType (this SAPReport sapObj, List<OpeningTypeIterator> openingTypeObj, string iterationName)
+        public static Output<SAPReport, List<BH.oM.Environment.SAP.JSON.OpeningType>> ParametricsOpeningType (this SAPReport sapObj, List<OpeningTypeIteration> openingTypeObj, string iterationName)
         {
             if (openingTypeObj == null)
             {
