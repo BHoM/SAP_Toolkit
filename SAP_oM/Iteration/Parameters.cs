@@ -49,7 +49,7 @@ namespace BH.oM.Environment.SAP.XML
         public virtual List<WallIterator> Walls { get; set; } = null;
 
         [Description("Orientation Iterator")]
-        public virtual OrientationIterator Orientation { get; set; } = null;
+        public virtual OrientationIteration Orientation { get; set; } = null;
 
         [Description("List of roof iterators.")]
         public virtual List<RoofIterator> Roofs { get; set; } = null;

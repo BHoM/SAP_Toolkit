@@ -33,13 +33,13 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP.XML
 {
-    [Description("Input changes to make to the orientation of the dwelling.")]
-    public class OrientationIterator : IObject
+    [Description("Describe a single iteration for the orientation of the dwellings within the SAP Report. If both a mirror and a rotation are provided, the dwelling will be first mirrored and then rotated clockwise based on the rotation.")]
+    public class OrientationIteration : BHoMObject, IIteration
     {
-        [Description("Rotate dwelling clockwise: 1 - 8 scale.")]
-        public virtual Rotation Rotation { get; set; } = Rotation.Zero;
-
-        [Description("Mirror the dwelling.")]
+        [Description("Mirror the dwelling straight down a mirror line of the 8 compass points. If no mirror rotation is provided, then no changes to orientation will be made from it (i.e. leave blank to not mirror the dwellings).")]
         public virtual Mirror Mirror { get; set; } = Mirror.None;
+
+        [Description("What rotation to provide to the dwelling in a clockwise direction? Rotation is scaled 1-8 based on the rotation provided. If no rotation is provided, then no changes to orientation will be made.")]
+        public virtual Rotation Rotation { get; set; } = Rotation.Zero;
     }
 }

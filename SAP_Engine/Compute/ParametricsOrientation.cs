@@ -55,7 +55,7 @@ namespace BH.Engine.Environment.SAP
         [MultiOutput(0, "sapReport", "The modified SAP Report object.")]
         [MultiOutput(1, "changesToOrientation", "Tracking the changes made to the orientation of the dwelling and the Photovoltaic arrays.")]
         [MultiOutput(2, "changesToOpenings", "Tracking the changes made to the orientation of the openings.")]
-        public static Output<SAPReport, Orientation, List<BH.oM.Environment.SAP.JSON.Opening>> ParametricsOrientation(this SAPReport sapObj, OrientationIterator orientationsObj, string iterationName)
+        public static Output<SAPReport, Orientation, List<BH.oM.Environment.SAP.JSON.Opening>> ParametricsOrientation(this SAPReport sapObj, OrientationIteration orientationsObj, string iterationName)
         {
             if (orientationsObj == null)
             {
