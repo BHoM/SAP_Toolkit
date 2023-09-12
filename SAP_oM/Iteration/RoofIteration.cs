@@ -33,16 +33,13 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP.XML
 {
-    [Description("Input changes to make to roof objects.")]
-    public class RoofIterator : IObject
+    [Description("Describe a single UValue change for roofs within the SAP context.")]
+    public class RoofIteration : BHoMObject, IIteration
     {
-        //[Description("Wall height to change to.")]
-        //public virtual double Area { get; set; } = 0.0;
+        [Description("New UValue to use for the Roof(s). Must be a positive number. Measured in Watts per Meter Squared Kelvin (W/m2K).")]
+        public virtual double UValue { get; set; } = double.NaN;
 
-        [Description("Wall area to switch to.")]
-        public virtual double UValue { get; set; } = -1;
-
-        [Description("A list of walls to swap out.")]
+        [Description("A list of Roof names to make changes to. If this is left blank, then all roofs in the SAP Report will be updated to have this UValue.")]
         public virtual List<string> Include { get; set; } = null;
     }
 }
