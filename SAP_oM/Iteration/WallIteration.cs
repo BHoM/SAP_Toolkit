@@ -31,10 +31,10 @@ using BH.oM.Environment.SAP;
 using System.ComponentModel;
 using BH.oM.Base;
 
-namespace BH.oM.Environment.SAP.XML
+namespace BH.oM.Environment.SAP
 {
-    [Description("Input changes to make to wall objects.")]
-    public class WallIterator : IObject
+    [Description("Describe a single iteration for wall changes within the SAP Context. If values for both UValue and Curtain Wall are provided, both will be applied to the walls specified, i.e. they will not be blended to produce one iteration for the UValue change, one for Curtain Wall change, and one for both.")]
+    public class WallIteration : IObject
     {
         [Description("New UValue of wall.")]
         public virtual double UValue { get; set; } = -1;

@@ -46,7 +46,7 @@ namespace BH.oM.Environment.SAP.XML
         public virtual List<OpeningIteration> Openings { get; set; } = null;
 
         [Description("List of wall iterators.")]
-        public virtual List<WallIterator> Walls { get; set; } = null;
+        public virtual List<WallIteration> Walls { get; set; } = null;
 
         [Description("Orientation Iterator")]
         public virtual OrientationIteration Orientation { get; set; } = null;
