@@ -33,7 +33,7 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("Input changes to make to opening types.")]
+    [Description("Describe a single iteration of U and G Values for opening types. If both values are provided, then both values will be updated. This will not blend the iteration (i.e. it will not be one iteration with updated UValue, one iteration with updated GValue, and one iteration with both).")]
     public class OpeningTypeIteration : BHoMObject, IIteration
     {
         [Description("New UValue to use for the Opening Type. Must be a positive number. Measured in Watts per Meter Squared Kelvin (W/m2K). If no value is provided, then no changes to UValue will be made.")]
