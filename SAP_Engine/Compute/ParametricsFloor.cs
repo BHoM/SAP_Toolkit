@@ -75,7 +75,7 @@ namespace BH.Engine.Environment.SAP
 
             foreach (var f in floorsObj)
             {
-                var floorMods = sapObj.ModifyRoofs(f.Include, f.UValue);
+                var floorMods = sapObj.ModifyFloors(f.Include, f.UValue);
 
                 sapObj = floorMods.Item1;
                 floorChanges = floorChanges.Concat(floorMods.Item2).ToList();
