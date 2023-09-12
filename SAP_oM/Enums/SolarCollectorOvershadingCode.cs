@@ -39,31 +39,3 @@ namespace BH.oM.Environment.SAP
         ForBackwardsCompatabilityOnlyDoNotUse
     }
 }
-
-/*private static string FromSAPToXML(this BH.oM.Environment.SAP.SolarCollectorOvershadingCode solarCollectorOvershadingCode)
-{
-	switch (solarCollectorOvershadingCode)
-	{
-		case BH.oM.Environment.SAP.SolarCollectorOvershadingCode.NoneOrVeryLittle:
-			return "1";
-
-		case BH.oM.Environment.SAP.SolarCollectorOvershadingCode.Modest:
-			return "2";
-
-		case BH.oM.Environment.SAP.SolarCollectorOvershadingCode.Significant:
-			return "3";
-
-		case BH.oM.Environment.SAP.SolarCollectorOvershadingCode.Heavy:
-			return "4";
-
-		case BH.oM.Environment.SAP.SolarCollectorOvershadingCode.Severe:
-			return "5";
-
-		case BH.oM.Environment.SAP.SolarCollectorOvershadingCode.ForBackwardsCompatabilityOnlyDoNotUse:
-			return "ND";
-
-		default:
-			return"";
-	}
-}
-*/

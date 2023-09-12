@@ -37,27 +37,3 @@ namespace BH.oM.Environment.SAP
         NetworkCompliantWithCodeOfPractice = 8
     }
 }
-
-/*
- * private static string FromSAPToXML(this BH.oM.Environment.SAP.HeatingDistributionCode heatingDistributionCode)
-{
-	switch (heatingDistributionCode)
-	{
-		case BH.oM.Environment.SAP.HeatingDistributionCode.Calculated:
-			return "5";
-
-		case BH.oM.Environment.SAP.HeatingDistributionCode.Unknown:
-			return "6";
-
-		case BH.oM.Environment.SAP.HeatingDistributionCode.NetworkNotCompliantWithCodeOfPractice:
-			return "7";
-
-		case BH.oM.Environment.SAP.HeatingDistributionCode.NetworkCompliantWithCodeOfPractice:
-			return "8";
-
-		default:
-			return"";
-	}
-}
-
- */

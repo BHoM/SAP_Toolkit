@@ -43,4 +43,3 @@ namespace BH.oM.Environment.SAP
         Horizontal
     }
 }
-

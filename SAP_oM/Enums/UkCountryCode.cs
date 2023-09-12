@@ -38,28 +38,3 @@ namespace BH.oM.Environment.SAP
         NorthernIreland
     }
 }
-
-/*
-private static string FromSAPToXML(this BH.oM.Environment.SAP.UKCountryCode uKCountryCode)
-{
-    switch (uKCountryCode)
-    {
-        
-		case BH.oM.Environment.SAP.UKCountryCode.England:
-			return "ENG";
-
-		case BH.oM.Environment.SAP.UKCountryCode.Wales:
-			return "WLS";
-
-		case BH.oM.Environment.SAP.UKCountryCode.Scotland:
-			return "SCT";
-
-		case BH.oM.Environment.SAP.UKCountryCode.NorthernIreland:
-			return "NIR";
-
-		default:
-			return "";
-	}
-}
-
-*/

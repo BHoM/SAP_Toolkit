@@ -36,4 +36,3 @@ namespace BH.oM.Environment.SAP
         Later2013
     }
 }
-

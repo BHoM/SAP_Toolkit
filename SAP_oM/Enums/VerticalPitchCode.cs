@@ -38,29 +38,3 @@ namespace BH.oM.Environment.SAP
         Vertical = 5
     }
 }
-
-/*
-private static string FromSAPToXML(this BH.oM.Environment.SAP.VerticalPitchCode verticalPitchCode)
-{
-	switch (verticalPitchCode)
-	{
-		case BH.oM.Environment.SAP.VerticalPitchCode.Horizontal:
-			return "1";
-
-		case BH.oM.Environment.SAP.VerticalPitchCode._30Degrees:
-			return "2";
-
-		case BH.oM.Environment.SAP.VerticalPitchCode._45Degrees:
-			return "3";
-
-		case BH.oM.Environment.SAP.VerticalPitchCode._60Degrees:
-			return "4";
-
-		case BH.oM.Environment.SAP.VerticalPitchCode.Vertical:
-			return "5";
-
-		default:
-			return"";
-	}
-}
- */

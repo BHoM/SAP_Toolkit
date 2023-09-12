@@ -36,19 +36,3 @@ namespace BH.oM.Environment.SAP
         DeclaredValues = 2
     }
 }
-
-/*private static string FromSAPToXML(this BH.oM.Environment.SAP.SolarCollectorSourceCode solarCollectorSourceCode)
-{
-	switch (solarCollectorSourceCode)
-	{
-		case BH.oM.Environment.SAP.SolarCollectorSourceCode.Default:
-			return "1";
-
-		case BH.oM.Environment.SAP.SolarCollectorSourceCode.DeclaredValues:
-			return "2";
-
-		default:
-			return"";
-	}
-}
- */

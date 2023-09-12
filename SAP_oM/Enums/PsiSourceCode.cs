@@ -37,5 +37,3 @@ namespace BH.oM.Environment.SAP
         SAPTableDefault = 4
     }
 }
-
-

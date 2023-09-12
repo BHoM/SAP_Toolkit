@@ -36,22 +36,3 @@ namespace BH.oM.Environment.SAP
         SuspendedTimberUnsealed = 3
     }
 }
-
-/*
-private static string FromSAPToXML(this BH.oM.Environment.SAP.FloorConstructionCode floorConstructionCode)
-{
-	switch (floorConstructionCode)
-	{
-		case BH.oM.Environment.SAP.FloorConstructionCode.NotSuspendedTimber:
-			return "1";
-
-		case BH.oM.Environment.SAP.FloorConstructionCode.SuspendedTimberSealed:
-			return "2";
-
-		case BH.oM.Environment.SAP.FloorConstructionCode.SuspendedTimberUnsealed:
-			return "3";
-
-		default:
-			return"";
-	}
- */

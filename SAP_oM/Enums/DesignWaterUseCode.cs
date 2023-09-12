@@ -35,21 +35,3 @@ namespace BH.oM.Environment.SAP
         MoreThan125LitresPerPersonPerDay
     }
 }
-
-/*private static string FromSAPToXML(this BH.oM.Environment.SAP.DesignWaterUseCode designWaterUseCode)
-{
-	switch (designWaterUseCode)
-	{
-		case BH.oM.Environment.SAP.DesignWaterUseCode.LessThan125LitresPerPersonPerDay:
-			return "1";
-		
-		case BH.oM.Environment.SAP.DesignWaterUseCode.MoreThan125LitresPerPersonPerDay:
-			return "";
-
-
-		default:
-			return"";
-	}
-}
-
- */

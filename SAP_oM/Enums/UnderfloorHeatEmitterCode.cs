@@ -36,23 +36,3 @@ namespace BH.oM.Environment.SAP
         InTimberFloor = 3
     }
 }
-
-/*
- * private static string FromSAPToXML(this BH.oM.Environment.SAP.UnderfloorHeatEmitterCode underfloorHeatEmitterCode)
-{
-	switch (underfloorHeatEmitterCode)
-	{
-		case BH.oM.Environment.SAP.UnderfloorHeatEmitterCode.InConcreteSlab:
-			return "1";
-
-		case BH.oM.Environment.SAP.UnderfloorHeatEmitterCode.InScreedAboveInsulation:
-			return "2";
-
-		case BH.oM.Environment.SAP.UnderfloorHeatEmitterCode.InTimberFloor:
-			return "3";
-
-		default:
-			return"";
-	}
-}
- */

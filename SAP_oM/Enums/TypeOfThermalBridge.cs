@@ -79,6 +79,3 @@ namespace BH.oM.Environment.SAP
         OtherType2
     }
 }
-
-
-

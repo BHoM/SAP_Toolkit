@@ -59,4 +59,3 @@ namespace BH.oM.Environment.SAP
         HeatPumpRdSAP = 952
     }
 }
-

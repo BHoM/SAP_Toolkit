@@ -41,34 +41,3 @@ namespace BH.oM.Environment.SAP
         VeryGood = 5
     }
 }
-
-/*
-private static string FromSAPToXML(this BH.oM.Environment.SAP.EnergyEfficiencySummaryCode energyEfficiencySummaryCode)
-{
-	switch (energyEfficiencySummaryCode)
-	{
-		case BH.oM.Environment.SAP.EnergyEfficiencySummaryCode.NA:
-			return "0";
-
-		case BH.oM.Environment.SAP.EnergyEfficiencySummaryCode.VeryPoor:
-			return "1";
-
-		case BH.oM.Environment.SAP.EnergyEfficiencySummaryCode.Poor:
-			return "2";
-
-		case BH.oM.Environment.SAP.EnergyEfficiencySummaryCode.Average:
-			return "3";
-
-		case BH.oM.Environment.SAP.EnergyEfficiencySummaryCode.Good:
-			return "4";
-
-		case BH.oM.Environment.SAP.EnergyEfficiencySummaryCode.VeryGood:
-			return "5";
-
-		default:
-			return"";
-	}
-}
-
- */
-

@@ -37,28 +37,3 @@ namespace BH.oM.Environment.SAP
         NotAssessed_UseForAlternativeMeasuresAndForNewDwellingEpcs = 4
     }
 }
-
-
-/*
-private static string FromSAPToXML(this BH.oM.Environment.SAP.GreenDealCategoryCode greenDealCategoryCode)
-{
-	switch (greenDealCategoryCode)
-	{
-		case BH.oM.Environment.SAP.GreenDealCategoryCode.NotEligibleForGreenDeal:
-			return "1";
-
-		case BH.oM.Environment.SAP.GreenDealCategoryCode.EligibleWithAdditionalFinance:
-			return "2";
-
-		case BH.oM.Environment.SAP.GreenDealCategoryCode.EligibleWithoutAdditionalFinance:
-			return "3";
-
-		case BH.oM.Environment.SAP.GreenDealCategoryCode.NotAssessed_UseForAlternativeMeasuresAndForNewDwellingEpcs:
-			return "NI";
-
-		default:
-			return"";
-	}
-}
- */
-

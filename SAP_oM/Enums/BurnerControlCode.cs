@@ -38,29 +38,3 @@ namespace BH.oM.Environment.SAP
         ElectricalSolidFuelBoilers = 5
     }
 }
-
-/*private static string FromSAPToXML(this BH.oM.Environment.SAP.BurnerControlCode burnerControlCode)
-{
-	switch (burnerControlCode)
-	{
-		case BH.oM.Environment.SAP.BurnerControlCode.Unknown:
-			return "1";
-
-		case BH.oM.Environment.SAP.BurnerControlCode.OnOffGasAndOilBurners:
-			return "2";
-
-		case BH.oM.Environment.SAP.BurnerControlCode.ModulatingGasAndOilBoilers:
-			return "3";
-
-		case BH.oM.Environment.SAP.BurnerControlCode.ManualSolidFuelBoilers:
-			return "4";
-
-		case BH.oM.Environment.SAP.BurnerControlCode.ElectricalSolidFuelBoilers:
-			return "5";
-
-		default:
-			return"";
-	}
-}
-
- */

@@ -35,19 +35,3 @@ namespace BH.oM.Environment.SAP
         OutsideHeatedEnvelope = 2
     }
 }
-
-/*private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfDuctPlacement typeOfDuctPlacement)
-{
-	switch (typeOfDuctPlacement)
-	{
-		case BH.oM.Environment.SAP.TypeOfDuctPlacement.InsideHeatedEnvelope:
-			return "1";
-
-		case BH.oM.Environment.SAP.TypeOfDuctPlacement.OutsideHeatedEnvelope:
-			return "2";
-
-		default:
-			return"";
-	}
-}
- */

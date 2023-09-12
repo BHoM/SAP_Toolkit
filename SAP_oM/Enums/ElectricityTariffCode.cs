@@ -39,33 +39,3 @@ namespace BH.oM.Environment.SAP
         NotApplicable
     }
 }
-
-/*
-private static string FromSAPToXML(this BH.oM.Environment.SAP.ElectricityTariffCode electricityTariffCode)
-{
-	switch (electricityTariffCode)
-	{
-		case BH.oM.Environment.SAP.ElectricityTariffCode.StandardTariff:
-			return "1";
-
-		case BH.oM.Environment.SAP.ElectricityTariffCode.OffPeak7Hour:
-			return "2";
-
-		case BH.oM.Environment.SAP.ElectricityTariffCode.OffPeak10Hour:
-			return "3";
-
-		case BH.oM.Environment.SAP.ElectricityTariffCode._24Hour:
-			return "4";
-
-		case BH.oM.Environment.SAP.ElectricityTariffCode.OffPeak18Hour:
-			return "5";
-
-		case BH.oM.Environment.SAP.ElectricityTariffCode.NotApplicable:
-			return "ND";
-
-		default:
-			return"";
-	}
-}
-
- */

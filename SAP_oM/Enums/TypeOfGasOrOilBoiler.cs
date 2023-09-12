@@ -37,26 +37,3 @@ namespace BH.oM.Environment.SAP
         RangeCooker = 4
     }
 }
-
-/*
- * private static string FromSAPToXML(this BH.oM.Environment.SAP.SAP-GasOrOilBoilerTypeCode typeOfGasOrOilBoiler)
-{
-	switch (typeOfGasOrOilBoiler)
-	{
-		case BH.oM.Environment.SAP.TypeOfGasOrOilBoiler.Regular:
-			return "1";
-
-		case BH.oM.Environment.SAP.TypeOfGasOrOilBoiler.Combi:
-			return "2";
-
-		case BH.oM.Environment.SAP.TypeOfGasOrOilBoiler.CPSU:
-			return "3";
-
-		case BH.oM.Environment.SAP.TypeOfGasOrOilBoiler.RangeCooker:
-			return "4";
-
-		default:
-			return"";
-	}
-}
- */

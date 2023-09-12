@@ -35,4 +35,3 @@ namespace BH.oM.Environment.SAP
         Single = 2
     }
 }
-

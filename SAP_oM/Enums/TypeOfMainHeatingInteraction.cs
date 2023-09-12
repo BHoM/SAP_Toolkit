@@ -35,22 +35,3 @@ namespace BH.oM.Environment.SAP
         SystemsAreSeparateAndHeatDifferentPartsOfProperty = 2
     }
 }
-
-/*
-private static string FromSAPToXML(this BH.oM.Environment.SAP.TypeOfMainHeatingInteraction typeOfMainHeatingInteraction)
-{
-	switch (typeOfMainHeatingInteraction)
-	{
-		case BH.oM.Environment.SAP.TypeOfMainHeatingInteraction.BothSystemsProvideHeatToWholeProperty:
-			return "1";
-
-		case BH.oM.Environment.SAP.TypeOfMainHeatingInteraction.SystemsAreSeparateAndHeatDifferentPartsOfProperty:
-			return "2";
-
-		default:
-			return"";
-	}
-}
-
- */
-
