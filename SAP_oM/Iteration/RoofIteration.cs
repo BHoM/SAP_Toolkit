@@ -31,7 +31,7 @@ using BH.oM.Environment.SAP;
 using System.ComponentModel;
 using BH.oM.Base;
 
-namespace BH.oM.Environment.SAP.XML
+namespace BH.oM.Environment.SAP
 {
     [Description("Describe a single UValue change for roofs within the SAP context.")]
     public class RoofIteration : BHoMObject, IIteration
