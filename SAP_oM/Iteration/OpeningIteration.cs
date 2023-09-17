@@ -40,7 +40,7 @@ namespace BH.oM.Environment.SAP
         public virtual double Width { get; set; } = double.NaN;
 
         [Description("New height of the all the openings. Must be a positive number. If left blank, no changes to height will be made.")]
-        public virtual double Height { get; set; } = -1;
+        public virtual double Height { get; set; } = double.NaN;
 
         [Description("New pitch of all the openings. Set as the pitch of roof containing roof window. If left blank, no changes to pitch will be made.")]
         public virtual string Pitch { get; set; } = null;
