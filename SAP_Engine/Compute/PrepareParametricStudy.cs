@@ -187,5 +187,53 @@ namespace BH.Engine.Environment.SAP
 
             return newReports;
         }
+
+        public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, OrientationIteration iteration)
+        {
+            List<SAPReport> newReports = new List<SAPReport>(initialSAPReports);
+
+            if (iteration.Mirror == Mirror.None && (iteration.Rotation == Rotation.Zero || iteration.Rotation == Rotation.ThreeHundredSixty))
+                return newReports; //No further changes to make, no mirror and rotation would match existing
+
+            ConcurrentBag<string> excludedOrientations = new ConcurrentBag<string>();
+            excludedOrientations.Add("0");
+            excludedOrientations.Add("9");
+            excludedOrientations.Add("ND");
+            excludedOrientations.Add("NR");
+
+            Parallel.ForEach(newReports, report =>
+            {
+                if (!excludedOrientations.Contains(report.SAP10Data.PropertyDetails.Orientation))
+                {
+                    //Current orientation can be mirrored
+                    List<int> compassPoints = new List<int> { (int)iteration.Mirror, (int)iteration.Mirror + 4 };
+
+                    int orientationValue = -1;
+                    try
+                    {
+                        orientationValue = int.Parse(report.SAP10Data.PropertyDetails.Orientation);
+                    }
+                    catch { }
+
+                    if (orientationValue != -1)
+                    {
+                        int distance = compassPoints.Select(x => x - orientationValue).Min();
+                        int compassDirection = (orientationValue + 2 * distance) % 8;
+                        if (compassDirection <= 0)
+                            compassDirection += 8;
+
+                        report.SAP10Data.PropertyDetails.Orientation = compassDirection.ToString();
+
+                        compassDirection = (compassDirection + (int)iteration.Rotation) % 8;
+                        if (compassDirection <= 0)
+                            compassDirection += 8;
+
+                        report.SAP10Data.PropertyDetails.Orientation = compassDirection.ToString();
+                    }
+                }
+            });
+
+            return newReports;
+        }
     }
 }
