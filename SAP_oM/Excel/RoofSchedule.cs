@@ -29,23 +29,19 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP.Excel
 {
-    [Description("The details of walls from the users excel input.")]
-    public class Walls : BHoMObject
+    [Description("The details of roofs from the users excel input.")]
+    public class RoofSchedule : BHoMObject
     {
-        [Description("The name of the dwelling the wall is located in.")]
+        [Description("The name of the dwelling the roof is located in.")]
         public virtual string Dwelling { get; set; } = string.Empty;
 
-        [Description("The type of wall")]
-        public virtual TypeOfWall Type { get; set; } = TypeOfWall.ExposedWall;
+        [Description("The type of roof")]
+        public virtual TypeOfRoof Type { get; set; } = TypeOfRoof.PartyCeiling;
 
-        [Description("The name of the wall.")]
+        [Description("The storey the roof is located on.")]
         public virtual string Storey { get; set; } = string.Empty;
 
-        [Description("If the wall is a curtain wall.")]
-        public virtual bool CurtainWall { get; set; } = false;
-
-        [Description("The uvalue of the wall")]
+        [Description("The uvalue of the roof")]
         public virtual double UValue { get; set; } = 0;
     }
 }
-

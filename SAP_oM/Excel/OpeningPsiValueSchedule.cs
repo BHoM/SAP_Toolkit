@@ -26,23 +26,20 @@ using System.ComponentModel;
 using System.Linq;
 using System.Xml.Serialization;
 using BH.oM.Base;
+using BH.oM.Geometry;
 
 namespace BH.oM.Environment.SAP.Excel
 {
-    [Description("The details of floors from the users excel input.")]
-    public class Floors : BHoMObject
+    [Description("PsiValues for thermal bridge.")]
+    public class OpeningPsiValueSchedule : BHoMObject
     {
-        [Description("The name of the dwelling the floor is located in.")]
-        public virtual string Dwelling { get; set; } = string.Empty;
+        [Description("Opening Type.")]
+        public virtual string OpeningType { get; set; } = string.Empty;
 
-        [Description("The type of floor")]
-        public virtual TypeOfFloor Type { get; set; } = TypeOfFloor.PartyFloor;
+        [Description("Psi value forWindow lintels - tops of the windows.")]
+        public virtual List<PsiValueSchedule> PsiValues { get; set; } = new List<PsiValueSchedule>();
 
-        [Description("The storey the floor is located on.")]
-        public virtual string Storey { get; set; } = string.Empty;
-
-        [Description("The uvalue of the floor")]
-        public virtual double UValue { get; set; } = 0;
+        [Description("Psi value forWindow jambs - sides of the windows (left and right).")]
+        public virtual bool FloorIntersection { get; set; } = false;
     }
 }
-

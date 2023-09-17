@@ -29,40 +29,20 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP.Excel
 {
-    [Description("The details of roofs from the users excel input.")]
-    public class Openings : BHoMObject
+    [Description("The details of floors from the users excel input.")]
+    public class FloorSchedule : BHoMObject
     {
-        [Description("The type of the opening.")]
-        public virtual string OpeningType { get; set; } = string.Empty;
+        [Description("The name of the dwelling the floor is located in.")]
+        public virtual string Dwelling { get; set; } = string.Empty;
 
-        [Description("The uvalue of the opening.")]
+        [Description("The type of floor")]
+        public virtual TypeOfFloor Type { get; set; } = TypeOfFloor.PartyFloor;
+
+        [Description("The storey the floor is located on.")]
+        public virtual string Storey { get; set; } = string.Empty;
+
+        [Description("The uvalue of the floor")]
         public virtual double UValue { get; set; } = 0;
-
-        [Description("The gvalue of the opening.")]
-        public virtual double GValue { get; set; } = 0;
-
-        [Description("The type of glazing.")]
-        public virtual TypeOfGlazing TypeOfGlazing { get; set; } = TypeOfGlazing.DoubleLowEHard02;
-
-        [Description("The glazing gap.")]
-        public virtual GlazingGap GlazingGap { get; set; } = GlazingGap.SixteenOrMore;
-
-        [Description("The frame factor of the opening.")]
-        public virtual double FrameFactor { get; set; } = 0;
-
-        [Description("The type of frame.")]
-        public virtual TypeOfFrame FrameType { get; set; } = TypeOfFrame.Wood;
-
-        [Description("If the opening is argon filled.")]
-        public virtual bool ArgonFilled { get; set; } = false;
-
-        [Description("If the opening is krypton filled.")]
-        public virtual bool KryptonFilled { get; set; } = false;
-
-        [Description("The data source for the opening.")]
-        public virtual OpeningDataSource DataSource { get; set; } = OpeningDataSource.ManufacturerDeclaration;
-
-        [Description("Does the opening intersect with the floor?")]
-        public virtual bool FloorIntersection { get; set; } = false;
     }
 }
+

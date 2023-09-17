@@ -16,7 +16,7 @@ namespace BH.Adapter.SAP
         [Input("values", "PsiValues object.")]
         [Input("openingDetails", "The psi value data for the opening.")]
         [Output("sapReport", "Modifed SAP Report.")]
-        public static SAPReport ThermalBridgesFromOpening(this SAPReport sapReportObj, List<PsiValues> values, List<OpeningPsiValues> openingDetails)
+        public static SAPReport ThermalBridgesFromOpening(this SAPReport sapReportObj, List<PsiValueSchedule> values, List<OpeningPsiValueSchedule> openingDetails)
         {
             //List of opening types
             List<BH.oM.Environment.SAP.XML.OpeningType> types = sapReportObj.SAP10Data.PropertyDetails.OpeningTypes.OpeningType;
@@ -51,7 +51,7 @@ namespace BH.Adapter.SAP
         [Input("values", "PsiValues object.")]
         [Input("openingDetails", "The psi value data for the opening.")]
         [Output("thermalBridge", "A list of ThermalBridge objects.")]
-        public static List<BH.oM.Environment.SAP.XML.ThermalBridge> TBFromOpening(this BH.oM.Environment.SAP.XML.BuildingPart buildingObj, List<BH.oM.Environment.SAP.XML.OpeningType> types, List<PsiValues> values, List<OpeningPsiValues> openingDetails)
+        public static List<BH.oM.Environment.SAP.XML.ThermalBridge> TBFromOpening(this BH.oM.Environment.SAP.XML.BuildingPart buildingObj, List<BH.oM.Environment.SAP.XML.OpeningType> types, List<PsiValueSchedule> values, List<OpeningPsiValueSchedule> openingDetails)
         {
             //Empty list of thermal bridges ( to be final list)
             List<BH.oM.Environment.SAP.XML.ThermalBridge> thermalBridges = new List<BH.oM.Environment.SAP.XML.ThermalBridge>();
@@ -93,7 +93,7 @@ namespace BH.Adapter.SAP
             }
 
             //List of psi values in general psi value section
-            List<PsiValues> windowTBValues = thermalBridgeTypes.Select(x => values.Where(y => ((y.Type == x) && (y.ThermalBridgeName == x || y.ThermalBridgeName == string.Empty))).FirstOrDefault()).ToList();
+            List<PsiValueSchedule> windowTBValues = thermalBridgeTypes.Select(x => values.Where(y => ((y.Type == x) && (y.ThermalBridgeName == x || y.ThermalBridgeName == string.Empty))).FirstOrDefault()).ToList();
 
             //For each window type
             foreach (var t in types)

@@ -14,31 +14,31 @@ namespace BH.Adapter.SAP
 {
     public partial class SAPAdapter
     {
-        private List<Floors> ReadFloorDefinitions(SAPPullConfig config)
+        private List<FloorSchedule> ReadFloorDefinitions(SAPPullConfig config)
         {
             if(config.ExcelFile == null)
             {
                 BH.Engine.Base.Compute.RecordError($"Please provide a valid SAP Excel file location.");
-                return new List<Floors>();
+                return new List<FloorSchedule>();
             }
 
             string fullFileName = config.ExcelFile.GetFullFileName();
             if(string.IsNullOrEmpty(fullFileName) || !File.Exists(fullFileName))
             {
                 BH.Engine.Base.Compute.RecordError($"Could not load file from {fullFileName}. Check the file exists.");
-                return new List<Floors>();
+                return new List<FloorSchedule>();
             }
 
             if(config.FloorDefinitionsRequest == null)
             {
                 BH.Engine.Base.Compute.RecordError($"Please provide a valid Floor Definitions Request stating the worksheet and range to read from Excel for the Floor Definition objects.");
-                return new List<Floors>();
+                return new List<FloorSchedule>();
             }
 
             ExcelAdapter excelAdapter = new ExcelAdapter(config.ExcelFile);
             List<TableRow> excelRows = excelAdapter.Pull(config.FloorDefinitionsRequest).OfType<TableRow>().ToList();
 
-            List<Floors> floorDefinitions = new List<Floors>();
+            List<FloorSchedule> floorDefinitions = new List<FloorSchedule>();
 
             foreach(var tableRow in excelRows)
             {
@@ -47,7 +47,7 @@ namespace BH.Adapter.SAP
 
                 var content = tableRow.Content.OfType<CellContents>().ToList();
 
-                Floors floorDefinition = new Floors();
+                FloorSchedule floorDefinition = new FloorSchedule();
                 floorDefinition.Dwelling = content[0].Value.ToString();
                 floorDefinition.Storey = content[2].Value.ToString();
 

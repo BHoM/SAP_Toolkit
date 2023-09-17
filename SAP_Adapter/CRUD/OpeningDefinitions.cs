@@ -14,31 +14,31 @@ namespace BH.Adapter.SAP
 {
     public partial class SAPAdapter
     {
-        private List<Openings> ReadOpeningDefinitions(SAPPullConfig config)
+        private List<OpeningSchedule> ReadOpeningDefinitions(SAPPullConfig config)
         {
             if (config.ExcelFile == null)
             {
                 BH.Engine.Base.Compute.RecordError($"Please provide a valid SAP Excel file location.");
-                return new List<Openings>();
+                return new List<OpeningSchedule>();
             }
 
             string fullFileName = config.ExcelFile.GetFullFileName();
             if (string.IsNullOrEmpty(fullFileName) || !File.Exists(fullFileName))
             {
                 BH.Engine.Base.Compute.RecordError($"Could not load file from {fullFileName}. Check the file exists.");
-                return new List<Openings>();
+                return new List<OpeningSchedule>();
             }
 
             if (config.OpeningDefinitionsRequest == null)
             {
                 BH.Engine.Base.Compute.RecordError($"Please provide a valid Opening Definitions Request stating the worksheet and range to read from Excel for the Opening Definition objects.");
-                return new List<Openings>();
+                return new List<OpeningSchedule>();
             }
 
             ExcelAdapter excelAdapter = new ExcelAdapter(config.ExcelFile);
             List<TableRow> excelRows = excelAdapter.Pull(config.OpeningDefinitionsRequest).OfType<TableRow>().ToList();
 
-            List<Openings> openingDefinitions = new List<Openings>();
+            List<OpeningSchedule> openingDefinitions = new List<OpeningSchedule>();
 
             foreach (var tableRow in excelRows)
             {
@@ -47,7 +47,7 @@ namespace BH.Adapter.SAP
 
                 var content = tableRow.Content.OfType<CellContents>().ToList();
 
-                Openings openingDefinition = new Openings();
+                OpeningSchedule openingDefinition = new OpeningSchedule();
                 openingDefinition.OpeningType = content[0].Value.ToString();
 
                 try

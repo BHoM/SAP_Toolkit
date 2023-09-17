@@ -48,17 +48,17 @@ namespace BH.Adapter.SAP
 
             if (type == typeof(SAPMarkupSummary))
                 return ReadSAPMarkupSummary(config);
-            else if (type == typeof(Floors))
+            else if (type == typeof(FloorSchedule))
                 return ReadFloorDefinitions(config);
-            else if (type == typeof(Roofs))
+            else if (type == typeof(RoofSchedule))
                 return ReadRoofDefinitions(config);
-            else if (type == typeof(Walls))
+            else if (type == typeof(WallSchedule))
                 return ReadWallDefinitions(config);
-            else if (type == typeof(PsiValues))
+            else if (type == typeof(PsiValueSchedule))
                 return ReadPsiValues(config);
-            else if (type == typeof(Openings))
+            else if (type == typeof(OpeningSchedule))
                 return ReadOpeningDefinitions(config);
-            else if (type == typeof(OpeningPsiValues))
+            else if (type == typeof(OpeningPsiValueSchedule))
                 return ReadOpeningPsiValues(config);
             else if (type == typeof(DwellingSchedule))
                 return ReadDwellingSchedules(config);
