@@ -39,6 +39,10 @@ namespace BH.Engine.Environment.SAP
             return allReports;
         }
 
+        [Description("Prepare a parametric study for a given set of SAP Reports, but only making changes to the Floors of the Reports. Iterations will not be blended with this component. The original reports will NOT be included in the returned objects.")]
+        [Input("initialSAPReports", "The SAP Report objects to create iterations of.")]
+        [Input("iteration", "Floor Iterations to produce iterations of.")]
+        [Output("sapReports", "The SAP Reports with modified floors according to the iterations provided.")]
         public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, FloorIteration iteration)
         {
             List<SAPReport> newReports = new List<SAPReport>(initialSAPReports);
@@ -63,6 +67,10 @@ namespace BH.Engine.Environment.SAP
             return newReports;
         }
 
+        [Description("Prepare a parametric study for a given set of SAP Reports, but only making changes to the Walls of the Reports. Iterations will not be blended with this component. The original reports will NOT be included in the returned objects.")]
+        [Input("initialSAPReports", "The SAP Report objects to create iterations of.")]
+        [Input("iteration", "Wall Iterations to produce iterations of.")]
+        [Output("sapReports", "The SAP Reports with modified walls according to the iterations provided.")]
         public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, WallIteration iteration)
         {
             List<SAPReport> newReports = new List<SAPReport>(initialSAPReports);
@@ -93,6 +101,10 @@ namespace BH.Engine.Environment.SAP
             return newReports;
         }
 
+        [Description("Prepare a parametric study for a given set of SAP Reports, but only making changes to the Openings of the Reports. Iterations will not be blended with this component. The original reports will NOT be included in the returned objects.")]
+        [Input("initialSAPReports", "The SAP Report objects to create iterations of.")]
+        [Input("iteration", "Opening Iterations to produce iterations of.")]
+        [Output("sapReports", "The SAP Reports with modified openings according to the iterations provided.")]
         public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, OpeningIteration iteration)
         {
             List<SAPReport> newReports = new List<SAPReport>(initialSAPReports);
@@ -129,6 +141,10 @@ namespace BH.Engine.Environment.SAP
             return newReports;
         }
 
+        [Description("Prepare a parametric study for a given set of SAP Reports, but only making changes to the Roofs of the Reports. Iterations will not be blended with this component. The original reports will NOT be included in the returned objects.")]
+        [Input("initialSAPReports", "The SAP Report objects to create iterations of.")]
+        [Input("iteration", "Roof Iterations to produce iterations of.")]
+        [Output("sapReports", "The SAP Reports with modified roofs according to the iterations provided.")]
         public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, RoofIteration iteration)
         {
             List<SAPReport> newReports = new List<SAPReport>(initialSAPReports);
@@ -153,6 +169,10 @@ namespace BH.Engine.Environment.SAP
             return newReports;
         }
 
+        [Description("Prepare a parametric study for a given set of SAP Reports, but only making changes to the Thermal Bridges of the Reports. Iterations will not be blended with this component. The original reports will NOT be included in the returned objects.")]
+        [Input("initialSAPReports", "The SAP Report objects to create iterations of.")]
+        [Input("iteration", "Thermal Bridge Iterations to produce iterations of.")]
+        [Output("sapReports", "The SAP Reports with modified thermal bridges according to the iterations provided.")]
         public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, ThermalBridgeIteration iteration)
         {
             List<SAPReport> newReports = new List<SAPReport>(initialSAPReports);
@@ -177,6 +197,10 @@ namespace BH.Engine.Environment.SAP
             return newReports;
         }
 
+        [Description("Prepare a parametric study for a given set of SAP Reports, but only making changes to the Opening Types of the Reports. Iterations will not be blended with this component. The original reports will NOT be included in the returned objects.")]
+        [Input("initialSAPReports", "The SAP Report objects to create iterations of.")]
+        [Input("iteration", "Opening Type Iterations to produce iterations of.")]
+        [Output("sapReports", "The SAP Reports with modified opening types according to the iterations provided.")]
         public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, OpeningTypeIteration iteration)
         {
             List<SAPReport> newReports = new List<SAPReport>(initialSAPReports);
@@ -204,6 +228,10 @@ namespace BH.Engine.Environment.SAP
             return newReports;
         }
 
+        [Description("Prepare a parametric study for a given set of SAP Reports, but only making changes to the Orientation of the Reports. Iterations will not be blended with this component. The original reports will NOT be included in the returned objects.")]
+        [Input("initialSAPReports", "The SAP Report objects to create iterations of.")]
+        [Input("iteration", "Orientation Iterations to produce iterations of.")]
+        [Output("sapReports", "The SAP Reports with modified orientations according to the iterations provided.")]
         public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, OrientationIteration iteration)
         {
             List<SAPReport> newReports = new List<SAPReport>(initialSAPReports);
