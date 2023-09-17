@@ -13,7 +13,7 @@ namespace BH.Adapter.SAP
 {
     public static partial class Convert
     {
-        public static Roof ToRoof(SAPMarkup markup, EXL.Roofs importedDimensionData)
+        public static Roof ToRoof(SAPMarkup markup, EXL.RoofSchedule importedDimensionData)
         {
             Roof r = new Roof();
 

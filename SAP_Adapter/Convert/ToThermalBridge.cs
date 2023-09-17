@@ -13,7 +13,7 @@ namespace BH.Adapter.SAP
 {
     public static partial class Convert
     {
-        public static SXML.ThermalBridge ToThermalBridge(SAPMarkup markup, PsiValues psiValue)
+        public static SXML.ThermalBridge ToThermalBridge(SAPMarkup markup, PsiValueSchedule psiValue)
         {
             SXML.ThermalBridge t = new SXML.ThermalBridge();
 

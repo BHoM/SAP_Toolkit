@@ -13,7 +13,7 @@ namespace BH.Adapter.SAP
 {
     public static partial class Convert
     {
-        public static FloorDimension ToFloorDimension(SAPMarkup markup, Floors importedDimensionData)
+        public static FloorDimension ToFloorDimension(SAPMarkup markup, FloorSchedule importedDimensionData)
         {
             FloorDimension f = new FloorDimension();
 

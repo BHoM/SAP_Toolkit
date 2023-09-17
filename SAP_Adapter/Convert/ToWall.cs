@@ -13,7 +13,7 @@ namespace BH.Adapter.SAP
 {
     public static partial class Convert
     {
-        public static Wall ToWall(SAPMarkup markup, EXL.Walls importedDimensionData)
+        public static Wall ToWall(SAPMarkup markup, EXL.WallSchedule importedDimensionData)
         {
             Wall w = new Wall();
 

@@ -30,7 +30,7 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP.Excel
 {
     [Description("A thermal bridge between two thermal elements of the dwelling.")]
-    public class PsiValues : BHoMObject
+    public class PsiValueSchedule : BHoMObject
     {
         [Description("The thermal bridge type reference according to Table K1 in SAP 2012.")]
         public virtual string Type { get; set; } = string.Empty;
