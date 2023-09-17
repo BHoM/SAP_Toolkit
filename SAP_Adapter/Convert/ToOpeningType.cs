@@ -27,7 +27,7 @@ namespace BH.Adapter.SAP
             type.IsArgonFilled = openingDefinition.ArgonFilled;
             type.IsKryptonFilled = openingDefinition.KryptonFilled;
             type.FrameType = ((int)openingDefinition.FrameType).ToString();
-            type.gValue = openingDefinition.GValue.ToString();
+            type.GValue = openingDefinition.GValue.ToString();
             type.FrameFactor = openingDefinition.FrameFactor.ToString();
 
             return type;
