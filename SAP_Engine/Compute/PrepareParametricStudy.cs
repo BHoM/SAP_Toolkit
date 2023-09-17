@@ -6,11 +6,27 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
+using System.ComponentModel;
+using BH.oM.Base.Attributes;
 
 namespace BH.Engine.Environment.SAP
 {
     public static partial class Compute
     {
+        [Description("Prepare a parametric study for a given set of SAP Reports, and a given collection of iteration types (wall iterations, floor iterations, opening iterations, etc.). Iterations will be blended to create multiple iteration objects.\n\n" +
+            "For example, for a given initial SAP Report (A), and provided Wall Iteration (W), Roof Iteration (R), and Opening Iteration (O), we will get the following outputs:\n\n" +
+            "A (the initial report)\n" +
+            "AW (initial + wall)\n" +
+            "AR (initial + roof)\n" +
+            "AWR (initial + wall + roof)\n" +
+            "AO (initial + opening)\n" +
+            "AWO (initial + wall + opening)\n" +
+            "ARO (initial + roof + opeinng)\n" +
+            "AWRO (initial + wall + roof + opening)\n\n" +
+            "If you want a parmetric study WITHOUT this full blending, use the PrepareParametricStudy component which takes the specific type of iteration in as an input.")]
+        [Input("initialSAPReports", "The SAP Report objects to create iterations of.")]
+        [Input("iterations", "The collection of iteration objects to produce multiple SAP Reports from.")]
+        [Output("sapReports", "The SAP Reports modified in line with the iteration objects.")]
         public static List<SAPReport> PrepareParametricStudy(this List<SAPReport> initialSAPReports, List<IIteration> iterations)
         {
             List<SAPReport> allReports = new List<SAPReport>(initialSAPReports);
