@@ -136,5 +136,29 @@ namespace BH.Engine.Environment.SAP
 
             return newReports;
         }
+
+        public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, ThermalBridgeIteration iteration)
+        {
+            List<SAPReport> newReports = new List<SAPReport>(initialSAPReports);
+
+            //To be thread safe on the parallel for loops below, convert the List<string> to ConcurrentBag<string>
+            ConcurrentBag<string> includedItems = new ConcurrentBag<string>();
+            if (iteration.Include != null)
+                includedItems = new ConcurrentBag<string>(iteration.Include);
+
+            Parallel.ForEach(newReports, report =>
+            {
+                foreach (var part in report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
+                {
+                    for (int x = 0; x < part.ThermalBridges.ThermalBridge.Count; x++)
+                    {
+                        if (includedItems.Contains(part.ThermalBridges.ThermalBridge[x].Type) && !double.IsNaN(iteration.PsiValue)) //Possibly change to part.ThermalBridges.ThermalBridge[x].CalculationReference?
+                            part.ThermalBridges.ThermalBridge[x].PsiValue = iteration.PsiValue;
+                    }
+                }
+            });
+
+            return newReports;
+        }
     }
 }
