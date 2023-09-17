@@ -83,7 +83,7 @@ namespace BH.Engine.Environment.SAP
                     };
 
                     typeChanges.UValue = (uvalue > 0 ? new Changes { Initial = o.UValue, Final = uvalue.ToString() } : null);
-                    typeChanges.GValue = (gvalue > 0 ? new Changes { Initial = o.gValue, Final = gvalue.ToString() } : null);
+                    typeChanges.GValue = (gvalue > 0 ? new Changes { Initial = o.GValue, Final = gvalue.ToString() } : null);
                     changes.Add(typeChanges);
 
                     //Modify opening type uvalue and/or gvalue
@@ -118,7 +118,7 @@ namespace BH.Engine.Environment.SAP
             //IF gvalue is valid
             if (gvalue > 0)
             {
-                type.gValue = gvalue.ToString();
+                type.GValue = gvalue.ToString();
             }
 
             return type;
