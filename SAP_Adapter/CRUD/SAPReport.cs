@@ -104,14 +104,17 @@ namespace BH.Adapter.SAP
             }
 
             //Building Parts
+            var dwellingSchedules = ReadDwellingSchedules(config);
             Dictionary<string, SXML.BuildingParts> xmlBuildingPartsBySpace = new Dictionary<string, SXML.BuildingParts>();
             foreach(var space in allSpaceNames)
             {
                 SXML.BuildingPart part = new SXML.BuildingPart();
 
+                var schedule = dwellingSchedules.Where(x => x.DwellingTypeName == space).FirstOrDefault();
+
                 part.Identifier = space;
                 part.BuildingPartNumber = "1";
-                part.ConstructionYear = config.ConstructionYear;
+                part.ConstructionYear = schedule.ConstructionYear;
                 part.FloorDimensions = new SXML.FloorDimensions() { FloorDimension = xmlFloorsBySpace[space] };
                 part.Openings = new SXML.Openings() { Opening = xmlOpeningsBySpace[space] };
                 part.Roofs = new SXML.Roofs() { Roof = xmlRoofsBySpace[space] };
@@ -123,7 +126,6 @@ namespace BH.Adapter.SAP
 
             //Property Details
             Dictionary<string, SXML.PropertyDetails> xmlPropertyDetailsBySpace = new Dictionary<string, SXML.PropertyDetails>();
-            var dwellingSchedules = ReadDwellingSchedules(config);
             foreach(var space in allSpaceNames)
             {
                 SXML.PropertyDetails propertyDetails = new SXML.PropertyDetails();
@@ -134,14 +136,19 @@ namespace BH.Adapter.SAP
                 propertyDetails.LowestStoreyArea = floorAreaBySpace[space].ToString();
                 propertyDetails.Lighting = new SXML.Lighting() { FixedLights = new SXML.FixedLights() { FixedLight = new List<SXML.FixedLight>() { xmlLightsBySpace[space] } } };
 
-                if (config.FlatDetails != null)
-                    propertyDetails.FlatDetails = config.FlatDetails;
-
                 var schedule = dwellingSchedules.Where(x => x.DwellingTypeName == space).FirstOrDefault();
 
-                propertyDetails.Orientation = ((int)schedule.DwellingOrientation).ToString();
-                propertyDetails.PropertyType = ((int)config.PropertyType).ToString();
+                if (schedule != null)
+                {
+                    propertyDetails.FlatDetails = new FlatDetails()
+                    {
+                        Storeys = schedule.Storeys,
+                        Level = schedule.Level,
+                    };
 
+                    propertyDetails.Orientation = ((int)schedule.DwellingOrientation).ToString();
+                    propertyDetails.PropertyType = ((int)schedule.PropertyType).ToString();
+                }
                 xmlPropertyDetailsBySpace.Add(space, propertyDetails);
             }
 
@@ -151,8 +158,10 @@ namespace BH.Adapter.SAP
             {
                 SXML.SAP10Data data = new SXML.SAP10Data();
 
+                var schedule = dwellingSchedules.Where(x => x.DwellingTypeName == space).FirstOrDefault();
+
                 data.PropertyDetails = xmlPropertyDetailsBySpace[space];
-                data.DataType = ((int)config.ConstructionType).ToString();
+                data.DataType = ((int)schedule.ConstructionType).ToString();
 
                 SXML.SAPReport report = new SXML.SAPReport();
 

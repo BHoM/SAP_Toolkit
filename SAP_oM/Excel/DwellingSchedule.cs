@@ -46,5 +46,20 @@ namespace BH.oM.Environment.SAP.Excel
 
         [Description("Heating file name, eg HeatingFile.xml .")]
         public virtual TypeOfProperty TypeOfProperty { get; set; } = TypeOfProperty.Flat;
+
+        [Description("Indication of where a flat is located in a building.")]
+        public virtual string Level { get; set; } = null;
+
+        [Description("Count of number of storeys present in the block of for this dwelling.")]
+        public virtual string Storeys { get; set; } = null;
+
+        [Description("The year the dwelling was constructed.")]
+        public virtual string ConstructionYear { get; set; } = "";
+
+        [Description("The type of property for this dwelling.")]
+        public virtual TypeOfProperty PropertyType { get; set; } = TypeOfProperty.Undefined;
+
+        [Description("The type of construction for this dwelling (new build, refurb, etc.).")]
+        public virtual DataTypeCode ConstructionType { get; set; } = DataTypeCode.Undefined;
     }
 }
