@@ -160,5 +160,32 @@ namespace BH.Engine.Environment.SAP
 
             return newReports;
         }
+
+        public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, OpeningTypeIteration iteration)
+        {
+            List<SAPReport> newReports = new List<SAPReport>(initialSAPReports);
+
+            //To be thread safe on the parallel for loops below, convert the List<string> to ConcurrentBag<string>
+            ConcurrentBag<string> includedItems = new ConcurrentBag<string>();
+            if (iteration.Include != null)
+                includedItems = new ConcurrentBag<string>(iteration.Include);
+
+            Parallel.ForEach(newReports, report =>
+            {
+                for(int x = 0; x < report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType.Count; x++)
+                {
+                    if (includedItems.Contains(report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType[x].Description))
+                    {
+                        if (!double.IsNaN(iteration.UValue))
+                            report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType[x].UValue = iteration.UValue.ToString();
+
+                        if (!double.IsNaN(iteration.GValue))
+                            report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType[x].GValue = iteration.GValue.ToString();
+                    }
+                }
+            });
+
+            return newReports;
+        }
     }
 }
