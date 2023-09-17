@@ -77,7 +77,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("The solar transmittance; not if a door.")]
         [XmlElement("Solar-Transmittance")]
-        public virtual string gValue { get; set; } = null; //0.4
+        public virtual string GValue { get; set; } = null; //0.4
 
         [Description("The frame factor; not if a door.")]
         [XmlElement("Frame-Factor")]
