@@ -60,8 +60,6 @@ namespace BH.Engine.Environment.SAP
             if (iteration.Include != null)
                 includedItems = new ConcurrentBag<string>(iteration.Include);
 
-            string iterationName = iteration.IterationName();
-
             Parallel.ForEach(newReports, report =>
             {
                 foreach(var part in report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
@@ -71,7 +69,7 @@ namespace BH.Engine.Environment.SAP
                         if (includedItems.Count == 0 || includedItems.Contains(part.FloorDimensions.FloorDimension[x].Description) && !double.IsNaN(iteration.UValue))
                         {
                             part.FloorDimensions.FloorDimension[x].UValue = iteration.UValue.ToString();
-                            part.Identifier = $"{part.Identifier}-{iterationName}";
+                            part.Identifier = $"{part.Identifier}-{iteration.Name}";
                         }
                     }
                 }
@@ -93,8 +91,6 @@ namespace BH.Engine.Environment.SAP
             if (iteration.Include != null)
                 includedItems = new ConcurrentBag<string>(iteration.Include);
 
-            string iterationName = iteration.IterationName();
-
             Parallel.ForEach(newReports, report =>
             {
                 foreach (var part in report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
@@ -109,7 +105,7 @@ namespace BH.Engine.Environment.SAP
                             if (iteration.IsCurtainWall.HasValue)
                                 part.Walls.Wall[x].CurtainWall = iteration.IsCurtainWall.Value;
 
-                            part.Identifier = $"{part.Identifier}-{iterationName}";
+                            part.Identifier = $"{part.Identifier}-{iteration.Name}";
                         }
                     }
                 }
@@ -130,8 +126,6 @@ namespace BH.Engine.Environment.SAP
             ConcurrentBag<string> includedItems = new ConcurrentBag<string>();
             if (iteration.Include != null)
                 includedItems = new ConcurrentBag<string>(iteration.Include);
-
-            string iterationName = iteration.IterationName();
 
             Parallel.ForEach(newReports, report =>
             {
@@ -158,7 +152,7 @@ namespace BH.Engine.Environment.SAP
                             if(!string.IsNullOrEmpty(iteration.Pitch))
                                 part.Openings.Opening[x].Pitch = iteration.Pitch;
 
-                            part.Identifier = $"{part.Identifier}-{iterationName}";
+                            part.Identifier = $"{part.Identifier}-{iteration.Name}";
                         }
                     }
                 }
@@ -180,8 +174,6 @@ namespace BH.Engine.Environment.SAP
             if (iteration.Include != null)
                 includedItems = new ConcurrentBag<string>(iteration.Include);
 
-            string iterationName = iteration.IterationName();
-
             Parallel.ForEach(newReports, report =>
             {
                 foreach (var part in report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
@@ -191,7 +183,7 @@ namespace BH.Engine.Environment.SAP
                         if (includedItems.Count == 0 || includedItems.Contains(part.Roofs.Roof[x].Description) && !double.IsNaN(iteration.UValue))
                         {
                             part.Roofs.Roof[x].UValue = iteration.UValue.ToString();
-                            part.Identifier = $"{part.Identifier}-{iterationName}";
+                            part.Identifier = $"{part.Identifier}-{iteration.Name}";
                         }
                     }
                 }
@@ -213,8 +205,6 @@ namespace BH.Engine.Environment.SAP
             if (iteration.Include != null)
                 includedItems = new ConcurrentBag<string>(iteration.Include);
 
-            string iterationName = iteration.IterationName();
-
             Parallel.ForEach(newReports, report =>
             {
                 foreach (var part in report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
@@ -225,7 +215,7 @@ namespace BH.Engine.Environment.SAP
                         {
                             //Possibly change to part.ThermalBridges.ThermalBridge[x].CalculationReference?
                             part.ThermalBridges.ThermalBridge[x].PsiValue = iteration.PsiValue;
-                            part.Identifier = $"{part.Identifier}-{iterationName}";
+                            part.Identifier = $"{part.Identifier}-{iteration.Name}";
                         }
                     }
                 }
@@ -247,8 +237,6 @@ namespace BH.Engine.Environment.SAP
             if (iteration.Include != null)
                 includedItems = new ConcurrentBag<string>(iteration.Include);
 
-            string iterationName = iteration.IterationName();
-
             Parallel.ForEach(newReports, report =>
             {
                 for (int x = 0; x < report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType.Count; x++)
@@ -259,7 +247,7 @@ namespace BH.Engine.Environment.SAP
                             report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType[x].UValue = iteration.UValue.ToString();
 
                         string identifier = report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier;
-                        report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier = $"{identifier}-{iterationName}";
+                        report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier = $"{identifier}-{iteration.Name}";
                     }
                 }
             });
@@ -280,8 +268,6 @@ namespace BH.Engine.Environment.SAP
             if (iteration.Include != null)
                 includedItems = new ConcurrentBag<string>(iteration.Include);
 
-            string iterationName = iteration.IterationName();
-
             Parallel.ForEach(newReports, report =>
             {
                 for (int x = 0; x < report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType.Count; x++)
@@ -292,7 +278,7 @@ namespace BH.Engine.Environment.SAP
                             report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType[x].GValue = iteration.GValue.ToString();
 
                         string identifier = report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier;
-                        report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier = $"{identifier}-{iterationName}";
+                        report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier = $"{identifier}-{iteration.Name}";
                     }
                 }
             });
@@ -310,8 +296,6 @@ namespace BH.Engine.Environment.SAP
 
             if (iteration.Mirror == Mirror.None && (iteration.Rotation == Rotation.Zero || iteration.Rotation == Rotation.ThreeHundredSixty))
                 return newReports; //No further changes to make, no mirror and rotation would match existing
-
-            string iterationName = iteration.IterationName();
 
             ConcurrentBag<string> excludedOrientations = new ConcurrentBag<string>();
             excludedOrientations.Add("0");
@@ -349,7 +333,7 @@ namespace BH.Engine.Environment.SAP
                         report.SAP10Data.PropertyDetails.Orientation = compassDirection.ToString();
 
                         string identifier = report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier;
-                        report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier = $"{identifier}-{iterationName}";
+                        report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier = $"{identifier}-{iteration.Name}";
                     }
                 }
             });
