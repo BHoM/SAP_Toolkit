@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using System.ComponentModel;
 using BH.oM.Base.Attributes;
+using BH.Engine.Base;
 
 namespace BH.Engine.Environment.SAP
 {
@@ -36,10 +37,11 @@ namespace BH.Engine.Environment.SAP
             foreach(var type in iterationTypes)
             {
                 var iterationsOfType = iterations.Where(x => x.GetType() == type).ToList();
+                List<SAPReport> reportsForType = new List<SAPReport>();
                 foreach(var iteration in iterationsOfType)
-                {
-                    allReports.AddRange(PrepareParametricStudy(allReports, iteration as dynamic));
-                }
+                    reportsForType.AddRange(PrepareParametricStudy(allReports, iteration as dynamic));
+
+                allReports.AddRange(reportsForType);
             }
 
             return allReports;
@@ -51,12 +53,14 @@ namespace BH.Engine.Environment.SAP
         [Output("sapReports", "The SAP Reports with modified floors according to the iterations provided.")]
         public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, FloorIteration iteration)
         {
-            List<SAPReport> newReports = new List<SAPReport>(initialSAPReports);
+            List<SAPReport> newReports = initialSAPReports.Select(x => x.DeepClone()).ToList();
 
             //To be thread safe on the parallel for loops below, convert the List<string> to ConcurrentBag<string>
             ConcurrentBag<string> includedItems = new ConcurrentBag<string>();
             if (iteration.Include != null)
                 includedItems = new ConcurrentBag<string>(iteration.Include);
+
+            string iterationName = iteration.IterationName();
 
             Parallel.ForEach(newReports, report =>
             {
@@ -64,8 +68,11 @@ namespace BH.Engine.Environment.SAP
                 {
                     for(int x = 0; x < part.FloorDimensions.FloorDimension.Count; x++)
                     {
-                        if(includedItems.Contains(part.FloorDimensions.FloorDimension[x].Description) && !double.IsNaN(iteration.UValue))
+                        if (includedItems.Count == 0 || includedItems.Contains(part.FloorDimensions.FloorDimension[x].Description) && !double.IsNaN(iteration.UValue))
+                        {
                             part.FloorDimensions.FloorDimension[x].UValue = iteration.UValue.ToString();
+                            part.Identifier = $"{part.Identifier}-{iterationName}";
+                        }
                     }
                 }
             });
@@ -79,12 +86,14 @@ namespace BH.Engine.Environment.SAP
         [Output("sapReports", "The SAP Reports with modified walls according to the iterations provided.")]
         public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, WallIteration iteration)
         {
-            List<SAPReport> newReports = new List<SAPReport>(initialSAPReports);
+            List<SAPReport> newReports = initialSAPReports.Select(x => x.DeepClone()).ToList();
 
             //To be thread safe on the parallel for loops below, convert the List<string> to ConcurrentBag<string>
             ConcurrentBag<string> includedItems = new ConcurrentBag<string>();
             if (iteration.Include != null)
                 includedItems = new ConcurrentBag<string>(iteration.Include);
+
+            string iterationName = iteration.IterationName();
 
             Parallel.ForEach(newReports, report =>
             {
@@ -92,13 +101,15 @@ namespace BH.Engine.Environment.SAP
                 {
                     for (int x = 0; x < part.Walls.Wall.Count; x++)
                     {
-                        if (includedItems.Contains(part.Walls.Wall[x].Description))
+                        if (includedItems.Count == 0 || includedItems.Contains(part.Walls.Wall[x].Description))
                         {
                             if(!double.IsNaN(iteration.UValue))
                                 part.Walls.Wall[x].UValue = iteration.UValue.ToString();
 
                             if (iteration.IsCurtainWall.HasValue)
                                 part.Walls.Wall[x].CurtainWall = iteration.IsCurtainWall.Value;
+
+                            part.Identifier = $"{part.Identifier}-{iterationName}";
                         }
                     }
                 }
@@ -113,23 +124,30 @@ namespace BH.Engine.Environment.SAP
         [Output("sapReports", "The SAP Reports with modified openings according to the iterations provided.")]
         public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, OpeningIteration iteration)
         {
-            List<SAPReport> newReports = new List<SAPReport>(initialSAPReports);
+            List<SAPReport> newReports = initialSAPReports.Select(x => x.DeepClone()).ToList();
 
             //To be thread safe on the parallel for loops below, convert the List<string> to ConcurrentBag<string>
             ConcurrentBag<string> includedItems = new ConcurrentBag<string>();
             if (iteration.Include != null)
                 includedItems = new ConcurrentBag<string>(iteration.Include);
 
+            string iterationName = iteration.IterationName();
+
             Parallel.ForEach(newReports, report =>
             {
                 //Dictionary for the conversion between the name of the type given by the user and the name of the opening that matches the schema.
-                Dictionary<string, string> typeMap = report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType.Select(x => new { Key = x.Name, Value = x.Description }).ToDictionary(x => x.Key, x => x.Value);
+                Dictionary<string, string> typeMap = new Dictionary<string, string>();
+                foreach (var type in report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType)
+                {
+                    if (!typeMap.ContainsKey(type.Name))
+                        typeMap.Add(type.Name, type.Description);
+                }
 
                 foreach (var part in report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
                 {
                     for (int x = 0; x < part.Openings.Opening.Count; x++)
                     {
-                        if (includedItems.Contains(typeMap[part.Openings.Opening[x].Type]))
+                        if (includedItems.Count == 0 || includedItems.Contains(typeMap[part.Openings.Opening[x].Type]))
                         {
                             if (!double.IsNaN(iteration.Height))
                                 part.Openings.Opening[x].Height = iteration.Height;
@@ -139,6 +157,8 @@ namespace BH.Engine.Environment.SAP
 
                             if(!string.IsNullOrEmpty(iteration.Pitch))
                                 part.Openings.Opening[x].Pitch = iteration.Pitch;
+
+                            part.Identifier = $"{part.Identifier}-{iterationName}";
                         }
                     }
                 }
@@ -153,12 +173,14 @@ namespace BH.Engine.Environment.SAP
         [Output("sapReports", "The SAP Reports with modified roofs according to the iterations provided.")]
         public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, RoofIteration iteration)
         {
-            List<SAPReport> newReports = new List<SAPReport>(initialSAPReports);
+            List<SAPReport> newReports = initialSAPReports.Select(x => x.DeepClone()).ToList();
 
             //To be thread safe on the parallel for loops below, convert the List<string> to ConcurrentBag<string>
             ConcurrentBag<string> includedItems = new ConcurrentBag<string>();
             if (iteration.Include != null)
                 includedItems = new ConcurrentBag<string>(iteration.Include);
+
+            string iterationName = iteration.IterationName();
 
             Parallel.ForEach(newReports, report =>
             {
@@ -166,8 +188,11 @@ namespace BH.Engine.Environment.SAP
                 {
                     for (int x = 0; x < part.Roofs.Roof.Count; x++)
                     {
-                        if (includedItems.Contains(part.Roofs.Roof[x].Description) && !double.IsNaN(iteration.UValue))
+                        if (includedItems.Count == 0 || includedItems.Contains(part.Roofs.Roof[x].Description) && !double.IsNaN(iteration.UValue))
+                        {
                             part.Roofs.Roof[x].UValue = iteration.UValue.ToString();
+                            part.Identifier = $"{part.Identifier}-{iterationName}";
+                        }
                     }
                 }
             });
@@ -181,12 +206,14 @@ namespace BH.Engine.Environment.SAP
         [Output("sapReports", "The SAP Reports with modified thermal bridges according to the iterations provided.")]
         public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, ThermalBridgeIteration iteration)
         {
-            List<SAPReport> newReports = new List<SAPReport>(initialSAPReports);
+            List<SAPReport> newReports = initialSAPReports.Select(x => x.DeepClone()).ToList();
 
             //To be thread safe on the parallel for loops below, convert the List<string> to ConcurrentBag<string>
             ConcurrentBag<string> includedItems = new ConcurrentBag<string>();
             if (iteration.Include != null)
                 includedItems = new ConcurrentBag<string>(iteration.Include);
+
+            string iterationName = iteration.IterationName();
 
             Parallel.ForEach(newReports, report =>
             {
@@ -194,8 +221,12 @@ namespace BH.Engine.Environment.SAP
                 {
                     for (int x = 0; x < part.ThermalBridges.ThermalBridge.Count; x++)
                     {
-                        if (includedItems.Contains(part.ThermalBridges.ThermalBridge[x].Type) && !double.IsNaN(iteration.PsiValue)) //Possibly change to part.ThermalBridges.ThermalBridge[x].CalculationReference?
+                        if (includedItems.Count == 0 || includedItems.Contains(part.ThermalBridges.ThermalBridge[x].Type) && !double.IsNaN(iteration.PsiValue))
+                        {
+                            //Possibly change to part.ThermalBridges.ThermalBridge[x].CalculationReference?
                             part.ThermalBridges.ThermalBridge[x].PsiValue = iteration.PsiValue;
+                            part.Identifier = $"{part.Identifier}-{iterationName}";
+                        }
                     }
                 }
             });
@@ -209,21 +240,26 @@ namespace BH.Engine.Environment.SAP
         [Output("sapReports", "The SAP Reports with modified opening types according to the iterations provided.")]
         public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, OpeningTypeUValueIteration iteration)
         {
-            List<SAPReport> newReports = new List<SAPReport>(initialSAPReports);
+            List<SAPReport> newReports = initialSAPReports.Select(x => x.DeepClone()).ToList();
 
             //To be thread safe on the parallel for loops below, convert the List<string> to ConcurrentBag<string>
             ConcurrentBag<string> includedItems = new ConcurrentBag<string>();
             if (iteration.Include != null)
                 includedItems = new ConcurrentBag<string>(iteration.Include);
 
+            string iterationName = iteration.IterationName();
+
             Parallel.ForEach(newReports, report =>
             {
                 for (int x = 0; x < report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType.Count; x++)
                 {
-                    if (includedItems.Contains(report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType[x].Description))
+                    if (includedItems.Count == 0 || includedItems.Contains(report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType[x].Description))
                     {
                         if (!double.IsNaN(iteration.UValue))
                             report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType[x].UValue = iteration.UValue.ToString();
+
+                        string identifier = report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier;
+                        report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier = $"{identifier}-{iterationName}";
                     }
                 }
             });
@@ -237,21 +273,26 @@ namespace BH.Engine.Environment.SAP
         [Output("sapReports", "The SAP Reports with modified opening types according to the iterations provided.")]
         public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, OpeningTypeGValueIteration iteration)
         {
-            List<SAPReport> newReports = new List<SAPReport>(initialSAPReports);
+            List<SAPReport> newReports = initialSAPReports.Select(x => x.DeepClone()).ToList();
 
             //To be thread safe on the parallel for loops below, convert the List<string> to ConcurrentBag<string>
             ConcurrentBag<string> includedItems = new ConcurrentBag<string>();
             if (iteration.Include != null)
                 includedItems = new ConcurrentBag<string>(iteration.Include);
 
+            string iterationName = iteration.IterationName();
+
             Parallel.ForEach(newReports, report =>
             {
                 for (int x = 0; x < report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType.Count; x++)
                 {
-                    if (includedItems.Contains(report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType[x].Description))
+                    if (includedItems.Count == 0 || includedItems.Contains(report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType[x].Description))
                     {
                         if (!double.IsNaN(iteration.GValue))
                             report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType[x].GValue = iteration.GValue.ToString();
+
+                        string identifier = report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier;
+                        report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier = $"{identifier}-{iterationName}";
                     }
                 }
             });
@@ -265,10 +306,12 @@ namespace BH.Engine.Environment.SAP
         [Output("sapReports", "The SAP Reports with modified orientations according to the iterations provided.")]
         public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, OrientationIteration iteration)
         {
-            List<SAPReport> newReports = new List<SAPReport>(initialSAPReports);
+            List<SAPReport> newReports = initialSAPReports.Select(x => x.DeepClone()).ToList();
 
             if (iteration.Mirror == Mirror.None && (iteration.Rotation == Rotation.Zero || iteration.Rotation == Rotation.ThreeHundredSixty))
                 return newReports; //No further changes to make, no mirror and rotation would match existing
+
+            string iterationName = iteration.IterationName();
 
             ConcurrentBag<string> excludedOrientations = new ConcurrentBag<string>();
             excludedOrientations.Add("0");
@@ -304,6 +347,9 @@ namespace BH.Engine.Environment.SAP
                             compassDirection += 8;
 
                         report.SAP10Data.PropertyDetails.Orientation = compassDirection.ToString();
+
+                        string identifier = report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier;
+                        report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier = $"{identifier}-{iterationName}";
                     }
                 }
             });

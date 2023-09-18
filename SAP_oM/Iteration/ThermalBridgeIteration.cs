@@ -42,5 +42,9 @@ namespace BH.oM.Environment.SAP
 
         [Description("A list of Thermal Bridge names to make changes to. If this is left blank, then all the Thermal Bridges within the SAP Report will be updated to have the provided PSI Value.")]
         public virtual List<string> Include { get; set; } = null;
+
+        //Tweak to use as a list of Psi plus Names (E3, E4, etc.)
+
+        //Air Permeability runs on PropertyDetails -> Ventilation -> AirPerm property - no filter just like OrientationIteration
     }
 }
