@@ -34,13 +34,10 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Describe a single iteration of U and G Values for opening types. If both values are provided, then both values will be updated. This will not blend the iteration (i.e. it will not be one iteration with updated UValue, one iteration with updated GValue, and one iteration with both).")]
-    public class OpeningTypeIteration : BHoMObject, IIteration
+    public class OpeningTypeUValueIteration : BHoMObject, IOpeningTypeIteration
     {
         [Description("New UValue to use for the Opening Type. Must be a positive number. Measured in Watts per Meter Squared Kelvin (W/m2K). If no value is provided, then no changes to UValue will be made.")]
         public virtual double UValue { get; set; } = double.NaN;
-
-        [Description("New GValue to use for the Opening Type. Must be a positive number between 0-1 as a ratio of how much of the total light is transmitted through the opening construction. If no value is provided, no changes to GValue will be made.")]
-        public virtual double GValue { get; set; } = double.NaN;
 
         [Description("A list of Opening Types to make changes to. If this is left blank, then all opening types will be updated within the SAP Report for the U and G Values provided.")]
         public virtual List<string> Include { get; set; } = null;

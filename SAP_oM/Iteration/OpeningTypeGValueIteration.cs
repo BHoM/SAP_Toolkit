@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
  *
@@ -31,33 +31,15 @@ using BH.oM.Environment.SAP;
 using System.ComponentModel;
 using BH.oM.Base;
 
-namespace BH.oM.Environment.SAP.XML
+namespace BH.oM.Environment.SAP
 {
-    [Description("One parameters object defines an iteration, input as many iterators to make changes within one iteration.")]
-    public class Parameters : IObject
+    [Description("Describe a single iteration of U and G Values for opening types. If both values are provided, then both values will be updated. This will not blend the iteration (i.e. it will not be one iteration with updated UValue, one iteration with updated GValue, and one iteration with both).")]
+    public class OpeningTypeGValueIteration : BHoMObject, IOpeningTypeIteration
     {
-        [Description("CurrentIterator name.")]
-        public virtual string IterationName { get; set; } = null;
+        [Description("New GValue to use for the Opening Type. Must be a positive number between 0-1 as a ratio of how much of the total light is transmitted through the opening construction. If no value is provided, no changes to GValue will be made.")]
+        public virtual double GValue { get; set; } = double.NaN;
 
-        [Description("List of opening type iterators.")]
-        public virtual List<OpeningTypeUValueIteration> OpeningTypes { get; set; } = null;
-
-        [Description("List of opening iterators.")]
-        public virtual List<OpeningIteration> Openings { get; set; } = null;
-
-        [Description("List of wall iterators.")]
-        public virtual List<WallIteration> Walls { get; set; } = null;
-
-        [Description("Orientation Iterator")]
-        public virtual OrientationIteration Orientation { get; set; } = null;
-
-        [Description("List of roof iterators.")]
-        public virtual List<RoofIteration> Roofs { get; set; } = null;
-
-        [Description("List of floor iterators.")]
-        public virtual List<FloorIteration> Floors { get; set; } = null;
-
-        [Description("List of Thermal Bridge iterators.")]
-        public virtual List<ThermalBridgeIteration> ThermalBridges { get; set; } = null;
+        [Description("A list of Opening Types to make changes to. If this is left blank, then all opening types will be updated within the SAP Report for the U and G Values provided.")]
+        public virtual List<string> Include { get; set; } = null;
     }
 }
