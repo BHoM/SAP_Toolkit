@@ -31,6 +31,7 @@ using System.Linq;
 using BH.oM.Environment.SAP.XML;
 using BH.oM.Environment.SAP;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace BH.Adapter.SAP
 {
@@ -55,7 +56,13 @@ namespace BH.Adapter.SAP
                 Directory.CreateDirectory(config.OutputDirectory);
 
             if (typeof(T) == typeof(SAPReport))
-                objects.OfType<SAPReport>().ToList().ForEach(x => CreateSAPReport(x, config));
+            {
+                Parallel.ForEach(objects.OfType<SAPReport>(), report =>
+                {
+                    CreateSAPReport(report, config);
+                });
+                //objects.OfType<SAPReport>().ToList().ForEach(x => CreateSAPReport(x, config));
+            }
 
             return true;
         }

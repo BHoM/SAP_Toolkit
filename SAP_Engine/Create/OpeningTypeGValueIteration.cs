@@ -30,7 +30,7 @@ namespace BH.Engine.Environment.SAP
             if (!double.IsNaN(minGValue) && !double.IsNaN(maxGValue))
             {
                 double diff = maxGValue - minGValue;
-                double step = diff / (double)steps;
+                double step = diff / (double)(steps - 1); //-1 so that the final step is the max value
 
                 for (double x = minGValue; x <= maxGValue; x += step)
                 {
@@ -41,7 +41,7 @@ namespace BH.Engine.Environment.SAP
                     gValueIterations.Add(iteration);
                 }
 
-                if (gValueIterations.Last().GValue != maxGValue)
+                if ((gValueIterations.Last().GValue  - maxGValue) > BH.oM.Geometry.Tolerance.Distance)
                 {
                     OpeningTypeGValueIteration iteration = new OpeningTypeGValueIteration();
                     iteration.GValue = maxGValue;
