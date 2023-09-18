@@ -34,7 +34,7 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Describe a single iteration for wall changes within the SAP Context. If values for both UValue and Curtain Wall are provided, both will be applied to the walls specified, i.e. they will not be blended to produce one iteration for the UValue change, one for Curtain Wall change, and one for both.")]
-    public class WallIteration : IObject
+    public class WallIteration : IIteration
     {
         [Description("New UValue to use for the Wall(s). Must be a positive number. Measured in Watts per Meter Squared Kelvin (W/m2K).")]
         public virtual double UValue { get; set; } = double.NaN;

@@ -31,9 +31,15 @@ namespace BH.Engine.Environment.SAP
         {
             List<SAPReport> allReports = new List<SAPReport>(initialSAPReports);
 
-            foreach(var iteration in iterations)
+            var iterationTypes = iterations.Select(x => x.GetType()).Distinct();
+
+            foreach(var type in iterationTypes)
             {
-                allReports.AddRange(PrepareParametricStudy(allReports, iteration as dynamic));
+                var iterationsOfType = iterations.Where(x => x.GetType() == type).ToList();
+                foreach(var iteration in iterationsOfType)
+                {
+                    allReports.AddRange(PrepareParametricStudy(allReports, iteration as dynamic));
+                }
             }
 
             return allReports;
@@ -199,9 +205,9 @@ namespace BH.Engine.Environment.SAP
 
         [Description("Prepare a parametric study for a given set of SAP Reports, but only making changes to the Opening Types of the Reports. Iterations will not be blended with this component. The original reports will NOT be included in the returned objects.")]
         [Input("initialSAPReports", "The SAP Report objects to create iterations of.")]
-        [Input("iteration", "Opening Type Iterations to produce iterations of.")]
+        [Input("iteration", "Opening Type Iterations for U Values to produce iterations of.")]
         [Output("sapReports", "The SAP Reports with modified opening types according to the iterations provided.")]
-        public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, OpeningTypeIteration iteration)
+        public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, OpeningTypeUValueIteration iteration)
         {
             List<SAPReport> newReports = new List<SAPReport>(initialSAPReports);
 
@@ -212,13 +218,38 @@ namespace BH.Engine.Environment.SAP
 
             Parallel.ForEach(newReports, report =>
             {
-                for(int x = 0; x < report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType.Count; x++)
+                for (int x = 0; x < report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType.Count; x++)
                 {
                     if (includedItems.Contains(report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType[x].Description))
                     {
                         if (!double.IsNaN(iteration.UValue))
                             report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType[x].UValue = iteration.UValue.ToString();
+                    }
+                }
+            });
 
+            return newReports;
+        }
+
+        [Description("Prepare a parametric study for a given set of SAP Reports, but only making changes to the Opening Types of the Reports. Iterations will not be blended with this component. The original reports will NOT be included in the returned objects.")]
+        [Input("initialSAPReports", "The SAP Report objects to create iterations of.")]
+        [Input("iteration", "Opening Type Iterations for G Values to produce iterations of.")]
+        [Output("sapReports", "The SAP Reports with modified opening types according to the iterations provided.")]
+        public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, OpeningTypeGValueIteration iteration)
+        {
+            List<SAPReport> newReports = new List<SAPReport>(initialSAPReports);
+
+            //To be thread safe on the parallel for loops below, convert the List<string> to ConcurrentBag<string>
+            ConcurrentBag<string> includedItems = new ConcurrentBag<string>();
+            if (iteration.Include != null)
+                includedItems = new ConcurrentBag<string>(iteration.Include);
+
+            Parallel.ForEach(newReports, report =>
+            {
+                for (int x = 0; x < report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType.Count; x++)
+                {
+                    if (includedItems.Contains(report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType[x].Description))
+                    {
                         if (!double.IsNaN(iteration.GValue))
                             report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType[x].GValue = iteration.GValue.ToString();
                     }
