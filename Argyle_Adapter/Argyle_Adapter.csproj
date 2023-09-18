@@ -56,10 +56,14 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="XML_Adapter">
-      <HintPath>..\..\..\..\..\..\..\ProgramData\BHoM\Assemblies\XML_Adapter.dll</HintPath>
+      <HintPath>$(ProgramData)\BHoM\Assemblies\XML_Adapter.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="XML_oM">
-      <HintPath>..\..\..\..\..\..\..\ProgramData\BHoM\Assemblies\XML_oM.dll</HintPath>
+      <HintPath>$(ProgramData)\BHoM\Assemblies\XML_oM.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
   </ItemGroup>
 
