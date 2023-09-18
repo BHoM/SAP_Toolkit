@@ -37,7 +37,7 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="Excel_oM">
-      <HintPath>..\..\..\..\..\..\..\ProgramData\BHoM\Assemblies\Excel_oM.dll</HintPath>
+      <HintPath>$(ProgramData)\BHoM\Assemblies\Excel_oM.dll</HintPath>
     </Reference>
     <Reference Include="Geometry_oM">
       <HintPath>$(ProgramData)\BHoM\Assemblies\Geometry_oM.dll</HintPath>
