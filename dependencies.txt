@@ -3,3 +3,4 @@ BHoM/BHoM_Engine
 BHoM/BHoM_Adapter
 BHoM/Excel_Toolkit
 BHoM/Localisation_Toolkit
+BHoM/XML_Toolkit
