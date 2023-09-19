@@ -34,7 +34,7 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Describe a single PSI Value to use for thermal bridges within the SAP context.")]
-    public class ThermalBridgeIteration : BHoMObject, IIteration
+    public class ThermalBridgeIteration : BHoMObject
     {
         [Description("A collection of Thermal Bridge Values to group as a single iteration for parametrics.")]
         public virtual List<ThermalBridgeValue> Values { get; set; } = new List<ThermalBridgeValue>();

@@ -49,10 +49,12 @@ namespace BH.Engine.Environment.SAP
             "If you want a parmetric study WITHOUT this full blending, use the PrepareParametricStudy component which takes the specific type of iteration in as an input.")]
         [Input("initialSAPReports", "The SAP Report objects to create iterations of.")]
         [Input("iterations", "The collection of iteration objects to produce multiple SAP Reports from.")]
+        [Input("includeOriginalReports", "Decide whether to include the initial SAP Reports in the output of creating the parametric studies. Defaults to false, indicating that the original reports will NOT be returned from this method. If set to true, then they will be included in the output as well.")]
         [Output("sapReports", "The SAP Reports modified in line with the iteration objects.")]
-        public static List<SAPReport> PrepareParametricStudy(this List<SAPReport> initialSAPReports, List<IIteration> iterations)
+        public static List<SAPReport> PrepareParametricStudy(this List<SAPReport> initialSAPReports, List<IIteration> iterations, bool includeOriginalReports = false)
         {
             List<SAPReport> allReports = new List<SAPReport>(initialSAPReports);
+            List<SAPReport> rtnReports = new List<SAPReport>();
 
             var iterationTypes = iterations.Select(x => x.GetType()).Distinct();
 
@@ -68,9 +70,13 @@ namespace BH.Engine.Environment.SAP
                 }
 
                 allReports.AddRange(reportsForType);
+                rtnReports.AddRange(reportsForType);
             }
 
-            return allReports;
+            if (includeOriginalReports)
+                return allReports;
+            else
+                return rtnReports;
         }
 
         [Description("Prepare a parametric study for a given set of SAP Reports, but only making changes to the Floors of the Reports. Iterations will not be blended with this component. The original reports will NOT be included in the returned objects.")]
@@ -366,36 +372,6 @@ namespace BH.Engine.Environment.SAP
             Parallel.ForEach(newReports, report =>
             {
                 report.SAP10Data.PropertyDetails.Ventilation.AirPermeability = iteration.AirPermeability.ToString();
-            });
-
-            return newReports;
-        }
-
-        [Description("Prepare a parametric study for a given set of SAP Reports, but only making changes to the specific Thermal Bridge values of the Reports. Iterations will not be blended with this component. The original reports will NOT be included in the returned objects.")]
-        [Input("initialSAPReports", "The SAP Report objects to create iterations of.")]
-        [Input("iteration", "Thermal Bridge Values to produce iterations of.")]
-        [Output("sapReports", "The SAP Reports with modified thermal bridge values according to the iterations provided.")]
-        public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, ThermalBridgeValue iteration)
-        {
-            List<SAPReport> newReports = initialSAPReports.Select(x => x.DeepClone()).ToList();
-
-            if (double.IsNaN(iteration.PsiValue) || string.IsNullOrEmpty(iteration.Include))
-                return null; //Nothing to change
-
-            Parallel.ForEach(newReports, report =>
-            {
-                foreach (var part in report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
-                {
-                    for (int x = 0; x < part.ThermalBridges.ThermalBridge.Count; x++)
-                    {
-                        if (iteration.Include == part.ThermalBridges.ThermalBridge[x].Type)
-                        {
-                            //Possibly change to part.ThermalBridges.ThermalBridge[x].CalculationReference?
-                            part.ThermalBridges.ThermalBridge[x].PsiValue = iteration.PsiValue;
-                            part.Identifier = $"{part.Identifier}-{iteration.Name}";
-                        }
-                    }
-                }
             });
 
             return newReports;
