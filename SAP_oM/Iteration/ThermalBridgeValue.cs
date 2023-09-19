@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
  *
@@ -34,10 +34,13 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Describe a single PSI Value to use for thermal bridges within the SAP context.")]
-    public class ThermalBridgeIteration : BHoMObject, IIteration
+    public class ThermalBridgeValue : BHoMObject, IIteration
     {
-        [Description("A collection of Thermal Bridge Values to group as a single iteration for parametrics.")]
-        public virtual List<ThermalBridgeValue> Values { get; set; } = new List<ThermalBridgeValue>();
+        [Description("New PSI Value to use for the thermal bridges. Must be a positive number.")]
+        public virtual double PsiValue { get; set; } = double.NaN;
+
+        [Description("The name of the Thermal Bridge (E3, E16, etc.) to which this PSI Value should be applied. If left blank, the value will be not be assigned to anything.")]
+        public virtual string Include { get; set; } = null;
 
         [Description("Provide the name of this iteration. The name should be unique across all iterations in your model, and should match any coordination with other models (over heating, daylighting, etc.) you may be running parametrics on.")]
         public override string Name { get; set; } = null;
