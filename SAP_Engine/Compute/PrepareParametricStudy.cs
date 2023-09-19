@@ -60,8 +60,12 @@ namespace BH.Engine.Environment.SAP
             {
                 var iterationsOfType = iterations.Where(x => x.GetType() == type).ToList();
                 List<SAPReport> reportsForType = new List<SAPReport>();
-                foreach(var iteration in iterationsOfType)
-                    reportsForType.AddRange(PrepareParametricStudy(allReports, iteration as dynamic));
+                foreach (var iteration in iterationsOfType)
+                {
+                    var study = PrepareParametricStudy(allReports, iteration as dynamic);
+                    if(study != null)
+                        reportsForType.AddRange(study);
+                }
 
                 allReports.AddRange(reportsForType);
             }
@@ -222,26 +226,11 @@ namespace BH.Engine.Environment.SAP
         {
             List<SAPReport> newReports = initialSAPReports.Select(x => x.DeepClone()).ToList();
 
-            //To be thread safe on the parallel for loops below, convert the List<string> to ConcurrentBag<string>
-            ConcurrentBag<string> includedItems = new ConcurrentBag<string>();
-            if (iteration.Include != null)
-                includedItems = new ConcurrentBag<string>(iteration.Include);
+            if (iteration.Values == null || iteration.Values.Count == 0)
+                return null; //Nothing to be done
 
-            Parallel.ForEach(newReports, report =>
-            {
-                foreach (var part in report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
-                {
-                    for (int x = 0; x < part.ThermalBridges.ThermalBridge.Count; x++)
-                    {
-                        if (includedItems.Count == 0 || includedItems.Contains(part.ThermalBridges.ThermalBridge[x].Type) && !double.IsNaN(iteration.PsiValue))
-                        {
-                            //Possibly change to part.ThermalBridges.ThermalBridge[x].CalculationReference?
-                            part.ThermalBridges.ThermalBridge[x].PsiValue = iteration.PsiValue;
-                            part.Identifier = $"{part.Identifier}-{iteration.Name}";
-                        }
-                    }
-                }
-            });
+            foreach(var value in iteration.Values)
+                newReports = PrepareParametricStudy(newReports, value); //Can't be parallel because we want each value to run on all reports for a single iteration
 
             return newReports;
         }
@@ -372,11 +361,41 @@ namespace BH.Engine.Environment.SAP
             List<SAPReport> newReports = initialSAPReports.Select(x => x.DeepClone()).ToList();
 
             if (double.IsNaN(iteration.AirPermeability))
-                return newReports; //Nothing to change
+                return null; //Nothing to change
 
             Parallel.ForEach(newReports, report =>
             {
                 report.SAP10Data.PropertyDetails.Ventilation.AirPermeability = iteration.AirPermeability.ToString();
+            });
+
+            return newReports;
+        }
+
+        [Description("Prepare a parametric study for a given set of SAP Reports, but only making changes to the specific Thermal Bridge values of the Reports. Iterations will not be blended with this component. The original reports will NOT be included in the returned objects.")]
+        [Input("initialSAPReports", "The SAP Report objects to create iterations of.")]
+        [Input("iteration", "Thermal Bridge Values to produce iterations of.")]
+        [Output("sapReports", "The SAP Reports with modified thermal bridge values according to the iterations provided.")]
+        public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, ThermalBridgeValue iteration)
+        {
+            List<SAPReport> newReports = initialSAPReports.Select(x => x.DeepClone()).ToList();
+
+            if (double.IsNaN(iteration.PsiValue) || string.IsNullOrEmpty(iteration.Include))
+                return null; //Nothing to change
+
+            Parallel.ForEach(newReports, report =>
+            {
+                foreach (var part in report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
+                {
+                    for (int x = 0; x < part.ThermalBridges.ThermalBridge.Count; x++)
+                    {
+                        if (iteration.Include == part.ThermalBridges.ThermalBridge[x].Type)
+                        {
+                            //Possibly change to part.ThermalBridges.ThermalBridge[x].CalculationReference?
+                            part.ThermalBridges.ThermalBridge[x].PsiValue = iteration.PsiValue;
+                            part.Identifier = $"{part.Identifier}-{iteration.Name}";
+                        }
+                    }
+                }
             });
 
             return newReports;
