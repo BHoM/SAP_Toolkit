@@ -34,7 +34,7 @@ using BH.oM.Base;
 namespace BH.oM.Environment.SAP
 {
     [Description("Describe a single PSI Value to use for thermal bridges within the SAP context.")]
-    public class ThermalBridgeValue : BHoMObject, IIteration
+    public class ThermalBridgeValue : BHoMObject
     {
         [Description("New PSI Value to use for the thermal bridges. Must be a positive number.")]
         public virtual double PsiValue { get; set; } = double.NaN;
