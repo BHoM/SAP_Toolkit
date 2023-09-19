@@ -30,10 +30,12 @@ using BH.oM.Environment.SAP.XML;
 using BH.oM.Environment.SAP;
 using System.ComponentModel;
 using BH.oM.Base;
+using BH.oM.Base.Attributes;
 
 namespace BH.oM.Environment.SAP
 {
     [Description("Describe a single PSI Value to use for thermal bridges within the SAP context.")]
+    [NoAutoConstructor]
     public class ThermalBridgeIteration : BHoMObject, IIteration
     {
         [Description("A collection of Thermal Bridge Values to group as a single iteration for parametrics.")]
