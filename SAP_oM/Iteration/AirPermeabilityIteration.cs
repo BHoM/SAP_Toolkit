@@ -38,5 +38,8 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("New value to use for the air permeability. Must be a positive number. Applies to the ventilation of the whole building within the SAP Report.")]
         public virtual double AirPermeability { get; set; } = double.NaN;
+
+        [Description("Provide the name of this iteration. The name should be unique across all iterations in your model, and should match any coordination with other models (over heating, daylighting, etc.) you may be running parametrics on.")]
+        public override string Name { get; set; } = null;
     }
 }

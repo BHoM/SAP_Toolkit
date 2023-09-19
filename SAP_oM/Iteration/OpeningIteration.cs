@@ -47,5 +47,8 @@ namespace BH.oM.Environment.SAP
 
         [Description("A list of Opening names to make changes to. If this is left blank, then all openings in the SAP report will be updated based on the values of this iteration.")]
         public virtual List<string> Include { get; set; } = null;
+
+        [Description("Provide the name of this iteration. The name should be unique across all iterations in your model, and should match any coordination with other models (over heating, daylighting, etc.) you may be running parametrics on.")]
+        public override string Name { get; set; } = null;
     }
 }

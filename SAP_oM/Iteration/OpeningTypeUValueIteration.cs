@@ -41,5 +41,8 @@ namespace BH.oM.Environment.SAP
 
         [Description("A list of Opening Types to make changes to. If this is left blank, then all opening types will be updated within the SAP Report for the U and G Values provided.")]
         public virtual List<string> Include { get; set; } = null;
+
+        [Description("Provide the name of this iteration. The name should be unique across all iterations in your model, and should match any coordination with other models (over heating, daylighting, etc.) you may be running parametrics on.")]
+        public override string Name { get; set; } = null;
     }
 }
