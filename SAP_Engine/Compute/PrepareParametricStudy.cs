@@ -362,5 +362,34 @@ namespace BH.Engine.Environment.SAP
 
             return newReports;
         }
+
+        [Description("Prepare a parametric study for a given set of SAP Reports, but only making changes to the Air Permeability of the Reports. Iterations will not be blended with this component. The original reports will NOT be included in the returned objects.")]
+        [Input("initialSAPReports", "The SAP Report objects to create iterations of.")]
+        [Input("iteration", "Air Permeability Iterations to produce iterations of.")]
+        [Output("sapReports", "The SAP Reports with modified air permeabilities according to the iterations provided.")]
+        public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, AirPermeabilityIteration iteration)
+        {
+            List<SAPReport> newReports = initialSAPReports.Select(x => x.DeepClone()).ToList();
+
+            if (double.IsNaN(iteration.AirPermeability))
+                return newReports; //Nothing to change
+
+            Parallel.ForEach(newReports, report =>
+            {
+                report.SAP10Data.PropertyDetails.Ventilation.AirPermeability = iteration.AirPermeability.ToString();
+            });
+
+            return newReports;
+        }
+
+        /***************************************************/
+        /**** Private Fallback Methods                  ****/
+        /***************************************************/
+
+        private static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, object iteration)
+        {
+            BH.Engine.Base.Compute.RecordError($"Parametric iteration for {iteration.GetType().Name} has not been implemented. Please speak to the development team.");
+            return initialSAPReports;
+        }
     }
 }
