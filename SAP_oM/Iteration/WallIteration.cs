@@ -44,5 +44,8 @@ namespace BH.oM.Environment.SAP
 
         [Description("A list of Wallnames to make changes to. If this is left blank, then all walls in the SAP Report will be updated to have this UValue.")]
         public virtual List<string> Include { get; set; } = null;
+
+        [Description("Provide the name of this iteration. The name should be unique across all iterations in your model, and should match any coordination with other models (over heating, daylighting, etc.) you may be running parametrics on.")]
+        public override string Name { get; set; } = null;
     }
 }
