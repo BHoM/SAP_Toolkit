@@ -134,6 +134,12 @@ namespace BH.Adapter.SAP
 
                 var schedule = dwellingSchedules.Where(x => x.DwellingTypeName == space).FirstOrDefault();
 
+                if(schedule == null)
+                {
+                    BH.Engine.Base.Compute.RecordError($"Could not find a Dwelling Schedule for dwelling with name {space}. Please check your Dwelling Schedules and try again.");
+                    continue;
+                }
+
                 part.Identifier = space;
                 part.BuildingPartNumber = "1";
                 part.ConstructionYear = schedule.ConstructionYear;
@@ -190,7 +196,9 @@ namespace BH.Adapter.SAP
                 var schedule = dwellingSchedules.Where(x => x.DwellingTypeName == space).FirstOrDefault();
 
                 data.PropertyDetails = xmlPropertyDetailsBySpace[space];
-                data.DataType = ((int)schedule.ConstructionType).ToString();
+                
+                if(schedule != null)
+                    data.DataType = ((int)schedule.ConstructionType).ToString();
 
                 SXML.SAPReport report = new SXML.SAPReport();
 
