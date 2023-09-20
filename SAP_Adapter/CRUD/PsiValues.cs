@@ -64,7 +64,7 @@ namespace BH.Adapter.SAP
 
             foreach (var tableRow in excelRows)
             {
-                if (tableRow.Content.Count < 3)
+                if (tableRow.Content.Count < 3 || !TableRowHasContent(tableRow))
                     return null;
 
                 var content = tableRow.Content.OfType<CellContents>().ToList();

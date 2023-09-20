@@ -31,6 +31,7 @@ using BH.oM.Adapters.Excel;
 using BH.Adapter.Excel;
 using System.Linq;
 using BH.oM.Environment.SAP.Excel;
+using System.Runtime.CompilerServices;
 
 namespace BH.Adapter.SAP
 {
@@ -64,7 +65,7 @@ namespace BH.Adapter.SAP
 
             foreach(var tableRow in excelRows)
             {
-                if (tableRow.Content.Count < 4)
+                if (tableRow.Content.Count < 4 || !TableRowHasContent(tableRow))
                     continue;
 
                 var content = tableRow.Content.OfType<CellContents>().ToList();
@@ -90,6 +91,15 @@ namespace BH.Adapter.SAP
             }
 
             return floorDefinitions;
+        }
+
+        private bool TableRowHasContent(TableRow tableRow)
+        {
+            bool hasData = true;
+            foreach (var content in tableRow.Content.OfType<CellContents>())
+                hasData &= content != null && content.Value != null && !string.IsNullOrEmpty(content.Value.ToString());
+
+            return hasData;
         }
     }
 }
