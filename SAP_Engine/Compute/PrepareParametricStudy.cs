@@ -99,11 +99,10 @@ namespace BH.Engine.Environment.SAP
                     for(int x = 0; x < part.FloorDimensions.FloorDimension.Count; x++)
                     {
                         if (includedItems.Count == 0 || includedItems.Contains(part.FloorDimensions.FloorDimension[x].Description) && !double.IsNaN(iteration.UValue))
-                        {
                             part.FloorDimensions.FloorDimension[x].UValue = iteration.UValue.ToString();
-                            part.Identifier = $"{part.Identifier}-{iteration.Name}";
-                        }
                     }
+
+                    part.Identifier = $"{part.Identifier}-{iteration.Name}";
                 }
             });
 
@@ -136,10 +135,10 @@ namespace BH.Engine.Environment.SAP
 
                             if (iteration.IsCurtainWall.HasValue)
                                 part.Walls.Wall[x].CurtainWall = iteration.IsCurtainWall.Value;
-
-                            part.Identifier = $"{part.Identifier}-{iteration.Name}";
                         }
                     }
+
+                    part.Identifier = $"{part.Identifier}-{iteration.Name}";
                 }
             });
 
@@ -183,10 +182,10 @@ namespace BH.Engine.Environment.SAP
 
                             if(!string.IsNullOrEmpty(iteration.Pitch))
                                 part.Openings.Opening[x].Pitch = iteration.Pitch;
-
-                            part.Identifier = $"{part.Identifier}-{iteration.Name}";
                         }
                     }
+
+                    part.Identifier = $"{part.Identifier}-{iteration.Name}";
                 }
             });
 
@@ -213,11 +212,10 @@ namespace BH.Engine.Environment.SAP
                     for (int x = 0; x < part.Roofs.Roof.Count; x++)
                     {
                         if (includedItems.Count == 0 || includedItems.Contains(part.Roofs.Roof[x].Description) && !double.IsNaN(iteration.UValue))
-                        {
                             part.Roofs.Roof[x].UValue = iteration.UValue.ToString();
-                            part.Identifier = $"{part.Identifier}-{iteration.Name}";
-                        }
                     }
+
+                    part.Identifier = $"{part.Identifier}-{iteration.Name}";
                 }
             });
 
@@ -262,11 +260,11 @@ namespace BH.Engine.Environment.SAP
                     {
                         if (!double.IsNaN(iteration.UValue))
                             report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType[x].UValue = iteration.UValue.ToString();
-
-                        string identifier = report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier;
-                        report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier = $"{identifier}-{iteration.Name}";
                     }
                 }
+
+                string identifier = report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier;
+                report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier = $"{identifier}-{iteration.Name}";
             });
 
             return newReports;
@@ -293,11 +291,11 @@ namespace BH.Engine.Environment.SAP
                     {
                         if (!double.IsNaN(iteration.GValue))
                             report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType[x].GValue = iteration.GValue.ToString();
-
-                        string identifier = report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier;
-                        report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier = $"{identifier}-{iteration.Name}";
                     }
                 }
+
+                string identifier = report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier;
+                report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier = $"{identifier}-{iteration.Name}";
             });
 
             return newReports;
@@ -348,11 +346,11 @@ namespace BH.Engine.Environment.SAP
                             compassDirection += 8;
 
                         report.SAP10Data.PropertyDetails.Orientation = compassDirection.ToString();
-
-                        string identifier = report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier;
-                        report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier = $"{identifier}-{iteration.Name}";
                     }
                 }
+
+                string identifier = report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier;
+                report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier = $"{identifier}-{iteration.Name}";
             });
 
             return newReports;
@@ -372,6 +370,9 @@ namespace BH.Engine.Environment.SAP
             Parallel.ForEach(newReports, report =>
             {
                 report.SAP10Data.PropertyDetails.Ventilation.AirPermeability = iteration.AirPermeability.ToString();
+
+                string identifier = report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier;
+                report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.FirstOrDefault().Identifier = $"{identifier}-{iteration.Name}";
             });
 
             return newReports;
