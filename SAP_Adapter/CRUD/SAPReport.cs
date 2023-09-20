@@ -136,7 +136,7 @@ namespace BH.Adapter.SAP
 
                 if(schedule == null)
                 {
-                    BH.Engine.Base.Compute.RecordError($"Could not find a Dwelling Schedule for dwelling with name {space}. Please check your Dwelling Schedules and try again.");
+                    BH.Engine.Base.Compute.RecordError($"Could not find a Dwelling Schedule for dwelling with name '{space}'. Please check your Dwelling Schedules and try again.");
                     continue;
                 }
 
