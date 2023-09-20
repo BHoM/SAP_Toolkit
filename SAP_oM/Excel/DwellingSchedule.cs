@@ -61,5 +61,11 @@ namespace BH.oM.Environment.SAP.Excel
 
         [Description("The type of construction for this dwelling (new build, refurb, etc.).")]
         public virtual DataTypeCode ConstructionType { get; set; } = DataTypeCode.Undefined;
+
+        [Description("The number of wet rooms this dwelling has.")]
+        public virtual double WetRooms { get; set; } = 0;
+
+        [Description("The number of sheltered sides this dwelling has.")]
+        public virtual int ShelteredSides { get; set; } = 0;
     }
 }

@@ -88,6 +88,30 @@ namespace BH.Adapter.SAP
                 if (typeOfProperty != null)
                     dwellingSchedule.TypeOfProperty = (TypeOfProperty)typeOfProperty;
 
+                double wetRooms = 0;
+                try
+                {
+                    wetRooms = double.Parse(content[5].Value.ToString());
+                }
+                catch { }
+
+                dwellingSchedule.WetRooms = wetRooms;
+
+                int shelteredSides = 0;
+                try
+                {
+                    shelteredSides = int.Parse(content[6].Value.ToString());
+                }
+                catch { }
+
+                dwellingSchedule.ShelteredSides = shelteredSides;
+
+                dwellingSchedule.ConstructionYear = content[7].Value.ToString();
+
+                var constructionType = Enum.Parse(typeof(DataTypeCode), content[8].Value.ToString());
+                if (constructionType != null)
+                    dwellingSchedule.ConstructionType = (DataTypeCode)constructionType;
+
                 dwellingSchedules.Add(dwellingSchedule);
             }
 

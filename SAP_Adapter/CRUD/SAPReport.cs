@@ -170,7 +170,14 @@ namespace BH.Adapter.SAP
 
                     propertyDetails.Orientation = ((int)schedule.DwellingOrientation).ToString();
                     propertyDetails.PropertyType = ((int)schedule.PropertyType).ToString();
+
+                    if (propertyDetails.Ventilation == null)
+                        propertyDetails.Ventilation = new Ventilation();
+
+                    propertyDetails.Ventilation.WetRoomsCount = schedule.WetRooms.ToString("#.##");
+                    propertyDetails.Ventilation.ShelteredSidesCount = schedule.ShelteredSides.ToString("#.##");
                 }
+
                 xmlPropertyDetailsBySpace.Add(space, propertyDetails);
             }
 
