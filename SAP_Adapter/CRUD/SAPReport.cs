@@ -45,10 +45,24 @@ namespace BH.Adapter.SAP
 {
     public partial class SAPAdapter
     {
+        private bool CreateSAPReport(SAPReport report, SAPPushConfig config)
+        {
+            FileSettings fs = new FileSettings()
+            {
+                Directory = config.OutputDirectory,
+                FileName = $"{report?.SAP10Data?.PropertyDetails?.BuildingParts?.BuildingPart?.FirstOrDefault()?.Identifier}.xml",
+            };
+
+            XMLConfig xmlConfig = new XMLConfig() { RemoveNils = true };
+            XMLAdapter xmlAdapter = new XMLAdapter(fs);
+            xmlAdapter.Push(new List<IBHoMObject>() { report }, actionConfig: xmlConfig);
+            return true;
+        }
+
         private List<SXML.SAPReport> ReadSAPReport(SAPPullConfig config)
         {
             var sapMarkupSummary = ReadSAPMarkupSummary(config)?[0];
-            if(sapMarkupSummary == null)
+            if (sapMarkupSummary == null)
             {
                 BH.Engine.Base.Compute.RecordError("Mark Up Summary did not return a viable object to produce a SAP Report with.");
                 return new List<SXML.SAPReport>();
@@ -56,16 +70,18 @@ namespace BH.Adapter.SAP
 
             //Group by space names
             var allSpaceNames = sapMarkupSummary.Markup.Select(x => x.Space).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
-            Dictionary<string, List<SAPMarkup>> openingDefinitionsBySpace = MarkUpsBySpace(allSpaceNames, sapMarkupSummary.Markup.Where(x => x.Layer == "Openings").ToList());
-            Dictionary<string, List<SAPMarkup>> wallDefinitionsBySpace = MarkUpsBySpace(allSpaceNames, sapMarkupSummary.Markup.Where(x => x.Layer == "External Wall").ToList());
-            Dictionary<string, List<SAPMarkup>> roofDefinitionsBySpace = MarkUpsBySpace(allSpaceNames, sapMarkupSummary.Markup.Where(x => x.Layer == "Roofs").ToList());
-            Dictionary<string, List<SAPMarkup>> floorDefinitionsBySpace = MarkUpsBySpace(allSpaceNames, sapMarkupSummary.Markup.Where(x => x.Layer == "Floor Areas").ToList());
+            Dictionary<string, List<SAPMarkup>> openingDefinitionsBySpace = MarkUpsBySpace(allSpaceNames, sapMarkupSummary.Markup.Where(x => x.Layer == config.BluebeamConfig.OpeningLayerName).ToList());
+            Dictionary<string, List<SAPMarkup>> wallDefinitionsBySpace = MarkUpsBySpace(allSpaceNames, sapMarkupSummary.Markup.Where(x => x.Layer == config.BluebeamConfig.WallLayerName).ToList());
+            Dictionary<string, List<SAPMarkup>> roofDefinitionsBySpace = MarkUpsBySpace(allSpaceNames, sapMarkupSummary.Markup.Where(x => x.Layer == config.BluebeamConfig.RoofLayerName).ToList());
+            Dictionary<string, List<SAPMarkup>> floorDefinitionsBySpace = MarkUpsBySpace(allSpaceNames, sapMarkupSummary.Markup.Where(x => x.Layer == config.BluebeamConfig.FloorLayerName).ToList());
 
             Dictionary<string, List<SXML.OpeningType>> xmlOpeningTypesBySpace = XMLOpeningTypesBySpace(openingDefinitionsBySpace, config);
 
             foreach (string s in allSpaceNames)
             {
-                openingDefinitionsBySpace[s] = openingDefinitionsBySpace[s].ModifyOpeningType(); //Update opening type names to meet schema
+                var openingTypesUpdated = openingDefinitionsBySpace[s].ModifyOpeningType(xmlOpeningTypesBySpace[s]); //Update opening type names to meet schema
+                openingDefinitionsBySpace[s] = openingTypesUpdated.Item1;
+                xmlOpeningTypesBySpace[s] = openingTypesUpdated.Item2;
 
                 var wallsUpdated = wallDefinitionsBySpace[s].ModifyWallNames(openingDefinitionsBySpace[s]); //Update wall type names to meet schema
                 wallDefinitionsBySpace[s] = wallsUpdated.Item1;
@@ -84,20 +100,33 @@ namespace BH.Adapter.SAP
 
             //Roofs
             Dictionary<string, List<SXML.Roof>> xmlRoofsBySpace = XMLRoofsBySpace(roofDefinitionsBySpace, config);
+            var dummyRoof = new SXML.Roof()
+            {
+                Area = "0",
+                Name = "Party Ceiling",
+                Description = "Ceiling",
+                UValue = "0.0",
+                Type = "4",
+            };
+            foreach (var s in allSpaceNames)
+            {
+                if (xmlRoofsBySpace[s].Count == 0)
+                    xmlRoofsBySpace[s].Add(dummyRoof);
+            }
 
             //Floors
             Dictionary<string, List<SXML.FloorDimension>> xmlFloorsBySpace = XMLFloorDimensionsBySpace(floorDefinitionsBySpace, config);
 
             //Thermal bridges
-            Dictionary<string, List<SAPMarkup>> thermalBridgesBySpace = MarkUpsBySpace(allSpaceNames, sapMarkupSummary.Markup.Where(x => x.Layer == "Thermal Bridging").ToList());
+            Dictionary<string, List<SAPMarkup>> thermalBridgesBySpace = MarkUpsBySpace(allSpaceNames, sapMarkupSummary.Markup.Where(x => x.Layer == config.BluebeamConfig.ThermalBridgeLayerName).ToList());
             Dictionary<string, List<SXML.ThermalBridge>> xmlThermalBridgesBySpace = XMLThermalBridgesBySpace(thermalBridgesBySpace, config);
 
             //Living area
-            var zone1 = sapMarkupSummary.Markup.Where(x => x.Layer == "Zone 1");
+            var zone1 = sapMarkupSummary.Markup.Where(x => x.Layer == config.BluebeamConfig.LivingAreaLayerName);
             Dictionary<string, double> livingAreaBySpace = new Dictionary<string, double>();
 
             //Floor area
-            var floorAreaMarkups = sapMarkupSummary.Markup.Where(x => x.Layer == "Floor Areas");
+            var floorAreaMarkups = sapMarkupSummary.Markup.Where(x => x.Layer == config.BluebeamConfig.FloorLayerName);
             Dictionary<string, double> floorAreaBySpace = new Dictionary<string, double>();
 
             foreach (string name in allSpaceNames)
@@ -109,7 +138,7 @@ namespace BH.Adapter.SAP
 
             //Lights
             Dictionary<string, SXML.FixedLight> xmlLightsBySpace = new Dictionary<string, SXML.FixedLight>();
-            foreach(var kvp in floorAreaBySpace)
+            foreach (var kvp in floorAreaBySpace)
             {
                 SXML.FixedLight light = new SXML.FixedLight();
                 light.LightingOutlets = 1;
@@ -128,13 +157,13 @@ namespace BH.Adapter.SAP
             //Building Parts
             var dwellingSchedules = ReadDwellingSchedules(config);
             Dictionary<string, SXML.BuildingParts> xmlBuildingPartsBySpace = new Dictionary<string, SXML.BuildingParts>();
-            foreach(var space in allSpaceNames)
+            foreach (var space in allSpaceNames)
             {
                 SXML.BuildingPart part = new SXML.BuildingPart();
 
                 var schedule = dwellingSchedules.Where(x => x.DwellingTypeName == space).FirstOrDefault();
 
-                if(schedule == null)
+                if (schedule == null)
                 {
                     BH.Engine.Base.Compute.RecordError($"Could not find a Dwelling Schedule for dwelling with name '{space}'. Please check your Dwelling Schedules and try again.");
                     continue;
@@ -154,7 +183,7 @@ namespace BH.Adapter.SAP
 
             //Property Details
             Dictionary<string, SXML.PropertyDetails> xmlPropertyDetailsBySpace = new Dictionary<string, SXML.PropertyDetails>();
-            foreach(var space in allSpaceNames)
+            foreach (var space in allSpaceNames)
             {
                 SXML.PropertyDetails propertyDetails = new SXML.PropertyDetails();
 
@@ -189,15 +218,15 @@ namespace BH.Adapter.SAP
 
             //SAP10 data
             Dictionary<string, SXML.SAPReport> sapReportBySpace = new Dictionary<string, SXML.SAPReport>();
-            foreach(var space in allSpaceNames)
+            foreach (var space in allSpaceNames)
             {
                 SXML.SAP10Data data = new SXML.SAP10Data();
 
                 var schedule = dwellingSchedules.Where(x => x.DwellingTypeName == space).FirstOrDefault();
 
                 data.PropertyDetails = xmlPropertyDetailsBySpace[space];
-                
-                if(schedule != null)
+
+                if (schedule != null)
                     data.DataType = ((int)schedule.ConstructionType).ToString();
 
                 SXML.SAPReport report = new SXML.SAPReport();
@@ -211,7 +240,7 @@ namespace BH.Adapter.SAP
             Dictionary<string, SXML.SAPReport> fixedReportBySpace = new Dictionary<string, SXML.SAPReport>();
             var psiValues = ReadPsiValues(config);
             var openingPsiValues = ReadOpeningPsiValues(config);
-            foreach(var kvp in sapReportBySpace)
+            foreach (var kvp in sapReportBySpace)
             {
                 var newReport = Modify.ThermalBridgesFromOpening(kvp.Value, psiValues, openingPsiValues);
                 fixedReportBySpace.Add(kvp.Key, newReport);
@@ -220,7 +249,7 @@ namespace BH.Adapter.SAP
             //Heating files
             Dictionary<string, SXML.SAPReport> fixedReportWithHeatingBySpace = new Dictionary<string, SXML.SAPReport>();
 
-            foreach(var dwellingSchedule in dwellingSchedules)
+            foreach (var dwellingSchedule in dwellingSchedules)
             {
                 FileSettings fs = new FileSettings()
                 {
@@ -237,20 +266,6 @@ namespace BH.Adapter.SAP
             }
 
             return fixedReportWithHeatingBySpace.Select(x => x.Value).ToList();
-        }
-
-        private bool CreateSAPReport(SAPReport report, SAPPushConfig config)
-        {
-            FileSettings fs = new FileSettings()
-            {
-                Directory = config.OutputDirectory,
-                FileName = $"{report?.SAP10Data?.PropertyDetails?.BuildingParts?.BuildingPart?.FirstOrDefault()?.Identifier}.xml",
-            };
-
-            XMLConfig xmlConfig = new XMLConfig() { RemoveNils = true };
-            XMLAdapter xmlAdapter = new XMLAdapter(fs);
-            xmlAdapter.Push(new List<IBHoMObject>() { report }, actionConfig: xmlConfig);
-            return true;
         }
 
         private Dictionary<string, List<SAPMarkup>> MarkUpsBySpace(List<string> spaceNames, List<SAPMarkup> markups)
@@ -270,7 +285,7 @@ namespace BH.Adapter.SAP
             foreach (KeyValuePair<string, List<SAPMarkup>> kvp in markupsBySpace)
             {
                 List<SXML.Opening> xmlOpenings = new List<SXML.Opening>();
-                for(int x = 0; x < kvp.Value.Count; x++)
+                for (int x = 0; x < kvp.Value.Count; x++)
                     xmlOpenings.Add(Convert.ToSAPOpening(kvp.Value[x], (x + 1).ToString()));
 
                 xmlOpeningsBySpace.Add(kvp.Key, xmlOpenings);
@@ -285,10 +300,10 @@ namespace BH.Adapter.SAP
 
             var floorDimensionsFromExcel = ReadFloorDefinitions(config);
 
-            foreach(KeyValuePair<string, List<SAPMarkup>> kvp in markupsBySpace)
+            foreach (KeyValuePair<string, List<SAPMarkup>> kvp in markupsBySpace)
             {
                 List<SXML.FloorDimension> dimensions = new List<SXML.FloorDimension>();
-                for(int x = 0; x < kvp.Value.Count; x++)
+                for (int x = 0; x < kvp.Value.Count; x++)
                 {
                     var importedDimension = floorDimensionsFromExcel.Where(a =>
                     {
@@ -384,12 +399,12 @@ namespace BH.Adapter.SAP
 
             var openingDimensionsFromExcel = ReadOpeningDefinitions(config);
 
-            foreach(var kvp in markupsBySpace)
+            foreach (var kvp in markupsBySpace)
             {
                 List<SXML.OpeningType> types = new List<SXML.OpeningType>();
 
                 var uniqueTypes = kvp.Value.Select(x => x.OpeningType).ToList();
-                foreach(var type in uniqueTypes)
+                foreach (var type in uniqueTypes)
                 {
                     var importedData = openingDimensionsFromExcel.Where(a => a.OpeningType == type).FirstOrDefault();
 
@@ -408,7 +423,7 @@ namespace BH.Adapter.SAP
 
             var psiValuesFromExcel = ReadPsiValues(config);
 
-            foreach(var kvp in markupsBySpace)
+            foreach (var kvp in markupsBySpace)
             {
                 List<SXML.ThermalBridge> bridges = new List<SXML.ThermalBridge>();
 

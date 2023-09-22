@@ -44,9 +44,6 @@ namespace BH.oM.Environment.SAP.Excel
         [Description("Heating file name, eg HeatingFile.xml .")]
         public virtual string FileName { get; set; } = string.Empty;
 
-        [Description("Heating file name, eg HeatingFile.xml .")]
-        public virtual TypeOfProperty TypeOfProperty { get; set; } = TypeOfProperty.Flat;
-
         [Description("Indication of where a flat is located in a building.")]
         public virtual string Level { get; set; } = null;
 
