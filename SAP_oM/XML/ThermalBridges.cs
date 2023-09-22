@@ -37,7 +37,7 @@ namespace BH.oM.Environment.SAP.XML
     {
         [Description("Code which indicates how the thermal bridge data has been recorded.")]
         [XmlElement("Thermal-Bridge-Code")]
-        public virtual string ThermalBridgeCode { get; set; } = "1";
+        public virtual string ThermalBridgeCode { get; set; } = "5"; //https://github.com/communitiesuk/epb-register-api/blob/0ea6fe5e3916a7949cecc6a5399a302aada09f7a/api/schemas/xml/SAP-Schema-NI-18.0.0/SAP/UDT/SAP09-Domains.xsd#L607
 
         [Description("Global y-value for all thermal bridges in watts per square metre per kelvin; only if thermal bridge code is: user defined (global y-value).")]
         [XmlElement(ElementName = "User-Defined-Y-Value")]
