@@ -45,7 +45,7 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description(".")]
         [XmlElement("Psi-Value-Source")]
-        public virtual string PsiSource { get; set; } = null;  //4
+        public virtual string PsiSource { get; set; } = "1";
         
         [Description("Code to indicate a particular type of thermal bridge; only if thermal bridge code is: user defined (individual values).")]
         [XmlElement("Thermal-Bridge-Type")]
