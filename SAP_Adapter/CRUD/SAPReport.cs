@@ -176,7 +176,7 @@ namespace BH.Adapter.SAP
                 part.Openings = new SXML.Openings() { Opening = xmlOpeningsBySpace[space] };
                 part.Roofs = new SXML.Roofs() { Roof = xmlRoofsBySpace[space] };
                 part.Walls = new SXML.Walls() { Wall = xmlWallsBySpace[space] };
-                part.ThermalBridges = new SXML.ThermalBridges() { ThermalBridge = xmlThermalBridgesBySpace[space], ThermalBridgeCode = "1" };
+                part.ThermalBridges = new SXML.ThermalBridges() { ThermalBridge = xmlThermalBridgesBySpace[space], ThermalBridgeCode = "5" };
 
                 xmlBuildingPartsBySpace.Add(space, new SXML.BuildingParts() { BuildingPart = new List<SXML.BuildingPart>() { part } });
             }

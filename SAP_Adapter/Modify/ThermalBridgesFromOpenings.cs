@@ -217,7 +217,7 @@ namespace BH.Adapter.SAP
             BH.oM.Environment.SAP.XML.ThermalBridge tb = new oM.Environment.SAP.XML.ThermalBridge
             {
                 Type = type,
-                PsiSource = "4",
+                PsiSource = "1",
                 PsiValue = psiValue,
                 Length = length,
                 CalculationReference = $"From opening {openingType}, created by SAP Toolkit, you're welcome :)."
