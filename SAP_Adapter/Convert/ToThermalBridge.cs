@@ -63,7 +63,7 @@ namespace BH.Adapter.SAP
             else
                 t.Length = markup.Length;
 
-            t.PsiSource = "4";
+            t.PsiSource = "1";
             t.PsiValue = psiValue.PsiValue;
 
             return t;
