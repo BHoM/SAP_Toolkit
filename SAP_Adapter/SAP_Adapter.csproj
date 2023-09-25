@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+<Description>https://github.com/BHoM/SAP_Toolkit</Description>
     <RootNamespace>BH.Adapter.SAP</RootNamespace>
     <BaseOutputPath>..\Build\</BaseOutputPath>
   </PropertyGroup>
