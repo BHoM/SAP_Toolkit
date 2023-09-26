@@ -36,7 +36,7 @@ namespace BH.Engine.Environment.SAP
         [Input("reports", "A collection of SAP Reports.")]
         [Input("iterationName", "The iteration name which the reports identifier should end with to be filtered.")]
         [Output("reports", "Filtered reports based on the iteration name.")]
-        public static List<SAPReport> FilterReportsByIteration(List<SAPReport> reports, string iterationName)
+        public static List<SAPReport> FilterReportsByIteration(this List<SAPReport> reports, string iterationName)
         {
             return reports.Where(x => x.SAP10Data.PropertyDetails.BuildingParts.BuildingPart[0].Identifier.EndsWith(iterationName)).ToList();
         }
