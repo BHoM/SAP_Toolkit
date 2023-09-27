@@ -378,6 +378,38 @@ namespace BH.Engine.Environment.SAP
             return newReports;
         }
 
+        [Description("Prepare a parametric study for a given set of SAP Reports, but only making changes to the specific Thermal Bridge values of the Reports. Iterations will not be blended with this component. The original reports will NOT be included in the returned objects.")]
+        [Input("initialSAPReports", "The SAP Report objects to create iterations of.")]
+        [Input("iteration", "Thermal Bridge Values to produce iterations of.")]
+        [Output("sapReports", "The SAP Reports with modified thermal bridge values according to the iterations provided.")]
+        public static List<SAPReport> PrepareParametricStudy(List<SAPReport> initialSAPReports, ThermalBridgeValue iteration)
+        {
+            List<SAPReport> newReports = initialSAPReports.Select(x => x.DeepClone()).ToList();
+
+            if (double.IsNaN(iteration.PsiValue) || string.IsNullOrEmpty(iteration.Include))
+                return null; //Nothing to change
+
+            Parallel.ForEach(newReports, report =>
+            {
+                foreach (var part in report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
+                {
+                    for (int x = 0; x < part.ThermalBridges.ThermalBridge.Count; x++)
+                    {
+                        if (iteration.Include == part.ThermalBridges.ThermalBridge[x].Type)
+                        {
+                            //Possibly change to part.ThermalBridges.ThermalBridge[x].CalculationReference?
+                            part.ThermalBridges.ThermalBridge[x].PsiValue = iteration.PsiValue;
+                        }
+                    }
+
+                    if(!part.Identifier.EndsWith($"{iteration.Prefix}{iteration.Name}"))
+                        part.Identifier = $"{part.Identifier}{iteration.Prefix}{iteration.Name}";
+                }
+            });
+
+            return newReports;
+        }
+
         /***************************************************/
         /**** Private Fallback Methods                  ****/
         /***************************************************/
