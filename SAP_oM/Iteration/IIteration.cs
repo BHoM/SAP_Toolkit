@@ -31,5 +31,6 @@ namespace BH.oM.Environment.SAP
     [Description("Interface to group iteration objects together for producing parametric studies within the SAP context.")]
     public interface IIteration : IBHoMObject
     {
+        string Prefix { get; set; }
     }
 }

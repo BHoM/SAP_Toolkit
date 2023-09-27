@@ -41,5 +41,8 @@ namespace BH.oM.Environment.SAP.XML
 
         [Description("Provide the name of this iteration. The name should be unique across all iterations in your model, and should match any coordination with other models (over heating, daylighting, etc.) you may be running parametrics on.")]
         public override string Name { get; set; } = null;
+
+        [Description("What value should be used to prefix the name of this iteration when combining with other iterations.")]
+        public virtual string Prefix { get; set; } = "_";
     }
 }
