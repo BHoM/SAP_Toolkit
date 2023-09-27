@@ -29,25 +29,23 @@ using BH.oM.Base;
 
 namespace BH.oM.Environment.SAP
 {
-    [Description("An object that holds the main results from a SAPReport.")]
-    public class SAPExcelResults : IObject
+    [Description("An individual result for a single iteration of a SAP analysis on a dwelling.")]
+    public class SAPResult : IObject
     {
-        [Description("Result Type")]
-        public virtual string Type { get; set; } = "Dwelling";
 
-        [Description("The type of dwelling (the plot reference).")]
-        public virtual string Dwelling { get; set; } = null;
+        [Description("The name of the dwelling (the plot reference).")]
+        public virtual string DwellingName { get; set; } = "";
 
-        [Description("The type of dwelling (the plot reference).")]
+        [Description("The number of dwellings in the block that match this dwelling type.")]
         public virtual int DwellingCount { get; set; } = 1;
 
-        [Description("The name of the iteration file.")]
+        [Description("The name of the iteration analysed.")]
         public virtual string Iteration { get; set; } = null;
 
-        [Description("The total floor area of the dwelling..")]
-        public virtual double TFA { get; set; } = 0;
+        [Description("The total floor area of the dwelling.")]
+        public virtual double TotalFloorArea { get; set; } = 0;
 
-        [Description("The total floor area of the dwelling..")]
+        [Description("The total floor area of the dwelling type, calculated as the Total Floor Area by the Dwelling Count.")]
         public virtual double FloorAreaPerType { get; set; } = 0;
 
         [Description("The total wall area of the dwelling.")]
@@ -56,13 +54,13 @@ namespace BH.oM.Environment.SAP
         [Description("The total window area of the dwelling.")]
         public virtual double WindowArea { get; set; } = 0;
 
-        [Description("The total window area of the dwelling.")]
+        [Description("The ratio of walls to floor for the dwelling.")]
         public virtual double WallToFloor { get; set; } = 0;
 
-        [Description("The total window area of the dwelling.")]
+        [Description("The ratio of windows to floor for the dwelling.")]
         public virtual double WindowToFloor { get; set; } = 0;
 
-        [Description("The total window area of the dwelling.")]
+        [Description("The ratio of window to wall for the dwelling.")]
         public virtual double WindowToWall { get; set; } = 0;
 
         [Description("The total window area of the dwelling.")]

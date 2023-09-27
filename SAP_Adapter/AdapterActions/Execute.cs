@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2023, the respective contributors. All rights reserved.
  *
@@ -36,9 +36,9 @@ using System.Text.Json;
 using System.Xml.Serialization;
 using System.IO;
 
-namespace BH.Adapter.SAP.Argyle
+namespace BH.Adapter.SAP
 {
-    public partial class ArgyleAdapter : BHoMAdapter
+    public partial class SAPAdapter : BHoMAdapter
     {
         public override Output<List<object>, bool> Execute(IExecuteCommand command, ActionConfig actionConfig = null)
         {
@@ -51,45 +51,27 @@ namespace BH.Adapter.SAP.Argyle
             return output;
         }
 
-        public async Task<BH.oM.Adapter.FileSettings> RunCommand(RunAnalysisCommand command)
+        public void RunCommand(ProcessResultsCommand command)
         {
-            string postURL = command.PostURL;
-            string xmlData = System.IO.File.ReadAllText(Path.Combine(command.FileSettingsInput.Directory, command.FileSettingsInput.FileName));
-            
-            HttpResponseMessage httpResponse = null;
-
-            using (var httpClient = new HttpClient())
+            //Check a template file exists
+            var templateFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "BHoM", "Resources", "SAP", "ResultsTemplate.xlsx");
+            if(!File.Exists(templateFile))
             {
-                httpClient.BaseAddress = new Uri(postURL);
-                httpClient.DefaultRequestHeaders.Add("x-api-key", command.APIKey);
-                
-                var r = new HttpRequestMessage(HttpMethod.Post, postURL);
-                r.Content = new StringContent(xmlData, Encoding.UTF8, "application/xml");
-
-                httpResponse = httpClient.SendAsync(r).Result;
+                BH.Engine.Base.Compute.RecordError("The Excel Results Template could not be found to input results to. Please ensure you have the results template in the %ProgramData%/BHoM/Resources/SAP folder.");
+                return;
             }
 
-            if(httpResponse == null)
-            {
-                BH.Engine.Base.Compute.RecordError("Null response from engine.");
-                return null;
-            }
+            var tempFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "BHoM", "SAP", $"Results-{DateTime.UtcNow.ToString("yyyy-MM-dd-HH-mm-ss")}.xlsx");
 
-            string responseText = await httpResponse.Content.ReadAsStringAsync();
-
-            string path = Path.Combine(command.FileSettingsOutput.Directory, command.FileSettingsOutput.FileName);
-
-            //All outputs from the engine are text based, this outputs straight to the file defined file path set by the user. 
             try
             {
-                File.WriteAllText(path, responseText);
+                File.Copy(templateFile, tempFile);
             }
             catch(Exception ex)
             {
-                BH.Engine.Base.Compute.RecordError($"An error occurred in saving the response text. Error received: {ex.ToString()}");
+                BH.Engine.Base.Compute.RecordError(ex, "Error occurred while setting up the results file for processing.");
+                return;
             }
-
-            return command.FileSettingsOutput;
         }
     }
 }
