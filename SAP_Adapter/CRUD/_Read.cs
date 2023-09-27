@@ -40,8 +40,9 @@ namespace BH.Adapter.SAP
         protected override IEnumerable<IBHoMObject> IRead(Type type, IList ids, ActionConfig actionConfig = null)
         {
             SAPPullConfig config = (SAPPullConfig)actionConfig;
-            if(config == null)
+            if(config == null && type != typeof(SXML.SAPReport))
             {
+                //If no config and not asking for a SAP Report...
                 BH.Engine.Base.Compute.RecordError($"Config provided is not a valid SAP Config. Please provide a valid SAP Config to use SAP Adapter.");
                 return new List<IBHoMObject>();
             }
@@ -62,8 +63,13 @@ namespace BH.Adapter.SAP
                 return ReadOpeningPsiValues(config);
             else if (type == typeof(DwellingSchedule))
                 return ReadDwellingSchedules(config);
-            else if(type == typeof(SXML.SAPReport))
-                return ReadSAPReport(config);
+            else if (type == typeof(SXML.SAPReport))
+            {
+                if(config != null)
+                    return ReadSAPReport(config);
+                else
+                    return null; //Return SAP Reports generally here...
+            }
 
             return null;
         }
