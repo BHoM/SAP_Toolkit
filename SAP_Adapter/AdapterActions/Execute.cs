@@ -72,6 +72,8 @@ namespace BH.Adapter.SAP
                 BH.Engine.Base.Compute.RecordError(ex, "Error occurred while setting up the results file for processing.");
                 return;
             }
+
+
         }
     }
 }

@@ -42,11 +42,11 @@ namespace BH.oM.Environment.SAP
         [Description("The name of the iteration analysed.")]
         public virtual string Iteration { get; set; } = null;
 
-        [Description("The total floor area of the dwelling.")]
+        [Description("The floor area of a single dwelling of this type. Also referred to as the Total Floor Area (TFA).")]
         public virtual double TotalFloorArea { get; set; } = 0;
 
-        [Description("The total floor area of the dwelling type, calculated as the Total Floor Area by the Dwelling Count.")]
-        public virtual double FloorAreaPerType { get; set; } = 0;
+        [Description("The total floor area of the dwelling type, calculated as the TotalFloorArea multiplied by the DwellingCount.")]
+        public virtual double FloorAreaByBlock { get; set; } = 0;
 
         [Description("The total wall area of the dwelling.")]
         public virtual double WallArea { get; set; } = 0;
@@ -63,55 +63,55 @@ namespace BH.oM.Environment.SAP
         [Description("The ratio of window to wall for the dwelling.")]
         public virtual double WindowToWall { get; set; } = 0;
 
-        [Description("The total window area of the dwelling.")]
+        [Description("The total notional window area of the dwelling as your benchmark.")]
         public virtual double NotionalWindow { get; set; } = 0;
 
-        [Description("The total window area of the dwelling.")]
-        public virtual double WindowToWall2 { get; set; } = 0;
+        [Description("The ratio of the notional window to wall for the dwelling.")]
+        public virtual double NotionalWindowToWall { get; set; } = 0;
 
-        [Description("The DER of the property.")]
+        [Description("The Dwelling Emission Rate (DER) - calculated as part of the analysis.")]
         public virtual double DER { get; set; } = 0;
 
-        [Description(".")]
+        [Description("The Target Emission Rate (TER) for the dwelling.")]
         public virtual double TER { get; set; } = 0;
 
-        [Description(".")]
+        [Description("The improvement of Emission Rate between the Target (TER) and actual (DER). Calculated as ( (TER - DER) / TER).")]
         public virtual double DERTERImprovement { get; set; } = 0;
 
-        [Description(".")]
+        [Description("The Dwelling Primary Energy Rating (DPER) for the dwelling - calculated as part of the analysis.")]
         public virtual double DPER { get; set; } = 0;
 
-        [Description(".")]
+        [Description("The Target Primary Energy Rating (TPER) for the dwelling.")]
         public virtual double TPER { get; set; } = 0;
 
-        [Description(".")]
+        [Description("The improvement of Primary Energy Rating between the Target (TPER) and actual (DPER). Calculated as ( (TPER - DPER) / TPER).")]
         public virtual double DPERTPERImprovement { get; set; } = 0;
 
-        [Description(".")]
+        [Description("The Dwelling Fabric Energy Efficiency (DFEE) for the dwelling - calculated as part of the analysis.")]
         public virtual double DFEE { get; set; } = 0;
 
-        [Description(".")]
+        [Description("The Target Fabric Energy Efficiency (TFEE) for the dwelling.")]
         public virtual double TFEE { get; set; } = 0;
 
-        [Description(".")]
+        [Description("The improvement of Fabric Energy Efficiency between the Target (TFEE) and actual (DFEE). Calculated as ( (TFEE - DFEE) / TFEE).")]
         public virtual double DFEETFEEImprovement { get; set; } = 0;
 
-        [Description(".")]
-        public virtual double DERXTFA { get; set; } = 0;
+        [Description("Calculation of the Dwelling Emission Rate (DER) multiplied by the total floor area for the dwelling type, calculated as the DER multiplied by FloorAreaByBlock.")]
+        public virtual double BlockDER { get; set; } = 0;
 
-        [Description(".")]
-        public virtual double TERXTFA { get; set; } = 0;
+        [Description("Calculation of the Target Emission Rate (TER) multiplied by the total floor area for the dwelling type, calculated as the TER multiplied by FloorAreaByBlock.")]
+        public virtual double BlockTER { get; set; } = 0;
 
-        [Description(".")]
-        public virtual double DPERXTFA { get; set; } = 0;
+        [Description("Calculation of the Dwelling Primary Energy Rating (DPER) multiplied by the total floor area for the dwelling type, calculated as the DPER multiplied by the FloorAreaByBlock.")]
+        public virtual double BlockDPER { get; set; } = 0;
 
-        [Description(".")]
-        public virtual double TPERXTFA { get; set; } = 0;
+        [Description("Calculation of the Target Primary Energy Rating (TPER) multiplied by the total floor area for the dwelling type, calculated as the TPER multiplied by the FloorAreaByBlock.")]
+        public virtual double BlockTPER { get; set; } = 0;
 
-        [Description(".")]
-        public virtual double DFEEXTFA { get; set; } = 0;
+        [Description("Calculation of the Dwelling Fabric Energy Efficiency (DFEE) multiplied by the total floor area for the dwelling type, calculated as the DFEE multiplied by the FloorAreaByBlock.")]
+        public virtual double BlockDFEE { get; set; } = 0;
 
-        [Description(".")]
-        public virtual double TFEEXTFA { get; set; } = 0;
+        [Description("Calculation of the Target Fabric Energy Efficiency (TFEE) multiplied by the total floor area for the dwelling type, calculated as the TFEE multiplied by the FloorAreaByBlock.")]
+        public virtual double BlockTFEE { get; set; } = 0;
     }
 }
