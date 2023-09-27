@@ -56,12 +56,12 @@ namespace BH.Engine.Environment.SAP
         [Input("dwellingCounts", "The number of each dwelling.")]
         [MultiOutput(0, "results", "Results pulled from the report.")]
         [MultiOutput(1, "success", "Has it run.")]
-        public static Output<List<SAPExcelResults>,bool> ExcelResults(List<string> filenames, List<SAPReport> reportObjs, BH.oM.Environment.SAP.JSON.JSONReport jsonFile, List<DwellingCount> dwellingCounts)
+        public static Output<List<SAPResult>,bool> ExcelResults(List<string> filenames, List<SAPReport> reportObjs, BH.oM.Environment.SAP.JSON.JSONReport jsonFile, List<DwellingCount> dwellingCounts)
         {
             if (filenames == null || filenames.Count == 0 || reportObjs == null || reportObjs.Count == 0 || reportObjs.Count != filenames.Count)
                 return null;
 
-            List<SAPExcelResults> results = new List<SAPExcelResults>();
+            List<SAPResult> results = new List<SAPResult>();
 
             List <(string code, string identifier, string path)> dwellingInformation = jsonFile.Iterations.SelectMany(x => x.Dwellings.Select(y => (x.IterationCode, y.BuildingIdentifier, y.FilePath))).ToList();
 
@@ -71,7 +71,7 @@ namespace BH.Engine.Environment.SAP
 
                 var typeInfo = dwellingInformation.Where(x => x.path == filenames[i]).First();
 
-                SAPExcelResults r = new SAPExcelResults
+                SAPResult r = new SAPResult
                 {
                     Dwelling = typeInfo.identifier,
                     Iteration = typeInfo.code,
@@ -116,15 +116,15 @@ namespace BH.Engine.Environment.SAP
 
             var a = results.GroupBy(x => x.Iteration).ToList();
 
-            List<SAPExcelResults> blockResults = new List<SAPExcelResults>();
+            List<SAPResult> blockResults = new List<SAPResult>();
 
             foreach (var i in a)
             {
                 var iteration = i.First().Iteration;
 
-                List<SAPExcelResults> dwellings = i.ToList();
+                List<SAPResult> dwellings = i.ToList();
 
-                SAPExcelResults r = new SAPExcelResults
+                SAPResult r = new SAPResult
                 {
                     Type = "Block",
                     Dwelling = dwellings.Count().ToString(),
@@ -150,7 +150,7 @@ namespace BH.Engine.Environment.SAP
                 results.Add(r);
             }
 
-            return new Output<List<SAPExcelResults>, bool>
+            return new Output<List<SAPResult>, bool>
             {
                 Item1 = results,
                 Item2 = true
