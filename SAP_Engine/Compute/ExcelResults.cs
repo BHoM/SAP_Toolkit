@@ -98,7 +98,7 @@ namespace BH.Engine.Environment.SAP
                 double totalOpeningArea = reportObjs[i].SAP10Data.PropertyDetails.BuildingParts.BuildingPart.SelectMany(x => x.Openings.Opening.Select(o => (o.Width * o.Height))).Sum();
 
                 r.NotionalWindow = r.WindowArea.NotionalWindowsArea(totalOpeningArea, r.TFA);
-                r.WindowToWall2 = r.WallToFloor / r.WindowArea;
+                r.NotionalWindowToWall = r.WallToFloor / r.WindowArea;
 
                 r.DERTERImprovement = (r.TER - r.DER) / r.TER;
                 r.DPERTPERImprovement = (r.TPER - r.DPER) / r.TPER;
@@ -137,7 +137,7 @@ namespace BH.Engine.Environment.SAP
                     WindowToFloor = dwellings.Select(x => x.WindowToFloor).Average(),
                     WindowToWall = dwellings.Select(x => x.WindowToWall).Average(),
                     NotionalWindow = dwellings.Select(x => (x.DwellingCount * x.NotionalWindow)).Sum(),
-                    WindowToWall2 = dwellings.Select(x=>x.WindowToWall2).Average(),
+                    NotionalWindowToWall = dwellings.Select(x=>x.NotionalWindowToWall).Average(),
                 };
 
                 r.DERXTFA = dwellings.Select(x => x.DERXTFA).Sum() / r.FloorAreaPerType;
