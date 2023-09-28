@@ -36,7 +36,7 @@ namespace BH.Adapter.SAP
 {
     public partial class SAPAdapter
     {
-        private List<DwellingSchedule> ReadDwellingSchedules(SAPPullConfig config)
+        private List<DwellingSchedule> ReadDwellingSchedules(SAPMarkUpPullConfig config)
         {
             if (config.ExcelFile == null)
             {

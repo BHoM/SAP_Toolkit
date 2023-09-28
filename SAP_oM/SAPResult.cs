@@ -55,19 +55,19 @@ namespace BH.oM.Environment.SAP
         public virtual double WindowArea { get; set; } = 0;
 
         [Description("The ratio of walls to floor for the dwelling.")]
-        public virtual double WallToFloor { get; set; } = 0;
+        public virtual double WallToFloorRatio { get; set; } = 0;
 
         [Description("The ratio of windows to floor for the dwelling.")]
-        public virtual double WindowToFloor { get; set; } = 0;
+        public virtual double WindowToFloorRatio { get; set; } = 0;
 
         [Description("The ratio of window to wall for the dwelling.")]
-        public virtual double WindowToWall { get; set; } = 0;
+        public virtual double WindowToWallRatio { get; set; } = 0;
 
         [Description("The total notional window area of the dwelling as your benchmark.")]
-        public virtual double NotionalWindow { get; set; } = 0;
+        public virtual double NotionalWindowArea { get; set; } = 0;
 
         [Description("The ratio of the notional window to wall for the dwelling.")]
-        public virtual double NotionalWindowToWall { get; set; } = 0;
+        public virtual double NotionalWindowToWallRatio { get; set; } = 0;
 
         [Description("The Dwelling Emission Rate (DER) - calculated as part of the analysis.")]
         public virtual double DER { get; set; } = 0;

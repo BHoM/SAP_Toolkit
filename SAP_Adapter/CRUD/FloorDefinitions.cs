@@ -37,7 +37,7 @@ namespace BH.Adapter.SAP
 {
     public partial class SAPAdapter
     {
-        private List<FloorSchedule> ReadFloorDefinitions(SAPPullConfig config)
+        private List<FloorSchedule> ReadFloorDefinitions(SAPMarkUpPullConfig config)
         {
             if(config.ExcelFile == null)
             {
