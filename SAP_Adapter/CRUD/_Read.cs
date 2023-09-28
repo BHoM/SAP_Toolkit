@@ -39,38 +39,53 @@ namespace BH.Adapter.SAP
     {
         protected override IEnumerable<IBHoMObject> IRead(Type type, IList ids, ActionConfig actionConfig = null)
         {
-            SAPPullConfig config = (SAPPullConfig)actionConfig;
-            if(config == null && type != typeof(SXML.SAPReport))
+            ISAPPullConfig pullConfig = (ISAPPullConfig)actionConfig;
+            if(pullConfig == null && type != typeof(SXML.SAPReport))
             {
                 //If no config and not asking for a SAP Report...
-                BH.Engine.Base.Compute.RecordError($"Config provided is not a valid SAP Config. Please provide a valid SAP Config to use SAP Adapter.");
+                BH.Engine.Base.Compute.RecordError($"Config provided is not a valid SAP Pull Config for pulling objects of type {type.FullName}. Please provide a valid SAP Pull Config for this type to use SAP Adapter.");
                 return new List<IBHoMObject>();
             }
 
-            if (type == typeof(SAPMarkupSummary))
-                return ReadSAPMarkupSummary(config);
-            else if (type == typeof(FloorSchedule))
-                return ReadFloorDefinitions(config);
-            else if (type == typeof(RoofSchedule))
-                return ReadRoofDefinitions(config);
-            else if (type == typeof(WallSchedule))
-                return ReadWallDefinitions(config);
-            else if (type == typeof(PsiValueSchedule))
-                return ReadPsiValues(config);
-            else if (type == typeof(OpeningSchedule))
-                return ReadOpeningDefinitions(config);
-            else if (type == typeof(OpeningPsiValueSchedule))
-                return ReadOpeningPsiValues(config);
-            else if (type == typeof(DwellingSchedule))
-                return ReadDwellingSchedules(config);
-            else if (type == typeof(SXML.SAPReport))
+            if(type == typeof(SXML.SAPReport))
             {
-                if(config != null)
+                SAPMarkUpPullConfig config = (SAPMarkUpPullConfig)pullConfig;
+
+                if (config != null)
                     return ReadSAPReport(config);
                 else
-                    return null; //Return SAP Reports generally here...
+                {
+                    SAPReportPullConfig reportConfig = (SAPReportPullConfig)pullConfig;
+                    if (reportConfig != null)
+                        return ReadSAPReport(reportConfig);
+                }
             }
+            else
+            {
+                SAPMarkUpPullConfig config = (SAPMarkUpPullConfig)pullConfig;
+                if(config == null)
+                {
+                    BH.Engine.Base.Compute.RecordError($"Config provided is not a valid SAP Mark Up Pull Config for pulling objects of type {type.FullName}. Please provide a valid SAP Pull Config for this type to use SAP Adapter.");
+                    return new List<IBHoMObject>();
+                }
 
+                if (type == typeof(SAPMarkupSummary))
+                    return ReadSAPMarkupSummary(config);
+                else if (type == typeof(FloorSchedule))
+                    return ReadFloorDefinitions(config);
+                else if (type == typeof(RoofSchedule))
+                    return ReadRoofDefinitions(config);
+                else if (type == typeof(WallSchedule))
+                    return ReadWallDefinitions(config);
+                else if (type == typeof(PsiValueSchedule))
+                    return ReadPsiValues(config);
+                else if (type == typeof(OpeningSchedule))
+                    return ReadOpeningDefinitions(config);
+                else if (type == typeof(OpeningPsiValueSchedule))
+                    return ReadOpeningPsiValues(config);
+                else if (type == typeof(DwellingSchedule))
+                    return ReadDwellingSchedules(config);
+            }
             return null;
         }
     }

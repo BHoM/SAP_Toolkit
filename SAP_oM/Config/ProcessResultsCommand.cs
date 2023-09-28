@@ -39,10 +39,19 @@ namespace BH.oM.Environment.SAP
         [Description("Paths to the XML results files that will be calculated.")]
         public virtual List<FileSettings> ResultFiles { get; set; }
 
-        [Description("Path to save the results file to.")]
-        public virtual FileSettings SaveFileLocation { get; set; }
+        [Description("Directory to save the results file(s) to.")]
+        public virtual string SaveFileDirectory { get; set; }
 
         [Description("List of dwelling schedules containing information about each individual dwelling in the report.")]
         public virtual List<DwellingSchedule> DwellingSchedules { get; set; }
+
+        [Description("Provide the target DER/TER improvement as a % between 0 and 100.")]
+        public virtual double TargetDERTERImprovement { get; set; }
+
+        [Description("Provide the target DPER/TPER improvement as a % between 0 and 100.")]
+        public virtual double TargetDPERTPERImprovement { get; set; }
+
+        [Description("Provide the target DFEE/TFEE improvement as a % between 0 and 100.")]
+        public virtual double TargetDFEETFEEImprovement { get; set; }
     }
 }

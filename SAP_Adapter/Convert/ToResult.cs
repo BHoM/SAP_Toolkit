@@ -10,25 +10,26 @@ namespace BH.Adapter.SAP
 {
     public static partial class Convert
     {
-        public static SAPResult ToResult(SAPReport sapReport, DwellingSchedule schedule)
+        public static SAPResult ToResult(SAPReport sapReport, DwellingSchedule schedule, string fileName)
         {
+            //FileName is a temporary input pending a conversation with Argyle around the part.Identifier being changed in results
             SAPResult result = new SAPResult();
 
             if (sapReport.SAP10Data.PropertyDetails.BuildingParts.BuildingPart.Count > 0)
             {
                 var part = sapReport.SAP10Data.PropertyDetails.BuildingParts.BuildingPart[0];
-                result.DwellingName = part.Identifier;
+                result.DwellingName = schedule.DwellingTypeName;//part.Identifier;
                 result.DwellingCount = schedule.Count;
-                result.Iteration = part.Identifier.Substring(schedule.DwellingTypeName.Length + 1); //Remove the Dwelling Name plus first separator
+                result.Iteration = fileName.Substring(schedule.DwellingTypeName.Length + 1).Split('.').First();//part.Identifier.Substring(schedule.DwellingTypeName.Length + 1); //Remove the Dwelling Name plus first separator
                 result.TotalFloorArea = TotalFloorArea(sapReport);
                 result.FloorAreaByBlock = result.TotalFloorArea * result.DwellingCount;
                 result.WallArea = TotalWallArea(sapReport);
                 result.WindowArea = TotalWindowArea(sapReport);
-                result.WallToFloor = result.WallArea / result.TotalFloorArea;
-                result.WindowToFloor = result.WindowArea / result.TotalFloorArea;
-                result.WindowToWall = result.WindowArea / result.WallArea;
-                result.NotionalWindow = NotionalWindowArea(sapReport);
-                result.NotionalWindowToWall = result.NotionalWindow / result.WallArea;
+                result.WallToFloorRatio = result.WallArea / result.TotalFloorArea;
+                result.WindowToFloorRatio = result.WindowArea / result.TotalFloorArea;
+                result.WindowToWallRatio = result.WindowArea / result.WallArea;
+                result.NotionalWindowArea = NotionalWindowArea(sapReport);
+                result.NotionalWindowToWallRatio = result.NotionalWindowArea / result.WallArea;
 
                 try
                 {
@@ -115,8 +116,17 @@ namespace BH.Adapter.SAP
                 "4", "5", "6",
             };
 
+            var openingTypes = report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType;
+
             foreach (var part in report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
-                windowArea += part.Openings.Opening.Where(x => acceptableWindowTypes.Contains(x.Type)).Select(x => x.Height * x.Width).Sum();
+            {
+                foreach(var opening in part.Openings.Opening)
+                {
+                    var specificType = openingTypes.Where(x => x.Name == opening.Type).FirstOrDefault();
+                    if(specificType != null && acceptableWindowTypes.Contains(specificType.Type))
+                        windowArea += (opening.Height * opening.Width);
+                }
+            }
 
             return windowArea;
         }

@@ -36,7 +36,7 @@ namespace BH.Adapter.SAP
 {
     public partial class SAPAdapter
     {
-        private List<OpeningSchedule> ReadOpeningDefinitions(SAPPullConfig config)
+        private List<OpeningSchedule> ReadOpeningDefinitions(SAPMarkUpPullConfig config)
         {
             if (config.ExcelFile == null)
             {

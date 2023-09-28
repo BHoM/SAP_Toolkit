@@ -8,8 +8,12 @@
   </PropertyGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy &quot;$(TargetDir)$(TargetFileName)&quot;  &quot;C:\ProgramData\BHoM\Assemblies&quot; /Y" />
+    <Exec Command="xcopy &quot;$(TargetDir)$(TargetFileName)&quot;  &quot;C:\ProgramData\BHoM\Assemblies&quot; /Y&#xD;&#xA;&#xD;&#xA;if not exist &quot;C:\ProgramData\BHoM\Resources\SAP&quot; mkdir &quot;C:\ProgramData\BHoM\Resources\SAP&quot;&#xD;&#xA;&#xD;&#xA;xcopy &quot;$(TargetDir)..\..\..\SAP_Adapter\IterationResultsTemplate.xlsx&quot;  &quot;C:\ProgramData\BHoM\Resources\SAP&quot; /Y&#xD;&#xA;xcopy &quot;$(TargetDir)..\..\..\SAP_Adapter\AllResultsTemplate.xlsx&quot;  &quot;C:\ProgramData\BHoM\Resources\SAP&quot; /Y" />
   </Target>
+
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.95.0" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Argyle_Adapter\Argyle_Adapter.csproj" />

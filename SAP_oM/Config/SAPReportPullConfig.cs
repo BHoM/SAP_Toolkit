@@ -20,44 +20,20 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.Engine.Adapter;
-using BH.oM.Base;
-using BH.oM.Environment.SAP;
+using BH.oM.Adapter;
+using BH.oM.Adapters.Excel;
+using BH.oM.Environment.SAP.XML;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
-using System.IO;
-using BH.Adapter.XML;
-using BH.oM.XML;
-using BH.oM.Adapters.XML;
-using BH.oM.Environment.SAP.Bluebeam;
-using BH.oM.Data.Requests;
-using System.Linq;
 
-namespace BH.Adapter.SAP
+namespace BH.oM.Environment.SAP
 {
-    public partial class SAPAdapter
+    public class SAPReportPullConfig : ActionConfig, ISAPPullConfig
     {
-        private List<SAPMarkupSummary> ReadSAPMarkupSummary(SAPMarkUpPullConfig config)
-        {
-            if(config.SAPMarkupFile == null)
-            {
-                BH.Engine.Base.Compute.RecordError("Please provide a valid SAP Markup File Location.");
-                return new List<SAPMarkupSummary>();
-            }
+        [Description("Set the location of the SAP XML Report file.")]
+        public virtual FileSettings SAPReportFile { get; set; } = null;
 
-            string fullFileName = config.SAPMarkupFile.GetFullFileName();
-            if(string.IsNullOrEmpty(fullFileName) || !File.Exists(fullFileName))
-            {
-                BH.Engine.Base.Compute.RecordError($"Could not load file from {fullFileName}. Check the file exists.");
-                return new List<SAPMarkupSummary>();
-            }
-
-            XMLConfig xmlConfig = new XMLConfig() { Schema = oM.Adapters.XML.Enums.Schema.Undefined };
-            XMLAdapter xmlAdapter = new XMLAdapter(config.SAPMarkupFile);
-            FilterRequest xmlRequest = BH.Engine.Data.Create.FilterRequest(typeof(SAPMarkupSummary), "");
-
-            return xmlAdapter.Pull(xmlRequest, actionConfig: xmlConfig).OfType<SAPMarkupSummary>().ToList();
-        }
     }
 }

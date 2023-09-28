@@ -30,7 +30,7 @@ using System.Text;
 
 namespace BH.oM.Environment.SAP
 {
-    public class SAPPullConfig : ActionConfig
+    public class SAPMarkUpPullConfig : ActionConfig, ISAPPullConfig
     {
         [Description("Set the location of the Bluebeam SAP XML markup file.")]
         public virtual FileSettings SAPMarkupFile { get; set; } = null;

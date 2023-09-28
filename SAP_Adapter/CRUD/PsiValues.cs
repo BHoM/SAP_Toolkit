@@ -36,7 +36,7 @@ namespace BH.Adapter.SAP
 {
     public partial class SAPAdapter
     {
-        private List<PsiValueSchedule> ReadPsiValues(SAPPullConfig config)
+        private List<PsiValueSchedule> ReadPsiValues(SAPMarkUpPullConfig config)
         {
             if (config.ExcelFile == null)
             {
