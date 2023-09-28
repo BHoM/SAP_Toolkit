@@ -20,14 +20,36 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
-using BH.oM.Base;
+using BH.oM.Adapter;
+using BH.oM.Base.Attributes;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
 using System.Text;
 
-namespace BH.oM.Environment.SAP
+namespace BH.Engine.Environment.SAP
 {
-    public interface ISAPPullConfig
+    public static partial class Compute
     {
+        [Description("Produce file settings objects for every file in a given directory.")]
+        [Input("dir", "The directory to generate file settings objects for.")]
+        [Output("fileSettings", "File Settings objects for every file in the given directory.")]
+        public static List<FileSettings> FileSettings(string dir)
+        {
+            var allFiles = Directory.EnumerateFiles(dir);
+            List<FileSettings> fs = new List<FileSettings>();
+
+            foreach(var file in allFiles)
+            {
+                fs.Add(new FileSettings()
+                {
+                    Directory = dir,
+                    FileName = Path.GetFileName(file),
+                });
+            }
+
+            return fs;
+        }
     }
 }
