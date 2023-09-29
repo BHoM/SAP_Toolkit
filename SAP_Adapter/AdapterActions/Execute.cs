@@ -39,7 +39,6 @@ using System.Linq;
 
 using ClosedXML.Excel;
 using BH.Engine.Adapter;
-using BH.oM.Environment.SAP.JSON;
 using System.Collections.Concurrent;
 
 namespace BH.Adapter.SAP
