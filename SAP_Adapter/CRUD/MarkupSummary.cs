@@ -53,8 +53,8 @@ namespace BH.Adapter.SAP
                 return new List<SAPMarkupSummary>();
             }
 
-            XMLConfig xmlConfig = new XMLConfig() { Schema = oM.Adapters.XML.Enums.Schema.Undefined };
-            XMLAdapter xmlAdapter = new XMLAdapter(config.SAPMarkupFile);
+            XMLConfig xmlConfig = new XMLConfig() { Schema = oM.Adapters.XML.Enums.Schema.Undefined, File = config.SAPMarkupFile };
+            XMLAdapter xmlAdapter = new XMLAdapter();
             FilterRequest xmlRequest = BH.Engine.Data.Create.FilterRequest(typeof(SAPMarkupSummary), "");
 
             return xmlAdapter.Pull(xmlRequest, actionConfig: xmlConfig).OfType<SAPMarkupSummary>().ToList();

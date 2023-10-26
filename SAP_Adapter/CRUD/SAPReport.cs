@@ -53,8 +53,8 @@ namespace BH.Adapter.SAP
                 FileName = $"{report?.SAP10Data?.PropertyDetails?.BuildingParts?.BuildingPart?.FirstOrDefault()?.Identifier}.xml",
             };
 
-            XMLConfig xmlConfig = new XMLConfig() { RemoveNils = true };
-            XMLAdapter xmlAdapter = new XMLAdapter(fs);
+            XMLConfig xmlConfig = new XMLConfig() { RemoveNils = true, File = fs };
+            XMLAdapter xmlAdapter = new XMLAdapter();
             xmlAdapter.Push(new List<IBHoMObject>() { report }, actionConfig: xmlConfig);
             return true;
         }
@@ -74,8 +74,8 @@ namespace BH.Adapter.SAP
                 return new List<SXML.SAPReport>();
             }
 
-            XMLConfig xmlConfig = new XMLConfig() { Schema = oM.Adapters.XML.Enums.Schema.Undefined };
-            XMLAdapter xmlAdapter = new XMLAdapter(config.SAPReportFile);
+            XMLConfig xmlConfig = new XMLConfig() { Schema = oM.Adapters.XML.Enums.Schema.Undefined, File = config.SAPReportFile };
+            XMLAdapter xmlAdapter = new XMLAdapter();
             FilterRequest xmlRequest = BH.Engine.Data.Create.FilterRequest(typeof(SXML.SAPReport), "");
 
             return xmlAdapter.Pull(xmlRequest, actionConfig: xmlConfig).OfType<SXML.SAPReport>().ToList();
@@ -279,9 +279,9 @@ namespace BH.Adapter.SAP
                     Directory = config.HeatingFileDirectory,
                 };
 
-                XMLAdapter argyleAdapter = new XMLAdapter(fs);
+                XMLAdapter argyleAdapter = new XMLAdapter();
                 FilterRequest argyleRequest = BH.Engine.Data.Create.FilterRequest(typeof(SAPReport), "");
-                var heatingReport = argyleAdapter.Pull(argyleRequest, actionConfig: new BH.oM.Adapters.XML.XMLConfig()).OfType<SAPReport>().FirstOrDefault();
+                var heatingReport = argyleAdapter.Pull(argyleRequest, actionConfig: new BH.oM.Adapters.XML.XMLConfig() { File = fs }).OfType<SAPReport>().FirstOrDefault();
 
                 if (heatingReport != null)
                     fixedReportWithHeatingBySpace.Add(dwellingSchedule.DwellingTypeName, Modify.SAPHeatingTemplate(heatingReport, fixedReportBySpace[dwellingSchedule.DwellingTypeName]));
