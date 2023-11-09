@@ -425,14 +425,14 @@ namespace BH.Adapter.SAP
             {
                 List<SXML.OpeningType> types = new List<SXML.OpeningType>();
 
-                var uniqueTypes = kvp.Value.Select(x => x.OpeningType).ToList();
-                foreach (var type in uniqueTypes)
+                foreach(var markup in kvp.Value)
                 {
-                    var importedData = openingDimensionsFromExcel.Where(a => a.OpeningType == type).FirstOrDefault();
+                    var importedData = openingDimensionsFromExcel.Where(a => a.OpeningType == markup.Subject).FirstOrDefault(); //Group by the Bluebeam subject rather than the opening type for e.g. Glazed doors
 
-                    types.Add(Convert.ToOpeningType(importedData, ((int)(BH.oM.Environment.SAP.TypeOfOpening)Enum.Parse(typeof(BH.oM.Environment.SAP.TypeOfOpening), type)).ToString()));
+                    types.Add(Convert.ToOpeningType(importedData, ((int)(BH.oM.Environment.SAP.TypeOfOpening)Enum.Parse(typeof(BH.oM.Environment.SAP.TypeOfOpening), markup.OpeningType)).ToString(), markup.Subject));
                 }
 
+                types = types.Distinct().ToList();
                 xmlOpeningsBySpace.Add(kvp.Key, types);
             }
 
