@@ -429,7 +429,7 @@ namespace BH.Adapter.SAP
                 {
                     var importedData = openingDimensionsFromExcel.Where(a => a.OpeningType == markup.Subject).FirstOrDefault(); //Group by the Bluebeam subject rather than the opening type for e.g. Glazed doors
 
-                    types.Add(Convert.ToOpeningType(importedData, ((int)(BH.oM.Environment.SAP.TypeOfOpening)Enum.Parse(typeof(BH.oM.Environment.SAP.TypeOfOpening), markup.OpeningType)).ToString(), markup.Subject));
+                    types.Add(Convert.ToOpeningType(importedData, ((int)(BH.oM.Environment.SAP.TypeOfOpening)Enum.Parse(typeof(BH.oM.Environment.SAP.TypeOfOpening), markup.OpeningType)).ToString(), markup.OpeningType));
                 }
 
                 types = types.Distinct().ToList();

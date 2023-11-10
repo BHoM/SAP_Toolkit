@@ -35,12 +35,12 @@ namespace BH.Adapter.SAP
 {
     public static partial class Convert
     {
-        public static SXML.OpeningType ToOpeningType(OpeningSchedule openingDefinition, string openingType, string openingDescription)
+        public static SXML.OpeningType ToOpeningType(OpeningSchedule openingDefinition, string openingType, string openingTypeName)
         {
             SXML.OpeningType type = new SXML.OpeningType();
 
-            type.Name = openingDefinition.OpeningType;
-            type.Description = openingDescription;
+            type.Name = openingTypeName;
+            type.Description = openingDefinition.OpeningType;
             type.DataSource = ((int)openingDefinition.DataSource).ToString();
             type.UValue = openingDefinition.UValue.ToString();
             type.Type = openingType;
