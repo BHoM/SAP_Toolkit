@@ -76,7 +76,7 @@ namespace BH.Adapter.SAP
 
                 for (int y = 0; y < modifiedMarkUps.Count; y++)
                 {
-                    if (modifiedOpeningTypes[x].Name == modifiedMarkUps[y].OpeningType)
+                    if (modifiedOpeningTypes[x].Name == modifiedMarkUps[y].OpeningType && modifiedOpeningTypes[x].Description == modifiedMarkUps[y].Subject)
                         modifiedMarkUps[y].OpeningType = newName;
                 }
 
