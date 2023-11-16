@@ -182,6 +182,34 @@ namespace BH.Engine.Environment.SAP
 
                             if(!string.IsNullOrEmpty(iteration.Pitch))
                                 part.Openings.Opening[x].Pitch = iteration.Pitch;
+                           
+                            
+
+
+                            //E2 = width - everything
+                            //E3 = width but only for everything that is not glazed door
+                            //E4 = 2 * height
+
+                            ThermalBridge e2 = new ThermalBridge();
+                            e2.Length = iteration.Width;
+                            e2.Type = "E2";
+
+                            ThermalBridge e3 = new ThermalBridge();
+                            e3.Length = iteration.Width;
+                            e3.Type = "E3";
+
+                            ThermalBridge e4 = new ThermalBridge();
+                            e4.Length = iteration.Height * 2;
+                            e4.Type = "E4";
+
+                            part.ThermalBridges.ThermalBridge.Add(e2);
+                            //part.ThermalBridges.ThermalBridge.Add(e3);
+                            part.ThermalBridges.ThermalBridge.Add(e4);
+
+
+                            var r = typeMap[part.Openings.Opening[x].Type];
+                            if (r != "Glazed Door")
+                                part.ThermalBridges.ThermalBridge.Add(e3);
                         }
                     }
 
