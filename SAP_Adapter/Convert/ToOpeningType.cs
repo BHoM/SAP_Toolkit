@@ -51,6 +51,7 @@ namespace BH.Adapter.SAP
             type.FrameType = ((int)openingDefinition.FrameType).ToString();
             type.GValue = openingDefinition.GValue.ToString();
             type.FrameFactor = openingDefinition.FrameFactor.ToString();
+            type.IntersectsFloor = openingDefinition.FloorIntersection;
 
             return type;
         }

@@ -83,7 +83,9 @@ namespace BH.oM.Environment.SAP.XML
         [XmlElement("Frame-Factor")]
         public virtual string FrameFactor { get; set; } = null; //0.8
 
-        
+        [XmlIgnore] //Don't put this into the XML
+        [Description("Determines whether or not the opening intersects with the floor (such as a glazed door).")]
+        public virtual bool IntersectsFloor { get; set; } = false;
         
     }
 }

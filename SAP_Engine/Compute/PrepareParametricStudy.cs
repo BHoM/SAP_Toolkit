@@ -161,18 +161,19 @@ namespace BH.Engine.Environment.SAP
             Parallel.ForEach(newReports, report =>
             {
                 //Dictionary for the conversion between the name of the type given by the user and the name of the opening that matches the schema.
-                Dictionary<string, string> typeMap = new Dictionary<string, string>();
+                //Dictionary<string, string> typeMap = new Dictionary<string, string>();
+                Dictionary<string, OpeningType> typeMap = new Dictionary<string, OpeningType>();
                 foreach (var type in report.SAP10Data.PropertyDetails.OpeningTypes.OpeningType)
                 {
                     if (!typeMap.ContainsKey(type.Name))
-                        typeMap.Add(type.Name, type.Description);
+                        typeMap.Add(type.Name, type);
                 }
 
                 foreach (var part in report.SAP10Data.PropertyDetails.BuildingParts.BuildingPart)
                 {
                     for (int x = 0; x < part.Openings.Opening.Count; x++)
                     {
-                        if (includedItems.Count == 0 || includedItems.Contains(typeMap[part.Openings.Opening[x].Type]))
+                        if (includedItems.Count == 0 || includedItems.Contains(typeMap[part.Openings.Opening[x].Type].Description))
                         {
                             if (!double.IsNaN(iteration.Height))
                                 part.Openings.Opening[x].Height = iteration.Height;
@@ -208,7 +209,7 @@ namespace BH.Engine.Environment.SAP
 
 
                             var r = typeMap[part.Openings.Opening[x].Type];
-                            if (r != "Glazed Door")
+                            if (!r.IntersectsFloor)
                                 part.ThermalBridges.ThermalBridge.Add(e3);
                         }
                     }

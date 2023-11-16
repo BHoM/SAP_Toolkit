@@ -44,7 +44,7 @@ namespace BH.Adapter.SAP
 
             if (markup.Length <= 0.00001)
             {
-                double multiplyFactor = 0;
+                double multiplyFactor = 1;
                 double thermalBridgeLength = 0;
                 try
                 {
