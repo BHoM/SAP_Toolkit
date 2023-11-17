@@ -204,7 +204,6 @@ namespace BH.Engine.Environment.SAP
                             e4.Type = "E4";
 
                             part.ThermalBridges.ThermalBridge.Add(e2);
-                            //part.ThermalBridges.ThermalBridge.Add(e3);
                             part.ThermalBridges.ThermalBridge.Add(e4);
 
 

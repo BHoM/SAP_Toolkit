@@ -40,6 +40,8 @@ using BH.oM.Data.Requests;
 using BH.oM.Environment.SAP.XML;
 using BH.Adapter.XML;
 using BH.oM.Adapters.XML;
+using System.Threading.Tasks;
+using System.Collections.Concurrent;
 
 namespace BH.Adapter.SAP
 {
@@ -140,8 +142,13 @@ namespace BH.Adapter.SAP
             Dictionary<string, List<SXML.FloorDimension>> xmlFloorsBySpace = XMLFloorDimensionsBySpace(floorDefinitionsBySpace, config);
 
             //Thermal bridges
+            var psiValuesFromExcel = ReadPsiValues(config);
             Dictionary<string, List<SAPMarkup>> thermalBridgesBySpace = MarkUpsBySpace(allSpaceNames, sapMarkupSummary.Markup.Where(x => x.Layer == config.BluebeamConfig.ThermalBridgeLayerName).ToList());
-            Dictionary<string, List<SXML.ThermalBridge>> xmlThermalBridgesBySpace = XMLThermalBridgesBySpace(thermalBridgesBySpace, config);
+            Dictionary<string, List<SXML.ThermalBridge>> xmlThermalBridgesBySpace = XMLThermalBridgesBySpace(thermalBridgesBySpace, psiValuesFromExcel);
+
+            Dictionary<string, List<SXML.ThermalBridge>> xmlOpeningThermalBridgesBySpace = OpeningThermalBridges(xmlOpeningsBySpace, xmlOpeningTypesBySpace, psiValuesFromExcel);
+            foreach (var kvp in xmlOpeningThermalBridgesBySpace)
+                xmlThermalBridgesBySpace[kvp.Key].AddRange(kvp.Value);
 
             //Living area
             var zone1 = sapMarkupSummary.Markup.Where(x => x.Layer == config.BluebeamConfig.LivingAreaLayerName);
@@ -308,7 +315,7 @@ namespace BH.Adapter.SAP
             {
                 List<SXML.Opening> xmlOpenings = new List<SXML.Opening>();
                 for (int x = 0; x < kvp.Value.Count; x++)
-                    xmlOpenings.Add(Convert.ToSAPOpening(kvp.Value[x], (x + 1).ToString()));
+                    xmlOpenings.Add(Convert.ToSAPOpening(kvp.Value[x], (x + 1).ToString())); 
 
                 xmlOpeningsBySpace.Add(kvp.Key, xmlOpenings);
             }
@@ -425,7 +432,7 @@ namespace BH.Adapter.SAP
             {
                 List<SXML.OpeningType> types = new List<SXML.OpeningType>();
 
-                foreach(var markup in kvp.Value)
+                foreach (var markup in kvp.Value)
                 {
                     var importedData = openingDimensionsFromExcel.Where(a => a.OpeningType == markup.Subject).FirstOrDefault(); //Group by the Bluebeam subject rather than the opening type for e.g. Glazed doors
 
@@ -439,11 +446,9 @@ namespace BH.Adapter.SAP
             return xmlOpeningsBySpace;
         }
 
-        private Dictionary<string, List<SXML.ThermalBridge>> XMLThermalBridgesBySpace(Dictionary<string, List<SAPMarkup>> markupsBySpace, SAPMarkUpPullConfig config)
+        private Dictionary<string, List<SXML.ThermalBridge>> XMLThermalBridgesBySpace(Dictionary<string, List<SAPMarkup>> markupsBySpace, List<PsiValueSchedule> psiValuesFromExcel)
         {
             Dictionary<string, List<SXML.ThermalBridge>> xmlBridgesBySpace = new Dictionary<string, List<SXML.ThermalBridge>>();
-
-            var psiValuesFromExcel = ReadPsiValues(config);
 
             foreach (var kvp in markupsBySpace)
             {
@@ -461,6 +466,67 @@ namespace BH.Adapter.SAP
             }
 
             return xmlBridgesBySpace;
+        }
+
+        private Dictionary<string, List<SXML.ThermalBridge>> OpeningThermalBridges(Dictionary<string, List<SXML.Opening>> openings, Dictionary<string, List<SXML.OpeningType>> openingTypesBySpace, List<PsiValueSchedule> psiValuesFromExcel)
+        {
+            ConcurrentDictionary<string, List<SXML.OpeningType>> concurrentOpeningTypes = new ConcurrentDictionary<string, List<OpeningType>>(openingTypesBySpace);
+
+            ConcurrentDictionary<string, ConcurrentBag<SXML.ThermalBridge>> thermalBridges = new ConcurrentDictionary<string, ConcurrentBag<ThermalBridge>>();
+
+            Parallel.ForEach(openings, openingBySpace =>
+            {
+                thermalBridges.TryAdd(openingBySpace.Key, new ConcurrentBag<ThermalBridge>());
+
+                Parallel.ForEach(openingBySpace.Value, opening =>
+                {
+                    var openingTypes = concurrentOpeningTypes[openingBySpace.Key];
+                    var type = openingTypes.Where(y => y.Type == opening.Type).FirstOrDefault();
+                    bool intersects = false;
+                    if (type != null)
+                        intersects = type.IntersectsFloor;
+
+                    var e2psi = psiValuesFromExcel.Where(x => x.ThermalBridgeName.ToLower() == "e2").FirstOrDefault();
+                    var e3psi = psiValuesFromExcel.Where(x => x.ThermalBridgeName.ToLower() == "e3").FirstOrDefault();
+                    var e4psi = psiValuesFromExcel.Where(x => x.ThermalBridgeName.ToLower() == "e4").FirstOrDefault();
+
+                    //E2 = width - All openings
+                    ThermalBridge e2 = new ThermalBridge();
+                    e2.Length = opening.Width;
+                    e2.Type = "E2";
+                    if (e2psi != null)
+                        e2.PsiValue = e2psi.PsiValue;
+
+                    //E4 = 2 * height
+                    ThermalBridge e4 = new ThermalBridge();
+                    e4.Length = opening.Height * 2;
+                    e4.Type = "E4";
+                    if (e4psi != null)
+                        e4.PsiValue = e4psi.PsiValue;
+
+                    thermalBridges[openingBySpace.Key].Add(e2);
+                    thermalBridges[openingBySpace.Key].Add(e4);
+
+                    if (!intersects)
+                    {
+                        //E3 = width but only for openings that do not intersect with the floor
+                        ThermalBridge e3 = new ThermalBridge();
+                        e3.Length = opening.Width;
+                        e3.Type = "E3";
+                        if (e3psi != null)
+                            e3.PsiValue = e3psi.PsiValue;
+
+                        thermalBridges[openingBySpace.Key].Add(e3);
+                    }
+                });
+            });
+
+            Dictionary<string, List<SXML.ThermalBridge>> rtn = new Dictionary<string, List<ThermalBridge>>();
+
+            foreach (var kvp in thermalBridges)
+                rtn.Add(kvp.Key,kvp.Value.ToList());
+
+            return rtn;
         }
     }
 }

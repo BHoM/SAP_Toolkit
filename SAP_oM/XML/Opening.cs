@@ -62,7 +62,6 @@ namespace BH.oM.Environment.SAP.XML
         [Description("Pitch of roof containing roof window.")]
         [XmlElement("Pitch")]
         public virtual string Pitch { get; set; } = null;
-
     }
 }
 
