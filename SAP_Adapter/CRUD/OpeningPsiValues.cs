@@ -72,12 +72,6 @@ namespace BH.Adapter.SAP
                 OpeningPsiValueSchedule openingPsiValue = new OpeningPsiValueSchedule();
                 openingPsiValue.OpeningType = content[0].Value.ToString();
 
-                try
-                {
-                    openingPsiValue.FloorIntersection = bool.Parse(content[1].Value.ToString());
-                }
-                catch { }
-
                 PsiValueSchedule psiValue = new PsiValueSchedule();
                 psiValue.Type = content[1].Value.ToString();
                 psiValue.ThermalBridgeName = content[1].Value.ToString();
@@ -105,9 +99,6 @@ namespace BH.Adapter.SAP
 
                 var psiValues = openingPsiValues.Where(x => x.OpeningType == opening).SelectMany(x => x.PsiValues).ToList();
                 openingPsiValue.PsiValues = psiValues;
-
-                var floorIntersection = openingPsiValues.Where(x => x.OpeningType == opening).Select(x => x.FloorIntersection).ToList();
-                openingPsiValue.FloorIntersection = floorIntersection.Any(x => x);
 
                 groupedPsiValues.Add(openingPsiValue);
             }
