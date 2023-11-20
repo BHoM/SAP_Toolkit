@@ -506,8 +506,8 @@ namespace BH.Adapter.SAP
                     OpeningPsiValueSchedule openingE4 = openingPsiValuesFromExcel.Where(x => type.Description == x.OpeningType).Where(x => x.PsiValues.Any(y => y.ThermalBridgeName.ToLower() == "e4")).FirstOrDefault();
                     PsiValueSchedule e4psi = null;
 
-                    if (openingE3 != null)
-                        e4psi = openingE3.PsiValues.Where(x => x.ThermalBridgeName.ToLower() == "e4").FirstOrDefault();
+                    if (openingE4 != null)
+                        e4psi = openingE4.PsiValues.Where(x => x.ThermalBridgeName.ToLower() == "e4").FirstOrDefault();
                     else
                         e4psi = psiValuesFromExcel.Where(x => x.ThermalBridgeName.ToLower() == "e4").FirstOrDefault();
 

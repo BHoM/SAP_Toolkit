@@ -38,8 +38,5 @@ namespace BH.oM.Environment.SAP.Excel
 
         [Description("Psi value forWindow lintels - tops of the windows.")]
         public virtual List<PsiValueSchedule> PsiValues { get; set; } = new List<PsiValueSchedule>();
-
-        [Description("Psi value forWindow jambs - sides of the windows (left and right).")]
-        public virtual bool FloorIntersection { get; set; } = false;
     }
 }
