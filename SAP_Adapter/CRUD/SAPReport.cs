@@ -143,10 +143,11 @@ namespace BH.Adapter.SAP
 
             //Thermal bridges
             var psiValuesFromExcel = ReadPsiValues(config);
+            var openingPsiValuesFromExcel = ReadOpeningPsiValues(config);
             Dictionary<string, List<SAPMarkup>> thermalBridgesBySpace = MarkUpsBySpace(allSpaceNames, sapMarkupSummary.Markup.Where(x => x.Layer == config.BluebeamConfig.ThermalBridgeLayerName).ToList());
             Dictionary<string, List<SXML.ThermalBridge>> xmlThermalBridgesBySpace = XMLThermalBridgesBySpace(thermalBridgesBySpace, psiValuesFromExcel);
 
-            Dictionary<string, List<SXML.ThermalBridge>> xmlOpeningThermalBridgesBySpace = OpeningThermalBridges(xmlOpeningsBySpace, xmlOpeningTypesBySpace, psiValuesFromExcel);
+            Dictionary<string, List<SXML.ThermalBridge>> xmlOpeningThermalBridgesBySpace = OpeningThermalBridges(xmlOpeningsBySpace, xmlOpeningTypesBySpace, psiValuesFromExcel, openingPsiValuesFromExcel);
             foreach (var kvp in xmlOpeningThermalBridgesBySpace)
                 xmlThermalBridgesBySpace[kvp.Key].AddRange(kvp.Value);
 
@@ -266,14 +267,14 @@ namespace BH.Adapter.SAP
                 sapReportBySpace.Add(space, report);
             }
 
-            Dictionary<string, SXML.SAPReport> fixedReportBySpace = new Dictionary<string, SXML.SAPReport>();
+            /*Dictionary<string, SXML.SAPReport> sapReportBySpace = new Dictionary<string, SXML.SAPReport>();
             var psiValues = ReadPsiValues(config);
             var openingPsiValues = ReadOpeningPsiValues(config);
             foreach (var kvp in sapReportBySpace)
             {
                 var newReport = Modify.ThermalBridgesFromOpening(kvp.Value, psiValues, openingPsiValues);
-                fixedReportBySpace.Add(kvp.Key, newReport);
-            }
+                sapReportBySpace.Add(kvp.Key, newReport);
+            }*/
 
             //Heating files
             Dictionary<string, SXML.SAPReport> fixedReportWithHeatingBySpace = new Dictionary<string, SXML.SAPReport>();
@@ -291,7 +292,7 @@ namespace BH.Adapter.SAP
                 var heatingReport = argyleAdapter.Pull(argyleRequest, actionConfig: new BH.oM.Adapters.XML.XMLConfig() { File = fs }).OfType<SAPReport>().FirstOrDefault();
 
                 if (heatingReport != null)
-                    fixedReportWithHeatingBySpace.Add(dwellingSchedule.DwellingTypeName, Modify.SAPHeatingTemplate(heatingReport, fixedReportBySpace[dwellingSchedule.DwellingTypeName]));
+                    fixedReportWithHeatingBySpace.Add(dwellingSchedule.DwellingTypeName, Modify.SAPHeatingTemplate(heatingReport, sapReportBySpace[dwellingSchedule.DwellingTypeName]));
             }
 
             return fixedReportWithHeatingBySpace.Select(x => x.Value).ToList();
@@ -468,7 +469,7 @@ namespace BH.Adapter.SAP
             return xmlBridgesBySpace;
         }
 
-        private Dictionary<string, List<SXML.ThermalBridge>> OpeningThermalBridges(Dictionary<string, List<SXML.Opening>> openings, Dictionary<string, List<SXML.OpeningType>> openingTypesBySpace, List<PsiValueSchedule> psiValuesFromExcel)
+        private Dictionary<string, List<SXML.ThermalBridge>> OpeningThermalBridges(Dictionary<string, List<SXML.Opening>> openings, Dictionary<string, List<SXML.OpeningType>> openingTypesBySpace, List<PsiValueSchedule> psiValuesFromExcel, List<OpeningPsiValueSchedule> openingPsiValuesFromExcel)
         {
             ConcurrentDictionary<string, List<SXML.OpeningType>> concurrentOpeningTypes = new ConcurrentDictionary<string, List<OpeningType>>(openingTypesBySpace);
 
@@ -481,14 +482,34 @@ namespace BH.Adapter.SAP
                 Parallel.ForEach(openingBySpace.Value, opening =>
                 {
                     var openingTypes = concurrentOpeningTypes[openingBySpace.Key];
-                    var type = openingTypes.Where(y => y.Type == opening.Type).FirstOrDefault();
+                    var type = openingTypes.Where(y => y.Name == opening.Type).FirstOrDefault();
                     bool intersects = false;
                     if (type != null)
                         intersects = type.IntersectsFloor;
 
-                    var e2psi = psiValuesFromExcel.Where(x => x.ThermalBridgeName.ToLower() == "e2").FirstOrDefault();
-                    var e3psi = psiValuesFromExcel.Where(x => x.ThermalBridgeName.ToLower() == "e3").FirstOrDefault();
-                    var e4psi = psiValuesFromExcel.Where(x => x.ThermalBridgeName.ToLower() == "e4").FirstOrDefault();
+                    OpeningPsiValueSchedule openingE2 = openingPsiValuesFromExcel.Where(x => type.Description == x.OpeningType).Where(x => x.PsiValues.Any(y => y.ThermalBridgeName.ToLower() == "e2")).FirstOrDefault();
+                    PsiValueSchedule e2psi = null;
+
+                    if(openingE2 != null)
+                        e2psi = openingE2.PsiValues.Where(x => x.ThermalBridgeName.ToLower() == "e2").FirstOrDefault();
+                    else
+                        e2psi = psiValuesFromExcel.Where(x => x.ThermalBridgeName.ToLower() == "e2").FirstOrDefault();
+
+                    OpeningPsiValueSchedule openingE3 = openingPsiValuesFromExcel.Where(x => type.Description == x.OpeningType).Where(x => x.PsiValues.Any(y => y.ThermalBridgeName.ToLower() == "e3")).FirstOrDefault();
+                    PsiValueSchedule e3psi = null;
+
+                    if (openingE3 != null)
+                        e3psi = openingE3.PsiValues.Where(x => x.ThermalBridgeName.ToLower() == "e3").FirstOrDefault();
+                    else
+                        e3psi = psiValuesFromExcel.Where(x => x.ThermalBridgeName.ToLower() == "e3").FirstOrDefault();
+
+                    OpeningPsiValueSchedule openingE4 = openingPsiValuesFromExcel.Where(x => type.Description == x.OpeningType).Where(x => x.PsiValues.Any(y => y.ThermalBridgeName.ToLower() == "e4")).FirstOrDefault();
+                    PsiValueSchedule e4psi = null;
+
+                    if (openingE3 != null)
+                        e4psi = openingE3.PsiValues.Where(x => x.ThermalBridgeName.ToLower() == "e4").FirstOrDefault();
+                    else
+                        e4psi = psiValuesFromExcel.Where(x => x.ThermalBridgeName.ToLower() == "e4").FirstOrDefault();
 
                     //E2 = width - All openings
                     ThermalBridge e2 = new ThermalBridge();
@@ -496,6 +517,8 @@ namespace BH.Adapter.SAP
                     e2.Type = "E2";
                     if (e2psi != null)
                         e2.PsiValue = e2psi.PsiValue;
+                    else
+                        BH.Engine.Base.Compute.RecordError("A PSI Value for Thermal Bridge E2 has not been defined in either the main Thermal Bridge PSI Values, or the opening override PSI values within the Excel template.");
 
                     //E4 = 2 * height
                     ThermalBridge e4 = new ThermalBridge();
@@ -503,6 +526,8 @@ namespace BH.Adapter.SAP
                     e4.Type = "E4";
                     if (e4psi != null)
                         e4.PsiValue = e4psi.PsiValue;
+                    else
+                        BH.Engine.Base.Compute.RecordError("A PSI Value for Thermal Bridge E4 has not been defined in either the main Thermal Bridge PSI Values, or the opening override PSI values within the Excel template.");
 
                     thermalBridges[openingBySpace.Key].Add(e2);
                     thermalBridges[openingBySpace.Key].Add(e4);
@@ -515,6 +540,8 @@ namespace BH.Adapter.SAP
                         e3.Type = "E3";
                         if (e3psi != null)
                             e3.PsiValue = e3psi.PsiValue;
+                        else
+                            BH.Engine.Base.Compute.RecordError("A PSI Value for Thermal Bridge E3 has not been defined in either the main Thermal Bridge PSI Values, or the opening override PSI values within the Excel template.");
 
                         thermalBridges[openingBySpace.Key].Add(e3);
                     }
