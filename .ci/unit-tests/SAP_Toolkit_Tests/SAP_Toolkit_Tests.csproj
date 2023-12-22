@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Description>https://github.com/BHoM/SAP_Toolkit</Description>
-    <FileVersion>7.0.0.0</FileVersion>
+    <FileVersion>7.1.0.0</FileVersion>
     <AssemblyVersion>7.0.0.0</AssemblyVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
