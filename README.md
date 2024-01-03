@@ -2,7 +2,7 @@
 This repository can be used to create brand new BHoM Toolkits :rocket:
 
 ## Getting started and templates
-Learn how to [rapidly set up your development environment for BHoM here](https://github.com/BHoM/documentation/wiki/Getting-started-for-developers). 
+Learn how to [rapidly Getting Started for Developers](https://bhom.xyz/documentation/Guides-and-Tutorials/Coding-with-BHoM/). 
 
 Also, **Visual Studio templates**! :rocket:
 
