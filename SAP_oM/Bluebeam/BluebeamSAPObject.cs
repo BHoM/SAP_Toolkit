@@ -35,13 +35,14 @@ namespace BH.oM.Environment.SAP.Bluebeam
         [XmlIgnore]
         public virtual Guid BHoM_Guid { get; set; } = Guid.NewGuid();
         [XmlIgnore]
-        public virtual Dictionary<string, object> CustomData { get; set; }
+        public virtual Dictionary<string, object> CustomData { get; set; } = new Dictionary<string, object>();
         [XmlIgnore]
-        public virtual string Name { get; set; }
+        public virtual string Name { get; set; } = "";
         [XmlIgnore]
-        public virtual FragmentSet Fragments { get; set; }
+        public virtual FragmentSet Fragments { get; set; } = new FragmentSet();
         [XmlIgnore]
-        public virtual HashSet<string> Tags { get; set; }
+        public virtual HashSet<string> Tags { get; set; } = new HashSet<string>();
+
     }
 }
 
