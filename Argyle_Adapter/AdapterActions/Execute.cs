@@ -32,7 +32,6 @@ using BH.Engine.Environment.SAP;
 
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Text.Json;
 using System.Xml.Serialization;
 using System.IO;
 
